@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial Cell–Cell Communication — Thesis Prototype v0</title>
+<meta name="description" content="Reproducible baseline dashboard for spatial cell–cell communication analysis of 10x Xenium breast cancer data: methods, live results, and roadmap.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='30' cy='30' r='12' fill='%232a78d6'/%3E%3Ccircle cx='75' cy='40' r='10' fill='%23eb6834'/%3E%3Ccircle cx='50' cy='75' r='11' fill='%231baf7a'/%3E%3Cline x1='30' y1='30' x2='75' y2='40' stroke='%23c3c2b7' stroke-width='4'/%3E%3Cline x1='75' y1='40' x2='50' y2='75' stroke='%23c3c2b7' stroke-width='4'/%3E%3Cline x1='50' y1='75' x2='30' y2='30' stroke='%23c3c2b7' stroke-width='4'/%3E%3C/svg%3E">
+<style>
+  /* ---------- Design tokens (validated reference palette) ---------- */
+  :root{
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --surface-2:      #f9f9f7;
+    --surface-card:    rgba(255,255,255,0.62);
+    --surface-card-solid: #ffffff;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid-line:      #e1e0d9;
+    --baseline-line:  #c3c2b7;
+    --border-ring:    rgba(11,11,11,0.10);
+
+    --series-1: #2a78d6; /* epithelial */
+    --series-2: #eb6834; /* immune */
+    --series-3: #1baf7a; /* endothelial */
+    --series-4: #eda100; /* fibroblast */
+    --series-violet: #4a3aa7;
+
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+
+    --seq-100: #cde2fb; --seq-250: #86b6ef; --seq-400: #3987e5; --seq-500: #256abf; --seq-650: #104281;
+
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --shadow-card: 0 1px 2px rgba(11,11,11,0.04), 0 12px 32px -12px rgba(11,11,11,0.16);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --surface-2: #0d0d0d;
+    --surface-card: rgba(255,255,255,0.05);
+    --surface-card-solid: #1f1f1e;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid-line: #2c2c2a;
+    --baseline-line: #383835;
+    --border-ring: rgba(255,255,255,0.10);
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --surface-2: #0d0d0d;
+      --surface-card: rgba(255,255,255,0.05);
+      --surface-card-solid: #1f1f1e;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid-line: #2c2c2a;
+      --baseline-line: #383835;
+      --border-ring: rgba(255,255,255,0.10);
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --series-3: #199e70;
+      --series-4: #c98500;
+    }
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+  body{
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Liquid background ---------- */
+  .liquid-bg{
+    position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  }
+  .liquid-bg span{
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: .35;
+    will-change: transform;
+  }
+  .liquid-bg span:nth-child(1){ width: 42vmax; height: 42vmax; background: var(--series-1); top: -14vmax; left: -10vmax; animation: drift1 34s ease-in-out infinite; }
+  .liquid-bg span:nth-child(2){ width: 36vmax; height: 36vmax; background: var(--series-3); bottom: -14vmax; right: -8vmax; animation: drift2 40s ease-in-out infinite; }
+  .liquid-bg span:nth-child(3){ width: 30vmax; height: 30vmax; background: var(--series-violet); top: 30vh; left: 55vw; animation: drift3 46s ease-in-out infinite; opacity: .22; }
+  @keyframes drift1{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(6vmax,8vmax) scale(1.12); } }
+  @keyframes drift2{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(-7vmax,-5vmax) scale(1.08); } }
+  @keyframes drift3{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(-5vmax,6vmax) scale(1.15); } }
+  @media (prefers-reduced-motion: reduce){ .liquid-bg span{ animation: none !important; } }
+
+  .wrap{ max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position: sticky; top: 0; z-index: 50;
+    background: var(--surface-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid var(--border-ring);
+  }
+  .nav-inner{ display: flex; align-items: center; gap: clamp(12px,2vw,28px); height: 64px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size: 15px; white-space:nowrap; }
+  .brand .dot{ width:10px; height:10px; border-radius:50%; background: var(--series-1); box-shadow: 0 0 0 3px color-mix(in srgb, var(--series-1) 25%, transparent); }
+  nav.links{ display:flex; gap: clamp(6px,1.4vw,18px); flex-wrap:wrap; overflow-x:auto; scrollbar-width:none; }
+  nav.links a{ color: var(--text-secondary); text-decoration:none; font-size: 13.5px; font-weight:600; padding:6px 10px; border-radius: 999px; white-space:nowrap; transition: background .15s, color .15s; }
+  nav.links a:hover{ background: var(--border-ring); color: var(--text-primary); }
+  .nav-spacer{ flex: 1; }
+  .theme-btn{
+    border: 1px solid var(--border-ring); background: var(--surface-card-solid); color: var(--text-primary);
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display:flex; align-items:center; justify-content:center;
+    font-size: 16px; flex-shrink: 0;
+  }
+
+  /* ---------- Hero ---------- */
+  section.hero{ padding: clamp(40px,7vw,84px) 0 clamp(24px,4vw,40px); }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; letter-spacing:.04em;
+    text-transform:uppercase; color: var(--series-1); background: color-mix(in srgb, var(--series-1) 12%, transparent);
+    padding: 6px 12px; border-radius: 999px; margin-bottom: 18px;
+  }
+  h1.title{ font-size: clamp(30px, 4.6vw, 52px); line-height:1.08; margin: 0 0 14px; letter-spacing:-.01em; font-weight: 800; max-width: 20ch; }
+  p.lede{ font-size: clamp(15px,1.6vw,18px); color: var(--text-secondary); max-width: 66ch; margin: 0 0 28px; }
+  .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn{ font: inherit; font-weight:700; font-size: 14px; padding: 11px 18px; border-radius: 12px; border: 1px solid var(--border-ring); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+  .btn-primary{ background: var(--series-1); color: white; border-color: transparent; }
+  .btn-ghost{ background: var(--surface-card); color: var(--text-primary); backdrop-filter: blur(10px); }
+
+  /* ---------- Cards / glass ---------- */
+  .card{
+    background: var(--surface-card);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid var(--border-ring);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .kpi-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; }
+  .kpi{ padding: 18px 18px 16px; }
+  .kpi .label{ font-size: 12.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
+  .kpi .value{ font-size: clamp(24px,2.6vw,30px); font-weight: 800; letter-spacing: -.01em; }
+  .kpi .sub{ font-size: 12.5px; color: var(--text-secondary); margin-top: 4px; }
+
+  section{ padding: clamp(36px,5vw,64px) 0; scroll-margin-top: 80px; }
+  .section-head{ margin-bottom: 28px; max-width: 74ch; }
+  .section-kicker{ font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color: var(--text-muted); margin-bottom:8px; }
+  h2.section-title{ font-size: clamp(22px,2.6vw,30px); margin: 0 0 10px; letter-spacing:-.01em; }
+  p.section-desc{ color: var(--text-secondary); font-size: 15px; margin:0; }
+
+  /* ---------- Pipeline steps ---------- */
+  .pipeline{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+  .step{ padding: 20px; position:relative; }
+  .step .num{
+    width: 30px; height:30px; border-radius:50%; background: var(--series-1); color:#fff; font-weight:800; font-size:13px;
+    display:flex; align-items:center; justify-content:center; margin-bottom: 14px;
+  }
+  .step h3{ font-size:15.5px; margin:0 0 6px; }
+  .step p{ font-size: 13.5px; color: var(--text-secondary); margin: 0 0 12px; }
+  .chips{ display:flex; gap:6px; flex-wrap:wrap; }
+  .chip{ font-size: 11.5px; font-weight:600; color: var(--text-secondary); background: var(--border-ring); padding:3px 9px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+
+  /* ---------- Results layout ---------- */
+  .grid-2{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 20px; }
+  @container (max-width: 100px){ .grid-2{ grid-template-columns: 1fr; } }
+  .panel{ padding: 22px clamp(16px,2.4vw,26px) 26px; }
+  .panel h3{ margin: 0 0 4px; font-size: 16px; }
+  .panel .note{ font-size:12.5px; color: var(--text-muted); margin: 0 0 16px; }
+
+  .legend{ display:flex; gap: 14px; flex-wrap:wrap; margin-top: 14px; font-size: 12.5px; color: var(--text-secondary); }
+  .legend label{ display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none; }
+  .swatch{ width:10px; height:10px; border-radius:3px; display:inline-block; flex-shrink:0; }
+
+  .figure-caption{ font-size:12.5px; color: var(--text-muted); margin-top:10px; }
+  .figure-caption a{ color: var(--series-1); text-decoration:none; font-weight:600; }
+  .figure-img{ width:100%; border-radius: var(--radius-md); border: 1px solid var(--border-ring); display:block; background: var(--surface-card-solid); }
+
+  #spatial-canvas-wrap{ position:relative; border-radius: var(--radius-md); overflow:hidden; border:1px solid var(--border-ring); background: var(--surface-card-solid); aspect-ratio: 4/3; touch-action:none; }
+  #spatial-canvas{ width:100%; height:100%; display:block; cursor: grab; }
+  #spatial-canvas:active{ cursor: grabbing; }
+  .spatial-tooltip{
+    position:absolute; pointer-events:none; background: var(--surface-card-solid); color: var(--text-primary);
+    border:1px solid var(--border-ring); border-radius: 8px; padding: 6px 10px; font-size: 12px; box-shadow: var(--shadow-card);
+    transform: translate(-50%,-120%); white-space: nowrap; opacity:0; transition: opacity .1s; z-index: 5;
+  }
+  .spatial-controls{ position:absolute; top:10px; right:10px; display:flex; gap:6px; z-index:4; }
+  .mini-btn{ width:28px; height:28px; border-radius:8px; border:1px solid var(--border-ring); background: var(--surface-card); color:var(--text-primary); cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; backdrop-filter: blur(8px); }
+  .spatial-status{ position:absolute; bottom:8px; left:10px; font-size:11px; color: var(--text-muted); background: var(--surface-card); padding:3px 8px; border-radius:6px; z-index:4; }
+
+  /* ---------- LR bar chart ---------- */
+  .bar-tooltip{
+    position:absolute; pointer-events:none; background: var(--surface-card-solid); color: var(--text-primary);
+    border:1px solid var(--border-ring); border-radius: 8px; padding: 8px 11px; font-size: 12px; box-shadow: var(--shadow-card);
+    opacity:0; transition: opacity .1s; z-index:5; max-width: 240px; line-height:1.45;
+  }
+  .bar-tooltip b{ font-weight:700; }
+  #lr-chart-wrap{ position:relative; }
+  .lr-bar-row rect.bar{ cursor:pointer; }
+  .lr-bar-row rect.bar:hover{ filter: brightness(1.08); }
+
+  /* ---------- Table ---------- */
+  .table-toolbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 14px; }
+  .table-toolbar input{
+    font: inherit; font-size:13.5px; padding: 9px 12px; border-radius: 10px; border:1px solid var(--border-ring);
+    background: var(--surface-card-solid); color: var(--text-primary); min-width: 220px; flex: 1;
+  }
+  .table-scroll{ overflow-x:auto; border-radius: var(--radius-md); border:1px solid var(--border-ring); }
+  table.data-table{ width:100%; border-collapse: collapse; font-size: 13.5px; min-width: 620px; }
+  table.data-table th, table.data-table td{ padding: 10px 14px; text-align:left; white-space:nowrap; }
+  table.data-table thead th{
+    background: var(--border-ring); color: var(--text-secondary); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.03em;
+    cursor:pointer; position: sticky; top:0; user-select:none;
+  }
+  table.data-table thead th .arrow{ opacity:.5; margin-left:4px; font-size:10px; }
+  table.data-table tbody tr{ border-top: 1px solid var(--grid-line); }
+  table.data-table tbody tr:hover{ background: var(--border-ring); }
+  table.data-table td.num, table.data-table th.num{ font-variant-numeric: tabular-nums; text-align:right; }
+  .row-dot{ width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:8px; }
+  .pval-na{ color: var(--text-muted); font-style: italic; }
+
+  .callout{ display:flex; gap:14px; padding: 18px 20px; border-radius: var(--radius-md); border:1px solid var(--border-ring); background: color-mix(in srgb, var(--status-warning) 10%, var(--surface-card)); margin-top: 20px; }
+  .callout .icon{ font-size:20px; line-height:1; }
+  .callout p{ margin:0; font-size:13.5px; color: var(--text-secondary); }
+  .callout b{ color: var(--text-primary); }
+
+  /* ---------- Roadmap ---------- */
+  .roadmap-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .roadmap-col h3{ display:flex; align-items:center; gap:8px; font-size:15.5px; margin:0 0 16px; }
+  .status-badge{ font-size:10.5px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; padding:3px 8px; border-radius:6px; }
+  .status-badge.done{ background: color-mix(in srgb, var(--status-good) 18%, transparent); color: var(--status-good); }
+  .status-badge.planned{ background: var(--border-ring); color: var(--text-secondary); }
+  ul.roadmap-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  ul.roadmap-list li{ padding: 14px 16px; border-radius: var(--radius-sm); background: var(--border-ring); }
+  ul.roadmap-list li .item-title{ font-weight:700; font-size:13.5px; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+  ul.roadmap-list li p{ margin:0; font-size:12.5px; color: var(--text-secondary); }
+
+  /* ---------- Reproducibility ---------- */
+  .repro-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+  .repro-card{ padding: 18px 20px; }
+  .repro-card h4{ margin:0 0 12px; font-size:13.5px; text-transform:uppercase; letter-spacing:.03em; color: var(--text-muted); }
+  .kv{ display:flex; justify-content:space-between; gap:10px; font-size:13px; padding: 6px 0; border-top:1px solid var(--grid-line); }
+  .kv:first-of-type{ border-top:none; }
+  .kv span:first-child{ color: var(--text-secondary); }
+  .kv span:last-child{ font-weight:700; text-align:right; font-variant-numeric: tabular-nums; word-break: break-all; }
+  .ver-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; font-size: 12.5px; }
+  .ver-grid .kv{ padding:4px 0; }
+  .links-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+  .links-row a{ font-size:12.5px; font-weight:600; color: var(--series-1); text-decoration:none; background: var(--border-ring); padding:6px 10px; border-radius:8px; }
+
+  footer{ padding: 40px 0 60px; border-top: 1px solid var(--border-ring); margin-top: 20px; }
+  footer .wrap{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:12.5px; color: var(--text-muted); }
+  footer a{ color: var(--text-secondary); text-decoration:none; font-weight:600; }
+
+  .reveal{ opacity:0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.visible{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+  @media (max-width: 880px){
+    .grid-2{ grid-template-columns: 1fr; }
+    .roadmap-grid{ grid-template-columns: 1fr; }
+    nav.links{ display:none; }
+    .ver-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="viz-root">
+
+<div class="liquid-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot"></span> Spatial CCC · v0</div>
+    <nav class="links">
+      <a href="#overview">Overview</a>
+      <a href="#methods">Methods</a>
+      <a href="#results">Results</a>
+      <a href="#interactions">Interactions</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#reproducibility">Reproducibility</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="overview">
+    <div class="wrap">
+      <span class="eyebrow">● Live dashboard · reproducible baseline</span>
+      <h1 class="title">Spatial cell–cell communication in breast cancer tissue</h1>
+      <p class="lede">
+        A reproducible <b>v0 baseline</b> for inferring ligand–receptor signaling from single-cell-resolution spatial
+        transcriptomics. This dashboard reflects the actual pipeline output on the public 10x Genomics Xenium breast
+        cancer dataset — every number below is read from <code>results/</code>, <code>figures/</code> and the
+        processed AnnData object, not hand-typed.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#results">View results ↓</a>
+        <a class="btn btn-ghost" href="https://www.10xgenomics.com/support/software/xenium-onboard-analysis/2.0/resources/xenium-example-data" target="_blank" rel="noopener">Dataset source ↗</a>
+        <a class="btn btn-ghost" href="README.md">Read the README</a>
+      </div>
+
+      <div class="kpi-grid reveal">
+        <div class="card kpi"><div class="label">Cells retained</div><div class="value" id="kpi-cells">7,163</div><div class="sub">of 7,275 loaded (98.5%)</div></div>
+        <div class="card kpi"><div class="label">Genes profiled</div><div class="value">280</div><div class="sub">Xenium targeted panel</div></div>
+        <div class="card kpi"><div class="label">Cell types resolved</div><div class="value">4</div><div class="sub">marker-based annotation</div></div>
+        <div class="card kpi"><div class="label">Leiden clusters</div><div class="value">4</div><div class="sub">resolution 0.5</div></div>
+        <div class="card kpi"><div class="label">Ranked L–R interactions</div><div class="value">22</div><div class="sub">from 20 curated pairs</div></div>
+        <div class="card kpi"><div class="label">Spatial neighbors (k)</div><div class="value">6</div><div class="sub">squidpy generic graph</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methods">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Methods</div>
+        <h2 class="section-title">What the pipeline actually does</h2>
+        <p class="section-desc">Six deterministic steps, run end-to-end by <code>src/run_prototype.py</code> with a fixed random seed, from raw Xenium output to a ranked interaction table and figures.</p>
+      </div>
+      <div class="pipeline reveal">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Load &amp; harmonize</h3>
+          <p>Read the Xenium <code>cell_feature_matrix.h5</code> into AnnData; join <code>cells.csv</code> centroids as spatial coordinates.</p>
+          <div class="chips"><span class="chip">10x Xenium</span><span class="chip">x/y centroid</span></div>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>Quality control</h3>
+          <p>Filter low-count cells and rarely-detected genes before any downstream inference.</p>
+          <div class="chips"><span class="chip">min_counts=10</span><span class="chip">min_cells=3</span></div>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Normalize &amp; cluster</h3>
+          <p>Total-count normalize, log1p transform, PCA, neighbor graph, then Leiden community detection.</p>
+          <div class="chips"><span class="chip">target_sum=1e4</span><span class="chip">resolution=0.5</span><span class="chip">seed=42</span></div>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <h3>Cell-type annotation</h3>
+          <p>Coarse marker-score labeling (epithelial, immune, endothelial, fibroblast) via mean marker-gene expression per cell.</p>
+          <div class="chips"><span class="chip">EPCAM/KRT…</span><span class="chip">PTPRC/CD74…</span><span class="chip">PECAM1/VWF…</span><span class="chip">COL1A1/DCN…</span></div>
+        </div>
+        <div class="card step">
+          <div class="num">5</div>
+          <h3>Spatial neighbor graph</h3>
+          <p>Build a proximity graph over cell centroids with Squidpy so downstream scoring is spatially aware.</p>
+          <div class="chips"><span class="chip">coord_type=generic</span><span class="chip">n_neighs=6</span></div>
+        </div>
+        <div class="card step">
+          <div class="num">6</div>
+          <h3>Baseline L–R scoring</h3>
+          <p>Score a curated 20-pair ligand–receptor panel per sender→receiver cell-type pair with <code>squidpy.gr.ligrec</code>, then export CSV, AnnData, figures and a run log.</p>
+          <div class="chips"><span class="chip">n_perms=1 (smoke test)</span><span class="chip">seed=42</span></div>
+        </div>
+      </div>
+      <div class="callout reveal">
+        <span class="icon">⚠️</span>
+        <p><b>Scope note.</b> This is infrastructure plus a baseline model — proximity + co-expression is <i>plausible</i> evidence of communication, not proof of a functional response. The single-permutation p-values below are a smoke-test artifact, not calibrated significance. See <a href="docs/PROJECT_CONTEXT.md">docs/PROJECT_CONTEXT.md</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Results — spatial &amp; quality control</div>
+        <h2 class="section-title">7,163 cells, annotated and mapped in situ</h2>
+        <p class="section-desc">Coarse cell-type calls plotted at their true Xenium centroid coordinates. Drag to pan, scroll to zoom, and toggle types in the legend.</p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="card panel">
+          <h3>Interactive spatial map</h3>
+          <p class="note">Rendered live from the processed AnnData coordinates (7,163 points) — not a static export.</p>
+          <div id="spatial-canvas-wrap">
+            <canvas id="spatial-canvas"></canvas>
+            <div class="spatial-controls">
+              <button class="mini-btn" id="spatial-reset" title="Reset view">⤾</button>
+            </div>
+            <div class="spatial-status" id="spatial-status">loading points…</div>
+            <div class="spatial-tooltip" id="spatial-tooltip"></div>
+          </div>
+          <div class="legend" id="spatial-legend"></div>
+          <p class="figure-caption">Static reference render from the pipeline: <a href="figures/spatial_cell_types.png" target="_blank">PNG</a> · <a href="figures/spatial_cell_types.pdf" target="_blank">PDF</a></p>
+        </div>
+
+        <div class="card panel">
+          <h3>Cell-type composition</h3>
+          <p class="note">Marker-score annotation over all 7,163 retained cells.</p>
+          <div id="composition-chart"></div>
+          <p class="figure-caption" style="margin-top:22px">Quality control funnel</p>
+          <div id="qc-funnel"></div>
+          <div class="repro-card" style="padding:0;margin-top:14px">
+            <div class="kv"><span>Counts per cell (median)</span><span>111</span></div>
+            <div class="kv"><span>Counts per cell (mean)</span><span>125.1</span></div>
+            <div class="kv"><span>Counts per cell (range)</span><span>10 – 673</span></div>
+          </div>
+          <p class="figure-caption">Full distribution as generated by the pipeline: <a href="figures/qc_summary.png" target="_blank">PNG</a> · <a href="figures/qc_summary.pdf" target="_blank">PDF</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interactions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Results — ligand–receptor signaling</div>
+        <h2 class="section-title">Ranked baseline interactions</h2>
+        <p class="section-desc">Score = mean ligand expression (sender) × mean receptor expression (receiver) across the spatial neighbor graph, via <code>squidpy.gr.ligrec</code>. Bars are colored by the sending cell type.</p>
+      </div>
+
+      <div class="card panel reveal">
+        <h3>Top interactions by score</h3>
+        <p class="note">Highest-ranked 12 of 22 nonzero sender→receiver combinations. Hover a bar for exact values.</p>
+        <div id="lr-chart-wrap"><div id="lr-chart"></div><div class="bar-tooltip" id="lr-tooltip"></div></div>
+        <p class="figure-caption">Static reference render: <a href="figures/top_lr_interactions.png" target="_blank">PNG</a> · <a href="figures/top_lr_interactions.pdf" target="_blank">PDF</a></p>
+      </div>
+
+      <div class="card panel reveal" style="margin-top:20px">
+        <h3>Full ranked table</h3>
+        <p class="note">All 22 interactions from <code>results/baseline_lr_ranked.csv</code>. Click a column header to sort.</p>
+        <div class="table-toolbar">
+          <input type="text" id="table-filter" placeholder="Filter by cell type, ligand or receptor…">
+        </div>
+        <div class="table-scroll">
+          <table class="data-table" id="lr-table">
+            <thead>
+              <tr>
+                <th data-key="sender">Sender<span class="arrow"></span></th>
+                <th data-key="receiver">Receiver<span class="arrow"></span></th>
+                <th data-key="ligand">Ligand<span class="arrow"></span></th>
+                <th data-key="receptor">Receptor<span class="arrow"></span></th>
+                <th data-key="score" class="num">Score<span class="arrow"></span></th>
+                <th data-key="pvalue" class="num">p-value<span class="arrow"></span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top:16px">
+          <span class="icon">ℹ️</span>
+          <p><b>Reading the p-value column.</b> The v0 run uses <code>n_perms=1</code> as an end-to-end smoke validation only. Blank cells mean squidpy did not report a permutation p-value for that pair; the single populated value (<code>endothelial→endothelial</code>) should not be read as calibrated significance either.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Progress</div>
+        <h2 class="section-title">What's been carried out vs. what's next</h2>
+        <p class="section-desc">v0 is deliberately scoped to infrastructure + a baseline model. The thesis contribution — a minimal, high-confidence communication network with calibrated uncertainty — is future work.</p>
+      </div>
+      <div class="roadmap-grid reveal">
+        <div class="card panel roadmap-col">
+          <h3>Carried out (v0) <span class="status-badge done">done</span></h3>
+          <ul class="roadmap-list">
+            <li><div class="item-title">✅ Public dataset acquired &amp; provenance logged</div><p>10x Genomics Xenium V1 human breast, 2-FOV bundle; CC BY 4.0; SHA-256 verified, size and date recorded.</p></li>
+            <li><div class="item-title">✅ Reproducible environment</div><p>Pinned conda/uv environment, Python 3.11, fixed random seed 42 throughout.</p></li>
+            <li><div class="item-title">✅ QC, clustering &amp; annotation</div><p>Count filtering, normalization, Leiden clustering (res. 0.5), coarse marker-based cell typing.</p></li>
+            <li><div class="item-title">✅ Spatial neighbor graph</div><p>Squidpy generic-coordinate graph, 6 nearest neighbors per cell.</p></li>
+            <li><div class="item-title">✅ Baseline L–R ranking</div><p>squidpy.gr.ligrec over a curated 20-pair panel; ranked CSV, figures and run log exported.</p></li>
+          </ul>
+        </div>
+        <div class="card panel roadmap-col">
+          <h3>Next steps <span class="status-badge planned">planned</span></h3>
+          <ul class="roadmap-list">
+            <li><div class="item-title">🧪 Functional-response evidence</div><p>Corroborate inferred signaling with a downstream transcriptional response in receiver cells, not just proximity + co-expression.</p></li>
+            <li><div class="item-title">🎯 Reproducibility calibration</div><p>Re-run with a full permutation budget and quantify which interactions replicate across multiple patient samples, with calibrated uncertainty.</p></li>
+            <li><div class="item-title">🌐 Spatial Prize-Collecting Steiner Tree</div><p>Graph optimization to select a minimal, high-confidence communication subnetwork consistent with prior pathway knowledge, instead of the full unstable candidate set.</p></li>
+            <li><div class="item-title">🔬 Optional perturbation cross-check</div><p>Use external perturbation data only as a secondary validation signal — never the core method.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reproducibility">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Reproducibility &amp; provenance</div>
+        <h2 class="section-title">How these numbers were produced</h2>
+        <p class="section-desc">Every figure on this page traces back to a single deterministic command: <code>python src/run_prototype.py</code>.</p>
+      </div>
+      <div class="repro-grid reveal">
+        <div class="card repro-card">
+          <h4>Dataset</h4>
+          <div class="kv"><span>Platform</span><span>10x Xenium V1</span></div>
+          <div class="kv"><span>Tissue</span><span>Human breast, 2-FOV</span></div>
+          <div class="kv"><span>License</span><span>CC BY 4.0</span></div>
+          <div class="kv"><span>Archive size</span><span>379,018,013 B</span></div>
+          <div class="kv"><span>Downloaded</span><span>2026-09-08</span></div>
+          <div class="kv"><span title="cc1e987b06aa748a6b24d3d6f51fc0d6765daa4836c483f14ec4f1bd18b1779b">SHA-256</span><span title="cc1e987b06aa748a6b24d3d6f51fc0d6765daa4836c483f14ec4f1bd18b1779b">cc1e987b…8b1779b</span></div>
+        </div>
+        <div class="card repro-card">
+          <h4>Run parameters</h4>
+          <div class="kv"><span>Random seed</span><span>42</span></div>
+          <div class="kv"><span>QC thresholds</span><span>min_counts=10, min_cells=3</span></div>
+          <div class="kv"><span>Leiden resolution</span><span>0.5</span></div>
+          <div class="kv"><span>Spatial graph</span><span>generic, k=6</span></div>
+          <div class="kv"><span>Permutations (L–R)</span><span>1 (smoke test)</span></div>
+        </div>
+        <div class="card repro-card">
+          <h4>Software versions</h4>
+          <div class="ver-grid">
+            <div class="kv"><span>scanpy</span><span>1.10.3</span></div>
+            <div class="kv"><span>squidpy</span><span>1.6.5</span></div>
+            <div class="kv"><span>anndata</span><span>0.10.9</span></div>
+            <div class="kv"><span>liana</span><span>1.5.1</span></div>
+            <div class="kv"><span>numpy</span><span>1.26.4</span></div>
+            <div class="kv"><span>scipy</span><span>1.14.1</span></div>
+            <div class="kv"><span>pandas</span><span>2.2.3</span></div>
+            <div class="kv"><span>networkx</span><span>3.4.2</span></div>
+            <div class="kv"><span>matplotlib</span><span>3.9.2</span></div>
+            <div class="kv"><span>seaborn</span><span>0.13.2</span></div>
+            <div class="kv"><span>scikit-learn</span><span>1.5.2</span></div>
+            <div class="kv"><span>leidenalg</span><span>0.10.2</span></div>
+            <div class="kv"><span>igraph</span><span>0.11.8</span></div>
+            <div class="kv"><span>h5py</span><span>3.12.1</span></div>
+          </div>
+        </div>
+        <div class="card repro-card">
+          <h4>Source of truth</h4>
+          <p style="font-size:12.5px;color:var(--text-secondary);margin:0 0 12px">This dashboard reads only committed pipeline outputs — nothing here is hand-authored.</p>
+          <div class="links-row">
+            <a href="README.md">README.md</a>
+            <a href="docs/PROJECT_CONTEXT.md">PROJECT_CONTEXT.md</a>
+            <a href="docs/PROGRESS_LOG.md">PROGRESS_LOG.md</a>
+            <a href="results/baseline_lr_ranked.csv">baseline_lr_ranked.csv</a>
+            <a href="logs/prototype.log">prototype.log</a>
+            <a href="src/pipeline.py">pipeline.py</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Thesis Prototype v0 — Spatial Cell–Cell Communication. Dashboard generated 2026-09-08.</div>
+    <div><a href="README.md">Documentation</a> · Xenium data © 10x Genomics, CC BY 4.0</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Theme ---------------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('ccc-theme');
+  if (stored) root.setAttribute('data-theme', stored);
+  function paint(){
+    var isDark = (root.getAttribute('data-theme') === 'dark') ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    themeBtn.textContent = isDark ? '☀' : '◐';
+  }
+  paint();
+  themeBtn.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme');
+    var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('ccc-theme', next);
+    paint();
+    renderComposition(); renderQcFunnel(); renderLrChart();
+  });
+
+  function cssVar(name){ return getComputedStyle(root).getPropertyValue(name).trim(); }
+
+  /* ---------------- Reveal on scroll ---------------- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+    // Safety net: never leave content permanently hidden if observation misbehaves.
+    setTimeout(function(){ revealEls.forEach(function(el){ el.classList.add('visible'); }); }, 2500);
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* ---------------- Shared data ---------------- */
+  var CELL_TYPE_ORDER = ['epithelial', 'immune', 'endothelial', 'fibroblast'];
+  var CELL_TYPE_COLOR = { epithelial: '--series-1', immune: '--series-2', endothelial: '--series-3', fibroblast: '--series-4' };
+  var CELL_TYPE_COUNTS = { epithelial: 5355, immune: 361, endothelial: 49, fibroblast: 1398 };
+  var TOTAL_CELLS = 7163;
+
+  var LR_ROWS = [
+    {sender:'fibroblast', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:3.5804, pvalue:null},
+    {sender:'endothelial', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:3.2618, pvalue:null},
+    {sender:'fibroblast', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.9986, pvalue:null},
+    {sender:'immune', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:2.8019, pvalue:null},
+    {sender:'fibroblast', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:2.7649, pvalue:null},
+    {sender:'fibroblast', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:2.6801, pvalue:null},
+    {sender:'endothelial', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.6800, pvalue:0.0},
+    {sender:'endothelial', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:2.4463, pvalue:null},
+    {sender:'endothelial', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:2.3615, pvalue:null},
+    {sender:'immune', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.2202, pvalue:null},
+    {sender:'immune', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:1.9864, pvalue:null},
+    {sender:'epithelial', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:1.9472, pvalue:null},
+    {sender:'immune', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:1.9016, pvalue:null},
+    {sender:'epithelial', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:1.3655, pvalue:null},
+    {sender:'epithelial', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:1.1318, pvalue:null},
+    {sender:'epithelial', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:1.0469, pvalue:null},
+    {sender:'immune', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.1157, pvalue:null},
+    {sender:'immune', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.1095, pvalue:null},
+    {sender:'fibroblast', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.0393, pvalue:null},
+    {sender:'fibroblast', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.0331, pvalue:null},
+    {sender:'epithelial', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.0128, pvalue:null},
+    {sender:'epithelial', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.0066, pvalue:null}
+  ];
+
+  function svgEl(tag, attrs){
+    var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+
+  /* ---------------- Cell-type composition (stacked bar) ---------------- */
+  function renderComposition(){
+    var host = document.getElementById('composition-chart');
+    host.innerHTML = '';
+    var w = Math.max(host.clientWidth || 320, 240), h = 46;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'Cell type composition stacked bar' });
+    var x = 0;
+    var gap = 2;
+    CELL_TYPE_ORDER.forEach(function(type){
+      var count = CELL_TYPE_COUNTS[type];
+      var pct = count / TOTAL_CELLS;
+      var segW = Math.max(pct * w - gap, 1);
+      var rect = svgEl('rect', { x: x, y: 4, width: segW, height: h - 8, rx: 6, fill: cssVar(CELL_TYPE_COLOR[type]) });
+      var title = svgEl('title', {});
+      title.textContent = type + ': ' + count.toLocaleString() + ' cells (' + (pct * 100).toFixed(1) + '%)';
+      rect.appendChild(title);
+      svg.appendChild(rect);
+      if (segW > 46){
+        var label = svgEl('text', { x: x + 8, y: h / 2 + 4, fill: '#fff', 'font-size': 11, 'font-weight': 700 });
+        label.textContent = (pct * 100).toFixed(0) + '%';
+        svg.appendChild(label);
+      }
+      x += segW + gap;
+    });
+    host.appendChild(svg);
+
+    var existingLegend = host.parentElement.querySelector('.composition-legend');
+    if (existingLegend) existingLegend.remove();
+    var legendHost = document.createElement('div');
+    legendHost.className = 'legend composition-legend';
+    CELL_TYPE_ORDER.forEach(function(type){
+      var count = CELL_TYPE_COUNTS[type];
+      var pct = ((count / TOTAL_CELLS) * 100).toFixed(1);
+      var item = document.createElement('span');
+      item.style.display = 'flex'; item.style.alignItems = 'center'; item.style.gap = '6px';
+      var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[type]);
+      item.appendChild(sw);
+      var txt = document.createElement('span');
+      txt.textContent = type + ' — ' + count.toLocaleString() + ' (' + pct + '%)';
+      item.appendChild(txt);
+      legendHost.appendChild(item);
+    });
+    host.insertAdjacentElement('afterend', legendHost);
+  }
+
+  /* ---------------- QC funnel ---------------- */
+  function renderQcFunnel(){
+    var host = document.getElementById('qc-funnel');
+    host.innerHTML = '';
+    var stages = [ {label:'Loaded', value:7275}, {label:'After QC', value:7163} ];
+    var w = Math.max(host.parentElement.clientWidth || 320, 240) - 4, h = 90;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'QC funnel: cells before and after filtering' });
+    var max = 7275, barH = 22, gapY = 30;
+    stages.forEach(function(s, i){
+      var barW = (s.value / max) * (w - 90);
+      var y = i * gapY + 6;
+      var rect = svgEl('rect', { x: 0, y: y, width: Math.max(barW,2), height: barH, rx: 5, fill: cssVar('--seq-400') });
+      svg.appendChild(rect);
+      var label = svgEl('text', { x: 0, y: y - 5, 'font-size': 11, fill: cssVar('--text-muted') });
+      label.textContent = s.label;
+      svg.appendChild(label);
+      var value = svgEl('text', { x: barW + 8, y: y + barH - 6, 'font-size': 12, 'font-weight':700, fill: cssVar('--text-primary') });
+      value.textContent = s.value.toLocaleString();
+      svg.appendChild(value);
+    });
+    host.appendChild(svg);
+  }
+
+  /* ---------------- LR bar chart ---------------- */
+  function renderLrChart(){
+    var host = document.getElementById('lr-chart');
+    var tooltip = document.getElementById('lr-tooltip');
+    host.innerHTML = '';
+    var rows = LR_ROWS.slice().sort(function(a,b){ return b.score - a.score; }).slice(0, 12);
+    var w = Math.max(host.clientWidth || 600, 320);
+    var rowH = 26, gapY = 6, leftPad = 190, rightPad = 56, topPad = 6;
+    var maxScore = rows[0].score;
+    var h = rows.length * (rowH + gapY) + topPad;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'Top ligand receptor interactions by score' });
+
+    // gridlines
+    var gridCount = 4;
+    for (var g = 0; g <= gridCount; g++){
+      var gx = leftPad + (g / gridCount) * (w - leftPad - rightPad);
+      svg.appendChild(svgEl('line', { x1: gx, x2: gx, y1: 0, y2: h, stroke: cssVar('--grid-line'), 'stroke-width': 1 }));
+    }
+
+    rows.forEach(function(row, i){
+      var y = topPad + i * (rowH + gapY);
+      var barMaxW = w - leftPad - rightPad;
+      var barW = Math.max((row.score / maxScore) * barMaxW, 2);
+      var color = cssVar(CELL_TYPE_COLOR[row.sender]);
+
+      var label = svgEl('text', { x: leftPad - 12, y: y + rowH / 2 + 4, 'text-anchor': 'end', 'font-size': 12, fill: cssVar('--text-secondary') });
+      label.textContent = row.sender + ' → ' + row.receiver;
+      svg.appendChild(label);
+
+      var rect = svgEl('rect', { class: 'bar', x: leftPad, y: y, width: barW, height: rowH, rx: 4, fill: color });
+      rect.addEventListener('mousemove', function(evt){
+        tooltip.style.opacity = 1;
+        var wrapRect = host.parentElement.getBoundingClientRect();
+        tooltip.style.left = (evt.clientX - wrapRect.left + 12) + 'px';
+        tooltip.style.top = (evt.clientY - wrapRect.top - 10) + 'px';
+        tooltip.innerHTML = '<b>' + row.ligand + ' → ' + row.receptor + '</b><br>' +
+          row.sender + ' → ' + row.receiver + '<br>score ' + row.score.toFixed(3) +
+          (row.pvalue !== null ? '<br>p = ' + row.pvalue : '<br>p-value: not computed (n_perms=1)');
+      });
+      rect.addEventListener('mouseleave', function(){ tooltip.style.opacity = 0; });
+      svg.appendChild(rect);
+
+      var value = svgEl('text', { x: leftPad + barW + 8, y: y + rowH / 2 + 4, 'font-size': 12, 'font-weight': 700, fill: cssVar('--text-primary') });
+      value.textContent = row.score.toFixed(2);
+      svg.appendChild(value);
+    });
+
+    host.appendChild(svg);
+
+    // legend
+    var existingLegend = host.parentElement.querySelector('.lr-legend');
+    if (existingLegend) existingLegend.remove();
+    var legend = document.createElement('div');
+    legend.className = 'legend lr-legend';
+    CELL_TYPE_ORDER.forEach(function(type){
+      var item = document.createElement('label');
+      var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[type]);
+      item.appendChild(sw);
+      item.appendChild(document.createTextNode(type + ' (sender)'));
+      legend.appendChild(item);
+    });
+    host.parentElement.insertBefore(legend, host.parentElement.querySelector('.figure-caption'));
+  }
+
+  /* ---------------- Sortable / filterable table ---------------- */
+  (function initTable(){
+    var tbody = document.querySelector('#lr-table tbody');
+    var headers = document.querySelectorAll('#lr-table thead th');
+    var filterInput = document.getElementById('table-filter');
+    var sortKey = 'score', sortDir = -1;
+
+    function renderRows(){
+      var q = (filterInput.value || '').toLowerCase().trim();
+      var rows = LR_ROWS.filter(function(r){
+        if (!q) return true;
+        return (r.sender + ' ' + r.receiver + ' ' + r.ligand + ' ' + r.receptor).toLowerCase().indexOf(q) !== -1;
+      });
+      rows.sort(function(a,b){
+        var av = a[sortKey], bv = b[sortKey];
+        if (sortKey === 'pvalue'){ av = av === null ? -1 : av; bv = bv === null ? -1 : bv; }
+        if (typeof av === 'string') return sortDir * av.localeCompare(bv);
+        return sortDir * (av - bv);
+      });
+      tbody.innerHTML = '';
+      rows.forEach(function(r){
+        var tr = document.createElement('tr');
+        var dotColor = cssVar(CELL_TYPE_COLOR[r.sender]);
+        tr.innerHTML =
+          '<td><span class="row-dot" style="background:' + dotColor + '"></span>' + r.sender + '</td>' +
+          '<td>' + r.receiver + '</td>' +
+          '<td>' + r.ligand + '</td>' +
+          '<td>' + r.receptor + '</td>' +
+          '<td class="num">' + r.score.toFixed(4) + '</td>' +
+          '<td class="num">' + (r.pvalue === null ? '<span class="pval-na">—</span>' : r.pvalue.toFixed(1)) + '</td>';
+        tbody.appendChild(tr);
+      });
+    }
+    headers.forEach(function(th){
+      th.addEventListener('click', function(){
+        var key = th.getAttribute('data-key');
+        if (sortKey === key){ sortDir *= -1; } else { sortKey = key; sortDir = -1; }
+        headers.forEach(function(h){ h.querySelector('.arrow').textContent = ''; });
+        th.querySelector('.arrow').textContent = sortDir === 1 ? '▲' : '▼';
+        renderRows();
+      });
+    });
+    filterInput.addEventListener('input', renderRows);
+    renderRows();
+  })();
+
+  /* ---------------- Spatial map (canvas, pan/zoom/hover) ---------------- */
+  (function initSpatial(){
+    var canvas = document.getElementById('spatial-canvas');
+    var wrapEl = document.getElementById('spatial-canvas-wrap');
+    var tooltip = document.getElementById('spatial-tooltip');
+    var statusEl = document.getElementById('spatial-status');
+    var legendEl = document.getElementById('spatial-legend');
+    var ctx = canvas.getContext('2d');
+
+    var points = null; // {x:Float32Array, y:Float32Array, t:Uint8Array}
+    var cats = [];
+    var visible = {};
+    var view = { scale: 1, tx: 0, ty: 0 };
+    var bounds = null;
+    var dragging = false, lastX = 0, lastY = 0;
+
+    function resize(){
+      var rect = wrapEl.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw();
+    }
+
+    function fitView(){
+      if (!bounds) return;
+      var rect = wrapEl.getBoundingClientRect();
+      var dataW = bounds.maxX - bounds.minX, dataH = bounds.maxY - bounds.minY;
+      var pad = 20;
+      var scale = Math.min((rect.width - pad*2) / dataW, (rect.height - pad*2) / dataH);
+      view.scale = scale;
+      view.tx = (rect.width - dataW * scale) / 2 - bounds.minX * scale;
+      view.ty = (rect.height - dataH * scale) / 2 - bounds.minY * scale;
+    }
+
+    function draw(){
+      var rect = wrapEl.getBoundingClientRect();
+      ctx.save();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      ctx.fillStyle = cssVar('--surface-card-solid') || '#fff';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+      if (!points){ ctx.restore(); return; }
+
+      var colorMap = {};
+      cats.forEach(function(c){ colorMap[c] = cssVar(CELL_TYPE_COLOR[c] || '--series-1'); });
+
+      var n = points.x.length;
+      var r = Math.max(1.1, 1.6 * Math.min(view.scale, 3) / Math.max(view.scale,1) + view.scale*0.02);
+      r = Math.min(Math.max(view.scale * 0.9, 1), 3.4);
+      for (var i = 0; i < n; i++){
+        var cat = cats[points.t[i]];
+        if (!visible[cat]) continue;
+        var px = points.x[i] * view.scale + view.tx;
+        var py = points.y[i] * view.scale + view.ty;
+        if (px < -4 || py < -4 || px > rect.width + 4 || py > rect.height + 4) continue;
+        ctx.beginPath();
+        ctx.fillStyle = colorMap[cat];
+        ctx.globalAlpha = 0.75;
+        ctx.arc(px, py, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      ctx.restore();
+    }
+
+    function buildLegend(){
+      legendEl.innerHTML = '';
+      cats.forEach(function(cat){
+        var count = CELL_TYPE_COUNTS[cat] || 0;
+        var label = document.createElement('label');
+        var cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.checked = true;
+        cb.addEventListener('change', function(){ visible[cat] = cb.checked; draw(); });
+        var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[cat] || '--series-1');
+        label.appendChild(cb); label.appendChild(sw);
+        label.appendChild(document.createTextNode(cat + ' (' + count.toLocaleString() + ')'));
+        legendEl.appendChild(label);
+      });
+    }
+
+    canvas.addEventListener('wheel', function(e){
+      e.preventDefault();
+      var rect = canvas.getBoundingClientRect();
+      var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+      var factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+      var newScale = Math.min(Math.max(view.scale * factor, view.scale0 * 0.6 || 0.05), (view.scale0 || 1) * 20);
+      var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
+      view.scale = newScale;
+      view.tx = mx - dataX * view.scale;
+      view.ty = my - dataY * view.scale;
+      draw();
+    }, { passive: false });
+
+    canvas.addEventListener('pointerdown', function(e){ dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener('pointerup', function(){ dragging = false; });
+    canvas.addEventListener('pointermove', function(e){
+      if (dragging){
+        view.tx += (e.clientX - lastX); view.ty += (e.clientY - lastY);
+        lastX = e.clientX; lastY = e.clientY;
+        draw();
+        tooltip.style.opacity = 0;
+        return;
+      }
+      if (!points) return;
+      var rect = canvas.getBoundingClientRect();
+      var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+      var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
+      var best = -1, bestD = 64; // px^2 threshold in data space approx
+      var thresholdData = 8 / view.scale;
+      var n = points.x.length;
+      for (var i = 0; i < n; i++){
+        var cat = cats[points.t[i]];
+        if (!visible[cat]) continue;
+        var dx = points.x[i] - dataX, dy = points.y[i] - dataY;
+        var d = dx*dx + dy*dy;
+        if (d < thresholdData*thresholdData && d < bestD){ bestD = d; best = i; }
+      }
+      if (best >= 0){
+        tooltip.style.opacity = 1;
+        tooltip.style.left = mx + 'px';
+        tooltip.style.top = my + 'px';
+        tooltip.textContent = cats[points.t[best]] + ' cell';
+      } else {
+        tooltip.style.opacity = 0;
+      }
+    });
+    canvas.addEventListener('pointerleave', function(){ tooltip.style.opacity = 0; dragging = false; });
+
+    document.getElementById('spatial-reset').addEventListener('click', function(){ fitView(); draw(); });
+
+    window.addEventListener('resize', resize);
+
+    fetch('assets/metrics/spatial_points.json').then(function(r){
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    }).then(function(data){
+      cats = data.cats;
+      var n = data.x.length;
+      var xs = new Float32Array(n), ys = new Float32Array(n), ts = new Uint8Array(n);
+      var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      for (var i = 0; i < n; i++){
+        xs[i] = data.x[i]; ys[i] = data.y[i]; ts[i] = data.codes[i];
+        if (xs[i] < minX) minX = xs[i]; if (xs[i] > maxX) maxX = xs[i];
+        if (ys[i] < minY) minY = ys[i]; if (ys[i] > maxY) maxY = ys[i];
+      }
+      points = { x: xs, y: ys, t: ts };
+      bounds = { minX: minX, maxX: maxX, minY: minY, maxY: maxY };
+      cats.forEach(function(c){ visible[c] = true; });
+      buildLegend();
+      resize();
+      fitView();
+      view.scale0 = view.scale;
+      draw();
+      statusEl.textContent = n.toLocaleString() + ' cells · drag to pan · scroll to zoom';
+    }).catch(function(err){
+      statusEl.textContent = 'Live map unavailable in this context (' + err.message + ') — see the static PNG below.';
+    });
+
+    resize();
+  })();
+
+  renderComposition();
+  renderQcFunnel();
+  renderLrChart();
+  window.addEventListener('resize', function(){ renderComposition(); renderQcFunnel(); renderLrChart(); });
+})();
+</script>
+</body>
+</html>
