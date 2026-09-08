@@ -1,0 +1,15 @@
+2026-09-08 02:43:46,900 INFO prototype start=2026-09-08T07:43:46.900164+00:00 seed=42
+2026-09-08 02:44:28,308 INFO Loaded 7275 cells and 280 genes
+2026-09-08 02:44:28,308 INFO QC counts: 7275 cells/280 genes -> 7163 cells/280 genes
+2026-09-08 02:44:28,308 INFO spatial graph parameters={'method': 'squidpy.gr.spatial_neighbors', 'coord_type': 'generic', 'n_neighs': 6, 'set_diag': False}
+2026-09-08 02:44:28,308 INFO baseline interactions=22
+2026-09-08 02:49:40,394 INFO prototype start=2026-09-08T07:49:40.394654+00:00 seed=42
+2026-09-08 02:50:18,167 INFO Loaded 7275 cells and 280 genes
+2026-09-08 02:50:18,167 INFO QC counts: 7275 cells/280 genes -> 7163 cells/280 genes
+2026-09-08 02:50:18,168 INFO spatial graph parameters={'method': 'squidpy.gr.spatial_neighbors', 'coord_type': 'generic', 'n_neighs': 6, 'set_diag': False}
+2026-09-08 02:50:18,168 INFO baseline interactions=20
+2026-09-08 02:51:34,358 INFO prototype start=2026-09-08T07:51:34.357523+00:00 seed=42
+2026-09-08 02:52:11,924 INFO Loaded 7275 cells and 280 genes
+2026-09-08 02:52:11,924 INFO QC counts: 7275 cells/280 genes -> 7163 cells/280 genes
+2026-09-08 02:52:11,924 INFO spatial graph parameters={'method': 'squidpy.gr.spatial_neighbors', 'coord_type': 'generic', 'n_neighs': 6, 'set_diag': False}
+2026-09-08 02:52:11,924 INFO baseline interactions=22
