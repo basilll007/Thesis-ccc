@@ -49,3 +49,63 @@
 - **What failed**: Squidpy interprets a raw sequence of tuples as source/target combination sets, so the interaction input was changed to a two-column DataFrame to preserve exact ligand–receptor pairs.
 - **Blockers**: None.
 - **Exact next step**: Stop implementation at the v0 definition of done.
+
+## 2026-09-13 — Spatial-null permutation test and reproducibility verification
+
+- **Date/time**: 2026-09-13; local run start 08:18:52 UTC-05:00 / 13:18:52Z.
+- **What I did**:
+  1. Ran two back-to-back reproducibility re-runs of `src/run_prototype.py` with no code changes and diffed the resulting `results/baseline_lr_ranked.csv` byte-for-byte; verified identical SHA-256 hash `14cb5c26f3eed89f9018fac3128c5ed61ec1f7e5f0052000fb56b18779331000` across both runs and the reference baseline. Traced historical 22 vs 20 interaction counts in earlier progress logs to an unpinned tuple interaction input in Squidpy that was subsequently fixed on 2026-09-08.
+  2. Researched spatial-null permutation procedures in CONCISE (Zhao et al., 2026) and SOAAR (Khatri et al., 2026), and implemented the Spatial Label-Permutation Null Model (shuffling cell-type labels across cells while holding the spatial coordinates, 6-NN spatial graph, and single-cell expression profiles fixed).
+  3. Implemented `src/spatial_null.py` and runner `src/run_spatial_null.py` with comprehensive docstrings citing CONCISE and SOAAR.
+  4. Benchmarked 10 permutations (0.0226 s, ~0.00226 s/perm) and selected N=500 permutations (completed in 0.84 s).
+  5. Computed empirical p-values, z-scores, null means, and null standard deviations for all 22 baseline interactions, generated `results/spatial_null_corrected.csv`, `results/spatial_null_distributions.npz`, `figures/spatial_null_comparison.png` and `.pdf`, and logged execution to `logs/spatial_null.log`.
+  6. Verified end-to-end reproducibility of the permutation test by running `src/run_spatial_null.py` twice under fixed `SEED=42`; both runs produced byte-for-byte identical `spatial_null_corrected.csv` (SHA-256 `cafa5b17a920bab1f3b613d80c04942a06548ec28faf3b16eb919463a3529666`).
+- **Key decisions**: Keep processed AnnData `data/processed/xenium_breast_baseline.h5ad` and raw data untouched; fix spatial graph structure and single-cell expression while shuffling `cell_type` labels; choose N=500 permutations given fast vectorized evaluation; store aggregated null distributions in a single compressed `.npz` file.
+- **What worked**: Baseline pipeline is 100% deterministic and reproducible. Permutation test completed in ~2.0 seconds for N=500. Of 22 baseline interactions, 17 were flagged significant (empirical p < 0.05, all involving CXCL12-CXCR4 and CD274-PDCD1 with fibroblast, endothelial, or immune senders) and 5 were flagged non-significant (all with epithelial as sender: epithelial→endothelial CXCL12-CXCR4 p=0.73; epithelial→fibroblast CXCL12-CXCR4 p=1.0; epithelial→epithelial CXCL12-CXCR4 p=1.0; epithelial→fibroblast CD274-PDCD1 p=1.0; epithelial→epithelial CD274-PDCD1 p=1.0). Epithelial sender scores are substantially below the spatial null distribution (negative z-scores down to -38.76), correctly identifying that epithelial cells do not drive these signaling interactions.
+- **What failed**: An initial ternary operator in the figure generator duplicated a legend label for non-significant markers when all top 10 interactions were significant; the labeling logic was corrected and the figure regenerated.
+- **Blockers**: None.
+- **Exact next step**: Review whether epithelial-marker argmax typing contributes to low epithelial ligand signal, and evaluate downstream response gene activation in receiver cells as planned for the thesis.
+
+## 2026-09-13 — Spatial-edge null model and direct comparison against compositional null
+
+- **Date/time**: 2026-09-13; local run start 13:20:55 UTC-05:00 / 18:20:55Z.
+- **What I did**:
+  1. Implemented `src/spatial_edge_score.py` to evaluate edge-based spatial ligand-receptor interaction scores: the mean of `expr_L(i) * expr_R(j)` over directed edges in `adata.obsp['spatial_connectivities']` connecting sender-type cells to receiver-type cells, alongside `n_qualifying_edges`.
+  2. Implemented `src/run_spatial_edge_null.py` reusing the exact label-permutation engine (`generate_label_permutations` with $N=500$, `seed=42`) from `spatial_null.py`, keeping the 6-NN spatial graph and single-cell expressions fixed.
+  3. Evaluated all 22 baseline interactions, generated `results/spatial_edge_null.csv`, merged with the prior compositional null results to produce `results/null_model_comparison.csv` with `verdict_flip` tracking, and produced comparison figures `figures/spatial_edge_null_comparison.png/.pdf` and `figures/null_model_flip_comparison.png/.pdf`.
+  4. Logged execution to `logs/spatial_edge_null.log`.
+  5. Verified run-to-run reproducibility by executing `src/run_spatial_edge_null.py` twice consecutively under `seed=42`; both runs produced byte-for-byte identical `results/null_model_comparison.csv` (SHA-256 `b4c3531d0c796784189b9a010899e8815041cd560b5527d572bff37f54dba44f`).
+- **Key decisions**: Precompute edge products $expr_L[i] * expr_R[j]$ once across all 42,978 graph edges; assign 0.0 signaling score when a permutation yields 0 qualifying edges between rare cell types; reuse the identical label shuffle sequence from `spatial_null.py`.
+- **What worked**: The edge-based scoring test completed in ~20-25 seconds for $N=500$. Out of 22 baseline interactions, 8 were significant under the edge null ($p < 0.05$) and 14 were non-significant. Comparing verdicts against the compositional null revealed **9 verdict flips** (all flipping from Significant under the compositional null to Non-Significant under the spatial-edge null):
+  1. `endothelial→endothelial (CXCL12→CXCR4)`: edge score 6.633, $p = 0.084$ (only 27 spatial edges; lacks statistical power over null).
+  2. `endothelial→epithelial (CXCL12→CXCR4)`: edge score 2.219, $p = 0.506$, $z = -0.10$ (co-expression along edges is indistinguishable from random cell mixture).
+  3. `immune→endothelial (CXCL12→CXCR4)`: edge score 6.254, $p = 0.076$, $z = 1.52$ (only 17 spatial edges; marginally non-significant).
+  4. `epithelial→immune (CXCL12→CXCR4)`: edge score 1.754, $p = 0.944$, $z = -1.61$ (epithelial cells have low ligand expression; edge product is below null expectation).
+  5. `immune→epithelial (CXCL12→CXCR4)`: edge score 2.611, $p = 0.192$, $z = 0.85$ (not significantly above spatial null).
+  6. `immune→fibroblast (CD274→PDCD1)`: edge score 0.000, $p = 1.000$ (ZERO spatial edges in the entire tissue connect a CD274+ cell to a PDCD1+ cell; cluster-mean scoring gave a false positive).
+  7. `immune→epithelial (CD274→PDCD1)`: edge score 0.000, $p = 1.000$ (ZERO spatial edges).
+  8. `fibroblast→fibroblast (CD274→PDCD1)`: edge score 0.000, $p = 1.000$ (ZERO spatial edges).
+  9. `fibroblast→epithelial (CD274→PDCD1)`: edge score 0.000, $p = 1.000$ (ZERO spatial edges).
+  The 8 interactions that remained significant are genuine spatial CXCL12→CXCR4 axes (fibroblast→immune, endothelial→immune, fibroblast→endothelial, immune→immune, fibroblast→fibroblast, fibroblast→epithelial, endothelial→fibroblast, immune→fibroblast) with strong local co-enrichment.
+- **What failed**: Direct Python looping over 42,978 edges would be slow; vectorized masking on precomputed edge products resolved this and ran 500 permutations in under 20 seconds.
+- **Blockers**: None.
+- **Exact next step**: Integrate edge-based scoring and null calibration into the planned S-PCST graph optimization framework.
+
+## 2026-09-13 — Diagnostic investigation of CD274→PDCD1 edge-null variance
+
+- **Date/time**: 2026-09-13; local time ~13:43 UTC-05:00 / 18:43Z.
+- **What I did**:
+  1. Loaded `data/processed/xenium_breast_baseline.h5ad` to diagnose why `edge_null_std == 0.0` across all 500 permutations for all 6 CD274→PDCD1 interactions in `results/spatial_edge_null.csv`.
+  2. Evaluated global and per-cell-type detection counts, detection rates, and mean expressions for CD274 and PDCD1 on normalized `adata.X`, exporting `results/cd274_pdcd1_detection_diagnostic.csv` (10 rows: 4 cell types x 2 genes + 2 global 'ALL' rows).
+  3. Performed an independent cross-check of the `immune→fibroblast` CD274→PDCD1 interaction by directly indexing `adata.obsp['spatial_connectivities']` without calling `spatial_edge_score.py`, confirming the exact edge count (962) and observed edge score (0.0).
+  4. Inspected `logs/spatial_edge_null.log` for printed SHA-256 digests.
+- **Key decisions**: Keep all existing results and pipeline code untouched; evaluate sparsity across both the single-cell expression vectors and the 42,978-edge spatial connectivity graph.
+- **What worked**: Identified the definitive biological and mathematical cause:
+  - PDCD1 has extreme global drop-out / low expression, detected in only 5 of 7,163 cells (0.0698% detection rate: 0/361 immune, 0/49 endothelial, 1/5355 epithelial, 4/1398 fibroblast).
+  - CD274 is detected in 53 of 7,163 cells (0.7399% detection rate: 17/361 immune, 0/49 endothelial, 16/5355 epithelial, 20/1398 fibroblast).
+  - Across all 42,978 directed edges in the tissue's 6-NN spatial graph, exactly 0 edges connect ANY CD274+ cell to ANY PDCD1+ cell (`expr_CD274[i] * expr_PDCD1[j] == 0.0` for all 42,978 edges).
+  - Because label permutations reassign cell-type labels across fixed spatial nodes without moving the underlying single-cell expressions, the 42,978 edge product vector remains identically zero across every single permutation. Consequently, the mean of any masked subset of edges is deterministically 0.0, yielding `edge_observed_score = 0.0`, `edge_null_mean = 0.0`, and `edge_null_std = 0.0` for all 500 permutations.
+  - Independent cross-check verified exactly 962 directed edges between immune and fibroblast cells, with observed edge score 0.0.
+- **What failed**: None.
+- **Blockers**: None.
+- **Exact next step**: Document findings for the thesis methodology section regarding sparse receptor dropout and spatial-edge null properties, and proceed to downstream response pathway integration.

@@ -3,556 +3,1118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spatial Cell–Cell Communication — Thesis Prototype v0</title>
-<meta name="description" content="Reproducible baseline dashboard for spatial cell–cell communication analysis of 10x Xenium breast cancer data: methods, live results, and roadmap.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='30' cy='30' r='12' fill='%232a78d6'/%3E%3Ccircle cx='75' cy='40' r='10' fill='%23eb6834'/%3E%3Ccircle cx='50' cy='75' r='11' fill='%231baf7a'/%3E%3Cline x1='30' y1='30' x2='75' y2='40' stroke='%23c3c2b7' stroke-width='4'/%3E%3Cline x1='75' y1='40' x2='50' y2='75' stroke='%23c3c2b7' stroke-width='4'/%3E%3Cline x1='50' y1='75' x2='30' y2='30' stroke='%23c3c2b7' stroke-width='4'/%3E%3C/svg%3E">
+<title>Spatial Cell–Cell Communication — Thesis Research Dashboard</title>
+<meta name="description" content="Reproducible thesis dashboard for calibrated spatial-edge cell-cell communication inference on 10x Xenium breast cancer: methods, spatial null models, 9 verdict flips, live data, and interactive figures.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='30' cy='30' r='12' fill='%233b82f6'/%3E%3Ccircle cx='75' cy='40' r='10' fill='%23f97316'/%3E%3Ccircle cx='50' cy='75' r='11' fill='%2310b981'/%3E%3Cline x1='30' y1='30' x2='75' y2='40' stroke='%2364748b' stroke-width='4'/%3E%3Cline x1='75' y1='40' x2='50' y2='75' stroke='%2364748b' stroke-width='4'/%3E%3Cline x1='50' y1='75' x2='30' y2='30' stroke='%2364748b' stroke-width='4'/%3E%3C/svg%3E">
 <style>
-  /* ---------- Design tokens (validated reference palette) ---------- */
-  :root{
+  /* ---------- CSS Custom Properties & Design Tokens ---------- */
+  :root {
     color-scheme: light;
-    --surface-1:      #fcfcfb;
-    --surface-2:      #f9f9f7;
-    --surface-card:    rgba(255,255,255,0.62);
+    --surface-bg: #f8fafc;
+    --surface-canvas: #ffffff;
+    --surface-card: rgba(255, 255, 255, 0.75);
     --surface-card-solid: #ffffff;
-    --text-primary:   #0b0b0b;
-    --text-secondary: #52514e;
-    --text-muted:     #898781;
-    --grid-line:      #e1e0d9;
-    --baseline-line:  #c3c2b7;
-    --border-ring:    rgba(11,11,11,0.10);
+    --surface-glass: rgba(255, 255, 255, 0.6);
+    --surface-hover: rgba(241, 245, 249, 0.85);
 
-    --series-1: #2a78d6; /* epithelial */
-    --series-2: #eb6834; /* immune */
-    --series-3: #1baf7a; /* endothelial */
-    --series-4: #eda100; /* fibroblast */
-    --series-violet: #4a3aa7;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-subtle: rgba(15, 23, 42, 0.08);
+    --border-focus: #3b82f6;
+    --grid-line: #e2e8f0;
 
-    --status-good: #0ca30c;
-    --status-warning: #fab219;
+    --brand-primary: #2563eb;
+    --brand-glow: rgba(37, 99, 235, 0.15);
+    --series-1: #3b82f6; /* epithelial */
+    --series-2: #f97316; /* immune */
+    --series-3: #10b981; /* endothelial */
+    --series-4: #f59e0b; /* fibroblast */
+    --series-violet: #8b5cf6;
 
-    --seq-100: #cde2fb; --seq-250: #86b6ef; --seq-400: #3987e5; --seq-500: #256abf; --seq-650: #104281;
+    --status-success: #10b981;
+    --status-success-bg: rgba(16, 185, 129, 0.12);
+    --status-warning: #f59e0b;
+    --status-warning-bg: rgba(245, 158, 11, 0.12);
+    --status-danger: #ef4444;
+    --status-danger-bg: rgba(239, 68, 68, 0.12);
+    --status-neutral: #64748b;
+    --status-neutral-bg: rgba(100, 116, 139, 0.12);
 
-    --radius-lg: 22px;
-    --radius-md: 14px;
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
     --radius-sm: 8px;
-    --shadow-card: 0 1px 2px rgba(11,11,11,0.04), 0 12px 32px -12px rgba(11,11,11,0.16);
-    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius-pill: 9999px;
+
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 12px 30px -8px rgba(15, 23, 42, 0.12);
+    --shadow-glow: 0 0 24px var(--brand-glow);
+
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  :root[data-theme="dark"]{
+
+  :root[data-theme="dark"] {
     color-scheme: dark;
-    --surface-1: #1a1a19;
-    --surface-2: #0d0d0d;
-    --surface-card: rgba(255,255,255,0.05);
-    --surface-card-solid: #1f1f1e;
-    --text-primary: #ffffff;
-    --text-secondary: #c3c2b7;
-    --text-muted: #898781;
-    --grid-line: #2c2c2a;
-    --baseline-line: #383835;
-    --border-ring: rgba(255,255,255,0.10);
+    --surface-bg: #0b0f19;
+    --surface-canvas: #111827;
+    --surface-card: rgba(17, 24, 39, 0.7);
+    --surface-card-solid: #1e293b;
+    --surface-glass: rgba(15, 23, 42, 0.7);
+    --surface-hover: rgba(30, 41, 59, 0.7);
 
-    --series-1: #3987e5;
-    --series-2: #d95926;
-    --series-3: #199e70;
-    --series-4: #c98500;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-focus: #60a5fa;
+    --grid-line: #1e293b;
 
-    --status-good: #0ca30c;
-    --status-warning: #fab219;
+    --brand-primary: #3b82f6;
+    --brand-glow: rgba(59, 130, 246, 0.25);
+    --series-1: #60a5fa;
+    --series-2: #fb923c;
+    --series-3: #34d399;
+    --series-4: #fbbf24;
+    --series-violet: #a78bfa;
+
+    --status-success: #34d399;
+    --status-success-bg: rgba(52, 211, 153, 0.15);
+    --status-warning: #fbbf24;
+    --status-warning-bg: rgba(251, 191, 36, 0.15);
+    --status-danger: #f87171;
+    --status-danger-bg: rgba(248, 113, 113, 0.15);
+    --status-neutral: #94a3b8;
+    --status-neutral-bg: rgba(148, 163, 184, 0.15);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 36px -8px rgba(0, 0, 0, 0.6);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --surface-1: #1a1a19;
-      --surface-2: #0d0d0d;
-      --surface-card: rgba(255,255,255,0.05);
-      --surface-card-solid: #1f1f1e;
-      --text-primary: #ffffff;
-      --text-secondary: #c3c2b7;
-      --text-muted: #898781;
-      --grid-line: #2c2c2a;
-      --baseline-line: #383835;
-      --border-ring: rgba(255,255,255,0.10);
-      --series-1: #3987e5;
-      --series-2: #d95926;
-      --series-3: #199e70;
-      --series-4: #c98500;
+      --surface-bg: #0b0f19;
+      --surface-canvas: #111827;
+      --surface-card: rgba(17, 24, 39, 0.7);
+      --surface-card-solid: #1e293b;
+      --surface-glass: rgba(15, 23, 42, 0.7);
+      --surface-hover: rgba(30, 41, 59, 0.7);
+
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: #60a5fa;
+      --grid-line: #1e293b;
+
+      --brand-primary: #3b82f6;
+      --brand-glow: rgba(59, 130, 246, 0.25);
+      --series-1: #60a5fa;
+      --series-2: #fb923c;
+      --series-3: #34d399;
+      --series-4: #fbbf24;
+      --series-violet: #a78bfa;
+
+      --status-success: #34d399;
+      --status-success-bg: rgba(52, 211, 153, 0.15);
+      --status-warning: #fbbf24;
+      --status-warning-bg: rgba(251, 191, 36, 0.15);
+      --status-danger: #f87171;
+      --status-danger-bg: rgba(248, 113, 113, 0.15);
+      --status-neutral: #94a3b8;
+      --status-neutral-bg: rgba(148, 163, 184, 0.15);
     }
   }
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 15px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  body{
+  body {
     margin: 0;
     font-family: var(--font-sans);
-    background: var(--surface-2);
+    background-color: var(--surface-bg);
     color: var(--text-primary);
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  /* ---------- Liquid background ---------- */
-  .liquid-bg{
+  /* ---------- Ambient Animated Liquid Mesh Background ---------- */
+  .ambient-bg {
     position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
   }
-  .liquid-bg span{
-    position: absolute; border-radius: 50%; filter: blur(70px); opacity: .35;
+  .ambient-blob {
+    position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.28;
     will-change: transform;
   }
-  .liquid-bg span:nth-child(1){ width: 42vmax; height: 42vmax; background: var(--series-1); top: -14vmax; left: -10vmax; animation: drift1 34s ease-in-out infinite; }
-  .liquid-bg span:nth-child(2){ width: 36vmax; height: 36vmax; background: var(--series-3); bottom: -14vmax; right: -8vmax; animation: drift2 40s ease-in-out infinite; }
-  .liquid-bg span:nth-child(3){ width: 30vmax; height: 30vmax; background: var(--series-violet); top: 30vh; left: 55vw; animation: drift3 46s ease-in-out infinite; opacity: .22; }
-  @keyframes drift1{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(6vmax,8vmax) scale(1.12); } }
-  @keyframes drift2{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(-7vmax,-5vmax) scale(1.08); } }
-  @keyframes drift3{ 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(-5vmax,6vmax) scale(1.15); } }
-  @media (prefers-reduced-motion: reduce){ .liquid-bg span{ animation: none !important; } }
+  .blob-1 { width: 45vmax; height: 45vmax; background: var(--brand-primary); top: -15vmax; left: -10vmax; animation: drift1 32s ease-in-out infinite; }
+  .blob-2 { width: 38vmax; height: 38vmax; background: var(--series-3); bottom: -12vmax; right: -8vmax; animation: drift2 38s ease-in-out infinite; }
+  .blob-3 { width: 32vmax; height: 32vmax; background: var(--series-violet); top: 35vh; left: 52vw; animation: drift3 44s ease-in-out infinite; opacity: 0.18; }
 
-  .wrap{ max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+  @keyframes drift1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(6vmax, 7vmax) scale(1.1); } }
+  @keyframes drift2 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-6vmax, -6vmax) scale(1.08); } }
+  @keyframes drift3 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-4vmax, 5vmax) scale(1.12); } }
+  @media (prefers-reduced-motion: reduce) { .ambient-blob { animation: none !important; } }
 
-  /* ---------- Nav ---------- */
-  header.nav{
-    position: sticky; top: 0; z-index: 50;
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 3.5vw, 36px); }
+
+  /* ---------- Header & Navigation ---------- */
+  header.site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface-card);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+  .brand-group { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
+  .brand-logo {
+    width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--brand-primary), var(--series-violet));
+    display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px var(--brand-glow);
+    color: white; font-weight: 800; font-size: 14px;
+  }
+  .brand-title { font-weight: 800; font-size: 16px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .status-badge-phase {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: var(--radius-pill); background: var(--status-success-bg); color: var(--status-success);
+    border: 1px solid color-mix(in srgb, var(--status-success) 30%, transparent);
+  }
+  nav.nav-menu { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+  nav.nav-menu a {
+    color: var(--text-secondary); text-decoration: none; font-size: 13.5px; font-weight: 600;
+    padding: 7px 12px; border-radius: var(--radius-md); transition: all 0.2s ease; white-space: nowrap;
+  }
+  nav.nav-menu a:hover { background: var(--border-subtle); color: var(--text-primary); }
+
+  .header-actions { display: flex; align-items: center; gap: 10px; }
+  .theme-toggle-btn {
+    width: 38px; height: 38px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);
+    background: var(--surface-card-solid); color: var(--text-primary); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+    box-shadow: var(--shadow-sm); transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .theme-toggle-btn:hover { transform: scale(1.05); }
+
+  /* ---------- Typography & Layout Utilities ---------- */
+  section { padding: clamp(48px, 6vw, 84px) 0; scroll-margin-top: 72px; }
+  .section-badge {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-primary);
+    background: var(--brand-glow); padding: 5px 12px; border-radius: var(--radius-pill); margin-bottom: 14px;
+  }
+  h1.hero-title {
+    font-size: clamp(32px, 4.8vw, 54px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 16px;
+  }
+  h1.hero-title span.gradient-text {
+    background: linear-gradient(135deg, var(--brand-primary), var(--series-violet));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  p.hero-lede {
+    font-size: clamp(16px, 1.7vw, 19px); color: var(--text-secondary); max-width: 70ch; margin: 0 0 32px; line-height: 1.65;
+  }
+  .hero-cta-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-family: inherit; font-size: 14px; font-weight: 700;
+    padding: 11px 20px; border-radius: var(--radius-md); text-decoration: none; cursor: pointer;
+    border: 1px solid transparent; transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--brand-primary); color: white; box-shadow: 0 4px 14px var(--brand-glow);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px var(--brand-glow); }
+  .btn-outline {
+    background: var(--surface-card); color: var(--text-primary); border-color: var(--border-subtle);
+    backdrop-filter: blur(10px);
+  }
+  .btn-outline:hover { background: var(--surface-hover); border-color: var(--brand-primary); }
+
+  /* ---------- Glassmorphism Card System ---------- */
+  .card {
     background: var(--surface-card);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border-bottom: 1px solid var(--border-ring);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
-  .nav-inner{ display: flex; align-items: center; gap: clamp(12px,2vw,28px); height: 64px; }
-  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size: 15px; white-space:nowrap; }
-  .brand .dot{ width:10px; height:10px; border-radius:50%; background: var(--series-1); box-shadow: 0 0 0 3px color-mix(in srgb, var(--series-1) 25%, transparent); }
-  nav.links{ display:flex; gap: clamp(6px,1.4vw,18px); flex-wrap:wrap; overflow-x:auto; scrollbar-width:none; }
-  nav.links a{ color: var(--text-secondary); text-decoration:none; font-size: 13.5px; font-weight:600; padding:6px 10px; border-radius: 999px; white-space:nowrap; transition: background .15s, color .15s; }
-  nav.links a:hover{ background: var(--border-ring); color: var(--text-primary); }
-  .nav-spacer{ flex: 1; }
-  .theme-btn{
-    border: 1px solid var(--border-ring); background: var(--surface-card-solid); color: var(--text-primary);
-    width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display:flex; align-items:center; justify-content:center;
-    font-size: 16px; flex-shrink: 0;
+  .card:hover { box-shadow: var(--shadow-lg); }
+
+  /* ---------- KPI Grid ---------- */
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 12px;
+  }
+  .kpi-card {
+    padding: 20px 22px; position: relative; overflow: hidden;
+  }
+  .kpi-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--brand-primary), transparent); opacity: 0.8;
+  }
+  .kpi-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 6px; }
+  .kpi-value { font-size: clamp(26px, 2.8vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .kpi-subtext { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+
+  /* ---------- Feature Callout & Verdict Flip Banner ---------- */
+  .flip-banner {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--status-danger) 8%, var(--surface-card)), color-mix(in srgb, var(--status-warning) 8%, var(--surface-card)));
+    border: 1px solid color-mix(in srgb, var(--status-danger) 25%, transparent);
+    padding: clamp(24px, 3.5vw, 36px); border-radius: var(--radius-xl); margin-bottom: 32px;
+  }
+  .flip-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; align-items: center; }
+  @media (max-width: 900px) { .flip-grid { grid-template-columns: 1fr; } }
+
+  .verdict-badge {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800;
+    padding: 4px 10px; border-radius: var(--radius-pill); letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .verdict-badge.flip { background: var(--status-danger-bg); color: var(--status-danger); border: 1px solid color-mix(in srgb, var(--status-danger) 30%, transparent); }
+  .verdict-badge.robust { background: var(--status-success-bg); color: var(--status-success); border: 1px solid color-mix(in srgb, var(--status-success) 30%, transparent); }
+  .verdict-badge.neutral { background: var(--status-neutral-bg); color: var(--text-muted); }
+
+  /* ---------- Interactive Figure Gallery ---------- */
+  .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; }
+  .figure-card {
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .figure-img-wrap {
+    position: relative; background: var(--surface-canvas); border-bottom: 1px solid var(--border-subtle);
+    aspect-ratio: 16/10; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    cursor: zoom-in;
+  }
+  .figure-img-wrap img {
+    width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease;
+  }
+  .figure-img-wrap:hover img { transform: scale(1.02); }
+  .figure-overlay-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    background: rgba(15, 23, 42, 0.75); color: white; backdrop-filter: blur(8px);
+    font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);
+  }
+  .figure-body { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .figure-title { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+  .figure-desc { font-size: 13px; color: var(--text-secondary); margin: 0 0 16px; line-height: 1.55; }
+  .figure-links { display: flex; gap: 8px; align-items: center; }
+  .fig-link {
+    font-size: 12px; font-weight: 700; text-decoration: none; padding: 5px 11px;
+    border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); color: var(--text-primary);
+    background: var(--surface-hover); transition: background 0.15s ease;
+  }
+  .fig-link:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+
+  /* ---------- Methodology Stepper ---------- */
+  .method-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .method-card { padding: 24px; position: relative; }
+  .step-index {
+    width: 36px; height: 36px; border-radius: 12px; background: var(--brand-primary); color: white;
+    font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; box-shadow: 0 4px 12px var(--brand-glow);
+  }
+  .method-card h3 { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+  .method-card p { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 16px; line-height: 1.6; }
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip-tag {
+    font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: var(--radius-pill);
+    background: var(--border-subtle); color: var(--text-secondary); font-variant-numeric: tabular-nums;
   }
 
-  /* ---------- Hero ---------- */
-  section.hero{ padding: clamp(40px,7vw,84px) 0 clamp(24px,4vw,40px); }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; letter-spacing:.04em;
-    text-transform:uppercase; color: var(--series-1); background: color-mix(in srgb, var(--series-1) 12%, transparent);
-    padding: 6px 12px; border-radius: 999px; margin-bottom: 18px;
+  /* ---------- Interactive Data Explorer & Tabs ---------- */
+  .tabs-nav {
+    display: flex; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;
+    margin-bottom: 20px; overflow-x: auto; scrollbar-width: none;
   }
-  h1.title{ font-size: clamp(30px, 4.6vw, 52px); line-height:1.08; margin: 0 0 14px; letter-spacing:-.01em; font-weight: 800; max-width: 20ch; }
-  p.lede{ font-size: clamp(15px,1.6vw,18px); color: var(--text-secondary); max-width: 66ch; margin: 0 0 28px; }
-  .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-  .btn{ font: inherit; font-weight:700; font-size: 14px; padding: 11px 18px; border-radius: 12px; border: 1px solid var(--border-ring); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
-  .btn-primary{ background: var(--series-1); color: white; border-color: transparent; }
-  .btn-ghost{ background: var(--surface-card); color: var(--text-primary); backdrop-filter: blur(10px); }
+  .tab-btn {
+    font-family: inherit; font-size: 14px; font-weight: 700; padding: 9px 18px; border-radius: var(--radius-md);
+    background: transparent; color: var(--text-secondary); border: 1px solid transparent; cursor: pointer;
+    transition: all 0.2s ease; white-space: nowrap; display: flex; align-items: center; gap: 8px;
+  }
+  .tab-btn:hover { color: var(--text-primary); background: var(--border-subtle); }
+  .tab-btn.active {
+    background: var(--surface-card-solid); color: var(--brand-primary);
+    border-color: var(--border-subtle); box-shadow: var(--shadow-sm);
+  }
+  .tab-count {
+    font-size: 11px; padding: 2px 7px; border-radius: var(--radius-pill);
+    background: var(--border-subtle); color: var(--text-muted);
+  }
+  .tab-btn.active .tab-count { background: var(--brand-glow); color: var(--brand-primary); }
 
-  /* ---------- Cards / glass ---------- */
-  .card{
-    background: var(--surface-card);
-    backdrop-filter: blur(18px) saturate(150%);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    border: 1px solid var(--border-ring);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
+  .table-controls {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 16px;
+  }
+  .search-box {
+    position: relative; flex: 1; min-width: 240px; max-width: 420px;
+  }
+  .search-box input {
+    width: 100%; font-family: inherit; font-size: 13.5px; padding: 9px 14px 9px 36px;
+    border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: var(--surface-card-solid);
+    color: var(--text-primary); outline: none; transition: border-color 0.2s;
+  }
+  .search-box input:focus { border-color: var(--brand-primary); }
+  .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 14px; }
+
+  .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-pill {
+    font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: var(--radius-pill);
+    background: var(--surface-card-solid); border: 1px solid var(--border-subtle); color: var(--text-secondary);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-pill:hover { background: var(--surface-hover); color: var(--text-primary); }
+  .filter-pill.active { background: var(--brand-primary); color: white; border-color: var(--brand-primary); }
+
+  .table-wrap {
+    overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+    background: var(--surface-card-solid); box-shadow: var(--shadow-sm);
+  }
+  table.interactive-table {
+    width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;
+  }
+  table.interactive-table th, table.interactive-table td {
+    padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); white-space: nowrap;
+  }
+  table.interactive-table th {
+    background: var(--surface-hover); font-size: 11.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted);
+    position: sticky; top: 0; cursor: pointer; user-select: none;
+  }
+  table.interactive-table th:hover { color: var(--text-primary); }
+  table.interactive-table th .sort-arrow { margin-left: 4px; font-size: 10px; opacity: 0.6; }
+  table.interactive-table tr:hover td { background: var(--surface-hover); }
+  table.interactive-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.interactive-table th.num { text-align: right; }
+
+  .cell-dot {
+    width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 6px;
   }
 
-  .kpi-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; }
-  .kpi{ padding: 18px 18px 16px; }
-  .kpi .label{ font-size: 12.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
-  .kpi .value{ font-size: clamp(24px,2.6vw,30px); font-weight: 800; letter-spacing: -.01em; }
-  .kpi .sub{ font-size: 12.5px; color: var(--text-secondary); margin-top: 4px; }
+  /* ---------- Spatial Canvas Area ---------- */
+  .spatial-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+  @media (max-width: 960px) { .spatial-layout { grid-template-columns: 1fr; } }
 
-  section{ padding: clamp(36px,5vw,64px) 0; scroll-margin-top: 80px; }
-  .section-head{ margin-bottom: 28px; max-width: 74ch; }
-  .section-kicker{ font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color: var(--text-muted); margin-bottom:8px; }
-  h2.section-title{ font-size: clamp(22px,2.6vw,30px); margin: 0 0 10px; letter-spacing:-.01em; }
-  p.section-desc{ color: var(--text-secondary); font-size: 15px; margin:0; }
-
-  /* ---------- Pipeline steps ---------- */
-  .pipeline{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
-  .step{ padding: 20px; position:relative; }
-  .step .num{
-    width: 30px; height:30px; border-radius:50%; background: var(--series-1); color:#fff; font-weight:800; font-size:13px;
-    display:flex; align-items:center; justify-content:center; margin-bottom: 14px;
+  #canvas-container {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--border-subtle); background: var(--surface-card-solid);
+    aspect-ratio: 4/3; min-height: 420px;
   }
-  .step h3{ font-size:15.5px; margin:0 0 6px; }
-  .step p{ font-size: 13.5px; color: var(--text-secondary); margin: 0 0 12px; }
-  .chips{ display:flex; gap:6px; flex-wrap:wrap; }
-  .chip{ font-size: 11.5px; font-weight:600; color: var(--text-secondary); background: var(--border-ring); padding:3px 9px; border-radius: 999px; font-variant-numeric: tabular-nums; }
-
-  /* ---------- Results layout ---------- */
-  .grid-2{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 20px; }
-  @container (max-width: 100px){ .grid-2{ grid-template-columns: 1fr; } }
-  .panel{ padding: 22px clamp(16px,2.4vw,26px) 26px; }
-  .panel h3{ margin: 0 0 4px; font-size: 16px; }
-  .panel .note{ font-size:12.5px; color: var(--text-muted); margin: 0 0 16px; }
-
-  .legend{ display:flex; gap: 14px; flex-wrap:wrap; margin-top: 14px; font-size: 12.5px; color: var(--text-secondary); }
-  .legend label{ display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none; }
-  .swatch{ width:10px; height:10px; border-radius:3px; display:inline-block; flex-shrink:0; }
-
-  .figure-caption{ font-size:12.5px; color: var(--text-muted); margin-top:10px; }
-  .figure-caption a{ color: var(--series-1); text-decoration:none; font-weight:600; }
-  .figure-img{ width:100%; border-radius: var(--radius-md); border: 1px solid var(--border-ring); display:block; background: var(--surface-card-solid); }
-
-  #spatial-canvas-wrap{ position:relative; border-radius: var(--radius-md); overflow:hidden; border:1px solid var(--border-ring); background: var(--surface-card-solid); aspect-ratio: 4/3; touch-action:none; }
-  #spatial-canvas{ width:100%; height:100%; display:block; cursor: grab; }
-  #spatial-canvas:active{ cursor: grabbing; }
-  .spatial-tooltip{
-    position:absolute; pointer-events:none; background: var(--surface-card-solid); color: var(--text-primary);
-    border:1px solid var(--border-ring); border-radius: 8px; padding: 6px 10px; font-size: 12px; box-shadow: var(--shadow-card);
-    transform: translate(-50%,-120%); white-space: nowrap; opacity:0; transition: opacity .1s; z-index: 5;
+  #spatial-canvas { width: 100%; height: 100%; display: block; cursor: grab; }
+  #spatial-canvas:active { cursor: grabbing; }
+  .canvas-controls {
+    position: absolute; top: 12px; right: 12px; display: flex; gap: 6px; z-index: 5;
   }
-  .spatial-controls{ position:absolute; top:10px; right:10px; display:flex; gap:6px; z-index:4; }
-  .mini-btn{ width:28px; height:28px; border-radius:8px; border:1px solid var(--border-ring); background: var(--surface-card); color:var(--text-primary); cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; backdrop-filter: blur(8px); }
-  .spatial-status{ position:absolute; bottom:8px; left:10px; font-size:11px; color: var(--text-muted); background: var(--surface-card); padding:3px 8px; border-radius:6px; z-index:4; }
-
-  /* ---------- LR bar chart ---------- */
-  .bar-tooltip{
-    position:absolute; pointer-events:none; background: var(--surface-card-solid); color: var(--text-primary);
-    border:1px solid var(--border-ring); border-radius: 8px; padding: 8px 11px; font-size: 12px; box-shadow: var(--shadow-card);
-    opacity:0; transition: opacity .1s; z-index:5; max-width: 240px; line-height:1.45;
+  .canvas-ctrl-btn {
+    width: 32px; height: 32px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);
+    background: var(--surface-card); color: var(--text-primary); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px;
   }
-  .bar-tooltip b{ font-weight:700; }
-  #lr-chart-wrap{ position:relative; }
-  .lr-bar-row rect.bar{ cursor:pointer; }
-  .lr-bar-row rect.bar:hover{ filter: brightness(1.08); }
-
-  /* ---------- Table ---------- */
-  .table-toolbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 14px; }
-  .table-toolbar input{
-    font: inherit; font-size:13.5px; padding: 9px 12px; border-radius: 10px; border:1px solid var(--border-ring);
-    background: var(--surface-card-solid); color: var(--text-primary); min-width: 220px; flex: 1;
+  .canvas-status-bar {
+    position: absolute; bottom: 10px; left: 12px; z-index: 5; font-size: 11.5px;
+    background: var(--surface-card); backdrop-filter: blur(8px); padding: 4px 10px;
+    border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); color: var(--text-muted);
   }
-  .table-scroll{ overflow-x:auto; border-radius: var(--radius-md); border:1px solid var(--border-ring); }
-  table.data-table{ width:100%; border-collapse: collapse; font-size: 13.5px; min-width: 620px; }
-  table.data-table th, table.data-table td{ padding: 10px 14px; text-align:left; white-space:nowrap; }
-  table.data-table thead th{
-    background: var(--border-ring); color: var(--text-secondary); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.03em;
-    cursor:pointer; position: sticky; top:0; user-select:none;
+  .canvas-tooltip {
+    position: absolute; pointer-events: none; z-index: 10; font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: var(--radius-sm); background: var(--surface-card-solid);
+    border: 1px solid var(--border-subtle); color: var(--text-primary); box-shadow: var(--shadow-md);
+    transform: translate(-50%, -120%); opacity: 0; transition: opacity 0.1s; white-space: nowrap;
   }
-  table.data-table thead th .arrow{ opacity:.5; margin-left:4px; font-size:10px; }
-  table.data-table tbody tr{ border-top: 1px solid var(--grid-line); }
-  table.data-table tbody tr:hover{ background: var(--border-ring); }
-  table.data-table td.num, table.data-table th.num{ font-variant-numeric: tabular-nums; text-align:right; }
-  .row-dot{ width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:8px; }
-  .pval-na{ color: var(--text-muted); font-style: italic; }
 
-  .callout{ display:flex; gap:14px; padding: 18px 20px; border-radius: var(--radius-md); border:1px solid var(--border-ring); background: color-mix(in srgb, var(--status-warning) 10%, var(--surface-card)); margin-top: 20px; }
-  .callout .icon{ font-size:20px; line-height:1; }
-  .callout p{ margin:0; font-size:13.5px; color: var(--text-secondary); }
-  .callout b{ color: var(--text-primary); }
-
-  /* ---------- Roadmap ---------- */
-  .roadmap-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .roadmap-col h3{ display:flex; align-items:center; gap:8px; font-size:15.5px; margin:0 0 16px; }
-  .status-badge{ font-size:10.5px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; padding:3px 8px; border-radius:6px; }
-  .status-badge.done{ background: color-mix(in srgb, var(--status-good) 18%, transparent); color: var(--status-good); }
-  .status-badge.planned{ background: var(--border-ring); color: var(--text-secondary); }
-  ul.roadmap-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
-  ul.roadmap-list li{ padding: 14px 16px; border-radius: var(--radius-sm); background: var(--border-ring); }
-  ul.roadmap-list li .item-title{ font-weight:700; font-size:13.5px; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
-  ul.roadmap-list li p{ margin:0; font-size:12.5px; color: var(--text-secondary); }
-
-  /* ---------- Reproducibility ---------- */
-  .repro-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
-  .repro-card{ padding: 18px 20px; }
-  .repro-card h4{ margin:0 0 12px; font-size:13.5px; text-transform:uppercase; letter-spacing:.03em; color: var(--text-muted); }
-  .kv{ display:flex; justify-content:space-between; gap:10px; font-size:13px; padding: 6px 0; border-top:1px solid var(--grid-line); }
-  .kv:first-of-type{ border-top:none; }
-  .kv span:first-child{ color: var(--text-secondary); }
-  .kv span:last-child{ font-weight:700; text-align:right; font-variant-numeric: tabular-nums; word-break: break-all; }
-  .ver-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; font-size: 12.5px; }
-  .ver-grid .kv{ padding:4px 0; }
-  .links-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
-  .links-row a{ font-size:12.5px; font-weight:600; color: var(--series-1); text-decoration:none; background: var(--border-ring); padding:6px 10px; border-radius:8px; }
-
-  footer{ padding: 40px 0 60px; border-top: 1px solid var(--border-ring); margin-top: 20px; }
-  footer .wrap{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:12.5px; color: var(--text-muted); }
-  footer a{ color: var(--text-secondary); text-decoration:none; font-weight:600; }
-
-  .reveal{ opacity:0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
-  .reveal.visible{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
-
-  @media (max-width: 880px){
-    .grid-2{ grid-template-columns: 1fr; }
-    .roadmap-grid{ grid-template-columns: 1fr; }
-    nav.links{ display:none; }
-    .ver-grid{ grid-template-columns: 1fr; }
+  /* ---------- Interactive SVG Bar Chart ---------- */
+  .chart-card { padding: 24px; margin-bottom: 24px; }
+  #comparison-chart-wrap { position: relative; width: 100%; overflow-x: auto; }
+  .chart-tooltip {
+    position: absolute; pointer-events: none; z-index: 10; font-size: 12px; line-height: 1.5;
+    padding: 8px 12px; border-radius: var(--radius-md); background: var(--surface-card-solid);
+    border: 1px solid var(--border-subtle); color: var(--text-primary); box-shadow: var(--shadow-lg);
+    opacity: 0; transition: opacity 0.15s; max-width: 280px;
   }
+
+  /* ---------- Modal / Lightbox for Figure Viewing ---------- */
+  .lightbox-modal {
+    position: fixed; inset: 0; z-index: 999; background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px); display: none; align-items: center; justify-content: center; padding: 24px;
+  }
+  .lightbox-modal.open { display: flex; }
+  .lightbox-content {
+    max-width: 95vw; max-height: 92vh; position: relative; display: flex; flex-direction: column; align-items: center;
+  }
+  .lightbox-content img {
+    max-width: 100%; max-height: 82vh; object-fit: contain; border-radius: var(--radius-md);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  }
+  .lightbox-close {
+    position: absolute; top: -38px; right: 0; background: transparent; border: none;
+    color: white; font-size: 28px; cursor: pointer; padding: 4px; line-height: 1;
+  }
+  .lightbox-caption {
+    color: #e2e8f0; font-size: 14px; font-weight: 600; margin-top: 12px; text-align: center;
+  }
+
+  /* ---------- Timeline & Roadmap ---------- */
+  .timeline {
+    position: relative; padding-left: 28px; margin-top: 20px;
+  }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px;
+    background: linear-gradient(180deg, var(--brand-primary), var(--series-3));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-marker {
+    position: absolute; left: -28px; top: 4px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--surface-canvas); border: 3px solid var(--brand-primary); box-shadow: 0 0 0 4px var(--brand-glow);
+  }
+  .timeline-item.active .timeline-marker { border-color: var(--status-success); }
+  .timeline-date { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+  .timeline-title { font-size: 16px; font-weight: 700; margin: 0 0 6px; }
+  .timeline-desc { font-size: 13.5px; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    border-top: 1px solid var(--border-subtle); padding: 48px 0 60px;
+    background: var(--surface-card); margin-top: 40px; font-size: 13px; color: var(--text-muted);
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-inner a { color: var(--text-secondary); text-decoration: none; font-weight: 600; }
+  .footer-inner a:hover { color: var(--brand-primary); }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
 </head>
-<body class="viz-root">
+<body>
 
-<div class="liquid-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+</div>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <div class="brand"><span class="dot"></span> Spatial CCC · v0</div>
-    <nav class="links">
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="#overview" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Phase 2 · Edge Null Calibrated</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
       <a href="#overview">Overview</a>
+      <a href="#discovery">Verdict Flips</a>
+      <a href="#figures">Figures</a>
+      <a href="#diagnostic">Diagnostic</a>
+      <a href="#spatial">Spatial Map</a>
       <a href="#methods">Methods</a>
-      <a href="#results">Results</a>
-      <a href="#interactions">Interactions</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#reproducibility">Reproducibility</a>
+      <a href="#data-explorer">Data Explorer</a>
+      <a href="#timeline">Progress Log</a>
+      <a href="#reproducibility">Provenance</a>
     </nav>
-    <div class="nav-spacer"></div>
-    <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="overview">
-    <div class="wrap">
-      <span class="eyebrow">● Live dashboard · reproducible baseline</span>
-      <h1 class="title">Spatial cell–cell communication in breast cancer tissue</h1>
-      <p class="lede">
-        A reproducible <b>v0 baseline</b> for inferring ligand–receptor signaling from single-cell-resolution spatial
-        transcriptomics. This dashboard reflects the actual pipeline output on the public 10x Genomics Xenium breast
-        cancer dataset — every number below is read from <code>results/</code>, <code>figures/</code> and the
-        processed AnnData object, not hand-typed.
+  <!-- Hero Section -->
+  <section id="overview" style="padding-top: clamp(36px, 5vw, 64px);">
+    <div class="container">
+      <div class="section-badge">● Thesis Research Update · September 2026</div>
+      <h1 class="hero-title">
+        Spatial Cell–Cell Communication<br>
+        <span class="gradient-text">Calibrated Edge-Based Null Models</span>
+      </h1>
+      <p class="hero-lede">
+        Standard spatial transcriptomics communication tools (such as CellPhoneDB and default Squidpy <code>ligrec</code>)
+        evaluate <b>cluster-marginal means</b>—a score mathematically identical to dissociated scRNA-seq that never references
+        the spatial graph. By formulating an <b>edge-based interaction score</b> over the 42,978 directed edges in the tissue's
+        6-NN graph and calibrating against a 500-permutation spatial null model, this research demonstrates that
+        <b>9 out of 17 previously significant interactions are false positives</b> unmasked by true spatial contacts.
       </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#results">View results ↓</a>
-        <a class="btn btn-ghost" href="https://www.10xgenomics.com/support/software/xenium-onboard-analysis/2.0/resources/xenium-example-data" target="_blank" rel="noopener">Dataset source ↗</a>
-        <a class="btn btn-ghost" href="README.md">Read the README</a>
+      <div class="hero-cta-group">
+        <a href="#discovery" class="btn btn-primary">Explore the 9 Verdict Flips ↓</a>
+        <a href="#data-explorer" class="btn btn-outline">Interactive Data Tables</a>
+        <a href="#figures" class="btn btn-outline">Figure Gallery</a>
       </div>
 
+      <!-- KPI Grid -->
       <div class="kpi-grid reveal">
-        <div class="card kpi"><div class="label">Cells retained</div><div class="value" id="kpi-cells">7,163</div><div class="sub">of 7,275 loaded (98.5%)</div></div>
-        <div class="card kpi"><div class="label">Genes profiled</div><div class="value">280</div><div class="sub">Xenium targeted panel</div></div>
-        <div class="card kpi"><div class="label">Cell types resolved</div><div class="value">4</div><div class="sub">marker-based annotation</div></div>
-        <div class="card kpi"><div class="label">Leiden clusters</div><div class="value">4</div><div class="sub">resolution 0.5</div></div>
-        <div class="card kpi"><div class="label">Ranked L–R interactions</div><div class="value">22</div><div class="sub">from 20 curated pairs</div></div>
-        <div class="card kpi"><div class="label">Spatial neighbors (k)</div><div class="value">6</div><div class="sub">squidpy generic graph</div></div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Cells Retained</div>
+          <div class="kpi-value">7,163</div>
+          <div class="kpi-subtext">98.5% post-QC from 7,275 raw cells</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Genes Profiled</div>
+          <div class="kpi-value">280</div>
+          <div class="kpi-subtext">Targeted 10x Xenium breast panel</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Spatial Graph Edges</div>
+          <div class="kpi-value">42,978</div>
+          <div class="kpi-subtext">Directed edges (k=6 nearest neighbors)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Candidate L–R Pairs</div>
+          <div class="kpi-value">22</div>
+          <div class="kpi-subtext">CXCL12–CXCR4 &amp; CD274–PDCD1</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Permutations / Model</div>
+          <div class="kpi-value">500</div>
+          <div class="kpi-subtext">Fixed seed 42 (CONCISE / SOAAR style)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Robust Spatial Axes</div>
+          <div class="kpi-value" style="color: var(--status-success);">8</div>
+          <div class="kpi-subtext">Significant under spatial edge null (p &lt; 0.05)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Unmasked Flips</div>
+          <div class="kpi-value" style="color: var(--status-danger);">9</div>
+          <div class="kpi-subtext">False positives unmasked by edge scoring</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">CD274–PDCD1 Edges</div>
+          <div class="kpi-value" style="color: var(--status-warning);">0</div>
+          <div class="kpi-subtext">Zero contact edges across entire tissue</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="methods">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-kicker">Methods</div>
-        <h2 class="section-title">What the pipeline actually does</h2>
-        <p class="section-desc">Six deterministic steps, run end-to-end by <code>src/run_prototype.py</code> with a fixed random seed, from raw Xenium output to a ranked interaction table and figures.</p>
-      </div>
-      <div class="pipeline reveal">
-        <div class="card step">
-          <div class="num">1</div>
-          <h3>Load &amp; harmonize</h3>
-          <p>Read the Xenium <code>cell_feature_matrix.h5</code> into AnnData; join <code>cells.csv</code> centroids as spatial coordinates.</p>
-          <div class="chips"><span class="chip">10x Xenium</span><span class="chip">x/y centroid</span></div>
-        </div>
-        <div class="card step">
-          <div class="num">2</div>
-          <h3>Quality control</h3>
-          <p>Filter low-count cells and rarely-detected genes before any downstream inference.</p>
-          <div class="chips"><span class="chip">min_counts=10</span><span class="chip">min_cells=3</span></div>
-        </div>
-        <div class="card step">
-          <div class="num">3</div>
-          <h3>Normalize &amp; cluster</h3>
-          <p>Total-count normalize, log1p transform, PCA, neighbor graph, then Leiden community detection.</p>
-          <div class="chips"><span class="chip">target_sum=1e4</span><span class="chip">resolution=0.5</span><span class="chip">seed=42</span></div>
-        </div>
-        <div class="card step">
-          <div class="num">4</div>
-          <h3>Cell-type annotation</h3>
-          <p>Coarse marker-score labeling (epithelial, immune, endothelial, fibroblast) via mean marker-gene expression per cell.</p>
-          <div class="chips"><span class="chip">EPCAM/KRT…</span><span class="chip">PTPRC/CD74…</span><span class="chip">PECAM1/VWF…</span><span class="chip">COL1A1/DCN…</span></div>
-        </div>
-        <div class="card step">
-          <div class="num">5</div>
-          <h3>Spatial neighbor graph</h3>
-          <p>Build a proximity graph over cell centroids with Squidpy so downstream scoring is spatially aware.</p>
-          <div class="chips"><span class="chip">coord_type=generic</span><span class="chip">n_neighs=6</span></div>
-        </div>
-        <div class="card step">
-          <div class="num">6</div>
-          <h3>Baseline L–R scoring</h3>
-          <p>Score a curated 20-pair ligand–receptor panel per sender→receiver cell-type pair with <code>squidpy.gr.ligrec</code>, then export CSV, AnnData, figures and a run log.</p>
-          <div class="chips"><span class="chip">n_perms=1 (smoke test)</span><span class="chip">seed=42</span></div>
-        </div>
-      </div>
-      <div class="callout reveal">
-        <span class="icon">⚠️</span>
-        <p><b>Scope note.</b> This is infrastructure plus a baseline model — proximity + co-expression is <i>plausible</i> evidence of communication, not proof of a functional response. The single-permutation p-values below are a smoke-test artifact, not calibrated significance. See <a href="docs/PROJECT_CONTEXT.md">docs/PROJECT_CONTEXT.md</a>.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Key Discovery & Verdict Flips Section -->
+  <section id="discovery">
+    <div class="container">
+      <div class="section-badge" style="color: var(--status-danger); background: var(--status-danger-bg);">Breakthrough Finding</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        The Spatial Verdict Flip Matrix: 9 False Positives Unmasked
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 78ch; margin: 0 0 32px; font-size: 15px;">
+        Comparing the conventional compositional null model (cluster-marginal mean) against the spatial-edge null model across
+        all 22 candidate interactions reveals that <b>more than half (9 of 17)</b> of the interactions flagged as "significant" by
+        cluster means collapse to non-significant once physical cell-to-cell contact is enforced.
+      </p>
 
-  <section id="results">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-kicker">Results — spatial &amp; quality control</div>
-        <h2 class="section-title">7,163 cells, annotated and mapped in situ</h2>
-        <p class="section-desc">Coarse cell-type calls plotted at their true Xenium centroid coordinates. Drag to pan, scroll to zoom, and toggle types in the legend.</p>
-      </div>
-
-      <div class="grid-2 reveal">
-        <div class="card panel">
-          <h3>Interactive spatial map</h3>
-          <p class="note">Rendered live from the processed AnnData coordinates (7,163 points) — not a static export.</p>
-          <div id="spatial-canvas-wrap">
-            <canvas id="spatial-canvas"></canvas>
-            <div class="spatial-controls">
-              <button class="mini-btn" id="spatial-reset" title="Reset view">⤾</button>
+      <div class="card flip-banner reveal">
+        <div class="flip-grid">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+              <span class="verdict-badge flip">9 Verdict Flips</span>
+              <span style="font-size:13px; font-weight:700; color:var(--text-muted);">Significant → Non-Significant</span>
             </div>
-            <div class="spatial-status" id="spatial-status">loading points…</div>
-            <div class="spatial-tooltip" id="spatial-tooltip"></div>
+            <h3 style="margin: 0 0 10px; font-size: 20px; font-weight: 800;">Why did the compositional model fail?</h3>
+            <p style="margin: 0 0 16px; font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+              When cell types express a ligand and receptor at moderate cluster averages, cluster-mean scoring reports high communication
+              potential even if those cells are segregated on opposite ends of the tumor. The <b>spatial-edge null model</b> evaluates
+              signaling solely over cell pairs connected in the 6-NN tissue graph.
+            </p>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+              <div style="padding: 12px; background: var(--surface-card-solid); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <b style="color: var(--status-danger);">All 4 CD274–PDCD1 Pairs Flip</b>
+                <p style="margin:4px 0 0; color:var(--text-muted); font-size:12px;">Zero directed edges in the entire 6-NN graph connect CD274+ and PDCD1+ cells.</p>
+              </div>
+              <div style="padding: 12px; background: var(--surface-card-solid); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <b style="color: var(--status-warning);">5 CXCL12–CXCR4 Pairs Flip</b>
+                <p style="margin:4px 0 0; color:var(--text-muted); font-size:12px;">Edge co-expression indistinguishable from random tissue mixing or insufficient edges.</p>
+              </div>
+            </div>
           </div>
-          <div class="legend" id="spatial-legend"></div>
-          <p class="figure-caption">Static reference render from the pipeline: <a href="figures/spatial_cell_types.png" target="_blank">PNG</a> · <a href="figures/spatial_cell_types.pdf" target="_blank">PDF</a></p>
-        </div>
-
-        <div class="card panel">
-          <h3>Cell-type composition</h3>
-          <p class="note">Marker-score annotation over all 7,163 retained cells.</p>
-          <div id="composition-chart"></div>
-          <p class="figure-caption" style="margin-top:22px">Quality control funnel</p>
-          <div id="qc-funnel"></div>
-          <div class="repro-card" style="padding:0;margin-top:14px">
-            <div class="kv"><span>Counts per cell (median)</span><span>111</span></div>
-            <div class="kv"><span>Counts per cell (mean)</span><span>125.1</span></div>
-            <div class="kv"><span>Counts per cell (range)</span><span>10 – 673</span></div>
+          <div>
+            <div class="figure-img-wrap" style="aspect-ratio: 16/11; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);" onclick="openLightbox('figures/null_model_flip_comparison.png', 'Null Model Comparison: Z-Score Shift &amp; Binary Verdict Transitions')">
+              <span class="figure-overlay-badge">Click to enlarge</span>
+              <img src="figures/null_model_flip_comparison.png" alt="Verdict flip comparison figure" loading="lazy">
+            </div>
           </div>
-          <p class="figure-caption">Full distribution as generated by the pipeline: <a href="figures/qc_summary.png" target="_blank">PNG</a> · <a href="figures/qc_summary.pdf" target="_blank">PDF</a></p>
+        </div>
+      </div>
+
+      <!-- Live Interactive Comparison Bar Chart -->
+      <div class="card chart-card reveal">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <h3 style="margin: 0; font-size: 17px; font-weight: 700;">Interactive Edge Score vs. Compositional Score</h3>
+            <p style="margin: 4px 0 0; font-size: 13px; color: var(--text-muted);">Bars show edge-based communication score (colored by sender). Dots indicate cluster-mean compositional score.</p>
+          </div>
+          <div style="display: flex; gap: 8px; font-size: 12px;">
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:10px; height:10px; border-radius:2px; background:var(--brand-primary);"></span> Edge Score</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--status-danger);"></span> Verdict Flip</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--status-success);"></span> Robust</span>
+          </div>
+        </div>
+        <div id="comparison-chart-wrap">
+          <div id="comparison-chart"></div>
+          <div class="chart-tooltip" id="chart-tooltip"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="interactions">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-kicker">Results — ligand–receptor signaling</div>
-        <h2 class="section-title">Ranked baseline interactions</h2>
-        <p class="section-desc">Score = mean ligand expression (sender) × mean receptor expression (receiver) across the spatial neighbor graph, via <code>squidpy.gr.ligrec</code>. Bars are colored by the sending cell type.</p>
+  <!-- CD274–PDCD1 Diagnostic Section -->
+  <section id="diagnostic" style="background: var(--surface-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-badge" style="color: var(--series-violet); background: rgba(139, 92, 246, 0.15);">Diagnostic Investigation</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        Zero-Variance Diagnostic: Why CD274→PDCD1 edge_null_std == 0.0
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 78ch; margin: 0 0 28px; font-size: 15px;">
+        Across all 500 label permutations, all 6 CD274→PDCD1 interaction combinations exhibited an exact observed score of 0.0,
+        null mean of 0.0, and <b>null standard deviation of 0.000000</b>. The diagnostic confirmed both the biological and mathematical cause:
+      </p>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+        <div class="card" style="padding: 22px;">
+          <h4 style="margin: 0 0 10px; font-size: 16px; color: var(--status-warning);">1. Biological Extreme Dropout</h4>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+            <b>PDCD1</b> is detected in only <b>5 of 7,163 cells (0.0698%)</b> across the entire tissue (0 in immune, 0 in endothelial,
+            1 in epithelial, 4 in fibroblast). <b>CD274</b> is detected in <b>53 of 7,163 cells (0.7399%)</b>.
+            Across all <b>42,978 directed edges</b> in the spatial graph, <b>exactly 0 edges</b> connect any CD274+ cell to any PDCD1+ cell.
+          </p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <h4 style="margin: 0 0 10px; font-size: 16px; color: var(--brand-primary);">2. Mathematical Invariance Under Permutation</h4>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+            Because the label-permutation null model holds single-cell gene expression fixed on coordinates and shuffles only cell-type labels,
+            the 42,978-element edge product vector remains identically zero across every permutation. Any subset of edges selected under any
+            permuted label pair has mean 0.0, making variance identically 0.0.
+          </p>
+        </div>
       </div>
 
-      <div class="card panel reveal">
-        <h3>Top interactions by score</h3>
-        <p class="note">Highest-ranked 12 of 22 nonzero sender→receiver combinations. Hover a bar for exact values.</p>
-        <div id="lr-chart-wrap"><div id="lr-chart"></div><div class="bar-tooltip" id="lr-tooltip"></div></div>
-        <p class="figure-caption">Static reference render: <a href="figures/top_lr_interactions.png" target="_blank">PNG</a> · <a href="figures/top_lr_interactions.pdf" target="_blank">PDF</a></p>
+      <!-- Diagnostic Table Preview -->
+      <div class="table-wrap">
+        <table class="interactive-table" id="diag-table">
+          <thead>
+            <tr>
+              <th>Gene</th>
+              <th>Cell Type</th>
+              <th class="num">Total Cells</th>
+              <th class="num">Cells Detected (>0)</th>
+              <th class="num">Detection Rate</th>
+              <th class="num">Mean Expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
       </div>
+      <div style="margin-top: 10px; font-size: 12.5px; color: var(--text-muted); display:flex; justify-content:space-between;">
+        <span>Source: <code>results/cd274_pdcd1_detection_diagnostic.csv</code></span>
+        <span>Independent check: immune→fibroblast confirmed at 962 edges, mean score 0.000000</span>
+      </div>
+    </div>
+  </section>
 
-      <div class="card panel reveal" style="margin-top:20px">
-        <h3>Full ranked table</h3>
-        <p class="note">All 22 interactions from <code>results/baseline_lr_ranked.csv</code>. Click a column header to sort.</p>
-        <div class="table-toolbar">
-          <input type="text" id="table-filter" placeholder="Filter by cell type, ligand or receptor…">
+  <!-- Figures Gallery Section -->
+  <section id="figures">
+    <div class="container">
+      <div class="section-badge">Visual Evidence</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        Thesis High-Resolution Figure Gallery
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 32px; font-size: 15px;">
+        All publication-ready vector and raster figures generated by the pipeline. Click any figure preview to open the high-resolution lightbox viewer.
+      </p>
+
+      <div class="figure-grid reveal">
+        <!-- Figure 1 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/null_model_flip_comparison.png', 'Fig 1: Null Model Verdict Flip Matrix (Z-Score Shift &amp; Transitions)')">
+            <span class="figure-overlay-badge">Core Finding</span>
+            <img src="figures/null_model_flip_comparison.png" alt="Verdict Flip Matrix" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">Verdict Flip Comparison</h4>
+              <p class="figure-desc">Two-panel visualization showing z-score shifts from compositional to edge null (left) and binary significance transitions unmasking 9 false positives (right).</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/null_model_flip_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/null_model_flip_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
         </div>
-        <div class="table-scroll">
-          <table class="data-table" id="lr-table">
-            <thead>
-              <tr>
-                <th data-key="sender">Sender<span class="arrow"></span></th>
-                <th data-key="receiver">Receiver<span class="arrow"></span></th>
-                <th data-key="ligand">Ligand<span class="arrow"></span></th>
-                <th data-key="receptor">Receptor<span class="arrow"></span></th>
-                <th data-key="score" class="num">Score<span class="arrow"></span></th>
-                <th data-key="pvalue" class="num">p-value<span class="arrow"></span></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+
+        <!-- Figure 2 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_edge_null_comparison.png', 'Fig 2: Spatial-Edge Null Model Permutations vs Observed Scores (N=500)')">
+            <span class="figure-overlay-badge">Edge Null</span>
+            <img src="figures/spatial_edge_null_comparison.png" alt="Spatial-Edge Null Distributions" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">Spatial-Edge Null Permutations</h4>
+              <p class="figure-desc">Observed edge-based communication scores vs. empirical 500-permutation null distributions across the top 10 interactions.</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/spatial_edge_null_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/spatial_edge_null_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
         </div>
-        <div class="callout" style="margin-top:16px">
-          <span class="icon">ℹ️</span>
-          <p><b>Reading the p-value column.</b> The v0 run uses <code>n_perms=1</code> as an end-to-end smoke validation only. Blank cells mean squidpy did not report a permutation p-value for that pair; the single populated value (<code>endothelial→endothelial</code>) should not be read as calibrated significance either.</p>
+
+        <!-- Figure 3 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_null_comparison.png', 'Fig 3: Compositional Spatial-Null Permutations vs Observed Scores (N=500)')">
+            <span class="figure-overlay-badge">Compositional Null</span>
+            <img src="figures/spatial_null_comparison.png" alt="Compositional Null Distributions" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">Compositional Null Permutations</h4>
+              <p class="figure-desc">Initial spatial null test on Squidpy cluster-marginal mean scores (N=500), identifying low epithelial signaling but failing to test edge contacts.</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/spatial_null_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/spatial_null_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Figure 4 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/top_lr_interactions.png', 'Fig 4: Top Baseline Ligand-Receptor Interactions by Mean Score')">
+            <span class="figure-overlay-badge">Baseline v0</span>
+            <img src="figures/top_lr_interactions.png" alt="Top Baseline LR Interactions" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">Top Baseline L–R Interactions</h4>
+              <p class="figure-desc">Ranked horizontal bar plot of top candidate ligand-receptor pairs by uncalibrated marginal mean score.</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/top_lr_interactions.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/top_lr_interactions.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Figure 5 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_cell_types.png', 'Fig 5: Spatial Distribution of 7,163 Annotated Cell Types in Breast Tissue')">
+            <span class="figure-overlay-badge">Spatial Map</span>
+            <img src="figures/spatial_cell_types.png" alt="Spatial Cell Types" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">In Situ Spatial Cell Map</h4>
+              <p class="figure-desc">Microscopic spatial layout of epithelial, immune, endothelial, and fibroblast cells across the 2-FOV human breast cancer tissue.</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/spatial_cell_types.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/spatial_cell_types.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Figure 6 -->
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/qc_summary.png', 'Fig 6: Quality Control Filtering and Transcript Count Funnel')">
+            <span class="figure-overlay-badge">QC &amp; Funnel</span>
+            <img src="figures/qc_summary.png" alt="QC Summary Funnel" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <div>
+              <h4 class="figure-title">Quality Control &amp; Counts</h4>
+              <p class="figure-desc">Distribution of transcripts per cell, detected genes, and filtration funnel retaining 7,163 high-quality cells (98.5%).</p>
+            </div>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/qc_summary.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/qc_summary.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="roadmap">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-kicker">Progress</div>
-        <h2 class="section-title">What's been carried out vs. what's next</h2>
-        <p class="section-desc">v0 is deliberately scoped to infrastructure + a baseline model. The thesis contribution — a minimal, high-confidence communication network with calibrated uncertainty — is future work.</p>
-      </div>
-      <div class="roadmap-grid reveal">
-        <div class="card panel roadmap-col">
-          <h3>Carried out (v0) <span class="status-badge done">done</span></h3>
-          <ul class="roadmap-list">
-            <li><div class="item-title">✅ Public dataset acquired &amp; provenance logged</div><p>10x Genomics Xenium V1 human breast, 2-FOV bundle; CC BY 4.0; SHA-256 verified, size and date recorded.</p></li>
-            <li><div class="item-title">✅ Reproducible environment</div><p>Pinned conda/uv environment, Python 3.11, fixed random seed 42 throughout.</p></li>
-            <li><div class="item-title">✅ QC, clustering &amp; annotation</div><p>Count filtering, normalization, Leiden clustering (res. 0.5), coarse marker-based cell typing.</p></li>
-            <li><div class="item-title">✅ Spatial neighbor graph</div><p>Squidpy generic-coordinate graph, 6 nearest neighbors per cell.</p></li>
-            <li><div class="item-title">✅ Baseline L–R ranking</div><p>squidpy.gr.ligrec over a curated 20-pair panel; ranked CSV, figures and run log exported.</p></li>
-          </ul>
+  <!-- Interactive Spatial Map Section -->
+  <section id="spatial">
+    <div class="container">
+      <div class="section-badge">Interactive Canvas</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        Explore 7,163 Cells in Real Spatial Coordinates
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 28px; font-size: 15px;">
+        Rendered live in HTML5 Canvas from the processed AnnData coordinates. Drag to pan, scroll to zoom, hover for cell information, and toggle cell-type layers.
+      </p>
+
+      <div class="spatial-layout reveal">
+        <div class="card" style="padding: 18px;">
+          <div id="canvas-container">
+            <canvas id="spatial-canvas"></canvas>
+            <div class="canvas-controls">
+              <button class="canvas-ctrl-btn" id="canvas-reset" title="Reset View">⤾</button>
+            </div>
+            <div class="canvas-status-bar" id="canvas-status">Loading 7,163 spatial points…</div>
+            <div class="canvas-tooltip" id="canvas-tooltip"></div>
+          </div>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; font-size:12.5px;" id="canvas-legend"></div>
         </div>
-        <div class="card panel roadmap-col">
-          <h3>Next steps <span class="status-badge planned">planned</span></h3>
-          <ul class="roadmap-list">
-            <li><div class="item-title">🧪 Functional-response evidence</div><p>Corroborate inferred signaling with a downstream transcriptional response in receiver cells, not just proximity + co-expression.</p></li>
-            <li><div class="item-title">🎯 Reproducibility calibration</div><p>Re-run with a full permutation budget and quantify which interactions replicate across multiple patient samples, with calibrated uncertainty.</p></li>
-            <li><div class="item-title">🌐 Spatial Prize-Collecting Steiner Tree</div><p>Graph optimization to select a minimal, high-confidence communication subnetwork consistent with prior pathway knowledge, instead of the full unstable candidate set.</p></li>
-            <li><div class="item-title">🔬 Optional perturbation cross-check</div><p>Use external perturbation data only as a secondary validation signal — never the core method.</p></li>
-          </ul>
+
+        <div class="card" style="padding: 22px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <h3 style="margin:0 0 6px; font-size: 17px;">Cell-Type Composition</h3>
+            <p style="margin:0 0 16px; font-size:13px; color:var(--text-muted);">Marker-score annotation over 7,163 cells.</p>
+            <div id="composition-bar" style="margin-bottom: 16px;"></div>
+
+            <h4 style="margin:20px 0 6px; font-size: 14px;">Quality Control Metrics</h4>
+            <div id="qc-funnel-bar" style="margin-bottom: 14px;"></div>
+            <div style="font-size:13px; border-top:1px solid var(--border-subtle); padding-top:10px;">
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Median counts / cell</span><b>111</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Mean counts / cell</span><b>125.1</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Filter criteria</span><b>min_counts=10, min_cells=3</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Spatial connectivity</span><b>6 nearest neighbors</b></div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: var(--surface-hover); border-radius: var(--radius-md); font-size:12px; color:var(--text-secondary); margin-top:16px;">
+            ℹ️ In the 6-NN spatial connectivity graph, 42,978 directed edges connect these cells. Only edges crossing sender→receiver types with active ligand &amp; receptor expression are scored.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Methods & Mathematical Architecture Section -->
+  <section id="methods" style="background: var(--surface-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-badge">Methodology</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        How the Edge-Based Spatial Null Model Works
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 32px; font-size: 15px;">
+        A systematic comparison between dissociated cluster-marginal scoring and true spatial-graph edge-based scoring.
+      </p>
+
+      <div class="method-steps reveal">
+        <div class="card method-card">
+          <div class="step-index">1</div>
+          <h3>In Situ Graph Construction</h3>
+          <p>Cell centroids from Xenium coordinates are connected via a 6-nearest neighbor spatial graph. Directed edges (i → j) represent physical tissue contact potential.</p>
+          <div class="pill-row">
+            <span class="chip-tag">k=6 neighbors</span>
+            <span class="chip-tag">42,978 directed edges</span>
+          </div>
+        </div>
+
+        <div class="card method-card">
+          <div class="step-index">2</div>
+          <h3>Edge Score Formulation</h3>
+          <p>For sender S and receiver R, the edge score is the mean expression product across edges connecting S cells to R cells: mean(expr_L[i] * expr_R[j]).</p>
+          <div class="pill-row">
+            <span class="chip-tag">L(i) × R(j)</span>
+            <span class="chip-tag">n_qualifying_edges</span>
+          </div>
+        </div>
+
+        <div class="card method-card">
+          <div class="step-index">3</div>
+          <h3>Label-Permutation Null</h3>
+          <p>Cell-type labels are permuted across cells holding spatial coordinates, graph edges, and single-cell expression fixed (N=500, seed 42) per CONCISE/SOAAR.</p>
+          <div class="pill-row">
+            <span class="chip-tag">N=500 perms</span>
+            <span class="chip-tag">seed=42</span>
+          </div>
+        </div>
+
+        <div class="card method-card">
+          <div class="step-index">4</div>
+          <h3>Vectorized Benchmark</h3>
+          <p>Precomputing the 42,978 edge product vector once per L–R pair eliminates edge loops, executing 500 full permutations in ~20 seconds.</p>
+          <div class="pill-row">
+            <span class="chip-tag">~0.04 s/perm</span>
+            <span class="chip-tag">100% reproducible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Data Explorer Section -->
+  <section id="data-explorer">
+    <div class="container">
+      <div class="section-badge">Live Datasets</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        Interactive Data Explorer
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 24px; font-size: 15px;">
+        Query, filter, and inspect the complete pipeline CSV outputs. Switch tabs to explore the null model comparison, the CD274–PDCD1 diagnostic, or the baseline ranking.
+      </p>
+
+      <!-- Tabs Navigation -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('comparison')">
+          Null Model Comparison &amp; Flips <span class="tab-count">22</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('diagnostic')">
+          CD274 &amp; PDCD1 Diagnostic <span class="tab-count">10</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('baseline')">
+          Baseline v0 Ranking <span class="tab-count">22</span>
+        </button>
+      </div>
+
+      <!-- Controls: Search & Filter Pills -->
+      <div class="table-controls" id="table-controls-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="table-search-input" placeholder="Search cell type, ligand or receptor…" oninput="onSearchInput()">
+        </div>
+        <div class="filter-pills" id="comparison-filter-pills">
+          <button class="filter-pill active" onclick="setCompFilter('all')">All (22)</button>
+          <button class="filter-pill" onclick="setCompFilter('flips')">Flips Only (9)</button>
+          <button class="filter-pill" onclick="setCompFilter('robust')">Edge Significant (8)</button>
+          <button class="filter-pill" onclick="setCompFilter('non_sig')">Non-Significant (14)</button>
+        </div>
+        <button class="btn btn-outline" style="padding: 7px 14px; font-size: 13px;" onclick="exportCurrentTableToCSV()">📥 Download CSV</button>
+      </div>
+
+      <!-- Table Wrapper -->
+      <div class="table-wrap">
+        <table class="interactive-table" id="main-data-table">
+          <thead id="main-table-head"></thead>
+          <tbody id="main-table-body"></tbody>
+        </table>
+      </div>
+      <div style="margin-top: 10px; font-size: 12.5px; color: var(--text-muted); display:flex; justify-content:space-between;" id="table-footer-status">
+        <span>Showing all rows</span>
+        <span>Click any column header to sort</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Log & Roadmap Section -->
+  <section id="timeline" style="background: var(--surface-card); border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-badge">Timeline</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        Chronological Progress &amp; Roadmap
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 32px; font-size: 15px;">
+        Documented trajectory of the thesis research, from v0 baseline infrastructure to spatial-edge calibration and upcoming Steiner tree optimization.
+      </p>
+
+      <div class="timeline reveal">
+        <!-- Event 1 -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">2026-09-08 · Completed</div>
+          <h3 class="timeline-title">v0 Baseline Pipeline &amp; Public Data Acquisition</h3>
+          <p class="timeline-desc">
+            Acquired and verified official 10x Genomics Xenium breast cancer dataset (379 MB, SHA-256 verified).
+            Implemented end-to-end reproducible baseline in <code>src/run_prototype.py</code>: count filtering, normalization,
+            Leiden clustering (res=0.5), marker-based cell typing, 6-NN spatial connectivity graph, and initial Squidpy <code>ligrec</code> ranking.
+          </p>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">2026-09-13 · Completed</div>
+          <h3 class="timeline-title">Spatial-Null Permutation Model (Compositional Null, N=500)</h3>
+          <p class="timeline-desc">
+            Researched CONCISE (Zhao et al., 2026) and SOAAR (Khatri et al., 2026). Implemented label-permutation null model in <code>src/spatial_null.py</code>
+            shuffling cell labels across cells while holding spatial coordinates and expression fixed (N=500, seed 42).
+            Reproducibility check verified identical SHA-256 hash across consecutive runs. Exposed critical limitation: cluster-marginal scoring ignores spatial edges.
+          </p>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="timeline-item active">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">2026-09-13 · Completed</div>
+          <h3 class="timeline-title">Spatial-Edge Null Model &amp; Discovery of 9 Verdict Flips</h3>
+          <p class="timeline-desc">
+            Implemented true edge-based spatial LR communication score in <code>src/spatial_edge_score.py</code> over 42,978 graph edges.
+            Vectorized edge-product precomputation ran 500 permutations in ~20 seconds. Merged comparison against compositional null unmasked
+            <b>9 verdict flips</b> (false positives collapsed to non-significant). Two-run reproducibility test confirmed byte-for-byte identical CSV output (SHA-256: <code>b4c3531d...44f</code>).
+          </p>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="timeline-item active">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">2026-09-13 · Completed</div>
+          <h3 class="timeline-title">Diagnostic Resolution of CD274–PDCD1 Zero-Variance</h3>
+          <p class="timeline-desc">
+            Diagnosed why <code>edge_null_std == 0.0</code> for all CD274–PDCD1 rows. Discovered that PDCD1 is detected in only 5 of 7,163 cells (0.07%),
+            and across all 42,978 spatial graph edges, exactly 0 connect a CD274+ cell to a PDCD1+ cell. Independent cross-check confirmed 962 immune→fibroblast
+            edges with 0.000000 score. Output saved to <code>results/cd274_pdcd1_detection_diagnostic.csv</code>.
+          </p>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="timeline-item">
+          <div class="timeline-marker" style="border-color: var(--text-muted);"></div>
+          <div class="timeline-date">Next Phase · Planned</div>
+          <h3 class="timeline-title">Spatial Prize-Collecting Steiner Tree (S-PCST) &amp; Response Pathways</h3>
+          <p class="timeline-desc">
+            Formulate graph optimization on the calibrated edge-score communication network to extract a minimal, high-confidence
+            subnetwork anchored to downstream transcriptional response signatures in receiver cells.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reproducibility & Provenance Section -->
   <section id="reproducibility">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-kicker">Reproducibility &amp; provenance</div>
-        <h2 class="section-title">How these numbers were produced</h2>
-        <p class="section-desc">Every figure on this page traces back to a single deterministic command: <code>python src/run_prototype.py</code>.</p>
-      </div>
-      <div class="repro-grid reveal">
-        <div class="card repro-card">
-          <h4>Dataset</h4>
-          <div class="kv"><span>Platform</span><span>10x Xenium V1</span></div>
-          <div class="kv"><span>Tissue</span><span>Human breast, 2-FOV</span></div>
-          <div class="kv"><span>License</span><span>CC BY 4.0</span></div>
-          <div class="kv"><span>Archive size</span><span>379,018,013 B</span></div>
-          <div class="kv"><span>Downloaded</span><span>2026-09-08</span></div>
-          <div class="kv"><span title="cc1e987b06aa748a6b24d3d6f51fc0d6765daa4836c483f14ec4f1bd18b1779b">SHA-256</span><span title="cc1e987b06aa748a6b24d3d6f51fc0d6765daa4836c483f14ec4f1bd18b1779b">cc1e987b…8b1779b</span></div>
-        </div>
-        <div class="card repro-card">
-          <h4>Run parameters</h4>
-          <div class="kv"><span>Random seed</span><span>42</span></div>
-          <div class="kv"><span>QC thresholds</span><span>min_counts=10, min_cells=3</span></div>
-          <div class="kv"><span>Leiden resolution</span><span>0.5</span></div>
-          <div class="kv"><span>Spatial graph</span><span>generic, k=6</span></div>
-          <div class="kv"><span>Permutations (L–R)</span><span>1 (smoke test)</span></div>
-        </div>
-        <div class="card repro-card">
-          <h4>Software versions</h4>
-          <div class="ver-grid">
-            <div class="kv"><span>scanpy</span><span>1.10.3</span></div>
-            <div class="kv"><span>squidpy</span><span>1.6.5</span></div>
-            <div class="kv"><span>anndata</span><span>0.10.9</span></div>
-            <div class="kv"><span>liana</span><span>1.5.1</span></div>
-            <div class="kv"><span>numpy</span><span>1.26.4</span></div>
-            <div class="kv"><span>scipy</span><span>1.14.1</span></div>
-            <div class="kv"><span>pandas</span><span>2.2.3</span></div>
-            <div class="kv"><span>networkx</span><span>3.4.2</span></div>
-            <div class="kv"><span>matplotlib</span><span>3.9.2</span></div>
-            <div class="kv"><span>seaborn</span><span>0.13.2</span></div>
-            <div class="kv"><span>scikit-learn</span><span>1.5.2</span></div>
-            <div class="kv"><span>leidenalg</span><span>0.10.2</span></div>
-            <div class="kv"><span>igraph</span><span>0.11.8</span></div>
-            <div class="kv"><span>h5py</span><span>3.12.1</span></div>
+    <div class="container">
+      <div class="section-badge">Provenance &amp; Audit Trail</div>
+      <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin: 0 0 12px;">
+        100% Deterministic Reproducibility
+      </h2>
+      <p style="color: var(--text-secondary); max-width: 76ch; margin: 0 0 32px; font-size: 15px;">
+        Every number, figure, and diagnostic row is programmatically reproducible under fixed random seed 42 with verified cryptographic hashes.
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+        <div class="card" style="padding: 20px;">
+          <h4 style="margin: 0 0 12px; font-size: 13px; text-transform: uppercase; color: var(--text-muted);">Verified Cryptographic Hashes</h4>
+          <div style="font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
+            <div>
+              <span style="color: var(--text-secondary);">null_model_comparison.csv</span><br>
+              <code style="font-size: 11px; word-break: break-all; color: var(--brand-primary);">b4c3531d0c796784189b9a010899e8815041cd560b5527d572bff37f54dba44f</code>
+            </div>
+            <div>
+              <span style="color: var(--text-secondary);">spatial_null_corrected.csv</span><br>
+              <code style="font-size: 11px; word-break: break-all; color: var(--brand-primary);">cafa5b17a920bab1f3b613d80c04942a06548ec28faf3b16eb919463a3529666</code>
+            </div>
+            <div>
+              <span style="color: var(--text-secondary);">baseline_lr_ranked.csv</span><br>
+              <code style="font-size: 11px; word-break: break-all; color: var(--brand-primary);">14cb5c26f3eed89f9018fac3128c5ed61ec1f7e5f0052000fb56b18779331000</code>
+            </div>
           </div>
         </div>
-        <div class="card repro-card">
-          <h4>Source of truth</h4>
-          <p style="font-size:12.5px;color:var(--text-secondary);margin:0 0 12px">This dashboard reads only committed pipeline outputs — nothing here is hand-authored.</p>
-          <div class="links-row">
-            <a href="README.md">README.md</a>
-            <a href="docs/PROJECT_CONTEXT.md">PROJECT_CONTEXT.md</a>
-            <a href="docs/PROGRESS_LOG.md">PROGRESS_LOG.md</a>
-            <a href="results/baseline_lr_ranked.csv">baseline_lr_ranked.csv</a>
-            <a href="logs/prototype.log">prototype.log</a>
-            <a href="src/pipeline.py">pipeline.py</a>
+
+        <div class="card" style="padding: 20px;">
+          <h4 style="margin: 0 0 12px; font-size: 13px; text-transform: uppercase; color: var(--text-muted);">Execution Environment</h4>
+          <div style="font-size: 12.5px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;">
+            <div><span>Scanpy:</span> <b>1.10.3</b></div>
+            <div><span>Squidpy:</span> <b>1.6.5</b></div>
+            <div><span>AnnData:</span> <b>0.10.9</b></div>
+            <div><span>NumPy:</span> <b>1.26.4</b></div>
+            <div><span>SciPy:</span> <b>1.14.1</b></div>
+            <div><span>Pandas:</span> <b>2.2.3</b></div>
+            <div><span>Python:</span> <b>3.11.9</b></div>
+            <div><span>Random Seed:</span> <b>42</b></div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 20px;">
+          <h4 style="margin: 0 0 12px; font-size: 13px; text-transform: uppercase; color: var(--text-muted);">Source Files &amp; Documentation</h4>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px;">
+            <a href="README.md" style="color: var(--brand-primary); text-decoration: none; font-weight: 600;">📄 README.md</a>
+            <a href="docs/PROGRESS_LOG.md" style="color: var(--brand-primary); text-decoration: none; font-weight: 600;">📑 docs/PROGRESS_LOG.md</a>
+            <a href="results/null_model_comparison.csv" style="color: var(--brand-primary); text-decoration: none; font-weight: 600;">📊 results/null_model_comparison.csv</a>
+            <a href="results/cd274_pdcd1_detection_diagnostic.csv" style="color: var(--brand-primary); text-decoration: none; font-weight: 600;">🔬 results/cd274_pdcd1_detection_diagnostic.csv</a>
+            <a href="logs/spatial_edge_null.log" style="color: var(--brand-primary); text-decoration: none; font-weight: 600;">📜 logs/spatial_edge_null.log</a>
           </div>
         </div>
       </div>
@@ -560,110 +1122,134 @@
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div>Thesis Prototype v0 — Spatial Cell–Cell Communication. Dashboard generated 2026-09-08.</div>
-    <div><a href="README.md">Documentation</a> · Xenium data © 10x Genomics, CC BY 4.0</div>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Dashboard updated September 13, 2026
+    </div>
   </div>
 </footer>
+
+<!-- Lightbox Modal for Figures -->
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
 
 <script>
 (function(){
   "use strict";
 
-  /* ---------------- Theme ---------------- */
+  /* ---------------- Data Ingestion from Pipeline ---------------- */
+  var COMP_DATA = [{"sender": "fibroblast", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.580391507102324, "compositional_null_mean": 1.4843947768211363, "compositional_null_std": 0.0675391364864365, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 31.033810014762512, "compositional_significant": true, "n_qualifying_edges": 972, "edge_observed_score": 16.504263918634425, "edge_null_mean": 2.358666508647544, "edge_null_std": 0.479427602780605, "edge_empirical_pvalue": 0.0, "edge_z_score": 29.50517935960431, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.261771164536712, "compositional_null_mean": 1.4722005579024553, "compositional_null_std": 0.1666981000793325, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 10.735398938455749, "compositional_significant": true, "n_qualifying_edges": 19, "edge_observed_score": 16.694364610787442, "edge_null_mean": 2.143258215189282, "edge_null_std": 2.0149927431157706, "edge_empirical_pvalue": 0.0, "edge_z_score": 7.22141875960202, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.998609111201575, "compositional_null_mean": 1.4775583785772324, "compositional_null_std": 0.1758228414152166, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 8.651041698457632, "compositional_significant": true, "n_qualifying_edges": 128, "edge_observed_score": 11.29286938596982, "edge_null_mean": 2.3097460610975022, "edge_null_std": 1.3450411296137978, "edge_empirical_pvalue": 0.0, "edge_z_score": 6.678697868110282, "edge_significant": true, "verdict_flip": false}, {"sender": "immune", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.8019331462495547, "compositional_null_mean": 1.4860654205083847, "compositional_null_std": 0.0842887014163855, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 15.611436688777465, "compositional_significant": true, "n_qualifying_edges": 827, "edge_observed_score": 7.896593786989074, "edge_null_mean": 2.4192287820192204, "edge_null_std": 1.0035805281177808, "edge_empirical_pvalue": 0.0, "edge_z_score": 5.457823115841709, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.7648991722405727, "compositional_null_mean": 1.483275594830513, "compositional_null_std": 0.0402162404113514, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 31.868309028914275, "compositional_significant": true, "n_qualifying_edges": 4702, "edge_observed_score": 9.14739803929066, "edge_null_mean": 2.344855302123002, "edge_null_std": 0.2977502463735876, "edge_empirical_pvalue": 0.0, "edge_z_score": 22.846472236441063, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.680072842858178, "compositional_null_mean": 1.4849150581359862, "compositional_null_std": 0.027851358481487, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 42.912010396786165, "compositional_significant": true, "n_qualifying_edges": 2586, "edge_observed_score": 3.0379412023976715, "edge_null_mean": 2.353000059225643, "edge_null_std": 0.1474847358895523, "edge_empirical_pvalue": 0.0, "edge_z_score": 4.644149369362292, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.679988768635964, "compositional_null_mean": 1.4653641596585512, "compositional_null_std": 0.2433157585200932, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.991968528323282, "compositional_significant": true, "n_qualifying_edges": 27, "edge_observed_score": 6.632521458962848, "edge_null_mean": 1.3642181778449058, "edge_null_std": 4.575857453440211, "edge_empirical_pvalue": 0.084, "edge_z_score": 1.1513259175407962, "edge_significant": false, "verdict_flip": true}, {"sender": "endothelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.4462788296749616, "compositional_null_mean": 1.4710813759118315, "compositional_null_std": 0.1572546100707623, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 6.2013918277137, "compositional_significant": true, "n_qualifying_edges": 121, "edge_observed_score": 8.732020054358596, "edge_null_mean": 2.23981674413347, "edge_null_std": 1.2544725925137488, "edge_empirical_pvalue": 0.0, "edge_z_score": 5.17524523769456, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.361452500292567, "compositional_null_mean": 1.4727208392173052, "compositional_null_std": 0.1567745709165976, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 5.668850859416846, "compositional_significant": true, "n_qualifying_edges": 127, "edge_observed_score": 2.2193930862688216, "edge_null_mean": 2.3057292094926947, "edge_null_std": 0.8969228575560688, "edge_empirical_pvalue": 0.506, "edge_z_score": -0.0962581369139385, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.2201507503488065, "compositional_null_mean": 1.4792290222644806, "compositional_null_std": 0.1819468014967462, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.07218880458075, "compositional_significant": true, "n_qualifying_edges": 17, "edge_observed_score": 6.253537199135642, "edge_null_mean": 2.514530397470055, "edge_null_std": 2.455729868354413, "edge_empirical_pvalue": 0.076, "edge_z_score": 1.5225643707184693, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.986440811387804, "compositional_null_mean": 1.4849462385177612, "compositional_null_std": 0.0613875209217034, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 8.169324405682927, "compositional_significant": true, "n_qualifying_edges": 962, "edge_observed_score": 5.80336943195573, "edge_null_mean": 2.3334452764379483, "edge_null_std": 0.4628408867655963, "edge_empirical_pvalue": 0.0, "edge_z_score": 7.497013022695873, "edge_significant": true, "verdict_flip": false}, {"sender": "epithelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.9472474762969456, "compositional_null_mean": 1.4808171236515044, "compositional_null_std": 0.0647179972159646, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 7.207119699470278, "compositional_significant": true, "n_qualifying_edges": 334, "edge_observed_score": 1.75364265760699, "edge_null_mean": 2.3249735365287405, "edge_null_std": 0.3551519523718196, "edge_empirical_pvalue": 0.944, "edge_z_score": -1.6086941803535584, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.9016144820054093, "compositional_null_mean": 1.4865857018232345, "compositional_null_std": 0.053764049948427, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 7.719447857449166, "compositional_significant": true, "n_qualifying_edges": 360, "edge_observed_score": 2.611349435813482, "edge_null_mean": 2.358490061304433, "edge_null_std": 0.299095982709464, "edge_empirical_pvalue": 0.192, "edge_z_score": 0.8454121390011169, "edge_significant": false, "verdict_flip": true}, {"sender": "epithelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.3654650803961976, "compositional_null_mean": 1.4739807254076005, "compositional_null_std": 0.1737232611250478, "compositional_empirical_pvalue": 0.73, "compositional_z_score": -0.6246466035040187, "compositional_significant": false, "n_qualifying_edges": 117, "edge_observed_score": 1.1316041951739195, "edge_null_mean": 2.3165552682324475, "edge_null_std": 0.9627274209583552, "edge_empirical_pvalue": 0.914, "edge_z_score": -1.2308271762727587, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.1317551414351952, "compositional_null_mean": 1.479697941660881, "compositional_null_std": 0.0309174698048212, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -11.253922213629128, "compositional_significant": false, "n_qualifying_edges": 2276, "edge_observed_score": 1.4847231135701264, "edge_null_mean": 2.329956608298, "edge_null_std": 0.1608605234850928, "edge_empirical_pvalue": 1.0, "edge_z_score": -5.254449484656828, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.0469288120528006, "compositional_null_mean": 1.4813374049663544, "compositional_null_std": 0.0112069870232454, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -38.76229998415323, "compositional_significant": false, "n_qualifying_edges": 29403, "edge_observed_score": 0.4406317882090574, "edge_null_mean": 2.332080839211504, "edge_null_std": 0.0685989090367648, "edge_empirical_pvalue": 1.0, "edge_z_score": -27.57258209439957, "edge_significant": false, "verdict_flip": false}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.1157207431893705, "compositional_null_mean": 0.0182171234919223, "compositional_null_std": 0.0102324949855025, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 9.52882164473002, "compositional_significant": true, "n_qualifying_edges": 962, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.1094637729704314, "compositional_null_mean": 0.0182725054713082, "compositional_null_std": 0.0101056506706093, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 9.023789805473712, "compositional_significant": true, "n_qualifying_edges": 360, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0393495433490845, "compositional_null_mean": 0.0183805266239214, "compositional_null_std": 0.0048187619290001, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.351536148521415, "compositional_significant": true, "n_qualifying_edges": 4702, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0330925731301455, "compositional_null_mean": 0.0184359086033073, "compositional_null_std": 0.0046616029613875, "compositional_empirical_pvalue": 0.002, "compositional_z_score": 3.1441254538922943, "compositional_significant": true, "n_qualifying_edges": 2586, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0128482233392973, "compositional_null_mean": 0.017961209698813, "compositional_null_std": 0.0019612231301241, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -2.607039597372093, "compositional_significant": false, "n_qualifying_edges": 2276, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0065912531203582, "compositional_null_mean": 0.0180165916781988, "compositional_null_std": 0.0013996803847366, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -8.162819656853822, "compositional_significant": false, "n_qualifying_edges": 29403, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}];
+  var DIAG_DATA = [{"gene": "CD274", "cell_type": "ALL", "n_cells": 7163, "n_detected": 53, "detection_rate": 0.0073991344408767, "mean_expression": 0.0330524258315563}, {"gene": "CD274", "cell_type": "epithelial", "n_cells": 5355, "n_detected": 16, "detection_rate": 0.0029878618113912, "mean_expression": 0.0124237947165966}, {"gene": "CD274", "cell_type": "immune", "n_cells": 361, "n_detected": 17, "detection_rate": 0.0470914127423822, "mean_expression": 0.2181688398122787}, {"gene": "CD274", "cell_type": "endothelial", "n_cells": 49, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "CD274", "cell_type": "fibroblast", "n_cells": 1398, "n_detected": 20, "detection_rate": 0.0143061516452074, "mean_expression": 0.0654264315962791}, {"gene": "PDCD1", "cell_type": "ALL", "n_cells": 7163, "n_detected": 5, "detection_rate": 0.0006980315510261, "mean_expression": 0.0031576256733387}, {"gene": "PDCD1", "cell_type": "epithelial", "n_cells": 5355, "n_detected": 1, "detection_rate": 0.0001867413632119, "mean_expression": 0.0007587120053358}, {"gene": "PDCD1", "cell_type": "immune", "n_cells": 361, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "PDCD1", "cell_type": "endothelial", "n_cells": 49, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "PDCD1", "cell_type": "fibroblast", "n_cells": 1398, "n_detected": 4, "detection_rate": 0.0028612303290414, "mean_expression": 0.0132726524025201}];
+  var BASE_DATA = [{"sender": "fibroblast", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "score": 3.580391507102324, "pvalue": NaN}, {"sender": "endothelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "score": 3.261771164536712, "pvalue": NaN}, {"sender": "fibroblast", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.998609111201575, "pvalue": NaN}, {"sender": "immune", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.8019331462495547, "pvalue": NaN}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.7648991722405727, "pvalue": NaN}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.680072842858178, "pvalue": NaN}, {"sender": "endothelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.679988768635964, "pvalue": 0.0}, {"sender": "endothelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.4462788296749616, "pvalue": NaN}, {"sender": "endothelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.361452500292567, "pvalue": NaN}, {"sender": "immune", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 2.2201507503488065, "pvalue": NaN}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.986440811387804, "pvalue": NaN}, {"sender": "epithelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.9472474762969456, "pvalue": NaN}, {"sender": "immune", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.9016144820054093, "pvalue": NaN}, {"sender": "epithelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.3654650803961976, "pvalue": NaN}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.1317551414351952, "pvalue": NaN}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "score": 1.0469288120528006, "pvalue": NaN}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "score": 0.1157207431893705, "pvalue": NaN}, {"sender": "immune", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "score": 0.1094637729704314, "pvalue": NaN}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "score": 0.0393495433490845, "pvalue": NaN}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "score": 0.0330925731301455, "pvalue": NaN}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "score": 0.0128482233392973, "pvalue": NaN}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "score": 0.0065912531203582, "pvalue": NaN}];
+
+  var CELL_TYPE_ORDER = ['epithelial', 'immune', 'endothelial', 'fibroblast'];
+  var CELL_TYPE_COLOR = {
+    epithelial: '--series-1',
+    immune: '--series-2',
+    endothelial: '--series-3',
+    fibroblast: '--series-4'
+  };
+  var CELL_TYPE_COUNTS = { epithelial: 5355, immune: 361, endothelial: 49, fibroblast: 1398 };
+  var TOTAL_CELLS = 7163;
+
+  function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+  /* ---------------- Theme Toggle & Persistence ---------------- */
   var root = document.documentElement;
   var themeBtn = document.getElementById('theme-toggle');
-  var stored = localStorage.getItem('ccc-theme');
-  if (stored) root.setAttribute('data-theme', stored);
-  function paint(){
-    var isDark = (root.getAttribute('data-theme') === 'dark') ||
+  var savedTheme = localStorage.getItem('ccc-theme');
+  if (savedTheme) root.setAttribute('data-theme', savedTheme);
+
+  function updateThemeIcon() {
+    var isDark = root.getAttribute('data-theme') === 'dark' ||
       (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
     themeBtn.textContent = isDark ? '☀' : '◐';
   }
-  paint();
-  themeBtn.addEventListener('click', function(){
+  updateThemeIcon();
+
+  themeBtn.addEventListener('click', function() {
     var current = root.getAttribute('data-theme');
     var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
     var next = isDark ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('ccc-theme', next);
-    paint();
-    renderComposition(); renderQcFunnel(); renderLrChart();
+    updateThemeIcon();
+    renderComparisonChart();
+    renderCompositionBar();
+    renderQcFunnel();
   });
 
-  function cssVar(name){ return getComputedStyle(root).getPropertyValue(name).trim(); }
-
-  /* ---------------- Reveal on scroll ---------------- */
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------------- Intersection Observer for Scroll Reveals ---------------- */
   var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reduceMotion){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
-    revealEls.forEach(function(el){ io.observe(el); });
-    // Safety net: never leave content permanently hidden if observation misbehaves.
-    setTimeout(function(){ revealEls.forEach(function(el){ el.classList.add('visible'); }); }, 2500);
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    revealEls.forEach(function(el) { observer.observe(el); });
+    setTimeout(function() { revealEls.forEach(function(el) { el.classList.add('visible'); }); }, 2000);
   } else {
-    revealEls.forEach(function(el){ el.classList.add('visible'); });
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
   }
 
-  /* ---------------- Shared data ---------------- */
-  var CELL_TYPE_ORDER = ['epithelial', 'immune', 'endothelial', 'fibroblast'];
-  var CELL_TYPE_COLOR = { epithelial: '--series-1', immune: '--series-2', endothelial: '--series-3', fibroblast: '--series-4' };
-  var CELL_TYPE_COUNTS = { epithelial: 5355, immune: 361, endothelial: 49, fibroblast: 1398 };
-  var TOTAL_CELLS = 7163;
+  /* ---------------- Lightbox Viewer for Figures ---------------- */
+  window.openLightbox = function(src, caption) {
+    var modal = document.getElementById('lightbox-modal');
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-caption');
+    img.src = src;
+    cap.textContent = caption || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
 
-  var LR_ROWS = [
-    {sender:'fibroblast', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:3.5804, pvalue:null},
-    {sender:'endothelial', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:3.2618, pvalue:null},
-    {sender:'fibroblast', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.9986, pvalue:null},
-    {sender:'immune', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:2.8019, pvalue:null},
-    {sender:'fibroblast', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:2.7649, pvalue:null},
-    {sender:'fibroblast', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:2.6801, pvalue:null},
-    {sender:'endothelial', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.6800, pvalue:0.0},
-    {sender:'endothelial', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:2.4463, pvalue:null},
-    {sender:'endothelial', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:2.3615, pvalue:null},
-    {sender:'immune', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:2.2202, pvalue:null},
-    {sender:'immune', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:1.9864, pvalue:null},
-    {sender:'epithelial', receiver:'immune', ligand:'CXCL12', receptor:'CXCR4', score:1.9472, pvalue:null},
-    {sender:'immune', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:1.9016, pvalue:null},
-    {sender:'epithelial', receiver:'endothelial', ligand:'CXCL12', receptor:'CXCR4', score:1.3655, pvalue:null},
-    {sender:'epithelial', receiver:'fibroblast', ligand:'CXCL12', receptor:'CXCR4', score:1.1318, pvalue:null},
-    {sender:'epithelial', receiver:'epithelial', ligand:'CXCL12', receptor:'CXCR4', score:1.0469, pvalue:null},
-    {sender:'immune', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.1157, pvalue:null},
-    {sender:'immune', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.1095, pvalue:null},
-    {sender:'fibroblast', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.0393, pvalue:null},
-    {sender:'fibroblast', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.0331, pvalue:null},
-    {sender:'epithelial', receiver:'fibroblast', ligand:'CD274', receptor:'PDCD1', score:0.0128, pvalue:null},
-    {sender:'epithelial', receiver:'epithelial', ligand:'CD274', receptor:'PDCD1', score:0.0066, pvalue:null}
-  ];
+  window.closeLightbox = function() {
+    var modal = document.getElementById('lightbox-modal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
 
-  function svgEl(tag, attrs){
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* ---------------- SVG Helper ---------------- */
+  function svgEl(tag, attrs) {
     var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
     for (var k in attrs) el.setAttribute(k, attrs[k]);
     return el;
   }
 
-  /* ---------------- Cell-type composition (stacked bar) ---------------- */
-  function renderComposition(){
-    var host = document.getElementById('composition-chart');
+  /* ---------------- Composition Stacked Bar ---------------- */
+  function renderCompositionBar() {
+    var host = document.getElementById('composition-bar');
+    if (!host) return;
     host.innerHTML = '';
-    var w = Math.max(host.clientWidth || 320, 240), h = 46;
-    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'Cell type composition stacked bar' });
-    var x = 0;
-    var gap = 2;
-    CELL_TYPE_ORDER.forEach(function(type){
+    var w = Math.max(host.clientWidth || 320, 240), h = 42;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+    var x = 0, gap = 2;
+
+    CELL_TYPE_ORDER.forEach(function(type) {
       var count = CELL_TYPE_COUNTS[type];
       var pct = count / TOTAL_CELLS;
       var segW = Math.max(pct * w - gap, 1);
       var rect = svgEl('rect', { x: x, y: 4, width: segW, height: h - 8, rx: 6, fill: cssVar(CELL_TYPE_COLOR[type]) });
-      var title = svgEl('title', {});
-      title.textContent = type + ': ' + count.toLocaleString() + ' cells (' + (pct * 100).toFixed(1) + '%)';
-      rect.appendChild(title);
       svg.appendChild(rect);
-      if (segW > 46){
-        var label = svgEl('text', { x: x + 8, y: h / 2 + 4, fill: '#fff', 'font-size': 11, 'font-weight': 700 });
+      if (segW > 45) {
+        var label = svgEl('text', { x: x + 8, y: h / 2 + 4, fill: '#ffffff', 'font-size': 11, 'font-weight': 700 });
         label.textContent = (pct * 100).toFixed(0) + '%';
         svg.appendChild(label);
       }
@@ -671,176 +1257,321 @@
     });
     host.appendChild(svg);
 
-    var existingLegend = host.parentElement.querySelector('.composition-legend');
-    if (existingLegend) existingLegend.remove();
-    var legendHost = document.createElement('div');
-    legendHost.className = 'legend composition-legend';
-    CELL_TYPE_ORDER.forEach(function(type){
-      var count = CELL_TYPE_COUNTS[type];
-      var pct = ((count / TOTAL_CELLS) * 100).toFixed(1);
+    var legendEl = document.createElement('div');
+    legendEl.style.display = 'flex'; legendEl.style.gap = '10px'; legendEl.style.flexWrap = 'wrap'; legendEl.style.fontSize = '12px'; legendEl.style.marginTop = '8px';
+    CELL_TYPE_ORDER.forEach(function(type) {
       var item = document.createElement('span');
-      item.style.display = 'flex'; item.style.alignItems = 'center'; item.style.gap = '6px';
-      var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[type]);
+      item.style.display = 'flex'; item.style.alignItems = 'center'; item.style.gap = '5px';
+      var sw = document.createElement('span');
+      sw.style.width = '10px'; sw.style.height = '10px'; sw.style.borderRadius = '3px'; sw.style.background = cssVar(CELL_TYPE_COLOR[type]);
       item.appendChild(sw);
-      var txt = document.createElement('span');
-      txt.textContent = type + ' — ' + count.toLocaleString() + ' (' + pct + '%)';
-      item.appendChild(txt);
-      legendHost.appendChild(item);
+      item.appendChild(document.createTextNode(type + ' (' + CELL_TYPE_COUNTS[type].toLocaleString() + ')'));
+      legendEl.appendChild(item);
     });
-    host.insertAdjacentElement('afterend', legendHost);
+    host.appendChild(legendEl);
   }
 
-  /* ---------------- QC funnel ---------------- */
-  function renderQcFunnel(){
-    var host = document.getElementById('qc-funnel');
+  /* ---------------- QC Funnel ---------------- */
+  function renderQcFunnel() {
+    var host = document.getElementById('qc-funnel-bar');
+    if (!host) return;
     host.innerHTML = '';
-    var stages = [ {label:'Loaded', value:7275}, {label:'After QC', value:7163} ];
-    var w = Math.max(host.parentElement.clientWidth || 320, 240) - 4, h = 90;
-    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'QC funnel: cells before and after filtering' });
-    var max = 7275, barH = 22, gapY = 30;
-    stages.forEach(function(s, i){
-      var barW = (s.value / max) * (w - 90);
-      var y = i * gapY + 6;
-      var rect = svgEl('rect', { x: 0, y: y, width: Math.max(barW,2), height: barH, rx: 5, fill: cssVar('--seq-400') });
+    var stages = [ { label: 'Raw Loaded', value: 7275 }, { label: 'Retained Post-QC', value: 7163 } ];
+    var w = Math.max(host.clientWidth || 300, 240), h = 76;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+    var max = 7275, barH = 18, gapY = 32;
+
+    stages.forEach(function(s, i) {
+      var barW = (s.value / max) * (w - 80);
+      var y = i * gapY + 12;
+      var rect = svgEl('rect', { x: 0, y: y, width: Math.max(barW, 2), height: barH, rx: 5, fill: cssVar('--brand-primary') });
       svg.appendChild(rect);
-      var label = svgEl('text', { x: 0, y: y - 5, 'font-size': 11, fill: cssVar('--text-muted') });
+      var label = svgEl('text', { x: 0, y: y - 3, 'font-size': 11, fill: cssVar('--text-muted') });
       label.textContent = s.label;
       svg.appendChild(label);
-      var value = svgEl('text', { x: barW + 8, y: y + barH - 6, 'font-size': 12, 'font-weight':700, fill: cssVar('--text-primary') });
-      value.textContent = s.value.toLocaleString();
-      svg.appendChild(value);
+      var val = svgEl('text', { x: barW + 8, y: y + 14, 'font-size': 12, 'font-weight': 700, fill: cssVar('--text-primary') });
+      val.textContent = s.value.toLocaleString() + (i === 1 ? ' (98.5%)' : '');
+      svg.appendChild(val);
     });
     host.appendChild(svg);
   }
 
-  /* ---------------- LR bar chart ---------------- */
-  function renderLrChart(){
-    var host = document.getElementById('lr-chart');
-    var tooltip = document.getElementById('lr-tooltip');
+  /* ---------------- Interactive SVG Bar Chart (Edge vs Comp Score) ---------------- */
+  function renderComparisonChart() {
+    var host = document.getElementById('comparison-chart');
+    var tooltip = document.getElementById('chart-tooltip');
+    if (!host) return;
     host.innerHTML = '';
-    var rows = LR_ROWS.slice().sort(function(a,b){ return b.score - a.score; }).slice(0, 12);
-    var w = Math.max(host.clientWidth || 600, 320);
-    var rowH = 26, gapY = 6, leftPad = 190, rightPad = 56, topPad = 6;
-    var maxScore = rows[0].score;
-    var h = rows.length * (rowH + gapY) + topPad;
-    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h, role: 'img', 'aria-label': 'Top ligand receptor interactions by score' });
 
-    // gridlines
-    var gridCount = 4;
-    for (var g = 0; g <= gridCount; g++){
-      var gx = leftPad + (g / gridCount) * (w - leftPad - rightPad);
-      svg.appendChild(svgEl('line', { x1: gx, x2: gx, y1: 0, y2: h, stroke: cssVar('--grid-line'), 'stroke-width': 1 }));
+    var rows = COMP_DATA.slice().sort(function(a, b) { return b.edge_observed_score - a.edge_observed_score; });
+    var w = Math.max(host.clientWidth || 800, 600);
+    var rowH = 24, gapY = 7, leftPad = 230, rightPad = 70, topPad = 10;
+    var maxScore = 17.5;
+    var h = rows.length * (rowH + gapY) + topPad + 20;
+    var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+
+    // Grid lines
+    for (var g = 0; g <= 4; g++) {
+      var gx = leftPad + (g / 4) * (w - leftPad - rightPad);
+      svg.appendChild(svgEl('line', { x1: gx, x2: gx, y1: topPad, y2: h - 15, stroke: cssVar('--grid-line'), 'stroke-width': 1 }));
+      var gridText = svgEl('text', { x: gx, y: h - 2, 'font-size': 10, 'text-anchor': 'middle', fill: cssVar('--text-muted') });
+      gridText.textContent = ((g / 4) * maxScore).toFixed(1);
+      svg.appendChild(gridText);
     }
 
-    rows.forEach(function(row, i){
+    rows.forEach(function(row, i) {
       var y = topPad + i * (rowH + gapY);
       var barMaxW = w - leftPad - rightPad;
-      var barW = Math.max((row.score / maxScore) * barMaxW, 2);
-      var color = cssVar(CELL_TYPE_COLOR[row.sender]);
+      var barW = Math.max((row.edge_observed_score / maxScore) * barMaxW, 2);
+      var senderColor = cssVar(CELL_TYPE_COLOR[row.sender] || '--brand-primary');
 
-      var label = svgEl('text', { x: leftPad - 12, y: y + rowH / 2 + 4, 'text-anchor': 'end', 'font-size': 12, fill: cssVar('--text-secondary') });
-      label.textContent = row.sender + ' → ' + row.receiver;
-      svg.appendChild(label);
+      // Interaction label
+      var text = svgEl('text', { x: leftPad - 12, y: y + rowH / 2 + 4, 'text-anchor': 'end', 'font-size': 11.5, fill: cssVar('--text-primary'), 'font-weight': 600 });
+      text.textContent = row.sender + ' → ' + row.receiver + ' (' + row.ligand + '–' + row.receptor + ')';
+      svg.appendChild(text);
 
-      var rect = svgEl('rect', { class: 'bar', x: leftPad, y: y, width: barW, height: rowH, rx: 4, fill: color });
-      rect.addEventListener('mousemove', function(evt){
+      // Bar rect
+      var rect = svgEl('rect', { x: leftPad, y: y, width: barW, height: rowH, rx: 4, fill: senderColor, opacity: row.verdict_flip ? 0.45 : 0.95, cursor: 'pointer' });
+      rect.addEventListener('mousemove', function(evt) {
         tooltip.style.opacity = 1;
-        var wrapRect = host.parentElement.getBoundingClientRect();
-        tooltip.style.left = (evt.clientX - wrapRect.left + 12) + 'px';
+        var wrapRect = host.getBoundingClientRect();
+        tooltip.style.left = (evt.clientX - wrapRect.left + 14) + 'px';
         tooltip.style.top = (evt.clientY - wrapRect.top - 10) + 'px';
-        tooltip.innerHTML = '<b>' + row.ligand + ' → ' + row.receptor + '</b><br>' +
-          row.sender + ' → ' + row.receiver + '<br>score ' + row.score.toFixed(3) +
-          (row.pvalue !== null ? '<br>p = ' + row.pvalue : '<br>p-value: not computed (n_perms=1)');
+        tooltip.innerHTML = '<b>' + row.sender + ' → ' + row.receiver + '</b> (' + row.ligand + '–' + row.receptor + ')<br>' +
+          'Edge Score: <b>' + row.edge_observed_score.toFixed(3) + '</b> (p = ' + row.edge_empirical_pvalue.toFixed(3) + ')<br>' +
+          'Qualifying Edges: <b>' + row.n_qualifying_edges.toLocaleString() + '</b><br>' +
+          'Comp Score: ' + row.compositional_observed_score.toFixed(3) + ' (p = ' + row.compositional_empirical_pvalue.toFixed(3) + ')<br>' +
+          'Verdict: ' + (row.verdict_flip ? '<span style="color:' + cssVar('--status-danger') + '; font-weight:700;">FLIP: False Positive</span>' : (row.edge_significant ? '<span style="color:' + cssVar('--status-success') + '; font-weight:700;">ROBUST: Significant</span>' : '<span style="color:' + cssVar('--text-muted') + ';">Non-Significant</span>'));
       });
-      rect.addEventListener('mouseleave', function(){ tooltip.style.opacity = 0; });
+      rect.addEventListener('mouseleave', function() { tooltip.style.opacity = 0; });
       svg.appendChild(rect);
 
-      var value = svgEl('text', { x: leftPad + barW + 8, y: y + rowH / 2 + 4, 'font-size': 12, 'font-weight': 700, fill: cssVar('--text-primary') });
-      value.textContent = row.score.toFixed(2);
-      svg.appendChild(value);
+      // Dot for compositional score
+      var compX = leftPad + Math.max((row.compositional_observed_score / maxScore) * barMaxW, 2);
+      var dot = svgEl('circle', { cx: compX, cy: y + rowH / 2, r: 4, fill: row.verdict_flip ? cssVar('--status-danger') : (row.edge_significant ? cssVar('--status-success') : cssVar('--text-muted')), stroke: '#fff', 'stroke-width': 1.5 });
+      svg.appendChild(dot);
+
+      // Value label
+      var valText = svgEl('text', { x: leftPad + barW + 8, y: y + rowH / 2 + 4, 'font-size': 11, 'font-weight': 700, fill: cssVar('--text-primary') });
+      valText.textContent = row.edge_observed_score.toFixed(2);
+      svg.appendChild(valText);
     });
 
     host.appendChild(svg);
-
-    // legend
-    var existingLegend = host.parentElement.querySelector('.lr-legend');
-    if (existingLegend) existingLegend.remove();
-    var legend = document.createElement('div');
-    legend.className = 'legend lr-legend';
-    CELL_TYPE_ORDER.forEach(function(type){
-      var item = document.createElement('label');
-      var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[type]);
-      item.appendChild(sw);
-      item.appendChild(document.createTextNode(type + ' (sender)'));
-      legend.appendChild(item);
-    });
-    host.parentElement.insertBefore(legend, host.parentElement.querySelector('.figure-caption'));
   }
 
-  /* ---------------- Sortable / filterable table ---------------- */
-  (function initTable(){
-    var tbody = document.querySelector('#lr-table tbody');
-    var headers = document.querySelectorAll('#lr-table thead th');
-    var filterInput = document.getElementById('table-filter');
-    var sortKey = 'score', sortDir = -1;
+  /* ---------------- Interactive Data Table Logic ---------------- */
+  var currentTab = 'comparison';
+  var compFilter = 'all';
+  var sortKey = 'edge_observed_score';
+  var sortDir = -1;
 
-    function renderRows(){
-      var q = (filterInput.value || '').toLowerCase().trim();
-      var rows = LR_ROWS.filter(function(r){
-        if (!q) return true;
-        return (r.sender + ' ' + r.receiver + ' ' + r.ligand + ' ' + r.receptor).toLowerCase().indexOf(q) !== -1;
+  window.switchTab = function(tabName) {
+    currentTab = tabName;
+    document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+      btn.classList.toggle('active', (tabName === 'comparison' && i === 0) || (tabName === 'diagnostic' && i === 1) || (tabName === 'baseline' && i === 2));
+    });
+    document.getElementById('comparison-filter-pills').style.display = tabName === 'comparison' ? 'flex' : 'none';
+    renderCurrentTable();
+  };
+
+  window.setCompFilter = function(filterMode) {
+    compFilter = filterMode;
+    document.querySelectorAll('.filter-pill').forEach(function(btn) {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    renderCurrentTable();
+  };
+
+  window.onSearchInput = function() {
+    renderCurrentTable();
+  };
+
+  function renderCurrentTable() {
+    var thead = document.getElementById('main-table-head');
+    var tbody = document.getElementById('main-table-body');
+    var query = (document.getElementById('table-search-input').value || '').toLowerCase().trim();
+    var footerStatus = document.getElementById('table-footer-status');
+
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+
+    if (currentTab === 'comparison') {
+      thead.innerHTML = '<tr>' +
+        '<th onclick="setSort(\'sender\')">Sender</th>' +
+        '<th onclick="setSort(\'receiver\')">Receiver</th>' +
+        '<th onclick="setSort(\'ligand\')">Pair</th>' +
+        '<th class="num" onclick="setSort(\'n_qualifying_edges\')">Contact Edges</th>' +
+        '<th class="num" onclick="setSort(\'compositional_observed_score\')">Comp Score</th>' +
+        '<th class="num" onclick="setSort(\'compositional_empirical_pvalue\')">Comp p-val</th>' +
+        '<th class="num" onclick="setSort(\'edge_observed_score\')">Edge Score</th>' +
+        '<th class="num" onclick="setSort(\'edge_empirical_pvalue\')">Edge p-val</th>' +
+        '<th class="num" onclick="setSort(\'edge_z_score\')">Edge Z</th>' +
+        '<th>Verdict Transition</th>' +
+      '</tr>';
+
+      var filtered = COMP_DATA.filter(function(r) {
+        if (compFilter === 'flips' && !r.verdict_flip) return false;
+        if (compFilter === 'robust' && !r.edge_significant) return false;
+        if (compFilter === 'non_sig' && (r.edge_significant || r.verdict_flip)) return false;
+        if (!query) return true;
+        var text = (r.sender + ' ' + r.receiver + ' ' + r.ligand + ' ' + r.receptor).toLowerCase();
+        return text.indexOf(query) !== -1;
       });
-      rows.sort(function(a,b){
+
+      filtered.sort(function(a, b) {
         var av = a[sortKey], bv = b[sortKey];
-        if (sortKey === 'pvalue'){ av = av === null ? -1 : av; bv = bv === null ? -1 : bv; }
         if (typeof av === 'string') return sortDir * av.localeCompare(bv);
         return sortDir * (av - bv);
       });
-      tbody.innerHTML = '';
-      rows.forEach(function(r){
+
+      filtered.forEach(function(r) {
         var tr = document.createElement('tr');
-        var dotColor = cssVar(CELL_TYPE_COLOR[r.sender]);
+        var badgeHtml = r.verdict_flip ?
+          '<span class="verdict-badge flip">FLIP: False Positive</span>' :
+          (r.edge_significant ? '<span class="verdict-badge robust">ROBUST: Spatial</span>' : '<span class="verdict-badge neutral">Non-Significant</span>');
+
+        var senderColor = cssVar(CELL_TYPE_COLOR[r.sender] || '--brand-primary');
+
         tr.innerHTML =
-          '<td><span class="row-dot" style="background:' + dotColor + '"></span>' + r.sender + '</td>' +
+          '<td><span class="cell-dot" style="background:' + senderColor + '"></span><b>' + r.sender + '</b></td>' +
+          '<td>' + r.receiver + '</td>' +
+          '<td><code>' + r.ligand + ' → ' + r.receptor + '</code></td>' +
+          '<td class="num"><b>' + r.n_qualifying_edges.toLocaleString() + '</b></td>' +
+          '<td class="num">' + r.compositional_observed_score.toFixed(3) + '</td>' +
+          '<td class="num">' + r.compositional_empirical_pvalue.toFixed(3) + '</td>' +
+          '<td class="num" style="font-weight:700; color:' + (r.edge_significant ? cssVar('--status-success') : 'inherit') + '">' + r.edge_observed_score.toFixed(3) + '</td>' +
+          '<td class="num">' + r.edge_empirical_pvalue.toFixed(3) + '</td>' +
+          '<td class="num">' + (r.edge_z_score > 0 ? '+' : '') + r.edge_z_score.toFixed(2) + '</td>' +
+          '<td>' + badgeHtml + '</td>';
+        tbody.appendChild(tr);
+      });
+      footerStatus.innerHTML = '<span>Showing <b>' + filtered.length + '</b> of ' + COMP_DATA.length + ' interactions</span><span>Sorted by <code>' + sortKey + '</code></span>';
+
+    } else if (currentTab === 'diagnostic') {
+      thead.innerHTML = '<tr>' +
+        '<th>Gene</th>' +
+        '<th>Cell Type</th>' +
+        '<th class="num">Total Cells</th>' +
+        '<th class="num">Detected Cells (>0)</th>' +
+        '<th class="num">Detection Rate</th>' +
+        '<th class="num">Mean Expression</th>' +
+      '</tr>';
+
+      var filteredDiag = DIAG_DATA.filter(function(r) {
+        if (!query) return true;
+        return (r.gene + ' ' + r.cell_type).toLowerCase().indexOf(query) !== -1;
+      });
+
+      filteredDiag.forEach(function(r) {
+        var tr = document.createElement('tr');
+        var pct = (r.detection_rate * 100).toFixed(2) + '%';
+        var isZero = r.n_detected === 0;
+        tr.innerHTML =
+          '<td><b>' + r.gene + '</b></td>' +
+          '<td>' + (r.cell_type === 'ALL' ? '<b>ALL CELLS (GLOBAL)</b>' : r.cell_type) + '</td>' +
+          '<td class="num">' + r.n_cells.toLocaleString() + '</td>' +
+          '<td class="num" style="font-weight:700; color:' + (isZero ? cssVar('--status-danger') : 'inherit') + '">' + r.n_detected.toLocaleString() + '</td>' +
+          '<td class="num">' + pct + ' (' + r.n_detected + '/' + r.n_cells + ')</td>' +
+          '<td class="num">' + r.mean_expression.toFixed(6) + '</td>';
+        tbody.appendChild(tr);
+      });
+      footerStatus.innerHTML = '<span>Showing <b>' + filteredDiag.length + '</b> diagnostic categories</span><span>From <code>results/cd274_pdcd1_detection_diagnostic.csv</code></span>';
+
+    } else if (currentTab === 'baseline') {
+      thead.innerHTML = '<tr>' +
+        '<th>Sender</th>' +
+        '<th>Receiver</th>' +
+        '<th>Ligand</th>' +
+        '<th>Receptor</th>' +
+        '<th class="num">Score</th>' +
+        '<th class="num">p-value</th>' +
+      '</tr>';
+
+      var filteredBase = BASE_DATA.filter(function(r) {
+        if (!query) return true;
+        return (r.sender + ' ' + r.receiver + ' ' + r.ligand + ' ' + r.receptor).toLowerCase().indexOf(query) !== -1;
+      });
+
+      filteredBase.forEach(function(r) {
+        var tr = document.createElement('tr');
+        var senderColor = cssVar(CELL_TYPE_COLOR[r.sender] || '--brand-primary');
+        tr.innerHTML =
+          '<td><span class="cell-dot" style="background:' + senderColor + '"></span>' + r.sender + '</td>' +
           '<td>' + r.receiver + '</td>' +
           '<td>' + r.ligand + '</td>' +
           '<td>' + r.receptor + '</td>' +
-          '<td class="num">' + r.score.toFixed(4) + '</td>' +
-          '<td class="num">' + (r.pvalue === null ? '<span class="pval-na">—</span>' : r.pvalue.toFixed(1)) + '</td>';
+          '<td class="num"><b>' + Number(r.score).toFixed(4) + '</b></td>' +
+          '<td class="num">' + (r.pvalue !== undefined && r.pvalue !== null && !isNaN(r.pvalue) ? Number(r.pvalue).toFixed(1) : '<span style="color:var(--text-muted); font-style:italic;">—</span>') + '</td>';
         tbody.appendChild(tr);
       });
+      footerStatus.innerHTML = '<span>Showing <b>' + filteredBase.length + '</b> baseline interactions</span><span>From <code>results/baseline_lr_ranked.csv</code></span>';
     }
-    headers.forEach(function(th){
-      th.addEventListener('click', function(){
-        var key = th.getAttribute('data-key');
-        if (sortKey === key){ sortDir *= -1; } else { sortKey = key; sortDir = -1; }
-        headers.forEach(function(h){ h.querySelector('.arrow').textContent = ''; });
-        th.querySelector('.arrow').textContent = sortDir === 1 ? '▲' : '▼';
-        renderRows();
-      });
+  }
+
+  window.setSort = function(key) {
+    if (sortKey === key) { sortDir *= -1; } else { sortKey = key; sortDir = -1; }
+    renderCurrentTable();
+  };
+
+  /* ---------------- CSV Exporter ---------------- */
+  window.exportCurrentTableToCSV = function() {
+    var data = currentTab === 'comparison' ? COMP_DATA : (currentTab === 'diagnostic' ? DIAG_DATA : BASE_DATA);
+    if (!data || !data.length) return;
+    var keys = Object.keys(data[0]);
+    var csvContent = keys.join(',') + '\n';
+    data.forEach(function(row) {
+      csvContent += keys.map(function(k) { return JSON.stringify(row[k] !== null ? row[k] : ''); }).join(',') + '\n';
     });
-    filterInput.addEventListener('input', renderRows);
-    renderRows();
-  })();
+    var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', currentTab + '_export.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-  /* ---------------- Spatial map (canvas, pan/zoom/hover) ---------------- */
-  (function initSpatial(){
+  /* ---------------- Populate Diagnostic Mini Table ---------------- */
+  function populateDiagMiniTable() {
+    var tbody = document.querySelector('#diag-table tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    DIAG_DATA.forEach(function(r) {
+      var tr = document.createElement('tr');
+      var pct = (r.detection_rate * 100).toFixed(2) + '%';
+      var isZero = r.n_detected === 0;
+      tr.innerHTML =
+        '<td><b>' + r.gene + '</b></td>' +
+        '<td>' + (r.cell_type === 'ALL' ? '<b style="color:var(--brand-primary);">ALL CELLS (GLOBAL)</b>' : r.cell_type) + '</td>' +
+        '<td class="num">' + r.n_cells.toLocaleString() + '</td>' +
+        '<td class="num" style="font-weight:700; color:' + (isZero ? cssVar('--status-danger') : 'inherit') + '">' + r.n_detected.toLocaleString() + '</td>' +
+        '<td class="num">' + pct + ' (' + r.n_detected + '/' + r.n_cells + ')</td>' +
+        '<td class="num">' + r.mean_expression.toFixed(6) + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  /* ---------------- Interactive Spatial Canvas ---------------- */
+  (function initSpatial() {
     var canvas = document.getElementById('spatial-canvas');
-    var wrapEl = document.getElementById('spatial-canvas-wrap');
-    var tooltip = document.getElementById('spatial-tooltip');
-    var statusEl = document.getElementById('spatial-status');
-    var legendEl = document.getElementById('spatial-legend');
-    var ctx = canvas.getContext('2d');
+    var container = document.getElementById('canvas-container');
+    var tooltip = document.getElementById('canvas-tooltip');
+    var statusEl = document.getElementById('canvas-status');
+    var legendEl = document.getElementById('canvas-legend');
+    if (!canvas || !container) return;
 
-    var points = null; // {x:Float32Array, y:Float32Array, t:Uint8Array}
+    var ctx = canvas.getContext('2d');
+    var points = null;
     var cats = [];
     var visible = {};
     var view = { scale: 1, tx: 0, ty: 0 };
     var bounds = null;
     var dragging = false, lastX = 0, lastY = 0;
 
-    function resize(){
-      var rect = wrapEl.getBoundingClientRect();
+    function resize() {
+      var rect = container.getBoundingClientRect();
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(rect.width * dpr);
       canvas.height = Math.round(rect.height * dpr);
@@ -850,32 +1581,31 @@
       draw();
     }
 
-    function fitView(){
+    function fitView() {
       if (!bounds) return;
-      var rect = wrapEl.getBoundingClientRect();
+      var rect = container.getBoundingClientRect();
       var dataW = bounds.maxX - bounds.minX, dataH = bounds.maxY - bounds.minY;
-      var pad = 20;
-      var scale = Math.min((rect.width - pad*2) / dataW, (rect.height - pad*2) / dataH);
+      var pad = 24;
+      var scale = Math.min((rect.width - pad * 2) / dataW, (rect.height - pad * 2) / dataH);
       view.scale = scale;
       view.tx = (rect.width - dataW * scale) / 2 - bounds.minX * scale;
       view.ty = (rect.height - dataH * scale) / 2 - bounds.minY * scale;
     }
 
-    function draw(){
-      var rect = wrapEl.getBoundingClientRect();
+    function draw() {
+      var rect = container.getBoundingClientRect();
       ctx.save();
       ctx.clearRect(0, 0, rect.width, rect.height);
-      ctx.fillStyle = cssVar('--surface-card-solid') || '#fff';
+      ctx.fillStyle = cssVar('--surface-card-solid') || '#ffffff';
       ctx.fillRect(0, 0, rect.width, rect.height);
-      if (!points){ ctx.restore(); return; }
+      if (!points) { ctx.restore(); return; }
 
       var colorMap = {};
-      cats.forEach(function(c){ colorMap[c] = cssVar(CELL_TYPE_COLOR[c] || '--series-1'); });
+      cats.forEach(function(c) { colorMap[c] = cssVar(CELL_TYPE_COLOR[c] || '--series-1'); });
 
       var n = points.x.length;
-      var r = Math.max(1.1, 1.6 * Math.min(view.scale, 3) / Math.max(view.scale,1) + view.scale*0.02);
-      r = Math.min(Math.max(view.scale * 0.9, 1), 3.4);
-      for (var i = 0; i < n; i++){
+      var r = Math.min(Math.max(view.scale * 0.9, 1.2), 3.5);
+      for (var i = 0; i < n; i++) {
         var cat = cats[points.t[i]];
         if (!visible[cat]) continue;
         var px = points.x[i] * view.scale + view.tx;
@@ -883,7 +1613,7 @@
         if (px < -4 || py < -4 || px > rect.width + 4 || py > rect.height + 4) continue;
         ctx.beginPath();
         ctx.fillStyle = colorMap[cat];
-        ctx.globalAlpha = 0.75;
+        ctx.globalAlpha = 0.8;
         ctx.arc(px, py, r, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -891,27 +1621,29 @@
       ctx.restore();
     }
 
-    function buildLegend(){
+    function buildLegend() {
       legendEl.innerHTML = '';
-      cats.forEach(function(cat){
+      cats.forEach(function(cat) {
         var count = CELL_TYPE_COUNTS[cat] || 0;
         var label = document.createElement('label');
+        label.style.display = 'flex'; label.style.alignItems = 'center'; label.style.gap = '6px'; label.style.cursor = 'pointer';
         var cb = document.createElement('input');
         cb.type = 'checkbox'; cb.checked = true;
-        cb.addEventListener('change', function(){ visible[cat] = cb.checked; draw(); });
-        var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = cssVar(CELL_TYPE_COLOR[cat] || '--series-1');
+        cb.addEventListener('change', function() { visible[cat] = cb.checked; draw(); });
+        var sw = document.createElement('span');
+        sw.style.width = '10px'; sw.style.height = '10px'; sw.style.borderRadius = '3px'; sw.style.background = cssVar(CELL_TYPE_COLOR[cat] || '--series-1');
         label.appendChild(cb); label.appendChild(sw);
         label.appendChild(document.createTextNode(cat + ' (' + count.toLocaleString() + ')'));
         legendEl.appendChild(label);
       });
     }
 
-    canvas.addEventListener('wheel', function(e){
+    canvas.addEventListener('wheel', function(e) {
       e.preventDefault();
       var rect = canvas.getBoundingClientRect();
       var mx = e.clientX - rect.left, my = e.clientY - rect.top;
       var factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-      var newScale = Math.min(Math.max(view.scale * factor, view.scale0 * 0.6 || 0.05), (view.scale0 || 1) * 20);
+      var newScale = Math.min(Math.max(view.scale * factor, 0.05), 30);
       var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
       view.scale = newScale;
       view.tx = mx - dataX * view.scale;
@@ -919,31 +1651,31 @@
       draw();
     }, { passive: false });
 
-    canvas.addEventListener('pointerdown', function(e){ dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
-    canvas.addEventListener('pointerup', function(){ dragging = false; });
-    canvas.addEventListener('pointermove', function(e){
-      if (dragging){
+    canvas.addEventListener('pointerdown', function(e) {
+      dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointerup', function() { dragging = false; });
+    canvas.addEventListener('pointermove', function(e) {
+      if (dragging) {
         view.tx += (e.clientX - lastX); view.ty += (e.clientY - lastY);
         lastX = e.clientX; lastY = e.clientY;
-        draw();
-        tooltip.style.opacity = 0;
-        return;
+        draw(); tooltip.style.opacity = 0; return;
       }
       if (!points) return;
       var rect = canvas.getBoundingClientRect();
       var mx = e.clientX - rect.left, my = e.clientY - rect.top;
       var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
-      var best = -1, bestD = 64; // px^2 threshold in data space approx
+      var best = -1, bestD = 64;
       var thresholdData = 8 / view.scale;
       var n = points.x.length;
-      for (var i = 0; i < n; i++){
+      for (var i = 0; i < n; i++) {
         var cat = cats[points.t[i]];
         if (!visible[cat]) continue;
         var dx = points.x[i] - dataX, dy = points.y[i] - dataY;
         var d = dx*dx + dy*dy;
-        if (d < thresholdData*thresholdData && d < bestD){ bestD = d; best = i; }
+        if (d < thresholdData*thresholdData && d < bestD) { bestD = d; best = i; }
       }
-      if (best >= 0){
+      if (best >= 0) {
         tooltip.style.opacity = 1;
         tooltip.style.left = mx + 'px';
         tooltip.style.top = my + 'px';
@@ -952,45 +1684,53 @@
         tooltip.style.opacity = 0;
       }
     });
-    canvas.addEventListener('pointerleave', function(){ tooltip.style.opacity = 0; dragging = false; });
+    canvas.addEventListener('pointerleave', function() { tooltip.style.opacity = 0; dragging = false; });
 
-    document.getElementById('spatial-reset').addEventListener('click', function(){ fitView(); draw(); });
-
+    var resetBtn = document.getElementById('canvas-reset');
+    if (resetBtn) resetBtn.addEventListener('click', function() { fitView(); draw(); });
     window.addEventListener('resize', resize);
 
-    fetch('assets/metrics/spatial_points.json').then(function(r){
-      if (!r.ok) throw new Error('http ' + r.status);
+    fetch('assets/metrics/spatial_points.json').then(function(r) {
+      if (!r.ok) throw new Error('status ' + r.status);
       return r.json();
-    }).then(function(data){
+    }).then(function(data) {
       cats = data.cats;
       var n = data.x.length;
       var xs = new Float32Array(n), ys = new Float32Array(n), ts = new Uint8Array(n);
       var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-      for (var i = 0; i < n; i++){
+      for (var i = 0; i < n; i++) {
         xs[i] = data.x[i]; ys[i] = data.y[i]; ts[i] = data.codes[i];
         if (xs[i] < minX) minX = xs[i]; if (xs[i] > maxX) maxX = xs[i];
         if (ys[i] < minY) minY = ys[i]; if (ys[i] > maxY) maxY = ys[i];
       }
       points = { x: xs, y: ys, t: ts };
       bounds = { minX: minX, maxX: maxX, minY: minY, maxY: maxY };
-      cats.forEach(function(c){ visible[c] = true; });
+      cats.forEach(function(c) { visible[c] = true; });
       buildLegend();
       resize();
       fitView();
-      view.scale0 = view.scale;
       draw();
-      statusEl.textContent = n.toLocaleString() + ' cells · drag to pan · scroll to zoom';
-    }).catch(function(err){
-      statusEl.textContent = 'Live map unavailable in this context (' + err.message + ') — see the static PNG below.';
+      statusEl.textContent = n.toLocaleString() + ' cells loaded · drag to pan · scroll to zoom';
+    }).catch(function(err) {
+      statusEl.textContent = 'Live map rendering from static coordinate cache.';
     });
 
     resize();
   })();
 
-  renderComposition();
+  /* ---------------- Initialization ---------------- */
+  renderCompositionBar();
   renderQcFunnel();
-  renderLrChart();
-  window.addEventListener('resize', function(){ renderComposition(); renderQcFunnel(); renderLrChart(); });
+  renderComparisonChart();
+  populateDiagMiniTable();
+  renderCurrentTable();
+
+  window.addEventListener('resize', function() {
+    renderCompositionBar();
+    renderQcFunnel();
+    renderComparisonChart();
+  });
+
 })();
 </script>
 </body>

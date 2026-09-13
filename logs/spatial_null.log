@@ -1,0 +1,39 @@
+2026-09-13 08:18:52,956 INFO spatial_null start=2026-09-13T13:18:52.956143+00:00 seed=42
+2026-09-13 08:18:53,072 INFO Loaded AnnData: 7163 cells, 280 genes. Testing 22 baseline interactions.
+2026-09-13 08:18:53,072 INFO Timing initial benchmark of 10 permutations...
+2026-09-13 08:18:53,094 INFO 10 permutations completed in 0.0226 s (0.00226 s/permutation)
+2026-09-13 08:18:53,096 INFO Extrapolated runtime: N=200 -> 0.45 s, N=500 -> 1.13 s
+2026-09-13 08:18:53,096 INFO Timing decision: Selecting N=500 permutations (est. runtime 1.13 s, within recommended 200-500 range)
+2026-09-13 08:18:53,096 INFO Executing full spatial-null permutation test (N=500, seed=42)...
+2026-09-13 08:18:53,938 INFO Permutations completed in 0.8412 s
+2026-09-13 08:18:53,950 INFO Saved aggregated null distribution matrix to F:\Thesis\results\spatial_null_distributions.npz
+2026-09-13 08:18:53,958 INFO Saved spatial-null corrected results to F:\Thesis\results\spatial_null_corrected.csv
+2026-09-13 08:18:53,958 INFO Results summary: 17/22 interactions significant (empirical p < 0.05), 5 non-significant
+2026-09-13 08:18:55,338 INFO Saved comparison figure to F:\Thesis\figures\spatial_null_comparison.png and .pdf
+2026-09-13 08:18:55,338 INFO spatial_null finished: runtime=2.38 s, seed=42, N=500, tested=22, significant=17
+2026-09-13 08:19:10,525 INFO spatial_null start=2026-09-13T13:19:10.525374+00:00 seed=42
+2026-09-13 08:19:10,620 INFO Loaded AnnData: 7163 cells, 280 genes. Testing 22 baseline interactions.
+2026-09-13 08:19:10,620 INFO Timing initial benchmark of 10 permutations...
+2026-09-13 08:19:10,634 INFO 10 permutations completed in 0.0126 s (0.00126 s/permutation)
+2026-09-13 08:19:10,634 INFO Extrapolated runtime: N=200 -> 0.25 s, N=500 -> 0.63 s
+2026-09-13 08:19:10,634 INFO Timing decision: Selecting N=500 permutations (est. runtime 0.63 s, within recommended 200-500 range)
+2026-09-13 08:19:10,634 INFO Executing full spatial-null permutation test (N=500, seed=42)...
+2026-09-13 08:19:11,376 INFO Permutations completed in 0.7424 s
+2026-09-13 08:19:11,387 INFO Saved aggregated null distribution matrix to F:\Thesis\results\spatial_null_distributions.npz
+2026-09-13 08:19:11,394 INFO Saved spatial-null corrected results to F:\Thesis\results\spatial_null_corrected.csv
+2026-09-13 08:19:11,394 INFO Results summary: 17/22 interactions significant (empirical p < 0.05), 5 non-significant
+2026-09-13 08:19:12,505 INFO Saved comparison figure to F:\Thesis\figures\spatial_null_comparison.png and .pdf
+2026-09-13 08:19:12,505 INFO spatial_null finished: runtime=1.98 s, seed=42, N=500, tested=22, significant=17
+2026-09-13 08:19:48,763 INFO spatial_null start=2026-09-13T13:19:48.763366+00:00 seed=42
+2026-09-13 08:19:48,935 INFO Loaded AnnData: 7163 cells, 280 genes. Testing 22 baseline interactions.
+2026-09-13 08:19:48,935 INFO Timing initial benchmark of 10 permutations...
+2026-09-13 08:19:48,961 INFO 10 permutations completed in 0.0256 s (0.00256 s/permutation)
+2026-09-13 08:19:48,961 INFO Extrapolated runtime: N=200 -> 0.51 s, N=500 -> 1.28 s
+2026-09-13 08:19:48,961 INFO Timing decision: Selecting N=500 permutations (est. runtime 1.28 s, within recommended 200-500 range)
+2026-09-13 08:19:48,961 INFO Executing full spatial-null permutation test (N=500, seed=42)...
+2026-09-13 08:19:49,746 INFO Permutations completed in 0.7856 s
+2026-09-13 08:19:49,757 INFO Saved aggregated null distribution matrix to F:\Thesis\results\spatial_null_distributions.npz
+2026-09-13 08:19:49,763 INFO Saved spatial-null corrected results to F:\Thesis\results\spatial_null_corrected.csv
+2026-09-13 08:19:49,763 INFO Results summary: 17/22 interactions significant (empirical p < 0.05), 5 non-significant
+2026-09-13 08:19:50,787 INFO Saved comparison figure to F:\Thesis\figures\spatial_null_comparison.png and .pdf
+2026-09-13 08:19:50,787 INFO spatial_null finished: runtime=2.02 s, seed=42, N=500, tested=22, significant=17

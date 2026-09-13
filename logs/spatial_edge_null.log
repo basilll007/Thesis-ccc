@@ -1,0 +1,22 @@
+2026-09-13 13:20:55,185 INFO spatial_edge_null start=2026-09-13T18:20:55.185358+00:00 seed=42 N=500
+2026-09-13 13:20:55,345 INFO Loaded AnnData (7163 cells) and baseline (22 interactions).
+2026-09-13 13:20:55,346 INFO Extracted 42978 directed spatial edges from adata.obsp['spatial_connectivities'].
+2026-09-13 13:20:55,390 INFO Generating 500 label permutations (seed=42) and evaluating edge scores...
+2026-09-13 13:21:16,629 INFO Permutations completed in 21.2381 s (0.04248 s/permutation)
+2026-09-13 13:21:16,641 INFO Saved spatial edge null results to F:\Thesis\results\spatial_edge_null.csv
+2026-09-13 13:21:16,658 INFO Saved null model comparison to F:\Thesis\results\null_model_comparison.csv
+2026-09-13 13:21:16,658 INFO Summary: 8/22 interactions significant under edge null. Verdict flips vs compositional null: 9.
+2026-09-13 13:21:19,276 INFO Saved spatial edge null figure to F:\Thesis\figures\spatial_edge_null_comparison.png / .pdf
+2026-09-13 13:21:20,989 INFO Saved flip comparison figure to F:\Thesis\figures\null_model_flip_comparison.png / .pdf
+2026-09-13 13:21:20,989 INFO spatial_edge_null finished: runtime=25.80 s, seed=42, N=500, tested=22, edge_significant=8, flips=9
+2026-09-13 13:21:35,675 INFO spatial_edge_null start=2026-09-13T18:21:35.675078+00:00 seed=42 N=500
+2026-09-13 13:21:35,858 INFO Loaded AnnData (7163 cells) and baseline (22 interactions).
+2026-09-13 13:21:35,859 INFO Extracted 42978 directed spatial edges from adata.obsp['spatial_connectivities'].
+2026-09-13 13:21:35,926 INFO Generating 500 label permutations (seed=42) and evaluating edge scores...
+2026-09-13 13:21:55,904 INFO Permutations completed in 19.9773 s (0.03995 s/permutation)
+2026-09-13 13:21:55,908 INFO Saved spatial edge null results to F:\Thesis\results\spatial_edge_null.csv
+2026-09-13 13:21:55,914 INFO Saved null model comparison to F:\Thesis\results\null_model_comparison.csv
+2026-09-13 13:21:55,914 INFO Summary: 8/22 interactions significant under edge null. Verdict flips vs compositional null: 9.
+2026-09-13 13:21:56,995 INFO Saved spatial edge null figure to F:\Thesis\figures\spatial_edge_null_comparison.png / .pdf
+2026-09-13 13:21:58,379 INFO Saved flip comparison figure to F:\Thesis\figures\null_model_flip_comparison.png / .pdf
+2026-09-13 13:21:58,379 INFO spatial_edge_null finished: runtime=22.70 s, seed=42, N=500, tested=22, edge_significant=8, flips=9
