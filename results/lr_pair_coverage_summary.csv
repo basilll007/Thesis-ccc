@@ -1,0 +1,21 @@
+ligand,receptor,in_ranked_output,ligand_in_panel,receptor_in_panel,ligand_detection_rate,receptor_detection_rate,limiting_gene,limiting_rate,reason
+TGFB1,TGFBR1,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+TGFB1,TGFBR2,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+EGF,EGFR,False,False,True,0.0,0.18860812508725394,EGF (ligand not in panel),0.0,Ligand EGF omitted from 10x Xenium 280-gene panel
+FGF2,FGFR1,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+VEGFA,KDR,False,False,True,0.0,0.01954488342873098,VEGFA (ligand not in panel),0.0,Ligand VEGFA omitted from 10x Xenium 280-gene panel
+CXCL12,CXCR4,True,True,True,0.1869328493647913,0.3925729442970822,CXCL12 (ligand),0.1869328493647913,Active in ranked baseline
+CCL2,CCR2,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+CCL5,CCR5,False,True,False,0.03224905765740611,0.0,CCR5 (receptor not in panel),0.0,Receptor CCR5 omitted from 10x Xenium 280-gene panel
+CXCL9,CXCR3,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+CXCL10,CXCR3,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+TNF,TNFRSF1A,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+IFNG,IFNGR1,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+IL6,IL6R,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+IL1B,IL1R1,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+HGF,MET,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+PDGFB,PDGFRA,False,False,True,0.0,0.5247801200614268,PDGFB (ligand not in panel),0.0,Ligand PDGFB omitted from 10x Xenium 280-gene panel
+PDGFB,PDGFRB,False,False,True,0.0,0.07985480943738657,PDGFB (ligand not in panel),0.0,Ligand PDGFB omitted from 10x Xenium 280-gene panel
+JAG1,NOTCH1,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel
+CD274,PDCD1,True,True,True,0.007399134440876727,0.0006980315510261064,PDCD1 (receptor),0.0006980315510261064,Active in ranked baseline
+MIF,CD74,False,False,False,0.0,0.0,both (neither in panel),0.0,Both ligand and receptor omitted from 10x Xenium 280-gene panel

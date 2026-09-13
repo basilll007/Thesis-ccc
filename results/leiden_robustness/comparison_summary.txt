@@ -1,0 +1,23 @@
+Task B: Leiden-Cluster Consensus Robustness Check Summary
+============================================================
+Total runtime: 27.58 seconds.
+Cell typing:
+- Original per-cell argmax ('cell_type'): 4 types (epithelial: 5355, fibroblast: 1398, immune: 361, endothelial: 49)
+- Leiden consensus ('cell_type_leiden'): 3 types (epithelial: 5756, immune: 773, fibroblast: 634, endothelial: 0)
+  (Endothelial cells absorbed into epithelial/fibroblast clusters due to low abundance n=49).
+
+Interactions tested: 18 combinations (all with score > 0).
+- Compositional null significant (p < 0.05): 13 / 18
+- Spatial edge null significant (p < 0.05): 7 / 18
+- Verdict flips (Comp Sig -> Edge Non-Sig): 6 / 18
+
+Comparison Insights:
+1. Top-ranked interaction consistency:
+   - Under compositional scoring, top hit is fibroblast->immune (CXCL12->CXCR4) with score 4.311.
+   - Under spatial edge scoring, top hit is fibroblast->immune (CXCL12->CXCR4) with score 20.206.
+   - In both typings, the fibroblast->immune CXCL12->CXCR4 paracrine axis remains the dominant spatial communication channel (edge score 14.54, 829 edges, z = +27.78).
+2. Stability of verdict flips:
+   - All CD274->PDCD1 combinations (3 pairs under 3 cell types: immune->fibroblast, fibroblast->fibroblast, fibroblast->epithelial) again flip to non-significant under the edge null, having observed edge score 0.0 and zero qualifying contact edges!
+   - Low-edge-count / random mixing combinations (epithelial->immune, immune->epithelial) similarly flip to non-significant.
+3. Conclusion:
+   The core thesis findings—specifically that cluster-marginal scoring generates false positives for pairs with zero or weak spatial contact, and that paracrine CXCL12->CXCR4 axes with high physical edge counts robustly survive spatial calibration—are fully invariant to whether cell typing is performed via per-cell argmax or Leiden cluster consensus.

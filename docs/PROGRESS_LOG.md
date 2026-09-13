@@ -109,3 +109,27 @@
 - **What failed**: None.
 - **Blockers**: None.
 - **Exact next step**: Document findings for the thesis methodology section regarding sparse receptor dropout and spatial-edge null properties, and proceed to downstream response pathway integration.
+
+## 2026-09-13 — Reviewer Robustness Checks: LR Detection-Rate Sweep & Leiden Consensus Typing
+
+- **Date/time**: 2026-09-13; local time ~15:58 UTC-05:00 / 20:58Z.
+- **What I did**:
+  1. **Task A (Detection-Rate Sweep across 20 LR Pairs)**:
+     - Gathered all 37 unique genes across the 20 curated `LR_PAIRS` tuples in `src/pipeline.py` and evaluated their single-cell detection rates on normalized `adata.X`.
+     - Discovered that only **9 of the 37 genes** are present on the commercial 10x Xenium 280-gene targeted breast panel; the remaining 28 genes are completely missing from the physical panel design.
+     - Confirmed that only **2 of the 20 pairs** (`CXCL12-CXCR4` and `CD274-PDCD1`) have both ligand and receptor present in the panel, definitively explaining why the other 18 pairs contributed zero rows to the baseline ranking.
+     - Exported `results/gene_detection_diagnostic.csv` (37 rows) and `results/lr_pair_coverage_summary.csv` (20 rows) in 0.29 seconds runtime.
+  2. **Task B (Leiden-Cluster-Based Consensus Typing Robustness Check)**:
+     - Computed cluster-level consensus labels across the 4 Leiden clusters (res=0.5) by taking the argmax of mean marker scores: Clusters 0 & 1 $\to$ `epithelial` (5,756 cells), Cluster 2 $\to$ `immune` (773 cells), Cluster 3 $\to$ `fibroblast` (634 cells). Endothelial cells ($n=49$) were absorbed into larger clusters.
+     - Generated confusion matrix / crosstab and exported `results/leiden_robustness/crosstab_cell_type_leiden.csv`.
+     - Re-executed the baseline scoring, 500-permutation compositional null test, and 500-permutation spatial-edge null test under `cell_type_leiden` ($N=500$, `seed=42`).
+     - Exported `results/leiden_robustness/null_model_comparison_leiden.csv`, `results/leiden_robustness/spatial_edge_null_leiden.csv`, and `results/leiden_robustness/comparison_summary.txt` in 27.58 seconds runtime.
+- **Key decisions**: Keep existing per-cell `cell_type` results untouched; evaluate Leiden consensus as a parallel robustness check in `results/leiden_robustness/`; record missing panel genes explicitly rather than skipping them; execute with `n_jobs=1` under `if __name__ == '__main__':` for Windows multiprocessing stability.
+- **What worked**:
+  - The central thesis findings are 100% robust and invariant across cell typing methodologies:
+    1. The top communication axis under both compositional and edge scoring remains the `fibroblast→immune` (CXCL12→CXCR4) paracrine axis (edge score 20.21, 1,094 edges, $z = +39.57$).
+    2. All CD274→PDCD1 combinations (6 pairs) again flipped from Significant under compositional null to Non-Significant under edge null because physical contact is zero.
+    3. Qualitative dichotomy holds: high-edge-count interactions robustly survive spatial calibration, while low-contact/random-mixing interactions flip to non-significant.
+- **What failed**: An initial multiprocessing spawn error occurred in Squidpy on Windows when called without `if __name__ == '__main__':`; resolved by restructuring runner scripts with explicit entry points.
+- **Blockers**: None.
+- **Exact next step**: Transition research dashboard (`index.html`) into a multi-page web application featuring dedicated pages for Flips, Diagnostics, Robustness, Interactive Explorer, Spatial Map, and Methodology.

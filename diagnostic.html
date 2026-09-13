@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — Gene Detection &amp; Coverage Diagnostics</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-2"></div><div class="ambient-blob blob-3"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="active">Diagnostics</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge" style="color: var(--brand-primary); background: var(--brand-glow);">Reviewer Robustness Check A</div>
+      <h1 class="hero-title">Coverage &amp; Detection Diagnostics:<br><span class="gradient-text">Why Only 2 of 20 Pairs Appear</span></h1>
+      <p class="hero-lede">
+        Reviewers noted that only 2 pairs (<code>CXCL12-CXCR4</code> and <code>CD274-PDCD1</code>) appeared in the 22-row ranked output.
+        This detection-rate sweep across all 37 unique genes proves that the remaining 18 pairs were not simply undetectable:
+        <b>28 of the 37 genes were omitted from the commercial 10x Xenium 280-gene panel</b>.
+      </p>
+
+      <!-- Section 1: 20 LR Pair Coverage Summary -->
+      <div class="card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700;">20 Curated LR Pairs Panel Coverage &amp; Limiting Gene Summary</h3>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--text-muted);">Saved to <code>results/lr_pair_coverage_summary.csv</code>.</p>
+        <div class="table-wrap">
+          <table class="interactive-table" id="pair-cov-table">
+            <thead>
+              <tr>
+                <th>Ligand</th>
+                <th>Receptor</th>
+                <th>In Baseline?</th>
+                <th>Ligand in Panel?</th>
+                <th>Receptor in Panel?</th>
+                <th>Limiting Target</th>
+                <th>Reason for Non-Inclusion</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 2: CD274-PDCD1 Zero-Variance Diagnostic -->
+      <div class="card" style="padding: 24px; margin-bottom: 32px; border-left: 4px solid var(--series-violet);">
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700;">CD274–PDCD1 Zero-Variance Diagnostic</h3>
+        <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0 0 16px; line-height: 1.6;">
+          Why did <code>edge_null_std == 0.000000</code> for all CD274–PDCD1 pairs?
+          <b>PDCD1</b> was detected in only <b>5 of 7,163 cells (0.07%)</b> (0 immune, 0 endothelial, 1 epithelial, 4 fibroblast).
+          <b>CD274</b> was detected in <b>53 of 7,163 cells (0.74%)</b>.
+          Crucially, across all <b>42,978 graph edges</b>, exactly <b>0 edges connect a CD274+ cell to a PDCD1+ cell</b>.
+          Because node expressions are fixed during label shuffling, the edge product vector is identically zero in every permutation,
+          guaranteeing zero variance.
+        </p>
+        <div class="table-wrap">
+          <table class="interactive-table" id="cd274-table">
+            <thead>
+              <tr>
+                <th>Gene</th>
+                <th>Cell Type Category</th>
+                <th class="num">Total Cells</th>
+                <th class="num">Cells Detected (>0)</th>
+                <th class="num">Detection Rate</th>
+                <th class="num">Mean Expression</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 3: 37 Unique Genes Detection Diagnostics -->
+      <div class="card" style="padding: 24px;">
+        <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700;">37 Unique Genes Detection Diagnostic (Panel Presence &amp; Lineage Rates)</h3>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--text-muted);">Saved to <code>results/gene_detection_diagnostic.csv</code>.</p>
+        <div class="table-wrap">
+          <table class="interactive-table" id="gene-diag-table">
+            <thead>
+              <tr>
+                <th>Gene</th>
+                <th>Role</th>
+                <th>In 280-Panel?</th>
+                <th class="num">Global Detected</th>
+                <th class="num">Global Rate</th>
+                <th class="num">Epithelial Rate</th>
+                <th class="num">Immune Rate</th>
+                <th class="num">Endothelial Rate</th>
+                <th class="num">Fibroblast Rate</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+<script>
+var PAIR_COV_DATA = [{"ligand": "TGFB1", "receptor": "TGFBR1", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "TGFB1", "receptor": "TGFBR2", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "EGF", "receptor": "EGFR", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": true, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.1886081250872539, "limiting_gene": "EGF (ligand not in panel)", "limiting_rate": 0.0, "reason": "Ligand EGF omitted from 10x Xenium 280-gene panel"}, {"ligand": "FGF2", "receptor": "FGFR1", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "VEGFA", "receptor": "KDR", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": true, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0195448834287309, "limiting_gene": "VEGFA (ligand not in panel)", "limiting_rate": 0.0, "reason": "Ligand VEGFA omitted from 10x Xenium 280-gene panel"}, {"ligand": "CXCL12", "receptor": "CXCR4", "in_ranked_output": true, "ligand_in_panel": true, "receptor_in_panel": true, "ligand_detection_rate": 0.1869328493647913, "receptor_detection_rate": 0.3925729442970822, "limiting_gene": "CXCL12 (ligand)", "limiting_rate": 0.1869328493647913, "reason": "Active in ranked baseline"}, {"ligand": "CCL2", "receptor": "CCR2", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "CCL5", "receptor": "CCR5", "in_ranked_output": false, "ligand_in_panel": true, "receptor_in_panel": false, "ligand_detection_rate": 0.0322490576574061, "receptor_detection_rate": 0.0, "limiting_gene": "CCR5 (receptor not in panel)", "limiting_rate": 0.0, "reason": "Receptor CCR5 omitted from 10x Xenium 280-gene panel"}, {"ligand": "CXCL9", "receptor": "CXCR3", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "CXCL10", "receptor": "CXCR3", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "TNF", "receptor": "TNFRSF1A", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "IFNG", "receptor": "IFNGR1", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "IL6", "receptor": "IL6R", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "IL1B", "receptor": "IL1R1", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "HGF", "receptor": "MET", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "PDGFB", "receptor": "PDGFRA", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": true, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.5247801200614268, "limiting_gene": "PDGFB (ligand not in panel)", "limiting_rate": 0.0, "reason": "Ligand PDGFB omitted from 10x Xenium 280-gene panel"}, {"ligand": "PDGFB", "receptor": "PDGFRB", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": true, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0798548094373865, "limiting_gene": "PDGFB (ligand not in panel)", "limiting_rate": 0.0, "reason": "Ligand PDGFB omitted from 10x Xenium 280-gene panel"}, {"ligand": "JAG1", "receptor": "NOTCH1", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}, {"ligand": "CD274", "receptor": "PDCD1", "in_ranked_output": true, "ligand_in_panel": true, "receptor_in_panel": true, "ligand_detection_rate": 0.0073991344408767, "receptor_detection_rate": 0.0006980315510261, "limiting_gene": "PDCD1 (receptor)", "limiting_rate": 0.0006980315510261, "reason": "Active in ranked baseline"}, {"ligand": "MIF", "receptor": "CD74", "in_ranked_output": false, "ligand_in_panel": false, "receptor_in_panel": false, "ligand_detection_rate": 0.0, "receptor_detection_rate": 0.0, "limiting_gene": "both (neither in panel)", "limiting_rate": 0.0, "reason": "Both ligand and receptor omitted from 10x Xenium 280-gene panel"}];
+var CD274_DATA = [{"gene": "CD274", "cell_type": "ALL", "n_cells": 7163, "n_detected": 53, "detection_rate": 0.0073991344408767, "mean_expression": 0.0330524258315563}, {"gene": "CD274", "cell_type": "epithelial", "n_cells": 5355, "n_detected": 16, "detection_rate": 0.0029878618113912, "mean_expression": 0.0124237947165966}, {"gene": "CD274", "cell_type": "immune", "n_cells": 361, "n_detected": 17, "detection_rate": 0.0470914127423822, "mean_expression": 0.2181688398122787}, {"gene": "CD274", "cell_type": "endothelial", "n_cells": 49, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "CD274", "cell_type": "fibroblast", "n_cells": 1398, "n_detected": 20, "detection_rate": 0.0143061516452074, "mean_expression": 0.0654264315962791}, {"gene": "PDCD1", "cell_type": "ALL", "n_cells": 7163, "n_detected": 5, "detection_rate": 0.0006980315510261, "mean_expression": 0.0031576256733387}, {"gene": "PDCD1", "cell_type": "epithelial", "n_cells": 5355, "n_detected": 1, "detection_rate": 0.0001867413632119, "mean_expression": 0.0007587120053358}, {"gene": "PDCD1", "cell_type": "immune", "n_cells": 361, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "PDCD1", "cell_type": "endothelial", "n_cells": 49, "n_detected": 0, "detection_rate": 0.0, "mean_expression": 0.0}, {"gene": "PDCD1", "cell_type": "fibroblast", "n_cells": 1398, "n_detected": 4, "detection_rate": 0.0028612303290414, "mean_expression": 0.0132726524025201}];
+var GENE_DIAG_DATA = [{"gene": "CCL2", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CCL5", "role": "ligand", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 231, "global_detection_rate": 0.0322490576574061, "global_mean_expression": 0.1681285798549652, "epithelial_detection_rate": 0.0072829131652661, "immune_detection_rate": 0.1523545706371191, "endothelial_detection_rate": 0.0204081632653061, "fibroblast_detection_rate": 0.0972818311874105}, {"gene": "CCR2", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CCR5", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CD274", "role": "ligand", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 53, "global_detection_rate": 0.0073991344408767, "global_mean_expression": 0.0330524258315563, "epithelial_detection_rate": 0.0029878618113912, "immune_detection_rate": 0.0470914127423822, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0143061516452074}, {"gene": "CD74", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CXCL10", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CXCL12", "role": "ligand", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 1339, "global_detection_rate": 0.1869328493647913, "global_mean_expression": 1.0194607973098757, "epithelial_detection_rate": 0.0616246498599439, "immune_detection_rate": 0.3767313019390582, "endothelial_detection_rate": 0.5510204081632653, "fibroblast_detection_rate": 0.6051502145922747}, {"gene": "CXCL9", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CXCR3", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "CXCR4", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 2812, "global_detection_rate": 0.3925729442970822, "global_mean_expression": 1.9442275762557983, "epithelial_detection_rate": 0.3759103641456582, "immune_detection_rate": 0.6537396121883656, "endothelial_detection_rate": 0.4693877551020408, "fibroblast_detection_rate": 0.3862660944206008}, {"gene": "EGF", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "EGFR", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 1351, "global_detection_rate": 0.1886081250872539, "global_mean_expression": 0.8251043558120728, "epithelial_detection_rate": 0.2253968253968254, "immune_detection_rate": 0.0221606648199446, "endothelial_detection_rate": 0.0204081632653061, "fibroblast_detection_rate": 0.0965665236051502}, {"gene": "FGF2", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "FGFR1", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "HGF", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IFNG", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IFNGR1", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IL1B", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IL1R1", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IL6", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "IL6R", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "JAG1", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "KDR", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 140, "global_detection_rate": 0.0195448834287309, "global_mean_expression": 0.0937938913702964, "epithelial_detection_rate": 0.0108309990662931, "immune_detection_rate": 0.0110803324099723, "endothelial_detection_rate": 0.7755102040816326, "fibroblast_detection_rate": 0.0286123032904148}, {"gene": "MET", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "MIF", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "NOTCH1", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "PDCD1", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 5, "global_detection_rate": 0.0006980315510261, "global_mean_expression": 0.0031576256733387, "epithelial_detection_rate": 0.0001867413632119, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0028612303290414}, {"gene": "PDGFB", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "PDGFRA", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 3759, "global_detection_rate": 0.5247801200614268, "global_mean_expression": 2.643959283828736, "epithelial_detection_rate": 0.5462184873949579, "immune_detection_rate": 0.1966759002770083, "endothelial_detection_rate": 0.2244897959183673, "fibroblast_detection_rate": 0.5379113018597997}, {"gene": "PDGFRB", "role": "receptor", "in_panel": true, "global_n_cells": 7163, "global_n_detected": 572, "global_detection_rate": 0.0798548094373865, "global_mean_expression": 0.3955462574958801, "epithelial_detection_rate": 0.0194211017740429, "immune_detection_rate": 0.0858725761772853, "endothelial_detection_rate": 0.2040816326530612, "fibroblast_detection_rate": 0.3054363376251788}, {"gene": "TGFB1", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "TGFBR1", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "TGFBR2", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "TNF", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "TNFRSF1A", "role": "receptor", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}, {"gene": "VEGFA", "role": "ligand", "in_panel": false, "global_n_cells": 7163, "global_n_detected": 0, "global_detection_rate": 0.0, "global_mean_expression": 0.0, "epithelial_detection_rate": 0.0, "immune_detection_rate": 0.0, "endothelial_detection_rate": 0.0, "fibroblast_detection_rate": 0.0}];
+
+function renderDiagnostics() {
+  // 1. Pair coverage table
+  var pBody = document.querySelector('#pair-cov-table tbody');
+  if (pBody) {
+    pBody.innerHTML = '';
+    PAIR_COV_DATA.forEach(function(r) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><b>' + r.ligand + '</b></td>' +
+        '<td><b>' + r.receptor + '</b></td>' +
+        '<td>' + (r.in_ranked_output ? '<span class="verdict-badge robust">YES (22 rows)</span>' : '<span class="verdict-badge neutral">NO</span>') + '</td>' +
+        '<td>' + (r.ligand_in_panel ? '✔ Present' : '<span style="color:var(--status-danger);">✘ Absent</span>') + '</td>' +
+        '<td>' + (r.receptor_in_panel ? '✔ Present' : '<span style="color:var(--status-danger);">✘ Absent</span>') + '</td>' +
+        '<td><code>' + r.limiting_gene + '</code></td>' +
+        '<td style="color:var(--text-secondary); font-size:12px;">' + r.reason + '</td>';
+      pBody.appendChild(tr);
+    });
+  }
+
+  // 2. CD274 table
+  var cdBody = document.querySelector('#cd274-table tbody');
+  if (cdBody) {
+    cdBody.innerHTML = '';
+    CD274_DATA.forEach(function(r) {
+      var tr = document.createElement('tr');
+      var isZero = r.n_detected === 0;
+      tr.innerHTML =
+        '<td><b>' + r.gene + '</b></td>' +
+        '<td>' + (r.cell_type === 'ALL' ? '<b style="color:var(--brand-primary);">ALL CELLS (GLOBAL)</b>' : r.cell_type) + '</td>' +
+        '<td class="num">' + r.n_cells.toLocaleString() + '</td>' +
+        '<td class="num" style="font-weight:700; color:' + (isZero ? 'var(--status-danger)' : 'inherit') + '">' + r.n_detected.toLocaleString() + '</td>' +
+        '<td class="num">' + (r.detection_rate * 100).toFixed(2) + '% (' + r.n_detected + '/' + r.n_cells + ')</td>' +
+        '<td class="num">' + r.mean_expression.toFixed(6) + '</td>';
+      cdBody.appendChild(tr);
+    });
+  }
+
+  // 3. Gene diag table
+  var gBody = document.querySelector('#gene-diag-table tbody');
+  if (gBody) {
+    gBody.innerHTML = '';
+    GENE_DIAG_DATA.forEach(function(r) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><b>' + r.gene + '</b></td>' +
+        '<td><span class="chip-tag">' + r.role + '</span></td>' +
+        '<td>' + (r.in_panel ? '<span style="color:var(--status-success); font-weight:700;">✔ Present</span>' : '<span style="color:var(--text-muted);">✘ Not in Panel</span>') + '</td>' +
+        '<td class="num">' + r.global_n_detected.toLocaleString() + '</td>' +
+        '<td class="num"><b>' + (r.global_detection_rate * 100).toFixed(2) + '%</b></td>' +
+        '<td class="num">' + (r.epithelial_detection_rate * 100).toFixed(2) + '%</td>' +
+        '<td class="num">' + (r.immune_detection_rate * 100).toFixed(2) + '%</td>' +
+        '<td class="num">' + (r.endothelial_detection_rate * 100).toFixed(2) + '%</td>' +
+        '<td class="num">' + (r.fibroblast_detection_rate * 100).toFixed(2) + '%</td>';
+      gBody.appendChild(tr);
+    });
+  }
+}
+renderDiagnostics();
+</script>
+</body>
+</html>

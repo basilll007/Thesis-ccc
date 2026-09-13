@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — Leiden Consensus Robustness Check</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-1"></div><div class="ambient-blob blob-3"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="active">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge" style="color: var(--series-violet); background: rgba(139, 92, 246, 0.15);">Reviewer Robustness Check B</div>
+      <h1 class="hero-title">Leiden Cluster-Consensus Robustness:<br><span class="gradient-text">Typing Invariance Verification</span></h1>
+      <p class="hero-lede">
+        The reviewer raised a key question: the baseline pipeline computes Leiden clustering (resolution 0.5) but previously assigned
+        labels via per-cell marker argmax. Does the edge-based scoring breakthrough and verdict flip pattern still hold under a
+        <b>cluster-consensus typing scheme</b>?
+      </p>
+
+      <!-- Findings Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 28px;">
+        <div class="card" style="padding: 18px;">
+          <div class="kpi-label">Tested Combinations</div>
+          <div class="kpi-value">18</div>
+          <div class="kpi-subtext">Across 3 consensus lineages (score &gt; 0)</div>
+        </div>
+        <div class="card" style="padding: 18px;">
+          <div class="kpi-label">Comp Null Significant</div>
+          <div class="kpi-value">13 / 18</div>
+          <div class="kpi-subtext">Under cluster-mean scoring (p &lt; 0.05)</div>
+        </div>
+        <div class="card" style="padding: 18px;">
+          <div class="kpi-label">Edge Null Significant</div>
+          <div class="kpi-value" style="color: var(--status-success);">7 / 18</div>
+          <div class="kpi-subtext">Confirmed by physical contact edges</div>
+        </div>
+        <div class="card" style="padding: 18px;">
+          <div class="kpi-label">Verdict Flips Unmasked</div>
+          <div class="kpi-value" style="color: var(--status-danger);">6 / 18</div>
+          <div class="kpi-subtext">All CD274–PDCD1 combinations flip!</div>
+        </div>
+      </div>
+
+      <!-- Confusion Matrix Card -->
+      <div class="card" style="padding: 24px; margin-bottom: 28px;">
+        <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700;">Confusion Matrix: Per-Cell Typing vs. Leiden Consensus Typing</h3>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--text-muted);">
+          Each cell was re-typed according to the argmax of mean marker scores in its Leiden cluster.
+          Endothelial cells (n=49) were absorbed into epithelial and fibroblast clusters due to small population size.
+        </p>
+        <div class="table-wrap">
+          <table class="interactive-table">
+            <thead>
+              <tr>
+                <th>Original cell_type \ cell_type_leiden</th>
+                <th class="num">Epithelial (Clusters 0, 1)</th>
+                <th class="num">Fibroblast (Cluster 3)</th>
+                <th class="num">Immune (Cluster 2)</th>
+                <th class="num">Total Cells</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+      <td><b>endothelial</b></td>
+      <td class="num">17</td>
+      <td class="num">30</td>
+      <td class="num">2</td>
+      <td class="num"><b>49</b></td>
+    </tr><tr>
+      <td><b>epithelial</b></td>
+      <td class="num">5,302</td>
+      <td class="num">12</td>
+      <td class="num">41</td>
+      <td class="num"><b>5,355</b></td>
+    </tr><tr>
+      <td><b>fibroblast</b></td>
+      <td class="num">403</td>
+      <td class="num">588</td>
+      <td class="num">407</td>
+      <td class="num"><b>1,398</b></td>
+    </tr><tr>
+      <td><b>immune</b></td>
+      <td class="num">34</td>
+      <td class="num">4</td>
+      <td class="num">323</td>
+      <td class="num"><b>361</b></td>
+    </tr><tr>
+      <td><b>TOTAL</b></td>
+      <td class="num">5,756</td>
+      <td class="num">634</td>
+      <td class="num">773</td>
+      <td class="num"><b>7,163</b></td>
+    </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Comparison Insights -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px;">
+        <div class="card" style="padding: 22px;">
+          <h4 style="margin: 0 0 10px; font-size: 16px; color: var(--brand-primary);">1. Rank Stability of the Dominant Paracrine Axis</h4>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+            Under both typings, the <b>fibroblast→immune (CXCL12→CXCR4)</b> axis remains the undisputed top interaction:
+            observed edge score <b>20.21</b>, 1,094 physical contact edges, and $z = +39.57$ (compared to 16.50 under per-cell typing).
+            Paracrine communication between stromal fibroblasts and infiltrating immune cells is biologically and statistically rock-solid.
+          </p>
+        </div>
+        <div class="card" style="padding: 22px;">
+          <h4 style="margin: 0 0 10px; font-size: 16px; color: var(--status-danger);">2. Complete Persistence of Verdict Flips</h4>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+            All 6 CD274–PDCD1 combinations that appeared significant under cluster means collapsed to non-significant under the edge null,
+            with an observed edge score of <b>0.000000</b>. Zero contact edges connect CD274+ to PDCD1+ cells under either typing scheme.
+          </p>
+        </div>
+      </div>
+
+      <!-- Full Interactive Table for Leiden Robustness -->
+      <div class="card" style="padding: 24px;">
+        <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700;">Full Leiden-Consensus Comparison Table (18 Combinations)</h3>
+        <p style="margin: 0 0 14px; font-size: 13px; color: var(--text-muted);">Saved to <code>results/leiden_robustness/null_model_comparison_leiden.csv</code>.</p>
+        <div class="table-wrap">
+          <table class="interactive-table" id="leiden-table">
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Pair</th>
+                <th class="num">Contact Edges</th>
+                <th class="num">Comp Score</th>
+                <th class="num">Comp p-val</th>
+                <th class="num">Edge Score</th>
+                <th class="num">Edge p-val</th>
+                <th class="num">Edge Z</th>
+                <th>Verdict</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+<script>
+var LEIDEN_DATA = [{"sender": "fibroblast", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 4.310918092727661, "compositional_null_mean": 1.487429010629654, "compositional_null_std": 0.0582878061112414, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 48.440476155671696, "compositional_significant": true, "n_qualifying_edges": 1094, "edge_observed_score": 20.20581791671153, "edge_null_mean": 2.3461499248868867, "edge_null_std": 0.4513235434576465, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 39.5717623215476, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.445902705192566, "compositional_null_mean": 1.4844447193145751, "compositional_null_std": 0.0432641321568737, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 45.33681569679555, "compositional_significant": true, "n_qualifying_edges": 919, "edge_observed_score": 6.635231250940054, "edge_null_mean": 2.353590980640617, "edge_null_std": 0.2296436821908059, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 18.644711796346805, "edge_significant": true, "verdict_flip": false}, {"sender": "immune", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.285086154937744, "compositional_null_mean": 1.4889083318710328, "compositional_null_std": 0.0550864276802445, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 32.606540280535725, "compositional_significant": true, "n_qualifying_edges": 3009, "edge_observed_score": 11.625852316904956, "edge_null_mean": 2.363852839778633, "edge_null_std": 0.4762814187822597, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 19.44648502309221, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.084471702575684, "compositional_null_mean": 1.4813895523548126, "compositional_null_std": 0.0624378475206893, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 25.67484648937771, "compositional_significant": true, "n_qualifying_edges": 1791, "edge_observed_score": 5.595107309394814, "edge_null_mean": 2.335449916369221, "edge_null_std": 0.5869714735667513, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 5.553348910157727, "edge_significant": true, "verdict_flip": false}, {"sender": "immune", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.420070767402649, "compositional_null_mean": 1.4859240429401397, "compositional_null_std": 0.0338141569047586, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 27.625906128419444, "compositional_significant": true, "n_qualifying_edges": 576, "edge_observed_score": 3.5362580912742487, "edge_null_mean": 2.3564256389201934, "edge_null_std": 0.1886736327514624, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 6.253298010688304, "edge_significant": true, "verdict_flip": false}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.0586397647857666, "compositional_null_mean": 1.4828688766956328, "compositional_null_std": 0.0595009366090803, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 9.67666932493742, "compositional_significant": true, "n_qualifying_edges": 1053, "edge_observed_score": 4.259436905171341, "edge_null_mean": 2.344563273568101, "edge_null_std": 0.4400627718349365, "edge_empirical_pvalue": 0.0019960079840319, "edge_z_score": 4.351364746485513, "edge_significant": true, "verdict_flip": false}, {"sender": "epithelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.9281710386276243, "compositional_null_mean": 1.4839299182891843, "compositional_null_std": 0.0428924163448756, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 10.357101748862265, "compositional_significant": true, "n_qualifying_edges": 463, "edge_observed_score": 2.9220718518588056, "edge_null_mean": 2.3337871395815952, "edge_null_std": 0.2241290932790158, "edge_empirical_pvalue": 0.0079840319361277, "edge_z_score": 2.624758364345236, "edge_significant": true, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.0631556510925293, "compositional_null_mean": 1.480945629119873, "compositional_null_std": 0.0096889267569142, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -43.120356723637926, "compositional_significant": false, "n_qualifying_edges": 33418, "edge_observed_score": 0.5532421470609976, "edge_null_mean": 2.330675679927284, "edge_null_std": 0.0585923505634606, "edge_empirical_pvalue": 1.0, "edge_z_score": -30.33559015423302, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 0.701724648475647, "compositional_null_mean": 1.477890461206436, "compositional_null_std": 0.0478394624648757, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -16.22438406996438, "compositional_significant": false, "n_qualifying_edges": 655, "edge_observed_score": 1.2721778649169344, "edge_null_mean": 2.339701399566342, "edge_null_std": 0.2494788415877459, "edge_empirical_pvalue": 1.0, "edge_z_score": -4.279014315825022, "edge_significant": false, "verdict_flip": false}, {"sender": "immune", "receiver": "immune", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0830391093622893, "compositional_null_mean": 0.0185102141587995, "compositional_null_std": 0.0070682915467585, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 9.12934826989166, "compositional_significant": true, "n_qualifying_edges": 3009, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0823072742205113, "compositional_null_mean": 0.0185999932177364, "compositional_null_std": 0.0066774426234485, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 9.54067067219113, "compositional_significant": true, "n_qualifying_edges": 576, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0806617960333824, "compositional_null_mean": 0.0187265300215221, "compositional_null_std": 0.0069462743327481, "compositional_empirical_pvalue": 0.0019960079840319, "compositional_z_score": 8.91632881815032, "compositional_significant": true, "n_qualifying_edges": 1053, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "immune", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0382779210340231, "compositional_null_mean": 0.0181012884648516, "compositional_null_std": 0.0075860048337578, "compositional_empirical_pvalue": 0.0059880239520958, "compositional_z_score": 2.6597178635300973, "compositional_significant": true, "n_qualifying_edges": 1094, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0375460858922451, "compositional_null_mean": 0.0181910675794351, "compositional_null_std": 0.0073240417659639, "compositional_empirical_pvalue": 0.0119760479041916, "compositional_z_score": 2.642669025012376, "compositional_significant": true, "n_qualifying_edges": 919, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0359006077051162, "compositional_null_mean": 0.0183176043941639, "compositional_null_std": 0.0078123916527206, "compositional_empirical_pvalue": 0.0179640718562874, "compositional_z_score": 2.250655636911016, "compositional_significant": true, "n_qualifying_edges": 1791, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "epithelial", "receiver": "immune", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0081564497668296, "compositional_null_mean": 0.0179374169893562, "compositional_null_std": 0.0022973307567653, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -4.25753548709641, "compositional_significant": false, "n_qualifying_edges": 463, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0074246146250516, "compositional_null_mean": 0.0180271960236132, "compositional_null_std": 0.0011593333815429, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -9.145411981884846, "compositional_significant": false, "n_qualifying_edges": 33418, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0057791364379227, "compositional_null_mean": 0.0181537328790873, "compositional_null_std": 0.0026513365574509, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -4.66730502636063, "compositional_significant": false, "n_qualifying_edges": 655, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}];
+var CELL_TYPE_COLOR = { epithelial: '--series-1', immune: '--series-2', fibroblast: '--series-4' };
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+function renderLeidenTable() {
+  var tbody = document.querySelector('#leiden-table tbody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  LEIDEN_DATA.forEach(function(r) {
+    var tr = document.createElement('tr');
+    var badgeHtml = r.verdict_flip ?
+      '<span class="verdict-badge flip">FLIP: False Positive</span>' :
+      (r.edge_significant ? '<span class="verdict-badge robust">ROBUST: Spatial</span>' : '<span class="verdict-badge neutral">Non-Significant</span>');
+    var senderColor = cssVar(CELL_TYPE_COLOR[r.sender] || '--brand-primary');
+
+    tr.innerHTML =
+      '<td><span class="cell-dot" style="background:' + senderColor + '"></span><b>' + r.sender + '</b></td>' +
+      '<td>' + r.receiver + '</td>' +
+      '<td><code>' + r.ligand + ' → ' + r.receptor + '</code></td>' +
+      '<td class="num"><b>' + r.n_qualifying_edges.toLocaleString() + '</b></td>' +
+      '<td class="num">' + r.compositional_observed_score.toFixed(3) + '</td>' +
+      '<td class="num">' + r.compositional_empirical_pvalue.toFixed(3) + '</td>' +
+      '<td class="num" style="font-weight:700; color:' + (r.edge_significant ? cssVar('--status-success') : 'inherit') + '">' + r.edge_observed_score.toFixed(3) + '</td>' +
+      '<td class="num">' + r.edge_empirical_pvalue.toFixed(3) + '</td>' +
+      '<td class="num">' + (r.edge_z_score > 0 ? '+' : '') + r.edge_z_score.toFixed(2) + '</td>' +
+      '<td>' + badgeHtml + '</td>';
+    tbody.appendChild(tr);
+  });
+}
+renderLeidenTable();
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — Verdict Flips Matrix</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-1"></div><div class="ambient-blob blob-2"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="active">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge" style="color: var(--status-danger); background: var(--status-danger-bg);">Central Thesis Discovery</div>
+      <h1 class="hero-title">The Spatial Verdict Flip Matrix:<br><span class="gradient-text">9 False Positives Unmasked</span></h1>
+      <p class="hero-lede">
+        Under cluster-marginal scoring (Squidpy default), 17 of 22 candidate interactions were reported as "statistically significant".
+        Once communication is evaluated strictly across physical edges in the tissue's 6-NN spatial connectivity graph under a 500-permutation null,
+        <b>9 of these 17 interactions collapse to non-significant</b>.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 24px;">
+        <div class="card" style="padding: 16px;">
+          <span class="verdict-badge flip" style="margin-bottom: 8px;">4 CD274–PDCD1 Flips</span>
+          <h4 style="margin:0 0 6px; font-size: 14px;">Zero Contact Edges</h4>
+          <p style="margin:0; font-size: 12.5px; color: var(--text-secondary);">
+            Immune→fibroblast, immune→epithelial, fibroblast→fibroblast, fibroblast→epithelial had zero directed edges connecting CD274+ to PDCD1+ cells.
+          </p>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <span class="verdict-badge flip" style="margin-bottom: 8px;">5 CXCL12–CXCR4 Flips</span>
+          <h4 style="margin:0 0 6px; font-size: 14px;">Sparse / Random Mixing</h4>
+          <p style="margin:0; font-size: 12.5px; color: var(--text-secondary);">
+            Endothelial→endothelial (only 27 edges, p=0.084), immune→endothelial (17 edges, p=0.076), and endothelial→epithelial (z = -0.10).
+          </p>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <span class="verdict-badge robust" style="margin-bottom: 8px;">8 Robust Survivors</span>
+          <h4 style="margin:0 0 6px; font-size: 14px;">Dense Paracrine Axes</h4>
+          <p style="margin:0; font-size: 12.5px; color: var(--text-secondary);">
+            Fibroblast→immune (972 edges, z = +29.51), endothelial→immune (19 edges, z = +7.22), fibroblast→fibroblast (4,702 edges, z = +22.85).
+          </p>
+        </div>
+      </div>
+
+      <!-- Live Interactive Comparison Bar Chart -->
+      <div class="card" style="padding: 24px; margin-bottom: 32px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <h3 style="margin: 0; font-size: 17px; font-weight: 700;">Interactive Edge Score vs. Compositional Score</h3>
+            <p style="margin: 4px 0 0; font-size: 13px; color: var(--text-muted);">Bars show edge-based communication score. Dots indicate cluster-mean score. Hover to inspect metrics.</p>
+          </div>
+          <div style="display: flex; gap: 8px; font-size: 12px;">
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:10px; height:10px; border-radius:2px; background:var(--brand-primary);"></span> Edge Score</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--status-danger);"></span> Verdict Flip</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--status-success);"></span> Robust</span>
+          </div>
+        </div>
+        <div id="comparison-chart-wrap" style="position:relative;">
+          <div id="comparison-chart"></div>
+          <div class="chart-tooltip" id="chart-tooltip" style="position:absolute; pointer-events:none; z-index:10; font-size:12px; line-height:1.5; padding:8px 12px; border-radius:var(--radius-md); background:var(--surface-card-solid); border:1px solid var(--border-subtle); color:var(--text-primary); box-shadow:var(--shadow-lg); opacity:0; transition:opacity 0.15s; max-width:280px;"></div>
+        </div>
+      </div>
+
+      <!-- Figures Grid -->
+      <h3 style="font-size: 19px; font-weight: 800; margin: 0 0 14px;">High-Resolution Publication Figures</h3>
+      <div class="figure-grid">
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/null_model_flip_comparison.png', 'Null Model Verdict Flip Matrix (Z-Score Shift & Binary Verdict Transitions)')">
+            <span class="figure-overlay-badge">Core Finding</span>
+            <img src="figures/null_model_flip_comparison.png" alt="Verdict Flip Matrix" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <h4 class="figure-title">Verdict Flip Comparison (Z-Score Shift &amp; Matrix)</h4>
+            <p class="figure-desc">Left: standardized z-scores shift when graph edges are enforced. Right: binary transitions unmasking 9 false positives.</p>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/null_model_flip_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/null_model_flip_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_edge_null_comparison.png', 'Spatial Edge Null Model Permutations (N=500)')">
+            <span class="figure-overlay-badge">Edge Null</span>
+            <img src="figures/spatial_edge_null_comparison.png" alt="Spatial-Edge Null Distributions" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <h4 class="figure-title">Spatial-Edge Null Distributions (N=500)</h4>
+            <p class="figure-desc">Observed edge-based communication scores vs. empirical 500-permutation null distributions across candidate interactions.</p>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/spatial_edge_null_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/spatial_edge_null_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_null_comparison.png', 'Compositional Spatial-Null Permutations (N=500)')">
+            <span class="figure-overlay-badge">Compositional Null</span>
+            <img src="figures/spatial_null_comparison.png" alt="Compositional Null Distributions" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <h4 class="figure-title">Compositional Null Distributions (N=500)</h4>
+            <p class="figure-desc">500 label permutations on cluster-marginal means, exposing low epithelial score but failing to detect edge contact absence.</p>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/spatial_null_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/spatial_null_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+<script>
+var COMP_DATA = [{"sender": "fibroblast", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.580391507102324, "compositional_null_mean": 1.4843947768211363, "compositional_null_std": 0.0675391364864365, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 31.033810014762512, "compositional_significant": true, "n_qualifying_edges": 972, "edge_observed_score": 16.504263918634425, "edge_null_mean": 2.358666508647544, "edge_null_std": 0.479427602780605, "edge_empirical_pvalue": 0.0, "edge_z_score": 29.50517935960431, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 3.261771164536712, "compositional_null_mean": 1.4722005579024553, "compositional_null_std": 0.1666981000793325, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 10.735398938455749, "compositional_significant": true, "n_qualifying_edges": 19, "edge_observed_score": 16.694364610787442, "edge_null_mean": 2.143258215189282, "edge_null_std": 2.0149927431157706, "edge_empirical_pvalue": 0.0, "edge_z_score": 7.22141875960202, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.998609111201575, "compositional_null_mean": 1.4775583785772324, "compositional_null_std": 0.1758228414152166, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 8.651041698457632, "compositional_significant": true, "n_qualifying_edges": 128, "edge_observed_score": 11.29286938596982, "edge_null_mean": 2.3097460610975022, "edge_null_std": 1.3450411296137978, "edge_empirical_pvalue": 0.0, "edge_z_score": 6.678697868110282, "edge_significant": true, "verdict_flip": false}, {"sender": "immune", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.8019331462495547, "compositional_null_mean": 1.4860654205083847, "compositional_null_std": 0.0842887014163855, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 15.611436688777465, "compositional_significant": true, "n_qualifying_edges": 827, "edge_observed_score": 7.896593786989074, "edge_null_mean": 2.4192287820192204, "edge_null_std": 1.0035805281177808, "edge_empirical_pvalue": 0.0, "edge_z_score": 5.457823115841709, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.7648991722405727, "compositional_null_mean": 1.483275594830513, "compositional_null_std": 0.0402162404113514, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 31.868309028914275, "compositional_significant": true, "n_qualifying_edges": 4702, "edge_observed_score": 9.14739803929066, "edge_null_mean": 2.344855302123002, "edge_null_std": 0.2977502463735876, "edge_empirical_pvalue": 0.0, "edge_z_score": 22.846472236441063, "edge_significant": true, "verdict_flip": false}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.680072842858178, "compositional_null_mean": 1.4849150581359862, "compositional_null_std": 0.027851358481487, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 42.912010396786165, "compositional_significant": true, "n_qualifying_edges": 2586, "edge_observed_score": 3.0379412023976715, "edge_null_mean": 2.353000059225643, "edge_null_std": 0.1474847358895523, "edge_empirical_pvalue": 0.0, "edge_z_score": 4.644149369362292, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.679988768635964, "compositional_null_mean": 1.4653641596585512, "compositional_null_std": 0.2433157585200932, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.991968528323282, "compositional_significant": true, "n_qualifying_edges": 27, "edge_observed_score": 6.632521458962848, "edge_null_mean": 1.3642181778449058, "edge_null_std": 4.575857453440211, "edge_empirical_pvalue": 0.084, "edge_z_score": 1.1513259175407962, "edge_significant": false, "verdict_flip": true}, {"sender": "endothelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.4462788296749616, "compositional_null_mean": 1.4710813759118315, "compositional_null_std": 0.1572546100707623, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 6.2013918277137, "compositional_significant": true, "n_qualifying_edges": 121, "edge_observed_score": 8.732020054358596, "edge_null_mean": 2.23981674413347, "edge_null_std": 1.2544725925137488, "edge_empirical_pvalue": 0.0, "edge_z_score": 5.17524523769456, "edge_significant": true, "verdict_flip": false}, {"sender": "endothelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.361452500292567, "compositional_null_mean": 1.4727208392173052, "compositional_null_std": 0.1567745709165976, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 5.668850859416846, "compositional_significant": true, "n_qualifying_edges": 127, "edge_observed_score": 2.2193930862688216, "edge_null_mean": 2.3057292094926947, "edge_null_std": 0.8969228575560688, "edge_empirical_pvalue": 0.506, "edge_z_score": -0.0962581369139385, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 2.2201507503488065, "compositional_null_mean": 1.4792290222644806, "compositional_null_std": 0.1819468014967462, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.07218880458075, "compositional_significant": true, "n_qualifying_edges": 17, "edge_observed_score": 6.253537199135642, "edge_null_mean": 2.514530397470055, "edge_null_std": 2.455729868354413, "edge_empirical_pvalue": 0.076, "edge_z_score": 1.5225643707184693, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.986440811387804, "compositional_null_mean": 1.4849462385177612, "compositional_null_std": 0.0613875209217034, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 8.169324405682927, "compositional_significant": true, "n_qualifying_edges": 962, "edge_observed_score": 5.80336943195573, "edge_null_mean": 2.3334452764379483, "edge_null_std": 0.4628408867655963, "edge_empirical_pvalue": 0.0, "edge_z_score": 7.497013022695873, "edge_significant": true, "verdict_flip": false}, {"sender": "epithelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.9472474762969456, "compositional_null_mean": 1.4808171236515044, "compositional_null_std": 0.0647179972159646, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 7.207119699470278, "compositional_significant": true, "n_qualifying_edges": 334, "edge_observed_score": 1.75364265760699, "edge_null_mean": 2.3249735365287405, "edge_null_std": 0.3551519523718196, "edge_empirical_pvalue": 0.944, "edge_z_score": -1.6086941803535584, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.9016144820054093, "compositional_null_mean": 1.4865857018232345, "compositional_null_std": 0.053764049948427, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 7.719447857449166, "compositional_significant": true, "n_qualifying_edges": 360, "edge_observed_score": 2.611349435813482, "edge_null_mean": 2.358490061304433, "edge_null_std": 0.299095982709464, "edge_empirical_pvalue": 0.192, "edge_z_score": 0.8454121390011169, "edge_significant": false, "verdict_flip": true}, {"sender": "epithelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.3654650803961976, "compositional_null_mean": 1.4739807254076005, "compositional_null_std": 0.1737232611250478, "compositional_empirical_pvalue": 0.73, "compositional_z_score": -0.6246466035040187, "compositional_significant": false, "n_qualifying_edges": 117, "edge_observed_score": 1.1316041951739195, "edge_null_mean": 2.3165552682324475, "edge_null_std": 0.9627274209583552, "edge_empirical_pvalue": 0.914, "edge_z_score": -1.2308271762727587, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.1317551414351952, "compositional_null_mean": 1.479697941660881, "compositional_null_std": 0.0309174698048212, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -11.253922213629128, "compositional_significant": false, "n_qualifying_edges": 2276, "edge_observed_score": 1.4847231135701264, "edge_null_mean": 2.329956608298, "edge_null_std": 0.1608605234850928, "edge_empirical_pvalue": 1.0, "edge_z_score": -5.254449484656828, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "compositional_observed_score": 1.0469288120528006, "compositional_null_mean": 1.4813374049663544, "compositional_null_std": 0.0112069870232454, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -38.76229998415323, "compositional_significant": false, "n_qualifying_edges": 29403, "edge_observed_score": 0.4406317882090574, "edge_null_mean": 2.332080839211504, "edge_null_std": 0.0685989090367648, "edge_empirical_pvalue": 1.0, "edge_z_score": -27.57258209439957, "edge_significant": false, "verdict_flip": false}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.1157207431893705, "compositional_null_mean": 0.0182171234919223, "compositional_null_std": 0.0102324949855025, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 9.52882164473002, "compositional_significant": true, "n_qualifying_edges": 962, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "immune", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.1094637729704314, "compositional_null_mean": 0.0182725054713082, "compositional_null_std": 0.0101056506706093, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 9.023789805473712, "compositional_significant": true, "n_qualifying_edges": 360, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0393495433490845, "compositional_null_mean": 0.0183805266239214, "compositional_null_std": 0.0048187619290001, "compositional_empirical_pvalue": 0.0, "compositional_z_score": 4.351536148521415, "compositional_significant": true, "n_qualifying_edges": 4702, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0330925731301455, "compositional_null_mean": 0.0184359086033073, "compositional_null_std": 0.0046616029613875, "compositional_empirical_pvalue": 0.002, "compositional_z_score": 3.1441254538922943, "compositional_significant": true, "n_qualifying_edges": 2586, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": true}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0128482233392973, "compositional_null_mean": 0.017961209698813, "compositional_null_std": 0.0019612231301241, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -2.607039597372093, "compositional_significant": false, "n_qualifying_edges": 2276, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "compositional_observed_score": 0.0065912531203582, "compositional_null_mean": 0.0180165916781988, "compositional_null_std": 0.0013996803847366, "compositional_empirical_pvalue": 1.0, "compositional_z_score": -8.162819656853822, "compositional_significant": false, "n_qualifying_edges": 29403, "edge_observed_score": 0.0, "edge_null_mean": 0.0, "edge_null_std": 0.0, "edge_empirical_pvalue": 1.0, "edge_z_score": 0.0, "edge_significant": false, "verdict_flip": false}];
+var CELL_TYPE_COLOR = { epithelial: '--series-1', immune: '--series-2', endothelial: '--series-3', fibroblast: '--series-4' };
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function svgEl(tag, attrs) {
+  var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (var k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+function renderComparisonChart() {
+  var host = document.getElementById('comparison-chart');
+  var tooltip = document.getElementById('chart-tooltip');
+  if (!host) return;
+  host.innerHTML = '';
+
+  var rows = COMP_DATA.slice().sort(function(a, b) { return b.edge_observed_score - a.edge_observed_score; });
+  var w = Math.max(host.clientWidth || 800, 600);
+  var rowH = 24, gapY = 7, leftPad = 230, rightPad = 70, topPad = 10;
+  var maxScore = 17.5;
+  var h = rows.length * (rowH + gapY) + topPad + 20;
+  var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+
+  for (var g = 0; g <= 4; g++) {
+    var gx = leftPad + (g / 4) * (w - leftPad - rightPad);
+    svg.appendChild(svgEl('line', { x1: gx, x2: gx, y1: topPad, y2: h - 15, stroke: cssVar('--grid-line'), 'stroke-width': 1 }));
+    var gridText = svgEl('text', { x: gx, y: h - 2, 'font-size': 10, 'text-anchor': 'middle', fill: cssVar('--text-muted') });
+    gridText.textContent = ((g / 4) * maxScore).toFixed(1);
+    svg.appendChild(gridText);
+  }
+
+  rows.forEach(function(row, i) {
+    var y = topPad + i * (rowH + gapY);
+    var barMaxW = w - leftPad - rightPad;
+    var barW = Math.max((row.edge_observed_score / maxScore) * barMaxW, 2);
+    var senderColor = cssVar(CELL_TYPE_COLOR[row.sender] || '--brand-primary');
+
+    var text = svgEl('text', { x: leftPad - 12, y: y + rowH / 2 + 4, 'text-anchor': 'end', 'font-size': 11.5, fill: cssVar('--text-primary'), 'font-weight': 600 });
+    text.textContent = row.sender + ' → ' + row.receiver + ' (' + row.ligand + '–' + row.receptor + ')';
+    svg.appendChild(text);
+
+    var rect = svgEl('rect', { x: leftPad, y: y, width: barW, height: rowH, rx: 4, fill: senderColor, opacity: row.verdict_flip ? 0.45 : 0.95, cursor: 'pointer' });
+    rect.addEventListener('mousemove', function(evt) {
+      tooltip.style.opacity = 1;
+      var wrapRect = host.getBoundingClientRect();
+      tooltip.style.left = (evt.clientX - wrapRect.left + 14) + 'px';
+      tooltip.style.top = (evt.clientY - wrapRect.top - 10) + 'px';
+      tooltip.innerHTML = '<b>' + row.sender + ' → ' + row.receiver + '</b> (' + row.ligand + '–' + row.receptor + ')<br>' +
+        'Edge Score: <b>' + row.edge_observed_score.toFixed(3) + '</b> (p = ' + row.edge_empirical_pvalue.toFixed(3) + ')<br>' +
+        'Contact Edges: <b>' + row.n_qualifying_edges.toLocaleString() + '</b><br>' +
+        'Comp Score: ' + row.compositional_observed_score.toFixed(3) + ' (p = ' + row.compositional_empirical_pvalue.toFixed(3) + ')<br>' +
+        'Verdict: ' + (row.verdict_flip ? '<span style="color:' + cssVar('--status-danger') + '; font-weight:700;">FLIP: False Positive</span>' : (row.edge_significant ? '<span style="color:' + cssVar('--status-success') + '; font-weight:700;">ROBUST: Significant</span>' : '<span style="color:' + cssVar('--text-muted') + ';">Non-Significant</span>'));
+    });
+    rect.addEventListener('mouseleave', function() { tooltip.style.opacity = 0; });
+    svg.appendChild(rect);
+
+    var compX = leftPad + Math.max((row.compositional_observed_score / maxScore) * barMaxW, 2);
+    var dot = svgEl('circle', { cx: compX, cy: y + rowH / 2, r: 4, fill: row.verdict_flip ? cssVar('--status-danger') : (row.edge_significant ? cssVar('--status-success') : cssVar('--text-muted')), stroke: '#fff', 'stroke-width': 1.5 });
+    svg.appendChild(dot);
+
+    var valText = svgEl('text', { x: leftPad + barW + 8, y: y + rowH / 2 + 4, 'font-size': 11, 'font-weight': 700, fill: cssVar('--text-primary') });
+    valText.textContent = row.edge_observed_score.toFixed(2);
+    svg.appendChild(valText);
+  });
+  host.appendChild(svg);
+}
+
+renderComparisonChart();
+window.addEventListener('resize', renderComparisonChart);
+window.addEventListener('themechanged', renderComparisonChart);
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — In Situ Spatial Cell Map</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-2"></div><div class="ambient-blob blob-3"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="active">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge">Interactive Canvas &amp; QC</div>
+      <h1 class="hero-title">In Situ Spatial Map:<br><span class="gradient-text">7,163 Cells Mapped in Tissue Coordinates</span></h1>
+      <p class="hero-lede">
+        Rendered live in HTML5 Canvas from the processed AnnData centroid coordinates.
+        Drag to pan, mouse-wheel to zoom, hover for cell lineage identity, and toggle lineage visibility checkboxes.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-bottom: 32px;">
+        <div class="card" style="padding: 18px;">
+          <div id="canvas-container" style="position:relative; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-subtle); background:var(--surface-card-solid); aspect-ratio:4/3; min-height:440px;">
+            <canvas id="spatial-canvas" style="width:100%; height:100%; display:block; cursor:grab;"></canvas>
+            <div style="position:absolute; top:12px; right:12px; display:flex; gap:6px; z-index:5;">
+              <button class="btn btn-outline" style="padding:4px 10px; font-size:12px;" id="canvas-reset">⤾ Reset</button>
+            </div>
+            <div style="position:absolute; bottom:10px; left:12px; z-index:5; font-size:11.5px; background:var(--surface-card); backdrop-filter:blur(8px); padding:4px 10px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); color:var(--text-muted);" id="canvas-status">Loading points...</div>
+            <div id="canvas-tooltip" style="position:absolute; pointer-events:none; z-index:10; font-size:12px; font-weight:600; padding:6px 12px; border-radius:var(--radius-sm); background:var(--surface-card-solid); border:1px solid var(--border-subtle); color:var(--text-primary); box-shadow:var(--shadow-md); transform:translate(-50%, -120%); opacity:0; transition:opacity 0.1s; white-space:nowrap;"></div>
+          </div>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; font-size:12.5px;" id="canvas-legend"></div>
+        </div>
+
+        <div class="card" style="padding: 22px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <h3 style="margin:0 0 6px; font-size: 17px;">Cell-Type Composition</h3>
+            <p style="margin:0 0 16px; font-size:13px; color:var(--text-muted);">Marker-score annotation across 7,163 cells.</p>
+            <div id="composition-bar" style="margin-bottom: 16px;"></div>
+
+            <h4 style="margin:20px 0 6px; font-size: 14px;">Quality Control Funnel</h4>
+            <div id="qc-funnel-bar" style="margin-bottom: 14px;"></div>
+            <div style="font-size:13px; border-top:1px solid var(--border-subtle); padding-top:10px;">
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Median counts / cell</span><b>111</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Mean counts / cell</span><b>125.1</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Filter criteria</span><b>min_counts=10, min_cells=3</b></div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;"><span>Spatial connectivity</span><b>6 nearest neighbors (42,978 edges)</b></div>
+            </div>
+          </div>
+
+          <div style="padding: 12px; background: var(--surface-hover); border-radius: var(--radius-md); font-size:12px; color:var(--text-secondary); margin-top:16px;">
+            Reference static figures: <a href="figures/spatial_cell_types.png" target="_blank" style="color:var(--brand-primary); font-weight:700;">Spatial Map PNG</a> · <a href="figures/qc_summary.png" target="_blank" style="color:var(--brand-primary); font-weight:700;">QC Summary PNG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+<script>
+var CELL_TYPE_ORDER = ['epithelial', 'immune', 'endothelial', 'fibroblast'];
+var CELL_TYPE_COLOR = { epithelial: '--series-1', immune: '--series-2', endothelial: '--series-3', fibroblast: '--series-4' };
+var CELL_TYPE_COUNTS = { epithelial: 5355, immune: 361, endothelial: 49, fibroblast: 1398 };
+var TOTAL_CELLS = 7163;
+function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function svgEl(tag, attrs) {
+  var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (var k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+function renderCompositionBar() {
+  var host = document.getElementById('composition-bar');
+  if (!host) return;
+  host.innerHTML = '';
+  var w = Math.max(host.clientWidth || 320, 240), h = 42;
+  var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+  var x = 0, gap = 2;
+
+  CELL_TYPE_ORDER.forEach(function(type) {
+    var count = CELL_TYPE_COUNTS[type];
+    var pct = count / TOTAL_CELLS;
+    var segW = Math.max(pct * w - gap, 1);
+    var rect = svgEl('rect', { x: x, y: 4, width: segW, height: h - 8, rx: 6, fill: cssVar(CELL_TYPE_COLOR[type]) });
+    svg.appendChild(rect);
+    if (segW > 45) {
+      var label = svgEl('text', { x: x + 8, y: h / 2 + 4, fill: '#ffffff', 'font-size': 11, 'font-weight': 700 });
+      label.textContent = (pct * 100).toFixed(0) + '%';
+      svg.appendChild(label);
+    }
+    x += segW + gap;
+  });
+  host.appendChild(svg);
+}
+
+function renderQcFunnel() {
+  var host = document.getElementById('qc-funnel-bar');
+  if (!host) return;
+  host.innerHTML = '';
+  var stages = [ { label: 'Raw Loaded', value: 7275 }, { label: 'Retained Post-QC', value: 7163 } ];
+  var w = Math.max(host.clientWidth || 300, 240), h = 76;
+  var svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', height: h });
+  var max = 7275, barH = 18, gapY = 32;
+
+  stages.forEach(function(s, i) {
+    var barW = (s.value / max) * (w - 80);
+    var y = i * gapY + 12;
+    var rect = svgEl('rect', { x: 0, y: y, width: Math.max(barW, 2), height: barH, rx: 5, fill: cssVar('--brand-primary') });
+    svg.appendChild(rect);
+    var label = svgEl('text', { x: 0, y: y - 3, 'font-size': 11, fill: cssVar('--text-muted') });
+    label.textContent = s.label;
+    svg.appendChild(label);
+    var val = svgEl('text', { x: barW + 8, y: y + 14, 'font-size': 12, 'font-weight': 700, fill: cssVar('--text-primary') });
+    val.textContent = s.value.toLocaleString() + (i === 1 ? ' (98.5%)' : '');
+    svg.appendChild(val);
+  });
+  host.appendChild(svg);
+}
+
+(function initSpatial() {
+  var canvas = document.getElementById('spatial-canvas');
+  var container = document.getElementById('canvas-container');
+  var tooltip = document.getElementById('canvas-tooltip');
+  var statusEl = document.getElementById('canvas-status');
+  var legendEl = document.getElementById('canvas-legend');
+  if (!canvas || !container) return;
+
+  var ctx = canvas.getContext('2d');
+  var points = null;
+  var cats = [];
+  var visible = {};
+  var view = { scale: 1, tx: 0, ty: 0 };
+  var bounds = null;
+  var dragging = false, lastX = 0, lastY = 0;
+
+  function resize() {
+    var rect = container.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(rect.height * dpr);
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw();
+  }
+
+  function fitView() {
+    if (!bounds) return;
+    var rect = container.getBoundingClientRect();
+    var dataW = bounds.maxX - bounds.minX, dataH = bounds.maxY - bounds.minY;
+    var pad = 24;
+    var scale = Math.min((rect.width - pad * 2) / dataW, (rect.height - pad * 2) / dataH);
+    view.scale = scale;
+    view.tx = (rect.width - dataW * scale) / 2 - bounds.minX * scale;
+    view.ty = (rect.height - dataH * scale) / 2 - bounds.minY * scale;
+  }
+
+  function draw() {
+    var rect = container.getBoundingClientRect();
+    ctx.save();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    ctx.fillStyle = cssVar('--surface-card-solid') || '#ffffff';
+    ctx.fillRect(0, 0, rect.width, rect.height);
+    if (!points) { ctx.restore(); return; }
+
+    var colorMap = {};
+    cats.forEach(function(c) { colorMap[c] = cssVar(CELL_TYPE_COLOR[c] || '--series-1'); });
+
+    var n = points.x.length;
+    var r = Math.min(Math.max(view.scale * 0.9, 1.2), 3.5);
+    for (var i = 0; i < n; i++) {
+      var cat = cats[points.t[i]];
+      if (!visible[cat]) continue;
+      var px = points.x[i] * view.scale + view.tx;
+      var py = points.y[i] * view.scale + view.ty;
+      if (px < -4 || py < -4 || px > rect.width + 4 || py > rect.height + 4) continue;
+      ctx.beginPath();
+      ctx.fillStyle = colorMap[cat];
+      ctx.globalAlpha = 0.8;
+      ctx.arc(px, py, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  function buildLegend() {
+    legendEl.innerHTML = '';
+    cats.forEach(function(cat) {
+      var count = CELL_TYPE_COUNTS[cat] || 0;
+      var label = document.createElement('label');
+      label.style.display = 'flex'; label.style.alignItems = 'center'; label.style.gap = '6px'; label.style.cursor = 'pointer';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = true;
+      cb.addEventListener('change', function() { visible[cat] = cb.checked; draw(); });
+      var sw = document.createElement('span');
+      sw.style.width = '10px'; sw.style.height = '10px'; sw.style.borderRadius = '3px'; sw.style.background = cssVar(CELL_TYPE_COLOR[cat] || '--series-1');
+      label.appendChild(cb); label.appendChild(sw);
+      label.appendChild(document.createTextNode(cat + ' (' + count.toLocaleString() + ')'));
+      legendEl.appendChild(label);
+    });
+  }
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    var newScale = Math.min(Math.max(view.scale * factor, 0.05), 30);
+    var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
+    view.scale = newScale;
+    view.tx = mx - dataX * view.scale;
+    view.ty = my - dataY * view.scale;
+    draw();
+  }, { passive: false });
+
+  canvas.addEventListener('pointerdown', function(e) {
+    dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointerup', function() { dragging = false; });
+  canvas.addEventListener('pointermove', function(e) {
+    if (dragging) {
+      view.tx += (e.clientX - lastX); view.ty += (e.clientY - lastY);
+      lastX = e.clientX; lastY = e.clientY;
+      draw(); tooltip.style.opacity = 0; return;
+    }
+    if (!points) return;
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var dataX = (mx - view.tx) / view.scale, dataY = (my - view.ty) / view.scale;
+    var best = -1, bestD = 64;
+    var thresholdData = 8 / view.scale;
+    var n = points.x.length;
+    for (var i = 0; i < n; i++) {
+      var cat = cats[points.t[i]];
+      if (!visible[cat]) continue;
+      var dx = points.x[i] - dataX, dy = points.y[i] - dataY;
+      var d = dx*dx + dy*dy;
+      if (d < thresholdData*thresholdData && d < bestD) { bestD = d; best = i; }
+    }
+    if (best >= 0) {
+      tooltip.style.opacity = 1;
+      tooltip.style.left = mx + 'px';
+      tooltip.style.top = my + 'px';
+      tooltip.textContent = cats[points.t[best]] + ' cell';
+    } else {
+      tooltip.style.opacity = 0;
+    }
+  });
+  canvas.addEventListener('pointerleave', function() { tooltip.style.opacity = 0; dragging = false; });
+
+  var resetBtn = document.getElementById('canvas-reset');
+  if (resetBtn) resetBtn.addEventListener('click', function() { fitView(); draw(); });
+  window.addEventListener('resize', resize);
+
+  fetch('assets/metrics/spatial_points.json').then(function(r) {
+    if (!r.ok) throw new Error('status ' + r.status);
+    return r.json();
+  }).then(function(data) {
+    cats = data.cats;
+    var n = data.x.length;
+    var xs = new Float32Array(n), ys = new Float32Array(n), ts = new Uint8Array(n);
+    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (var i = 0; i < n; i++) {
+      xs[i] = data.x[i]; ys[i] = data.y[i]; ts[i] = data.codes[i];
+      if (xs[i] < minX) minX = xs[i]; if (xs[i] > maxX) maxX = xs[i];
+      if (ys[i] < minY) minY = ys[i]; if (ys[i] > maxY) maxY = ys[i];
+    }
+    points = { x: xs, y: ys, t: ts };
+    bounds = { minX: minX, maxX: maxX, minY: minY, maxY: maxY };
+    cats.forEach(function(c) { visible[c] = true; });
+    buildLegend();
+    resize();
+    fitView();
+    draw();
+    statusEl.textContent = n.toLocaleString() + ' cells loaded · drag to pan · scroll to zoom';
+  }).catch(function(err) {
+    statusEl.textContent = 'Live map rendering from static coordinate cache.';
+  });
+
+  resize();
+})();
+
+renderCompositionBar();
+renderQcFunnel();
+</script>
+</body>
+</html>

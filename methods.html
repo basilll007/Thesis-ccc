@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — Methods, Provenance &amp; Progress Log</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-1"></div><div class="ambient-blob blob-2"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="active">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge">Methodology &amp; Audit Trail</div>
+      <h1 class="hero-title">Methods, Provenance &amp;<br><span class="gradient-text">Chronological Research Timeline</span></h1>
+      <p class="hero-lede">
+        Full mathematical architecture of graph-constrained edge scoring, deterministic reproducibility audit trail with SHA-256 cryptographic hashes, and thesis milestone history.
+      </p>
+
+      <!-- Methods Stepper -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px;">
+        <div class="card" style="padding: 20px;">
+          <span class="chip-tag" style="margin-bottom:8px;">Step 1</span>
+          <h4 style="margin: 0 0 6px; font-size: 15px;">In Situ Spatial Graph</h4>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            6-nearest neighbor directed graph constructed over single-cell centroids (42,978 directed edges across 7,163 cells).
+          </p>
+        </div>
+        <div class="card" style="padding: 20px;">
+          <span class="chip-tag" style="margin-bottom:8px;">Step 2</span>
+          <h4 style="margin: 0 0 6px; font-size: 15px;">Edge Score Formulation</h4>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            Evaluates mean product expr_L(i) * expr_R(j) over edges connecting sender S to receiver R cells.
+          </p>
+        </div>
+        <div class="card" style="padding: 20px;">
+          <span class="chip-tag" style="margin-bottom:8px;">Step 3</span>
+          <h4 style="margin: 0 0 6px; font-size: 15px;">Label Permutation Null</h4>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            500 permutations under fixed seed 42, holding single-cell expression profiles and graph coordinates fixed.
+          </p>
+        </div>
+        <div class="card" style="padding: 20px;">
+          <span class="chip-tag" style="margin-bottom:8px;">Step 4</span>
+          <h4 style="margin: 0 0 6px; font-size: 15px;">Vectorized Precomputation</h4>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            Edge products precomputed once per unique pair, executing 500 permutations in ~20 seconds.
+          </p>
+        </div>
+      </div>
+
+      <!-- Provenance & Cryptographic Hashes Card -->
+      <div class="card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700;">Deterministic Reproducibility &amp; Verified Hashes</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">null_model_comparison.csv</span><br>
+            <code style="font-size: 11px; color: var(--brand-primary); word-break: break-all;">b4c3531d0c796784189b9a010899e8815041cd560b5527d572bff37f54dba44f</code>
+          </div>
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">spatial_null_corrected.csv</span><br>
+            <code style="font-size: 11px; color: var(--brand-primary); word-break: break-all;">cafa5b17a920bab1f3b613d80c04942a06548ec28faf3b16eb919463a3529666</code>
+          </div>
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">baseline_lr_ranked.csv</span><br>
+            <code style="font-size: 11px; color: var(--brand-primary); word-break: break-all;">14cb5c26f3eed89f9018fac3128c5ed61ec1f7e5f0052000fb56b18779331000</code>
+          </div>
+          <div>
+            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">10x Xenium Dataset Bundle</span><br>
+            <code style="font-size: 11px; color: var(--brand-primary); word-break: break-all;">cc1e987b06aa748a6b24d3d6f51fc0d6765daa4836c483f14ec4f1bd18b1779b</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chronological Timeline -->
+      <div class="card" style="padding: 24px;">
+        <h3 style="margin: 0 0 16px; font-size: 17px; font-weight: 700;">Chronological Progress Log</h3>
+        <div class="timeline">
+          <div class="timeline-item active">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-13 · Reviewer Robustness Checks</div>
+            <h4 class="timeline-title">Task A: LR Panel Coverage &amp; Task B: Leiden Consensus Typing</h4>
+            <p class="timeline-desc">
+              Evaluated detection rates across all 20 LR pairs (37 genes), discovering 28 genes missing from the 280-gene panel.
+              Re-ran full null pipeline under Leiden consensus typing (res=0.5), confirming the dominant fibroblast→immune axis and 6 verdict flips.
+            </p>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-13 · Zero-Variance Diagnostic</div>
+            <h4 class="timeline-title">Diagnostic Resolution of CD274–PDCD1 Invariance</h4>
+            <p class="timeline-desc">
+              Determined that PDCD1 is detected in only 5 of 7,163 cells (0.07%), and across all 42,978 edges, exactly 0 connect CD274+ to PDCD1+ cells.
+            </p>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-13 · Edge Null Formulation</div>
+            <h4 class="timeline-title">Spatial-Edge Null Model &amp; Discovery of 9 Verdict Flips</h4>
+            <p class="timeline-desc">
+              Implemented graph-constrained edge scoring over 42,978 edges, revealing 9 false positives unmasked by spatial contacts.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-08 · Baseline Implementation</div>
+            <h4 class="timeline-title">v0 Pipeline, QC &amp; Public Dataset Acquisition</h4>
+            <p class="timeline-desc">
+              Acquired 10x Xenium breast bundle (379 MB), filtered 7,163 cells (98.5%), constructed 6-NN spatial graph, and ranked 22 baseline interactions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
