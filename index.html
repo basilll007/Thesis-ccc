@@ -104,6 +104,26 @@
           <div class="kpi-subtext">Zero contact edges across entire tissue</div>
         </div>
       </div>
+
+      <!-- Scientific Realignment Headline Callout (Option 1) -->
+      <div class="card" style="padding: 24px; border-left: 4px solid var(--brand-primary); margin-top: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Thesis Core Finding · Scientific Realignment</span>
+          <span style="font-size: 12px; color: var(--text-muted);">Validated across per-cell argmax &amp; Leiden consensus clustering</span>
+        </div>
+        <h3 style="margin: 0 0 10px; font-size: 17px; font-weight: 800;">
+          1. Primary Discovery: CD274–PDCD1 Spatial Non-Contact is 100% Typing-Invariant
+        </h3>
+        <p style="margin: 0 0 14px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;">
+          Dissociated single-cell tools (such as CellPhoneDB and default Squidpy <code>ligrec</code>) evaluate <i>cluster marginal averages</i>, flagging CD274–PDCD1 as statistically significant across multiple tumor-stroma interfaces. By enforcing graph-constrained edge contacts over all 42,978 physical tissue edges, our edge model reveals that <b>exactly 0 edges</b> connect CD274+ cells to PDCD1+ cells. This demonstrates that marginal scoring manufactures phantom significance for physically disconnected cells. Across both per-cell argmax and Leiden consensus clustering, all CD274–PDCD1 combinations collapse to an observed edge score of 0.000000 and flip to non-significant.
+        </p>
+        <h4 style="margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--text-primary);">
+          2. Secondary Observation: Dominant CXCL12–CXCR4 Paracrine Axis &amp; Granularity Caveat
+        </h4>
+        <p style="margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.55;">
+          The leading tumor-stroma axis, <b>fibroblast → immune (CXCL12 → CXCR4)</b>, remains the #1 top-ranked spatial communication channel under both typing schemes (per-cell: <i>z</i> = +29.51; Leiden consensus: <i>z</i> = +39.57). Minor relative rank variations among secondary CXCL12–CXCR4 interactions are explicitly caveated as sensitive to cell-typing granularity: rare endothelial cells (<i>N</i> = 49, 0.68%) are absorbed into larger clusters during unsupervised community detection (Leiden <i>res</i> = 0.5 to 1.5), demonstrating that secondary rank shifts stem from clustering resolution rather than spatial scoring instability.
+        </p>
+      </div>
     </div>
   </section>
 

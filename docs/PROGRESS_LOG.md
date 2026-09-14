@@ -133,3 +133,19 @@
 - **What failed**: An initial multiprocessing spawn error occurred in Squidpy on Windows when called without `if __name__ == '__main__':`; resolved by restructuring runner scripts with explicit entry points.
 - **Blockers**: None.
 - **Exact next step**: Transition research dashboard (`index.html`) into a multi-page web application featuring dedicated pages for Flips, Diagnostics, Robustness, Interactive Explorer, Spatial Map, and Methodology.
+
+## 2026-09-13 — Scientific Framing Realignment: CD274–PDCD1 Spatial Sparsity Elevation & Granularity Sensitivity Caveat
+
+- **Date/time**: 2026-09-13; local time ~17:55 UTC-05:00 / 22:55Z.
+- **What I did**:
+  1. Conducted an empirical Leiden resolution sweep ($res \in [0.5, 0.8, 1.0, 1.2, 1.5, 2.0]$) to test whether endothelial cells ($n=49$, 0.68% of 7,163 cells) separate into an independent cluster at higher community detection resolutions without over-clustering.
+  2. Determined that endothelial cells remain merged into stromal and epithelial clusters across all standard resolutions ($0.5 \le res \le 1.5$), separating only at an extreme resolution of 2.0 (19 micro-clusters) which fragments biology.
+  3. Formally realigned the thesis presentation architecture under Option 1 ("Reframe Now"):
+     - **Primary, typing-robust finding**: Promoted CD274–PDCD1 detection sparsity and spatial non-contact as the headline proof of method utility. Dissociated/marginal null models manufactured false-positive significance for uncontacted cells (0 physical edges out of 42,978 in tissue graph), whereas spatial-edge scoring eliminates all 6 combinations to observed score 0.000000 across both per-cell and Leiden consensus typing schemes.
+     - **Secondary, explicitly caveated observation**: Maintained CXCL12–CXCR4 dominant paracrine axis stability (`fibroblast→immune` ranks #1 in both models: $z = +29.51$ per-cell, $z = +39.57$ Leiden consensus), while adding an explicit methodological caveat that secondary rank variations in rare lineages (endothelial, 0.68%) are sensitive to cell-typing granularity when low-abundance cells are absorbed by unsupervised clustering.
+  4. Updated `results/leiden_robustness/comparison_summary.txt`, the research dashboard pages (`index.html`, `flips.html`, `robustness.html`, `diagnostic.html`, `methods.html`), and project documentation.
+- **Key decisions**: Avoid artificial resolution tuning that causes over-clustering; transparently report endothelial absorption as an expected clustering property; position the zero-edge CD274–PDCD1 discovery as the undeniable anchor for spatial graph modeling.
+- **What worked**: Eliminates thesis risk, prevents over-engineering, provides the cleanest and most methodologically honest thesis narrative for examination with 15 days remaining.
+- **Blockers**: None.
+- **Exact next step**: Synthesize findings into final thesis manuscript chapters and presentation defense materials.
+
