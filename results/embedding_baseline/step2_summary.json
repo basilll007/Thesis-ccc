@@ -1,0 +1,26 @@
+{
+  "n_directed_edges": 42978,
+  "n_unique_sender_receiver_pairs": 16,
+  "spearman_rho_all_rows": -0.002285139808487641,
+  "spearman_pvalue_all_rows": 0.9919474281953418,
+  "spearman_rho_unique_pairs": 0.10882352941176471,
+  "spearman_pvalue_unique_pairs": 0.688288293957414,
+  "cd274_pdcd1_embedding_scores": {
+    "immune->fibroblast": 0.9051535129547119,
+    "immune->epithelial": 0.8865866661071777,
+    "fibroblast->fibroblast": 0.9213546514511108,
+    "fibroblast->epithelial": 0.9104388952255249,
+    "epithelial->fibroblast": 0.9143263697624207,
+    "epithelial->epithelial": 0.9249539971351624
+  },
+  "all_pairs_embedding_score_mean": 0.9031395241618156,
+  "all_pairs_embedding_score_min": 0.8822506666183472,
+  "all_pairs_embedding_score_max": 0.9249539971351624,
+  "fibroblast_immune_rank_by_embedding": [
+    7
+  ],
+  "fibroblast_epithelial_rank_by_embedding": [
+    5
+  ],
+  "runtime_sec": 0.4229702949523926
+}

@@ -28,6 +28,7 @@
       <a href="flips.html" class="">Verdict Flips</a>
       <a href="robustness.html" class="">Leiden Robustness</a>
       <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="embedding.html" class="">scGPT Baseline</a>
       <a href="explorer.html" class="">Data Explorer</a>
       <a href="spatial.html" class="">Spatial Map</a>
       <a href="methods.html" class="">Methods &amp; Log</a>
@@ -163,6 +164,18 @@
           <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700;">20 LR Pair Coverage Sweep</h3>
           <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
             Inspect single-cell detection rates across all 37 unique genes: reveals 28 genes are absent from the commercial Xenium 280-gene panel.
+          </p>
+        </a>
+
+        <a href="embedding.html" class="card" style="padding: 22px; text-decoration: none; color: inherit;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+            <span class="verdict-badge neutral">Appendix Check</span>
+            <span style="font-size: 18px;">↗</span>
+          </div>
+          <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700;">scGPT Zero-Shot Embedding Baseline</h3>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            A foundation-model probe: zero-shot scGPT embeddings narrowly clear a PCA quality gate (ratio 0.921) but their
+            embedding-similarity score does not correlate with the spatial-edge ground truth (Spearman ρ ≈ 0) — a documented negative result.
           </p>
         </a>
 

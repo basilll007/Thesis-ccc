@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — scGPT Zero-Shot Embedding Baseline</title>
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true"><div class="ambient-blob blob-1"></div><div class="ambient-blob blob-3"></div></div>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="embedding.html" class="active">scGPT Baseline</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge" style="color: var(--brand-primary); background: var(--brand-glow);">Foundation-Model Probe · Appendix Check</div>
+      <h1 class="hero-title">scGPT Zero-Shot Embedding Baseline:<br><span class="gradient-text">A Documented Negative Result</span></h1>
+      <p class="hero-lede">
+        Before trusting a foundation-model embedding as a communication score, it has to clear a basic quality bar: does it separate known
+        cell types at least as well as plain PCA on the same genes? Using the pretrained <b>scGPT whole-human</b> checkpoint in pure
+        zero-shot mode (no fine-tuning) on the 274 panel genes that overlap its vocabulary, the embedding <b>narrowly passed</b> that
+        gate (92.1% of the PCA baseline's silhouette score) — but the resulting embedding-similarity communication score
+        <b>does not correlate</b> with the spatial-edge null model's <code>edge_z_score</code> ranking that anchors the rest of this thesis.
+        This page reports both results plainly, without spin.
+      </p>
+
+      <!-- KPI Grid -->
+      <div class="kpi-grid reveal">
+        <div class="card kpi-card">
+          <div class="kpi-label">Gene Panel Overlap</div>
+          <div class="kpi-value">97.9%</div>
+          <div class="kpi-subtext">274 / 280 panel genes in scGPT's vocab</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">scGPT Silhouette</div>
+          <div class="kpi-value">0.136</div>
+          <div class="kpi-subtext">Zero-shot embedding, labeled by cell_type</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">PCA Baseline Silhouette</div>
+          <div class="kpi-value">0.148</div>
+          <div class="kpi-subtext">50 PCs, same 274 genes, same cells</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Gate Ratio (scGPT / PCA)</div>
+          <div class="kpi-value" style="color: var(--status-warning);">0.921</div>
+          <div class="kpi-subtext">Passed at ≥0.90 threshold — narrowly, not a win</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Spearman ρ vs edge_z_score</div>
+          <div class="kpi-value" style="color: var(--status-danger);">−0.002</div>
+          <div class="kpi-subtext">p = 0.99 — no rank correlation (22 rows)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">CD274→PDCD1 Embedding Sim.</div>
+          <div class="kpi-value" style="color: var(--status-danger);">0.89–0.93</div>
+          <div class="kpi-subtext">High, despite 0 physical spatial edges</div>
+        </div>
+      </div>
+
+      <!-- Verdict callout -->
+      <div class="card" style="padding: 24px; border-left: 4px solid var(--status-warning); margin-top: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(217, 119, 6, 0.12); color: var(--status-warning); font-weight:700;">Honest Gate Verdict</span>
+          <span style="font-size: 12px; color: var(--text-muted);">Zero-shot only — scGPT was never fine-tuned on this data</span>
+        </div>
+        <h3 style="margin: 0 0 10px; font-size: 17px; font-weight: 800;">
+          Step 1 gate: passed narrowly, not a demonstration of scGPT superiority
+        </h3>
+        <p style="margin: 0 0 14px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;">
+          scGPT's zero-shot cell embeddings scored <b>silhouette = 0.136</b> against the existing per-cell <code>cell_type</code> labels,
+          versus <b>0.148</b> for a 50-component PCA on the identical 274 overlapping genes and cells — a ratio of <b>0.921</b>, just inside
+          the pre-registered ≥0.90 "within ~10% of PCA" threshold. scGPT did <i>not</i> outperform simple PCA; it stayed inside the allowed
+          margin. Both embeddings show the same qualitative structure (one large epithelial cluster, a second stromal/immune cluster),
+          consistent with the embedding mostly recovering coarse cell-type identity rather than adding new signal.
+        </p>
+        <h4 style="margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--text-primary);">
+          Step 2 finding: the embedding-based score does not reproduce the spatial-edge ground truth
+        </h4>
+        <p style="margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.55;">
+          Averaging scGPT embedding cosine similarity over the same 6-NN spatial graph edges used throughout this thesis produces a
+          sender→receiver score that is <b>uncorrelated</b> with <code>edge_z_score</code> (Spearman ρ = −0.002, p = 0.99 across all 22
+          rows; ρ = 0.109, p = 0.69 across the 16 unique cell-type pairs). The six <b>CD274→PDCD1</b> pairs — which this thesis's edge model
+          correctly scores at exactly <code>0.000</code> because zero spatial edges connect any CD274+ cell to any PDCD1+ cell — show
+          <b>high</b> embedding similarity (0.887–0.925), indistinguishable from the CXCL12–CXCR4 pairs. The foundation model does not
+          "see" the physical non-contact that the strict edge-product score was built to detect. The thesis's top axis,
+          <b>fibroblast→immune</b> (CXCL12–CXCR4, edge_z_score = 29.5, the highest in the dataset), ranks only <b>13th of 22</b> by
+          embedding similarity, and <b>fibroblast→epithelial</b> ranks <b>9th of 22</b> — neither near the top. All 22 rows compress into a
+          narrow 0.88–0.93 similarity band, consistent with whole-cell zero-shot cosine similarity mostly reflecting shared cell-type
+          identity rather than the directional ligand-receptor spatial-contact signal the edge-based null model targets.
+        </p>
+      </div>
+
+      <!-- Figure -->
+      <h3 style="font-size: 19px; font-weight: 800; margin: 32px 0 14px;">Zero-Shot Embedding Quality: scGPT vs. PCA Baseline</h3>
+      <div class="figure-grid">
+        <div class="card figure-card">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/scgpt_umap_comparison.png', 'scGPT Zero-Shot Embedding UMAP vs. PCA Baseline UMAP, colored by cell_type')">
+            <span class="figure-overlay-badge">Step 1 Gate</span>
+            <img src="figures/scgpt_umap_comparison.png" alt="scGPT vs PCA UMAP comparison" loading="lazy">
+          </div>
+          <div class="figure-body">
+            <h4 class="figure-title">Side-by-Side UMAP, Colored by cell_type</h4>
+            <p class="figure-desc">Left: scGPT zero-shot cell embeddings (274 overlapping genes). Right: 50-PC PCA baseline on the same genes and cells. Both reduced to 2D via UMAP.</p>
+            <div class="figure-links">
+              <a class="fig-link" href="figures/scgpt_umap_comparison.png" target="_blank">PNG (Raster)</a>
+              <a class="fig-link" href="figures/scgpt_umap_comparison.pdf" target="_blank">PDF (Vector)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data table -->
+      <div class="card" style="padding: 24px; margin-top: 28px;">
+        <h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700;">Embedding-Similarity Score vs. Spatial-Edge Ground Truth (all 22 rows)</h3>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--text-muted);">
+          Saved to <code>results/embedding_baseline/embedding_communication_scores.csv</code>. Ranked by embedding similarity, descending.
+        </p>
+        <div class="table-wrap">
+          <table class="interactive-table" id="embedding-table">
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Ligand</th>
+                <th>Receptor</th>
+                <th class="num">Embedding Similarity</th>
+                <th class="num">edge_observed_score</th>
+                <th class="num">edge_z_score</th>
+                <th>Edge-Null Verdict</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Environment / setup notes -->
+      <div class="card" style="padding: 24px; margin-top: 28px;">
+        <h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700;">Environment &amp; Reproducibility Notes</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+          <div>
+            <b style="color: var(--text-primary);">Checkpoint</b><br>
+            scGPT <b>whole-human</b> (bowang-lab), 12-layer / embsize 512 / 8-head transformer, 60,697-gene vocabulary, downloaded from the official release.
+          </div>
+          <div>
+            <b style="color: var(--text-primary);">Isolated environment</b><br>
+            New <code>scgpt-zeroshot</code> conda env (Python 3.10, <code>torch==2.3.0+cpu</code>, <code>scgpt==0.2.4</code>) — the existing <code>thesis-spatial-ccc</code> environment and its pinned dependencies were never modified.
+          </div>
+          <div>
+            <b style="color: var(--text-primary);">flash-attn workaround</b><br>
+            No MSVC compiler on this machine, so <code>flash-attn</code> could not be built. Loaded with <code>use_fast_transformer=False</code> (scGPT's documented fallback), which loads the identical pretrained weights.
+          </div>
+          <div>
+            <b style="color: var(--text-primary);">Inference mode</b><br>
+            Zero-shot only — scGPT was never fine-tuned on this dataset. CPU inference on all 7,163 cells completed in ~72s.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+<script>
+var EMBEDDING_DATA = [{"sender": "epithelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 0.4406, "edge_z_score": -27.573, "edge_significant": false, "embedding_similarity_score": 0.925, "n_edges": 29403}, {"sender": "epithelial", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.925, "n_edges": 29403}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 9.1474, "edge_z_score": 22.846, "edge_significant": true, "embedding_similarity_score": 0.9214, "n_edges": 4702}, {"sender": "fibroblast", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.9214, "n_edges": 4702}, {"sender": "endothelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 6.6325, "edge_z_score": 1.151, "edge_significant": false, "embedding_similarity_score": 0.9174, "n_edges": 27}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 1.4847, "edge_z_score": -5.254, "edge_significant": false, "embedding_similarity_score": 0.9143, "n_edges": 2276}, {"sender": "epithelial", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.9143, "n_edges": 2276}, {"sender": "immune", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 7.8966, "edge_z_score": 5.458, "edge_significant": true, "embedding_similarity_score": 0.9132, "n_edges": 827}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 3.0379, "edge_z_score": 4.644, "edge_significant": true, "embedding_similarity_score": 0.9104, "n_edges": 2586}, {"sender": "fibroblast", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.9104, "n_edges": 2586}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 5.8034, "edge_z_score": 7.497, "edge_significant": true, "embedding_similarity_score": 0.9052, "n_edges": 962}, {"sender": "immune", "receiver": "fibroblast", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.9052, "n_edges": 962}, {"sender": "fibroblast", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 16.5043, "edge_z_score": 29.505, "edge_significant": true, "embedding_similarity_score": 0.9043, "n_edges": 972}, {"sender": "endothelial", "receiver": "fibroblast", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 8.732, "edge_z_score": 5.175, "edge_significant": true, "embedding_similarity_score": 0.9018, "n_edges": 121}, {"sender": "fibroblast", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 11.2929, "edge_z_score": 6.679, "edge_significant": true, "embedding_similarity_score": 0.9016, "n_edges": 128}, {"sender": "immune", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 6.2535, "edge_z_score": 1.523, "edge_significant": false, "embedding_similarity_score": 0.9002, "n_edges": 17}, {"sender": "endothelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 16.6944, "edge_z_score": 7.221, "edge_significant": true, "embedding_similarity_score": 0.8955, "n_edges": 19}, {"sender": "epithelial", "receiver": "immune", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 1.7536, "edge_z_score": -1.609, "edge_significant": false, "embedding_similarity_score": 0.8876, "n_edges": 334}, {"sender": "immune", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 2.6113, "edge_z_score": 0.845, "edge_significant": false, "embedding_similarity_score": 0.8866, "n_edges": 360}, {"sender": "immune", "receiver": "epithelial", "ligand": "CD274", "receptor": "PDCD1", "edge_observed_score": 0.0, "edge_z_score": 0.0, "edge_significant": false, "embedding_similarity_score": 0.8866, "n_edges": 360}, {"sender": "endothelial", "receiver": "epithelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 2.2194, "edge_z_score": -0.096, "edge_significant": false, "embedding_similarity_score": 0.8836, "n_edges": 127}, {"sender": "epithelial", "receiver": "endothelial", "ligand": "CXCL12", "receptor": "CXCR4", "edge_observed_score": 1.1316, "edge_z_score": -1.231, "edge_significant": false, "embedding_similarity_score": 0.8823, "n_edges": 117}];
+
+function renderEmbeddingTable() {
+  var body = document.querySelector('#embedding-table tbody');
+  if (!body) return;
+  body.innerHTML = '';
+  EMBEDDING_DATA.forEach(function(r) {
+    var tr = document.createElement('tr');
+    var isZeroContact = r.edge_observed_score === 0;
+    var verdictHtml = r.edge_significant
+      ? '<span class="verdict-badge robust">Significant</span>'
+      : (isZeroContact ? '<span class="verdict-badge flip">Zero Edges</span>' : '<span class="verdict-badge neutral">Non-Significant</span>');
+    tr.innerHTML =
+      '<td>' + r.sender + '</td>' +
+      '<td>' + r.receiver + '</td>' +
+      '<td><b>' + r.ligand + '</b></td>' +
+      '<td><b>' + r.receptor + '</b></td>' +
+      '<td class="num"><b>' + r.embedding_similarity_score.toFixed(4) + '</b></td>' +
+      '<td class="num">' + r.edge_observed_score.toFixed(4) + '</td>' +
+      '<td class="num">' + r.edge_z_score.toFixed(3) + '</td>' +
+      '<td>' + verdictHtml + '</td>';
+    body.appendChild(tr);
+  });
+}
+renderEmbeddingTable();
+</script>
+</body>
+</html>

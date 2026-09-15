@@ -1,0 +1,18 @@
+Embedding-based communication score vs. spatial-edge null model (2026-09-15)
+
+The scGPT zero-shot embedding-similarity score does not correlate with the spatial-edge null
+model's edge_z_score ranking (Spearman rho = -0.002, p = 0.99 across all 22 sender-receiver x
+ligand-receptor rows; rho = 0.109, p = 0.69 across the 16 unique sender-receiver pairs), so the
+foundation model's cell embeddings are not, on their own, a usable proxy for this spatially
+calibrated communication signal. For the six CD274->PDCD1 pairs, whose edge_observed_score is
+0.000 in the existing ground truth because zero spatial edges connect a CD274+ cell to a PDCD1+
+cell, embedding similarity is not low: it ranges 0.887-0.925 and is not distinguishable from the
+non-zero CXCL12-CXCR4 pairs (0.882-0.925 overall) -- the model does not "see" any of the physical
+non-contact that the strict edge-product score captures. The top-ranked axis of the underlying
+thesis, fibroblast->immune (CXCL12-CXCR4, edge_z_score = 29.5, the highest in the dataset), ranks
+only 8th of 16 sender-receiver pairs by embedding similarity, and fibroblast->epithelial ranks
+6th of 16; neither is near the top of the embedding-similarity ranking. All 16 sender-receiver
+pairs' embedding-similarity scores are compressed into a narrow band (0.88-0.93), which is
+consistent with cosine similarity between whole-cell zero-shot embeddings mostly reflecting
+shared cell-type identity/transcriptomic state rather than the specific directional
+ligand-receptor spatial-contact signal the edge-based null model was built to detect.

@@ -22,6 +22,7 @@
       <a href="flips.html" class="">Verdict Flips</a>
       <a href="robustness.html" class="">Leiden Robustness</a>
       <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="embedding.html" class="">scGPT Baseline</a>
       <a href="explorer.html" class="">Data Explorer</a>
       <a href="spatial.html" class="">Spatial Map</a>
       <a href="methods.html" class="active">Methods &amp; Log</a>
@@ -100,6 +101,18 @@
       <div class="card" style="padding: 24px;">
         <h3 style="margin: 0 0 16px; font-size: 17px; font-weight: 700;">Chronological Progress Log</h3>
         <div class="timeline">
+          <div class="timeline-item active">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-15 · scGPT Zero-Shot Embedding Baseline</div>
+            <h4 class="timeline-title">Foundation-Model Gate Check: Passed Narrowly, Ground Truth Not Reproduced</h4>
+            <p class="timeline-desc">
+              Ran the pretrained scGPT whole-human checkpoint zero-shot (no fine-tuning) on the 274/280 panel genes present in its vocabulary.
+              Zero-shot silhouette (0.136) reached only 92.1% of a PCA baseline (0.148) on the same genes/cells — passed the pre-registered
+              ≥90% gate, narrowly. The resulting embedding-similarity communication score did not correlate with the existing spatial-edge
+              <code>edge_z_score</code> ranking (Spearman ρ = −0.002, p = 0.99); CD274→PDCD1 pairs, which have 0 physical spatial edges, showed
+              high (not low) embedding similarity. See <a href="embedding.html" style="color:var(--brand-primary); font-weight:700;">scGPT Baseline</a>.
+            </p>
+          </div>
           <div class="timeline-item active">
             <div class="timeline-marker"></div>
             <div class="timeline-date">2026-09-13 · Scientific Framing Realignment</div>
