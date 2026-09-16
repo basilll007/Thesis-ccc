@@ -127,11 +127,12 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-bottom: 32px;">
         <div class="card" style="padding: 22px; border-top: 3px solid var(--status-danger);">
           <span class="chip-tag" style="margin-bottom:8px; color:var(--status-danger);">Primary Finding</span>
-          <h4 style="margin: 0 0 8px; font-size: 15.5px; font-weight: 700;">1. 100% Typing-Invariant Spatial Sparsity</h4>
+          <h4 style="margin: 0 0 8px; font-size: 15.5px; font-weight: 700;">1. Typing-Invariant Spatial Sparsity</h4>
           <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.55;">
             All 6 CD274–PDCD1 combinations that were falsely flagged as significant under cluster-marginal means collapsed to non-significant under the edge null,
-            with an observed edge score of <b>0.000000</b> (<i>p</i> = 1.000). Zero physical contact edges connect CD274+ to PDCD1+ cells under either typing scheme.
-            This definitively proves that marginal scoring manufactures phantom significance for uncontacted cells.
+            with an observed edge score of <b>0.000000</b> (<i>p</i> = 1.000). Zero physical contact edges connect CD274+ to PDCD1+ cells under either typing scheme
+            (typing-invariant across two independent cell-typing schemes: per-cell argmax and Leiden-consensus).
+            This provides direct evidence that marginal scoring manufactures phantom significance for uncontacted cells.
           </p>
         </div>
         <div class="card" style="padding: 22px; border-top: 3px solid var(--brand-primary);">
@@ -148,8 +149,8 @@
           <h4 style="margin: 0 0 8px; font-size: 15.5px; font-weight: 700;">3. Granularity Sensitivity in Rare Lineages</h4>
           <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.55;">
             Minor relative rank variations among secondary CXCL12–CXCR4 interactions are sensitive to cell-typing granularity.
-            Our resolution sweep (<i>res</i> = 0.5 to 1.5) confirms that rare endothelial cells (<i>N</i> = 49, 0.68%) are absorbed into larger clusters during unsupervised community detection.
-            Secondary rank shifts stem from clustering resolution rather than spatial scoring instability.
+            At the default Leiden clustering resolution (<i>res</i> = 0.5, the only resolution actually clustered in this pipeline), rare endothelial cells (<i>N</i> = 49, 0.68%) are absorbed into larger epithelial/fibroblast clusters rather than forming their own cluster.
+            Secondary rank shifts stem from clustering granularity rather than spatial scoring instability.
           </p>
         </div>
       </div>

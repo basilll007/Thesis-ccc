@@ -5,8 +5,8 @@ Total runtime: 27.58 seconds (500 permutations, seed=42).
 Cell Typing Schemes:
 - Original per-cell argmax ('cell_type'): 4 lineages (epithelial: 5355, fibroblast: 1398, immune: 361, endothelial: 49)
 - Leiden consensus ('cell_type_leiden'): 3 lineages (epithelial: 5756, immune: 773, fibroblast: 634, endothelial: 0)
-  * Endothelial cells (N=49, 0.68% of tissue) are subsumed into larger morphological clusters under resolution 0.5.
-  * Empirical resolution sweep (res 0.5 to 1.5) confirms endothelial does not separate without over-clustering to res=2.0 (19 clusters).
+  * Endothelial cells (N=49, 0.68% of tissue) are subsumed into larger morphological clusters under resolution 0.5 (the only resolution actually clustered and saved in this pipeline).
+  * [Documentation-audit correction, 2026-09-15: an earlier draft of this summary additionally claimed a multi-resolution sweep (res 0.5-2.0, endothelial separating only at res=2.0 into 19 clusters) confirming this absorption holds across resolutions. No script or output artifact for that sweep exists anywhere in this repository, so that specific claim has been removed as unbacked. Only the single-resolution (res=0.5) absorption above is backed by a saved artifact (`results/leiden_robustness/crosstab_cell_type_leiden.csv`).]
 
 Interactions Evaluated: 18 combinations (all sender-receiver pairs with score > 0).
 - Compositional null significant (p < 0.05): 13 / 18
