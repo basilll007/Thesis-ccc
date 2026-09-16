@@ -1,0 +1,111 @@
+{
+  "step0_runtime_sec": 0.16527175903320312,
+  "step1_runtime_sec_total": 0.19100022315979004,
+  "step2_runtime_sec": 10.190075159072876,
+  "correctness_gate": {
+    "max_abs_diff": 1.7763568394002505e-15,
+    "gate_pass": true
+  },
+  "top_frac": 0.5,
+  "n_perms": 500,
+  "spearman_16_cxcl12": {
+    "rho": 0.9529411764705882,
+    "p": 1.2096579348829016e-08
+  },
+  "top5_by_edge_z_score": [
+    {
+      "sender": "fibroblast",
+      "receiver": "immune",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z_score": 29.50517935960431,
+      "filtered_z_score": 20.27431132511693
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "fibroblast",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z_score": 22.846472236441063,
+      "filtered_z_score": 15.352874413127449
+    },
+    {
+      "sender": "immune",
+      "receiver": "fibroblast",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z_score": 7.497013022695873,
+      "filtered_z_score": 5.4791877953092385
+    },
+    {
+      "sender": "endothelial",
+      "receiver": "immune",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z_score": 7.22141875960202,
+      "filtered_z_score": 4.55988345712194
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "endothelial",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z_score": 6.678697868110282,
+      "filtered_z_score": 6.049206111525894
+    }
+  ],
+  "median_abs_edge_z_top5": 7.497013022695873,
+  "median_abs_filtered_z_top5": 6.049206111525894,
+  "filtering_sharpened_top_signal": false,
+  "cd274_pdcd1_sanity_check_not_scored": [
+    {
+      "sender": "immune",
+      "receiver": "fibroblast",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    },
+    {
+      "sender": "immune",
+      "receiver": "epithelial",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "fibroblast",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "epithelial",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    },
+    {
+      "sender": "epithelial",
+      "receiver": "fibroblast",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    },
+    {
+      "sender": "epithelial",
+      "receiver": "epithelial",
+      "filtered_observed_score": 0.0,
+      "filtered_z_score": 0.0,
+      "filtered_empirical_pvalue": 1.0
+    }
+  ],
+  "cd274_stayed_near_zero": true,
+  "cd274_stayed_nonsignificant": true,
+  "step4_criteria": {
+    "a_rho_gt_0.7": true,
+    "b_filtering_sharpens_top5": false,
+    "verdict": "PARTIAL"
+  }
+}
