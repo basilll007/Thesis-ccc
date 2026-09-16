@@ -1,0 +1,67 @@
+{
+  "step1_reproduction": {
+    "prior_run_best_val_auc": 0.9785998700967267,
+    "this_run_best_val_auc": 0.9799305748157272,
+    "abs_diff": 0.0013307047190005417,
+    "reproduction_close": true,
+    "best_epoch": 100,
+    "n_epochs_run": 100
+  },
+  "spearman_all_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.5033020428194028,
+      "p": 0.0169500032870464,
+      "n": 22
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.14932148193473221,
+      "p": 0.5071824790604298,
+      "n": 22
+    }
+  },
+  "spearman_16_cxcl12_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.44705882352941173,
+      "p": 0.0825369233953715,
+      "n": 16
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.0058823529411764705,
+      "p": 0.9827505044191351,
+      "n": 16
+    }
+  },
+  "cd274_pdcd1": {
+    "ranks": [
+      7,
+      9,
+      12,
+      16,
+      19,
+      21
+    ],
+    "n_total_ranked": 22,
+    "bottom_half_threshold_rank": 11.0,
+    "all_bottom_half": false,
+    "scores": {
+      "immune->fibroblast": 0.9350023865699768,
+      "immune->epithelial": 0.9192303419113159,
+      "fibroblast->fibroblast": 0.9362258911132812,
+      "fibroblast->epithelial": 0.9134059548377991,
+      "epithelial->fibroblast": 0.921250581741333,
+      "epithelial->epithelial": 0.9254748821258545
+    }
+  },
+  "step3_confound_check": {
+    "all_rows_edge_meaningfully_weaker_than_compositional": false,
+    "cxcl12_rows_edge_meaningfully_weaker_than_compositional": false
+  },
+  "step4_criteria": {
+    "a_cd274_bottom_half": false,
+    "b_rho_gt_0.6": false,
+    "c_edge_not_meaningfully_weaker": true,
+    "verdict": "PARTIAL"
+  },
+  "runtime_sec_step1": 11.034022092819214,
+  "runtime_sec_step2": 0.10340666770935059
+}
