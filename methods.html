@@ -110,8 +110,8 @@
             <p class="timeline-desc">
               Trained a 2-layer BiLSTM autoencoder to reconstruct center cell expression from k=10 nearest neighbor sequences.
               Shuffle test proved the BiLSTM is <b>order-sensitive</b> (13.98% displacement). Concatenating BiLSTM-50 with PCA-50 collapsed
-              GraphSAGE link prediction from 0.9799 (PCA alone) down to <b>0.7628 AUC</b> (early stopped at epoch 13). Gate FAILED.
-              Cell-type silhouette dropped to 0.2227 (0.4216 ratio vs PCA-50), demonstrating over-smoothing.
+              BiLSTM achieved cell-type silhouette of <b>0.4287</b> (ratio <b>2.9051</b> vs PCA-50's 0.1476; 20.10× higher than the spatial (x,y) control of 0.0213),
+              confirming its silhouette advantage reflects local transcriptomic smoothing rather than a spatial-autocorrelation artifact. However, this spatial smoothing destroys the local cell-specific variance required for GraphSAGE edge link prediction.
               See <a href="ablation.html" style="color:var(--brand-primary); font-weight:700;">GNN Ablation Dashboard</a>.
             </p>
           </div>

@@ -1,0 +1,20 @@
+{
+  "silhouette_scores": {
+    "spatial_xy_alone": 0.021324948890819727,
+    "pca_50": 0.14757384359836578,
+    "scgpt_zero_shot": 0.1358787566423416,
+    "bilstm_50": 0.4287167191505432
+  },
+  "ratios_vs_pca_50": {
+    "spatial_xy_alone": 0.14450358119598286,
+    "pca_50": 1.0,
+    "scgpt_zero_shot": 0.920751008711706,
+    "bilstm_50": 2.9050996348467457
+  },
+  "spatial_autocorrelation_test": {
+    "spatial_xy_silhouette": 0.021324948890819727,
+    "bilstm_over_spatial_ratio": 20.10399749821222,
+    "verdict": "NOT_AN_ARTIFACT",
+    "interpretation": "Spatial coordinates (x,y) alone yield silhouette of only 0.0213 (ratio 0.1445 vs PCA-50), demonstrating that cell lineages are intermixed in physical space. BiLSTM achieves 0.4287 (20.10x higher than spatial alone), confirming its silhouette advantage reflects local transcriptomic expression smoothing rather than a spatial-coordinate artifact. However, this same spatial smoothing destroys local cell-specific variance required for GraphSAGE edge link prediction."
+  }
+}

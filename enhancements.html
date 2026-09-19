@@ -107,7 +107,7 @@
         <div class="card kpi-card">
           <div class="kpi-label">Deep Sets Silhouette</div>
           <div class="kpi-value" style="color: var(--series-violet);">0.2730</div>
-          <div class="kpi-subtext">+185% over BiLSTM (0.2227 / ratio 0.4216)</div>
+          <div class="kpi-subtext">1.85× vs PCA-50 (0.1476); 12.8× over spatial (x,y)</div>
         </div>
         <div class="card kpi-card">
           <div class="kpi-label">Deep Sets GNN Val AUC</div>
@@ -311,8 +311,8 @@
           </div>
           <p style="font-size: 13px; color: var(--text-muted); line-height: 1.55; margin: 0;">
             Deep Sets achieves <b>perfect permutation invariance</b>, entirely resolving the directional inductive bias of recurrent architectures.
-            Furthermore, Deep Sets achieved a cell-type silhouette score of <b>0.2730</b> (ratio 0.5168 vs PCA-50), which is <b>+185% higher</b>
-            than BiLSTM's 0.2227 (ratio 0.4216).
+            Furthermore, Deep Sets achieved a cell-type silhouette score of <b>0.2730</b> (ratio 1.8502 vs PCA-50's 0.1476), which is <b>12.8× higher</b>
+            than the spatial-position-only control (0.0213), confirming that isotropic spatial pooling also smooths expression.
           </p>
         </div>
 
@@ -661,44 +661,54 @@
             </thead>
             <tbody>
               <tr>
-                <td><b>PCA-50 (Raw Expression)</b></td>
-                <td>Linear SVD / PCA</td>
-                <td>Yes (cell-wise)</td>
-                <td><b>0.5283</b></td>
-                <td style="color: var(--status-success); font-weight: 700;">0.9799 (PASS)</td>
-                <td>1.000</td>
-                <td>None (unweighted)</td>
-                <td><span class="stat-badge success">Optimal Feature Baseline</span></td>
+                <td><b>Spatial (x,y) Control</b></td>
+                <td>Centroid Coordinates Alone</td>
+                <td>Yes</td>
+                <td>0.0213</td>
+                <td>N/A (Control)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td><span class="stat-badge info">Autocorrelation Baseline (Intermixed)</span></td>
               </tr>
               <tr>
                 <td><b>scGPT (Zero-Shot)</b></td>
                 <td>Transformer (Foundation Model)</td>
                 <td>Yes (cell-wise)</td>
-                <td>0.4852</td>
+                <td>0.1359</td>
                 <td style="color: var(--status-danger); font-weight: 700;">0.7011 (FAIL)</td>
                 <td>0.000 (no rank corr)</td>
                 <td>N/A</td>
                 <td><span class="stat-badge danger">Negative Result (Over-Smoothed)</span></td>
               </tr>
               <tr>
-                <td><b>BiLSTM Spatial Extractor</b></td>
-                <td>2-Layer BiLSTM Autoencoder</td>
-                <td style="color: var(--status-danger); font-weight: 700;">No (13.98% shift)</td>
-                <td>0.2227</td>
-                <td style="color: var(--status-danger); font-weight: 700;">0.7628 (FAIL)</td>
-                <td>0.682</td>
-                <td>N/A</td>
-                <td><span class="stat-badge danger">Negative Result (Order Sensitive)</span></td>
+                <td><b>PCA-50 (Raw Expression)</b></td>
+                <td>Linear SVD / PCA</td>
+                <td>Yes (cell-wise)</td>
+                <td><b>0.1476</b></td>
+                <td style="color: var(--status-success); font-weight: 700;">0.9799 (PASS)</td>
+                <td>1.000</td>
+                <td>None (unweighted)</td>
+                <td><span class="stat-badge success">Optimal Feature Baseline</span></td>
               </tr>
               <tr>
                 <td><b>Deep Sets Extractor</b></td>
                 <td>Isotropic Set MLP + Mean Pool</td>
                 <td style="color: var(--status-success); font-weight: 700;">Yes (7.10×10⁻⁸ shift)</td>
-                <td>0.2730 (+185% vs LSTM)</td>
+                <td>0.2730 (1.85× vs PCA)</td>
                 <td style="color: var(--status-danger); font-weight: 700;">0.7704 (FAIL)</td>
                 <td>0.756</td>
                 <td>N/A</td>
                 <td><span class="stat-badge warning">Order Invariant; Spatial Limit Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><b>BiLSTM Spatial Extractor</b></td>
+                <td>2-Layer BiLSTM Autoencoder</td>
+                <td style="color: var(--status-danger); font-weight: 700;">No (13.98% shift)</td>
+                <td>0.4287 (2.91× vs PCA)</td>
+                <td style="color: var(--status-danger); font-weight: 700;">0.7628 (FAIL)</td>
+                <td>0.682</td>
+                <td>N/A</td>
+                <td><span class="stat-badge danger">Negative Result (Order Sensitive)</span></td>
               </tr>
               <tr style="background: rgba(16, 185, 129, 0.08);">
                 <td><b>Continuous Soft Null</b></td>

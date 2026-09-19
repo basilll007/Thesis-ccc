@@ -93,9 +93,9 @@
           <div class="kpi-subtext">Global relative Frobenius norm (ORDER_SENSITIVE)</div>
         </div>
         <div class="card kpi-card">
-          <div class="kpi-label">Cell-Type Silhouette Ratio</div>
-          <div class="kpi-value" style="color: var(--status-danger);">0.4216</div>
-          <div class="kpi-subtext">LSTM (0.2227) vs PCA-50 (0.5283) — severe blur</div>
+          <div class="kpi-label">BiLSTM Silhouette Ratio</div>
+          <div class="kpi-value" style="color: var(--status-success);">2.91×</div>
+          <div class="kpi-subtext">LSTM (0.4287) vs PCA (0.1476); 20.1× over spatial (x,y)</div>
         </div>
         <div class="card kpi-card">
           <div class="kpi-label">CD274→PDCD1 Ranks</div>
@@ -221,8 +221,10 @@
               <a href="figures/biology_lstm_cell_types_projection.pdf" class="btn btn-outline" style="font-size:11px; padding:4px 10px;" target="_blank">PDF</a>
             </div>
             <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
-              2D UMAP projection comparing cell-type cluster preservation. PCA-50 maintains crisp lineages (silhouette = 0.5283).
-              BiLSTM-50 heavily blurs lineage boundaries (silhouette = 0.2227, ratio <b>0.4216</b> vs PCA-50), showing that neighborhood reconstruction over-smooths transcriptomic identity.
+              3-panel projection comparing cell-type cluster preservation and spatial autocorrelation. PCA-50 achieves silhouette = 0.1476.
+              BiLSTM-50 yields silhouette = 0.4287 (ratio <b>2.9051</b> vs PCA-50), which is <b>20.10× higher</b> than the spatial-position-only control ((x,y) alone = 0.0213),
+              confirming its silhouette advantage is not a spatial-autocorrelation artifact, but reflects local expression smoothing.
+              However, this spatial smoothing destroys the cell-specific variance required for GraphSAGE edge link prediction.
             </p>
             <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 10px; text-align: center;">
               <img src="figures/biology_lstm_cell_types_projection.png" alt="BiLSTM Embedding Cell Type Projection" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
@@ -281,24 +283,31 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><b>PCA-50 (Raw Expr)</b></td>
-                  <td>50</td>
-                  <td><b>0.5283</b></td>
-                  <td><b>1.000</b></td>
-                  <td style="color: var(--status-success); font-weight: 700;">0.9799 (PASS)</td>
+                  <td><b>Spatial (x,y) Control</b></td>
+                  <td>2</td>
+                  <td>0.0213</td>
+                  <td>0.1445</td>
+                  <td>N/A (Control)</td>
                 </tr>
                 <tr>
                   <td><b>scGPT (Zero-Shot)</b></td>
                   <td>512</td>
-                  <td>0.4852</td>
-                  <td>0.9184</td>
+                  <td>0.1359</td>
+                  <td>0.9208</td>
                   <td style="color: var(--status-danger); font-weight: 700;">0.7011 (FAIL)</td>
+                </tr>
+                <tr>
+                  <td><b>PCA-50 (Raw Expr)</b></td>
+                  <td>50</td>
+                  <td><b>0.1476</b></td>
+                  <td><b>1.000</b></td>
+                  <td style="color: var(--status-success); font-weight: 700;">0.9799 (PASS)</td>
                 </tr>
                 <tr>
                   <td><b>BiLSTM-50 (Spatial)</b></td>
                   <td>50</td>
-                  <td>0.2227</td>
-                  <td>0.4216</td>
+                  <td><b>0.4287</b></td>
+                  <td><b>2.9051</b></td>
                   <td style="color: var(--status-danger); font-weight: 700;">0.7628 (FAIL)</td>
                 </tr>
               </tbody>
