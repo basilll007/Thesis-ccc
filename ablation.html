@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — BiLSTM &amp; GNN Ablation</title>
+<meta name="description" content="Empirical ablation of multivariate BiLSTM spatial neighbor context features on GraphSAGE link prediction and cell-cell communication.">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="embedding.html" class="">scGPT Baseline</a>
+      <a href="ablation.html" class="active">GNN Ablation</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge" style="color: var(--status-danger); background: rgba(220, 38, 38, 0.12);">
+        ● Deep Learning Ablation · Pre-Registered Gate FAILED
+      </div>
+      <h1 class="hero-title">
+        BiLSTM Spatial Feature Extractor &amp; GNN Ablation:<br>
+        <span class="gradient-text">A Documented Empirical Negative Result</span>
+      </h1>
+      <p class="hero-lede">
+        To test whether deep spatial feature extraction can enhance graph neural network link prediction and cell-cell communication inference,
+        we engineered a <b>multivariate 2-layer BiLSTM autoencoder</b> trained to reconstruct each center cell's expression from its
+        <b>k=10 nearest spatial neighbor sequence</b>. When concatenated with PCA-50 and fed into a 2-layer GraphSAGE, the model
+        <b>failed the pre-registered link-prediction gate</b> (AUC collapsed to <b>0.7628</b> vs <b>0.9799</b> for PCA-50 alone).
+        Furthermore, neighbor order shuffling proved the BiLSTM is <b>order-sensitive</b> (13.98% displacement), and the embeddings
+        severely blurred cell-type separation (silhouette ratio <b>0.4216</b> vs PCA-50).
+      </p>
+
+      <!-- KPI Grid -->
+      <div class="kpi-grid reveal">
+        <div class="card kpi-card">
+          <div class="kpi-label">Arm A Val AUC (PCA-50)</div>
+          <div class="kpi-value" style="color: var(--status-success);">0.9799</div>
+          <div class="kpi-subtext">100 epochs, stable convergence (control)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Arm B Val AUC (+LSTM)</div>
+          <div class="kpi-value" style="color: var(--status-danger);">0.7628</div>
+          <div class="kpi-subtext">Peaked epoch 3; early stopped at epoch 13</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Gate Threshold (Arm A − 0.02)</div>
+          <div class="kpi-value">0.9600</div>
+          <div class="kpi-subtext">Pre-registered non-inferiority gate</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Gate Verdict</div>
+          <div class="kpi-value" style="color: var(--status-danger);">FAILED</div>
+          <div class="kpi-subtext">Δ = −0.2172 (below threshold)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Stronger Claim Threshold</div>
+          <div class="kpi-value">1.0975</div>
+          <div class="kpi-subtext">AUC_A + 1σ_fluctuation (σ = 0.1176)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Order Shuffle Displacement</div>
+          <div class="kpi-value" style="color: var(--status-warning);">13.98%</div>
+          <div class="kpi-subtext">Global relative Frobenius norm (ORDER_SENSITIVE)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Cell-Type Silhouette Ratio</div>
+          <div class="kpi-value" style="color: var(--status-danger);">0.4216</div>
+          <div class="kpi-subtext">LSTM (0.2227) vs PCA-50 (0.5283) — severe blur</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">CD274→PDCD1 Ranks</div>
+          <div class="kpi-value" style="color: var(--status-warning);">[3, 7, ...]</div>
+          <div class="kpi-subtext">Ranks 3 &amp; 7 in top half (failed zero-contact check)</div>
+        </div>
+      </div>
+
+      <!-- Pre-Registered Gate Callout -->
+      <div class="card" style="padding: 24px; border-left: 4px solid var(--status-danger); margin-top: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(220, 38, 38, 0.12); color: var(--status-danger); font-weight:700;">Pre-Registered Gate Verdict</span>
+          <span style="font-size: 12px; color: var(--text-muted);">Strict Repository Discipline · Zero Hyperparameter Hacking</span>
+        </div>
+        <h3 style="margin: 0 0 10px; font-size: 17px; font-weight: 800; color: var(--text-primary);">
+          Pre-Registered Gate FAILED: Concatenating BiLSTM Neighbor Features Degrades GraphSAGE Link Prediction
+        </h3>
+        <p style="margin: 0 0 14px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;">
+          Under the pre-registered benchmark, Arm B (PCA-50 + LSTM-50) was required to reach a validation AUC of at least <b>0.9600</b>
+          (Arm A's 0.9799 minus 0.02 tolerance) to be considered "not worse", and exceeding <b>1.0975</b> to support the stronger claim
+          that "LSTM features help". Arm B achieved a peak validation AUC of <b>0.7628</b> at epoch 3, after which validation performance
+          decayed toward chance (~0.50) before triggering early stopping at epoch 13. This exactly replicates the failure mode observed
+          with scGPT foundation-model zero-shot embeddings (which collapsed to 0.7011 AUC), proving that raw expression PCA remains
+          the superior, parsimonious representation for spatial GraphSAGE link prediction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Figures Gallery Section -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 style="font-size: 22px; font-weight: 800; margin: 0 0 20px;">Publication-Grade Visualizations (Task 3)</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+
+        <!-- Figure 1: Spatial Confidence Map -->
+        <div class="card" style="padding: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+            <div>
+              <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 1 · Pathology &amp; Spatial Network</span>
+              <h3 style="margin: 8px 0 4px; font-size: 18px; font-weight: 800;">Spatial Graph Edge Confidence: Arm A vs. Arm B</h3>
+            </div>
+            <a href="figures/spatial_gnn_confidence_ablation.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download Vector PDF</a>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px;">
+            Side-by-side visualization of all 42,978 directed spatial edges in the 10x Xenium breast tissue. Edge color and opacity
+            reflect learned GNN edge confidence (<i>p</i><sub>edge</sub> = σ(<b>z</b><sub>i</sub> · <b>z</b><sub>j</sub>)) on a shared color scale.
+            Arm A (left) displays sharp, spatially coherent tissue boundary segmentation, whereas Arm B (right) exhibits diffuse, degraded edge confidence.
+          </p>
+          <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+            <img src="figures/spatial_gnn_confidence_ablation.png" alt="Spatial GNN Edge Confidence Ablation" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+          </div>
+        </div>
+
+        <!-- Figure 2: CCC Ranking -->
+        <div class="card" style="padding: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+            <div>
+              <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 2 · Cell-Cell Communication</span>
+              <h3 style="margin: 8px 0 4px; font-size: 18px; font-weight: 800;">Learned Communication Scores Across 22 Interacting Pairs</h3>
+            </div>
+            <a href="figures/cell_communication_ablation.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download Vector PDF</a>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px;">
+            Two-panel horizontal comparison of the 22 canonical interactions ranked by mean learned edge score for Arm A (left) and Arm B (right)
+            on a shared x-axis scale. The 6 known-zero-contact CD274→PDCD1 interactions are highlighted in distinct coral red.
+            While Arm A pushes zero-contact pairs toward the middle and bottom, Arm B assigns CD274→PDCD1 ranks 3 and 7 (in the upper half),
+            failing the physical non-contact sanity test.
+          </p>
+          <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+            <img src="figures/cell_communication_ablation.png" alt="Cell-Cell Communication Ranked Comparison" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+          </div>
+        </div>
+
+        <!-- Figure 3: Accuracy Curves -->
+        <div class="card" style="padding: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+            <div>
+              <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 3 · Learning Dynamics</span>
+              <h3 style="margin: 8px 0 4px; font-size: 18px; font-weight: 800;">GraphSAGE Training Loss &amp; Validation Link-Prediction AUC</h3>
+            </div>
+            <a href="figures/gnn_lstm_ablation_accuracy.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download Vector PDF</a>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px;">
+            Overlaid learning trajectories for Arm A (blue dashed) vs Arm B (red solid). Arm A exhibits textbook convergence, improving steadily
+            from 0.50 up to 0.9799 over 100 epochs. Arm B peaks prematurely at epoch 3 (AUC = 0.7628) and collapses, triggering early stopping
+            at epoch 13. The pre-registered 0.96 gate threshold is marked by the green dotted line.
+          </p>
+          <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+            <img src="figures/gnn_lstm_ablation_accuracy.png" alt="GraphSAGE Learning Dynamics" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+          </div>
+        </div>
+
+        <!-- Figure 4: Biology Spatial Maps & Projection -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 24px;">
+          
+          <!-- 4a: Spatial Expression -->
+          <div class="card" style="padding: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <span class="chip-tag" style="background: rgba(16, 185, 129, 0.12); color: var(--status-success); font-weight:700;">Figure 4(a) · Spatial Expression</span>
+                <h4 style="margin: 6px 0 2px; font-size: 16px; font-weight: 800;">PDCD1 Panel-Detection Limit</h4>
+              </div>
+              <a href="figures/biology_spatial_expression.pdf" class="btn btn-outline" style="font-size:11px; padding:4px 10px;" target="_blank">PDF</a>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              Single-cell in situ expression maps for CD274, PDCD1, CXCL12, and CXCR4. PDCD1 is detected in only <b>12 out of 7,163 cells (0.17%)</b>,
+              providing visual grounding for why physical contact edges between CD274+ and PDCD1+ cells are exactly zero.
+            </p>
+            <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 10px; text-align: center;">
+              <img src="figures/biology_spatial_expression.png" alt="Spatial Expression Maps" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+            </div>
+          </div>
+
+          <!-- 4b: UMAP & Silhouette -->
+          <div class="card" style="padding: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <span class="chip-tag" style="background: rgba(16, 185, 129, 0.12); color: var(--status-success); font-weight:700;">Figure 4(b) · Representation Quality</span>
+                <h4 style="margin: 6px 0 2px; font-size: 16px; font-weight: 800;">Cell-Type Cluster Separation</h4>
+              </div>
+              <a href="figures/biology_lstm_cell_types_projection.pdf" class="btn btn-outline" style="font-size:11px; padding:4px 10px;" target="_blank">PDF</a>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              2D UMAP projection comparing cell-type cluster preservation. PCA-50 maintains crisp lineages (silhouette = 0.5283).
+              BiLSTM-50 heavily blurs lineage boundaries (silhouette = 0.2227, ratio <b>0.4216</b> vs PCA-50), showing that neighborhood reconstruction over-smooths transcriptomic identity.
+            </p>
+            <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 10px; text-align: center;">
+              <img src="figures/biology_lstm_cell_types_projection.png" alt="BiLSTM Embedding Cell Type Projection" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Analysis Section -->
+  <section>
+    <div class="container">
+      <h2 style="font-size: 22px; font-weight: 800; margin: 0 0 20px;">Detailed Quantitative Audit</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+        
+        <!-- Order Sensitivity Card -->
+        <div class="card" style="padding: 24px;">
+          <h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700;">Mandatory Sanity Check: Neighbor Order Sensitivity</h3>
+          <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px;">
+            A key theoretical objection to using recurrent architectures on spatial neighborhoods is that spatial proximity has no canonical 1D sequence order.
+            By sorting neighbors ascending by Euclidean distance, does the BiLSTM learn order-invariance, or is the distance ranking doing unvalidated work?
+          </p>
+          <div style="background: var(--bg-tertiary); border-radius: 6px; padding: 14px; font-size: 13px; font-family: var(--font-mono); line-height: 1.7;">
+            <div>Global Relative Frobenius Norm: <b>0.1398 (13.98%)</b></div>
+            <div>Mean Cell-Wise Relative L2:     <b>0.1074 (10.74%)</b></div>
+            <div>Median Cell-Wise Relative L2:   <b>0.0576 (5.76%)</b></div>
+            <div>Maximum Cell-Wise Relative L2:  <b>1.2757 (127.57%)</b></div>
+            <div style="margin-top: 8px; color: var(--status-warning); font-weight: 700;">VERDICT: ORDER_SENSITIVE</div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-top: 12px;">
+            Because the shuffled embeddings deviate substantially from the ordered embeddings, the BiLSTM does <i>not</i> act as a permutation-invariant
+            Deep Sets aggregator. The arbitrary 1D distance-rank ordering actively imposes directional inductive bias onto spatial neighbor encoding.
+          </p>
+        </div>
+
+        <!-- Three Paradigms Comparison Card -->
+        <div class="card" style="padding: 24px;">
+          <h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700;">Cross-Paradigm Representation Benchmark</h3>
+          <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px;">
+            Comparison of the three feature representations evaluated across this thesis for cell-type preservation and GraphSAGE link prediction:
+          </p>
+          <div style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; font-size: 12.5px;">
+              <thead>
+                <tr>
+                  <th>Feature Source</th>
+                  <th>Dim</th>
+                  <th>Silhouette</th>
+                  <th>Ratio vs PCA</th>
+                  <th>GNN Val AUC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>PCA-50 (Raw Expr)</b></td>
+                  <td>50</td>
+                  <td><b>0.5283</b></td>
+                  <td><b>1.000</b></td>
+                  <td style="color: var(--status-success); font-weight: 700;">0.9799 (PASS)</td>
+                </tr>
+                <tr>
+                  <td><b>scGPT (Zero-Shot)</b></td>
+                  <td>512</td>
+                  <td>0.4852</td>
+                  <td>0.9184</td>
+                  <td style="color: var(--status-danger); font-weight: 700;">0.7011 (FAIL)</td>
+                </tr>
+                <tr>
+                  <td><b>BiLSTM-50 (Spatial)</b></td>
+                  <td>50</td>
+                  <td>0.2227</td>
+                  <td>0.4216</td>
+                  <td style="color: var(--status-danger); font-weight: 700;">0.7628 (FAIL)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-top: 12px;">
+            <b>Scientific Takeaway:</b> Both high-capacity foundation models (scGPT) and complex recurrent spatial autoencoders (BiLSTM) fail to improve upon
+            simple linear PCA on raw gene expression for spatial graph learning. High-capacity extractors either over-smooth local variation or eliminate
+            the fine single-cell differences needed to distinguish true 6-NN spatial edges from random pairs.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      10x Xenium Dataset © 10x Genomics, CC BY 4.0 · Multi-Page Dashboard Updated September 2026
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

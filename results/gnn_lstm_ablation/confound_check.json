@@ -1,0 +1,45 @@
+{
+  "spearman_all_22_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.6798290930250732,
+      "p": 0.0005004572935450035
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.5395935369914187,
+      "p": 0.009546599125750963
+    },
+    "edge_meaningfully_weaker": false
+  },
+  "spearman_16_cxcl12_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.7588235294117647,
+      "p": 0.0006540302361647908
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.4794117647058824,
+      "p": 0.06023930250431595
+    },
+    "edge_meaningfully_weaker": false
+  },
+  "cd274_pdcd1_rank_check": {
+    "ranks": [
+      3,
+      7,
+      12,
+      15,
+      17,
+      19
+    ],
+    "total_ranked": 22,
+    "bottom_half_threshold": 11.0,
+    "all_bottom_half": false,
+    "scores": {
+      "immune->fibroblast": 0.9845556020736694,
+      "immune->epithelial": 0.8297826051712036,
+      "fibroblast->fibroblast": 0.9500649571418762,
+      "fibroblast->epithelial": 0.7722641229629517,
+      "epithelial->fibroblast": 0.7738621830940247,
+      "epithelial->epithelial": 0.7922727465629578
+    }
+  }
+}

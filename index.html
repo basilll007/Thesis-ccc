@@ -29,6 +29,7 @@
       <a href="robustness.html" class="">Leiden Robustness</a>
       <a href="diagnostic.html" class="">Diagnostics</a>
       <a href="embedding.html" class="">scGPT Baseline</a>
+      <a href="ablation.html" class="">GNN Ablation</a>
       <a href="explorer.html" class="">Data Explorer</a>
       <a href="spatial.html" class="">Spatial Map</a>
       <a href="methods.html" class="">Methods &amp; Log</a>
@@ -176,6 +177,18 @@
           <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
             A foundation-model probe: zero-shot scGPT embeddings narrowly clear a PCA quality gate (ratio 0.921) but their
             embedding-similarity score does not correlate with the spatial-edge ground truth (Spearman ρ ≈ 0) — a documented negative result.
+          </p>
+        </a>
+
+        <a href="ablation.html" class="card" style="padding: 22px; text-decoration: none; color: inherit;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+            <span class="verdict-badge flip" style="background: rgba(220, 38, 38, 0.15); color: var(--status-danger);">Gate Failed</span>
+            <span style="font-size: 18px;">↗</span>
+          </div>
+          <h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700;">BiLSTM &amp; GNN Ablation</h3>
+          <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+            Deep learning ablation: BiLSTM spatial neighbor context features collapse GraphSAGE link prediction (val AUC 0.7628 vs 0.9799 for PCA-50).
+            Shuffle sanity check establishes 13.98% order-sensitivity.
           </p>
         </a>
 

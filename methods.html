@@ -23,6 +23,7 @@
       <a href="robustness.html" class="">Leiden Robustness</a>
       <a href="diagnostic.html" class="">Diagnostics</a>
       <a href="embedding.html" class="">scGPT Baseline</a>
+      <a href="ablation.html" class="">GNN Ablation</a>
       <a href="explorer.html" class="">Data Explorer</a>
       <a href="spatial.html" class="">Spatial Map</a>
       <a href="methods.html" class="active">Methods &amp; Log</a>
@@ -101,6 +102,28 @@
       <div class="card" style="padding: 24px;">
         <h3 style="margin: 0 0 16px; font-size: 17px; font-weight: 700;">Chronological Progress Log</h3>
         <div class="timeline">
+          <div class="timeline-item active">
+            <div class="timeline-marker" style="background:var(--status-danger);"></div>
+            <div class="timeline-date">2026-09-19 · BiLSTM Spatial Feature Extractor &amp; GNN Ablation</div>
+            <h4 class="timeline-title">Deep Learning Gate Check: Pre-Registered Gate FAILED (AUC 0.7628 vs 0.9799)</h4>
+            <p class="timeline-desc">
+              Trained a 2-layer BiLSTM autoencoder to reconstruct center cell expression from k=10 nearest neighbor sequences.
+              Shuffle test proved the BiLSTM is <b>order-sensitive</b> (13.98% displacement). Concatenating BiLSTM-50 with PCA-50 collapsed
+              GraphSAGE link prediction from 0.9799 (PCA alone) down to <b>0.7628 AUC</b> (early stopped at epoch 13). Gate FAILED.
+              Cell-type silhouette dropped to 0.2227 (0.4216 ratio vs PCA-50), demonstrating over-smoothing.
+              See <a href="ablation.html" style="color:var(--brand-primary); font-weight:700;">GNN Ablation Dashboard</a>.
+            </p>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2026-09-16 · Self-Supervised GNN Link Prediction &amp; Edge Confidence</div>
+            <h4 class="timeline-title">GraphSAGE Link Prediction Gate Passed on PCA-50 (AUC 0.9799), scGPT Failed (0.7011)</h4>
+            <p class="timeline-desc">
+              2-layer GraphSAGE trained self-supervised on the 42,978-edge spatial graph via dot-product link prediction.
+              scGPT embeddings failed the gate (AUC 0.7011); PCA-50 passed decisively (AUC 0.9799).
+              Subsequent edge-confidence filtering preserved ranking (rho=0.953) but diluted top z-scores.
+            </p>
+          </div>
           <div class="timeline-item active">
             <div class="timeline-marker"></div>
             <div class="timeline-date">2026-09-15 · scGPT Zero-Shot Embedding Baseline</div>
