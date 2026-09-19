@@ -1,0 +1,31 @@
+{
+  "spearman_all_22_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.705536915870559,
+      "p": 0.00024447064900836907
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.5769239074751018,
+      "p": 0.004939189736767564
+    }
+  },
+  "spearman_16_cxcl12_rows": {
+    "vs_edge_z_score": {
+      "rho": 0.7558823529411764,
+      "p": 0.0007058905869098943
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.4911764705882353,
+      "p": 0.053350435677943356
+    }
+  },
+  "cd274_pdcd1_ranks": [
+    3,
+    8,
+    12,
+    15,
+    17,
+    19
+  ],
+  "cd274_all_bottom_half": false
+}

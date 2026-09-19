@@ -1,0 +1,28 @@
+{
+  "n_receiver_cells": 2937,
+  "n_contact_engaged": 1495,
+  "n_unengaged": 1442,
+  "composite_activation": {
+    "mean_engaged": 0.04877028672402509,
+    "mean_unengaged": 0.0489396929817623,
+    "difference": -0.00016940625773721046,
+    "cohens_d": -0.0005226322718537115,
+    "welch_pvalue": 0.988678735533272
+  },
+  "spatial_permutation_null": {
+    "n_perms": 500,
+    "spatial_z_score": 1.0420084447698443,
+    "spatial_pvalue": 0.148,
+    "spatially_significant": false
+  },
+  "response_genes_tested": 11,
+  "n_significantly_upregulated": 4,
+  "top_upregulated_genes": [
+    "S100A4",
+    "MMP2",
+    "MAP3K8",
+    "PIM1",
+    "SNAI1"
+  ],
+  "runtime_sec": 0.669731855392456
+}

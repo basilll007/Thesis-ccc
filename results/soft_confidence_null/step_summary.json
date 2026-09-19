@@ -1,0 +1,73 @@
+{
+  "correctness_gate": {
+    "max_abs_diff": 1.7763568394002505e-15,
+    "pass": true
+  },
+  "spearman_16_cxcl12": {
+    "vs_edge_z_score": {
+      "rho": 1.0,
+      "p": 0.0
+    },
+    "vs_compositional_z_score": {
+      "rho": 0.7941176470588236,
+      "p": 0.0002391909276256312
+    }
+  },
+  "top5_interactions": [
+    {
+      "sender": "fibroblast",
+      "receiver": "immune",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z": 29.50517935960431,
+      "filtered_z": 20.27431132511693,
+      "soft_z": 29.10453604813545
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "fibroblast",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z": 22.846472236441063,
+      "filtered_z": 15.352874413127449,
+      "soft_z": 22.579081944553206
+    },
+    {
+      "sender": "immune",
+      "receiver": "fibroblast",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z": 7.497013022695873,
+      "filtered_z": 5.479187795309239,
+      "soft_z": 7.486674147654441
+    },
+    {
+      "sender": "endothelial",
+      "receiver": "immune",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z": 7.22141875960202,
+      "filtered_z": 4.55988345712194,
+      "soft_z": 7.1619581624527875
+    },
+    {
+      "sender": "fibroblast",
+      "receiver": "endothelial",
+      "ligand": "CXCL12",
+      "receptor": "CXCR4",
+      "edge_z": 6.678697868110282,
+      "filtered_z": 6.049206111525894,
+      "soft_z": 6.7354811281009095
+    }
+  ],
+  "median_abs_z_top5": {
+    "raw_edge": 7.497013022695873,
+    "hard_filtered": 6.049206111525894,
+    "continuous_soft": 7.486674147654441
+  },
+  "criteria": {
+    "rank_preserved_rho_gt_0.7": true,
+    "rescued_dilution_vs_hard_filter": true
+  },
+  "runtime_sec": 34.88202691078186
+}
