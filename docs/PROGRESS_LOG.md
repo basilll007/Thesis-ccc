@@ -267,6 +267,6 @@
   - `bd308b9` — GNN Step 2 on PCA-features branch, learned communication score (PARTIAL, AUC 0.9799)
   - `9c19b40` — GNN confidence-filtered edge null (ligand-receptor-aware fix, top_frac=0.5, rho=0.953, PARTIAL)
   - `09b9a9d` — AAAI abstract trim to 2-page limit
-  - (Current round) — Multivariate BiLSTM spatial feature extractor + GraphSAGE ablation (GATE FAILED, AUC 0.7628 vs 0.9799) + publication figures + web dashboard (`ablation.html`).
+  - `d4bd0f7` — Multivariate BiLSTM spatial feature extractor + GraphSAGE ablation (GATE FAILED, AUC 0.7628 vs 0.9799) + publication figures + web dashboard (`ablation.html`).
 - **Exact next step**: Synthesize this negative ablation result alongside the prior scGPT failure into the thesis/manuscript discussion: raw gene expression PCA (PCA-50) remains the superior, parsimonious node-feature representation for spatial GraphSAGE link prediction over both unit-normalized scGPT embeddings and distance-ordered BiLSTM spatial features.
 
