@@ -1,0 +1,56 @@
+{
+  "critical_signaling_radius_r_star_um": 300.0,
+  "max_spatial_z_score": 83.7030569370814,
+  "radii_evaluated_um": [
+    15.0,
+    30.0,
+    50.0,
+    75.0,
+    100.0,
+    150.0,
+    200.0,
+    300.0
+  ],
+  "kinetics": {
+    "S100A4": {
+      "baseline_y_inf": 0.0759,
+      "amplitude_a": 4.9952,
+      "decay_length_lambda_um": 10.07,
+      "half_distance_d12_um": 6.98,
+      "spearman_rho_vs_dist": -0.4309,
+      "spearman_pvalue": 4.4614842497525894e-133,
+      "fit_success": true
+    },
+    "MMP2": {
+      "baseline_y_inf": 0.3257,
+      "amplitude_a": 4.0274,
+      "decay_length_lambda_um": 15.49,
+      "half_distance_d12_um": 10.74,
+      "spearman_rho_vs_dist": -0.447,
+      "spearman_pvalue": 2.8083235488443345e-144,
+      "fit_success": true
+    },
+    "MAP3K8": {
+      "baseline_y_inf": 0.0884,
+      "amplitude_a": 0.6776,
+      "decay_length_lambda_um": 18.98,
+      "half_distance_d12_um": 13.16,
+      "spearman_rho_vs_dist": -0.1564,
+      "spearman_pvalue": 1.5069922853999358e-17,
+      "fit_success": true
+    }
+  },
+  "cd274_isolated_radii_um": [
+    15.0,
+    30.0,
+    50.0,
+    75.0,
+    100.0,
+    150.0,
+    200.0,
+    300.0
+  ],
+  "n_receivers_evaluated": 2937,
+  "n_producers_evaluated": 846,
+  "runtime_total_sec": 2157.92
+}

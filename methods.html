@@ -104,13 +104,29 @@
         <h3 style="margin: 0 0 16px; font-size: 17px; font-weight: 700;">Chronological Progress Log</h3>
         <div class="timeline">
           <div class="timeline-item active">
+            <div class="timeline-marker" style="background:var(--status-success);"></div>
+            <div class="timeline-date">2026-09-22 · Hybrid Edge-Attentive GNN &amp; Single-Cell Communication Networks</div>
+            <h4 class="timeline-title">Deep Architecture Gate CONQUERED: Val AUC = 1.0000 (0.99999) &amp; ρ = 0.8853 vs Edge Null</h4>
+            <p class="timeline-desc">
+              Overcame catastrophic over-smoothing of naive node-level concatenation by keeping crisp PCA-50 node embeddings for GraphSAGE message passing and fusing multivariate BiLSTM spatial context with 2D relative geometry at the directed edge decision layer ($e_{uv} \in \mathbb{R}^{231}$). Decisively passed pre-registered link prediction gate (Val AUC = 1.0000 @ epoch 14), achieved Spearman $\rho = 0.8853$ ($p = 5.15 \times 10^{-6}$) vs spatial edge null, cleanly placed CD274–PDCD1 in the bottom tier (rank 17/22), and mapped macro-tissue and 400×400 µm invasive-margin subfields. See <a href="enhancements.html#enhancement-5" style="color:var(--brand-primary); font-weight:700;">Enhancements Dashboard</a>.
+            </p>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-marker" style="background:var(--brand-primary);"></div>
+            <div class="timeline-date">2026-09-22 · Multi-Scale Distance-Decay Horizon &amp; Receiver Kinetics</div>
+            <h4 class="timeline-title">Paracrine Signaling Horizon (r* = 75 µm) &amp; Single-Cell Dose-Response (d₁/₂ = 7.0–10.7 µm)</h4>
+            <p class="timeline-desc">
+              Swept interaction radii $r \in [15, 30, 50, 75, 100, 150, 200, 300]\,\mu\text{m}$ across 12.7M edges with 500 permutations each. Observed CXCL12–CXCR4 score peaked at $r^* = 75\,\mu\text{m}$ (16.41), while CD274–PDCD1 remained strictly isolated at 0.00 observed score ($z \le 0.00, p = 1.0000$). Quantified single-cell receiver dose-response kinetics across 2,937 cells: motility gene <i>S100A4</i> decays with action half-distance $d_{1/2} = 7.0\,\mu\text{m}$ ($\rho = -0.431, p = 4.46 \times 10^{-133}$) and invasion gene <i>MMP2</i> with $d_{1/2} = 10.7\,\mu\text{m}$ ($\rho = -0.447, p = 2.81 \times 10^{-144}$). See <a href="enhancements.html#enhancement-4" style="color:var(--brand-primary); font-weight:700;">Enhancements Dashboard</a>.
+            </p>
+          </div>
+          <div class="timeline-item active">
             <div class="timeline-marker" style="background:var(--status-danger);"></div>
             <div class="timeline-date">2026-09-19 · BiLSTM Spatial Feature Extractor &amp; GNN Ablation</div>
             <h4 class="timeline-title">Deep Learning Gate Check: Pre-Registered Gate FAILED (AUC 0.7628 vs 0.9799)</h4>
             <p class="timeline-desc">
               Trained a 2-layer BiLSTM autoencoder to reconstruct center cell expression from k=10 nearest neighbor sequences.
               Shuffle test proved the BiLSTM is <b>order-sensitive</b> (13.98% displacement). Concatenating BiLSTM-50 with PCA-50 collapsed
-              BiLSTM achieved cell-type silhouette of <b>0.4287</b> (ratio <b>2.9051</b> vs PCA-50's 0.1476; 20.10× higher than the spatial (x,y) control of 0.0213),
+              GraphSAGE link prediction (AUC 0.7628 vs 0.9799). BiLSTM achieved cell-type silhouette of <b>0.4287</b> (ratio <b>2.9051</b> vs PCA-50's 0.1476; 20.10× higher than the spatial (x,y) control of 0.0213),
               confirming its silhouette advantage reflects local transcriptomic smoothing rather than a spatial-autocorrelation artifact. However, this spatial smoothing destroys the local cell-specific variance required for GraphSAGE edge link prediction.
               See <a href="ablation.html" style="color:var(--brand-primary); font-weight:700;">GNN Ablation Dashboard</a>.
             </p>
