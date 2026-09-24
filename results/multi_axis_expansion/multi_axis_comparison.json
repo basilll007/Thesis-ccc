@@ -1,0 +1,56 @@
+{
+  "dataset": "10x Xenium Human Breast Carcinoma",
+  "axes_evaluated": {
+    "CXCL12 -> CXCR4": {
+      "category": "Paracrine Chemokine",
+      "sender_receiver": "fibroblast -> immune",
+      "peak_radius_r_star_um": 200.0,
+      "max_z_score": 79.42,
+      "min_p_value": 0.0,
+      "obs_score_at_peak": 15.4747,
+      "qualifying_edges_at_peak": 83580,
+      "is_significant": true
+    },
+    "PTN -> SDC4": {
+      "category": "Stromal Growth Factor",
+      "sender_receiver": "fibroblast -> epithelial",
+      "peak_radius_r_star_um": 15.0,
+      "max_z_score": -1.36,
+      "min_p_value": 0.92,
+      "obs_score_at_peak": 3.5799,
+      "qualifying_edges_at_peak": 2264,
+      "is_significant": false
+    },
+    "CD86 -> CTLA4": {
+      "category": "Immune Checkpoint Contact",
+      "sender_receiver": "immune -> immune",
+      "peak_radius_r_star_um": 200.0,
+      "max_z_score": 19.96,
+      "min_p_value": 0.0,
+      "obs_score_at_peak": 0.1631,
+      "qualifying_edges_at_peak": 28632,
+      "is_significant": true
+    },
+    "CD274 -> PDCD1": {
+      "category": "Juxtacrine Contact Control",
+      "sender_receiver": "epithelial -> immune",
+      "peak_radius_r_star_um": 15.0,
+      "max_z_score": 0.0,
+      "min_p_value": 1.0,
+      "obs_score_at_peak": 0.0,
+      "qualifying_edges_at_peak": 325,
+      "is_significant": false
+    }
+  },
+  "radii_evaluated_um": [
+    15.0,
+    30.0,
+    50.0,
+    75.0,
+    100.0,
+    150.0,
+    200.0
+  ],
+  "n_permutations": 200,
+  "runtime_total_sec": 98.42
+}

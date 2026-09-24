@@ -1,0 +1,126 @@
+{
+  "dataset": "10x Xenium Human Breast Carcinoma",
+  "total_tissue_cells": 7163,
+  "total_tissue_edges": 42978,
+  "critical_signaling_radius_r_star_um": 75.0,
+  "diffusion_decay_length_lambda_um": 37.5,
+  "selected_beta_sparsity": 0.5,
+  "optimal_subnetwork": {
+    "n_nodes": 2822,
+    "n_edges": 2821,
+    "pruning_ratio_pct": 93.43617664851784,
+    "prize_captured": 3477.6238490641117,
+    "top_responder_recall_pct": 100.0,
+    "mean_subnetwork_attention": 0.8968018293380737,
+    "mean_edge_distance_um": 12.111063957214355,
+    "cell_type_breakdown": {
+      "epithelial": 1339,
+      "fibroblast": 1169,
+      "immune": 294,
+      "endothelial": 20
+    }
+  },
+  "sparsity_parameter_sweep": [
+    {
+      "beta_sparsity": 0.1,
+      "n_nodes": 3014,
+      "n_edges": 3013,
+      "pruning_ratio_pct": 92.99,
+      "objective_value": 3094.48,
+      "prize_captured": 3489.25,
+      "prize_pct": 99.83,
+      "total_edge_cost": 394.78,
+      "recall_top_responders_pct": 100.0,
+      "mean_edge_attention": 0.9008,
+      "mean_edge_dist_um": 12.12,
+      "solve_time_sec": 0.1312,
+      "cell_type_breakdown": {
+        "epithelial": 1479,
+        "fibroblast": 1219,
+        "immune": 296,
+        "endothelial": 20
+      }
+    },
+    {
+      "beta_sparsity": 0.3,
+      "n_nodes": 2912,
+      "n_edges": 2911,
+      "pruning_ratio_pct": 93.23,
+      "objective_value": 3001.61,
+      "prize_captured": 3483.85,
+      "prize_pct": 99.68,
+      "total_edge_cost": 482.24,
+      "recall_top_responders_pct": 100.0,
+      "mean_edge_attention": 0.8989,
+      "mean_edge_dist_um": 12.15,
+      "solve_time_sec": 0.1186,
+      "cell_type_breakdown": {
+        "epithelial": 1406,
+        "fibroblast": 1192,
+        "immune": 294,
+        "endothelial": 20
+      }
+    },
+    {
+      "beta_sparsity": 0.5,
+      "n_nodes": 2822,
+      "n_edges": 2821,
+      "pruning_ratio_pct": 93.44,
+      "objective_value": 2912.52,
+      "prize_captured": 3477.62,
+      "prize_pct": 99.5,
+      "total_edge_cost": 565.1,
+      "recall_top_responders_pct": 100.0,
+      "mean_edge_attention": 0.8968,
+      "mean_edge_dist_um": 12.11,
+      "solve_time_sec": 0.1382,
+      "cell_type_breakdown": {
+        "epithelial": 1339,
+        "fibroblast": 1169,
+        "immune": 294,
+        "endothelial": 20
+      }
+    },
+    {
+      "beta_sparsity": 1.0,
+      "n_nodes": 2627,
+      "n_edges": 2626,
+      "pruning_ratio_pct": 93.89,
+      "objective_value": 2701.08,
+      "prize_captured": 3461.66,
+      "prize_pct": 99.04,
+      "total_edge_cost": 760.58,
+      "recall_top_responders_pct": 100.0,
+      "mean_edge_attention": 0.8889,
+      "mean_edge_dist_um": 12.05,
+      "solve_time_sec": 0.1349,
+      "cell_type_breakdown": {
+        "epithelial": 1198,
+        "fibroblast": 1118,
+        "immune": 290,
+        "endothelial": 21
+      }
+    },
+    {
+      "beta_sparsity": 2.0,
+      "n_nodes": 2270,
+      "n_edges": 2269,
+      "pruning_ratio_pct": 94.72,
+      "objective_value": 2360.43,
+      "prize_captured": 3401.39,
+      "prize_pct": 97.32,
+      "total_edge_cost": 1040.96,
+      "recall_top_responders_pct": 100.0,
+      "mean_edge_attention": 0.8759,
+      "mean_edge_dist_um": 11.8,
+      "solve_time_sec": 0.1321,
+      "cell_type_breakdown": {
+        "fibroblast": 1056,
+        "epithelial": 915,
+        "immune": 278,
+        "endothelial": 21
+      }
+    }
+  ],
+  "runtime_total_sec": 1.01
+}

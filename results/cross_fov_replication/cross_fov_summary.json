@@ -1,0 +1,73 @@
+{
+  "dataset": "10x Xenium Breast Carcinoma 2-FOV Replication",
+  "split_coordinate_median_x_um": 627.2598876953125,
+  "fov_profiles": {
+    "FOV1_Margin": {
+      "n_cells": 3581,
+      "cell_type_breakdown": {
+        "epithelial": 2352,
+        "fibroblast": 939,
+        "immune": 260,
+        "endothelial": 30
+      }
+    },
+    "FOV2_Core": {
+      "n_cells": 3582,
+      "cell_type_breakdown": {
+        "epithelial": 3003,
+        "fibroblast": 459,
+        "immune": 101,
+        "endothelial": 19
+      }
+    }
+  },
+  "kinetics_replication": {
+    "FOV1_Margin": {
+      "S100A4": {
+        "half_distance_d12_um": 5.63,
+        "decay_lambda_um": 8.12,
+        "spearman_rho": -0.4679,
+        "spearman_pvalue": 9.077047708730616e-83,
+        "fit_success": true
+      },
+      "MMP2": {
+        "half_distance_d12_um": 11.42,
+        "decay_lambda_um": 16.47,
+        "spearman_rho": -0.4924,
+        "spearman_pvalue": 8.682056085673245e-93,
+        "fit_success": true
+      },
+      "MAP3K8": {
+        "half_distance_d12_um": 12.08,
+        "decay_lambda_um": 17.43,
+        "spearman_rho": -0.1718,
+        "spearman_pvalue": 1.912523705188291e-11,
+        "fit_success": true
+      }
+    },
+    "FOV2_Core": {
+      "S100A4": {
+        "half_distance_d12_um": 9.69,
+        "decay_lambda_um": 13.98,
+        "spearman_rho": -0.2978,
+        "spearman_pvalue": 1.0788510491733096e-30,
+        "fit_success": true
+      },
+      "MMP2": {
+        "half_distance_d12_um": 8.31,
+        "decay_lambda_um": 11.99,
+        "spearman_rho": -0.3611,
+        "spearman_pvalue": 2.5575258940296964e-45,
+        "fit_success": true
+      },
+      "MAP3K8": {
+        "half_distance_d12_um": 11.91,
+        "decay_lambda_um": 17.18,
+        "spearman_rho": -0.1128,
+        "spearman_pvalue": 1.887587966166222e-05,
+        "fit_success": true
+      }
+    }
+  },
+  "runtime_total_sec": 34.76
+}

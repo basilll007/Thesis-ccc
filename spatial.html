@@ -84,6 +84,79 @@
 
     </div>
   </section>
+
+  <!-- S-PCST Functional Backbone Section -->
+  <section style="padding-top: 0; margin-bottom: 40px;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+        <div class="section-badge" style="color: var(--series-violet); background: rgba(139, 92, 246, 0.12); margin: 0;">
+          Combinatorial Optimization · Graph Pruning
+        </div>
+        <span style="font-size: 12px; color: var(--text-muted);">pcst_fast (Hegde et al.) · Runtime: 0.1382s · β = 0.5</span>
+      </div>
+      <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 10px;">
+        Extracted Signaling Backbone: Spatial Prize-Collecting Steiner Tree (S-PCST)
+      </h2>
+      <p style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+        While the raw 6-NN spatial graph contains 42,978 directed edges, the vast majority represent inert structural neighbors.
+        By solving an S-PCST optimization problem over continuous distance-decay hybrid attention edge costs (\(c_{uv}\))
+        and single-cell downstream responder activation prizes (\(p_v\)), the primal-dual algorithm prunes <b>93.44% of bystander edges</b>,
+        distilling a connected signaling tree of 2,822 cells and 2,821 edges that captures <b>99.50% of biological prize</b>
+        and <b>100.0% of top-decile responder cells</b>.
+      </p>
+
+      <!-- S-PCST Metric Strip -->
+      <div class="kpi-grid" style="margin-bottom: 24px;">
+        <div class="card kpi-card">
+          <div class="kpi-label">Subnetwork Cells</div>
+          <div class="kpi-value" style="color: var(--brand-primary);">2,822</div>
+          <div class="kpi-subtext">39.4% of total tissue (2,821 edges)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Bystander Edge Pruning</div>
+          <div class="kpi-value" style="color: var(--status-success);">93.44%</div>
+          <div class="kpi-subtext">40,157 structural edges discarded</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Biological Prize Retained</div>
+          <div class="kpi-value" style="color: var(--status-success);">99.50%</div>
+          <div class="kpi-subtext">Total prize 5,348.68 / 5,375.40</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Top-Responder Recall</div>
+          <div class="kpi-value" style="color: var(--status-success);">100.0%</div>
+          <div class="kpi-subtext">283 / 283 top-decile S100A4+ cells</div>
+        </div>
+      </div>
+
+      <!-- Figure Gallery -->
+      <div class="figure-grid">
+        <div class="card figure-card" style="grid-column: 1 / -1;">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/spatial_pcst_signaling_backbone.png', 'Spatial Prize-Collecting Steiner Tree (S-PCST) Functional Signaling Backbone')">
+            <span class="figure-overlay-badge">S-PCST Functional Backbone</span>
+            <img src="figures/spatial_pcst_signaling_backbone.png" alt="S-PCST Functional Signaling Backbone" loading="lazy" style="max-height: 520px; object-fit: contain;">
+          </div>
+          <div class="figure-body">
+            <div>
+              <div class="figure-title">Spatial Prize-Collecting Steiner Tree (S-PCST) Prunes 93.4% of Inert Edges to Isolate Active Paracrine Hubs</div>
+              <div class="figure-desc">
+                <b>Panel A:</b> Global tissue coordinates with unselected background cells (grey dots) and the extracted S-PCST tree (2,822 cells; 2,821 links colored by continuous distance-decay hybrid attention \(\mathcal{A}_{uv}\)).
+                <b>Panel B:</b> 400×400 µm invasive-margin subfield demonstrating how sender fibroblasts (magenta) connect across the critical signaling horizon (\(r^* = 50\text{--}75\,\mu\text{m}\)) to high-prize activated epithelial cells (gold) while pruning bystander tumor core links.
+              </div>
+            </div>
+            <div class="figure-links">
+              <a href="figures/spatial_pcst_signaling_backbone.png" target="_blank" class="fig-link">Full-Res PNG</a>
+              <a href="figures/spatial_pcst_signaling_backbone.pdf" target="_blank" class="fig-link">Vector PDF</a>
+              <a href="results/spatial_pcst/pcst_subnetwork_nodes.csv" download class="fig-link">Subnetwork Nodes CSV</a>
+              <a href="results/spatial_pcst/pcst_subnetwork_edges.csv" download class="fig-link">Subnetwork Edges CSV</a>
+              <a href="results/spatial_pcst/pcst_summary.json" download class="fig-link">Optimization JSON</a>
+              <a href="enhancements.html#enhancement-6" class="fig-link" style="color:var(--brand-primary); font-weight:700;">Full Mathematical Derivation →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">

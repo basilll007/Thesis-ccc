@@ -1,0 +1,29 @@
+axis_name,category,ligand,receptor,sender_type,receiver_type,radius_um,total_edges,qualifying_edges,obs_score,null_mean,null_std,z_score,p_value
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,15.0,40618,560,14.9496,1.5135,0.3711,36.2,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,15.0,40618,2264,3.5799,3.7892,0.1544,-1.36,0.92
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,15.0,40618,602,0.1907,0.0107,0.0506,3.56,0.035
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,15.0,40618,325,0.0,0.0,0.0,0.0,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,30.0,168818,2578,16.2382,1.6256,0.2645,55.25,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,30.0,168818,10479,3.412,3.8562,0.1349,-3.29,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,30.0,168818,1804,0.1362,0.0112,0.0243,5.14,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,30.0,168818,1418,0.0,0.0,0.0,0.0,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,50.0,460858,7197,16.3793,1.7084,0.2277,64.43,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,50.0,460858,31435,3.2745,3.8443,0.1364,-4.18,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,50.0,460858,4172,0.1593,0.0121,0.0182,8.08,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,50.0,460858,4391,0.0,0.0,0.0,0.0,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,75.0,1006402,15941,16.4126,1.751,0.2063,71.09,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,75.0,1006402,73873,3.178,3.8183,0.1326,-4.83,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,75.0,1006402,8040,0.1682,0.0123,0.0131,11.93,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,75.0,1006402,11004,0.0,0.0,0.0001,-0.24,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,100.0,1738006,27242,16.3276,1.7835,0.1973,73.71,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,100.0,1738006,134897,3.1133,3.7955,0.132,-5.17,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,100.0,1738006,12172,0.1494,0.0116,0.0113,12.21,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,100.0,1738006,20793,0.0,0.0001,0.0001,-0.38,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,150.0,3704142,54683,15.9452,1.7926,0.1822,77.67,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,150.0,3704142,316421,3.0069,3.7528,0.13,-5.74,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,150.0,3704142,20616,0.1609,0.0106,0.0091,16.54,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,150.0,3704142,53507,0.0,0.0001,0.0001,-0.47,1.0
+CXCL12 -> CXCR4,Paracrine Chemokine,CXCL12,CXCR4,fibroblast,immune,200.0,6255114,83580,15.4747,1.7719,0.1725,79.42,0.0
+PTN -> SDC4,Stromal Growth Factor,PTN,SDC4,fibroblast,epithelial,200.0,6255114,581644,2.9495,3.7172,0.1287,-5.97,1.0
+CD86 -> CTLA4,Immune Checkpoint Contact,CD86,CTLA4,immune,immune,200.0,6255114,28632,0.1631,0.0098,0.0077,19.96,0.0
+CD274 -> PDCD1,Juxtacrine Contact Control,CD274,PDCD1,epithelial,immune,200.0,6255114,105507,0.0,0.0001,0.0001,-0.5,1.0

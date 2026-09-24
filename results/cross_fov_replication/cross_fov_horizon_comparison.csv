@@ -1,0 +1,17 @@
+fov_id,fov_description,n_cells,radius_um,total_edges,fib_imm_edges,cxcl12_obs_score,cxcl12_null_mean,cxcl12_null_std,cxcl12_z_score,cxcl12_pvalue,runtime_sec
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,15.0,20454,440,15.2299,2.1253,0.491,26.69,0.0,0.12
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,30.0,84242,2033,16.5695,2.3309,0.3735,38.12,0.0,0.15
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,50.0,226620,5668,16.6747,2.4387,0.3084,46.17,0.0,0.4
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,75.0,487156,12582,16.7881,2.5326,0.304,46.89,0.0,0.81
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,100.0,830674,21624,16.769,2.5572,0.2876,49.41,0.0,1.19
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,150.0,1728090,43819,16.4391,2.5586,0.2653,52.32,0.0,2.72
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,200.0,2842452,66812,16.0002,2.5472,0.2444,55.05,0.0,5.04
+FOV1_Margin,Stroma-Rich Invasive Margin,3581,300.0,5446196,112258,15.3935,2.5847,0.2276,56.29,0.0,8.41
+FOV2_Core,Dense Epithelial Tumor Core,3582,15.0,19874,120,13.9221,0.9219,0.6487,20.04,0.0,0.33
+FOV2_Core,Dense Epithelial Tumor Core,3582,30.0,82220,545,15.0023,1.0213,0.4237,33.0,0.0,0.18
+FOV2_Core,Dense Epithelial Tumor Core,3582,50.0,223450,1528,15.2945,1.0757,0.3629,39.18,0.0,0.34
+FOV2_Core,Dense Epithelial Tumor Core,3582,75.0,483568,3351,15.0418,1.1214,0.3309,42.06,0.0,0.61
+FOV2_Core,Dense Epithelial Tumor Core,3582,100.0,826166,5567,14.7098,1.1627,0.3317,40.84,0.0,1.0
+FOV2_Core,Dense Epithelial Tumor Core,3582,150.0,1722956,10622,14.1361,1.2294,0.302,42.74,0.0,1.87
+FOV2_Core,Dense Epithelial Tumor Core,3582,200.0,2849144,16148,13.6289,1.256,0.2825,43.8,0.0,3.26
+FOV2_Core,Dense Epithelial Tumor Core,3582,300.0,5500388,25342,12.3679,1.2208,0.2546,43.78,0.0,7.99
