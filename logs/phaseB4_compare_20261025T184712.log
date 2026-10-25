@@ -1,0 +1,29 @@
+2026-10-25 18:47:12,330 INFO script=phaseB4_compare log=logs/phaseB4_compare_20261025T184712.log
+2026-10-25 18:47:12,371 INFO git_commit=161418a018c7ab2864758f9a9d6d5312e360f8e4+dirty
+2026-10-25 18:47:12,372 INFO seed=42
+2026-10-25 18:47:20,654 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:47:20,674 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:47:22,778 INFO rows per annotation: {'consensus_T': 82274, 'author_mapped': 69998, 'protein_gmm': 68231, 'protein_mad': 62465, 'marker': 49600}
+2026-10-25 18:47:22,854 INFO Saved results/pdac/phaseB/headline_CAF_T_by_annotation_section.csv (80 rows)
+2026-10-25 18:47:22,879 INFO Saved results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv (5 rows)
+2026-10-25 18:47:22,880 INFO HEADLINE marker: evaluable 16/16; E sig 16 (BH 13); Q sig 4 (BH 0); Q z>0 in 14; median zE 20.87 zQ 0.75 Q 1.347
+2026-10-25 18:47:22,880 INFO HEADLINE author_mapped: evaluable 16/16; E sig 16 (BH 14); Q sig 2 (BH 0); Q z>0 in 15; median zE 21.63 zQ 0.74 Q 1.346
+2026-10-25 18:47:22,880 INFO HEADLINE protein_gmm: evaluable 14/16; E sig 10 (BH 6); Q sig 4 (BH 0); Q z>0 in 11; median zE 5.00 zQ 1.17 Q 1.623
+2026-10-25 18:47:22,880 INFO HEADLINE protein_mad: evaluable 13/16; E sig 9 (BH 4); Q sig 5 (BH 0); Q z>0 in 10; median zE 4.69 zQ 1.56 Q 1.799
+2026-10-25 18:47:22,880 INFO HEADLINE consensus_T: evaluable 16/16; E sig 15 (BH 11); Q sig 2 (BH 0); Q z>0 in 11; median zE 14.68 zQ 0.36 Q 1.320
+2026-10-25 18:47:25,104 INFO Saved results/pdac/phaseB/annotation_pairwise_comparison.csv (80 rows)
+2026-10-25 18:47:25,580 INFO Saved results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv (10 rows)
+2026-10-25 18:47:25,581 INFO MIRROR marker/all_axes: rho(Ez,Mz)=0.673; E-sig 6058, of which M-sig 0.772, Q-sig 0.351, Q-sig BH 0.098
+2026-10-25 18:47:25,581 INFO MIRROR marker/unflagged_axes_only: rho(Ez,Mz)=0.808; E-sig 1758, of which M-sig 0.868, Q-sig 0.316, Q-sig BH 0.127
+2026-10-25 18:47:25,581 INFO MIRROR author_mapped/all_axes: rho(Ez,Mz)=0.677; E-sig 9377, of which M-sig 0.771, Q-sig 0.366, Q-sig BH 0.104
+2026-10-25 18:47:25,581 INFO MIRROR author_mapped/unflagged_axes_only: rho(Ez,Mz)=0.809; E-sig 2820, of which M-sig 0.848, Q-sig 0.323, Q-sig BH 0.128
+2026-10-25 18:47:25,581 INFO MIRROR protein_gmm/all_axes: rho(Ez,Mz)=0.525; E-sig 7146, of which M-sig 0.631, Q-sig 0.528, Q-sig BH 0.096
+2026-10-25 18:47:25,581 INFO MIRROR protein_gmm/unflagged_axes_only: rho(Ez,Mz)=0.675; E-sig 2233, of which M-sig 0.712, Q-sig 0.467, Q-sig BH 0.120
+2026-10-25 18:47:25,581 INFO MIRROR protein_mad/all_axes: rho(Ez,Mz)=0.505; E-sig 6555, of which M-sig 0.610, Q-sig 0.541, Q-sig BH 0.103
+2026-10-25 18:47:25,581 INFO MIRROR protein_mad/unflagged_axes_only: rho(Ez,Mz)=0.649; E-sig 2011, of which M-sig 0.707, Q-sig 0.479, Q-sig BH 0.130
+2026-10-25 18:47:25,581 INFO MIRROR consensus_T/all_axes: rho(Ez,Mz)=0.663; E-sig 10511, of which M-sig 0.773, Q-sig 0.366, Q-sig BH 0.096
+2026-10-25 18:47:25,581 INFO MIRROR consensus_T/unflagged_axes_only: rho(Ez,Mz)=0.797; E-sig 3093, of which M-sig 0.844, Q-sig 0.319, Q-sig BH 0.122
+2026-10-25 18:47:25,593 INFO Saved results/pdac/phaseB/headline_CAF_T_U5-a_by_annotation.csv (5 rows)
+2026-10-25 18:47:25,604 INFO Saved results/pdac/phaseB/phaseB4_summary.json
+2026-10-25 18:47:26,981 INFO Saved figure figures/pdac/phaseB/phaseB4_headline_and_annotation_agreement(.png/.pdf)
+2026-10-25 18:47:26,989 INFO run finished

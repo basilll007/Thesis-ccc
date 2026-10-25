@@ -1,0 +1,82 @@
+2026-10-25 18:31:19,969 INFO script=phaseB1_protein_labels log=logs/phaseB1_protein_labels_20261025T183119.log
+2026-10-25 18:31:20,008 INFO git_commit=5b6089e802c59c54a9be38415b0843cc866f3ae5+dirty
+2026-10-25 18:31:20,009 INFO seed=42
+2026-10-25 18:31:20,010 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:31:20,022 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:31:20,023 INFO Rule: docs/PDAC_V2_PROTEIN_RULE.md; GMM max cells 50000; Ashman D >= 2.0; min weight 0.005; sys_avail=6.29GB load=81% proc_rss=0.41GB proc_peak=0.41GB
+2026-10-25 18:31:24,232 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:24,547 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-10-25 18:31:26,158 INFO section T1-b: 31084 cells; T_cell(gmm)=53 T_cell(mad)=54; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.2s; sys_avail=6.20GB load=81% proc_rss=0.49GB proc_peak=1.75GB
+2026-10-25 18:31:29,509 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:29,851 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-10-25 18:31:31,731 INFO section T2-b: 43658 cells; T_cell(gmm)=49 T_cell(mad)=54; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.6s; sys_avail=6.14GB load=81% proc_rss=0.53GB proc_peak=1.78GB
+2026-10-25 18:31:35,144 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:35,511 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-10-25 18:31:37,034 INFO section T3-b: 33800 cells; T_cell(gmm)=0 T_cell(mad)=1169; methods={'CD3': 'gmm', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.3s; sys_avail=6.16GB load=81% proc_rss=0.54GB proc_peak=1.84GB
+2026-10-25 18:31:40,348 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:40,786 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-10-25 18:31:43,107 INFO section T4-a: 55369 cells; T_cell(gmm)=17 T_cell(mad)=17; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 6.1s; sys_avail=6.12GB load=81% proc_rss=0.61GB proc_peak=1.89GB
+2026-10-25 18:31:46,456 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:46,831 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-10-25 18:31:48,983 INFO section T4-b: 42432 cells; T_cell(gmm)=69 T_cell(mad)=72; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.9s; sys_avail=6.04GB load=81% proc_rss=0.59GB proc_peak=1.97GB
+2026-10-25 18:31:52,384 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:52,751 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-10-25 18:31:54,477 INFO section T5-a: 43794 cells; T_cell(gmm)=5366 T_cell(mad)=0; methods={'CD3': 'gmm', 'CD45': 'gmm', 'PanCK': 'gmm'}; 5.5s; sys_avail=6.05GB load=81% proc_rss=0.60GB proc_peak=1.97GB
+2026-10-25 18:31:57,739 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:31:58,020 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-10-25 18:31:58,789 INFO section T6-b: 12473 cells; T_cell(gmm)=7 T_cell(mad)=7; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'mad_fallback'}; 4.3s; sys_avail=6.09GB load=81% proc_rss=0.55GB proc_peak=1.97GB
+2026-10-25 18:32:02,004 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:02,301 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-10-25 18:32:04,191 INFO section U1-b: 24894 cells; T_cell(gmm)=18 T_cell(mad)=18; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.4s; sys_avail=6.07GB load=81% proc_rss=0.57GB proc_peak=1.97GB
+2026-10-25 18:32:07,488 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:07,826 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-10-25 18:32:09,789 INFO section U2-b: 34334 cells; T_cell(gmm)=3 T_cell(mad)=41; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.6s; sys_avail=6.02GB load=81% proc_rss=0.60GB proc_peak=1.97GB
+2026-10-25 18:32:13,125 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:13,413 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-10-25 18:32:14,309 INFO section U3-b: 15019 cells; T_cell(gmm)=61 T_cell(mad)=56; methods={'CD3': 'gmm', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 4.5s; sys_avail=6.05GB load=81% proc_rss=0.57GB proc_peak=1.97GB
+2026-10-25 18:32:17,672 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:18,078 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-10-25 18:32:20,172 INFO section U4-a: 47432 cells; T_cell(gmm)=39 T_cell(mad)=85; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.9s; sys_avail=5.98GB load=82% proc_rss=0.63GB proc_peak=1.97GB
+2026-10-25 18:32:23,429 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:23,834 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-10-25 18:32:26,121 INFO section U4-b: 46798 cells; T_cell(gmm)=36 T_cell(mad)=40; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 5.9s; sys_avail=6.02GB load=81% proc_rss=0.65GB proc_peak=1.97GB
+2026-10-25 18:32:29,528 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:30,109 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-10-25 18:32:32,891 INFO section U5-a: 74793 cells; T_cell(gmm)=1467 T_cell(mad)=0; methods={'CD3': 'mad_fallback', 'CD45': 'gmm', 'PanCK': 'gmm'}; 6.8s; sys_avail=5.93GB load=82% proc_rss=0.73GB proc_peak=2.19GB
+2026-10-25 18:32:36,319 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:36,843 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-10-25 18:32:39,859 INFO section U6-a_1: 72318 cells; T_cell(gmm)=25 T_cell(mad)=29; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 7.0s; sys_avail=5.90GB load=82% proc_rss=0.73GB proc_peak=2.19GB
+2026-10-25 18:32:43,315 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:43,831 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-10-25 18:32:46,492 INFO section U6-a_2: 68410 cells; T_cell(gmm)=63 T_cell(mad)=87; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 6.6s; sys_avail=5.86GB load=82% proc_rss=0.76GB proc_peak=2.21GB
+2026-10-25 18:32:49,919 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:32:50,343 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-10-25 18:32:53,183 INFO section U7-a: 70885 cells; T_cell(gmm)=0 T_cell(mad)=0; methods={'CD3': 'mad_fallback', 'CD45': 'mad_fallback', 'PanCK': 'gmm'}; 6.7s; sys_avail=5.89GB load=82% proc_rss=0.74GB proc_peak=2.21GB
+2026-10-25 18:32:53,215 INFO Saved results/pdac/phaseB/protein_threshold_diagnostics.csv (48 rows)
+2026-10-25 18:32:53,475 INFO Saved results/pdac/phaseB/label_counts_by_section.csv (716 rows)
+2026-10-25 18:32:55,427 INFO Saved results/pdac/phaseB/validation_precision_recall.csv (595 rows)
+2026-10-25 18:32:55,502 INFO Saved results/pdac/phaseB/confusion_protein_gmm_vs_author_U5-a.csv (22 rows)
+2026-10-25 18:32:55,550 INFO Saved results/pdac/phaseB/confusion_protein_mad_vs_author_U5-a.csv (22 rows)
+2026-10-25 18:32:55,605 INFO Saved results/pdac/phaseB/confusion_marker_vs_author_U5-a.csv (22 rows)
+2026-10-25 18:32:55,866 INFO Saved results/pdac/phaseB/confusion_protein_gmm_vs_author_all_16_sections.csv (23 rows)
+2026-10-25 18:32:56,131 INFO Saved results/pdac/phaseB/confusion_protein_mad_vs_author_all_16_sections.csv (23 rows)
+2026-10-25 18:32:56,389 INFO Saved results/pdac/phaseB/confusion_marker_vs_author_all_16_sections.csv (23 rows)
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_gmm T_cell vs author_mapped==T_cell: n_pred=1467 n_true=879 tp=32 precision=0.022 recall=0.036
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_gmm T_cell vs author T or NK: n_pred=1467 n_true=1199 tp=55 precision=0.037 recall=0.046
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_gmm_looseT T_cell (CD3+ PanCK-, any CD45) vs author_mapped==T_cell: n_pred=1639 n_true=879 tp=32 precision=0.020 recall=0.036
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_mad T_cell vs author_mapped==T_cell: n_pred=0 n_true=879 tp=0 precision=nan recall=0.000
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_mad T_cell vs author T or NK: n_pred=0 n_true=1199 tp=0 precision=nan recall=0.000
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a protein_mad_looseT T_cell (CD3+ PanCK-, any CD45) vs author_mapped==T_cell: n_pred=2292 n_true=879 tp=34 precision=0.015 recall=0.039
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a marker T_cell vs author_mapped==T_cell: n_pred=945 n_true=879 tp=261 precision=0.276 recall=0.297
+2026-10-25 18:32:56,391 INFO VALIDATION U5-a marker T_cell vs author T or NK: n_pred=945 n_true=1199 tp=290 precision=0.307 recall=0.242
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_gmm T_cell vs author_mapped==T_cell: n_pred=7273 n_true=11557 tp=563 precision=0.077 recall=0.049
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_gmm T_cell vs author T or NK: n_pred=7273 n_true=14768 tp=751 precision=0.103 recall=0.051
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_gmm_looseT T_cell (CD3+ PanCK-, any CD45) vs author_mapped==T_cell: n_pred=16303 n_true=11557 tp=728 precision=0.045 recall=0.063
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_mad T_cell vs author_mapped==T_cell: n_pred=1729 n_true=11557 tp=54 precision=0.031 recall=0.005
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_mad T_cell vs author T or NK: n_pred=1729 n_true=14768 tp=74 precision=0.043 recall=0.005
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections protein_mad_looseT T_cell (CD3+ PanCK-, any CD45) vs author_mapped==T_cell: n_pred=20548 n_true=11557 tp=276 precision=0.013 recall=0.024
+2026-10-25 18:32:56,391 INFO VALIDATION all_16_sections marker T_cell vs author_mapped==T_cell: n_pred=10427 n_true=11557 tp=3676 precision=0.353 recall=0.318
+2026-10-25 18:32:56,392 INFO VALIDATION all_16_sections marker T_cell vs author T or NK: n_pred=10427 n_true=14768 tp=4045 precision=0.388 recall=0.274
+2026-10-25 18:32:56,401 INFO Saved results/pdac/phaseB/protein_labels_summary.json
+2026-10-25 18:32:58,819 INFO Saved figure figures/pdac/phaseB/phaseB1_protein_gating_validation(.png/.pdf)
+2026-10-25 18:32:58,828 INFO run finished

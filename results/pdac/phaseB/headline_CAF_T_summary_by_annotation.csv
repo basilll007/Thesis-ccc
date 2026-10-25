@@ -1,0 +1,6 @@
+annotation,n_sections_evaluable,median_n_edges,n_comp_sig,n_matched_sig,n_edge_sig,n_edge_sig_bh,n_ratio_sig,n_ratio_sig_bh,n_ratio_z_pos,median_edge_z,median_matched_z,median_ratio_z,median_ratio_obs,note
+marker,16,1657.5,16,16,16,13,4,0,14,20.866480979720606,35.248378396922234,0.749770405035819,1.3472346456530997,v1 marker scoring (T precision 0.35 pooled)
+author_mapped,16,1437.5,16,16,16,14,2,0,15,21.632661844866398,38.51036078728279,0.738292660001386,1.3460162693981197,v1 author labels (reference)
+protein_gmm,14,104.5,10,10,10,6,4,0,11,4.998950220005941,5.374029958158977,1.1664841559463262,1.6232157465999324,v2 pre-registered protein (FAILED validation)
+protein_mad,13,117.0,7,7,9,4,5,0,10,4.68901255011336,2.506196731871631,1.5583082434190685,1.7990828520664368,v2 protein MAD (FAILED validation)
+consensus_T,16,448.0,16,16,15,11,2,0,11,14.68225064270313,25.241833183746127,0.36493735629677837,1.3201753113474548,v2 POST-HOC author AND marker T

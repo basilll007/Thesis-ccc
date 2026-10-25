@@ -1,0 +1,596 @@
+scope,annotation,class,truth,n_pred,n_true,tp,precision,recall
+T1-b,protein_gmm,T_cell,author_mapped==T_cell,53,733,24,0.4528301886792453,0.03274215552523874
+T1-b,protein_gmm,myeloid,author_mapped==myeloid,167,4321,101,0.6047904191616766,0.023374218930803055
+T1-b,protein_gmm,B_plasma,author_mapped==B_plasma,122,1312,31,0.2540983606557377,0.023628048780487805
+T1-b,protein_gmm,mast,author_mapped==mast,23,309,5,0.21739130434782608,0.016181229773462782
+T1-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,19904,14895,14018,0.7042805466237942,0.9411211816045653
+T1-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,7097,5507,5367,0.7562350288854446,0.9745778100599237
+T1-b,protein_gmm,endothelial,author_mapped==endothelial,1077,952,588,0.5459610027855153,0.6176470588235294
+T1-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,1405,1518,904,0.6434163701067616,0.5955204216073782
+T1-b,protein_gmm,endocrine,author_mapped==endocrine,205,1,0,0.0,0.0
+T1-b,protein_gmm,acinar,author_mapped==acinar,512,0,0,0.0,
+T1-b,protein_gmm,T_cell,author T or NK,53,879,30,0.5660377358490566,0.034129692832764506
+T1-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,555,733,98,0.17657657657657658,0.13369713506139155
+T1-b,protein_mad,T_cell,author_mapped==T_cell,54,733,25,0.46296296296296297,0.034106412005457026
+T1-b,protein_mad,myeloid,author_mapped==myeloid,169,4321,101,0.5976331360946746,0.023374218930803055
+T1-b,protein_mad,B_plasma,author_mapped==B_plasma,122,1312,31,0.2540983606557377,0.023628048780487805
+T1-b,protein_mad,mast,author_mapped==mast,24,309,5,0.20833333333333334,0.016181229773462782
+T1-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,20380,14895,14330,0.7031403336604515,0.9620678079892582
+T1-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6669,5507,5303,0.795171689908532,0.9629562375158889
+T1-b,protein_mad,endothelial,author_mapped==endothelial,1086,952,594,0.5469613259668509,0.6239495798319328
+T1-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,1413,1518,907,0.6418966737438075,0.5974967061923584
+T1-b,protein_mad,endocrine,author_mapped==endocrine,176,1,0,0.0,0.0
+T1-b,protein_mad,acinar,author_mapped==acinar,476,0,0,0.0,
+T1-b,protein_mad,T_cell,author T or NK,54,879,31,0.5740740740740741,0.03526734926052332
+T1-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,558,733,100,0.17921146953405018,0.1364256480218281
+T1-b,marker,T_cell,author_mapped==T_cell,568,733,308,0.5422535211267606,0.4201909959072306
+T1-b,marker,myeloid,author_mapped==myeloid,2461,4321,2281,0.9268590004063388,0.5278870631798195
+T1-b,marker,B_plasma,author_mapped==B_plasma,1033,1312,791,0.7657308809293321,0.6028963414634146
+T1-b,marker,mast,author_mapped==mast,418,309,286,0.6842105263157895,0.9255663430420712
+T1-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,18859,14895,14720,0.7805291903070152,0.9882510909701242
+T1-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,5237,5507,5046,0.9635287378270002,0.9162883602687488
+T1-b,marker,endothelial,author_mapped==endothelial,830,952,614,0.7397590361445783,0.6449579831932774
+T1-b,marker,pericyte_smc,author_mapped==pericyte_smc,1308,1518,969,0.7408256880733946,0.6383399209486166
+T1-b,marker,endocrine,author_mapped==endocrine,53,1,0,0.0,0.0
+T1-b,marker,acinar,author_mapped==acinar,317,0,0,0.0,
+T1-b,marker,T_cell,author T or NK,568,879,326,0.573943661971831,0.3708759954493743
+T2-b,protein_gmm,T_cell,author_mapped==T_cell,49,94,1,0.02040816326530612,0.010638297872340425
+T2-b,protein_gmm,myeloid,author_mapped==myeloid,109,5416,50,0.45871559633027525,0.009231905465288036
+T2-b,protein_gmm,B_plasma,author_mapped==B_plasma,140,1164,107,0.7642857142857142,0.09192439862542956
+T2-b,protein_gmm,mast,author_mapped==mast,75,664,48,0.64,0.07228915662650602
+T2-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,30897,25996,24860,0.8046088617017834,0.9563009693799046
+T2-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,8928,7133,6702,0.7506720430107527,0.939576615729707
+T2-b,protein_gmm,endothelial,author_mapped==endothelial,867,548,224,0.25836216839677045,0.40875912408759124
+T2-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,695,534,70,0.10071942446043165,0.13108614232209737
+T2-b,protein_gmm,endocrine,author_mapped==endocrine,570,1,0,0.0,0.0
+T2-b,protein_gmm,acinar,author_mapped==acinar,831,0,0,0.0,
+T2-b,protein_gmm,T_cell,author T or NK,49,162,5,0.10204081632653061,0.030864197530864196
+T2-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,184,94,12,0.06521739130434782,0.1276595744680851
+T2-b,protein_mad,T_cell,author_mapped==T_cell,54,94,1,0.018518518518518517,0.010638297872340425
+T2-b,protein_mad,myeloid,author_mapped==myeloid,117,5416,52,0.4444444444444444,0.009601181683899557
+T2-b,protein_mad,B_plasma,author_mapped==B_plasma,144,1164,108,0.75,0.09278350515463918
+T2-b,protein_mad,mast,author_mapped==mast,79,664,49,0.620253164556962,0.07379518072289157
+T2-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,31433,25996,25268,0.8038685457958197,0.9719956916448684
+T2-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,8435,7133,6652,0.7886188500296384,0.9325669423804851
+T2-b,protein_mad,endothelial,author_mapped==endothelial,888,548,227,0.25563063063063063,0.4142335766423358
+T2-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,711,534,72,0.10126582278481013,0.1348314606741573
+T2-b,protein_mad,endocrine,author_mapped==endocrine,534,1,0,0.0,0.0
+T2-b,protein_mad,acinar,author_mapped==acinar,787,0,0,0.0,
+T2-b,protein_mad,T_cell,author T or NK,54,162,6,0.1111111111111111,0.037037037037037035
+T2-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,201,94,12,0.05970149253731343,0.1276595744680851
+T2-b,marker,T_cell,author_mapped==T_cell,277,94,23,0.08303249097472924,0.24468085106382978
+T2-b,marker,myeloid,author_mapped==myeloid,2467,5416,2189,0.8873125253344143,0.4041728212703102
+T2-b,marker,B_plasma,author_mapped==B_plasma,1076,1164,602,0.5594795539033457,0.5171821305841925
+T2-b,marker,mast,author_mapped==mast,1008,664,577,0.5724206349206349,0.8689759036144579
+T2-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,29674,25996,25292,0.8523286378647975,0.972918910601631
+T2-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,7075,7133,6634,0.9376678445229683,0.9300434599747652
+T2-b,marker,endothelial,author_mapped==endothelial,640,548,229,0.3578125,0.41788321167883213
+T2-b,marker,pericyte_smc,author_mapped==pericyte_smc,470,534,72,0.15319148936170213,0.1348314606741573
+T2-b,marker,endocrine,author_mapped==endocrine,281,1,0,0.0,0.0
+T2-b,marker,acinar,author_mapped==acinar,690,0,0,0.0,
+T2-b,marker,T_cell,author T or NK,277,162,30,0.10830324909747292,0.18518518518518517
+T3-b,protein_gmm,T_cell,author_mapped==T_cell,0,230,0,,0.0
+T3-b,protein_gmm,myeloid,author_mapped==myeloid,0,3153,0,,0.0
+T3-b,protein_gmm,B_plasma,author_mapped==B_plasma,0,230,0,,0.0
+T3-b,protein_gmm,mast,author_mapped==mast,0,75,0,,0.0
+T3-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,15832,18635,12394,0.7828448711470439,0.6650925677488597
+T3-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6521,5900,4496,0.689464806011348,0.7620338983050847
+T3-b,protein_gmm,endothelial,author_mapped==endothelial,1022,1076,594,0.5812133072407045,0.5520446096654275
+T3-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,1420,1372,501,0.3528169014084507,0.3651603498542274
+T3-b,protein_gmm,endocrine,author_mapped==endocrine,1003,274,233,0.23230309072781655,0.8503649635036497
+T3-b,protein_gmm,acinar,author_mapped==acinar,502,0,0,0.0,
+T3-b,protein_gmm,T_cell,author T or NK,0,326,0,,0.0
+T3-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,461,230,0,0.0,0.0
+T3-b,protein_mad,T_cell,author_mapped==T_cell,1169,230,2,0.001710863986313088,0.008695652173913044
+T3-b,protein_mad,myeloid,author_mapped==myeloid,11,3153,1,0.09090909090909091,0.0003171582619727244
+T3-b,protein_mad,B_plasma,author_mapped==B_plasma,4,230,0,0.0,0.0
+T3-b,protein_mad,mast,author_mapped==mast,3,75,0,0.0,0.0
+T3-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,17045,18635,13254,0.7775887356996186,0.7112422860209283
+T3-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,5401,5900,4338,0.8031845954452879,0.7352542372881355
+T3-b,protein_mad,endothelial,author_mapped==endothelial,1048,1076,603,0.575381679389313,0.5604089219330854
+T3-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,1591,1372,560,0.3519798868636078,0.40816326530612246
+T3-b,protein_mad,endocrine,author_mapped==endocrine,881,274,233,0.264472190692395,0.8503649635036497
+T3-b,protein_mad,acinar,author_mapped==acinar,425,0,0,0.0,
+T3-b,protein_mad,T_cell,author T or NK,1169,326,2,0.001710863986313088,0.006134969325153374
+T3-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,7391,230,32,0.0043295900419429035,0.1391304347826087
+T3-b,marker,T_cell,author_mapped==T_cell,430,230,127,0.29534883720930233,0.5521739130434783
+T3-b,marker,myeloid,author_mapped==myeloid,2611,3153,2230,0.8540788969743394,0.7072629241991754
+T3-b,marker,B_plasma,author_mapped==B_plasma,310,230,114,0.36774193548387096,0.4956521739130435
+T3-b,marker,mast,author_mapped==mast,203,75,42,0.20689655172413793,0.56
+T3-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,20639,18635,17605,0.8529967537186879,0.9447276629997317
+T3-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,5810,5900,5424,0.9335628227194492,0.9193220338983051
+T3-b,marker,endothelial,author_mapped==endothelial,1009,1076,772,0.7651139742319127,0.7174721189591078
+T3-b,marker,pericyte_smc,author_mapped==pericyte_smc,1647,1372,669,0.40619307832422585,0.48760932944606417
+T3-b,marker,endocrine,author_mapped==endocrine,710,274,273,0.3845070422535211,0.9963503649635036
+T3-b,marker,acinar,author_mapped==acinar,431,0,0,0.0,
+T3-b,marker,T_cell,author T or NK,430,326,137,0.3186046511627907,0.42024539877300615
+T4-a,protein_gmm,T_cell,author_mapped==T_cell,17,3333,0,0.0,0.0
+T4-a,protein_gmm,myeloid,author_mapped==myeloid,176,11987,50,0.2840909090909091,0.004171185450905147
+T4-a,protein_gmm,B_plasma,author_mapped==B_plasma,98,1912,38,0.3877551020408163,0.0198744769874477
+T4-a,protein_gmm,mast,author_mapped==mast,43,509,5,0.11627906976744186,0.009823182711198428
+T4-a,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,45374,26656,25544,0.5629655749988981,0.9582833133253301
+T4-a,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6638,5218,4881,0.7353118409159385,0.935415868148716
+T4-a,protein_gmm,endothelial,author_mapped==endothelial,936,1301,597,0.6378205128205128,0.45887778631821674
+T4-a,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,473,854,97,0.20507399577167018,0.11358313817330211
+T4-a,protein_gmm,endocrine,author_mapped==endocrine,551,114,112,0.20326678765880218,0.9824561403508771
+T4-a,protein_gmm,acinar,author_mapped==acinar,709,0,0,0.0,
+T4-a,protein_gmm,T_cell,author T or NK,17,3984,1,0.058823529411764705,0.000251004016064257
+T4-a,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,248,3333,5,0.020161290322580645,0.0015001500150015
+T4-a,protein_mad,T_cell,author_mapped==T_cell,17,3333,0,0.0,0.0
+T4-a,protein_mad,myeloid,author_mapped==myeloid,178,11987,52,0.29213483146067415,0.004338032868941353
+T4-a,protein_mad,B_plasma,author_mapped==B_plasma,99,1912,38,0.3838383838383838,0.0198744769874477
+T4-a,protein_mad,mast,author_mapped==mast,44,509,5,0.11363636363636363,0.009823182711198428
+T4-a,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,45665,26656,25692,0.5626190736888208,0.9638355342136855
+T4-a,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6399,5218,4874,0.7616815127363651,0.9340743579915677
+T4-a,protein_mad,endothelial,author_mapped==endothelial,939,1301,599,0.6379126730564431,0.46041506533435816
+T4-a,protein_mad,pericyte_smc,author_mapped==pericyte_smc,480,854,97,0.20208333333333334,0.11358313817330211
+T4-a,protein_mad,endocrine,author_mapped==endocrine,518,114,112,0.21621621621621623,0.9824561403508771
+T4-a,protein_mad,acinar,author_mapped==acinar,680,0,0,0.0,
+T4-a,protein_mad,T_cell,author T or NK,17,3984,1,0.058823529411764705,0.000251004016064257
+T4-a,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,251,3333,5,0.0199203187250996,0.0015001500150015
+T4-a,marker,T_cell,author_mapped==T_cell,1198,3333,704,0.5876460767946577,0.21122112211221122
+T4-a,marker,myeloid,author_mapped==myeloid,5376,11987,4969,0.9242931547619048,0.41453241011095354
+T4-a,marker,B_plasma,author_mapped==B_plasma,825,1912,674,0.816969696969697,0.35251046025104604
+T4-a,marker,mast,author_mapped==mast,644,509,419,0.6506211180124224,0.8231827111984283
+T4-a,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,40877,26656,26487,0.6479682951292903,0.9936599639855942
+T4-a,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,4769,5218,4682,0.9817571817991193,0.8972786508240705
+T4-a,marker,endothelial,author_mapped==endothelial,722,1301,608,0.8421052631578947,0.46733282090699463
+T4-a,marker,pericyte_smc,author_mapped==pericyte_smc,306,854,94,0.30718954248366015,0.11007025761124122
+T4-a,marker,endocrine,author_mapped==endocrine,256,114,112,0.4375,0.9824561403508771
+T4-a,marker,acinar,author_mapped==acinar,396,0,0,0.0,
+T4-a,marker,T_cell,author T or NK,1198,3984,746,0.6227045075125208,0.18724899598393574
+T4-b,protein_gmm,T_cell,author_mapped==T_cell,69,1215,1,0.014492753623188406,0.0008230452674897119
+T4-b,protein_gmm,myeloid,author_mapped==myeloid,18,6755,3,0.16666666666666666,0.00044411547002220575
+T4-b,protein_gmm,B_plasma,author_mapped==B_plasma,20,2338,8,0.4,0.003421727972626176
+T4-b,protein_gmm,mast,author_mapped==mast,4,589,0,0.0,0.0
+T4-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,29127,20143,18545,0.636694475915817,0.9206672293104304
+T4-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,8012,6000,5609,0.7000748876684972,0.9348333333333333
+T4-b,protein_gmm,endothelial,author_mapped==endothelial,1238,1148,447,0.36106623586429726,0.3893728222996516
+T4-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,702,869,120,0.17094017094017094,0.1380897583429229
+T4-b,protein_gmm,endocrine,author_mapped==endocrine,1210,22,22,0.01818181818181818,1.0
+T4-b,protein_gmm,acinar,author_mapped==acinar,1770,0,0,0.0,
+T4-b,protein_gmm,T_cell,author T or NK,69,1552,2,0.028985507246376812,0.001288659793814433
+T4-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,246,1215,3,0.012195121951219513,0.0024691358024691358
+T4-b,protein_mad,T_cell,author_mapped==T_cell,72,1215,1,0.013888888888888888,0.0008230452674897119
+T4-b,protein_mad,myeloid,author_mapped==myeloid,19,6755,3,0.15789473684210525,0.00044411547002220575
+T4-b,protein_mad,B_plasma,author_mapped==B_plasma,20,2338,8,0.4,0.003421727972626176
+T4-b,protein_mad,mast,author_mapped==mast,4,589,0,0.0,0.0
+T4-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,30129,20143,19162,0.6359985396129975,0.9512982177431366
+T4-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,7187,6000,5455,0.7590093223876444,0.9091666666666667
+T4-b,protein_mad,endothelial,author_mapped==endothelial,1265,1148,449,0.3549407114624506,0.3911149825783972
+T4-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,732,869,125,0.17076502732240437,0.14384349827387802
+T4-b,protein_mad,endocrine,author_mapped==endocrine,1083,22,22,0.020313942751615882,1.0
+T4-b,protein_mad,acinar,author_mapped==acinar,1663,0,0,0.0,
+T4-b,protein_mad,T_cell,author T or NK,72,1552,2,0.027777777777777776,0.001288659793814433
+T4-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,290,1215,3,0.010344827586206896,0.0024691358024691358
+T4-b,marker,T_cell,author_mapped==T_cell,936,1215,327,0.34935897435897434,0.2691358024691358
+T4-b,marker,myeloid,author_mapped==myeloid,3153,6755,2741,0.8693307960672375,0.40577350111028865
+T4-b,marker,B_plasma,author_mapped==B_plasma,1927,2338,1157,0.6004151530877011,0.4948674080410607
+T4-b,marker,mast,author_mapped==mast,987,589,414,0.4194528875379939,0.7028862478777589
+T4-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,26455,20143,19020,0.718956718956719,0.9442486223501961
+T4-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,5893,6000,5409,0.9178686577295095,0.9015
+T4-b,marker,endothelial,author_mapped==endothelial,812,1148,433,0.5332512315270936,0.37717770034843207
+T4-b,marker,pericyte_smc,author_mapped==pericyte_smc,458,869,118,0.2576419213973799,0.13578826237054084
+T4-b,marker,endocrine,author_mapped==endocrine,614,22,22,0.035830618892508145,1.0
+T4-b,marker,acinar,author_mapped==acinar,1197,0,0,0.0,
+T4-b,marker,T_cell,author T or NK,936,1552,356,0.3803418803418803,0.22938144329896906
+T5-a,protein_gmm,T_cell,author_mapped==T_cell,5366,822,482,0.08982482295937383,0.5863746958637469
+T5-a,protein_gmm,myeloid,author_mapped==myeloid,5418,5847,2648,0.48874123292727945,0.45288181973661706
+T5-a,protein_gmm,B_plasma,author_mapped==B_plasma,413,354,77,0.1864406779661017,0.2175141242937853
+T5-a,protein_gmm,mast,author_mapped==mast,955,540,414,0.43350785340314135,0.7666666666666667
+T5-a,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,12413,14855,10264,0.8268750503504391,0.6909458094917537
+T5-a,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,629,16099,216,0.34340222575516693,0.013416982421268401
+T5-a,protein_gmm,endothelial,author_mapped==endothelial,357,1105,224,0.6274509803921569,0.20271493212669683
+T5-a,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,376,1014,173,0.4601063829787234,0.17061143984220908
+T5-a,protein_gmm,endocrine,author_mapped==endocrine,196,597,22,0.11224489795918367,0.03685092127303183
+T5-a,protein_gmm,acinar,author_mapped==acinar,73,0,0,0.0,
+T5-a,protein_gmm,T_cell,author T or NK,5366,1146,631,0.11759224748415953,0.5506108202443281
+T5-a,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,6210,822,484,0.07793880837359098,0.5888077858880778
+T5-a,protein_mad,T_cell,author_mapped==T_cell,0,822,0,,0.0
+T5-a,protein_mad,myeloid,author_mapped==myeloid,30,5847,1,0.03333333333333333,0.0001710278775440397
+T5-a,protein_mad,B_plasma,author_mapped==B_plasma,2,354,0,0.0,0.0
+T5-a,protein_mad,mast,author_mapped==mast,7,540,1,0.14285714285714285,0.001851851851851852
+T5-a,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,23147,14855,14561,0.629066401693524,0.9802086839447998
+T5-a,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,16539,16099,15097,0.9128121410000605,0.9377601093235605
+T5-a,protein_mad,endothelial,author_mapped==endothelial,1155,1105,559,0.48398268398268396,0.5058823529411764
+T5-a,protein_mad,pericyte_smc,author_mapped==pericyte_smc,921,1014,285,0.30944625407166126,0.28106508875739644
+T5-a,protein_mad,endocrine,author_mapped==endocrine,1286,597,583,0.45334370139968894,0.9765494137353434
+T5-a,protein_mad,acinar,author_mapped==acinar,659,0,0,0.0,
+T5-a,protein_mad,T_cell,author T or NK,0,1146,0,,0.0
+T5-a,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,48,822,1,0.020833333333333332,0.0012165450121654502
+T5-a,marker,T_cell,author_mapped==T_cell,783,822,319,0.4074074074074074,0.3880778588807786
+T5-a,marker,myeloid,author_mapped==myeloid,4051,5847,3357,0.828684275487534,0.5741405849153411
+T5-a,marker,B_plasma,author_mapped==B_plasma,169,354,107,0.6331360946745562,0.3022598870056497
+T5-a,marker,mast,author_mapped==mast,819,540,503,0.6141636141636142,0.9314814814814815
+T5-a,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,19889,14855,14432,0.7256272311327869,0.971524739145069
+T5-a,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,15241,16099,14944,0.9805130896922775,0.9282564134418286
+T5-a,marker,endothelial,author_mapped==endothelial,729,1105,555,0.7613168724279835,0.502262443438914
+T5-a,marker,pericyte_smc,author_mapped==pericyte_smc,624,1014,278,0.44551282051282054,0.27416173570019725
+T5-a,marker,endocrine,author_mapped==endocrine,949,597,583,0.6143308746048473,0.9765494137353434
+T5-a,marker,acinar,author_mapped==acinar,540,0,0,0.0,
+T5-a,marker,T_cell,author T or NK,783,1146,370,0.4725415070242657,0.3228621291448517
+T6-b,protein_gmm,T_cell,author_mapped==T_cell,7,67,0,0.0,0.0
+T6-b,protein_gmm,myeloid,author_mapped==myeloid,29,1652,12,0.41379310344827586,0.007263922518159807
+T6-b,protein_gmm,B_plasma,author_mapped==B_plasma,16,342,1,0.0625,0.0029239766081871343
+T6-b,protein_gmm,mast,author_mapped==mast,13,146,1,0.07692307692307693,0.00684931506849315
+T6-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,7483,7862,6002,0.8020847253775224,0.7634189773594505
+T6-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,755,222,141,0.18675496688741722,0.6351351351351351
+T6-b,protein_gmm,endothelial,author_mapped==endothelial,485,457,149,0.30721649484536084,0.32603938730853393
+T6-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,405,384,88,0.21728395061728395,0.22916666666666666
+T6-b,protein_gmm,endocrine,author_mapped==endocrine,2736,137,137,0.05007309941520468,1.0
+T6-b,protein_gmm,acinar,author_mapped==acinar,505,0,0,0.0,
+T6-b,protein_gmm,T_cell,author T or NK,7,86,0,0.0,0.0
+T6-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,45,67,1,0.022222222222222223,0.014925373134328358
+T6-b,protein_mad,T_cell,author_mapped==T_cell,7,67,0,0.0,0.0
+T6-b,protein_mad,myeloid,author_mapped==myeloid,29,1652,12,0.41379310344827586,0.007263922518159807
+T6-b,protein_mad,B_plasma,author_mapped==B_plasma,16,342,1,0.0625,0.0029239766081871343
+T6-b,protein_mad,mast,author_mapped==mast,13,146,1,0.07692307692307693,0.00684931506849315
+T6-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,7483,7862,6002,0.8020847253775224,0.7634189773594505
+T6-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,755,222,141,0.18675496688741722,0.6351351351351351
+T6-b,protein_mad,endothelial,author_mapped==endothelial,485,457,149,0.30721649484536084,0.32603938730853393
+T6-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,405,384,88,0.21728395061728395,0.22916666666666666
+T6-b,protein_mad,endocrine,author_mapped==endocrine,2736,137,137,0.05007309941520468,1.0
+T6-b,protein_mad,acinar,author_mapped==acinar,505,0,0,0.0,
+T6-b,protein_mad,T_cell,author T or NK,7,86,0,0.0,0.0
+T6-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,45,67,1,0.022222222222222223,0.014925373134328358
+T6-b,marker,T_cell,author_mapped==T_cell,203,67,26,0.12807881773399016,0.3880597014925373
+T6-b,marker,myeloid,author_mapped==myeloid,857,1652,719,0.838973162193699,0.43523002421307505
+T6-b,marker,B_plasma,author_mapped==B_plasma,387,342,143,0.3695090439276486,0.41812865497076024
+T6-b,marker,mast,author_mapped==mast,261,146,78,0.2988505747126437,0.5342465753424658
+T6-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,6832,7862,5886,0.8615339578454333,0.7486644619689646
+T6-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,343,222,122,0.3556851311953353,0.5495495495495496
+T6-b,marker,endothelial,author_mapped==endothelial,367,457,139,0.3787465940054496,0.3041575492341357
+T6-b,marker,pericyte_smc,author_mapped==pericyte_smc,324,384,86,0.2654320987654321,0.22395833333333334
+T6-b,marker,endocrine,author_mapped==endocrine,2476,137,137,0.05533117932148627,1.0
+T6-b,marker,acinar,author_mapped==acinar,423,0,0,0.0,
+T6-b,marker,T_cell,author T or NK,203,86,27,0.1330049261083744,0.313953488372093
+U1-b,protein_gmm,T_cell,author_mapped==T_cell,18,628,0,0.0,0.0
+U1-b,protein_gmm,myeloid,author_mapped==myeloid,130,3729,33,0.25384615384615383,0.008849557522123894
+U1-b,protein_gmm,B_plasma,author_mapped==B_plasma,97,951,41,0.422680412371134,0.04311251314405889
+U1-b,protein_gmm,mast,author_mapped==mast,29,244,4,0.13793103448275862,0.01639344262295082
+U1-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,9509,8661,5883,0.6186770428015564,0.6792518184967093
+U1-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6750,4920,4681,0.6934814814814815,0.9514227642276423
+U1-b,protein_gmm,endothelial,author_mapped==endothelial,1893,981,698,0.3687268885367142,0.7115188583078491
+U1-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,4465,2357,1627,0.36438969764837625,0.6902842596521002
+U1-b,protein_gmm,endocrine,author_mapped==endocrine,701,0,0,0.0,
+U1-b,protein_gmm,acinar,author_mapped==acinar,1049,0,0,0.0,
+U1-b,protein_gmm,T_cell,author T or NK,18,808,0,0.0,0.0
+U1-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,233,628,5,0.02145922746781116,0.007961783439490446
+U1-b,protein_mad,T_cell,author_mapped==T_cell,18,628,0,0.0,0.0
+U1-b,protein_mad,myeloid,author_mapped==myeloid,141,3729,33,0.23404255319148937,0.008849557522123894
+U1-b,protein_mad,B_plasma,author_mapped==B_plasma,98,951,41,0.41836734693877553,0.04311251314405889
+U1-b,protein_mad,mast,author_mapped==mast,29,244,4,0.13793103448275862,0.01639344262295082
+U1-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,9808,8661,6062,0.6180668841761827,0.6999191779240272
+U1-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,6396,4920,4517,0.7062226391494684,0.9180894308943089
+U1-b,protein_mad,endothelial,author_mapped==endothelial,1927,981,700,0.3632589517384536,0.7135575942915392
+U1-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,4512,2357,1627,0.36059397163120566,0.6902842596521002
+U1-b,protein_mad,endocrine,author_mapped==endocrine,689,0,0,0.0,
+U1-b,protein_mad,acinar,author_mapped==acinar,1035,0,0,0.0,
+U1-b,protein_mad,T_cell,author T or NK,18,808,0,0.0,0.0
+U1-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,244,628,5,0.020491803278688523,0.007961783439490446
+U1-b,marker,T_cell,author_mapped==T_cell,1234,628,340,0.2755267423014587,0.5414012738853503
+U1-b,marker,myeloid,author_mapped==myeloid,2619,3729,1950,0.7445589919816724,0.5229283990345938
+U1-b,marker,B_plasma,author_mapped==B_plasma,925,951,424,0.45837837837837836,0.4458464773922187
+U1-b,marker,mast,author_mapped==mast,584,244,155,0.2654109589041096,0.6352459016393442
+U1-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,8167,8661,5916,0.7243785967919677,0.6830620020782819
+U1-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,4779,4920,4341,0.9083490269930948,0.8823170731707317
+U1-b,marker,endothelial,author_mapped==endothelial,1436,981,702,0.48885793871866295,0.7155963302752294
+U1-b,marker,pericyte_smc,author_mapped==pericyte_smc,3853,2357,1560,0.4048793148196211,0.6618582944420874
+U1-b,marker,endocrine,author_mapped==endocrine,407,0,0,0.0,
+U1-b,marker,acinar,author_mapped==acinar,890,0,0,0.0,
+U1-b,marker,T_cell,author T or NK,1234,808,392,0.31766612641815234,0.48514851485148514
+U2-b,protein_gmm,T_cell,author_mapped==T_cell,3,120,0,0.0,0.0
+U2-b,protein_gmm,myeloid,author_mapped==myeloid,8,2756,4,0.5,0.001451378809869376
+U2-b,protein_gmm,B_plasma,author_mapped==B_plasma,1,221,0,0.0,0.0
+U2-b,protein_gmm,mast,author_mapped==mast,4,274,0,0.0,0.0
+U2-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,9606,8734,7390,0.7693108473870498,0.8461186168994733
+U2-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,20191,20191,17816,0.8823733346540538,0.8823733346540538
+U2-b,protein_gmm,endothelial,author_mapped==endothelial,678,658,379,0.5589970501474927,0.5759878419452887
+U2-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,470,326,119,0.2531914893617021,0.36503067484662577
+U2-b,protein_gmm,endocrine,author_mapped==endocrine,364,1,0,0.0,0.0
+U2-b,protein_gmm,acinar,author_mapped==acinar,1763,0,0,0.0,
+U2-b,protein_gmm,T_cell,author T or NK,3,181,0,0.0,0.0
+U2-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,302,120,0,0.0,0.0
+U2-b,protein_mad,T_cell,author_mapped==T_cell,41,120,0,0.0,0.0
+U2-b,protein_mad,myeloid,author_mapped==myeloid,465,2756,19,0.04086021505376344,0.006894049346879536
+U2-b,protein_mad,B_plasma,author_mapped==B_plasma,114,221,0,0.0,0.0
+U2-b,protein_mad,mast,author_mapped==mast,158,274,1,0.006329113924050633,0.0036496350364963502
+U2-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,11225,8734,8259,0.7357683741648107,0.9456148385619418
+U2-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,18551,20191,17169,0.9255026683197671,0.8503293546629687
+U2-b,protein_mad,endothelial,author_mapped==endothelial,778,658,385,0.4948586118251928,0.5851063829787234
+U2-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,550,326,121,0.22,0.37116564417177916
+U2-b,protein_mad,endocrine,author_mapped==endocrine,297,1,0,0.0,0.0
+U2-b,protein_mad,acinar,author_mapped==acinar,1671,0,0,0.0,
+U2-b,protein_mad,T_cell,author T or NK,41,181,0,0.0,0.0
+U2-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,525,120,0,0.0,0.0
+U2-b,marker,T_cell,author_mapped==T_cell,327,120,63,0.1926605504587156,0.525
+U2-b,marker,myeloid,author_mapped==myeloid,1874,2756,1577,0.8415154749199573,0.5722060957910015
+U2-b,marker,B_plasma,author_mapped==B_plasma,213,221,72,0.3380281690140845,0.3257918552036199
+U2-b,marker,mast,author_mapped==mast,544,274,234,0.43014705882352944,0.8540145985401459
+U2-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,10355,8734,8252,0.7969097054563014,0.9448133730249599
+U2-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,18149,20191,17607,0.970136095652653,0.8720221881036105
+U2-b,marker,endothelial,author_mapped==endothelial,623,658,387,0.6211878009630819,0.5881458966565349
+U2-b,marker,pericyte_smc,author_mapped==pericyte_smc,409,326,123,0.30073349633251834,0.3773006134969325
+U2-b,marker,endocrine,author_mapped==endocrine,193,1,0,0.0,0.0
+U2-b,marker,acinar,author_mapped==acinar,1647,0,0,0.0,
+U2-b,marker,T_cell,author T or NK,327,181,75,0.22935779816513763,0.4143646408839779
+U3-b,protein_gmm,T_cell,author_mapped==T_cell,61,243,5,0.08196721311475409,0.0205761316872428
+U3-b,protein_gmm,myeloid,author_mapped==myeloid,50,3144,16,0.32,0.005089058524173028
+U3-b,protein_gmm,B_plasma,author_mapped==B_plasma,23,165,9,0.391304347826087,0.05454545454545454
+U3-b,protein_gmm,mast,author_mapped==mast,1,115,0,0.0,0.0
+U3-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,7246,5696,5103,0.7042506210322936,0.8958918539325843
+U3-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,4386,3646,3487,0.7950296397628819,0.9563905650027428
+U3-b,protein_gmm,endothelial,author_mapped==endothelial,691,679,441,0.638205499276411,0.6494845360824743
+U3-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,460,441,143,0.3108695652173913,0.3242630385487528
+U3-b,protein_gmm,endocrine,author_mapped==endocrine,163,0,0,0.0,
+U3-b,protein_gmm,acinar,author_mapped==acinar,685,0,0,0.0,
+U3-b,protein_gmm,T_cell,author T or NK,61,303,6,0.09836065573770492,0.019801980198019802
+U3-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,1236,243,24,0.019417475728155338,0.09876543209876543
+U3-b,protein_mad,T_cell,author_mapped==T_cell,56,243,3,0.05357142857142857,0.012345679012345678
+U3-b,protein_mad,myeloid,author_mapped==myeloid,56,3144,18,0.32142857142857145,0.0057251908396946565
+U3-b,protein_mad,B_plasma,author_mapped==B_plasma,24,165,10,0.4166666666666667,0.06060606060606061
+U3-b,protein_mad,mast,author_mapped==mast,3,115,0,0.0,0.0
+U3-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,7699,5696,5357,0.6958046499545395,0.9404845505617978
+U3-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,4178,3646,3433,0.821685016754428,0.9415798134942402
+U3-b,protein_mad,endothelial,author_mapped==endothelial,742,679,458,0.6172506738544474,0.6745213549337261
+U3-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,483,441,146,0.3022774327122153,0.3310657596371882
+U3-b,protein_mad,endocrine,author_mapped==endocrine,162,0,0,0.0,
+U3-b,protein_mad,acinar,author_mapped==acinar,683,0,0,0.0,
+U3-b,protein_mad,T_cell,author T or NK,56,303,4,0.07142857142857142,0.013201320132013201
+U3-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,989,243,12,0.012133468149646108,0.04938271604938271
+U3-b,marker,T_cell,author_mapped==T_cell,304,243,103,0.33881578947368424,0.42386831275720166
+U3-b,marker,myeloid,author_mapped==myeloid,1936,3144,1826,0.9431818181818182,0.5807888040712468
+U3-b,marker,B_plasma,author_mapped==B_plasma,96,165,26,0.2708333333333333,0.15757575757575756
+U3-b,marker,mast,author_mapped==mast,247,115,83,0.3360323886639676,0.7217391304347827
+U3-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,7073,5696,5468,0.7730807295348509,0.9599719101123596
+U3-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,3606,3646,3427,0.9503605102606767,0.93993417443774
+U3-b,marker,endothelial,author_mapped==endothelial,631,679,477,0.7559429477020603,0.7025036818851251
+U3-b,marker,pericyte_smc,author_mapped==pericyte_smc,405,441,148,0.3654320987654321,0.3356009070294785
+U3-b,marker,endocrine,author_mapped==endocrine,85,0,0,0.0,
+U3-b,marker,acinar,author_mapped==acinar,636,0,0,0.0,
+U3-b,marker,T_cell,author T or NK,304,303,115,0.3782894736842105,0.3795379537953795
+U4-a,protein_gmm,T_cell,author_mapped==T_cell,39,867,1,0.02564102564102564,0.0011534025374855825
+U4-a,protein_gmm,myeloid,author_mapped==myeloid,264,6720,67,0.2537878787878788,0.009970238095238095
+U4-a,protein_gmm,B_plasma,author_mapped==B_plasma,370,1656,93,0.25135135135135134,0.05615942028985507
+U4-a,protein_gmm,mast,author_mapped==mast,128,776,33,0.2578125,0.04252577319587629
+U4-a,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,20497,14721,12501,0.6098941308484168,0.8491950275117179
+U4-a,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,18646,17028,15428,0.8274160677893382,0.9060371153394409
+U4-a,protein_gmm,endothelial,author_mapped==endothelial,1304,1739,869,0.6664110429447853,0.4997124784358827
+U4-a,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,2013,1700,1003,0.49826130153999004,0.59
+U4-a,protein_gmm,endocrine,author_mapped==endocrine,303,43,22,0.07260726072607261,0.5116279069767442
+U4-a,protein_gmm,acinar,author_mapped==acinar,801,0,0,0.0,
+U4-a,protein_gmm,T_cell,author T or NK,39,1158,2,0.05128205128205128,0.0017271157167530224
+U4-a,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,1301,867,20,0.015372790161414296,0.02306805074971165
+U4-a,protein_mad,T_cell,author_mapped==T_cell,85,867,5,0.058823529411764705,0.0057670126874279125
+U4-a,protein_mad,myeloid,author_mapped==myeloid,353,6720,74,0.2096317280453258,0.011011904761904763
+U4-a,protein_mad,B_plasma,author_mapped==B_plasma,421,1656,100,0.2375296912114014,0.06038647342995169
+U4-a,protein_mad,mast,author_mapped==mast,151,776,37,0.24503311258278146,0.04768041237113402
+U4-a,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,23141,14721,14097,0.6091785143252236,0.957611575300591
+U4-a,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,15986,17028,14914,0.9329413236582009,0.8758515386422363
+U4-a,protein_mad,endothelial,author_mapped==endothelial,1424,1739,890,0.625,0.5117883841288097
+U4-a,protein_mad,pericyte_smc,author_mapped==pericyte_smc,2145,1700,1020,0.4755244755244755,0.6
+U4-a,protein_mad,endocrine,author_mapped==endocrine,215,43,21,0.09767441860465116,0.4883720930232558
+U4-a,protein_mad,acinar,author_mapped==acinar,653,0,0,0.0,
+U4-a,protein_mad,T_cell,author T or NK,85,1158,9,0.10588235294117647,0.007772020725388601
+U4-a,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,2831,867,26,0.009184033910279053,0.029988465974625143
+U4-a,marker,T_cell,author_mapped==T_cell,603,867,271,0.4494195688225539,0.31257208765859285
+U4-a,marker,myeloid,author_mapped==myeloid,4454,6720,3804,0.8540637629097441,0.5660714285714286
+U4-a,marker,B_plasma,author_mapped==B_plasma,1496,1656,974,0.6510695187165776,0.5881642512077294
+U4-a,marker,mast,author_mapped==mast,1597,776,743,0.4652473387601753,0.9574742268041238
+U4-a,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,19693,14721,14099,0.7159396739958361,0.957747435636166
+U4-a,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,15859,17028,15416,0.9720663345734284,0.9053323937044867
+U4-a,marker,endothelial,author_mapped==endothelial,1182,1739,899,0.760575296108291,0.5169637722829212
+U4-a,marker,pericyte_smc,author_mapped==pericyte_smc,1775,1700,1028,0.5791549295774648,0.6047058823529412
+U4-a,marker,endocrine,author_mapped==endocrine,148,43,21,0.14189189189189189,0.4883720930232558
+U4-a,marker,acinar,author_mapped==acinar,625,0,0,0.0,
+U4-a,marker,T_cell,author T or NK,603,1158,292,0.4842454394693201,0.25215889464594127
+U4-b,protein_gmm,T_cell,author_mapped==T_cell,36,756,17,0.4722222222222222,0.022486772486772486
+U4-b,protein_gmm,myeloid,author_mapped==myeloid,121,5176,25,0.2066115702479339,0.004829984544049459
+U4-b,protein_gmm,B_plasma,author_mapped==B_plasma,100,1365,18,0.18,0.013186813186813187
+U4-b,protein_gmm,mast,author_mapped==mast,63,806,7,0.1111111111111111,0.008684863523573201
+U4-b,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,21428,15895,14160,0.6608176218032481,0.8908461780434099
+U4-b,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,20839,18442,17932,0.8605019434713758,0.9723457325669667
+U4-b,protein_gmm,endothelial,author_mapped==endothelial,1172,1274,599,0.5110921501706485,0.47017268445839877
+U4-b,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,1450,945,376,0.2593103448275862,0.3978835978835979
+U4-b,protein_gmm,endocrine,author_mapped==endocrine,380,36,16,0.042105263157894736,0.4444444444444444
+U4-b,protein_gmm,acinar,author_mapped==acinar,933,0,0,0.0,
+U4-b,protein_gmm,T_cell,author T or NK,36,904,18,0.5,0.01991150442477876
+U4-b,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,241,756,19,0.07883817427385892,0.02513227513227513
+U4-b,protein_mad,T_cell,author_mapped==T_cell,40,756,17,0.425,0.022486772486772486
+U4-b,protein_mad,myeloid,author_mapped==myeloid,130,5176,25,0.19230769230769232,0.004829984544049459
+U4-b,protein_mad,B_plasma,author_mapped==B_plasma,100,1365,18,0.18,0.013186813186813187
+U4-b,protein_mad,mast,author_mapped==mast,64,806,7,0.109375,0.008684863523573201
+U4-b,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,23051,15895,15217,0.6601448960999523,0.9573450770682604
+U4-b,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,19201,18442,17587,0.9159418780271861,0.9536384340093266
+U4-b,protein_mad,endothelial,author_mapped==endothelial,1252,1274,604,0.48242811501597443,0.4740973312401884
+U4-b,protein_mad,pericyte_smc,author_mapped==pericyte_smc,1539,945,387,0.25146198830409355,0.4095238095238095
+U4-b,protein_mad,endocrine,author_mapped==endocrine,317,36,16,0.050473186119873815,0.4444444444444444
+U4-b,protein_mad,acinar,author_mapped==acinar,842,0,0,0.0,
+U4-b,protein_mad,T_cell,author T or NK,40,904,18,0.45,0.01991150442477876
+U4-b,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,302,756,19,0.06291390728476821,0.02513227513227513
+U4-b,marker,T_cell,author_mapped==T_cell,761,756,312,0.4099868593955322,0.4126984126984127
+U4-b,marker,myeloid,author_mapped==myeloid,3426,5176,3015,0.8800350262697023,0.5824961360123647
+U4-b,marker,B_plasma,author_mapped==B_plasma,1136,1365,714,0.6285211267605634,0.5230769230769231
+U4-b,marker,mast,author_mapped==mast,1689,806,761,0.45056246299585556,0.9441687344913151
+U4-b,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,19262,15895,14790,0.7678330391444295,0.93048128342246
+U4-b,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,17892,18442,17471,0.9764699306952828,0.9473484437696562
+U4-b,marker,endothelial,author_mapped==endothelial,820,1274,579,0.7060975609756097,0.45447409733124017
+U4-b,marker,pericyte_smc,author_mapped==pericyte_smc,1091,945,370,0.3391384051329056,0.3915343915343915
+U4-b,marker,endocrine,author_mapped==endocrine,140,36,16,0.11428571428571428,0.4444444444444444
+U4-b,marker,acinar,author_mapped==acinar,581,0,0,0.0,
+U4-b,marker,T_cell,author T or NK,761,904,335,0.44021024967148487,0.37057522123893805
+U5-a,protein_gmm,T_cell,author_mapped==T_cell,1467,879,32,0.021813224267211998,0.03640500568828214
+U5-a,protein_gmm,myeloid,author_mapped==myeloid,8149,7470,3715,0.45588415756534545,0.49732262382864795
+U5-a,protein_gmm,B_plasma,author_mapped==B_plasma,2589,1431,920,0.3553495558130552,0.6429070580013976
+U5-a,protein_gmm,mast,author_mapped==mast,611,189,81,0.132569558101473,0.42857142857142855
+U5-a,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,13409,13799,9844,0.7341337907375644,0.7133850279005725
+U5-a,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,4319,41216,3592,0.8316739986107895,0.08715062111801242
+U5-a,protein_gmm,endothelial,author_mapped==endothelial,795,1838,631,0.7937106918238994,0.34330794341675736
+U5-a,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,362,953,118,0.3259668508287293,0.12381951731374606
+U5-a,protein_gmm,endocrine,author_mapped==endocrine,124,53,39,0.31451612903225806,0.7358490566037735
+U5-a,protein_gmm,acinar,author_mapped==acinar,223,0,0,0.0,
+U5-a,protein_gmm,T_cell,author T or NK,1467,1199,55,0.03749147920927062,0.045871559633027525
+U5-a,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,1639,879,32,0.019524100061012812,0.03640500568828214
+U5-a,protein_mad,T_cell,author_mapped==T_cell,0,879,0,,0.0
+U5-a,protein_mad,myeloid,author_mapped==myeloid,6,7470,0,0.0,0.0
+U5-a,protein_mad,B_plasma,author_mapped==B_plasma,2,1431,0,0.0,0.0
+U5-a,protein_mad,mast,author_mapped==mast,0,189,0,,0.0
+U5-a,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,25481,13799,13250,0.5199952906086889,0.9602145082977027
+U5-a,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,43458,41216,36853,0.8480141746053661,0.894143051242236
+U5-a,protein_mad,endothelial,author_mapped==endothelial,1516,1838,864,0.5699208443271768,0.470076169749728
+U5-a,protein_mad,pericyte_smc,author_mapped==pericyte_smc,819,953,155,0.18925518925518925,0.1626442812172088
+U5-a,protein_mad,endocrine,author_mapped==endocrine,400,53,52,0.13,0.9811320754716981
+U5-a,protein_mad,acinar,author_mapped==acinar,819,0,0,0.0,
+U5-a,protein_mad,T_cell,author T or NK,0,1199,0,,0.0
+U5-a,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,2292,879,34,0.014834205933682374,0.038680318543799774
+U5-a,marker,T_cell,author_mapped==T_cell,945,879,261,0.2761904761904762,0.29692832764505117
+U5-a,marker,myeloid,author_mapped==myeloid,6339,7470,4486,0.7076825997791449,0.6005354752342704
+U5-a,marker,B_plasma,author_mapped==B_plasma,1059,1431,656,0.619452313503305,0.4584206848357792
+U5-a,marker,mast,author_mapped==mast,371,189,110,0.29649595687331537,0.582010582010582
+U5-a,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,22734,13799,13473,0.5926365795724465,0.9763750996449018
+U5-a,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,40545,41216,35806,0.8831175237390554,0.8687402950310559
+U5-a,marker,endothelial,author_mapped==endothelial,1287,1838,863,0.6705516705516705,0.4695321001088139
+U5-a,marker,pericyte_smc,author_mapped==pericyte_smc,580,953,155,0.2672413793103448,0.1626442812172088
+U5-a,marker,endocrine,author_mapped==endocrine,248,53,52,0.20967741935483872,0.9811320754716981
+U5-a,marker,acinar,author_mapped==acinar,685,0,0,0.0,
+U5-a,marker,T_cell,author T or NK,945,1199,290,0.30687830687830686,0.24186822351959966
+U6-a_1,protein_gmm,T_cell,author_mapped==T_cell,25,255,0,0.0,0.0
+U6-a_1,protein_gmm,myeloid,author_mapped==myeloid,213,10815,107,0.5023474178403756,0.009893666204345815
+U6-a_1,protein_gmm,B_plasma,author_mapped==B_plasma,66,912,24,0.36363636363636365,0.02631578947368421
+U6-a_1,protein_gmm,mast,author_mapped==mast,31,326,9,0.2903225806451613,0.027607361963190184
+U6-a_1,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,26181,17564,16266,0.6212902486536037,0.9260988385333637
+U6-a_1,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,38318,37451,34978,0.9128346990970301,0.9339670502790313
+U6-a_1,protein_gmm,endothelial,author_mapped==endothelial,1094,1638,581,0.5310786106032906,0.3547008547008547
+U6-a_1,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,1948,1595,682,0.35010266940451745,0.42758620689655175
+U6-a_1,protein_gmm,endocrine,author_mapped==endocrine,506,114,94,0.1857707509881423,0.8245614035087719
+U6-a_1,protein_gmm,acinar,author_mapped==acinar,2435,0,0,0.0,
+U6-a_1,protein_gmm,T_cell,author T or NK,25,348,1,0.04,0.0028735632183908046
+U6-a_1,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,1071,255,3,0.0028011204481792717,0.011764705882352941
+U6-a_1,protein_mad,T_cell,author_mapped==T_cell,29,255,0,0.0,0.0
+U6-a_1,protein_mad,myeloid,author_mapped==myeloid,355,10815,125,0.352112676056338,0.01155802126675913
+U6-a_1,protein_mad,B_plasma,author_mapped==B_plasma,100,912,28,0.28,0.03070175438596491
+U6-a_1,protein_mad,mast,author_mapped==mast,37,326,9,0.24324324324324326,0.027607361963190184
+U6-a_1,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,28167,17564,17037,0.6048567472574289,0.9699954452288773
+U6-a_1,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,36349,37451,34250,0.9422542573385788,0.9145283170008811
+U6-a_1,protein_mad,endothelial,author_mapped==endothelial,1169,1638,593,0.5072711719418306,0.362026862026862
+U6-a_1,protein_mad,pericyte_smc,author_mapped==pericyte_smc,2051,1595,696,0.3393466601657728,0.43636363636363634
+U6-a_1,protein_mad,endocrine,author_mapped==endocrine,463,114,92,0.19870410367170627,0.8070175438596491
+U6-a_1,protein_mad,acinar,author_mapped==acinar,2283,0,0,0.0,
+U6-a_1,protein_mad,T_cell,author T or NK,29,348,1,0.034482758620689655,0.0028735632183908046
+U6-a_1,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,1344,255,3,0.002232142857142857,0.011764705882352941
+U6-a_1,marker,T_cell,author_mapped==T_cell,208,255,45,0.21634615384615385,0.17647058823529413
+U6-a_1,marker,myeloid,author_mapped==myeloid,6000,10815,5312,0.8853333333333333,0.491169671752196
+U6-a_1,marker,B_plasma,author_mapped==B_plasma,634,912,423,0.667192429022082,0.46381578947368424
+U6-a_1,marker,mast,author_mapped==mast,373,326,165,0.44235924932975873,0.5061349693251533
+U6-a_1,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,25252,17564,17172,0.6800253445271661,0.9776816214985197
+U6-a_1,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,34866,37451,34203,0.9809843400447428,0.9132733438359456
+U6-a_1,marker,endothelial,author_mapped==endothelial,845,1638,600,0.7100591715976331,0.3663003663003663
+U6-a_1,marker,pericyte_smc,author_mapped==pericyte_smc,1660,1595,707,0.4259036144578313,0.4432601880877743
+U6-a_1,marker,endocrine,author_mapped==endocrine,309,114,92,0.2977346278317152,0.8070175438596491
+U6-a_1,marker,acinar,author_mapped==acinar,2171,0,0,0.0,
+U6-a_1,marker,T_cell,author T or NK,208,348,51,0.24519230769230768,0.14655172413793102
+U6-a_2,protein_gmm,T_cell,author_mapped==T_cell,63,270,0,0.0,0.0
+U6-a_2,protein_gmm,myeloid,author_mapped==myeloid,136,11225,82,0.6029411764705882,0.0073051224944320715
+U6-a_2,protein_gmm,B_plasma,author_mapped==B_plasma,78,983,50,0.6410256410256411,0.0508646998982706
+U6-a_2,protein_gmm,mast,author_mapped==mast,18,308,3,0.16666666666666666,0.00974025974025974
+U6-a_2,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,23931,16040,14389,0.6012703188333124,0.897069825436409
+U6-a_2,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,36187,34746,32770,0.9055738248542294,0.9431301444770621
+U6-a_2,protein_gmm,endothelial,author_mapped==endothelial,996,1396,602,0.6044176706827309,0.43123209169054444
+U6-a_2,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,1128,957,247,0.21897163120567376,0.258098223615465
+U6-a_2,protein_gmm,endocrine,author_mapped==endocrine,550,147,138,0.2509090909090909,0.9387755102040817
+U6-a_2,protein_gmm,acinar,author_mapped==acinar,1823,0,0,0.0,
+U6-a_2,protein_gmm,T_cell,author T or NK,63,330,0,0.0,0.0
+U6-a_2,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,2308,270,22,0.009532062391681109,0.08148148148148149
+U6-a_2,protein_mad,T_cell,author_mapped==T_cell,87,270,0,0.0,0.0
+U6-a_2,protein_mad,myeloid,author_mapped==myeloid,371,11225,106,0.2857142857142857,0.009443207126948775
+U6-a_2,protein_mad,B_plasma,author_mapped==B_plasma,185,983,51,0.2756756756756757,0.05188199389623601
+U6-a_2,protein_mad,mast,author_mapped==mast,50,308,4,0.08,0.012987012987012988
+U6-a_2,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,26179,16040,15377,0.5873791970663509,0.9586658354114713
+U6-a_2,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,34021,34746,32179,0.945856970694571,0.9261209923444426
+U6-a_2,protein_mad,endothelial,author_mapped==endothelial,1055,1396,612,0.5800947867298578,0.4383954154727794
+U6-a_2,protein_mad,pericyte_smc,author_mapped==pericyte_smc,1217,957,261,0.21446179129005752,0.2727272727272727
+U6-a_2,protein_mad,endocrine,author_mapped==endocrine,490,147,138,0.2816326530612245,0.9387755102040817
+U6-a_2,protein_mad,acinar,author_mapped==acinar,1653,0,0,0.0,
+U6-a_2,protein_mad,T_cell,author T or NK,87,330,0,0.0,0.0
+U6-a_2,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,3189,270,23,0.007212292254625274,0.08518518518518518
+U6-a_2,marker,T_cell,author_mapped==T_cell,188,270,38,0.20212765957446807,0.14074074074074075
+U6-a_2,marker,myeloid,author_mapped==myeloid,6373,11225,5741,0.9008316334536325,0.5114476614699331
+U6-a_2,marker,B_plasma,author_mapped==B_plasma,753,983,435,0.5776892430278885,0.44252288911495424
+U6-a_2,marker,mast,author_mapped==mast,391,308,144,0.36828644501278773,0.4675324675324675
+U6-a_2,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,23158,16040,15679,0.6770446497970464,0.977493765586035
+U6-a_2,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,33707,34746,32553,0.9657637879372237,0.9368848212743913
+U6-a_2,marker,endothelial,author_mapped==endothelial,923,1396,639,0.6923076923076923,0.4577363896848137
+U6-a_2,marker,pericyte_smc,author_mapped==pericyte_smc,925,957,259,0.28,0.27063740856844304
+U6-a_2,marker,endocrine,author_mapped==endocrine,450,147,139,0.3088888888888889,0.9455782312925171
+U6-a_2,marker,acinar,author_mapped==acinar,1542,0,0,0.0,
+U6-a_2,marker,T_cell,author T or NK,188,330,40,0.2127659574468085,0.12121212121212122
+U7-a,protein_gmm,T_cell,author_mapped==T_cell,0,1045,0,,0.0
+U7-a,protein_gmm,myeloid,author_mapped==myeloid,147,5775,35,0.23809523809523808,0.006060606060606061
+U7-a,protein_gmm,B_plasma,author_mapped==B_plasma,1554,6862,1191,0.7664092664092664,0.17356455843777324
+U7-a,protein_gmm,mast,author_mapped==mast,47,789,0,0.0,0.0
+U7-a,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,30497,22865,19755,0.6477686329802932,0.863984255412202
+U7-a,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,28393,22530,21813,0.768252738351002,0.9681757656458055
+U7-a,protein_gmm,endothelial,author_mapped==endothelial,3593,3609,2140,0.5956025605343724,0.5929620393460793
+U7-a,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,2952,2318,1030,0.3489159891598916,0.4443485763589301
+U7-a,protein_gmm,endocrine,author_mapped==endocrine,2185,358,356,0.16292906178489702,0.994413407821229
+U7-a,protein_gmm,acinar,author_mapped==acinar,1448,0,0,0.0,
+U7-a,protein_gmm,T_cell,author T or NK,0,1402,0,,0.0
+U7-a,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,23,1045,0,0.0,0.0
+U7-a,protein_mad,T_cell,author_mapped==T_cell,0,1045,0,,0.0
+U7-a,protein_mad,myeloid,author_mapped==myeloid,158,5775,41,0.25949367088607594,0.0070995670995670996
+U7-a,protein_mad,B_plasma,author_mapped==B_plasma,1563,6862,1193,0.763275751759437,0.1738560186534538
+U7-a,protein_mad,mast,author_mapped==mast,48,789,0,0.0,0.0
+U7-a,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,34361,22865,21526,0.6264660516282995,0.9414388803848677
+U7-a,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,24382,22530,20486,0.8402099909769503,0.9092765201952951
+U7-a,protein_mad,endothelial,author_mapped==endothelial,3830,3609,2217,0.5788511749347258,0.6142975893599335
+U7-a,protein_mad,pericyte_smc,author_mapped==pericyte_smc,3216,2318,1069,0.33240049751243783,0.4611734253666954
+U7-a,protein_mad,endocrine,author_mapped==endocrine,1955,358,356,0.18209718670076727,0.994413407821229
+U7-a,protein_mad,acinar,author_mapped==acinar,1324,0,0,0.0,
+U7-a,protein_mad,T_cell,author T or NK,0,1402,0,,0.0
+U7-a,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,48,1045,0,0.0,0.0
+U7-a,marker,T_cell,author_mapped==T_cell,1462,1045,409,0.27975376196990426,0.39138755980861245
+U7-a,marker,myeloid,author_mapped==myeloid,3112,5775,2378,0.7641388174807198,0.4117748917748918
+U7-a,marker,B_plasma,author_mapped==B_plasma,6700,6862,4917,0.7338805970149254,0.7165549402506558
+U7-a,marker,mast,author_mapped==mast,1176,789,546,0.4642857142857143,0.6920152091254753
+U7-a,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,29176,22865,21038,0.721072114066356,0.9200962169254319
+U7-a,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,21077,22530,20193,0.9580585472315795,0.896271637816245
+U7-a,marker,endothelial,author_mapped==endothelial,3066,3609,2181,0.7113502935420744,0.6043225270157938
+U7-a,marker,pericyte_smc,author_mapped==pericyte_smc,2582,2318,1050,0.4066615027110767,0.45297670405522
+U7-a,marker,endocrine,author_mapped==endocrine,1340,358,356,0.2656716417910448,0.994413407821229
+U7-a,marker,acinar,author_mapped==acinar,1194,0,0,0.0,
+U7-a,marker,T_cell,author T or NK,1462,1402,463,0.3166894664842681,0.3302425106990014
+all_16_sections,protein_gmm,T_cell,author_mapped==T_cell,7273,11557,563,0.07740959714010724,0.04871506446309596
+all_16_sections,protein_gmm,myeloid,author_mapped==myeloid,15135,95941,6948,0.45906838453914767,0.07241950782251592
+all_16_sections,protein_gmm,B_plasma,author_mapped==B_plasma,5687,22198,2608,0.45858976613328645,0.11748806198756645
+all_16_sections,protein_gmm,mast,author_mapped==mast,2045,6659,610,0.2982885085574572,0.09160534614807028
+all_16_sections,protein_gmm,CAF_fibroblast,author_mapped==CAF_fibroblast,323334,253017,216918,0.6708790291154039,0.8573257923380643
+all_16_sections,protein_gmm,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,216609,246249,179909,0.830570290246481,0.7305978907528559
+all_16_sections,protein_gmm,endothelial,author_mapped==endothelial,18198,20399,9763,0.5364875261017694,0.4786018922496201
+all_16_sections,protein_gmm,pericyte_smc,author_mapped==pericyte_smc,20724,18137,7298,0.35215209419031074,0.402381871312786
+all_16_sections,protein_gmm,endocrine,author_mapped==endocrine,11747,1898,1191,0.10138758832042223,0.6275026343519494
+all_16_sections,protein_gmm,acinar,author_mapped==acinar,16062,0,0,0.0,
+all_16_sections,protein_gmm,T_cell,author T or NK,7273,14768,751,0.10325862780145745,0.05085319609967497
+all_16_sections,protein_gmm_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,16303,11557,728,0.0446543580936024,0.06299212598425197
+all_16_sections,protein_mad,T_cell,author_mapped==T_cell,1729,11557,54,0.031231925968768073,0.004672492861469239
+all_16_sections,protein_mad,myeloid,author_mapped==myeloid,2588,95941,663,0.2561823802163833,0.00691049707632816
+all_16_sections,protein_mad,B_plasma,author_mapped==B_plasma,3014,22198,1627,0.539814200398142,0.07329489143166051
+all_16_sections,protein_mad,mast,author_mapped==mast,714,6659,123,0.1722689075630252,0.01847124192821745
+all_16_sections,protein_mad,CAF_fibroblast,author_mapped==CAF_fibroblast,364394,253017,234451,0.6433997266694841,0.9266215313595529
+all_16_sections,protein_mad,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,253907,246249,223248,0.8792510643660868,0.9065945445463738
+all_16_sections,protein_mad,endothelial,author_mapped==endothelial,20559,20399,10503,0.5108711513205896,0.5148781803029561
+all_16_sections,protein_mad,pericyte_smc,author_mapped==pericyte_smc,22785,18137,7616,0.33425499231950845,0.41991509069857197
+all_16_sections,protein_mad,endocrine,author_mapped==endocrine,12202,1898,1762,0.14440255695787577,0.928345626975764
+all_16_sections,protein_mad,acinar,author_mapped==acinar,16158,0,0,0.0,
+all_16_sections,protein_mad,T_cell,author T or NK,1729,14768,74,0.042799305957200696,0.005010834236186349
+all_16_sections,protein_mad_looseT,"T_cell (CD3+ PanCK-, any CD45)",author_mapped==T_cell,20548,11557,276,0.013431964181428849,0.02388163018084278
+all_16_sections,marker,T_cell,author_mapped==T_cell,10427,11557,3676,0.3525462740960967,0.31807562516223936
+all_16_sections,marker,myeloid,author_mapped==myeloid,57109,95941,48575,0.8505664606279221,0.5063007473342992
+all_16_sections,marker,B_plasma,author_mapped==B_plasma,18739,22198,12229,0.6525961897646619,0.5509054869808091
+all_16_sections,marker,mast,author_mapped==mast,11312,6659,5260,0.464992927864215,0.7899083946538519
+all_16_sections,marker,CAF_fibroblast,author_mapped==CAF_fibroblast,328095,253017,239329,0.7294503116475411,0.945900868321101
+all_16_sections,marker,epithelial_ductal_tumor,author_mapped==epithelial_ductal_tumor,234848,246249,223278,0.9507340918381251,0.9067163724522739
+all_16_sections,marker,endothelial,author_mapped==endothelial,15922,20399,10677,0.6705815852279864,0.5234080101965782
+all_16_sections,marker,pericyte_smc,author_mapped==pericyte_smc,18417,18137,7686,0.41733181299885974,0.4237746043998456
+all_16_sections,marker,endocrine,author_mapped==endocrine,8659,1898,1803,0.20822265850560112,0.9499473129610115
+all_16_sections,marker,acinar,author_mapped==acinar,13965,0,0,0.0,
+all_16_sections,marker,T_cell,author T or NK,10427,14768,4045,0.3879351683130335,0.27390303358613216

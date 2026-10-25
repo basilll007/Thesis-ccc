@@ -193,3 +193,135 @@ results/pdac/phaseA/pvalue_conventions_summary.json,phaseA,Summary of p-value co
 figures/pdac/phaseA/phaseA_pvalue_conventions_scatter.png,phaseA,Legacy vs add-one p for breast and PDAC rows,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
 figures/pdac/phaseA/phaseA_pvalue_conventions_scatter.pdf,phaseA,Legacy vs add-one p for breast and PDAC rows,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
 logs/phaseA_pvalue_conventions_20261025T182230.log,phaseA,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
+results/pdac/phaseB/sections/T1-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T1-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:26
+results/pdac/phaseB/sections/T1-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T1-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:26
+results/pdac/phaseB/sections/T2-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T2-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:31
+results/pdac/phaseB/sections/T2-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T2-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:31
+results/pdac/phaseB/sections/T3-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T3-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:37
+results/pdac/phaseB/sections/T3-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T3-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:37
+results/pdac/phaseB/sections/T4-a_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T4-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:43
+results/pdac/phaseB/sections/T4-a_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T4-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:43
+results/pdac/phaseB/sections/T4-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T4-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:48
+results/pdac/phaseB/sections/T4-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T4-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:48
+results/pdac/phaseB/sections/T5-a_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:54
+results/pdac/phaseB/sections/T5-a_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:54
+results/pdac/phaseB/sections/T6-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section T6-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:58
+results/pdac/phaseB/sections/T6-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section T6-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:31:58
+results/pdac/phaseB/sections/U1-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U1-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:04
+results/pdac/phaseB/sections/U1-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U1-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:04
+results/pdac/phaseB/sections/U2-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U2-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:09
+results/pdac/phaseB/sections/U2-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U2-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:09
+results/pdac/phaseB/sections/U3-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U3-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:14
+results/pdac/phaseB/sections/U3-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U3-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:14
+results/pdac/phaseB/sections/U4-a_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U4-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:20
+results/pdac/phaseB/sections/U4-a_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U4-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:20
+results/pdac/phaseB/sections/U4-b_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U4-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:26
+results/pdac/phaseB/sections/U4-b_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U4-b",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:26
+results/pdac/phaseB/sections/U5-a_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:32
+results/pdac/phaseB/sections/U5-a_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:32
+results/pdac/phaseB/sections/U6-a_1_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U6-a_1",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:39
+results/pdac/phaseB/sections/U6-a_1_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U6-a_1",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:39
+results/pdac/phaseB/sections/U6-a_2_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U6-a_2",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:46
+results/pdac/phaseB/sections/U6-a_2_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U6-a_2",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:46
+results/pdac/phaseB/sections/U7-a_labels.csv.gz,phaseB,"Per-cell protein-guided, marker and author labels, section U7-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:53
+results/pdac/phaseB/sections/U7-a_thresholds.csv,phaseB,"Per-channel threshold diagnostics, section U7-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:53
+results/pdac/phaseB/protein_threshold_diagnostics.csv,phaseB,"Per section x channel: GMM fit, Ashman D, accepted?, thresholds (GMM / MAD), fraction positive",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:53
+results/pdac/phaseB/label_counts_by_section.csv,phaseB,Cells per label per section for each annotation,src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:53
+results/pdac/phaseB/validation_precision_recall.csv,phaseB,"Per-class precision/recall vs author labels for protein_gmm, protein_mad and marker (U5-a, pooled, per section)",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:55
+results/pdac/phaseB/confusion_protein_gmm_vs_author_U5-a.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs protein_gmm (columns), U5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:55
+results/pdac/phaseB/confusion_protein_mad_vs_author_U5-a.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs protein_mad (columns), U5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:55
+results/pdac/phaseB/confusion_marker_vs_author_U5-a.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs marker (columns), U5-a",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:55
+results/pdac/phaseB/confusion_protein_gmm_vs_author_all_16_sections.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs protein_gmm (columns), all_16_sections",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:55
+results/pdac/phaseB/confusion_protein_mad_vs_author_all_16_sections.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs protein_mad (columns), all_16_sections",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:56
+results/pdac/phaseB/confusion_marker_vs_author_all_16_sections.csv,phaseB,"Confusion matrix: author annotation_majortypes (rows) vs marker (columns), all_16_sections",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:56
+results/pdac/phaseB/protein_labels_summary.json,phaseB,"Summary: GMM acceptance, T-cell precision/recall vs author",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:56
+figures/pdac/phaseB/phaseB1_protein_gating_validation.png,phaseB,"Protein channel separation, thresholds, and validation",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:58
+figures/pdac/phaseB/phaseB1_protein_gating_validation.pdf,phaseB,"Protein channel separation, thresholds, and validation",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:58
+logs/phaseB1_protein_labels_20261025T183119.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB1_protein_labels.py,2026-10-25T18:32:58
+results/pdac/phaseB/sections/T1-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T1-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:09
+results/pdac/phaseB/sections/T2-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T2-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:09
+results/pdac/phaseB/sections/T3-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T3-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:09
+results/pdac/phaseB/sections/T4-a_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T4-a),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:09
+results/pdac/phaseB/sections/T4-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T4-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:10
+results/pdac/phaseB/sections/T5-a_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T5-a),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:10
+results/pdac/phaseB/sections/T6-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section T6-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:10
+results/pdac/phaseB/sections/U1-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U1-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:10
+results/pdac/phaseB/sections/U2-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U2-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:10
+results/pdac/phaseB/sections/U3-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U3-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:11
+results/pdac/phaseB/sections/U4-a_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U4-a),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:11
+results/pdac/phaseB/sections/U4-b_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U4-b),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:11
+results/pdac/phaseB/sections/U5-a_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U5-a),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:12
+results/pdac/phaseB/sections/U6-a_1_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U6-a_1),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:12
+results/pdac/phaseB/sections/U6-a_2_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U6-a_2),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:12
+results/pdac/phaseB/sections/U7-a_consensus_labels.csv.gz,phaseB,Per-cell POST-HOC consensus_T labels and T-group (section U7-a),src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:13
+results/pdac/phaseB/consensus_T_protein_triangulation.csv,phaseB,"Per section x T-group: n, median log1p CD3/CD45/PanCK, AUC vs non-T cells (independent protein check)",src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:13
+results/pdac/phaseB/consensus_T_label_counts.csv,phaseB,consensus_T label counts per section,src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:13
+results/pdac/phaseB/consensus_T_protein_triangulation_median.csv,phaseB,Median over 16 sections of triangulation stats,src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:13
+results/pdac/phaseB/consensus_T_summary.json,phaseB,consensus_T counts and protein triangulation summary,src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:13
+figures/pdac/phaseB/phaseB2_consensus_T_protein_triangulation.png,phaseB,Protein intensity by T-group; per-section AUC,src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:14
+figures/pdac/phaseB/phaseB2_consensus_T_protein_triangulation.pdf,phaseB,Protein intensity by T-group; per-section AUC,src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:14
+logs/phaseB2_consensus_labels_20261025T183400.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB2_consensus_labels.py,2026-10-25T18:34:14
+results/pdac/phaseB/ccc_sections/T6-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T6-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:04
+results/pdac/phaseB/ccc_sections/T6-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T6-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:08
+results/pdac/phaseB/ccc_sections/T6-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T6-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:12
+logs/phaseB3_ccc_rerun_20261025T183455.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:14
+results/pdac/phaseB/ccc_sections/T1-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T1-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:44
+results/pdac/phaseB/ccc_sections/T1-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T1-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:35:53
+results/pdac/phaseB/ccc_sections/T1-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T1-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:36:02
+results/pdac/phaseB/ccc_sections/T2-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T2-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:36:21
+results/pdac/phaseB/ccc_sections/T2-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T2-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:36:35
+results/pdac/phaseB/ccc_sections/T2-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T2-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:36:48
+results/pdac/phaseB/ccc_sections/T3-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T3-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:37:01
+results/pdac/phaseB/ccc_sections/T3-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T3-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:37:12
+results/pdac/phaseB/ccc_sections/T3-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T3-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:37:22
+results/pdac/phaseB/ccc_sections/T4-a__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-a, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:37:48
+results/pdac/phaseB/ccc_sections/T4-a__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-a, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:38:08
+results/pdac/phaseB/ccc_sections/T4-a__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-a, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:38:22
+results/pdac/phaseB/ccc_sections/T4-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:38:40
+results/pdac/phaseB/ccc_sections/T4-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:38:54
+results/pdac/phaseB/ccc_sections/T4-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T4-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:39:05
+results/pdac/phaseB/ccc_sections/T5-a__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T5-a, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:39:21
+results/pdac/phaseB/ccc_sections/T5-a__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T5-a, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:39:34
+results/pdac/phaseB/ccc_sections/T5-a__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section T5-a, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:39:47
+results/pdac/phaseB/ccc_sections/U1-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U1-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:39:58
+results/pdac/phaseB/ccc_sections/U1-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U1-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:40:06
+results/pdac/phaseB/ccc_sections/U1-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U1-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:40:14
+results/pdac/phaseB/ccc_sections/U2-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U2-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:40:31
+results/pdac/phaseB/ccc_sections/U2-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U2-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:40:42
+results/pdac/phaseB/ccc_sections/U3-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U3-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:04
+results/pdac/phaseB/ccc_sections/U3-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U3-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:08
+results/pdac/phaseB/ccc_sections/U3-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U3-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:13
+results/pdac/phaseB/ccc_sections/U4-a__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-a, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:30
+results/pdac/phaseB/ccc_sections/U4-a__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-a, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:43
+results/pdac/phaseB/ccc_sections/U4-a__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-a, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:41:55
+results/pdac/phaseB/ccc_sections/U4-b__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-b, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:42:12
+results/pdac/phaseB/ccc_sections/U4-b__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-b, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:42:25
+results/pdac/phaseB/ccc_sections/U4-b__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U4-b, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:42:37
+results/pdac/phaseB/ccc_sections/U5-a__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U5-a, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:43:03
+results/pdac/phaseB/ccc_sections/U5-a__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U5-a, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:43:24
+results/pdac/phaseB/ccc_sections/U5-a__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U5-a, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:43:44
+results/pdac/phaseB/ccc_sections/U6-a_1__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_1, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:44:08
+results/pdac/phaseB/ccc_sections/U6-a_1__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_1, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:44:27
+results/pdac/phaseB/ccc_sections/U6-a_1__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_1, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:44:46
+results/pdac/phaseB/ccc_sections/U6-a_2__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_2, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:45:10
+results/pdac/phaseB/ccc_sections/U6-a_2__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_2, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:45:28
+results/pdac/phaseB/ccc_sections/U6-a_2__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U6-a_2, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:45:46
+results/pdac/phaseB/ccc_sections/U7-a__protein_gmm.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U7-a, annotation protein_gmm",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:46:08
+results/pdac/phaseB/ccc_sections/U7-a__protein_mad.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U7-a, annotation protein_mad",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:46:26
+results/pdac/phaseB/ccc_sections/U7-a__consensus_T.csv.gz,phaseB,"6-NN C/E/M/Q (500 perms) section U7-a, annotation consensus_T",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:46:43
+results/pdac/phaseB/v2_ccc_6NN_all_rows.csv.gz,phaseB,"All sections x v2 annotations: C/E/M/Q obs, z, p (+1 and legacy), BH within section/annotation",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:47:00
+results/pdac/phaseB/v2_headline_CAF_T_rows.csv,phaseB,CXCL12-CXCR4 CAF->T_cell rows per section under v2 annotations,src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:47:00
+logs/phaseB3_ccc_rerun_20261025T183529.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:47:00
+results/pdac/phaseB/headline_CAF_T_by_annotation_section.csv,phaseB,CXCL12-CXCR4 CAF->T_cell per section x annotation (NaN = no T_cell class or 0 edges),src/pdac/phaseB4_compare.py,2026-10-25T18:47:22
+results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv,phaseB,"Headline: sections significant per score, uncorrected and BH within section, per annotation",src/pdac/phaseB4_compare.py,2026-10-25T18:47:22
+results/pdac/phaseB/annotation_pairwise_comparison.csv,phaseB,"Shared rows between annotations: Spearman of z and verdict changes per score (U5-a, pooled 16 sections)",src/pdac/phaseB4_compare.py,2026-10-25T18:47:25
+results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv,phaseB,"Does the edge score mirror the matched cell-type product? Spearman(E z, M z) and overlap of verdicts",src/pdac/phaseB4_compare.py,2026-10-25T18:47:25
+results/pdac/phaseB/headline_CAF_T_U5-a_by_annotation.csv,phaseB,U5-a headline row under each annotation,src/pdac/phaseB4_compare.py,2026-10-25T18:47:25
+results/pdac/phaseB/phaseB4_summary.json,phaseB,Phase B4 key numbers,src/pdac/phaseB4_compare.py,2026-10-25T18:47:25
+figures/pdac/phaseB/phaseB4_headline_and_annotation_agreement.png,phaseB,Headline edge/ratio z per section under 5 annotations; Spearman of z between annotations,src/pdac/phaseB4_compare.py,2026-10-25T18:47:26
+figures/pdac/phaseB/phaseB4_headline_and_annotation_agreement.pdf,phaseB,Headline edge/ratio z per section under 5 annotations; Spearman of z between annotations,src/pdac/phaseB4_compare.py,2026-10-25T18:47:26
+logs/phaseB4_compare_20261025T184712.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB4_compare.py,2026-10-25T18:47:26
+logs/phaseC_gse310352_audit_20261025T184035_SYNTHETIC_SELFTEST.log,phaseC,Self-test log of phaseC_gse310352_audit.py on SYNTHETIC random data (format check only; all outputs discarded; no real GSE310352 data used),src/pdac/phaseC_gse310352_audit.py,2026-10-25T18:49:41
+results/pdac/phaseB/ccc_sections/U2-b__consensus_T.csv.gz,phaseB,re-registered by phaseD_manifest_check (row lost to concurrent manifest write or not registered),src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:49:41
+results/pdac/phaseD/manifest_check.csv,phaseD,Manifest completeness check for v2 outputs (issues found and actions),src/pdac/phaseD_manifest_check.py,2026-10-25T18:49:41
+logs/phaseD_manifest_check_20261025T184932.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD_manifest_check.py,2026-10-25T18:49:41

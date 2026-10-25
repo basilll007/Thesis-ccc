@@ -1,0 +1,74 @@
+{
+  "n_cells": 717493,
+  "sections": [
+    "T1-b",
+    "T2-b",
+    "T3-b",
+    "T4-a",
+    "T4-b",
+    "T5-a",
+    "T6-b",
+    "U1-b",
+    "U2-b",
+    "U3-b",
+    "U4-a",
+    "U4-b",
+    "U5-a",
+    "U6-a_1",
+    "U6-a_2",
+    "U7-a"
+  ],
+  "gmm_accepted_by_channel": {
+    "CD3": 3,
+    "CD45": 2,
+    "PanCK": 15
+  },
+  "T_cell_vs_author_T": {
+    "U5-a": {
+      "protein_gmm": {
+        "n_pred": 1467,
+        "tp": 32,
+        "n_true": 879,
+        "precision": 0.021813224267211998,
+        "recall": 0.03640500568828214
+      },
+      "protein_mad": {
+        "n_pred": 0,
+        "tp": 0,
+        "n_true": 879,
+        "precision": NaN,
+        "recall": 0.0
+      },
+      "marker": {
+        "n_pred": 945,
+        "tp": 261,
+        "n_true": 879,
+        "precision": 0.2761904761904762,
+        "recall": 0.29692832764505117
+      }
+    },
+    "all_16_sections": {
+      "protein_gmm": {
+        "n_pred": 7273,
+        "tp": 563,
+        "n_true": 11557,
+        "precision": 0.07740959714010724,
+        "recall": 0.04871506446309596
+      },
+      "protein_mad": {
+        "n_pred": 1729,
+        "tp": 54,
+        "n_true": 11557,
+        "precision": 0.031231925968768073,
+        "recall": 0.004672492861469239
+      },
+      "marker": {
+        "n_pred": 10427,
+        "tp": 3676,
+        "n_true": 11557,
+        "precision": 0.3525462740960967,
+        "recall": 0.31807562516223936
+      }
+    }
+  }
+}

@@ -249,8 +249,8 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 ## v2 task checklist
 
 - [x] Phase A: Housekeeping — tag pushed; 5/5 headline numbers match; no uncorrected verdict flips (BH-level flips documented)
-- [ ] Phase B: Protein-guided T-cell labels; re-run audit; does CAF→T Q survive?
-- [ ] Phase C: Independent replication on GSE310352 (or BLOCKED with a list of what is needed)
+- [x] Phase B: DONE — pre-registered protein rule FAILED validation (T precision 0.022 in U5-a); post-hoc consensus_T: CAF→T Q 2/16 uncorrected, 0/16 after BH (does not survive)
+- [ ] Phase C: BLOCKED — GSE310352 licence not confirmed (GEO terms reCAPTCHA, publisher 403); author labels only in seurat.RDS (no R on host). Gated script ready; items needed listed in the Phase C entry
 - [ ] Phase D: v2 synthesis (summary answering the key question; README links)
 
 ## 2026-10-25 18:15 — v2 start: reading of the brief
@@ -305,3 +305,146 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - **Answer**: no uncorrected verdict flips for any breast row or any headline row. The flips that do occur are BH-level, and the legacy convention is always the more liberal one.
 - **Doc**: added a "p-value convention" section to `docs/RESULTS_SETTINGS_NOTE.md`.
 - **Next**: commit Phase A, then Phase B.
+
+## 2026-10-25 18:25 — Phase B.0: protein-guided rule pre-registered
+
+- **Done**: wrote `docs/PDAC_V2_PROTEIN_RULE.md` (channels, per-section GMM thresholds with an Ashman-D acceptance check, median + 3·MAD fallback, gating order, RNA argmax within each compartment, the `protein_mad` sensitivity variant, validation plan and CCC plan). It was committed alone (5b6089e) **before** any label or CCC result existed.
+- **Protein channels present**: `Mean./Max.` for CD3, CD45, PanCK, MembraneStain and DAPI. No other lineage protein channels. MembraneStain and DAPI are not used for gating.
+- **Helper**: added `common.mem_status()` (Windows ctypes; system available RAM and process working set). psutil is not in the env, and the env was not modified.
+
+## 2026-10-25 18:27–18:31 — Phase B.1: protein labels and validation — **pre-registered rule FAILED validation**
+
+- **Command**: `python src/pdac/phaseB1_protein_labels.py` (log `logs/phaseB1_protein_labels_20261025T183119.log`)
+- **Run note**: the first two runs crashed in the figure code (duplicate U5-a scope; then a pivot shape mismatch). Their logs were deleted while re-running. To keep the provenance complete, all per-section outputs were then deleted and the script was re-run from scratch. Per-cell label files are byte-identical (md5 of the decompressed content) to the earlier run.
+- **Outputs**:
+  - `results/pdac/phaseB/sections/<section>_labels.csv.gz` and `_thresholds.csv` (16 each)
+  - `protein_threshold_diagnostics.csv`, `label_counts_by_section.csv`, `validation_precision_recall.csv`, `confusion_{protein_gmm,protein_mad,marker}_vs_author_{U5-a,all_16_sections}.csv`, `protein_labels_summary.json`
+  - `figures/pdac/phaseB/phaseB1_protein_gating_validation.{png,pdf}`
+- **Memory**: peak process working set 2.21 GB; minimum system available 5.86 GB.
+- **Key numbers**:
+  - GMM acceptance (Ashman D ≥ 2): CD3 3/16 sections, CD45 2/16, PanCK 15/16. The other section × channel combinations used the MAD fallback.
+  - U5-a: CD3 Ashman D = 0.43; T_cell count is 1,467 under `protein_gmm` and 0 under `protein_mad`.
+  - **T_cell vs author T (CD8+ T, CD4+ T, Treg), precision / recall**:
+
+    | Labels | U5-a | Pooled 16 sections |
+    |---|---|---|
+    | `protein_gmm` | 0.022 / 0.036 (32 of 1,467 predicted; 879 author T) | 0.077 / 0.049 (563 / 7,273; 11,557 author T) |
+    | `protein_mad` | 0 cells predicted | 0.031 / 0.005 |
+    | v1 marker | 0.276 / 0.297 (261 / 945) | 0.353 / 0.318 (3,676 / 10,427) |
+
+  - Diagnostic (computed inline, not saved as a file; recomputable from the per-cell tables): per-section AUC for author T vs all other cells was CD3 0.451–0.921 and CD45 0.502–0.887. U5-a: CD3 0.703, CD45 0.549. Author malignant vs rest, PanCK: 0.744–0.993.
+- **Where the new labels are poor**: T cells (above). Also, pooled per-class precision for `protein_gmm` is below marker for every class with predictions (figure, bottom right; acinar has no precision bar for either annotation). PanCK gating of tumour works, but the CD45 gate is weak, so myeloid, B_plasma and mast precision drop.
+- **Decision**: the pre-registered rule **does not produce validated T-cell labels**. Its CCC re-run is still carried out as pre-registered and reported as "labels failed validation". A post-hoc consensus annotation was added (next entry). It is labelled post-hoc everywhere and was committed (161418a) before any v2 CCC run.
+
+## 2026-10-25 18:34 — Phase B.2: POST-HOC `consensus_T` labels and protein triangulation
+
+- **Command**: `python src/pdac/phaseB2_consensus_labels.py` (log `logs/phaseB2_consensus_labels_20261025T183400.log`)
+- **Rule**: `T_cell` = author T **and** v1 marker T_cell. Author T without marker support → `T_cell_unconfirmed`. Every other cell keeps its author-mapped label.
+- **Counts**:
+
+  | Group | All 16 sections | U5-a |
+  |---|---|---|
+  | consensus T | 3,676 | 261 |
+  | author-only T | 7,881 | 618 |
+  | marker-only T | 6,751 | 684 |
+
+- **Independent protein check** (median over sections, AUC vs all non-T cells; `consensus_T_protein_triangulation_median.csv`):
+
+  | Group | CD3 AUC | CD45 AUC |
+  |---|---|---|
+  | consensus T | 0.598 | 0.769 |
+  | author-only T | 0.580 | 0.739 |
+  | marker-only T | 0.588 | 0.684 |
+
+  Consensus T cells have the highest protein support, but only slightly. **The protein channels cannot independently confirm any T-cell set in this dataset.** So "validated" here means two RNA annotations agree; it does not mean protein-confirmed.
+- **Figure**: `figures/pdac/phaseB/phaseB2_consensus_T_protein_triangulation.{png,pdf}`
+
+## 2026-10-25 18:35–18:47 — Phase B.3: CCC re-run under v2 annotations (16 sections, full catalogue)
+
+- **Commands**:
+  - `python src/pdac/phaseB3_ccc_rerun.py T6-b`: smoke test, 16.5 s (log `logs/phaseB3_ccc_rerun_20261025T183455.log`)
+  - `python src/pdac/phaseB3_ccc_rerun.py`: all 16 sections (log `logs/phaseB3_ccc_rerun_20261025T183529.log`). T6-b was re-used through resume; the aggregate files were rewritten by this run.
+- **Settings**: C/E/M/Q; 500 perms (seed 42, `generate_label_permutations`); 6-NN; within-section permutations; 31 pairs × all sender-receiver combinations; add-one p; BH within section × annotation.
+- **Outputs**:
+  - `results/pdac/phaseB/ccc_sections/<section>__<annotation>.csv.gz` (48 files, each written immediately)
+  - `v2_ccc_6NN_all_rows.csv.gz` (212,970 rows)
+  - `v2_headline_CAF_T_rows.csv`
+- **Memory**: peak working set 2.11 GB; minimum system available 5.83 GB.
+- **Manifest race**: while this run was registering files, the Phase C self-test cleanup rewrote `MANIFEST.csv` from a separate process. The completeness check in Phase D re-registers any rows lost this way.
+
+## 2026-10-25 18:47 — Phase B.4: comparison across annotations — **the key question**
+
+- **Command**: `python src/pdac/phaseB4_compare.py` (log `logs/phaseB4_compare_20261025T184712.log`)
+- **Outputs**:
+  - `headline_CAF_T_by_annotation_section.csv`, `headline_CAF_T_summary_by_annotation.csv`, `headline_CAF_T_U5-a_by_annotation.csv`
+  - `annotation_pairwise_comparison.csv`, `edge_vs_product_mirroring_by_annotation.csv`, `phaseB4_summary.json`
+  - `figures/pdac/phaseB/phaseB4_headline_and_annotation_agreement.{png,pdf}`
+- **Headline CXCL12→CXCR4 CAF→T_cell, 16 sections** (add-one p < 0.05; BH within section):
+
+  | Annotation | Evaluable | E sig (BH) | Q sig (BH) | Q z > 0 | median z_E | median z_Q | median Q |
+  |---|---|---|---|---|---|---|---|
+  | marker (v1) | 16 | 16 (13) | 4 (**0**) | 14 | 20.87 | 0.75 | 1.347 |
+  | author (v1) | 16 | 16 (14) | 2 (**0**) | 15 | 21.63 | 0.74 | 1.346 |
+  | protein_gmm (failed validation) | 14 | 10 (6) | 4 (**0**) | 11 | 5.00 | 1.17 | 1.623 |
+  | protein_mad (failed validation) | 13 | 9 (4) | 5 (**0**) | 10 | 4.69 | 1.56 | 1.799 |
+  | **consensus_T (post-hoc)** | 16 | 15 (11) | 2 (**0**) | 11 | 14.68 | 0.36 | 1.320 |
+
+  Not evaluable (no `T_cell` class): `protein_gmm` T3-b and U7-a; `protein_mad` T5-a, U5-a and U7-a.
+- **U5-a**:
+
+  | Annotation | z_C / z_M / z_E / z_Q | Q | Q p | Q BH q |
+  |---|---|---|---|---|
+  | marker | 33.2 / 36.1 / 23.4 / 2.81 | 1.62 | 0.008 | 0.108 |
+  | author | 31.8 / 35.9 / 23.0 / 2.66 | 1.75 | 0.006 | 0.074 |
+  | protein_gmm | 30.4 / 31.3 / 13.8 / 0.99 | 1.28 | 0.166 | 0.732 |
+  | consensus_T | 21.6 / 24.6 / 17.5 / 1.94 | 1.96 | 0.038 | 0.314 (448 edges) |
+
+- **Answer to the key question**: **No.** With the best-validated T-cell labels available (`consensus_T`), CAF→T Q is significant uncorrected in 2/16 sections (T1-b p = 0.044; U5-a p = 0.038) and in **0/16 after BH within section**. That is the same as the marker and author labels (0/16 after BH).
+  - The edge result persists (15/16; 11/16 after BH).
+  - It is carried by the matched product M: consensus z_M > z_E in all 16 sections (z_M 6.1–54.3 vs z_E 0.24–40.0).
+  - The observed Q is above 1 in 14/16 consensus sections (median 1.32; below 1 in T4-a and U6-a_2), but that does not exceed the permutation null.
+  - The two protein annotations failed validation and give no Q result surviving BH either.
+- **Edge score vs cell-type product, full catalogue** (`edge_vs_product_mirroring_by_annotation.csv`):
+  - Spearman(z_E, z_M) across evaluated rows: 0.66–0.68 for marker, author and consensus; 0.80–0.81 on the 7 axes without background flags.
+  - 77% of edge-significant rows are also M-significant, 35–37% are Q-significant uncorrected, and **≈ 10% are Q-significant after BH** (marker 0.098, author 0.104, consensus 0.096).
+- **Annotation agreement** (pooled 16 sections, Spearman of z on shared rows; `annotation_pairwise_comparison.csv`):
+  - author vs consensus: E 0.970, Q 0.951 (they differ only in the T class).
+  - marker vs author: E 0.655, Q 0.394.
+  - author vs protein_gmm: E 0.348, Q 0.188.
+  - Q remains the most annotation-sensitive score.
+- **Next**: Phase C.
+
+## 2026-10-25 18:36–18:42 — Phase C: independent replication on GSE310352 — **BLOCKED (licence not confirmed; validated labels unreadable on this host)**
+
+- **Fetch attempts (normal fetches only; nothing worked around)**:
+  - `https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html` (GEO terms page): **reCAPTCHA**, "Checking your browser - reCAPTCHA". Not bypassed.
+  - Europe PMC REST record for PMID 41533516 (200). Title "In situ multi-modal characterization of pancreatic cancer reveals tumor cell identity as a defining factor…"; Cell Reports 45(1), 2026 Jan; doi 10.1016/j.celrep.2025.116827; first authors Lyubetskaya A, Rabe B, Kavran A, Bai Y, Fisher A. Fields `license: "cc by-nc-nd"`, `isOpenAccess: "N"`, `inPMC: "N"`. This licence is the **article's**; it is not a data licence.
+  - `https://doi.org/10.1016/j.celrep.2025.116827` → 302 to linkinghub.elsevier.com, which returned only "Redirecting." `https://www.cell.com/cell-reports/fulltext/S2211-1247(25)01599-2`: **HTTP 403**. The paper's "Data and code availability" section could not be read.
+  - `https://www.ncbi.nlm.nih.gov/home/about/policies/` (200). Its "Molecular Data Usage" section covers gene-expression data. Quotes: "NCBI itself places no restrictions on the use or distribution of the data contained therein"; "Nor do we accept data when the submitter has requested restrictions on reuse or redistribution"; "some submitters of the original data ... may claim patent, copyright, or other intellectual property rights in all or a portion of the data"; "NCBI cannot provide comment or unrestricted permission concerning the use, copying, or distribution". This is a general NCBI policy. It is **not a dataset licence**, and it explicitly leaves submitter rights open.
+  - `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE310nnn/GSE310352/suppl/filelist.txt` (200). Per slide: `cell_by_gene_counts.csv.gz` (e.g. slide1 13,671,200 B), `cell_metadata.csv.gz` (slide1 5,260,222 B), `raw_core.tar.gz` (157,983,978–676,615,407 B) and `seurat.RDS` (121,711,464–526,674,009 B). One range request: the first 40 KB of `GSM9294399_slide1_cell_metadata.csv.gz` (HTTP 206), saved to `data/pdac/geo_gse310352/probe/` (git-ignored).
+- **Format: CONFIRMED** (v1 and this check):
+  - counts CSV = `fov`, `cell_ID` + 970 genes + 19 NegPrb
+  - metadata CSV = `fov`, `cell_ID`, `Area`, `AspectRatio`, `CenterX/Y_local_px`, `CenterX/Y_global_px`, `Width`, `Height`, `Mean./Max.` for MembraneStain, PanCK, CD45, CD3 and DAPI
+  - **No cell-type labels in the CSVs.** Author labels exist only inside the `seurat.RDS` objects (column names UNVERIFIED).
+- **Licence: NOT CONFIRMED.** Per the v2 rule ("If you cannot confirm the license … log BLOCKED"), nothing beyond the 40 KB header probe was downloaded and no analysis was run on GSE310352.
+- **Second blocker: validated labels.** Phase B shows that the CosMx protein channels (same panel here) do not give valid T-cell labels. A validated T-cell receiver in GSE310352 therefore needs the authors' labels from `seurat.RDS`. This host has no R (`Rscript` not on PATH, no `C:/Program Files/R`) and no Python RDS reader (`rdata` and `pyreadr` not installed; neither reads Seurat S4 objects reliably). The project env was not modified.
+- **Prepared so it can run as soon as it is unblocked**:
+  - `pdac_loaders.load_geo_gse310352` (slide → GSM map taken from `filelist.txt`)
+  - `src/pdac/phaseC_gse310352_audit.py`, gated by `--licence-confirmed`. Without the flag it prints BLOCKED and exits with code 2 (tested). It downloads only the 16 small CSVs (124,527,604 B), runs one slide at a time with resumable outputs, and covers marker labels, the pre-registered protein labels and optional user-supplied labels (`--labels`).
+  - **Self-test on SYNTHETIC random data** (8 fake slides × 1,500 cells, real header layout) ran end to end, exit 0. All synthetic outputs and their MANIFEST rows were deleted. The run log was kept as `logs/phaseC_gse310352_audit_20261025T184035_SYNTHETIC_SELFTEST.log`. No real GSE310352 numbers exist anywhere in the repository.
+- **What I need from you (any one of 1a–1c, plus 2 for validated labels)**:
+  1. Licence or terms, one of:
+     - (a) paste the "Data and code availability" section (and any data-licence sentence) of Lyubetskaya et al., Cell Reports 2026, doi 10.1016/j.celrep.2025.116827;
+     - (b) paste the text of https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html;
+     - (c) state that NCBI's Molecular Data Usage policy (quoted above) is sufficient for this non-redistributing audit use.
+  2. Validated labels: either install R + SeuratObject (then I export the metadata myself), or run this in R and give me the CSV:
+     ```r
+     library(SeuratObject)
+     for (s in c("slide1","slide2","slide3","slide4","slide5","slide5b2","slide5b3","slide6")) {
+       f <- list.files(".", pattern = paste0("_", s, "_seurat.RDS$")); o <- readRDS(f)
+       write.csv(cbind(slide = s, o@meta.data), paste0(s, "_seurat_metadata.csv"), row.names = TRUE)
+     }
+     ```
+     Then tell me which column holds the cell type, and which columns hold `fov` and `cell_ID` (or how the row names encode them).
+  3. Optional: the µm/px for this CosMx run. It is only needed for radius analyses; the 6-NN audit is scale-free.
+- **Next**: Phase D (synthesis) with Phase C marked BLOCKED.

@@ -1,0 +1,18 @@
+2026-10-25 18:34:55,702 INFO script=phaseB3_ccc_rerun log=logs/phaseB3_ccc_rerun_20261025T183455.log
+2026-10-25 18:34:55,744 INFO git_commit=161418a018c7ab2864758f9a9d6d5312e360f8e4+dirty
+2026-10-25 18:34:55,744 INFO seed=42
+2026-10-25 18:34:55,745 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:34:55,755 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:34:55,761 INFO annotations=['protein_gmm', 'protein_mad', 'consensus_T']; sys_avail=6.63GB load=80% proc_rss=0.42GB proc_peak=0.42GB
+2026-10-25 18:34:59,949 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:35:00,216 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-10-25 18:35:04,058 INFO [T6-b/protein_gmm] 4464 interactions x 500 perms in 3.2s (74838 edges)
+2026-10-25 18:35:04,381 INFO section T6-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.50GB load=80% proc_rss=0.53GB proc_peak=1.69GB
+2026-10-25 18:35:08,197 INFO [T6-b/protein_mad] 4464 interactions x 500 perms in 3.2s (74838 edges)
+2026-10-25 18:35:08,535 INFO section T6-b / protein_mad saved (4464 rows; 12 types); sys_avail=6.49GB load=80% proc_rss=0.53GB proc_peak=1.69GB
+2026-10-25 18:35:12,516 INFO [T6-b/consensus_T] 5239 interactions x 500 perms in 3.3s (74838 edges)
+2026-10-25 18:35:12,949 INFO section T6-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.47GB load=80% proc_rss=0.54GB proc_peak=1.69GB
+2026-10-25 18:35:13,181 INFO section T6-b done in 16.5s; sys_avail=6.50GB load=80% proc_rss=0.52GB proc_peak=1.69GB
+2026-10-25 18:35:14,347 INFO aggregate: 14167 rows from 3 files; sections=1
+2026-10-25 18:35:14,360 INFO Saved results/pdac/phaseB/v2_headline_CAF_T_rows.csv (3 rows)
+2026-10-25 18:35:14,369 INFO run finished

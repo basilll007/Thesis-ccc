@@ -1,0 +1,23 @@
+author_majortype,B_plasma,CAF_fibroblast,T_cell_CD45neg,acinar,endocrine,endothelial,epithelial_ductal_tumor,myeloid,pericyte_smc,All
+B,0,32,7,5,0,1,8,0,2,55
+CAF,0,13250,327,38,17,13,100,0,54,13799
+CD4+ T,0,34,2,0,1,1,9,0,3,50
+CD8+ T,0,347,22,14,1,13,69,0,10,476
+Dendritic (activated),0,105,16,5,5,9,15,0,1,156
+Dendritic (conventional),0,10,4,1,1,1,2,0,0,19
+Dendritic (plasmacytoid),1,3,1,0,0,0,1,0,2,8
+Endocrine,0,0,0,0,52,0,1,0,0,53
+Endothelial,0,774,47,6,4,864,33,0,110,1838
+Macrophage,0,4225,486,175,97,230,1615,0,186,7014
+Malignant,1,3144,460,373,80,183,36853,3,119,41216
+Mast,0,112,34,9,1,3,26,0,4,189
+Natural killer,0,202,25,6,5,13,58,0,11,320
+Neutrophil,0,18,225,5,2,3,18,0,2,273
+Noise,0,1098,246,42,24,78,4093,1,71,5653
+Pericyte,0,557,12,3,2,5,3,0,102,684
+Plasma,0,946,152,36,36,38,129,2,37,1376
+Schwann/nerve,0,43,2,5,4,3,3,0,2,62
+Smooth muscle,0,200,5,1,1,4,5,0,53,269
+Treg,0,271,10,3,4,3,52,0,10,353
+uninformative_EVEN,0,110,209,92,63,51,365,0,40,930
+All,2,25481,2292,819,400,1516,43458,6,819,74793

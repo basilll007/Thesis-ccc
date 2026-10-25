@@ -1,0 +1,145 @@
+2026-10-25 18:35:29,620 INFO script=phaseB3_ccc_rerun log=logs/phaseB3_ccc_rerun_20261025T183529.log
+2026-10-25 18:35:29,678 INFO git_commit=161418a018c7ab2864758f9a9d6d5312e360f8e4+dirty
+2026-10-25 18:35:29,679 INFO seed=42
+2026-10-25 18:35:29,679 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:35:29,689 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:35:29,694 INFO annotations=['protein_gmm', 'protein_mad', 'consensus_T']; sys_avail=6.42GB load=80% proc_rss=0.41GB proc_peak=0.41GB
+2026-10-25 18:35:33,897 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:35:34,228 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-10-25 18:35:43,751 INFO [T1-b/protein_gmm] 4464 interactions x 500 perms in 7.8s (186504 edges)
+2026-10-25 18:35:44,115 INFO section T1-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.50GB load=80% proc_rss=0.60GB proc_peak=1.75GB
+2026-10-25 18:35:53,537 INFO [T1-b/protein_mad] 4464 interactions x 500 perms in 8.0s (186504 edges)
+2026-10-25 18:35:53,920 INFO section T1-b / protein_mad saved (4464 rows; 12 types); sys_avail=6.49GB load=80% proc_rss=0.60GB proc_peak=1.75GB
+2026-10-25 18:36:01,983 INFO [T1-b/consensus_T] 5239 interactions x 500 perms in 6.6s (186504 edges)
+2026-10-25 18:36:02,396 INFO section T1-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.49GB load=80% proc_rss=0.61GB proc_peak=1.75GB
+2026-10-25 18:36:02,623 INFO section T1-b done in 32.1s; sys_avail=6.56GB load=80% proc_rss=0.53GB proc_peak=1.75GB
+2026-10-25 18:36:05,936 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:36:06,266 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-10-25 18:36:20,674 INFO [T2-b/protein_gmm] 4464 interactions x 500 perms in 12.0s (261948 edges)
+2026-10-25 18:36:21,058 INFO section T2-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.48GB load=80% proc_rss=0.61GB proc_peak=1.86GB
+2026-10-25 18:36:35,088 INFO [T2-b/protein_mad] 4464 interactions x 500 perms in 11.9s (261948 edges)
+2026-10-25 18:36:35,469 INFO section T2-b / protein_mad saved (4464 rows; 12 types); sys_avail=6.50GB load=80% proc_rss=0.61GB proc_peak=1.86GB
+2026-10-25 18:36:47,807 INFO [T2-b/consensus_T] 5239 interactions x 500 perms in 10.4s (261948 edges)
+2026-10-25 18:36:48,211 INFO section T2-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.49GB load=80% proc_rss=0.63GB proc_peak=1.86GB
+2026-10-25 18:36:48,497 INFO section T2-b done in 45.9s; sys_avail=6.57GB load=80% proc_rss=0.53GB proc_peak=1.86GB
+2026-10-25 18:36:52,007 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:36:52,366 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-10-25 18:37:01,331 INFO [T3-b/protein_gmm] 1984 interactions x 500 perms in 7.0s (202800 edges)
+2026-10-25 18:37:01,496 INFO section T3-b / protein_gmm saved (1984 rows; 8 types); sys_avail=6.39GB load=80% proc_rss=0.76GB proc_peak=1.86GB
+2026-10-25 18:37:11,959 INFO [T3-b/protein_mad] 3751 interactions x 500 perms in 8.9s (202800 edges)
+2026-10-25 18:37:12,240 INFO section T3-b / protein_mad saved (3751 rows; 11 types); sys_avail=6.30GB load=81% proc_rss=0.60GB proc_peak=1.86GB
+2026-10-25 18:37:22,126 INFO [T3-b/consensus_T] 5239 interactions x 500 perms in 8.3s (202800 edges)
+2026-10-25 18:37:22,579 INFO section T3-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.27GB load=81% proc_rss=0.63GB proc_peak=1.86GB
+2026-10-25 18:37:22,833 INFO section T3-b done in 34.3s; sys_avail=6.39GB load=80% proc_rss=0.54GB proc_peak=1.86GB
+2026-10-25 18:37:26,660 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:37:27,126 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-10-25 18:37:48,350 INFO [T4-a/protein_gmm] 4464 interactions x 500 perms in 17.3s (332214 edges)
+2026-10-25 18:37:48,723 INFO section T4-a / protein_gmm saved (4464 rows; 12 types); sys_avail=6.29GB load=81% proc_rss=0.71GB proc_peak=1.94GB
+2026-10-25 18:38:08,458 INFO [T4-a/protein_mad] 4464 interactions x 500 perms in 17.0s (332214 edges)
+2026-10-25 18:38:08,816 INFO section T4-a / protein_mad saved (4464 rows; 12 types); sys_avail=6.23GB load=81% proc_rss=0.71GB proc_peak=1.94GB
+2026-10-25 18:38:22,423 INFO [T4-a/consensus_T] 5239 interactions x 500 perms in 11.2s (332214 edges)
+2026-10-25 18:38:22,863 INFO section T4-a / consensus_T saved (5239 rows; 13 types); sys_avail=6.27GB load=81% proc_rss=0.73GB proc_peak=1.94GB
+2026-10-25 18:38:23,108 INFO section T4-a done in 60.3s; sys_avail=6.44GB load=80% proc_rss=0.55GB proc_peak=1.94GB
+2026-10-25 18:38:26,759 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:38:27,119 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-10-25 18:38:40,516 INFO [T4-b/protein_gmm] 4464 interactions x 500 perms in 11.0s (254592 edges)
+2026-10-25 18:38:40,853 INFO section T4-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.24GB load=81% proc_rss=0.66GB proc_peak=1.94GB
+2026-10-25 18:38:54,208 INFO [T4-b/protein_mad] 4464 interactions x 500 perms in 11.4s (254592 edges)
+2026-10-25 18:38:54,560 INFO section T4-b / protein_mad saved (4464 rows; 12 types); sys_avail=6.29GB load=81% proc_rss=0.66GB proc_peak=1.94GB
+2026-10-25 18:39:05,214 INFO [T4-b/consensus_T] 5239 interactions x 500 perms in 8.8s (254592 edges)
+2026-10-25 18:39:05,660 INFO section T4-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.24GB load=81% proc_rss=0.67GB proc_peak=1.94GB
+2026-10-25 18:39:05,877 INFO section T4-b done in 42.8s; sys_avail=6.35GB load=80% proc_rss=0.55GB proc_peak=1.94GB
+2026-10-25 18:39:09,307 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:39:09,669 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-10-25 18:39:20,810 INFO [T5-a/protein_gmm] 4464 interactions x 500 perms in 8.6s (262764 edges)
+2026-10-25 18:39:21,224 INFO section T5-a / protein_gmm saved (4464 rows; 12 types); sys_avail=5.97GB load=82% proc_rss=0.66GB proc_peak=1.94GB
+2026-10-25 18:39:34,424 INFO [T5-a/protein_mad] 3100 interactions x 500 perms in 10.6s (262764 edges)
+2026-10-25 18:39:34,693 INFO section T5-a / protein_mad saved (3100 rows; 10 types); sys_avail=6.09GB load=81% proc_rss=0.64GB proc_peak=1.94GB
+2026-10-25 18:39:46,796 INFO [T5-a/consensus_T] 5239 interactions x 500 perms in 9.6s (262764 edges)
+2026-10-25 18:39:47,223 INFO section T5-a / consensus_T saved (5239 rows; 13 types); sys_avail=6.29GB load=81% proc_rss=0.67GB proc_peak=1.94GB
+2026-10-25 18:39:47,434 INFO section T5-a done in 41.6s; sys_avail=6.39GB load=80% proc_rss=0.56GB proc_peak=1.94GB
+2026-10-25 18:39:47,434 INFO section T6-b: all annotations already saved (resume)
+2026-10-25 18:39:50,933 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:39:51,236 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-10-25 18:39:57,911 INFO [U1-b/protein_gmm] 4464 interactions x 500 perms in 5.4s (149364 edges)
+2026-10-25 18:39:58,284 INFO section U1-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.18GB load=81% proc_rss=0.60GB proc_peak=1.94GB
+2026-10-25 18:40:06,154 INFO [U1-b/protein_mad] 4464 interactions x 500 perms in 6.4s (149364 edges)
+2026-10-25 18:40:06,540 INFO section U1-b / protein_mad saved (4464 rows; 12 types); sys_avail=6.16GB load=81% proc_rss=0.59GB proc_peak=1.94GB
+2026-10-25 18:40:14,286 INFO [U1-b/consensus_T] 4464 interactions x 500 perms in 6.2s (149364 edges)
+2026-10-25 18:40:14,686 INFO section U1-b / consensus_T saved (4464 rows; 12 types); sys_avail=6.18GB load=81% proc_rss=0.60GB proc_peak=1.94GB
+2026-10-25 18:40:14,943 INFO section U1-b done in 27.5s; sys_avail=6.23GB load=81% proc_rss=0.55GB proc_peak=1.94GB
+2026-10-25 18:40:18,792 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:40:19,145 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-10-25 18:40:30,824 INFO [U2-b/protein_gmm] 4464 interactions x 500 perms in 9.1s (206004 edges)
+2026-10-25 18:40:31,157 INFO section U2-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.04GB load=81% proc_rss=0.64GB proc_peak=1.94GB
+2026-10-25 18:40:42,443 INFO [U2-b/protein_mad] 3751 interactions x 500 perms in 9.3s (206004 edges)
+2026-10-25 18:40:42,826 INFO section U2-b / protein_mad saved (3751 rows; 11 types); sys_avail=5.87GB load=82% proc_rss=0.63GB proc_peak=1.94GB
+2026-10-25 18:40:54,652 INFO [U2-b/consensus_T] 5239 interactions x 500 perms in 9.7s (206004 edges)
+2026-10-25 18:40:55,100 INFO section U2-b / consensus_T saved (5239 rows; 13 types); sys_avail=5.83GB load=82% proc_rss=0.66GB proc_peak=1.94GB
+2026-10-25 18:40:55,369 INFO section U2-b done in 40.4s; sys_avail=5.88GB load=82% proc_rss=0.56GB proc_peak=1.94GB
+2026-10-25 18:40:59,256 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:40:59,579 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-10-25 18:41:04,244 INFO [U3-b/protein_gmm] 4464 interactions x 500 perms in 3.6s (90114 edges)
+2026-10-25 18:41:04,580 INFO section U3-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.28GB load=81% proc_rss=0.59GB proc_peak=1.94GB
+2026-10-25 18:41:08,689 INFO [U3-b/protein_mad] 3751 interactions x 500 perms in 3.4s (90114 edges)
+2026-10-25 18:41:08,989 INFO section U3-b / protein_mad saved (3751 rows; 11 types); sys_avail=6.28GB load=81% proc_rss=0.57GB proc_peak=1.94GB
+2026-10-25 18:41:12,996 INFO [U3-b/consensus_T] 4464 interactions x 500 perms in 3.3s (90114 edges)
+2026-10-25 18:41:13,340 INFO section U3-b / consensus_T saved (4464 rows; 12 types); sys_avail=6.26GB load=81% proc_rss=0.59GB proc_peak=1.94GB
+2026-10-25 18:41:13,561 INFO section U3-b done in 18.2s; sys_avail=6.29GB load=81% proc_rss=0.55GB proc_peak=1.94GB
+2026-10-25 18:41:16,995 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:41:17,429 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-10-25 18:41:30,218 INFO [U4-a/protein_gmm] 4464 interactions x 500 perms in 9.9s (284592 edges)
+2026-10-25 18:41:30,611 INFO section U4-a / protein_gmm saved (4464 rows; 12 types); sys_avail=6.20GB load=81% proc_rss=0.72GB proc_peak=1.94GB
+2026-10-25 18:41:42,867 INFO [U4-a/protein_mad] 4464 interactions x 500 perms in 10.0s (284592 edges)
+2026-10-25 18:41:43,253 INFO section U4-a / protein_mad saved (4464 rows; 12 types); sys_avail=6.22GB load=81% proc_rss=0.72GB proc_peak=1.94GB
+2026-10-25 18:41:54,848 INFO [U4-a/consensus_T] 5239 interactions x 500 perms in 9.5s (284592 edges)
+2026-10-25 18:41:55,276 INFO section U4-a / consensus_T saved (5239 rows; 13 types); sys_avail=6.15GB load=81% proc_rss=0.73GB proc_peak=1.94GB
+2026-10-25 18:41:55,519 INFO section U4-a done in 42.0s; sys_avail=6.31GB load=81% proc_rss=0.57GB proc_peak=1.94GB
+2026-10-25 18:41:58,919 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:41:59,346 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-10-25 18:42:12,561 INFO [U4-b/protein_gmm] 4464 interactions x 500 perms in 10.3s (280788 edges)
+2026-10-25 18:42:12,919 INFO section U4-b / protein_gmm saved (4464 rows; 12 types); sys_avail=6.10GB load=81% proc_rss=0.70GB proc_peak=1.96GB
+2026-10-25 18:42:25,329 INFO [U4-b/protein_mad] 3751 interactions x 500 perms in 10.2s (280788 edges)
+2026-10-25 18:42:25,669 INFO section U4-b / protein_mad saved (3751 rows; 11 types); sys_avail=6.20GB load=81% proc_rss=0.68GB proc_peak=1.96GB
+2026-10-25 18:42:37,171 INFO [U4-b/consensus_T] 5239 interactions x 500 perms in 9.5s (280788 edges)
+2026-10-25 18:42:37,619 INFO section U4-b / consensus_T saved (5239 rows; 13 types); sys_avail=6.20GB load=81% proc_rss=0.71GB proc_peak=1.96GB
+2026-10-25 18:42:37,882 INFO section U4-b done in 42.4s; sys_avail=6.34GB load=80% proc_rss=0.57GB proc_peak=1.96GB
+2026-10-25 18:42:41,359 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:42:41,913 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-10-25 18:43:03,322 INFO [U5-a/protein_gmm] 4464 interactions x 500 perms in 16.5s (448758 edges)
+2026-10-25 18:43:03,727 INFO section U5-a / protein_gmm saved (4464 rows; 12 types); sys_avail=6.04GB load=81% proc_rss=0.87GB proc_peak=2.11GB
+2026-10-25 18:43:24,135 INFO [U5-a/protein_mad] 2511 interactions x 500 perms in 16.7s (448758 edges)
+2026-10-25 18:43:24,355 INFO section U5-a / protein_mad saved (2511 rows; 9 types); sys_avail=6.02GB load=81% proc_rss=0.84GB proc_peak=2.11GB
+2026-10-25 18:43:43,732 INFO [U5-a/consensus_T] 5239 interactions x 500 perms in 16.1s (448758 edges)
+2026-10-25 18:43:44,163 INFO section U5-a / consensus_T saved (5239 rows; 13 types); sys_avail=6.00GB load=82% proc_rss=0.89GB proc_peak=2.11GB
+2026-10-25 18:43:44,419 INFO section U5-a done in 66.5s; sys_avail=6.31GB load=81% proc_rss=0.58GB proc_peak=2.11GB
+2026-10-25 18:43:47,849 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:43:48,336 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-10-25 18:44:08,427 INFO [U6-a_1/protein_gmm] 4464 interactions x 500 perms in 15.4s (433908 edges)
+2026-10-25 18:44:08,817 INFO section U6-a_1 / protein_gmm saved (4464 rows; 12 types); sys_avail=6.09GB load=81% proc_rss=0.78GB proc_peak=2.11GB
+2026-10-25 18:44:27,626 INFO [U6-a_1/protein_mad] 3751 interactions x 500 perms in 15.3s (433908 edges)
+2026-10-25 18:44:27,975 INFO section U6-a_1 / protein_mad saved (3751 rows; 11 types); sys_avail=6.14GB load=81% proc_rss=0.77GB proc_peak=2.11GB
+2026-10-25 18:44:46,225 INFO [U6-a_1/consensus_T] 5239 interactions x 500 perms in 15.2s (433908 edges)
+2026-10-25 18:44:46,669 INFO section U6-a_1 / consensus_T saved (5239 rows; 13 types); sys_avail=6.20GB load=81% proc_rss=0.79GB proc_peak=2.11GB
+2026-10-25 18:44:46,916 INFO section U6-a_1 done in 62.5s; sys_avail=6.40GB load=80% proc_rss=0.58GB proc_peak=2.11GB
+2026-10-25 18:44:50,407 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:44:50,947 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-10-25 18:45:09,957 INFO [U6-a_2/protein_gmm] 4464 interactions x 500 perms in 14.7s (410460 edges)
+2026-10-25 18:45:10,338 INFO section U6-a_2 / protein_gmm saved (4464 rows; 12 types); sys_avail=6.15GB load=81% proc_rss=0.83GB proc_peak=2.11GB
+2026-10-25 18:45:28,163 INFO [U6-a_2/protein_mad] 3751 interactions x 500 perms in 14.5s (410460 edges)
+2026-10-25 18:45:28,496 INFO section U6-a_2 / protein_mad saved (3751 rows; 11 types); sys_avail=5.96GB load=82% proc_rss=0.81GB proc_peak=2.11GB
+2026-10-25 18:45:45,638 INFO [U6-a_2/consensus_T] 5239 interactions x 500 perms in 14.2s (410460 edges)
+2026-10-25 18:45:46,069 INFO section U6-a_2 / consensus_T saved (5239 rows; 13 types); sys_avail=6.25GB load=81% proc_rss=0.84GB proc_peak=2.11GB
+2026-10-25 18:45:46,304 INFO section U6-a_2 done in 59.4s; sys_avail=6.50GB load=80% proc_rss=0.58GB proc_peak=2.11GB
+2026-10-25 18:45:49,768 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-25 18:45:50,178 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-10-25 18:46:08,488 INFO [U7-a/protein_gmm] 3751 interactions x 500 perms in 14.1s (425310 edges)
+2026-10-25 18:46:08,793 INFO section U7-a / protein_gmm saved (3751 rows; 11 types); sys_avail=6.31GB load=81% proc_rss=0.73GB proc_peak=2.11GB
+2026-10-25 18:46:26,662 INFO [U7-a/protein_mad] 3100 interactions x 500 perms in 14.4s (425310 edges)
+2026-10-25 18:46:26,942 INFO section U7-a / protein_mad saved (3100 rows; 10 types); sys_avail=6.32GB load=81% proc_rss=0.72GB proc_peak=2.11GB
+2026-10-25 18:46:42,823 INFO [U7-a/consensus_T] 5239 interactions x 500 perms in 12.9s (425310 edges)
+2026-10-25 18:46:43,256 INFO section U7-a / consensus_T saved (5239 rows; 13 types); sys_avail=6.29GB load=81% proc_rss=0.75GB proc_peak=2.11GB
+2026-10-25 18:46:43,496 INFO section U7-a done in 57.2s; sys_avail=6.45GB load=80% proc_rss=0.58GB proc_peak=2.11GB
+2026-10-25 18:47:00,725 INFO aggregate: 212970 rows from 48 files; sections=16
+2026-10-25 18:47:00,754 INFO Saved results/pdac/phaseB/v2_headline_CAF_T_rows.csv (43 rows)
+2026-10-25 18:47:00,770 INFO run finished

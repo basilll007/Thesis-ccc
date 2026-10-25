@@ -186,3 +186,37 @@ def finish_run(logger: logging.Logger, phase: str) -> None:
     logger.info("run finished")
     for h in list(logger.handlers):
         h.flush()
+
+
+def mem_status() -> str:
+    """Windows-only (ctypes) memory snapshot: system available RAM and this process's working set, in GB."""
+    try:
+        import ctypes
+        import ctypes.wintypes as wt
+
+        class MEMORYSTATUSEX(ctypes.Structure):
+            _fields_ = [("dwLength", wt.DWORD), ("dwMemoryLoad", wt.DWORD), ("ullTotalPhys", ctypes.c_ulonglong),
+                        ("ullAvailPhys", ctypes.c_ulonglong), ("ullTotalPageFile", ctypes.c_ulonglong),
+                        ("ullAvailPageFile", ctypes.c_ulonglong), ("ullTotalVirtual", ctypes.c_ulonglong),
+                        ("ullAvailVirtual", ctypes.c_ulonglong), ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+
+        class PMC(ctypes.Structure):
+            _fields_ = [("cb", wt.DWORD), ("PageFaultCount", wt.DWORD), ("PeakWorkingSetSize", ctypes.c_size_t),
+                        ("WorkingSetSize", ctypes.c_size_t), ("QuotaPeakPagedPoolUsage", ctypes.c_size_t),
+                        ("QuotaPagedPoolUsage", ctypes.c_size_t), ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t),
+                        ("QuotaNonPagedPoolUsage", ctypes.c_size_t), ("PagefileUsage", ctypes.c_size_t),
+                        ("PeakPagefileUsage", ctypes.c_size_t)]
+
+        ms = MEMORYSTATUSEX()
+        ms.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+        ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(ms))
+        pmc = PMC()
+        pmc.cb = ctypes.sizeof(PMC)
+        k32 = ctypes.windll.kernel32
+        k32.GetCurrentProcess.restype = wt.HANDLE
+        ctypes.windll.psapi.GetProcessMemoryInfo.argtypes = [wt.HANDLE, ctypes.POINTER(PMC), wt.DWORD]
+        ctypes.windll.psapi.GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(pmc), pmc.cb)
+        return (f"sys_avail={ms.ullAvailPhys / 1e9:.2f}GB load={ms.dwMemoryLoad}% "
+                f"proc_rss={pmc.WorkingSetSize / 1e9:.2f}GB proc_peak={pmc.PeakWorkingSetSize / 1e9:.2f}GB")
+    except Exception as exc:  # pragma: no cover
+        return f"mem_status unavailable ({exc})"
