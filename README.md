@@ -76,6 +76,14 @@ See `docs/PROJECT_CONTEXT.md` for scientific context and provenance and `docs/PR
 This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using the public Mendeley PDAC-SMI CosMx dataset (Shiau, Cao et al.; CC BY 4.0; doi 10.17632/kx6b69n3cb.1). It also adds a matched dyadic baseline (L̄s·R̄r and E/(L̄s·R̄r)) to the breast analysis. Results are audit and diagnostic only.
 
 - Summary of results, failures and limitations: `docs/PDAC_SUMMARY.md`
+- **v2 (branch `pdac-v2`)**: [`docs/PDAC_SUMMARY_v2.md`](docs/PDAC_SUMMARY_v2.md). It covers:
+  - spot-check of the v1 headline numbers
+  - p-value conventions side by side (see also [`docs/RESULTS_SETTINGS_NOTE.md`](docs/RESULTS_SETTINGS_NOTE.md))
+  - a pre-registered protein-guided T-cell rule ([`docs/PDAC_V2_PROTEIN_RULE.md`](docs/PDAC_V2_PROTEIN_RULE.md)), which failed validation, and a post-hoc consensus T class
+  - the CCC re-run on 16 sections
+  - the GSE310352 replication (BLOCKED)
+
+  Key result: the CXCL12→CXCR4 CAF→T ratio Q is not significant after BH in any of the 16 sections under any annotation. Key numbers with source files: [`results/pdac/phaseD/v2_key_numbers.csv`](results/pdac/phaseD/v2_key_numbers.csv).
 - Step-by-step log with commands, outputs and decisions: `docs/PDAC_PROGRESS_LOG.md`
 - Manifest of every produced file (path, phase, description, script): `results/pdac/MANIFEST.csv`
 - Which breast number comes from which setting (15 µm vs radius sweep vs 6-NN): `docs/RESULTS_SETTINGS_NOTE.md`

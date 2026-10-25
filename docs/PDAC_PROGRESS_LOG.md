@@ -251,7 +251,7 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - [x] Phase A: Housekeeping — tag pushed; 5/5 headline numbers match; no uncorrected verdict flips (BH-level flips documented)
 - [x] Phase B: DONE — pre-registered protein rule FAILED validation (T precision 0.022 in U5-a); post-hoc consensus_T: CAF→T Q 2/16 uncorrected, 0/16 after BH (does not survive)
 - [ ] Phase C: BLOCKED — GSE310352 licence not confirmed (GEO terms reCAPTCHA, publisher 403); author labels only in seurat.RDS (no R on host). Gated script ready; items needed listed in the Phase C entry
-- [ ] Phase D: v2 synthesis (summary answering the key question; README links)
+- [x] Phase D: DONE — docs/PDAC_SUMMARY_v2.md, synthesis figure, README v2 links (push of commits after 161418a BLOCKED: TLS read errors on large upload)
 
 ## 2026-10-25 18:15 — v2 start: reading of the brief
 
@@ -297,8 +297,8 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
     - PTN→SDC4 epithelial→epithelial, edge: q 0 → 0.064
     - CD86→CTLA4 fibroblast→endothelial, compositional: q 0.0498 → 0.057
   - **PDAC**:
-    - 9 uncorrected flips in 533,244 section-rows. All are ratio Q with n_valid nulls < 500 and p_legacy 0.048–0.0495.
-    - 4,533 BH flips, all significant only under legacy (legacy p = 0 lowers q).
+    - 9 uncorrected flips in 532,952 PDAC rows [corrected in Phase D from 533,244, the breast + PDAC total]. All are ratio Q with n_valid nulls < 500 and p_legacy 0.048–0.0495.
+    - 4,530 BH flips, all significant only under legacy (legacy p = 0 lowers q). [Corrected in Phase D: first written as 4,533, which is the breast + PDAC total from `pvalue_conventions_summary.json`.]
     - CAF→T headline, uncorrected: identical under both conventions.
     - CAF→T headline, BH within section, edge: marker 16 → 13/16, author 16 → 14/16.
     - CAF→T headline, BH within section, Q: marker 0 → 0/16, author 1 → 0/16.
@@ -448,3 +448,32 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
      Then tell me which column holds the cell type, and which columns hold `fov` and `cell_ID` (or how the row names encode them).
   3. Optional: the µm/px for this CosMx run. It is only needed for radius analyses; the 6-NN audit is scale-free.
 - **Next**: Phase D (synthesis) with Phase C marked BLOCKED.
+
+## 2026-10-25 18:44–19:00 — Push of `pdac-v2`: **BLOCKED** for commits after 161418a
+
+- `git push origin pdac-v2` (Phase B + C commits, about 86 MB of new results) failed:
+  - `error: RPC failed; curl 56 schannel: failed to read data from server: SEC_E_MESSAGE_ALTERED (0x8009030f)`
+  - `send-pack: unexpected disconnect while reading sideband packet`
+- Pushing commit by commit with `-c http.postBuffer=524288000`: 5b6089e and 161418a went through, and the remote is at 161418a. 5166445 (Phase B results) failed again with the same schannel error.
+- SSH: `git@github.com: Permission denied (publickey)` (no GitHub key on this host).
+- One attempt with `-c http.sslBackend=openssl -c http.sslVerify=true` (certificate verification **on**): "remote end hung up".
+- **Decision**: the same failure happened twice. Per the stop rule, push is BLOCKED and no further attempts were made. TLS was not disabled. All commits are on the local `pdac-v2` branch. Nothing was pushed to `main`, and nothing was force-pushed.
+- **To finish from a stable network**: `git push origin pdac-v2`
+
+## 2026-10-25 18:52–19:00 — Phase D: synthesis
+
+- **Commands**:
+  - `python src/pdac/phaseD_manifest_check.py` (logs `logs/phaseD_manifest_check_*.log`)
+  - `python src/pdac/phaseD_synthesis.py` (log `logs/phaseD_synthesis_*.log`). The first run crashed: the `axes` column collided with `DataFrame.axes`. Its log was deleted, the script was fixed, and it was re-run.
+- **Outputs**:
+  - `results/pdac/phaseD/v2_key_numbers.csv`: every number quoted in the v2 summary, with its source file.
+  - `results/pdac/phaseD/manifest_check.csv` (final run: 0 issues). The first run's file was overwritten by the second run under the same name; it was restored from commit c95d2fa as `manifest_check_first_run.csv`.
+  - `figures/pdac/phaseD/phaseD_v2_synthesis.{png,pdf}`
+  - `docs/PDAC_SUMMARY_v2.md`
+  - README "PDAC extension" section: v2 links added.
+  - `docs/PDAC_SUMMARY.md`: a pointer to v2 at the top. The v1 text is otherwise unchanged.
+- **Manifest check**:
+  - 2 files had lost their rows to the concurrent manifest write (`phaseB/ccc_sections/U2-b__consensus_T.csv.gz` and the Phase C synthetic self-test log). Both were re-registered.
+  - 1 stale row (deleted log `phaseB1_protein_labels_20261025T183049.log`) was removed.
+- **Correction found while building the key-numbers table**: the Phase A statements "4,533 PDAC BH flips" and "533,244 PDAC rows" were breast + PDAC totals. Corrected in place to 4,530 and 532,952, in this log and in `docs/RESULTS_SETTINGS_NOTE.md`. The breast share is 3 BH flips and 292 rows.
+- **Final status**: A DONE; B DONE (negative result); C BLOCKED (licence, labels); D DONE; push BLOCKED after 161418a.

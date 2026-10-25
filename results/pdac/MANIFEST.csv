@@ -323,5 +323,11 @@ figures/pdac/phaseB/phaseB4_headline_and_annotation_agreement.pdf,phaseB,Headlin
 logs/phaseB4_compare_20261025T184712.log,phaseB,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseB4_compare.py,2026-10-25T18:47:26
 logs/phaseC_gse310352_audit_20261025T184035_SYNTHETIC_SELFTEST.log,phaseC,Self-test log of phaseC_gse310352_audit.py on SYNTHETIC random data (format check only; all outputs discarded; no real GSE310352 data used),src/pdac/phaseC_gse310352_audit.py,2026-10-25T18:49:41
 results/pdac/phaseB/ccc_sections/U2-b__consensus_T.csv.gz,phaseB,re-registered by phaseD_manifest_check (row lost to concurrent manifest write or not registered),src/pdac/phaseB3_ccc_rerun.py,2026-10-25T18:49:41
-results/pdac/phaseD/manifest_check.csv,phaseD,Manifest completeness check for v2 outputs (issues found and actions),src/pdac/phaseD_manifest_check.py,2026-10-25T18:49:41
 logs/phaseD_manifest_check_20261025T184932.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD_manifest_check.py,2026-10-25T18:49:41
+results/pdac/phaseD/v2_key_numbers.csv,phaseD,Every number quoted in docs/PDAC_SUMMARY_v2.md with its source file,src/pdac/phaseD_synthesis.py,2026-10-25T18:53:11
+figures/pdac/phaseD/phaseD_v2_synthesis.png,phaseD,v2 synthesis: headline per annotation; E vs M; E-sig overlap with M/Q,src/pdac/phaseD_synthesis.py,2026-10-25T18:53:12
+figures/pdac/phaseD/phaseD_v2_synthesis.pdf,phaseD,v2 synthesis: headline per annotation; E vs M; E-sig overlap with M/Q,src/pdac/phaseD_synthesis.py,2026-10-25T18:53:12
+logs/phaseD_synthesis_20261025T185301.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD_synthesis.py,2026-10-25T18:53:12
+results/pdac/phaseD/manifest_check.csv,phaseD,Manifest completeness check for v2 outputs (issues found and actions),src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:32
+logs/phaseD_manifest_check_20261025T185523.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:32
+results/pdac/phaseD/manifest_check_first_run.csv,phaseD,"First manifest-check run (3 issues: 2 rows lost to concurrent writes, re-registered; 1 stale row); restored from commit c95d2fa because the second run reused the file name",src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:52

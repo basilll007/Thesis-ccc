@@ -1,0 +1,35 @@
+2026-10-25 18:53:01,989 INFO script=phaseD_synthesis log=logs/phaseD_synthesis_20261025T185301.log
+2026-10-25 18:53:02,026 INFO git_commit=c95d2fabf044e2613918ed9143488389c951ea71+dirty
+2026-10-25 18:53:02,026 INFO seed=42
+2026-10-25 18:53:11,290 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:53:11,453 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:53:11,476 INFO Saved results/pdac/phaseD/v2_key_numbers.csv (27 rows)
+2026-10-25 18:53:11,477 INFO spot-check: headline numbers matching = 5/5  [results/pdac/phaseA/spotcheck.csv]
+2026-10-25 18:53:11,478 INFO breast: uncorrected verdict flips legacy vs add-one = 0 of 289 rows  [results/pdac/phaseA/pvalue_conventions_flip_summary.csv]
+2026-10-25 18:53:11,478 INFO breast: BH verdict flips legacy vs add-one = 3  [results/pdac/phaseA/pvalue_conventions_flip_summary.csv]
+2026-10-25 18:53:11,478 INFO PDAC: uncorrected verdict flips (all ratio, n_null<500) = 9 of 524410  [results/pdac/phaseA/pvalue_conventions_flip_summary.csv]
+2026-10-25 18:53:11,478 INFO PDAC: BH verdict flips = 4530  [results/pdac/phaseA/pvalue_conventions_flip_summary.csv]
+2026-10-25 18:53:11,478 INFO T_cell precision/recall vs author T, protein_gmm, U5-a = 0.022 / 0.036 (tp 32/1467)  [results/pdac/phaseB/protein_labels_summary.json]
+2026-10-25 18:53:11,478 INFO T_cell precision/recall vs author T, marker, U5-a = 0.276 / 0.297 (tp 261/945)  [results/pdac/phaseB/protein_labels_summary.json]
+2026-10-25 18:53:11,478 INFO T_cell precision/recall vs author T, protein_gmm, all_16_sections = 0.077 / 0.049 (tp 563/7273)  [results/pdac/phaseB/protein_labels_summary.json]
+2026-10-25 18:53:11,478 INFO T_cell precision/recall vs author T, marker, all_16_sections = 0.353 / 0.318 (tp 3676/10427)  [results/pdac/phaseB/protein_labels_summary.json]
+2026-10-25 18:53:11,478 INFO GMM accepted (Ashman D>=2) sections per channel = {"CD3": 3, "CD45": 2, "PanCK": 15}  [results/pdac/phaseB/protein_labels_summary.json]
+2026-10-25 18:53:11,478 INFO protein AUC vs non-T (median over sections), consensus_T: CD3 / CD45 = 0.598 / 0.769 (n=3676)  [results/pdac/phaseB/consensus_T_protein_triangulation_median.csv]
+2026-10-25 18:53:11,478 INFO protein AUC vs non-T (median over sections), author_only_T: CD3 / CD45 = 0.580 / 0.739 (n=7881)  [results/pdac/phaseB/consensus_T_protein_triangulation_median.csv]
+2026-10-25 18:53:11,478 INFO protein AUC vs non-T (median over sections), marker_only_T: CD3 / CD45 = 0.588 / 0.684 (n=6751)  [results/pdac/phaseB/consensus_T_protein_triangulation_median.csv]
+2026-10-25 18:53:11,478 INFO CAF->T headline, marker: evaluable; E sig (BH); Q sig (BH); median z_E, z_Q, Q = 16/16; 16 (13); 4 (0); 20.87, 0.75, 1.347  [results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv]
+2026-10-25 18:53:11,478 INFO CAF->T headline, author_mapped: evaluable; E sig (BH); Q sig (BH); median z_E, z_Q, Q = 16/16; 16 (14); 2 (0); 21.63, 0.74, 1.346  [results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv]
+2026-10-25 18:53:11,478 INFO CAF->T headline, protein_gmm: evaluable; E sig (BH); Q sig (BH); median z_E, z_Q, Q = 14/16; 10 (6); 4 (0); 5.00, 1.17, 1.623  [results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv]
+2026-10-25 18:53:11,478 INFO CAF->T headline, protein_mad: evaluable; E sig (BH); Q sig (BH); median z_E, z_Q, Q = 13/16; 9 (4); 5 (0); 4.69, 1.56, 1.799  [results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv]
+2026-10-25 18:53:11,478 INFO CAF->T headline, consensus_T: evaluable; E sig (BH); Q sig (BH); median z_E, z_Q, Q = 16/16; 15 (11); 2 (0); 14.68, 0.36, 1.320  [results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv]
+2026-10-25 18:53:11,478 INFO consensus_T: sections with z_M > z_E = 16/16  [results/pdac/phaseB/headline_CAF_T_by_annotation_section.csv]
+2026-10-25 18:53:11,479 INFO consensus_T: sections with observed Q > 1 = 14/16  [results/pdac/phaseB/headline_CAF_T_by_annotation_section.csv]
+2026-10-25 18:53:11,479 INFO consensus_T: smallest Q BH q over sections = 0.314  [results/pdac/phaseB/headline_CAF_T_by_annotation_section.csv]
+2026-10-25 18:53:11,479 INFO mirroring marker all_axes: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.673; 0.772 / 0.351 / 0.098 (n E-sig 6058)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:11,479 INFO mirroring marker unflagged_axes_only: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.808; 0.868 / 0.316 / 0.127 (n E-sig 1758)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:11,479 INFO mirroring author_mapped all_axes: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.677; 0.771 / 0.366 / 0.104 (n E-sig 9377)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:11,479 INFO mirroring author_mapped unflagged_axes_only: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.809; 0.848 / 0.323 / 0.128 (n E-sig 2820)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:11,479 INFO mirroring consensus_T all_axes: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.663; 0.773 / 0.366 / 0.096 (n E-sig 10511)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:11,479 INFO mirroring consensus_T unflagged_axes_only: rho(zE,zM); frac E-sig also M-sig / Q-sig / Q-sig BH = 0.797; 0.844 / 0.319 / 0.122 (n E-sig 3093)  [results/pdac/phaseB/edge_vs_product_mirroring_by_annotation.csv]
+2026-10-25 18:53:12,404 INFO Saved figure figures/pdac/phaseD/phaseD_v2_synthesis(.png/.pdf)
+2026-10-25 18:53:12,415 INFO run finished

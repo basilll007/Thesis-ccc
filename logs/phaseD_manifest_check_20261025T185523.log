@@ -1,0 +1,8 @@
+2026-10-25 18:55:23,142 INFO script=phaseD_manifest_check log=logs/phaseD_manifest_check_20261025T185523.log
+2026-10-25 18:55:23,180 INFO git_commit=c95d2fabf044e2613918ed9143488389c951ea71+dirty
+2026-10-25 18:55:23,180 INFO seed=42
+2026-10-25 18:55:32,603 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:55:32,617 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:55:32,716 INFO v2 files: 150; issues: 0
+2026-10-25 18:55:32,724 INFO Saved results/pdac/phaseD/manifest_check.csv (0 rows)
+2026-10-25 18:55:32,735 INFO run finished

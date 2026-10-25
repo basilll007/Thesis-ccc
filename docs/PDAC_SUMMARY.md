@@ -1,5 +1,7 @@
 # PDAC Extension — Summary (2026-10-24)
 
+> **Update 2026-10-25:** see [`PDAC_SUMMARY_v2.md`](PDAC_SUMMARY_v2.md) (branch `pdac-v2`). Next steps 2 (T-cell label purity) and 3 (GSE310352 replication) below were attempted there. Step 2: the protein rule failed validation, and CAF→T Q is 0/16 after BH even with consensus T labels. Step 3: BLOCKED (licence unconfirmed). The five headline numbers of this file were re-derived and all match.
+
 This is an audit/diagnostic summary. Nothing in it supports a biological or clinical claim. Every number comes from a file listed in `results/pdac/MANIFEST.csv`; the source file is given in brackets. The step-by-step record is in `docs/PDAC_PROGRESS_LOG.md`.
 
 ## What was done

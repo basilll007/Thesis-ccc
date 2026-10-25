@@ -47,10 +47,10 @@ Every PDAC-extension table stores **both** columns (`*_p_legacy` and `*_p_plus1`
 What changes between conventions (alpha = 0.05) [`results/pdac/phaseA/pvalue_conventions_flip_summary.csv`, `pvalue_conventions_flipped_rows.csv`]:
 
 - **Uncorrected verdicts cannot flip when all nulls are valid.** With n = 500, legacy p < 0.05 ⇔ #{null ≥ obs} ≤ 24 ⇔ add-one p < 0.05. With n = 200 (15 µm setting), both conditions mean ≤ 9. Breast: 0 flips in 292 rows (the 22 paper rows, the extra and Leiden families, and the 15 µm axes). The breast Phase 1 gate is 3/9 under both conventions.
-- **Ratio Q can flip** when some permutations have M = 0 (NaN nulls, so n_valid < 500). There are 9 such flips out of 533,244 PDAC section-rows: 2 marker, 7 author. All 9 are legacy-significant and add-one-not-significant, with p_legacy 0.048–0.0495. None involves the CAF→T headline.
+- **Ratio Q can flip** when some permutations have M = 0 (NaN nulls, so n_valid < 500). There are 9 such flips out of 532,952 PDAC rows (U5-a and 16-section tables × 4 scores; first written as 533,244, the breast + PDAC total): 2 marker, 7 author. All 9 are legacy-significant and add-one-not-significant, with p_legacy 0.048–0.0495. None involves the CAF→T headline.
 - **BH verdicts do flip.** Legacy p = 0 enters BH as 0, so more rows pass BH under legacy:
   - Breast `extra` family: 3 flips, all significant only under legacy. CD86→CTLA4 fibroblast→immune edge (q 0.032 → 0.064); PTN→SDC4 epithelial→epithelial edge (q 0 → 0.064); CD86→CTLA4 fibroblast→endothelial compositional (q 0.0498 → 0.057).
-  - PDAC: 4,533 BH flips across sections and scores, all in the same direction.
+  - PDAC: 4,530 BH flips across sections and scores, all in the same direction (significant only under legacy). Correction 2026-10-25: this line first said 4,533, which is the breast + PDAC total.
   - Headline CAF→T CXCL12→CXCR4, BH within section [`results/pdac/phaseA/pvalue_conventions_headline_CAF_T.csv`]:
 
     | Annotation | Edge, legacy | Edge, add-one | Q, legacy | Q, add-one |

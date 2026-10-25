@@ -1,4 +1,1 @@
 path,issue,action
-logs/phaseC_gse310352_audit_20261025T184035_SYNTHETIC_SELFTEST.log,file not in manifest,re-registered
-results/pdac/phaseB/ccc_sections/U2-b__consensus_T.csv.gz,file not in manifest,re-registered
-logs/phaseB1_protein_labels_20261025T183049.log,manifest row without file,reported only
