@@ -9,7 +9,7 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - [x] Phase 2: Find and vet a PDAC spatial dataset — selected Mendeley PDAC-SMI (CosMx, CC BY 4.0, 37/39 genes)
 - [x] Phase 3: Run the audit on PDAC — DONE except full-catalogue radius sweep (host stopped run for low memory; headline-only radius sweep done; full sweep BLOCKED pending user go-ahead)
 - [x] Phase 4: Benchmark — COMMOT DONE (crop), SpatialDM DONE, Squidpy ligrec DONE (crop) / full-section p-values BLOCKED (all NaN, 2 attempts)
-- [ ] Phase 5: Synthesis (PDAC_SUMMARY.md, README section)
+- [x] Phase 5: Synthesis (PDAC_SUMMARY.md, README section)
 
 ## Conventions used throughout (decided 2026-10-24)
 
@@ -170,7 +170,7 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - **Done**: `src/pdac/phase3e_radius_headline.py` (log `logs/phase3e_radius_headline_20261024T224325.log`) ran the 15–300 µm radius sweep for CXCL12–CXCR4 only (all 100 sender/receiver combinations, marker labels, 500 perms), using the same receiver-subsampling RNG sequence as the stopped run. Above 12M edges, receivers are subsampled: query-cell fraction 0.538 at 150 µm, 0.321 at 200 µm, 0.163 at 300 µm.
 - **Reproducibility**: for 15–150 µm, the edge nulls are identical (max abs diff 0) to the nulls saved by the stopped full run (`mendeley_pdac_smi__U5-a_radius_headline_repro_check.json`).
 - **Key numbers** (`mendeley_pdac_smi__U5-a_radius_sensitivity_headline_pair.csv`):
-  - CAF→T_cell is edge- and ratio-significant at every radius. Q falls from 1.742 (15 µm) to 1.494–1.532 (150–300 µm), while z_Q rises from 2.09 to 6.83 (200 µm) as qualifying edges grow from 1,455 to about 59,000.
+  - CAF→T_cell is edge- and ratio-significant at every radius. Q falls from 1.742 (15 µm) to 1.494–1.532 (150–300 µm), while z_Q rises from 2.09 to 6.84 (200 µm) as qualifying edges grow from 1,455 to about 59,000.
   - CAF→tumour is depleted at every radius (E z −9.7 to −20.7).
   - k sweep for the headline (`mendeley_pdac_smi__U5-a_k_sensitivity_headline.csv`): CAF→T z_Q = 2.54 / 2.81 / 3.24 / 4.11 at k = 4 / 6 / 8 / 12; edges 1,429 → 4,274.
 - **Interpretation**: As in breast, larger neighbourhoods inflate z through edge count, while the effect size Q does not grow. Radius and k z-values must not be read as stronger communication.
@@ -216,3 +216,24 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
   - Full: SpatialDM global z vs our max edge z 0.260, vs ligrec max mean 0.542, vs our max compositional z 0.038.
   - Crop: COMMOT total signal vs our max edge z 0.603 and vs our max ratio z 0.641; SpatialDM vs COMMOT 0.294.
 - **Interpretation (audit level)**: The four method families do not agree on the top interactions (top-20 Jaccard ≤ 0.053 for every cross-family pair). Agreement follows score design: non-spatial cluster-mean methods (ligrec) agree with our compositional score; contact or transport methods (COMMOT) agree with our edge score. The rankings depend on the method choice, which is itself an audit-relevant result.
+
+## 2026-10-24 22:51–22:53 — Phase 3f: background-level detection check (added diagnostic)
+
+- **Why**: In U5-a, the checkpoint genes had implausibly high detection for T-cell-restricted genes (`breast_vs_pdac_axes.csv`: PDCD1 in 7,560 cells, CTLA4 in 7,427, CD274 in 13,426 of 74,793). The breast "fewer than 20 cells" sparse-gene rule cannot catch the inverse problem, where non-specific background counts make a gene look abundant.
+- **Done**: `src/pdac/phase3f_background_check.py` compared each catalogue gene's detection rate with the 19 CosMx negative-control probes per section. Flag `near_background` = detection < 2 × the maximum negative-probe detection; the threshold was declared in the script before running. This is a diagnostic flag, not a filter.
+- **Key numbers** (`background_check_summary_by_gene.csv`, `background_check_celltype_specificity_median.csv`, `background_check_summary.json`):
+  - 33 catalogue genes are near background in ≥ 8/16 sections. They include **every checkpoint gene**, with median fold over the negative-probe max of: PDCD1 0.96, CTLA4 1.00, PDCD1LG2 0.99, CD86 1.08, HAVCR2 1.12, CD28 1.17, CD274 1.37, CD80 1.42.
+  - CXCL12 (fold 2.32; near background in 4/16 sections) and CXCR4 (2.13; 6/16) are above background in most sections.
+  - Median detection in author T cells vs author malignant cells vs negative-probe max: PDCD1 0.115 / 0.073 / 0.072; CTLA4 0.239 / 0.068 / 0.072; CXCR4 0.560 / 0.076 / 0.072. Detection in malignant cells sits at the negative-probe level, so any T-cell enrichment is modest for PDCD1 and clearer for CTLA4 and CXCR4.
+- **Decision**: All PDAC checkpoint-axis results (CD274–PDCD1, PDCD1LG2–PDCD1, CD86/CD80–CTLA4, CD80/CD86–CD28, LGALS9–HAVCR2) carry a **"background-level gene diagnostic"** label. Their significance calls are not interpretable as signal. The rule, and the per-axis result, is: an axis is flagged if either gene is near background in ≥ 8/16 sections. Applied to the 31 testable pairs (`results/pdac/phase3/background_flag_per_axis.csv`): **24/31 flagged**. 7 unflagged: TGFB1–TGFBR1, TGFB1–TGFBR2, CXCL12–CXCR4, JAG1–NOTCH1, MIF–CD74, SPP1–CD44, FN1–ITGB1.
+
+## 2026-10-24 22:55 — Phase 5: synthesis
+
+- **Done**:
+  - `src/pdac/phase5_synthesis_tables.py` → `results/pdac/phase5/breast_vs_pdac_axes.csv` and `figures/pdac/phase5/phase5_breast_vs_pdac_axes_z.{png,pdf}`. Axis mapping is declared in the script docstring.
+  - Wrote `docs/PDAC_SUMMARY.md` (results table, matched-baseline verdicts, sensitivities, failures and blocks, limitations, 5 next steps).
+  - Added the "PDAC extension" section to `README.md`.
+- **Final status**:
+  - Phases 0, 1, 2 and 5: DONE.
+  - Phase 3: DONE, except the full-catalogue radius sweep (BLOCKED: the host stopped the run for low memory; a re-run needs the user's go-ahead; the headline-only sweep is done).
+  - Phase 4: DONE for COMMOT, SpatialDM and crop-level ligrec. Full-section ligrec p-values BLOCKED (all NaN in 2 attempts).

@@ -1,0 +1,8 @@
+2026-10-24 22:51:09,135 INFO script=phase5_synthesis_tables log=logs/phase5_synthesis_tables_20261024T225109.log
+2026-10-24 22:51:09,171 INFO git_commit=133cce2dd48c6399cfb47e954a4e0da539a934ff+dirty
+2026-10-24 22:51:09,171 INFO seed=42
+2026-10-24 22:51:16,871 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:51:17,062 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:51:17,343 INFO Saved results/pdac/phase5/breast_vs_pdac_axes.csv (5 rows)
+2026-10-24 22:51:17,963 INFO Saved figure figures/pdac/phase5/phase5_breast_vs_pdac_axes_z(.png/.pdf)
+2026-10-24 22:51:17,968 INFO run finished

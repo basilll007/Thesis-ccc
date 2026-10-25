@@ -1,0 +1,5 @@
+2026-10-24 22:51:59,108 INFO script=phase3f_background_check log=logs/phase3f_background_check_20261024T225159.log
+2026-10-24 22:51:59,148 INFO git_commit=133cce2dd48c6399cfb47e954a4e0da539a934ff+dirty
+2026-10-24 22:51:59,149 INFO seed=42
+2026-10-24 22:51:59,150 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:51:59,170 INFO platform=Windows-10-10.0.26300-SP0

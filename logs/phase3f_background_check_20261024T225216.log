@@ -1,0 +1,28 @@
+2026-10-24 22:52:16,175 INFO script=phase3f_background_check log=logs/phase3f_background_check_20261024T225216.log
+2026-10-24 22:52:16,215 INFO git_commit=133cce2dd48c6399cfb47e954a4e0da539a934ff+dirty
+2026-10-24 22:52:16,215 INFO seed=42
+2026-10-24 22:52:16,216 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:52:16,229 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:52:19,713 INFO T1-b: neg-probe max detection 0.1012
+2026-10-24 22:52:22,379 INFO T2-b: neg-probe max detection 0.0489
+2026-10-24 22:52:24,672 INFO T3-b: neg-probe max detection 0.0723
+2026-10-24 22:52:27,039 INFO T4-a: neg-probe max detection 0.0731
+2026-10-24 22:52:29,296 INFO T4-b: neg-probe max detection 0.0938
+2026-10-24 22:52:31,555 INFO T5-a: neg-probe max detection 0.0418
+2026-10-24 22:52:33,918 INFO T6-b: neg-probe max detection 0.0796
+2026-10-24 22:52:36,224 INFO U1-b: neg-probe max detection 0.0719
+2026-10-24 22:52:38,594 INFO U2-b: neg-probe max detection 0.0943
+2026-10-24 22:52:40,911 INFO U3-b: neg-probe max detection 0.0542
+2026-10-24 22:52:43,729 INFO U4-a: neg-probe max detection 0.0585
+2026-10-24 22:52:46,474 INFO U4-b: neg-probe max detection 0.0946
+2026-10-24 22:52:49,189 INFO U5-a: neg-probe max detection 0.0722
+2026-10-24 22:52:52,032 INFO U6-a_1: neg-probe max detection 0.0392
+2026-10-24 22:52:54,807 INFO U6-a_2: neg-probe max detection 0.0605
+2026-10-24 22:52:57,376 INFO U7-a: neg-probe max detection 0.0471
+2026-10-24 22:52:57,387 INFO Saved results/pdac/phase3/background_check_detection_vs_negprobes.csv (848 rows)
+2026-10-24 22:52:57,399 INFO Saved results/pdac/phase3/background_check_celltype_specificity.csv (128 rows)
+2026-10-24 22:52:57,415 INFO Saved results/pdac/phase3/background_check_summary_by_gene.csv (53 rows)
+2026-10-24 22:52:57,426 INFO Saved results/pdac/phase3/background_check_celltype_specificity_median.csv (8 rows)
+2026-10-24 22:52:57,435 INFO Saved results/pdac/phase3/background_check_summary.json
+2026-10-24 22:52:58,342 INFO Saved figure figures/pdac/phase3/background_check_fold_over_negprobes(.png/.pdf)
+2026-10-24 22:52:58,349 INFO run finished

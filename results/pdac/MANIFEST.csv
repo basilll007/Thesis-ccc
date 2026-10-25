@@ -163,3 +163,18 @@ figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_radius_sensitivity_headline.png,p
 figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_radius_sensitivity_headline.pdf,phase3,Headline radius sensitivity (sensitivity only),src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:25
 logs/phase3e_radius_headline_20261024T224325.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:25
 logs/phase4b_commot_spatialdm_20261024T222334.log,phase4,run log,src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:50:21
+results/pdac/phase5/breast_vs_pdac_axes.csv,phase5,Per-axis breast (Phase 1) vs PDAC (Phase 3) synthesis table,src/pdac/phase5_synthesis_tables.py,2026-10-24T22:51:17
+figures/pdac/phase5/phase5_breast_vs_pdac_axes_z.png,phase5,Per-axis z comparison breast vs PDAC,src/pdac/phase5_synthesis_tables.py,2026-10-24T22:51:17
+figures/pdac/phase5/phase5_breast_vs_pdac_axes_z.pdf,phase5,Per-axis z comparison breast vs PDAC,src/pdac/phase5_synthesis_tables.py,2026-10-24T22:51:17
+logs/phase5_synthesis_tables_20261024T225109.log,phase5,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase5_synthesis_tables.py,2026-10-24T22:51:17
+results/pdac/phase3/background_check_detection_vs_negprobes.csv,phase3,Per section x catalogue gene: detection rate vs negative-probe detection; near_background flag (< 2x neg max),src/pdac/phase3f_background_check.py,2026-10-24T22:52:57
+results/pdac/phase3/background_check_celltype_specificity.csv,phase3,Detection rate in author T cells vs author malignant cells for checkpoint/chemokine genes,src/pdac/phase3f_background_check.py,2026-10-24T22:52:57
+results/pdac/phase3/background_check_summary_by_gene.csv,phase3,Per gene: sections near background and median fold over neg-probe max,src/pdac/phase3f_background_check.py,2026-10-24T22:52:57
+results/pdac/phase3/background_check_celltype_specificity_median.csv,phase3,Median over sections of the cell-type detection rates,src/pdac/phase3f_background_check.py,2026-10-24T22:52:57
+results/pdac/phase3/background_check_summary.json,phase3,Background-check summary,src/pdac/phase3f_background_check.py,2026-10-24T22:52:57
+figures/pdac/phase3/background_check_fold_over_negprobes.png,phase3,Catalogue gene detection vs negative probes,src/pdac/phase3f_background_check.py,2026-10-24T22:52:58
+figures/pdac/phase3/background_check_fold_over_negprobes.pdf,phase3,Catalogue gene detection vs negative probes,src/pdac/phase3f_background_check.py,2026-10-24T22:52:58
+logs/phase3f_background_check_20261024T225216.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3f_background_check.py,2026-10-24T22:52:58
+results/pdac/phase3/background_flag_per_axis.csv,phase3,Per testable L-R pair: background-level gene diagnostic flag (either gene near background in >=8/16 sections),,2026-10-24T22:53:32
+docs/PDAC_SUMMARY.md,phase5,"Synthesis: results table, matched-baseline verdicts, sensitivities, failures, limitations, next steps",manual (Phase 5),2026-10-24T22:54:49
+README.md,phase5,README with PDAC extension section,manual (Phase 5),2026-10-24T22:54:49

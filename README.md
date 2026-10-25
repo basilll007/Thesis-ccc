@@ -70,3 +70,15 @@ uv pip check
 ```
 
 See `docs/PROJECT_CONTEXT.md` for scientific context and provenance and `docs/PROGRESS_LOG.md` for the append-only implementation record.
+
+## PDAC extension (branch `pdac-extension`)
+
+This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using the public Mendeley PDAC-SMI CosMx dataset (Shiau, Cao et al.; CC BY 4.0; doi 10.17632/kx6b69n3cb.1). It also adds a matched dyadic baseline (L̄s·R̄r and E/(L̄s·R̄r)) to the breast analysis. Results are audit and diagnostic only.
+
+- Summary of results, failures and limitations: `docs/PDAC_SUMMARY.md`
+- Step-by-step log with commands, outputs and decisions: `docs/PDAC_PROGRESS_LOG.md`
+- Manifest of every produced file (path, phase, description, script): `results/pdac/MANIFEST.csv`
+- Which breast number comes from which setting (15 µm vs radius sweep vs 6-NN): `docs/RESULTS_SETTINGS_NOTE.md`
+- Code: `src/pdac/` (run logs in `logs/<script>_<timestamp>.log`; figures in `figures/pdac/<phase>/`)
+
+Data are not committed. Download `raw_meta_data_final.h5ad` from the Mendeley dataset page into `data/pdac/mendeley_pdac_smi/`. COMMOT and SpatialDM were run in a separate conda env, `pdac-bench`: a clone of `thesis-spatial-ccc` plus `commot` 0.0.3 and `SpatialDM` 0.3.1, with numpy pinned below 2.
