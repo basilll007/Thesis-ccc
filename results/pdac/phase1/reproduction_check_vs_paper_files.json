@@ -1,0 +1,9 @@
+{
+  "n_rows_matched": 22,
+  "max_abs_diff_comp_obs": 4.440892098500626e-16,
+  "max_abs_diff_comp_z": 0.00027456174473883266,
+  "max_abs_diff_comp_p_legacy": 0.0,
+  "max_abs_diff_edge_obs": 1.0658141036401503e-14,
+  "max_abs_diff_edge_z": 9.237055564881302e-14,
+  "max_abs_diff_edge_p_legacy": 0.0
+}

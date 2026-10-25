@@ -1,0 +1,4 @@
+family,n_interactions,n_edge_evaluable,n_comp_sig,n_edge_sig,n_matched_sig,n_ratio_sig,n_C_E_disagree,n_disagree_score_form,n_disagree_proximity,n_disagree_sparse_gene,n_C_M_disagree,n_M_E_disagree,spearman_z_comp_vs_edge,spearman_z_comp_vs_matched,spearman_z_matched_vs_edge,n_comp_sig_bh,n_edge_sig_bh,n_matched_sig_bh,n_ratio_sig_bh
+paper,22,22,17,8,14,2,9,3,6,4,3,6,0.7225908765737089,0.8690005646527387,0.8343728906293103,17,8,14,2
+extra,32,32,9,4,8,4,5,1,4,0,1,4,0.8995601173020527,0.9736070381231671,0.8830645161290323,8,0,8,4
+leiden,18,18,13,7,9,2,6,3,3,6,4,4,0.93162465905922,0.8575851393188855,0.823578248896139,13,7,9,2

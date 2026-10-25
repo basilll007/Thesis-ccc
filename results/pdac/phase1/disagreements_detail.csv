@@ -1,0 +1,21 @@
+family,interaction,n_qualifying_edges,comp_z,matched_z,edge_z,ratio_z,comp_sig,matched_sig,edge_sig,decomposition,sparse_gene_diagnostic,lt30_edges
+paper,CXCL12-CXCR4 endothelial->endothelial,27,4.991968608553106,7.176639101269455,1.1513259175408024,0.1247444153176544,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,True
+paper,CXCL12-CXCR4 endothelial->epithelial,127,5.668853538021838,5.475527118576609,-0.0962581369139425,-2.739917694113468,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,False
+paper,CXCL12-CXCR4 immune->endothelial,17,4.072188883680942,6.976805307053234,1.522564370718469,0.0190325818592647,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,True
+paper,CXCL12-CXCR4 epithelial->immune,334,7.207123059126672,-7.226471415487713,-1.6086941803535504,3.6916279798901863,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),False,False
+paper,CXCL12-CXCR4 immune->epithelial,360,7.719454983071709,7.750336406651733,0.8454121390011226,-4.755432335870194,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,False
+paper,CD274-PDCD1 immune->fibroblast,962,9.52882180150032,23.34883520939934,0.0,0.0,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),True,False
+paper,CD274-PDCD1 immune->epithelial,360,9.023789953628008,0.8720988861419261,0.0,0.0,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),True,False
+paper,CD274-PDCD1 fibroblast->fibroblast,4702,4.35153642858823,7.422737811141542,0.0,0.0,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),True,False
+paper,CD274-PDCD1 fibroblast->epithelial,2586,3.144125693801892,-1.3924601421463314,0.0,0.0,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),True,False
+extra,CD86-CTLA4 fibroblast->endothelial,128,2.927760460762817,1.8373015710363871,-0.1811565005651881,-0.2635756552639983,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),False,False
+extra,CD86-CTLA4 fibroblast->epithelial,2586,8.585270552537024,3.7164150607994766,-1.0489225784559089,-1.5669803810850955,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,False
+extra,CD86-CTLA4 immune->endothelial,17,10.210431347912914,6.54929669740065,-0.0626506449694683,-0.0916718222086023,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,True
+extra,CD86-CTLA4 immune->fibroblast,962,20.5668512722839,35.17417634267585,1.582070818096119,-0.3714914774018218,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,False
+extra,CD86-CTLA4 immune->immune,827,17.92119791686118,25.855901050015728,1.845375870923889,-0.0711758027121687,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),False,False
+leiden,CD274-PDCD1 fibroblast->epithelial,919,2.6400253077390574,2.519189295699071,0.0,0.0,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),True,False
+leiden,CD274-PDCD1 fibroblast->fibroblast,1791,2.248404103771506,-0.6272685069282802,0.0,,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),True,False
+leiden,CD274-PDCD1 fibroblast->immune,1094,2.657057055397127,1.6382728406114426,0.0,0.0,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),True,False
+leiden,CD274-PDCD1 immune->epithelial,576,9.53112478720367,8.56731552173006,0.0,0.0,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),True,False
+leiden,CD274-PDCD1 immune->fibroblast,1053,8.90740758165482,-0.6477131163421921,0.0,,True,False,False,C/E disagree: SCORE-FORM (matched baseline reproduces edge verdict),True,False
+leiden,CD274-PDCD1 immune->immune,3009,9.120213890334828,4.128082526835042,0.0,0.0,True,True,False,C/E disagree: PROXIMITY (matched baseline reproduces compositional verdict),True,False

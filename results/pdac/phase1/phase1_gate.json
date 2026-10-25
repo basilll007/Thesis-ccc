@@ -1,0 +1,9 @@
+{
+  "family": "paper (22 interactions, per-cell labels, 6-NN, 500 perms)",
+  "n_C_E_disagreements": 9,
+  "n_explained_by_score_form": 3,
+  "n_attributed_to_proximity": 6,
+  "fraction_score_form": 0.3333333333333333,
+  "matched_baseline_explains_disagreement": false,
+  "rule": "A C/E disagreement is 'score-form' if the matched baseline M (no graph, product form) gives the same verdict as E; 'proximity' if M gives the same verdict as C. Verdict = p_plus1 < 0.05 (500 perms). 'Explains' = more than half of disagreements are score-form."
+}

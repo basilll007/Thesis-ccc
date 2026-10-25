@@ -1,0 +1,34 @@
+2026-10-24 21:20:00,776 INFO script=phase1_matched_baseline log=logs/phase1_matched_baseline_20261024T212000.log
+2026-10-24 21:20:00,826 INFO git_commit=a3f368c1f4e651c75c2b9f4d9e5b7b28d294609b+dirty
+2026-10-24 21:20:01,015 INFO seed=42
+2026-10-24 21:20:01,016 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 21:20:01,046 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 21:20:01,154 INFO Breast AnnData: 7163 cells; 6-NN graph (stored adata.obsp['spatial_connectivities']): 42978 directed edges
+2026-10-24 21:20:01,539 INFO [paper] 500 label permutations via spatial_null.generate_label_permutations (default_rng(42)); 4 types; 2 LR pairs; 22 interactions
+2026-10-24 21:20:01,881 INFO [paper] done in 0.7s
+2026-10-24 21:20:01,915 INFO Reproduction vs results/spatial_null_corrected.csv + spatial_edge_null.csv: {'n_rows_matched': 22, 'max_abs_diff_comp_obs': 4.440892098500626e-16, 'max_abs_diff_comp_z': 0.00027456174473883266, 'max_abs_diff_comp_p_legacy': 0.0, 'max_abs_diff_edge_obs': 1.0658141036401503e-14, 'max_abs_diff_edge_z': 9.237055564881302e-14, 'max_abs_diff_edge_p_legacy': 0.0}
+2026-10-24 21:20:02,172 INFO [extra] 500 label permutations via spatial_null.generate_label_permutations (default_rng(42)); 4 types; 2 LR pairs; 32 interactions
+2026-10-24 21:20:02,473 INFO [extra] done in 0.6s
+2026-10-24 21:20:02,504 INFO Leiden-consensus types: {'epithelial': 5756, 'immune': 773, 'fibroblast': 634}
+2026-10-24 21:20:02,756 INFO [leiden] 500 label permutations via spatial_null.generate_label_permutations (default_rng(42)); 3 types; 2 LR pairs; 18 interactions
+2026-10-24 21:20:03,074 INFO [leiden] done in 0.6s
+2026-10-24 21:20:03,087 INFO Saved results/pdac/phase1/breast_matched_baseline_paper22.csv (22 rows)
+2026-10-24 21:20:03,095 INFO Saved results/pdac/phase1/breast_matched_baseline_extra_CD86CTLA4_PTNSDC4.csv (32 rows)
+2026-10-24 21:20:03,103 INFO Saved results/pdac/phase1/breast_matched_baseline_leiden.csv (18 rows)
+2026-10-24 21:20:03,114 INFO Saved results/pdac/phase1/breast_matched_baseline_all_families.csv (72 rows)
+2026-10-24 21:20:03,120 INFO Saved results/pdac/phase1/reproduction_check_vs_paper_files.json
+2026-10-24 21:20:03,135 INFO Saved results/pdac/phase1/null_distributions_paper.npz (arrays: comp_null(500, 22), edge_null(500, 22), matched_null(500, 22), ratio_null(500, 22), interaction_labels(22,))
+2026-10-24 21:20:03,156 INFO Saved results/pdac/phase1/null_distributions_extra.npz (arrays: comp_null(500, 32), edge_null(500, 32), matched_null(500, 32), ratio_null(500, 32), interaction_labels(32,))
+2026-10-24 21:20:03,172 INFO Saved results/pdac/phase1/null_distributions_leiden.npz (arrays: comp_null(500, 18), edge_null(500, 18), matched_null(500, 18), ratio_null(500, 18), interaction_labels(18,))
+2026-10-24 21:20:03,196 INFO Saved results/pdac/phase1/decomposition_summary.csv (3 rows)
+2026-10-24 21:20:03,197 INFO [paper] {'Index': 0, 'family': 'paper', 'n_interactions': 22, 'n_edge_evaluable': 22, 'n_comp_sig': 17, 'n_edge_sig': 8, 'n_matched_sig': 14, 'n_ratio_sig': 2, 'n_C_E_disagree': 9, 'n_disagree_score_form': 3, 'n_disagree_proximity': 6, 'n_disagree_sparse_gene': 4, 'n_C_M_disagree': 3, 'n_M_E_disagree': 6, 'spearman_z_comp_vs_edge': 0.7225908765737089, 'spearman_z_comp_vs_matched': 0.8690005646527387, 'spearman_z_matched_vs_edge': 0.8343728906293103, 'n_comp_sig_bh': 17, 'n_edge_sig_bh': 8, 'n_matched_sig_bh': 14, 'n_ratio_sig_bh': 2}
+2026-10-24 21:20:03,197 INFO [extra] {'Index': 1, 'family': 'extra', 'n_interactions': 32, 'n_edge_evaluable': 32, 'n_comp_sig': 9, 'n_edge_sig': 4, 'n_matched_sig': 8, 'n_ratio_sig': 4, 'n_C_E_disagree': 5, 'n_disagree_score_form': 1, 'n_disagree_proximity': 4, 'n_disagree_sparse_gene': 0, 'n_C_M_disagree': 1, 'n_M_E_disagree': 4, 'spearman_z_comp_vs_edge': 0.8995601173020527, 'spearman_z_comp_vs_matched': 0.9736070381231671, 'spearman_z_matched_vs_edge': 0.8830645161290323, 'n_comp_sig_bh': 8, 'n_edge_sig_bh': 0, 'n_matched_sig_bh': 8, 'n_ratio_sig_bh': 4}
+2026-10-24 21:20:03,197 INFO [leiden] {'Index': 2, 'family': 'leiden', 'n_interactions': 18, 'n_edge_evaluable': 18, 'n_comp_sig': 13, 'n_edge_sig': 7, 'n_matched_sig': 9, 'n_ratio_sig': 2, 'n_C_E_disagree': 6, 'n_disagree_score_form': 3, 'n_disagree_proximity': 3, 'n_disagree_sparse_gene': 6, 'n_C_M_disagree': 4, 'n_M_E_disagree': 4, 'spearman_z_comp_vs_edge': 0.93162465905922, 'spearman_z_comp_vs_matched': 0.8575851393188855, 'spearman_z_matched_vs_edge': 0.823578248896139, 'n_comp_sig_bh': 13, 'n_edge_sig_bh': 7, 'n_matched_sig_bh': 9, 'n_ratio_sig_bh': 2}
+2026-10-24 21:20:03,203 INFO Saved results/pdac/phase1/phase1_gate.json
+2026-10-24 21:20:03,203 INFO GATE: {'family': 'paper (22 interactions, per-cell labels, 6-NN, 500 perms)', 'n_C_E_disagreements': 9, 'n_explained_by_score_form': 3, 'n_attributed_to_proximity': 6, 'fraction_score_form': 0.3333333333333333, 'matched_baseline_explains_disagreement': False, 'rule': "A C/E disagreement is 'score-form' if the matched baseline M (no graph, product form) gives the same verdict as E; 'proximity' if M gives the same verdict as C. Verdict = p_plus1 < 0.05 (500 perms). 'Explains' = more than half of disagreements are score-form."}
+2026-10-24 21:20:03,988 INFO Saved figure figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_paper(.png/.pdf)
+2026-10-24 21:20:04,632 INFO Saved figure figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_extra(.png/.pdf)
+2026-10-24 21:20:05,136 INFO Saved figure figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_leiden(.png/.pdf)
+2026-10-24 21:20:06,995 INFO Saved figure figures/pdac/phase1/phase1_null_distributions_selected_interactions(.png/.pdf)
+2026-10-24 21:20:07,258 INFO Saved figure figures/pdac/phase1/phase1_matched_vs_edge_z_scatter(.png/.pdf)
+2026-10-24 21:20:07,263 INFO run finished

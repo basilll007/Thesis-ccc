@@ -7,3 +7,29 @@ results/pdac/phase0/phase0_repro_summary.json,phase0,Phase 0 reproducibility-che
 logs/phase0_repro_check_20261024T211538.log,phase0,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase0_repro_check.py,2026-10-24T21:15:46
 docs/RESULTS_SETTINGS_NOTE.md,phase0,Note separating 15 um contact-restricted (paper) vs radius-sweep (sensitivity) vs 6-NN results,manual (Phase 0),2026-10-24T21:16:48
 docs/PDAC_PROGRESS_LOG.md,all,Append-only PDAC progress log with checklist,manual,2026-10-24T21:16:48
+results/pdac/phase1/breast_matched_baseline_paper22.csv,phase1,"Per-axis C/E/M/Q scores, null stats, BH q, decomposition for the 22 paper interactions (per-cell labels, 6-NN)",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/breast_matched_baseline_extra_CD86CTLA4_PTNSDC4.csv,phase1,"Same table for CD86-CTLA4 and PTN-SDC4, all 16 sender-receiver combinations (per-cell labels, 6-NN)",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/breast_matched_baseline_leiden.csv,phase1,Same table for paper pairs under Leiden-consensus labels (annotation sensitivity),src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/breast_matched_baseline_all_families.csv,phase1,All three families concatenated,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/reproduction_check_vs_paper_files.json,phase1,"Max abs differences of recomputed C/E scores, z and p vs results/spatial_null_corrected.csv and spatial_edge_null.csv",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/null_distributions_paper.npz,phase1,"Null distributions (500 perms x interactions) for comp/edge/matched/ratio, family=paper; row order = CSV order",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/null_distributions_extra.npz,phase1,"Null distributions (500 perms x interactions) for comp/edge/matched/ratio, family=extra; row order = CSV order",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/null_distributions_leiden.npz,phase1,"Null distributions (500 perms x interactions) for comp/edge/matched/ratio, family=leiden; row order = CSV order",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/decomposition_summary.csv,phase1,"Per-family counts: significant under each score, C/E disagreements split into score-form vs proximity",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+results/pdac/phase1/phase1_gate.json,phase1,Phase 1 gate: does the matched baseline explain the C-vs-E disagreement?,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_paper.png,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=paper",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_paper.pdf,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=paper",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:03
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_extra.png,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=extra",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:04
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_extra.pdf,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=extra",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:04
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_leiden.png,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=leiden",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:05
+figures/pdac/phase1/phase1_z_compositional_vs_edge_vs_matched_leiden.pdf,phase1,"z-scores of compositional, matched baseline, edge and ratio scores; family=leiden",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:05
+figures/pdac/phase1/phase1_null_distributions_selected_interactions.png,phase1,Null histograms of C/M/E/Q for selected paper interactions,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:06
+figures/pdac/phase1/phase1_null_distributions_selected_interactions.pdf,phase1,Null histograms of C/M/E/Q for selected paper interactions,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:06
+figures/pdac/phase1/phase1_matched_vs_edge_z_scatter.png,phase1,Matched-baseline z vs edge z; colour marks significant edge/matched ratio,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:07
+figures/pdac/phase1/phase1_matched_vs_edge_z_scatter.pdf,phase1,Matched-baseline z vs edge z; colour marks significant edge/matched ratio,src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:07
+logs/phase1_matched_baseline_20261024T212000.log,phase1,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase1_matched_baseline.py,2026-10-24T21:20:07
+results/pdac/phase1/disagreements_detail.csv,phase1,"Every C/E verdict disagreement with matched/ratio z, decomposition, sparse-gene and <30-edge flags",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
+results/pdac/phase1/phase1_gate_details.json,phase1,Gate breakdown: disagreements by pair/sparsity/edge count; edge-significant rows vs ratio significance,src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
+figures/pdac/phase1/phase1b_edge_significant_matched_vs_ratio_z.png,phase1,"For edge-significant interactions, matched-baseline z vs edge/matched-ratio z",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
+figures/pdac/phase1/phase1b_edge_significant_matched_vs_ratio_z.pdf,phase1,"For edge-significant interactions, matched-baseline z vs edge/matched-ratio z",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
+logs/phase1b_gate_details_20261024T212107.log,phase1,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
