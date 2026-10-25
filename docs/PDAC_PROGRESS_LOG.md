@@ -6,7 +6,7 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 
 - [x] Phase 0: Repo hygiene (PDCD1 caption, F:\ paths, settings note, "replication" renamed)
 - [x] Phase 1: Matched dyadic baseline (breast) — gate: matched baseline does NOT explain most C/E disagreements (3/9), but it carries all edge-significant calls (0/8 ratio-significant)
-- [ ] Phase 2: Find and vet a PDAC spatial dataset
+- [x] Phase 2: Find and vet a PDAC spatial dataset — selected Mendeley PDAC-SMI (CosMx, CC BY 4.0, 37/39 genes)
 - [ ] Phase 3: Run the audit on PDAC
 - [ ] Phase 4: Benchmark against COMMOT / SpatialDM / Squidpy ligrec
 - [ ] Phase 5: Synthesis (PDAC_SUMMARY.md, README section)
@@ -86,3 +86,36 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - **Caveat**: Q = E/M is unstable when M is small. All 8 Q-significant rows across the families have negative matched z, so Q significance should not be read as evidence of proximity coupling.
 - **Outputs**: `results/pdac/phase1/` (per-family CSVs, `null_distributions_{paper,extra,leiden}.npz`, `decomposition_summary.csv`, `disagreements_detail.csv`, gate JSONs); `figures/pdac/phase1/` (5 figures from phase1 plus 1 from phase1b, PNG + PDF).
 - **Next**: Phase 2. Dataset vetting is running in parallel; then Phase 3.
+
+## 2026-10-24 21:35 — Phase 2: PDAC dataset vetting
+
+- **What was done**: A delegated web-vetting pass fetched the candidate pages and saved verbatim evidence (`results/pdac/phase2/dataset_vetting_raw_notes.md`, draft table `results/pdac/phase2/dataset_vetting_draft.csv`). Small panel and header files were stored git-ignored under `data/pdac_panels/`. I then independently re-verified the selected dataset:
+  - Mendeley public API (`https://data.mendeley.com/public-api/datasets/kx6b69n3cb`): licence **CC BY 4.0**; files `raw_meta_data_final.h5ad` 300,718,306 B, `SMI_raw.zip` 5,519,589,653 B, `Co-culture_seurat.rds` 585,225,537 B.
+  - Downloaded `raw_meta_data_final.h5ad` (plain HTTPS, size matches exactly, sha256 `7c65c071...`) to `data/pdac/mendeley_pdac_smi/` (git-ignored).
+  - Inspected it (`results/pdac/phase2/mendeley_h5ad_inspection.json`): 717,493 cells × 1,009 features (960 Base, 30 Spike-in, 19 Negprob); 16 sections (`sample_id`); integer counts (max 521); author annotations (`annotation_majortypes` / `annotation_subtypes`); centroids `CenterX/Y_global_px`. The 30 spike-in genes are NaN in every cell of the "-b" sections (284,492 cells), i.e. not measured there. They are dropped from all analyses, together with the 19 negative probes.
+  - Gene presence on the 960 Base probes, re-checked from the file, agrees with the draft: 37/39 catalogue genes present; PTN and SDC4 absent.
+  - Source paper, fetched via the Europe PMC REST API (`data/pdac_panels/mendeley_pdac_smi/PMC10327107_fulltext.xml`): Shiau, Cao, Gregory, Gong et al., "Therapy-associated remodeling of pancreatic cancer revealed by single-cell spatial transcriptomics and optimal transport analysis", bioRxiv 2023, doi 10.1101/2023.06.28.546848. It states "960-plex gene panel, with (n = 6) and without (n = 9) 30 custom probes" and "753,133 high confidence single-cell profiles" (the h5ad holds 717,493; the difference is unexplained and the h5ad count is used). The data-availability statement points to this Mendeley DOI.
+  - **Pixel scale**: the paper's Methods say "60 pixels (10.8 μm)", i.e. 0.18 µm/px, used here to convert `CenterX/Y_global_px` to µm. Local coordinates reach 5,460 × 3,640 px, which fits a 5,472 × 3,648 px FOV. Caveat: the sentence is about a downsampled PanCK image, so the scale is inferred, not explicitly stated for the centroid columns. Only the radius sweep depends on it; kNN graphs are scale-free.
+- **BLOCKED**:
+  - PMC HTML (reCAPTCHA), so Europe PMC's public API was used instead.
+  - GEO usage-terms page (reCAPTCHA), so licences for GSE310352, GSE277782 and GSE267680 are not stated.
+  - All 10x Genomics pages (HTTP 429), so 10x licences, bundle sizes and URLs are UNVERIFIED.
+  - Cancer Letters 2026 Xenium 5K article (HTTP 403).
+
+  None of these blocks was worked around.
+- **Excluded**: bioRxiv 10.1101/2025.02.11.637627 (no new spatial data; re-uses the 10x PDAC IO Xenium set plus one GSE267680 sample); GSE274103 (Visium, spot-level).
+- **Ranking** (single-cell > L–R coverage > licence > downloadability):
+  1. Mendeley PDAC-SMI
+  2. GSE310352 (CosMx, 37/39, licence not stated)
+  3. GSE277782 (CosMx, 37/39, mostly liver metastases, licence not stated)
+  4. 10x Xenium PDAC IO (25/39, 10x page blocked)
+  5. GSE267680 (PanIN, 5.5 GB per sample, panel UNVERIFIED)
+  6. 10x Xenium pancreas cancer add-on (13/39)
+- **Decision**: Mendeley PDAC-SMI. It is single-cell, has 37/39 genes, an explicit CC BY 4.0 licence, a 301 MB file, and 16 sections from 13 tumours, which allows a cross-section consistency check.
+- **Outputs**: `results/pdac/dataset_vetting.csv` (final), `results/pdac/phase2/*`, `figures/pdac/phase2/phase2_lr_gene_coverage_by_candidate.{png,pdf}`, log `logs/phase2_dataset_vetting_20261024T213443.log`.
+- **Phase 4 prep (same session)**: Cloned env `thesis-spatial-ccc` → `pdac-bench`, so benchmark installs cannot alter the paper env. `pip install commot` installed commot 0.0.3 but upgraded numpy to 2.2.6, and import then failed (`AttributeError: np.Inf was removed in the NumPy 2.0 release`). Attempt 2 pinned `numpy<2` (1.26.4): commot imports (pip warns that tobler 0.13.0 wants numpy>=2; tobler is not used). `pip install SpatialDM` installed SpatialDM 0.3.1, which imports. Logs: `logs/phase4_install_commot_*.log`, `logs/phase4_install_spatialdm_*.log`.
+- **Next**: Phase 3. Pre-declared before loading any PDAC expression into the pipeline:
+  - Primary section = the largest untreated section (by the rule: U5-a, 74,793 cells).
+  - All 16 sections get the 6-NN main analysis as a cross-section consistency check.
+  - QC thresholds are the breast ones (min_counts=10, min_cells=3). This deviates from the authors' ≥60-transcript filter, deliberately, to keep the pipeline identical.
+  - Marker sets and the L–R catalogue are fixed in `src/pdac/phase3_pdac_audit.py` and `src/pdac/lr_catalog.py`.

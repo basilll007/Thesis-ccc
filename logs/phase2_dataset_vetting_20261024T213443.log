@@ -1,0 +1,10 @@
+2026-10-24 21:34:43,150 INFO script=phase2_dataset_vetting log=logs/phase2_dataset_vetting_20261024T213443.log
+2026-10-24 21:34:43,184 INFO git_commit=f0b2c72743f68537c0e664b34c84186862cd6af4+dirty
+2026-10-24 21:34:43,184 INFO seed=42
+2026-10-24 21:34:51,168 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 21:34:51,182 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 21:34:52,045 INFO h5ad: 717493 cells x 1009 features; probe types {'Base': 960, 'Spike-in': 30, 'Negprob': 19}; samples 16
+2026-10-24 21:34:52,047 INFO Saved results/pdac/phase2/mendeley_h5ad_inspection.json
+2026-10-24 21:34:52,065 INFO Gene presence re-check agrees with draft: True
+2026-10-24 21:34:52,800 INFO Saved figure figures/pdac/phase2/phase2_lr_gene_coverage_by_candidate(.png/.pdf)
+2026-10-24 21:34:52,806 INFO run finished

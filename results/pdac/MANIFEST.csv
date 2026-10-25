@@ -33,3 +33,13 @@ results/pdac/phase1/phase1_gate_details.json,phase1,Gate breakdown: disagreement
 figures/pdac/phase1/phase1b_edge_significant_matched_vs_ratio_z.png,phase1,"For edge-significant interactions, matched-baseline z vs edge/matched-ratio z",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
 figures/pdac/phase1/phase1b_edge_significant_matched_vs_ratio_z.pdf,phase1,"For edge-significant interactions, matched-baseline z vs edge/matched-ratio z",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
 logs/phase1b_gate_details_20261024T212107.log,phase1,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase1b_gate_details.py,2026-10-24T21:21:15
+results/pdac/phase2/dataset_vetting_draft.csv,phase2,Web-vetting draft (one row per candidate; fetched-page evidence),subagent web vetting (2026-10-24),2026-10-24T21:34:51
+results/pdac/phase2/dataset_vetting_raw_notes.md,phase2,"Raw vetting notes: URLs fetched, verbatim quotes, BLOCKED fetches",subagent web vetting (2026-10-24),2026-10-24T21:34:51
+results/pdac/phase2/mendeley_h5ad_inspection.json,phase2,Direct inspection of the downloaded Mendeley h5ad,src/pdac/phase2_dataset_vetting.py,2026-10-24T21:34:52
+results/pdac/dataset_vetting.csv,phase2,"Final dataset vetting table (licence, size, platform, coords, panel, L-R gene presence, rank, selection)",src/pdac/phase2_dataset_vetting.py,2026-10-24T21:34:52
+figures/pdac/phase2/phase2_lr_gene_coverage_by_candidate.png,phase2,Catalogue-gene presence heatmap across candidates,src/pdac/phase2_dataset_vetting.py,2026-10-24T21:34:52
+figures/pdac/phase2/phase2_lr_gene_coverage_by_candidate.pdf,phase2,Catalogue-gene presence heatmap across candidates,src/pdac/phase2_dataset_vetting.py,2026-10-24T21:34:52
+logs/phase2_dataset_vetting_20261024T213443.log,phase2,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase2_dataset_vetting.py,2026-10-24T21:34:52
+logs/phase4_install_commot_20261024T212449.log,phase4,"pip install log (versions attempted, errors)",manual pip install (pdac-bench env),2026-10-24T21:35:43
+logs/phase4_install_spatialdm_20261024T212707.log,phase4,"pip install log (versions attempted, errors)",manual pip install (pdac-bench env),2026-10-24T21:35:43
+src/pdac/lr_catalog.py,phase3,Curated L-R catalogue declared before PDAC data were loaded,manual,2026-10-24T21:35:43
