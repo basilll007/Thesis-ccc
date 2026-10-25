@@ -1,4 +1,4 @@
-# PDAC Extension — Summary (branch `pdac-extension`, 2026-10-24)
+# PDAC Extension — Summary (2026-10-24)
 
 This is an audit/diagnostic summary. Nothing in it supports a biological or clinical claim. Every number comes from a file listed in `results/pdac/MANIFEST.csv`; the source file is given in brackets. The step-by-step record is in `docs/PDAC_PROGRESS_LOG.md`.
 

@@ -1,4 +1,4 @@
-# PDAC Extension — Progress Log (branch `pdac-extension`)
+# PDAC Extension — Progress Log
 
 Append-only log. Every number here comes from a file listed in `results/pdac/MANIFEST.csv`. Interpretation is limited to audit and diagnostic statements. Nothing here supports a biological or clinical claim.
 
@@ -237,3 +237,7 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
   - Phases 0, 1, 2 and 5: DONE.
   - Phase 3: DONE, except the full-catalogue radius sweep (BLOCKED: the host stopped the run for low memory; a re-run needs the user's go-ahead; the headline-only sweep is done).
   - Phase 4: DONE for COMMOT, SpatialDM and crop-level ligrec. Full-section ligrec p-values BLOCKED (all NaN in 2 attempts).
+
+## 2026-10-25 — Branch consolidated into `main`
+
+- **Done**: At the user's request, no separate branch is kept. `main` was fast-forwarded to the PDAC work (3cde438 → 40c9707; `git merge --ff-only pdac-extension`) and the local branch `pdac-extension` was deleted (`git branch -d pdac-extension`). All six phase commits are now on `main` with unchanged history. Nothing was pushed. Mentions of the branch name in the README, the summary, the log titles and the module docstrings were updated. The 2026-10-24 entries above that describe creating the branch are kept as a historical record.

@@ -1,1 +1,1 @@
-"""PDAC-extension scripts (branch `pdac-extension`). See docs/PDAC_PROGRESS_LOG.md."""
+"""PDAC-extension scripts. See docs/PDAC_PROGRESS_LOG.md."""

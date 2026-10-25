@@ -1,4 +1,4 @@
-"""Shared helpers for the PDAC-extension scripts (branch `pdac-extension`).
+"""Shared helpers for the PDAC-extension scripts.
 
 Every script in src/pdac/ uses these helpers so that:
   * a run log is written to logs/<script>_<timestamp>.log with package versions and git commit,

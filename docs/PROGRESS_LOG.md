@@ -412,7 +412,7 @@
   - Figures: `figures/spatial_pcst_signaling_backbone.png/.pdf`, `figures/cross_fov_replication_analysis.png/.pdf`, `figures/multi_axis_signaling_comparison.png/.pdf`.
   - Web: `enhancements.html`, `spatial.html`, `methods.html`, `index.html`.
 
-## 2026-10-24 — Correction notes (branch `pdac-extension`, Phase 0)
+## 2026-10-24 — Correction notes (PDAC extension, Phase 0)
 
 - **PDCD1 count correction**: the 2026-09 entry above (Publication Visualizations) and `ablation.html` said PDCD1 was detected in "12/7,163 cells (0.17%)". The correct count, from `results/cd274_pdcd1_detection_diagnostic.csv` and recomputed from the processed AnnData, is **5/7,163 (0.07%)**. `ablation.html` is fixed. The figure itself always computed the count dynamically.
 - **Terminology**: the margin-vs-core split is now called an *internal regional consistency check* (one section cut in half), not a replication.

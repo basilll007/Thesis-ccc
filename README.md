@@ -71,7 +71,7 @@ uv pip check
 
 See `docs/PROJECT_CONTEXT.md` for scientific context and provenance and `docs/PROGRESS_LOG.md` for the append-only implementation record.
 
-## PDAC extension (branch `pdac-extension`)
+## PDAC extension
 
 This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using the public Mendeley PDAC-SMI CosMx dataset (Shiau, Cao et al.; CC BY 4.0; doi 10.17632/kx6b69n3cb.1). It also adds a matched dyadic baseline (L̄s·R̄r and E/(L̄s·R̄r)) to the breast analysis. Results are audit and diagnostic only.
 
