@@ -178,3 +178,5 @@ logs/phase3f_background_check_20261024T225216.log,phase3,"run log (package versi
 results/pdac/phase3/background_flag_per_axis.csv,phase3,Per testable L-R pair: background-level gene diagnostic flag (either gene near background in >=8/16 sections),,2026-10-24T22:53:32
 docs/PDAC_SUMMARY.md,phase5,"Synthesis: results table, matched-baseline verdicts, sensitivities, failures, limitations, next steps",manual (Phase 5),2026-10-24T22:54:49
 README.md,phase5,README with PDAC extension section,manual (Phase 5),2026-10-24T22:54:49
+logs/phase3f_background_check_20261024T225159.log,phase3f,run log,see log header,2026-10-24T22:55:02
+logs/phase3_pdac_audit_mendeley_pdac_smi__U5-a_20261024T213702.log,phase3,run log of primary-section audit (run stopped by host at 200 um radius for low memory),src/pdac/phase3_pdac_audit.py,2026-10-24T22:55:02
