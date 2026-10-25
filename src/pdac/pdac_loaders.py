@@ -81,7 +81,52 @@ def load_mendeley_pdac_smi(d: Path, log, sample: str | None = None):
     return adata, meta
 
 
-DATASETS = {"mendeley_pdac_smi": load_mendeley_pdac_smi}
+GSE310352_SLIDES = {  # from https://ftp.ncbi.nlm.nih.gov/geo/series/GSE310nnn/GSE310352/suppl/filelist.txt (fetched 2026-10-25)
+    "slide1": "GSM9294399", "slide2": "GSM9294400", "slide3": "GSM9294401", "slide4": "GSM9294402",
+    "slide6": "GSM9294403", "slide5": "GSM9294404", "slide5b2": "GSM9294405", "slide5b3": "GSM9294406",
+}
+
+
+def load_geo_gse310352(d: Path, log, sample: str | None = None):
+    """GEO GSE310352 (CosMx, treatment-naive PDAC). One slide per call.
+
+    Files: <GSM>_<slide>_cell_by_gene_counts.csv.gz (fov, cell_ID, 970 genes + 19 NegPrb) and
+    <GSM>_<slide>_cell_metadata.csv.gz (fov, cell_ID, centroids in px, Mean./Max. PanCK/CD45/CD3/MembraneStain/DAPI).
+    cell_ID 0 (transcripts not assigned to a cell in CosMx exports) is dropped. Coordinates stay in pixels
+    (um/px for this instrument run is UNVERIFIED); the 6-NN graph is scale-free, so no radius analysis is run.
+    Negative probes are kept in obsm['negprobes'] for the background check and removed from X.
+    """
+    if sample not in GSE310352_SLIDES:
+        raise ValueError(f"slide {sample} not in {list(GSE310352_SLIDES)}")
+    gsm = GSE310352_SLIDES[sample]
+    fc, fm = d / f"{gsm}_{sample}_cell_by_gene_counts.csv.gz", d / f"{gsm}_{sample}_cell_metadata.csv.gz"
+    counts = pd.read_csv(fc)
+    meta = pd.read_csv(fm)
+    counts = counts[counts["cell_ID"] != 0]
+    key = ["fov", "cell_ID"]
+    meta = meta.drop_duplicates(key).set_index(key)
+    counts = counts.set_index(key)
+    common = counts.index.intersection(meta.index)
+    counts, meta = counts.loc[common], meta.loc[common]
+    neg = [c for c in counts.columns if c.startswith("NegPrb")]
+    genes = [c for c in counts.columns if c not in neg]
+    X = sp.csr_matrix(counts[genes].to_numpy(dtype=np.float32))
+    obs = meta.reset_index()
+    obs.index = [f"{sample}_{f}_{c}" for f, c in zip(obs["fov"], obs["cell_ID"])]
+    adata = ad.AnnData(X=X, obs=obs, var=pd.DataFrame(index=genes))
+    adata.obsm["spatial"] = obs[["CenterX_global_px", "CenterY_global_px"]].to_numpy(dtype=float)
+    adata.obsm["negprobes"] = counts[neg].to_numpy(dtype=np.float32)
+    adata.uns["negprobe_names"] = neg
+    log.info("GSE310352 %s (%s): %d cells x %d genes (+%d NegPrb kept separately); coordinates in px (um/px UNVERIFIED)",
+             sample, gsm, adata.n_obs, adata.n_vars, len(neg))
+    info = {"dataset": "GEO GSE310352 (CosMx; Lyubetskaya et al., Cell Rep 2026, doi 10.1016/j.celrep.2025.116827)",
+            "section": sample, "gsm": gsm, "files": _filemeta([fc, fm]), "n_cells_section": int(adata.n_obs),
+            "n_genes": int(adata.n_vars), "n_negprobes": len(neg), "treatment_status": "Untreated",
+            "coordinate_units": "px (um/px UNVERIFIED)"}
+    return adata, info
+
+
+DATASETS = {"mendeley_pdac_smi": load_mendeley_pdac_smi, "geo_gse310352": load_geo_gse310352}
 
 
 def load(key: str, data_dir: Path, log):

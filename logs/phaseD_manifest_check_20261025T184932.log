@@ -1,0 +1,11 @@
+2026-10-25 18:49:32,157 INFO script=phaseD_manifest_check log=logs/phaseD_manifest_check_20261025T184932.log
+2026-10-25 18:49:32,196 INFO git_commit=161418a018c7ab2864758f9a9d6d5312e360f8e4+dirty
+2026-10-25 18:49:32,197 INFO seed=42
+2026-10-25 18:49:41,486 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:49:41,499 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:49:41,612 INFO v2 files: 144; issues: 3
+2026-10-25 18:49:41,612 INFO {'path': 'logs/phaseC_gse310352_audit_20261025T184035_SYNTHETIC_SELFTEST.log', 'issue': 'file not in manifest', 'action': 're-registered'}
+2026-10-25 18:49:41,615 INFO {'path': 'results/pdac/phaseB/ccc_sections/U2-b__consensus_T.csv.gz', 'issue': 'file not in manifest', 'action': 're-registered'}
+2026-10-25 18:49:41,615 INFO {'path': 'logs/phaseB1_protein_labels_20261025T183049.log', 'issue': 'manifest row without file', 'action': 'reported only'}
+2026-10-25 18:49:41,628 INFO Saved results/pdac/phaseD/manifest_check.csv (3 rows)
+2026-10-25 18:49:41,633 INFO run finished

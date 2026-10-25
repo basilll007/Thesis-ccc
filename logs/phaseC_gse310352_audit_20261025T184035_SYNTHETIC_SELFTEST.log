@@ -1,0 +1,57 @@
+2026-10-25 18:40:35,858 INFO script=phaseC_gse310352_audit log=logs/phaseC_gse310352_audit_20261025T184035.log
+2026-10-25 18:40:35,913 INFO git_commit=161418a018c7ab2864758f9a9d6d5312e360f8e4+dirty
+2026-10-25 18:40:35,914 INFO seed=42
+2026-10-25 18:40:35,914 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:40:35,929 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:40:36,151 INFO GSE310352 slide1 (GSM9294399): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:36,176 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:37,558 INFO [slide1/marker] 3100 interactions x 500 perms in 0.7s (9000 edges)
+2026-10-25 18:40:37,875 INFO slide slide1 / marker saved; sys_avail=5.67GB load=82% proc_rss=0.48GB proc_peak=0.56GB
+2026-10-25 18:40:38,788 INFO [slide1/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:38,968 INFO slide slide1 / protein_gmm saved; sys_avail=5.68GB load=82% proc_rss=0.46GB proc_peak=0.56GB
+2026-10-25 18:40:39,309 INFO GSE310352 slide2 (GSM9294400): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:39,330 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:40,655 INFO [slide2/marker] 3100 interactions x 500 perms in 0.7s (9000 edges)
+2026-10-25 18:40:40,980 INFO slide slide2 / marker saved; sys_avail=5.62GB load=83% proc_rss=0.49GB proc_peak=0.56GB
+2026-10-25 18:40:41,895 INFO [slide2/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:42,082 INFO slide slide2 / protein_gmm saved; sys_avail=5.63GB load=83% proc_rss=0.46GB proc_peak=0.57GB
+2026-10-25 18:40:42,424 INFO GSE310352 slide3 (GSM9294401): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:42,444 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:43,675 INFO [slide3/marker] 3100 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:44,008 INFO slide slide3 / marker saved; sys_avail=5.67GB load=82% proc_rss=0.49GB proc_peak=0.57GB
+2026-10-25 18:40:44,966 INFO [slide3/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:45,148 INFO slide slide3 / protein_gmm saved; sys_avail=5.67GB load=82% proc_rss=0.47GB proc_peak=0.57GB
+2026-10-25 18:40:45,486 INFO GSE310352 slide4 (GSM9294402): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:45,507 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:46,773 INFO [slide4/marker] 3100 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:47,103 INFO slide slide4 / marker saved; sys_avail=5.64GB load=83% proc_rss=0.49GB proc_peak=0.57GB
+2026-10-25 18:40:48,015 INFO [slide4/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:48,192 INFO slide slide4 / protein_gmm saved; sys_avail=5.62GB load=83% proc_rss=0.48GB proc_peak=0.57GB
+2026-10-25 18:40:48,555 INFO GSE310352 slide6 (GSM9294403): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:48,574 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:49,875 INFO [slide6/marker] 3100 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:50,205 INFO slide slide6 / marker saved; sys_avail=5.57GB load=83% proc_rss=0.49GB proc_peak=0.57GB
+2026-10-25 18:40:51,192 INFO [slide6/protein_gmm] 3100 interactions x 500 perms in 0.7s (9000 edges)
+2026-10-25 18:40:51,445 INFO slide slide6 / protein_gmm saved; sys_avail=5.56GB load=83% proc_rss=0.49GB proc_peak=0.61GB
+2026-10-25 18:40:51,774 INFO GSE310352 slide5 (GSM9294404): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:51,797 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:53,079 INFO [slide5/marker] 3100 interactions x 500 perms in 0.7s (9000 edges)
+2026-10-25 18:40:53,405 INFO slide slide5 / marker saved; sys_avail=5.53GB load=83% proc_rss=0.49GB proc_peak=0.61GB
+2026-10-25 18:40:54,317 INFO [slide5/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:54,492 INFO slide slide5 / protein_gmm saved; sys_avail=5.48GB load=83% proc_rss=0.47GB proc_peak=0.61GB
+2026-10-25 18:40:54,833 INFO GSE310352 slide5b2 (GSM9294405): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:54,852 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:56,082 INFO [slide5b2/marker] 3100 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:56,391 INFO slide slide5b2 / marker saved; sys_avail=5.68GB load=82% proc_rss=0.49GB proc_peak=0.61GB
+2026-10-25 18:40:57,285 INFO [slide5b2/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:40:57,467 INFO slide slide5b2 / protein_gmm saved; sys_avail=5.25GB load=84% proc_rss=0.48GB proc_peak=0.61GB
+2026-10-25 18:40:57,793 INFO GSE310352 slide5b3 (GSM9294406): 1500 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-10-25 18:40:57,818 INFO QC (breast thresholds min_counts=10, min_cells=3): (1500, 970) -> (1500, 970)
+2026-10-25 18:40:59,146 INFO [slide5b3/marker] 3100 interactions x 500 perms in 0.7s (9000 edges)
+2026-10-25 18:40:59,466 INFO slide slide5b3 / marker saved; sys_avail=5.65GB load=83% proc_rss=0.50GB proc_peak=0.61GB
+2026-10-25 18:41:00,390 INFO [slide5b3/protein_gmm] 1984 interactions x 500 perms in 0.6s (9000 edges)
+2026-10-25 18:41:00,557 INFO slide slide5b3 / protein_gmm saved; sys_avail=5.65GB load=83% proc_rss=0.48GB proc_peak=0.61GB
+2026-10-25 18:41:01,182 INFO Saved results/pdac/phaseC_SYNTHETIC_SELFTEST/gse310352_headline_CAF_T_rows.csv (8 rows)
+2026-10-25 18:41:01,193 INFO Saved results/pdac/phaseC_SYNTHETIC_SELFTEST/gse310352_headline_summary.csv (1 rows)
+2026-10-25 18:41:01,215 INFO Saved results/pdac/phaseC_SYNTHETIC_SELFTEST/gse310352_summary.json
+2026-10-25 18:41:01,224 INFO run finished
