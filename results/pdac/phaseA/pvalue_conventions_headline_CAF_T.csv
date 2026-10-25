@@ -1,0 +1,9 @@
+family,score,n_sections,sig_legacy,sig_plus1,sig_bh_legacy,sig_bh_plus1
+author_mapped,comp,16,16,16,16,16
+author_mapped,edge,16,16,16,16,14
+author_mapped,matched,16,16,16,16,16
+author_mapped,ratio,16,2,2,1,0
+cell_type_marker,comp,16,16,16,16,16
+cell_type_marker,edge,16,16,16,16,13
+cell_type_marker,matched,16,16,16,16,16
+cell_type_marker,ratio,16,4,4,0,0

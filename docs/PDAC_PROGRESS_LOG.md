@@ -241,3 +241,67 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 ## 2026-10-25 — Branch consolidated into `main`
 
 - **Done**: At the user's request, no separate branch is kept. `main` was fast-forwarded to the PDAC work (3cde438 → 40c9707; `git merge --ff-only pdac-extension`) and the local branch `pdac-extension` was deleted (`git branch -d pdac-extension`). All six phase commits are now on `main` with unchanged history. Nothing was pushed. Mentions of the branch name in the README, the summary, the log titles and the module docstrings were updated. The 2026-10-24 entries above that describe creating the branch are kept as a historical record.
+
+---
+
+# PDAC v2 (branch `pdac-v2`, from `main` @ df3867c)
+
+## v2 task checklist
+
+- [x] Phase A: Housekeeping — tag pushed; 5/5 headline numbers match; no uncorrected verdict flips (BH-level flips documented)
+- [ ] Phase B: Protein-guided T-cell labels; re-run audit; does CAF→T Q survive?
+- [ ] Phase C: Independent replication on GSE310352 (or BLOCKED with a list of what is needed)
+- [ ] Phase D: v2 synthesis (summary answering the key question; README links)
+
+## 2026-10-25 18:15 — v2 start: reading of the brief
+
+- **Brief**: the pasted v2 brief is cut off in the middle of Phase C, after "write what you need from me (exact items to paste f". It resumes with the end of a synthesis question ("…validated labels and an independent dataset, or is the edge score mostly mirroring cell-type products?") and "Update the README PDAC section with links to v2."
+- **Reading taken** (per the "do not stop to ask" rule):
+  - Phase C: try the public file listing and the paper or data repository through normal fetches. If the licence or format cannot be confirmed, mark it BLOCKED and write down exactly what the user needs to paste.
+  - Phase D: write `docs/PDAC_SUMMARY_v2.md`. It answers "Does the CAF→T proximity-specific (Q) signal survive validated labels and an independent dataset, or is the edge score mostly mirroring cell-type products?" and updates the README with v2 links.
+- **Environment**:
+  - conda env `thesis-spatial-ccc` (`D:/Anaconda/envs/thesis-spatial-ccc/python.exe`), the same as v1.
+  - Free RAM at start: 6.6 GB of 32.6 GB, so the work is chunked per section.
+- **Command**: `git checkout -b pdac-v2`
+
+## 2026-10-25 18:18 — Phase A.1: tag `aaai27-submitted`
+
+- **Done**:
+  - `git ls-remote --tags origin` listed no tags (exit 0), so the tag did not exist on the remote.
+  - Ran `git tag aaai27-submitted 3cde438` (3cde438ec565…, "feat: S-PCST signaling backbone optimization…").
+  - Pushed **only the tag**: `git push origin refs/tags/aaai27-submitted`. The remote now lists `refs/tags/aaai27-submitted` → 3cde438. No branch was pushed.
+
+## 2026-10-25 18:20 — Phase A.2: headline-number spot-check
+
+- **Command**: `python src/pdac/phaseA_spotcheck.py` (log `logs/phaseA_spotcheck_20261025T182020.log`)
+- **Method**: each number is recomputed from the row-level table, not copied from a summary file.
+- **Output**:
+  - `results/pdac/phaseA/spotcheck.csv`
+  - `figures/pdac/phaseA/phaseA_spotcheck_table.{png,pdf}`
+- **Key numbers** (claimed → recomputed; **all 5 match**):
+  1. Breast gate 3/9 → 3/9 (`results/pdac/phase1/breast_matched_baseline_paper22.csv`)
+  2. CAF→T edge-significant sections 16/16 (marker) and 16/16 (author) → 16/16 and 16/16
+  3. Q-significant 4/16 (marker) and 2/16 (author); 0/16 after BH → 4/16 and 2/16; 0/16 and 0/16 after BH within section
+  4. Background-flagged axes 24/31 → 24/31. The recount from the per-section × gene table equals the stored per-axis flag column.
+  5. Spearman(edge z, ligrec mean), crop: 0.02 → 0.022 (n = 2,821 rows with finite values)
+- **Decision**: no correction to `docs/PDAC_SUMMARY.md` is needed.
+
+## 2026-10-25 18:22 — Phase A.3: p-value conventions side by side
+
+- **Command**: `python src/pdac/phaseA_pvalue_conventions.py` (log `logs/phaseA_pvalue_conventions_20261025T182230.log`)
+- **Run note**: the first run wrote the PDAC long table as a 101.6 MB CSV, which is over GitHub's 100 MB file limit. That file and the run's other outputs, log and MANIFEST rows were all from minutes earlier and uncommitted, so they were deleted. The script was changed to write `pvalue_conventions_pdac.csv.gz` (11.7 MB) and re-run. The numbers are identical.
+- **Recompute vs stored**: p was recomputed from the saved null `.npz` files for breast paper/extra/leiden and for PDAC U5-a marker/Leiden. The maximum absolute difference from the stored `*_p_legacy` and `*_p_plus1` columns is 1.1e-16, with 0 verdict differences. The PDAC 16-section tables have no saved nulls, so their stored columns were used (both were written by the same `ccc_audit.stats`).
+- **Key numbers** (`results/pdac/phaseA/pvalue_conventions_flip_summary.csv`, `pvalue_conventions_flipped_rows.csv`, `pvalue_conventions_headline_CAF_T.csv`):
+  - **Breast**: 0 uncorrected flips in 292 rows. The Phase 1 gate is 3/9 under both conventions. 3 BH flips in the `extra` family, all significant only under legacy:
+    - CD86→CTLA4 fibroblast→immune, edge: q 0.032 → 0.064
+    - PTN→SDC4 epithelial→epithelial, edge: q 0 → 0.064
+    - CD86→CTLA4 fibroblast→endothelial, compositional: q 0.0498 → 0.057
+  - **PDAC**:
+    - 9 uncorrected flips in 533,244 section-rows. All are ratio Q with n_valid nulls < 500 and p_legacy 0.048–0.0495.
+    - 4,533 BH flips, all significant only under legacy (legacy p = 0 lowers q).
+    - CAF→T headline, uncorrected: identical under both conventions.
+    - CAF→T headline, BH within section, edge: marker 16 → 13/16, author 16 → 14/16.
+    - CAF→T headline, BH within section, Q: marker 0 → 0/16, author 1 → 0/16.
+- **Answer**: no uncorrected verdict flips for any breast row or any headline row. The flips that do occur are BH-level, and the legacy convention is always the more liberal one.
+- **Doc**: added a "p-value convention" section to `docs/RESULTS_SETTINGS_NOTE.md`.
+- **Next**: commit Phase A, then Phase B.

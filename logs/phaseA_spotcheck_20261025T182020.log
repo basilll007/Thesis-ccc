@@ -1,0 +1,14 @@
+2026-10-25 18:20:20,953 INFO script=phaseA_spotcheck log=logs/phaseA_spotcheck_20261025T182020.log
+2026-10-25 18:20:20,994 INFO git_commit=df3867ce36b4fd41c7ee91cf329fb72c02d2ca94+dirty
+2026-10-25 18:20:20,994 INFO seed=42
+2026-10-25 18:20:34,568 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 18:20:34,589 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 18:20:35,358 INFO item 4: recomputed per-axis flags identical to stored column: True
+2026-10-25 18:20:35,400 INFO spot-check 1: claimed=3/9 recomputed=3/9 match=yes
+2026-10-25 18:20:35,400 INFO spot-check 2: claimed=16/16 / 16/16 recomputed=16/16 / 16/16 match=yes
+2026-10-25 18:20:35,400 INFO spot-check 3: claimed=4/16 / 2/16; 0/16 after BH (both annotations) recomputed=4/16 / 2/16; 0/16 / 0/16 after BH match=yes
+2026-10-25 18:20:35,400 INFO spot-check 4: claimed=24/31 recomputed=24/31 match=yes
+2026-10-25 18:20:35,401 INFO spot-check 5: claimed=0.02 recomputed=0.022 (n=2821) match=yes
+2026-10-25 18:20:35,405 INFO Saved results/pdac/phaseA/spotcheck.csv (5 rows)
+2026-10-25 18:20:35,941 INFO Saved figure figures/pdac/phaseA/phaseA_spotcheck_table(.png/.pdf)
+2026-10-25 18:20:35,948 INFO run finished

@@ -32,3 +32,32 @@ The sweep z-scores grow with radius mainly because the number of qualifying edge
 ## Terminology
 
 The margin-vs-core split (`src/run_cross_fov_replication.py`, `results/cross_fov_replication/`) cuts **one tissue section** in half at the median x coordinate. It is an **internal regional consistency check**, not a replication. File and directory names still say `replication` only so that existing links keep working.
+
+## p-value convention (added 2026-10-25, Phase A of PDAC v2)
+
+Two one-sided empirical p-value conventions are used in this repository, and the convention must be stated next to every p-value or verdict.
+
+| Convention | Formula | Where it is used | Smallest value (500 perms) |
+|---|---|---|---|
+| **legacy** | p = mean(null ≥ obs) | breast paper files: `results/spatial_null_corrected.csv`, `results/spatial_edge_null.csv`, `results/multi_axis_expansion/*`, `results/distance_decay_horizon/*` (`src/spatial_null.py`, `src/run_spatial_edge_null.py`) | 0 (not a valid permutation p) |
+| **add-one** | p = (#{null ≥ obs} + 1) / (n + 1) | all PDAC-extension tables (`results/pdac/`, columns `*_p_plus1`); primary for every new claim and for BH | 1/501 = 0.002 |
+
+Every PDAC-extension table stores **both** columns (`*_p_legacy` and `*_p_plus1`). `src/pdac/phaseA_pvalue_conventions.py` puts the two side by side for breast and PDAC. It recomputes p from the saved null distributions where they exist (breast Phase 1 families; PDAC U5-a); the recomputation matches the stored columns to ≤ 1.1e-16 with 0 verdict differences. Otherwise it uses the stored columns.
+
+What changes between conventions (alpha = 0.05) [`results/pdac/phaseA/pvalue_conventions_flip_summary.csv`, `pvalue_conventions_flipped_rows.csv`]:
+
+- **Uncorrected verdicts cannot flip when all nulls are valid.** With n = 500, legacy p < 0.05 ⇔ #{null ≥ obs} ≤ 24 ⇔ add-one p < 0.05. With n = 200 (15 µm setting), both conditions mean ≤ 9. Breast: 0 flips in 292 rows (the 22 paper rows, the extra and Leiden families, and the 15 µm axes). The breast Phase 1 gate is 3/9 under both conventions.
+- **Ratio Q can flip** when some permutations have M = 0 (NaN nulls, so n_valid < 500). There are 9 such flips out of 533,244 PDAC section-rows: 2 marker, 7 author. All 9 are legacy-significant and add-one-not-significant, with p_legacy 0.048–0.0495. None involves the CAF→T headline.
+- **BH verdicts do flip.** Legacy p = 0 enters BH as 0, so more rows pass BH under legacy:
+  - Breast `extra` family: 3 flips, all significant only under legacy. CD86→CTLA4 fibroblast→immune edge (q 0.032 → 0.064); PTN→SDC4 epithelial→epithelial edge (q 0 → 0.064); CD86→CTLA4 fibroblast→endothelial compositional (q 0.0498 → 0.057).
+  - PDAC: 4,533 BH flips across sections and scores, all in the same direction.
+  - Headline CAF→T CXCL12→CXCR4, BH within section [`results/pdac/phaseA/pvalue_conventions_headline_CAF_T.csv`]:
+
+    | Annotation | Edge, legacy | Edge, add-one | Q, legacy | Q, add-one |
+    |---|---|---|---|---|
+    | marker | 16/16 | 13/16 | 0/16 | 0/16 |
+    | author | 16/16 | 14/16 | 1/16 | 0/16 |
+
+    Uncorrected counts are identical under both conventions (edge 16/16 for both annotations; Q 4/16 marker, 2/16 author).
+
+Rule from here on: report add-one p and BH on add-one p. Quote legacy p only when comparing with the original breast paper files, and label it "legacy".

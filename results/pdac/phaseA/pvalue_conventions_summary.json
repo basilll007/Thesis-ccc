@@ -1,0 +1,109 @@
+{
+  "alpha": 0.05,
+  "breast_gate_both_conventions": {
+    "p_legacy": {
+      "n_C_E_disagreements": 9,
+      "n_score_form": 3
+    },
+    "p_plus1": {
+      "n_C_E_disagreements": 9,
+      "n_score_form": 3
+    }
+  },
+  "recompute_vs_stored_checks": {
+    "breast_paper": {
+      "comp_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "comp_p_legacy_n_verdict_diff_vs_stored": 0,
+      "comp_p_plus1_max_abs_diff_vs_stored": 7.19910242530375e-17,
+      "comp_p_plus1_n_verdict_diff_vs_stored": 0,
+      "edge_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "edge_p_legacy_n_verdict_diff_vs_stored": 0,
+      "edge_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "edge_p_plus1_n_verdict_diff_vs_stored": 0,
+      "matched_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "matched_p_legacy_n_verdict_diff_vs_stored": 0,
+      "matched_p_plus1_max_abs_diff_vs_stored": 8.326672684688674e-17,
+      "matched_p_plus1_n_verdict_diff_vs_stored": 0,
+      "ratio_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "ratio_p_legacy_n_verdict_diff_vs_stored": 0,
+      "ratio_p_plus1_max_abs_diff_vs_stored": 6.938893903907228e-17,
+      "ratio_p_plus1_n_verdict_diff_vs_stored": 0
+    },
+    "breast_extra": {
+      "comp_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "comp_p_legacy_n_verdict_diff_vs_stored": 0,
+      "comp_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "comp_p_plus1_n_verdict_diff_vs_stored": 0,
+      "edge_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "edge_p_legacy_n_verdict_diff_vs_stored": 0,
+      "edge_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "edge_p_plus1_n_verdict_diff_vs_stored": 0,
+      "matched_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "matched_p_legacy_n_verdict_diff_vs_stored": 0,
+      "matched_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "matched_p_plus1_n_verdict_diff_vs_stored": 0,
+      "ratio_p_legacy_max_abs_diff_vs_stored": 5.551115123125783e-17,
+      "ratio_p_legacy_n_verdict_diff_vs_stored": 0,
+      "ratio_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "ratio_p_plus1_n_verdict_diff_vs_stored": 0
+    },
+    "breast_leiden": {
+      "comp_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "comp_p_legacy_n_verdict_diff_vs_stored": 0,
+      "comp_p_plus1_max_abs_diff_vs_stored": 3.599551212651875e-17,
+      "comp_p_plus1_n_verdict_diff_vs_stored": 0,
+      "edge_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "edge_p_legacy_n_verdict_diff_vs_stored": 0,
+      "edge_p_plus1_max_abs_diff_vs_stored": 4.336808689942018e-17,
+      "edge_p_plus1_n_verdict_diff_vs_stored": 0,
+      "matched_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "matched_p_legacy_n_verdict_diff_vs_stored": 0,
+      "matched_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "matched_p_plus1_n_verdict_diff_vs_stored": 0,
+      "ratio_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "ratio_p_legacy_n_verdict_diff_vs_stored": 0,
+      "ratio_p_plus1_max_abs_diff_vs_stored": 3.599551212651875e-17,
+      "ratio_p_plus1_n_verdict_diff_vs_stored": 0
+    },
+    "pdac_U5-a_cell_type_marker": {
+      "comp_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "comp_p_legacy_n_verdict_diff_vs_stored": 0,
+      "comp_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "comp_p_plus1_n_verdict_diff_vs_stored": 0,
+      "edge_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "edge_p_legacy_n_verdict_diff_vs_stored": 0,
+      "edge_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "edge_p_plus1_n_verdict_diff_vs_stored": 0,
+      "matched_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "matched_p_legacy_n_verdict_diff_vs_stored": 0,
+      "matched_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "matched_p_plus1_n_verdict_diff_vs_stored": 0,
+      "ratio_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "ratio_p_legacy_n_verdict_diff_vs_stored": 0,
+      "ratio_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "ratio_p_plus1_n_verdict_diff_vs_stored": 0
+    },
+    "pdac_U5-a_cell_type_leiden": {
+      "comp_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "comp_p_legacy_n_verdict_diff_vs_stored": 0,
+      "comp_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "comp_p_plus1_n_verdict_diff_vs_stored": 0,
+      "edge_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "edge_p_legacy_n_verdict_diff_vs_stored": 0,
+      "edge_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "edge_p_plus1_n_verdict_diff_vs_stored": 0,
+      "matched_p_legacy_max_abs_diff_vs_stored": 0.0,
+      "matched_p_legacy_n_verdict_diff_vs_stored": 0,
+      "matched_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "matched_p_plus1_n_verdict_diff_vs_stored": 0,
+      "ratio_p_legacy_max_abs_diff_vs_stored": 9.194034422677078e-17,
+      "ratio_p_legacy_n_verdict_diff_vs_stored": 0,
+      "ratio_p_plus1_max_abs_diff_vs_stored": 1.1102230246251565e-16,
+      "ratio_p_plus1_n_verdict_diff_vs_stored": 0
+    }
+  },
+  "n_rows_total": 533244,
+  "n_flip_uncorrected": 9,
+  "n_flip_bh": 4533,
+  "note": "With n=500 valid nulls, legacy p<0.05 <=> #ge<=24 <=> add-one p<0.05, so uncorrected verdicts cannot flip; with n=200 both thresholds are #ge<=9. Flips are possible only when n_null_valid < 500 (ratio score, NaN nulls) or after BH, where legacy p=0 vs add-one p=1/(n+1) changes the ranks/q-values."
+}

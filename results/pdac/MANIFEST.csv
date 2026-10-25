@@ -180,3 +180,16 @@ docs/PDAC_SUMMARY.md,phase5,"Synthesis: results table, matched-baseline verdicts
 README.md,phase5,README with PDAC extension section,manual (Phase 5),2026-10-24T22:54:49
 logs/phase3f_background_check_20261024T225159.log,phase3f,run log,see log header,2026-10-24T22:55:02
 logs/phase3_pdac_audit_mendeley_pdac_smi__U5-a_20261024T213702.log,phase3,run log of primary-section audit (run stopped by host at 200 um radius for low memory),src/pdac/phase3_pdac_audit.py,2026-10-24T22:55:02
+results/pdac/phaseA/spotcheck.csv,phaseA,"Five headline numbers of PDAC_SUMMARY.md: claimed vs recomputed, source, match",src/pdac/phaseA_spotcheck.py,2026-10-25T18:20:35
+figures/pdac/phaseA/phaseA_spotcheck_table.png,phaseA,Spot-check table of the five headline numbers,src/pdac/phaseA_spotcheck.py,2026-10-25T18:20:35
+figures/pdac/phaseA/phaseA_spotcheck_table.pdf,phaseA,Spot-check table of the five headline numbers,src/pdac/phaseA_spotcheck.py,2026-10-25T18:20:35
+logs/phaseA_spotcheck_20261025T182020.log,phaseA,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseA_spotcheck.py,2026-10-25T18:20:35
+results/pdac/phaseA/pvalue_conventions_breast.csv,phaseA,"Breast: legacy vs add-one p, uncorrected and BH verdicts per interaction x score, flip flags",src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:41
+results/pdac/phaseA/pvalue_conventions_pdac.csv.gz,phaseA,"PDAC: legacy vs add-one p, uncorrected and BH (within section) verdicts per interaction x score, flip flags",src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:47
+results/pdac/phaseA/pvalue_conventions_flip_summary.csv,phaseA,Per dataset x family x score: significant counts under each convention and verdict flips,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:47
+results/pdac/phaseA/pvalue_conventions_flipped_rows.csv,phaseA,Every row whose verdict differs between conventions,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:47
+results/pdac/phaseA/pvalue_conventions_headline_CAF_T.csv,phaseA,"PDAC CAF->T CXCL12-CXCR4: sections significant under each convention (uncorrected, BH within section)",src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:47
+results/pdac/phaseA/pvalue_conventions_summary.json,phaseA,Summary of p-value convention comparison,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:22:47
+figures/pdac/phaseA/phaseA_pvalue_conventions_scatter.png,phaseA,Legacy vs add-one p for breast and PDAC rows,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
+figures/pdac/phaseA/phaseA_pvalue_conventions_scatter.pdf,phaseA,Legacy vs add-one p for breast and PDAC rows,src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
+logs/phaseA_pvalue_conventions_20261025T182230.log,phaseA,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseA_pvalue_conventions.py,2026-10-25T18:23:02
