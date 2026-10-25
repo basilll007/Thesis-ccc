@@ -1,0 +1,5 @@
+score,n_shared_rows,spearman_z,median_abs_rank_shift,n_verdict_changes
+comp,496,0.9217435600897663,18.0,49
+edge,496,0.8349451633912137,29.0,77
+matched,496,0.8916371149674193,22.0,50
+ratio,484,0.6493133567957984,48.0,106

@@ -1,0 +1,28 @@
+2026-10-24 22:42:56,194 INFO script=phase4c_compare log=logs/phase4c_compare_20261024T224256.log
+2026-10-24 22:42:56,231 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 22:42:56,231 INFO seed=42
+2026-10-24 22:43:03,344 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:43:03,358 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:43:03,477 INFO Saved results/pdac/phase4/comparison_per_axis_crop.csv (3100 rows)
+2026-10-24 22:43:03,495 INFO Saved results/pdac/phase4/comparison_spearman_crop.csv (6 rows)
+2026-10-24 22:43:03,504 INFO Saved results/pdac/phase4/comparison_spearman_n_crop.csv (6 rows)
+2026-10-24 22:43:03,511 INFO Saved results/pdac/phase4/comparison_top20_jaccard_crop.csv (6 rows)
+2026-10-24 22:43:03,517 INFO Saved results/pdac/phase4/comparison_significance_agreement_crop.csv (15 rows)
+2026-10-24 22:43:03,606 WARNING Figure phase4_method_agreement_cluster_level_crop already existed; saving as phase4_method_agreement_cluster_level_crop_20261024T224303 instead (no overwrite).
+2026-10-24 22:43:04,145 INFO Saved figure figures/pdac/phase4/phase4_method_agreement_cluster_level_crop_20261024T224303(.png/.pdf)
+2026-10-24 22:43:04,217 WARNING [full] all squidpy ligrec p-values are NaN -> ligrec excluded from significance agreement (BLOCKED)
+2026-10-24 22:43:04,248 INFO Saved results/pdac/phase4/comparison_per_axis_full.csv (3100 rows)
+2026-10-24 22:43:04,257 INFO Saved results/pdac/phase4/comparison_spearman_full.csv (5 rows)
+2026-10-24 22:43:04,265 INFO Saved results/pdac/phase4/comparison_spearman_n_full.csv (5 rows)
+2026-10-24 22:43:04,272 INFO Saved results/pdac/phase4/comparison_top20_jaccard_full.csv (5 rows)
+2026-10-24 22:43:04,281 INFO Saved results/pdac/phase4/comparison_significance_agreement_full.csv (6 rows)
+2026-10-24 22:43:04,364 WARNING Figure phase4_method_agreement_cluster_level_full already existed; saving as phase4_method_agreement_cluster_level_full_20261024T224304 instead (no overwrite).
+2026-10-24 22:43:04,806 INFO Saved figure figures/pdac/phase4/phase4_method_agreement_cluster_level_full_20261024T224304(.png/.pdf)
+2026-10-24 22:43:04,858 INFO Saved results/pdac/phase4/spatialdm_mapping_crop.csv (31 rows)
+2026-10-24 22:43:04,865 INFO Saved results/pdac/phase4/comparison_lr_level_crop.csv (31 rows)
+2026-10-24 22:43:04,926 INFO Saved results/pdac/phase4/comparison_lr_level_spearman_crop.csv (7 rows)
+2026-10-24 22:43:04,975 INFO Saved results/pdac/phase4/spatialdm_mapping_full.csv (31 rows)
+2026-10-24 22:43:04,981 INFO Saved results/pdac/phase4/comparison_lr_level_full.csv (31 rows)
+2026-10-24 22:43:05,029 INFO Saved results/pdac/phase4/comparison_lr_level_spearman_full.csv (6 rows)
+2026-10-24 22:43:05,037 INFO Saved results/pdac/phase4/phase4_agreement_summary.json
+2026-10-24 22:43:05,042 INFO run finished

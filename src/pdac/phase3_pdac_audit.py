@@ -81,10 +81,11 @@ def preprocess(adata, log):
     sc.pp.normalize_total(adata, target_sum=1e4)
     sc.pp.log1p(adata)
     adata.raw = adata
-    sc.pp.pca(adata, n_comps=min(30, adata.n_vars - 1), random_state=SEED)
-    sc.pp.neighbors(adata, n_neighbors=15, random_state=SEED)
-    sc.tl.leiden(adata, resolution=0.5, random_state=SEED, key_added="leiden", flavor="igraph",
-                 n_iterations=2, directed=False)
+    # identical calls to src/pipeline.py::annotate_and_cluster (breast run)
+    sc.pp.highly_variable_genes(adata, n_top_genes=min(2000, adata.n_vars), flavor="cell_ranger", subset=False)
+    sc.pp.pca(adata, n_comps=min(30, adata.n_obs - 1, adata.n_vars - 1), random_state=SEED)
+    sc.pp.neighbors(adata, n_neighbors=min(15, max(2, adata.n_obs - 1)), random_state=SEED)
+    sc.tl.leiden(adata, resolution=0.5, random_state=SEED, key_added="leiden")
     log.info("Leiden res 0.5: %d clusters", adata.obs["leiden"].nunique())
 
 
@@ -168,13 +169,14 @@ def main() -> None:
     ap.add_argument("--dataset", required=True)
     ap.add_argument("--skip-radius", action="store_true")
     args = ap.parse_args()
-    log = start_run(f"phase3_pdac_audit_{args.dataset}")
+    tag = args.dataset.replace(":", "__")
+    log = start_run(f"phase3_pdac_audit_{tag}")
     rng = np.random.default_rng(SEED)
     log.info("Subsampling RNG for radius graphs: numpy default_rng(%d) (separate from the permutation stream)", SEED)
 
     # 3a load + QC -------------------------------------------------------------------------
     adata, meta = pdac_loaders.load(args.dataset, DATA_DIR, log)
-    save_json(meta, PHASE, f"{args.dataset}_load_metadata.json", "Loader provenance: files, sizes, sample selection", log)
+    save_json(meta, PHASE, f"{tag}_load_metadata.json", "Loader provenance: files, sizes, sample selection", log)
     adata, before, qc_before = qc(adata, log)
     qc_tab = qc_before.copy()
     qc_tab["stage"] = "before_qc"
@@ -183,7 +185,7 @@ def main() -> None:
     qc_tab = pd.concat([qc_tab, qa])
     qc_tab.loc["shape_before", "count"] = f"{before[0]} cells x {before[1]} genes"
     qc_tab.loc["shape_after", "count"] = f"{adata.n_obs} cells x {adata.n_vars} genes"
-    save_csv(qc_tab, PHASE, f"{args.dataset}_qc_table.csv", "QC summary before/after (breast thresholds)", log, index=True)
+    save_csv(qc_tab, PHASE, f"{tag}_qc_table.csv", "QC summary before/after (breast thresholds)", log, index=True)
     fig, ax = plt.subplots(1, 3, figsize=(15, 4))
     ax[0].hist(np.log10(adata.obs["total_counts"] + 1), bins=60, color="#6baed6")
     ax[0].set_xlabel("log10(total counts + 1) after QC")
@@ -193,21 +195,25 @@ def main() -> None:
     ax[2].scatter(xy[:, 0], xy[:, 1], s=0.2, c="k", rasterized=True)
     ax[2].set_aspect("equal")
     ax[2].set_title("cell centroids (µm)")
-    fig.suptitle(f"{args.dataset}: QC ({adata.n_obs} cells x {adata.n_vars} genes after min_counts=10, min_cells=3)")
-    save_figure(fig, PHASE, f"{args.dataset}_3a_qc", "QC distributions and centroid map", log)
+    fig.suptitle(f"{tag}: QC ({adata.n_obs} cells x {adata.n_vars} genes after min_counts=10, min_cells=3)")
+    save_figure(fig, PHASE, f"{tag}_3a_qc", "QC distributions and centroid map", log)
 
     # 3b preprocess + annotate ------------------------------------------------------------
     preprocess(adata, log)
     present, dropped, sf = annotate(adata, log)
     ct = pd.crosstab(adata.obs["cell_type_marker"], adata.obs["cell_type_leiden"], margins=True)
-    save_csv(ct, PHASE, f"{args.dataset}_annotation_crosstab.csv", "Marker-scoring vs Leiden-consensus labels", log, index=True)
+    save_csv(ct, PHASE, f"{tag}_annotation_crosstab.csv", "Marker-scoring vs Leiden-consensus labels", log, index=True)
+    if "author_majortype" in adata.obs:
+        cta = pd.crosstab(adata.obs["author_majortype"], adata.obs["cell_type_marker"], margins=True)
+        save_csv(cta, PHASE, f"{tag}_author_vs_marker_crosstab.csv",
+                 "Author annotation (annotation_majortypes) vs our marker-scoring labels (reference only)", log, index=True)
     save_json({"markers_used": present, "types_dropped": dropped,
                "marker_counts": adata.obs["cell_type_marker"].value_counts().to_dict(),
                "leiden_consensus_counts": adata.obs["cell_type_leiden"].value_counts().to_dict(),
                "n_leiden_clusters": int(adata.obs["leiden"].nunique()),
                "agreement_fraction": float((adata.obs["cell_type_marker"].astype(str)
                                             == adata.obs["cell_type_leiden"].astype(str)).mean())},
-              PHASE, f"{args.dataset}_annotation_summary.json", "Annotation summary for both strategies", log)
+              PHASE, f"{tag}_annotation_summary.json", "Annotation summary for both strategies", log)
     fig, axes = plt.subplots(1, 2, figsize=(16, 7))
     for a, key in zip(axes, ["cell_type_marker", "cell_type_leiden"]):
         cats = adata.obs[key].astype(str)
@@ -217,7 +223,7 @@ def main() -> None:
         a.set_aspect("equal")
         a.set_title(key)
         a.legend(markerscale=12, fontsize=7, loc="upper right")
-    save_figure(fig, PHASE, f"{args.dataset}_3b_annotations_spatial", "Spatial maps of both annotations", log)
+    save_figure(fig, PHASE, f"{tag}_3b_annotations_spatial", "Spatial maps of both annotations", log)
 
     # 3c coverage + detection --------------------------------------------------------------
     cat = catalogue()
@@ -234,7 +240,7 @@ def main() -> None:
                          "receptor_on_panel": r in vn, "testable": (l in vn) and (r in vn),
                          "ligand_n_cells": ncells(l), "receptor_n_cells": ncells(r)} for l, r, s in cat])
     cov["sparse_gene_diagnostic"] = cov["testable"] & (cov[["ligand_n_cells", "receptor_n_cells"]].min(axis=1) < SPARSE_MIN)
-    save_csv(cov, PHASE, f"{args.dataset}_lr_coverage.csv", "Present/absent coverage of curated L-R catalogue + detection counts", log)
+    save_csv(cov, PHASE, f"{tag}_lr_coverage.csv", "Present/absent coverage of curated L-R catalogue + detection counts", log)
     genes = sorted({g for l, r, _ in cat for g in (l, r)})
     det_rows = []
     for g in genes:
@@ -249,7 +255,7 @@ def main() -> None:
     det_df = pd.DataFrame(det_rows)
     det_df["role"] = det_df["gene"].map(lambda g: "+".join(sorted({("ligand" if g == l else "receptor")
                                                                     for l, r, _ in cat if g in (l, r)})))
-    save_csv(det_df, PHASE, f"{args.dataset}_gene_detection_counts.csv",
+    save_csv(det_df, PHASE, f"{tag}_gene_detection_counts.csv",
              "Detection counts (raw counts > 0) per catalogue gene, overall and per marker cell type", log)
     det = dict(zip(det_df["gene"], det_df["n_cells_detected"]))
     pairs = [(l, r) for l, r, _ in cat if l in vn and r in vn]
@@ -264,12 +270,18 @@ def main() -> None:
     ax.set_yticks(yy)
     ax.set_yticklabels([f"{l}-{r}{'' if t else '  (absent)'}" for l, r, t in cov[["ligand", "receptor", "testable"]].itertuples(index=False)], fontsize=7)
     ax.legend(fontsize=8)
-    ax.set_title(f"{args.dataset}: curated L-R coverage and detection")
-    save_figure(fig, PHASE, f"{args.dataset}_3c_lr_coverage_detection", "Coverage/detection of curated L-R pairs", log)
+    ax.set_title(f"{tag}: curated L-R coverage and detection")
+    save_figure(fig, PHASE, f"{tag}_3c_lr_coverage_detection", "Coverage/detection of curated L-R pairs", log)
 
     coords = np.asarray(adata.obsm["spatial"], dtype=np.float64)
     # 3d main analysis: 6-NN, both annotations ----------------------------------------------
     rows6, cols6 = knn_edges(coords, 6)
+    elen = np.linalg.norm(coords[rows6] - coords[cols6], axis=1)
+    elen_info = {"n_edges": int(len(elen)), "median_um": float(np.median(elen)), "p95_um": float(np.percentile(elen, 95)),
+                 "max_um": float(elen.max()), "frac_gt_50um": float((elen > 50).mean()), "frac_gt_100um": float((elen > 100).mean())}
+    log.info("6-NN edge lengths: %s", elen_info)
+    save_json(elen_info, PHASE, f"{tag}_6NN_edge_length_summary.json",
+              "6-NN edge-length diagnostic (long edges can bridge FOV gaps)", log)
     main_tabs = {}
     for ann in ("cell_type_marker", "cell_type_leiden"):
         labels = np.asarray(adata.obs[ann].astype(str).to_numpy())
@@ -277,7 +289,7 @@ def main() -> None:
         df = add_flags(df, det)
         df.insert(0, "annotation", ann)
         main_tabs[ann] = df
-        save_npz(PHASE, f"{args.dataset}_null_6NN_{ann}.npz",
+        save_npz(PHASE, f"{tag}_null_6NN_{ann}.npz",
                  f"Null distributions ({N_PERMS} perms) for comp/edge/matched/ratio, 6-NN, {ann}; column order = CSV row order",
                  log, **{f"{k}_null": v.astype(np.float32) for k, v in nulls.items()})
     allmain = pd.concat(main_tabs.values(), ignore_index=True)
@@ -287,7 +299,7 @@ def main() -> None:
         allmain[f"{key}_q_bh_within_annotation"] = allmain.groupby("annotation")[f"{key}_p_plus1"].transform(
             lambda p: pd.Series(ca.bh(p.to_numpy()), index=p.index))
     allmain = allmain.drop(columns=[f"{k}_q_bh" for k in ca.SCORES])
-    save_csv(allmain, PHASE, f"{args.dataset}_6NN_scores_both_annotations.csv",
+    save_csv(allmain, PHASE, f"{tag}_6NN_scores_both_annotations.csv",
              "Main table: C/E/M/Q obs, null stats, uncorrected p, BH q (all rows; within annotation), flags; 6-NN", log)
     n_tested = {ann: int(np.isfinite(d["edge_p_plus1"]).sum()) for ann, d in main_tabs.items()}
     n_tested_comp = {ann: int(np.isfinite(d["comp_p_plus1"]).sum()) for ann, d in main_tabs.items()}
@@ -295,7 +307,7 @@ def main() -> None:
 
     # headline extract
     hl = allmain[allmain.apply(lambda r: (r.ligand, r.receptor, r.sender, r.receiver) in HEADLINE, axis=1)]
-    save_csv(hl, PHASE, f"{args.dataset}_headline_CXCL12_CXCR4.csv", "Headline CXCL12-CXCR4 CAF->T and CAF->tumour rows", log)
+    save_csv(hl, PHASE, f"{tag}_headline_CXCL12_CXCR4.csv", "Headline CXCL12-CXCR4 CAF->T and CAF->tumour rows", log)
 
     # annotation sensitivity: rank shifts on the shared (L,R,sender,receiver) rows
     k4 = ["sender", "receiver", "ligand", "receptor"]
@@ -311,9 +323,9 @@ def main() -> None:
                          "spearman_z": float(spearmanr(a[ok], b[ok]).statistic) if ok.sum() > 2 else np.nan,
                          "median_abs_rank_shift": float(m.loc[ok, f"{key}_rank_shift"].abs().median()) if ok.any() else np.nan,
                          "n_verdict_changes": int((m[f"{key}_sig_marker"] != m[f"{key}_sig_leiden"]).sum())})
-    save_csv(m, PHASE, f"{args.dataset}_annotation_sensitivity_rows.csv", "Per-row z/rank under both annotations (shared rows)", log)
+    save_csv(m, PHASE, f"{tag}_annotation_sensitivity_rows.csv", "Per-row z/rank under both annotations (shared rows)", log)
     ann_sum = pd.DataFrame(ann_rows)
-    save_csv(ann_sum, PHASE, f"{args.dataset}_annotation_sensitivity_summary.csv", "Spearman / rank shifts / verdict changes between annotations", log)
+    save_csv(ann_sum, PHASE, f"{tag}_annotation_sensitivity_summary.csv", "Spearman / rank shifts / verdict changes between annotations", log)
 
     # 3e k sensitivity (marker annotation, all testable rows) -------------------------------
     labels_m = np.asarray(adata.obs["cell_type_marker"].astype(str).to_numpy())
@@ -323,10 +335,10 @@ def main() -> None:
         dfk, nk = run_scores(adata, labels_m, rk, ck, pairs, log, f"k={k}")
         dfk.insert(0, "k", k)
         k_tabs.append(add_flags(dfk, det))
-        save_npz(PHASE, f"{args.dataset}_null_k{k}_marker.npz", f"Null distributions, k={k}-NN, marker labels", log,
+        save_npz(PHASE, f"{tag}_null_k{k}_marker.npz", f"Null distributions, k={k}-NN, marker labels", log,
                  **{f"{kk}_null": v.astype(np.float32) for kk, v in nk.items() if kk in ("edge", "ratio")})
     ksens = pd.concat(k_tabs, ignore_index=True)
-    save_csv(ksens, PHASE, f"{args.dataset}_k_sensitivity.csv", "Edge/ratio scores for k in {4,6,8,12} (marker labels)", log)
+    save_csv(ksens, PHASE, f"{tag}_k_sensitivity.csv", "Edge/ratio scores for k in {4,6,8,12} (marker labels)", log)
 
     # 3e radius sensitivity (marker labels; testable rows) -----------------------------------
     rad_tabs = []
@@ -337,17 +349,17 @@ def main() -> None:
             dfr.insert(0, "radius_um", r)
             dfr.insert(1, "query_cell_fraction", frac)
             rad_tabs.append(add_flags(dfr, det))
-            save_npz(PHASE, f"{args.dataset}_null_radius{int(r)}_marker.npz",
+            save_npz(PHASE, f"{tag}_null_radius{int(r)}_marker.npz",
                      f"Null distributions, radius {r} um (SENSITIVITY ONLY), marker labels", log,
                      **{f"{kk}_null": v.astype(np.float32) for kk, v in nr.items() if kk in ("edge", "ratio")})
         rsens = pd.concat(rad_tabs, ignore_index=True)
-        save_csv(rsens, PHASE, f"{args.dataset}_radius_sensitivity.csv",
+        save_csv(rsens, PHASE, f"{tag}_radius_sensitivity.csv",
                  "SENSITIVITY ONLY: edge/ratio scores for radius graphs 15-300 um (marker labels)", log)
 
     # figures -------------------------------------------------------------------------------
-    make_main_figure(allmain, args.dataset, log)
-    make_sensitivity_figure(ksens, rad_tabs, args.dataset, log)
-    adata.write_h5ad(DATA_DIR / "processed" / f"pdac_{args.dataset}_processed.h5ad")
+    make_main_figure(allmain, tag, log)
+    make_sensitivity_figure(ksens, rad_tabs, tag, log)
+    adata.write_h5ad(DATA_DIR / "processed" / f"pdac_{tag}_processed.h5ad")
     log.info("Processed AnnData written to data/processed/pdac_%s_processed.h5ad (git-ignored)", args.dataset)
     finish_run(log, PHASE)
 

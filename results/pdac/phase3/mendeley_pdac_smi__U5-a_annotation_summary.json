@@ -1,0 +1,100 @@
+{
+  "markers_used": {
+    "epithelial_ductal_tumor": [
+      "KRT19",
+      "KRT7",
+      "EPCAM",
+      "KRT8",
+      "KRT18",
+      "KRT17",
+      "CEACAM6",
+      "SOX9"
+    ],
+    "acinar": [
+      "CPB1",
+      "REG1A"
+    ],
+    "endocrine": [
+      "INS",
+      "GCG",
+      "SST",
+      "CHGA"
+    ],
+    "CAF_fibroblast": [
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "DCN",
+      "LUM",
+      "PDGFRA",
+      "PDGFRB"
+    ],
+    "T_cell": [
+      "CD3D",
+      "CD3E",
+      "CD2",
+      "CD3G",
+      "CD8A",
+      "CD4",
+      "IL7R"
+    ],
+    "B_plasma": [
+      "MS4A1",
+      "CD79A",
+      "CD19",
+      "JCHAIN",
+      "MZB1",
+      "IGKC"
+    ],
+    "myeloid": [
+      "CD68",
+      "CD163",
+      "CD14",
+      "LYZ",
+      "CSF1R",
+      "C1QA",
+      "C1QB",
+      "ITGAM",
+      "FCGR3A"
+    ],
+    "endothelial": [
+      "PECAM1",
+      "VWF",
+      "CDH5",
+      "KDR"
+    ],
+    "mast": [
+      "TPSAB1",
+      "TPSB2",
+      "CPA3",
+      "KIT"
+    ],
+    "pericyte_smc": [
+      "RGS5",
+      "ACTA2",
+      "MYH11",
+      "NOTCH3"
+    ]
+  },
+  "types_dropped": [],
+  "marker_counts": {
+    "epithelial_ductal_tumor": 40545,
+    "CAF_fibroblast": 22734,
+    "myeloid": 6339,
+    "endothelial": 1287,
+    "B_plasma": 1059,
+    "T_cell": 945,
+    "acinar": 685,
+    "pericyte_smc": 580,
+    "mast": 371,
+    "endocrine": 248
+  },
+  "leiden_consensus_counts": {
+    "epithelial_ductal_tumor": 41138,
+    "CAF_fibroblast": 25746,
+    "myeloid": 7864,
+    "endocrine": 45
+  },
+  "n_leiden_clusters": 12,
+  "agreement_fraction": 0.8353856644338374
+}

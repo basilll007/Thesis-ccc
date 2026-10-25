@@ -1,0 +1,125 @@
+2026-10-24 21:37:39,312 INFO script=phase3b_cross_section log=logs/phase3b_cross_section_20261024T213739.log
+2026-10-24 21:37:39,354 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 21:37:39,355 INFO seed=42
+2026-10-24 21:37:39,355 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 21:37:39,370 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 21:37:40,431 INFO Sections: ['T1-b', 'T2-b', 'T3-b', 'T4-a', 'T4-b', 'T5-a', 'T6-b', 'U1-b', 'U2-b', 'U3-b', 'U4-a', 'U4-b', 'U5-a', 'U6-a_1', 'U6-a_2', 'U7-a']
+2026-10-24 21:37:44,148 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:37:44,487 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-10-24 21:38:34,200 INFO Leiden res 0.5: 9 clusters
+2026-10-24 21:38:34,201 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:38:45,732 INFO [T1-b/cell_type_marker] 3100 interactions x 500 perms in 8.6s (186504 edges)
+2026-10-24 21:38:55,947 INFO [T1-b/cell_type_leiden] 1116 interactions x 500 perms in 8.2s (186504 edges)
+2026-10-24 21:38:55,977 INFO section T1-b done: {'section': 'T1-b', 'treatment_status': 'CRT', 'donor': '2540', 'n_cells_before_qc': 31084, 'n_cells_after_qc': 31084, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 18859, 'n_epithelial_ductal_tumor': 5237, 'n_myeloid': 2461, 'n_pericyte_smc': 1308, 'n_B_plasma': 1033, 'n_endothelial': 830, 'n_T_cell': 568, 'n_mast': 418, 'n_acinar': 317, 'n_endocrine': 53, 'runtime_s': 75.5}
+2026-10-24 21:39:00,062 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:39:00,427 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-10-24 21:39:16,198 INFO Leiden res 0.5: 7 clusters
+2026-10-24 21:39:16,198 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:39:33,934 INFO [T2-b/cell_type_marker] 3100 interactions x 500 perms in 13.0s (261948 edges)
+2026-10-24 21:39:49,418 INFO [T2-b/cell_type_leiden] 775 interactions x 500 perms in 11.9s (261948 edges)
+2026-10-24 21:39:49,452 INFO section T2-b done: {'section': 'T2-b', 'treatment_status': 'CRT', 'donor': '2675', 'n_cells_before_qc': 43658, 'n_cells_after_qc': 43658, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 29674, 'n_epithelial_ductal_tumor': 7075, 'n_myeloid': 2467, 'n_B_plasma': 1076, 'n_mast': 1008, 'n_acinar': 690, 'n_endothelial': 640, 'n_pericyte_smc': 470, 'n_endocrine': 281, 'n_T_cell': 277, 'runtime_s': 53.5}
+2026-10-24 21:39:53,454 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:39:53,814 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-10-24 21:40:07,637 INFO Leiden res 0.5: 9 clusters
+2026-10-24 21:40:07,637 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:40:20,159 INFO [T3-b/cell_type_marker] 3100 interactions x 500 perms in 9.5s (202800 edges)
+2026-10-24 21:40:32,062 INFO [T3-b/cell_type_leiden] 775 interactions x 500 perms in 9.3s (202800 edges)
+2026-10-24 21:40:32,088 INFO section T3-b done: {'section': 'T3-b', 'treatment_status': 'CRT', 'donor': '2997', 'n_cells_before_qc': 33800, 'n_cells_after_qc': 33800, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 20639, 'n_epithelial_ductal_tumor': 5810, 'n_myeloid': 2611, 'n_pericyte_smc': 1647, 'n_endothelial': 1009, 'n_endocrine': 710, 'n_acinar': 431, 'n_T_cell': 430, 'n_B_plasma': 310, 'n_mast': 203, 'runtime_s': 42.6}
+2026-10-24 21:40:36,003 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:40:36,483 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-10-24 21:41:07,255 INFO Leiden res 0.5: 8 clusters
+2026-10-24 21:41:07,255 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:41:30,342 INFO [T4-a/cell_type_marker] 3100 interactions x 500 perms in 17.1s (332214 edges)
+2026-10-24 21:41:54,689 INFO [T4-a/cell_type_leiden] 124 interactions x 500 perms in 19.7s (332214 edges)
+2026-10-24 21:41:54,726 INFO section T4-a done: {'section': 'T4-a', 'treatment_status': 'CRT', 'donor': '2762_2nd', 'n_cells_before_qc': 55369, 'n_cells_after_qc': 55369, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 40877, 'n_myeloid': 5376, 'n_epithelial_ductal_tumor': 4769, 'n_T_cell': 1198, 'n_B_plasma': 825, 'n_endothelial': 722, 'n_mast': 644, 'n_acinar': 396, 'n_pericyte_smc': 306, 'n_endocrine': 256, 'runtime_s': 82.6}
+2026-10-24 21:41:58,446 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:41:58,844 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-10-24 21:42:14,721 INFO Leiden res 0.5: 8 clusters
+2026-10-24 21:42:14,721 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:42:30,760 INFO [T4-b/cell_type_marker] 3100 interactions x 500 perms in 11.5s (254592 edges)
+2026-10-24 21:42:48,184 INFO [T4-b/cell_type_leiden] 279 interactions x 500 perms in 13.8s (254592 edges)
+2026-10-24 21:42:48,215 INFO section T4-b done: {'section': 'T4-b', 'treatment_status': 'CRT', 'donor': '2762', 'n_cells_before_qc': 42432, 'n_cells_after_qc': 42432, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 26455, 'n_epithelial_ductal_tumor': 5893, 'n_myeloid': 3153, 'n_B_plasma': 1927, 'n_acinar': 1197, 'n_mast': 987, 'n_T_cell': 936, 'n_endothelial': 812, 'n_endocrine': 614, 'n_pericyte_smc': 458, 'runtime_s': 53.5}
+2026-10-24 21:42:51,964 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:42:52,356 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-10-24 21:43:10,789 INFO Leiden res 0.5: 10 clusters
+2026-10-24 21:43:10,789 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:43:26,034 INFO [T5-a/cell_type_marker] 3100 interactions x 500 perms in 10.5s (262764 edges)
+2026-10-24 21:43:39,880 INFO [T5-a/cell_type_leiden] 775 interactions x 500 perms in 10.7s (262764 edges)
+2026-10-24 21:43:39,917 INFO section T5-a done: {'section': 'T5-a', 'treatment_status': 'CRT', 'donor': '2692', 'n_cells_before_qc': 43794, 'n_cells_after_qc': 43794, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 19889, 'n_epithelial_ductal_tumor': 15241, 'n_myeloid': 4051, 'n_endocrine': 949, 'n_mast': 819, 'n_T_cell': 783, 'n_endothelial': 729, 'n_pericyte_smc': 624, 'n_acinar': 540, 'n_B_plasma': 169, 'runtime_s': 51.7}
+2026-10-24 21:43:43,550 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:43:43,837 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-10-24 21:43:48,673 INFO Leiden res 0.5: 8 clusters
+2026-10-24 21:43:48,674 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:43:53,042 INFO [T6-b/cell_type_marker] 3100 interactions x 500 perms in 3.3s (74838 edges)
+2026-10-24 21:43:57,338 INFO [T6-b/cell_type_leiden] 1116 interactions x 500 perms in 3.5s (74838 edges)
+2026-10-24 21:43:57,356 INFO section T6-b done: {'section': 'T6-b', 'treatment_status': 'CRTL', 'donor': '2462', 'n_cells_before_qc': 12473, 'n_cells_after_qc': 12473, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 6832, 'n_endocrine': 2476, 'n_myeloid': 857, 'n_acinar': 423, 'n_B_plasma': 387, 'n_endothelial': 367, 'n_epithelial_ductal_tumor': 343, 'n_pericyte_smc': 324, 'n_mast': 261, 'n_T_cell': 203, 'runtime_s': 17.4}
+2026-10-24 21:44:01,077 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:44:01,399 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-10-24 21:44:07,936 INFO Leiden res 0.5: 6 clusters
+2026-10-24 21:44:07,936 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:44:15,944 INFO [U1-b/cell_type_marker] 3100 interactions x 500 perms in 5.8s (149364 edges)
+2026-10-24 21:44:23,564 INFO [U1-b/cell_type_leiden] 775 interactions x 500 perms in 5.9s (149364 edges)
+2026-10-24 21:44:23,587 INFO section U1-b done: {'section': 'U1-b', 'treatment_status': 'Untreated', 'donor': 'C4', 'n_cells_before_qc': 24894, 'n_cells_after_qc': 24894, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 8167, 'n_epithelial_ductal_tumor': 4779, 'n_pericyte_smc': 3853, 'n_myeloid': 2619, 'n_endothelial': 1436, 'n_T_cell': 1234, 'n_B_plasma': 925, 'n_acinar': 890, 'n_mast': 584, 'n_endocrine': 407, 'runtime_s': 26.2}
+2026-10-24 21:44:27,242 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:44:27,602 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-10-24 21:44:41,117 INFO Leiden res 0.5: 6 clusters
+2026-10-24 21:44:41,119 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:44:53,038 INFO [U2-b/cell_type_marker] 3100 interactions x 500 perms in 8.8s (206004 edges)
+2026-10-24 21:45:04,463 INFO [U2-b/cell_type_leiden] 496 interactions x 500 perms in 8.9s (206004 edges)
+2026-10-24 21:45:04,494 INFO section U2-b done: {'section': 'U2-b', 'treatment_status': 'Untreated', 'donor': 'D10', 'n_cells_before_qc': 34334, 'n_cells_after_qc': 34334, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_epithelial_ductal_tumor': 18149, 'n_CAF_fibroblast': 10355, 'n_myeloid': 1874, 'n_acinar': 1647, 'n_endothelial': 623, 'n_mast': 544, 'n_pericyte_smc': 409, 'n_T_cell': 327, 'n_B_plasma': 213, 'n_endocrine': 193, 'runtime_s': 40.9}
+2026-10-24 21:45:08,158 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:45:08,446 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-10-24 21:45:12,954 INFO Leiden res 0.5: 5 clusters
+2026-10-24 21:45:12,954 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:45:17,865 INFO [U3-b/cell_type_marker] 3100 interactions x 500 perms in 3.7s (90114 edges)
+2026-10-24 21:45:22,612 INFO [U3-b/cell_type_leiden] 279 interactions x 500 perms in 3.7s (90114 edges)
+2026-10-24 21:45:22,633 INFO section U3-b done: {'section': 'U3-b', 'treatment_status': 'Untreated', 'donor': 'B10', 'n_cells_before_qc': 15019, 'n_cells_after_qc': 15019, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 7073, 'n_epithelial_ductal_tumor': 3606, 'n_myeloid': 1936, 'n_acinar': 636, 'n_endothelial': 631, 'n_pericyte_smc': 405, 'n_T_cell': 304, 'n_mast': 247, 'n_B_plasma': 96, 'n_endocrine': 85, 'runtime_s': 18.1}
+2026-10-24 21:45:26,361 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:45:26,809 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-10-24 21:45:48,288 INFO Leiden res 0.5: 11 clusters
+2026-10-24 21:45:48,288 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:46:04,830 INFO [U4-a/cell_type_marker] 3100 interactions x 500 perms in 11.2s (284592 edges)
+2026-10-24 21:46:20,233 INFO [U4-a/cell_type_leiden] 775 interactions x 500 perms in 11.1s (284592 edges)
+2026-10-24 21:46:20,269 INFO section U4-a done: {'section': 'U4-a', 'treatment_status': 'Untreated', 'donor': '011_2nd', 'n_cells_before_qc': 47432, 'n_cells_after_qc': 47432, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 19693, 'n_epithelial_ductal_tumor': 15859, 'n_myeloid': 4454, 'n_pericyte_smc': 1775, 'n_mast': 1597, 'n_B_plasma': 1496, 'n_endothelial': 1182, 'n_acinar': 625, 'n_T_cell': 603, 'n_endocrine': 148, 'runtime_s': 57.6}
+2026-10-24 21:46:23,985 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:46:24,417 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-10-24 21:46:43,492 INFO Leiden res 0.5: 9 clusters
+2026-10-24 21:46:43,492 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:46:58,984 INFO [U4-b/cell_type_marker] 3100 interactions x 500 perms in 11.2s (280788 edges)
+2026-10-24 21:47:13,770 INFO [U4-b/cell_type_leiden] 496 interactions x 500 perms in 11.3s (280788 edges)
+2026-10-24 21:47:13,806 INFO section U4-b done: {'section': 'U4-b', 'treatment_status': 'Untreated', 'donor': '011', 'n_cells_before_qc': 46798, 'n_cells_after_qc': 46798, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 19262, 'n_epithelial_ductal_tumor': 17892, 'n_myeloid': 3426, 'n_mast': 1689, 'n_B_plasma': 1136, 'n_pericyte_smc': 1091, 'n_endothelial': 820, 'n_T_cell': 761, 'n_acinar': 581, 'n_endocrine': 140, 'runtime_s': 53.5}
+2026-10-24 21:47:17,565 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:47:18,216 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-10-24 21:48:04,973 INFO Leiden res 0.5: 12 clusters
+2026-10-24 21:48:04,974 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:48:33,204 INFO [U5-a/cell_type_marker] 3100 interactions x 500 perms in 19.0s (448758 edges)
+2026-10-24 21:48:59,322 INFO [U5-a/cell_type_leiden] 496 interactions x 500 perms in 18.7s (448758 edges)
+2026-10-24 21:48:59,370 INFO section U5-a done: {'section': 'U5-a', 'treatment_status': 'Untreated', 'donor': '004', 'n_cells_before_qc': 74793, 'n_cells_after_qc': 74793, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_epithelial_ductal_tumor': 40545, 'n_CAF_fibroblast': 22734, 'n_myeloid': 6339, 'n_endothelial': 1287, 'n_B_plasma': 1059, 'n_T_cell': 945, 'n_acinar': 685, 'n_pericyte_smc': 580, 'n_mast': 371, 'n_endocrine': 248, 'runtime_s': 105.6}
+2026-10-24 21:49:03,104 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:49:03,672 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-10-24 21:49:32,033 INFO Leiden res 0.5: 10 clusters
+2026-10-24 21:49:32,033 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:49:58,204 INFO [U6-a_1/cell_type_marker] 3100 interactions x 500 perms in 17.5s (433908 edges)
+2026-10-24 21:50:23,070 INFO [U6-a_1/cell_type_leiden] 775 interactions x 500 perms in 17.8s (433908 edges)
+2026-10-24 21:50:23,120 INFO section U6-a_1 done: {'section': 'U6-a_1', 'treatment_status': 'Untreated', 'donor': '2626', 'n_cells_before_qc': 72318, 'n_cells_after_qc': 72318, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_epithelial_ductal_tumor': 34866, 'n_CAF_fibroblast': 25252, 'n_myeloid': 6000, 'n_acinar': 2171, 'n_pericyte_smc': 1660, 'n_endothelial': 845, 'n_B_plasma': 634, 'n_mast': 373, 'n_endocrine': 309, 'n_T_cell': 208, 'runtime_s': 83.7}
+2026-10-24 21:50:26,840 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:50:27,412 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-10-24 21:50:52,515 INFO Leiden res 0.5: 10 clusters
+2026-10-24 21:50:52,515 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:51:17,114 INFO [U6-a_2/cell_type_marker] 3100 interactions x 500 perms in 16.8s (410460 edges)
+2026-10-24 21:51:40,861 INFO [U6-a_2/cell_type_leiden] 496 interactions x 500 perms in 17.2s (410460 edges)
+2026-10-24 21:51:40,907 INFO section U6-a_2 done: {'section': 'U6-a_2', 'treatment_status': 'Untreated', 'donor': '2626_B', 'n_cells_before_qc': 68410, 'n_cells_after_qc': 68410, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_epithelial_ductal_tumor': 33707, 'n_CAF_fibroblast': 23158, 'n_myeloid': 6373, 'n_acinar': 1542, 'n_pericyte_smc': 925, 'n_endothelial': 923, 'n_B_plasma': 753, 'n_endocrine': 450, 'n_mast': 391, 'n_T_cell': 188, 'runtime_s': 77.8}
+2026-10-24 21:51:44,558 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:51:45,019 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-10-24 21:52:16,131 INFO Leiden res 0.5: 8 clusters
+2026-10-24 21:52:16,132 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:52:41,230 INFO [U7-a/cell_type_marker] 3100 interactions x 500 perms in 16.8s (425310 edges)
+2026-10-24 21:53:05,708 INFO [U7-a/cell_type_leiden] 496 interactions x 500 perms in 18.3s (425310 edges)
+2026-10-24 21:53:05,761 INFO section U7-a done: {'section': 'U7-a', 'treatment_status': 'Untreated', 'donor': '2924', 'n_cells_before_qc': 70885, 'n_cells_after_qc': 70885, 'n_genes_after_qc': 960, 'n_testable_pairs': 31, 'types_dropped': '', 'n_CAF_fibroblast': 29176, 'n_epithelial_ductal_tumor': 21077, 'n_B_plasma': 6700, 'n_myeloid': 3112, 'n_endothelial': 3066, 'n_pericyte_smc': 2582, 'n_T_cell': 1462, 'n_endocrine': 1340, 'n_acinar': 1194, 'n_mast': 1176, 'runtime_s': 84.9}
+2026-10-24 21:53:08,325 INFO Saved results/pdac/phase3/cross_section_6NN_all_rows.csv (59644 rows)
+2026-10-24 21:53:08,336 INFO Saved results/pdac/phase3/cross_section_section_info.csv (16 rows)
+2026-10-24 21:53:09,164 INFO Saved results/pdac/phase3/cross_section_summary_by_interaction.csv (4960 rows)
+2026-10-24 21:53:10,400 INFO Saved results/pdac/phase3/cross_section_headline_CXCL12_CXCR4.csv (48 rows)
+2026-10-24 21:53:10,513 INFO Saved results/pdac/phase3/cross_section_headline_summary.json
+2026-10-24 21:53:11,582 INFO Saved figure figures/pdac/phase3/cross_section_headline_CXCL12_CXCR4_z_by_section(.png/.pdf)
+2026-10-24 21:53:11,588 INFO run finished

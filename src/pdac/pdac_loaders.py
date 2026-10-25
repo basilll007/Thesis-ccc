@@ -49,10 +49,44 @@ def load_xenium_dir(d: Path, log):
     return adata, _filemeta([h5, cells_p])
 
 
-DATASETS = {}
+COSMX_UM_PER_PX = 0.18  # Shiau et al. bioRxiv 2023 (doi 10.1101/2023.06.28.546848) Methods: "60 pixels (10.8 um)"
+
+
+def load_mendeley_pdac_smi(d: Path, log, sample: str | None = None):
+    """Mendeley PDAC-SMI (CosMx). One section (`sample_id`) per call; Base probes only.
+
+    Spike-in probes (NaN where not measured) and negative probes are dropped. Coordinates are converted
+    from global pixels to micrometres with COSMX_UM_PER_PX.
+    """
+    f = d / "raw_meta_data_final.h5ad"
+    full = ad.read_h5ad(f, backed="r")
+    base = (full.var["probe_type"].astype(str) == "Base").to_numpy()
+    mask = np.ones(full.n_obs, bool) if sample is None else (full.obs["sample_id"].astype(str) == sample).to_numpy()
+    if mask.sum() == 0:
+        raise ValueError(f"sample {sample} not found")
+    sub = full[mask, base].to_memory()
+    X = sub.X.tocsr() if sp.issparse(sub.X) else sp.csr_matrix(sub.X)
+    if np.isnan(X.data).any():
+        raise ValueError("NaN found in Base probes; unexpected")
+    adata = ad.AnnData(X=X.astype(np.float32), obs=sub.obs.copy(), var=sub.var.copy())
+    adata.obsm["spatial"] = adata.obs[["CenterX_global_px", "CenterY_global_px"]].to_numpy(dtype=float) * COSMX_UM_PER_PX
+    adata.obs["author_majortype"] = adata.obs["annotation_majortypes"].astype(str)
+    log.info("Mendeley PDAC-SMI section %s: %d cells x %d Base genes (dropped %d spike-in/negative probes); "
+             "um/px=%.2f", sample, adata.n_obs, adata.n_vars, int((~base).sum()), COSMX_UM_PER_PX)
+    meta = {"dataset": "Mendeley PDAC-SMI (doi 10.17632/kx6b69n3cb.1, CC BY 4.0)", "section": sample,
+            "files": _filemeta([f]), "n_cells_section": int(adata.n_obs), "n_base_genes": int(adata.n_vars),
+            "dropped_features": full.var_names[~base].tolist(), "um_per_px": COSMX_UM_PER_PX,
+            "treatment_status": str(adata.obs["treatment_status"].iloc[0]), "donor": str(adata.obs["donor"].iloc[0]),
+            "n_fov": int(adata.obs["fov"].nunique())}
+    return adata, meta
+
+
+DATASETS = {"mendeley_pdac_smi": load_mendeley_pdac_smi}
 
 
 def load(key: str, data_dir: Path, log):
-    if key not in DATASETS:
-        raise KeyError(f"Unknown dataset key {key}; known: {list(DATASETS)}")
-    return DATASETS[key](data_dir / "pdac" / key, log)
+    """key = '<dataset>' or '<dataset>:<section>' (e.g. 'mendeley_pdac_smi:U5-a')."""
+    name, _, section = key.partition(":")
+    if name not in DATASETS:
+        raise KeyError(f"Unknown dataset key {name}; known: {list(DATASETS)}")
+    return DATASETS[name](data_dir / "pdac" / name, log, section or None)

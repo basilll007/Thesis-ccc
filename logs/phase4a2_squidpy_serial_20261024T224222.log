@@ -1,0 +1,11 @@
+2026-10-24 22:42:22,100 INFO script=phase4a2_squidpy_serial log=logs/phase4a2_squidpy_serial_20261024T224222.log
+2026-10-24 22:42:22,136 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 22:42:22,136 INFO seed=42
+2026-10-24 22:42:22,137 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:42:22,150 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:42:24,617 INFO [crop] ligrec serial: 3100 rows, 1868 NaN p, 204 p<0.05, 2.1s
+2026-10-24 22:42:24,639 INFO crop control: identical NaN pattern=True, max |p diff|=0.072
+2026-10-24 22:42:27,426 INFO [full] ligrec serial: 3100 rows, 3100 NaN p, 0 p<0.05, 2.8s
+2026-10-24 22:42:27,436 INFO Saved results/pdac/phase4/squidpy_ligrec_full_serial.csv (3100 rows)
+2026-10-24 22:42:27,453 INFO Saved results/pdac/phase4/squidpy_ligrec_attempts.json
+2026-10-24 22:42:27,460 INFO run finished

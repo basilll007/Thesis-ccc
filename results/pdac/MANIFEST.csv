@@ -43,3 +43,123 @@ logs/phase2_dataset_vetting_20261024T213443.log,phase2,"run log (package version
 logs/phase4_install_commot_20261024T212449.log,phase4,"pip install log (versions attempted, errors)",manual pip install (pdac-bench env),2026-10-24T21:35:43
 logs/phase4_install_spatialdm_20261024T212707.log,phase4,"pip install log (versions attempted, errors)",manual pip install (pdac-bench env),2026-10-24T21:35:43
 src/pdac/lr_catalog.py,phase3,Curated L-R catalogue declared before PDAC data were loaded,manual,2026-10-24T21:35:43
+results/pdac/phase3/mendeley_pdac_smi__U5-a_load_metadata.json,phase3,"Loader provenance: files, sizes, sample selection",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:37:05
+results/pdac/phase3/mendeley_pdac_smi__U5-a_qc_table.csv,phase3,QC summary before/after (breast thresholds),src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:37:05
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3a_qc.png,phase3,QC distributions and centroid map,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:37:06
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3a_qc.pdf,phase3,QC distributions and centroid map,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:37:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_crosstab.csv,phase3,Marker-scoring vs Leiden-consensus labels,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:27
+results/pdac/phase3/mendeley_pdac_smi__U5-a_author_vs_marker_crosstab.csv,phase3,Author annotation (annotation_majortypes) vs our marker-scoring labels (reference only),src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:27
+results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_summary.json,phase3,Annotation summary for both strategies,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:27
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3b_annotations_spatial.png,phase3,Spatial maps of both annotations,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:28
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3b_annotations_spatial.pdf,phase3,Spatial maps of both annotations,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:28
+results/pdac/phase3/mendeley_pdac_smi__U5-a_lr_coverage.csv,phase3,Present/absent coverage of curated L-R catalogue + detection counts,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:30
+results/pdac/phase3/mendeley_pdac_smi__U5-a_gene_detection_counts.csv,phase3,"Detection counts (raw counts > 0) per catalogue gene, overall and per marker cell type",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:41
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3c_lr_coverage_detection.png,phase3,Coverage/detection of curated L-R pairs,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:42
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3c_lr_coverage_detection.pdf,phase3,Coverage/detection of curated L-R pairs,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:42
+results/pdac/phase3/mendeley_pdac_smi__U5-a_6NN_edge_length_summary.json,phase3,6-NN edge-length diagnostic (long edges can bridge FOV gaps),src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:38:42
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_6NN_cell_type_marker.npz,phase3,"Null distributions (500 perms) for comp/edge/matched/ratio, 6-NN, cell_type_marker; column order = CSV row order",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:10
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_6NN_cell_type_leiden.npz,phase3,"Null distributions (500 perms) for comp/edge/matched/ratio, 6-NN, cell_type_leiden; column order = CSV row order",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:37
+results/pdac/phase3/mendeley_pdac_smi__U5-a_6NN_scores_both_annotations.csv,phase3,"Main table: C/E/M/Q obs, null stats, uncorrected p, BH q (all rows; within annotation), flags; 6-NN",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:37
+results/pdac/phase3/mendeley_pdac_smi__U5-a_headline_CXCL12_CXCR4.csv,phase3,Headline CXCL12-CXCR4 CAF->T and CAF->tumour rows,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:37
+results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_sensitivity_rows.csv,phase3,Per-row z/rank under both annotations (shared rows),src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:37
+results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_sensitivity_summary.csv,phase3,Spearman / rank shifts / verdict changes between annotations,src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:37
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k4_marker.npz,phase3,"Null distributions, k=4-NN, marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:39:58
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k6_marker.npz,phase3,"Null distributions, k=6-NN, marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:40:26
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k8_marker.npz,phase3,"Null distributions, k=8-NN, marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:40:58
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k12_marker.npz,phase3,"Null distributions, k=12-NN, marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:41:42
+results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity.csv,phase3,"Edge/ratio scores for k in {4,6,8,12} (marker labels)",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:41:43
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius15_marker.npz,phase3,"Null distributions, radius 15.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:42:05
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius30_marker.npz,phase3,"Null distributions, radius 30.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:43:20
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius50_marker.npz,phase3,"Null distributions, radius 50.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:46:38
+results/pdac/phase3/cross_section_6NN_all_rows.csv,phase3,"All 16 sections x 2 annotations: C/E/M/Q obs, z, p (+1), BH q within section/annotation; 6-NN, 500 perms",src/pdac/phase3b_cross_section.py,2026-10-24T21:53:08
+results/pdac/phase3/cross_section_section_info.csv,phase3,Per-section QC and cell-type counts,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:08
+results/pdac/phase3/cross_section_summary_by_interaction.csv,phase3,Per interaction & annotation: number of sections significant under C/M/E/Q and median z,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:09
+results/pdac/phase3/cross_section_headline_CXCL12_CXCR4.csv,phase3,Headline CXCL12-CXCR4 rows in every section,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:10
+results/pdac/phase3/cross_section_headline_summary.json,phase3,Headline rows: number of sections significant under each score,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:10
+figures/pdac/phase3/cross_section_headline_CXCL12_CXCR4_z_by_section.png,phase3,Headline z per section and score,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:11
+figures/pdac/phase3/cross_section_headline_CXCL12_CXCR4_z_by_section.pdf,phase3,Headline z per section and score,src/pdac/phase3b_cross_section.py,2026-10-24T21:53:11
+logs/phase3b_cross_section_20261024T213739.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3b_cross_section.py,2026-10-24T21:53:11
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius75_marker.npz,phase3,"Null distributions, radius 75.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T21:53:47
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius100_marker.npz,phase3,"Null distributions, radius 100.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T22:03:23
+results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius150_marker.npz,phase3,"Null distributions, radius 150.0 um (SENSITIVITY ONLY), marker labels",src/pdac/phase3_pdac_audit_mendeley_pdac_smi__U5-a.py,2026-10-24T22:14:14
+results/pdac/phase3/mendeley_pdac_smi__U5-a_headline_summary_rows.csv,phase3,Headline CXCL12-CXCR4 rows (primary section) with decomposition,src/pdac/phase3c_summarise.py,2026-10-24T22:16:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_checkpoint_axes_marker.csv,phase3,"Checkpoint-axis rows (marker labels, 6-NN) incl. sparse flags",src/pdac/phase3c_summarise.py,2026-10-24T22:16:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_sparse_genes.csv,phase3,Tested genes detected in fewer than 20 cells (sparse-gene diagnostic),src/pdac/phase3c_summarise.py,2026-10-24T22:16:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_receptor_detection_counts.csv,phase3,Detection counts for every catalogue receptor,src/pdac/phase3c_summarise.py,2026-10-24T22:16:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity_summary.csv,phase3,"k in {4,6,8,12}: significant counts and agreement with k=6",src/pdac/phase3c_summarise.py,2026-10-24T22:16:06
+results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity_headline.csv,phase3,Headline rows across k,src/pdac/phase3c_summarise.py,2026-10-24T22:16:07
+results/pdac/phase3/cross_section_ratio_sig_in_ge12_sections_marker.csv,phase3,Interactions whose edge/matched ratio is significant in >= 12 of 16 sections (marker labels),src/pdac/phase3c_summarise.py,2026-10-24T22:16:07
+results/pdac/phase3/mendeley_pdac_smi__U5-a_phase3_summary.json,phase3,Phase 3 key numbers (primary section + cross-section),src/pdac/phase3c_summarise.py,2026-10-24T22:16:07
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_leiden.png,phase3,"z of C/M/E/Q, top 40 rows, cell_type_leiden",src/pdac/phase3c_summarise.py,2026-10-24T22:16:07
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_leiden.pdf,phase3,"z of C/M/E/Q, top 40 rows, cell_type_leiden",src/pdac/phase3c_summarise.py,2026-10-24T22:16:07
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_marker.png,phase3,"z of C/M/E/Q, top 40 rows, cell_type_marker",src/pdac/phase3c_summarise.py,2026-10-24T22:16:08
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_marker.pdf,phase3,"z of C/M/E/Q, top 40 rows, cell_type_marker",src/pdac/phase3c_summarise.py,2026-10-24T22:16:08
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_headline_k_sensitivity.png,phase3,Headline edge/ratio z across k,src/pdac/phase3c_summarise.py,2026-10-24T22:16:08
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_headline_k_sensitivity.pdf,phase3,Headline edge/ratio z across k,src/pdac/phase3c_summarise.py,2026-10-24T22:16:08
+figures/pdac/phase3/cross_section_edge_vs_ratio_sig_counts.png,phase3,Per-interaction counts of sections with edge vs ratio significance,src/pdac/phase3c_summarise.py,2026-10-24T22:16:09
+figures/pdac/phase3/cross_section_edge_vs_ratio_sig_counts.pdf,phase3,Per-interaction counts of sections with edge vs ratio significance,src/pdac/phase3c_summarise.py,2026-10-24T22:16:09
+logs/phase3c_summarise_20261024T221559.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3c_summarise.py,2026-10-24T22:16:09
+results/pdac/phase3/author_annotation_6NN_all_sections.csv,phase3,"6-NN C/E/M/Q (500 perms) under authors' mapped annotation, all 16 sections",src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:00
+results/pdac/phase3/author_annotation_headline_CXCL12_CXCR4.csv,phase3,"Headline rows per section, author labels",src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:01
+results/pdac/phase3/author_annotation_headline_summary.csv,phase3,Headline: sections significant under author labels,src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:01
+results/pdac/phase3/author_annotation_summary.json,phase3,Author-annotation sensitivity summary,src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:02
+results/pdac/phase3/headline_by_annotation_all_sections.csv,phase3,"Headline edge/ratio z per section under marker, Leiden, author labels",src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:02
+figures/pdac/phase3/headline_edge_ratio_z_by_annotation_all_sections.png,phase3,Headline z by annotation and section,src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:02
+figures/pdac/phase3/headline_edge_ratio_z_by_annotation_all_sections.pdf,phase3,Headline z by annotation and section,src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:02
+logs/phase3d_author_annotation_20261024T221716.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3d_author_annotation.py,2026-10-24T22:21:02
+results/pdac/phase4/benchmark_crop_cells.csv,phase4,The 8000 cells of the deterministic benchmark crop (U5-a),src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:21:55
+results/pdac/phase4/benchmark_crop_info.json,phase4,Benchmark crop definition and composition,src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:21:55
+results/pdac/phase4/ours_CEMQ_6NN_crop.csv,phase4,"Our C/E/M/Q scores, 6-NN, 500 perms, marker labels (crop)",src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:21:57
+results/pdac/phase4/squidpy_ligrec_crop.csv,phase4,"squidpy.gr.ligrec means/p-values (500 perms, seed 42, threshold 0.01) (crop)",src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:22:10
+results/pdac/phase4/ours_CEMQ_6NN_full.csv,phase4,"Our C/E/M/Q scores, 6-NN, 500 perms, marker labels (full)",src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:22:28
+results/pdac/phase4/squidpy_ligrec_full.csv,phase4,"squidpy.gr.ligrec means/p-values (500 perms, seed 42, threshold 0.01) (full)",src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:23:22
+logs/phase4a_ours_and_squidpy_20261024T222150.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase4a_ours_and_squidpy.py,2026-10-24T22:23:22
+results/pdac/phase4/commot_cluster_crop.csv,phase4,"COMMOT cluster-level score/p per (L,R,sender,receiver), crop",src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:33:47
+results/pdac/phase4/commot_global_crop.csv,phase4,"COMMOT total signal per L-R pair, crop",src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:33:47
+results/pdac/phase4/spatialdm_global_crop.csv,phase4,SpatialDM global z / p per CellChatDB pair (crop),src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:34:29
+results/pdac/phase4/spatialdm_global_full.csv,phase4,SpatialDM global z / p per CellChatDB pair (full),src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:40:42
+results/pdac/phase4/phase4b_status.json,phase4,Run status of COMMOT / SpatialDM (DONE or FAILED with error),src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:40:42
+figures/pdac/phase4/phase4_method_agreement_cluster_level_crop.png,phase4,Method agreement heatmaps (crop),src/pdac/phase4c_compare.py,2026-10-24T22:41:20
+figures/pdac/phase4/phase4_method_agreement_cluster_level_crop.pdf,phase4,Method agreement heatmaps (crop),src/pdac/phase4c_compare.py,2026-10-24T22:41:20
+figures/pdac/phase4/phase4_method_agreement_cluster_level_full.png,phase4,Method agreement heatmaps (full),src/pdac/phase4c_compare.py,2026-10-24T22:41:20
+figures/pdac/phase4/phase4_method_agreement_cluster_level_full.pdf,phase4,Method agreement heatmaps (full),src/pdac/phase4c_compare.py,2026-10-24T22:41:20
+logs/phase4c_compare_20261024T224106.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase4c_compare.py,2026-10-24T22:41:21
+results/pdac/phase4/squidpy_ligrec_full_serial.csv,phase4,"squidpy.gr.ligrec on full section, numba_parallel=False (attempt 2), 500 perms, seed 42",src/pdac/phase4a2_squidpy_serial.py,2026-10-24T22:42:27
+results/pdac/phase4/squidpy_ligrec_attempts.json,phase4,Squidpy ligrec attempt 1 (parallel) vs attempt 2 (serial),src/pdac/phase4a2_squidpy_serial.py,2026-10-24T22:42:27
+logs/phase4a2_squidpy_serial_20261024T224222.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase4a2_squidpy_serial.py,2026-10-24T22:42:27
+results/pdac/phase4/comparison_per_axis_crop.csv,phase4,"Per-axis (L,R,sender,receiver) scores of all methods (crop)",src/pdac/phase4c_compare.py,2026-10-24T22:43:03
+results/pdac/phase4/comparison_spearman_crop.csv,phase4,Spearman between method scores across rows (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:03
+results/pdac/phase4/comparison_spearman_n_crop.csv,phase4,Rows used for each Spearman (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:03
+results/pdac/phase4/comparison_top20_jaccard_crop.csv,phase4,Jaccard overlap of top-20 rows per method (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:03
+results/pdac/phase4/comparison_significance_agreement_crop.csv,phase4,Pairwise agreement/kappa of p<0.05 calls (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:03
+figures/pdac/phase4/phase4_method_agreement_cluster_level_crop_20261024T224303.png,phase4,Method agreement heatmaps (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+figures/pdac/phase4/phase4_method_agreement_cluster_level_crop_20261024T224303.pdf,phase4,Method agreement heatmaps (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_per_axis_full.csv,phase4,"Per-axis (L,R,sender,receiver) scores of all methods (full)",src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_spearman_full.csv,phase4,Spearman between method scores across rows (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_spearman_n_full.csv,phase4,Rows used for each Spearman (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_top20_jaccard_full.csv,phase4,Jaccard overlap of top-20 rows per method (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_significance_agreement_full.csv,phase4,Pairwise agreement/kappa of p<0.05 calls (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+figures/pdac/phase4/phase4_method_agreement_cluster_level_full_20261024T224304.png,phase4,Method agreement heatmaps (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+figures/pdac/phase4/phase4_method_agreement_cluster_level_full_20261024T224304.pdf,phase4,Method agreement heatmaps (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/spatialdm_mapping_crop.csv,phase4,Mapping of catalogue L-R pairs to SpatialDM/CellChatDB entries (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_lr_level_crop.csv,phase4,L-R-level summary scores of all methods (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_lr_level_spearman_crop.csv,phase4,Spearman across L-R pairs (crop),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/spatialdm_mapping_full.csv,phase4,Mapping of catalogue L-R pairs to SpatialDM/CellChatDB entries (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_lr_level_full.csv,phase4,L-R-level summary scores of all methods (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:04
+results/pdac/phase4/comparison_lr_level_spearman_full.csv,phase4,Spearman across L-R pairs (full),src/pdac/phase4c_compare.py,2026-10-24T22:43:05
+results/pdac/phase4/phase4_agreement_summary.json,phase4,"Agreement summary (Spearman, top-20 Jaccard, kappa)",src/pdac/phase4c_compare.py,2026-10-24T22:43:05
+logs/phase4c_compare_20261024T224256.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase4c_compare.py,2026-10-24T22:43:05
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius15_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 15.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:43:32
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius30_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 30.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:43:41
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius50_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 50.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:44:01
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius75_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 75.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:44:38
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius100_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 100.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:45:40
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius150_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 150.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:46:49
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius200_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 200.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:47:58
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius300_headline_pair_nulls.npz,phase3,"SENSITIVITY ONLY: edge/ratio nulls, CXCL12-CXCR4, radius 300.0 um",src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:24
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius_sensitivity_headline_pair.csv,phase3,"SENSITIVITY ONLY: CXCL12-CXCR4 C/E/M/Q across radius 15-300 um (marker labels, 500 perms)",src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:24
+results/pdac/phase3/mendeley_pdac_smi__U5-a_radius_headline_repro_check.json,phase3,Edge-null agreement with the saved nulls of the stopped full-catalogue run (15-150 um),src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:24
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_radius_sensitivity_headline.png,phase3,Headline radius sensitivity (sensitivity only),src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:25
+figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_radius_sensitivity_headline.pdf,phase3,Headline radius sensitivity (sensitivity only),src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:25
+logs/phase3e_radius_headline_20261024T224325.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase3e_radius_headline.py,2026-10-24T22:49:25
+logs/phase4b_commot_spatialdm_20261024T222334.log,phase4,run log,src/pdac/phase4b_commot_spatialdm.py,2026-10-24T22:50:21

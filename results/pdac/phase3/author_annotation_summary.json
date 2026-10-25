@@ -1,0 +1,59 @@
+{
+  "map": {
+    "CAF": "CAF_fibroblast",
+    "Malignant": "epithelial_ductal_tumor",
+    "ductal": "epithelial_ductal_tumor",
+    "CD8+ T": "T_cell",
+    "CD4+ T": "T_cell",
+    "Treg": "T_cell",
+    "Natural killer": "NK",
+    "Macrophage": "myeloid",
+    "Dendritic (activated)": "myeloid",
+    "Dendritic (conventional)": "myeloid",
+    "Dendritic (plasmacytoid)": "myeloid",
+    "Neutrophil": "myeloid",
+    "B": "B_plasma",
+    "Plasma": "B_plasma",
+    "Endothelial": "endothelial",
+    "Pericyte": "pericyte_smc",
+    "Smooth muscle": "pericyte_smc",
+    "Mast": "mast",
+    "Endocrine": "endocrine",
+    "Schwann/nerve": "schwann_nerve",
+    "Noise": "unassigned",
+    "uninformative_EVEN": "unassigned"
+  },
+  "n_section_rows": 69998,
+  "n_edge_sig": 9377,
+  "n_edge_sig_and_ratio_sig": 3430,
+  "headline": [
+    {
+      "sender": "CAF_fibroblast",
+      "receiver": "T_cell",
+      "n_sections": 16,
+      "n_comp_sig": 16,
+      "n_matched_sig": 16,
+      "n_edge_sig": 16,
+      "n_ratio_sig": 2,
+      "n_edge_sig_bh": 14,
+      "n_ratio_sig_bh": 0,
+      "median_edge_z": 21.632661844866398,
+      "median_ratio_z": 0.738292660001386,
+      "median_ratio_obs": 1.3460162693981197
+    },
+    {
+      "sender": "CAF_fibroblast",
+      "receiver": "epithelial_ductal_tumor",
+      "n_sections": 16,
+      "n_comp_sig": 2,
+      "n_matched_sig": 2,
+      "n_edge_sig": 0,
+      "n_ratio_sig": 1,
+      "n_edge_sig_bh": 0,
+      "n_ratio_sig_bh": 1,
+      "median_edge_z": -9.589208584250905,
+      "median_ratio_z": -6.7777823628207265,
+      "median_ratio_obs": 0.6870728868430152
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+2026-10-24 21:37:02,045 INFO script=phase3_pdac_audit_mendeley_pdac_smi__U5-a log=logs/phase3_pdac_audit_mendeley_pdac_smi__U5-a_20261024T213702.log
+2026-10-24 21:37:02,082 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 21:37:02,083 INFO seed=42
+2026-10-24 21:37:02,083 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 21:37:02,096 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 21:37:02,097 INFO Subsampling RNG for radius graphs: numpy default_rng(42) (separate from the permutation stream)
+2026-10-24 21:37:05,130 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 21:37:05,330 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_load_metadata.json
+2026-10-24 21:37:05,623 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-10-24 21:37:05,641 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_qc_table.csv (6 rows)
+2026-10-24 21:37:06,394 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3a_qc(.png/.pdf)
+2026-10-24 21:38:26,556 INFO Leiden res 0.5: 12 clusters
+2026-10-24 21:38:26,556 INFO Marker types used: {'epithelial_ductal_tumor': 8, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-10-24 21:38:27,573 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_crosstab.csv (11 rows)
+2026-10-24 21:38:27,639 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_author_vs_marker_crosstab.csv (22 rows)
+2026-10-24 21:38:27,684 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_summary.json
+2026-10-24 21:38:28,742 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3b_annotations_spatial(.png/.pdf)
+2026-10-24 21:38:30,132 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_lr_coverage.csv (33 rows)
+2026-10-24 21:38:41,726 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_gene_detection_counts.csv (56 rows)
+2026-10-24 21:38:41,726 INFO Testable L-R pairs: 31 of 33 catalogue pairs: [('TGFB1', 'TGFBR1'), ('TGFB1', 'TGFBR2'), ('EGF', 'EGFR'), ('FGF2', 'FGFR1'), ('VEGFA', 'KDR'), ('CXCL12', 'CXCR4'), ('CCL2', 'CCR2'), ('CCL5', 'CCR5'), ('CXCL9', 'CXCR3'), ('CXCL10', 'CXCR3'), ('TNF', 'TNFRSF1A'), ('IFNG', 'IFNGR1'), ('IL6', 'IL6R'), ('IL1B', 'IL1R1'), ('HGF', 'MET'), ('PDGFB', 'PDGFRA'), ('PDGFB', 'PDGFRB'), ('JAG1', 'NOTCH1'), ('CD274', 'PDCD1'), ('MIF', 'CD74'), ('CD86', 'CTLA4'), ('CD80', 'CTLA4'), ('CD80', 'CD28'), ('CD86', 'CD28'), ('PDCD1LG2', 'PDCD1'), ('LGALS9', 'HAVCR2'), ('SPP1', 'CD44'), ('FN1', 'ITGB1'), ('CCL19', 'CCR7'), ('CCL21', 'CCR7'), ('CXCL12', 'ACKR3')]
+2026-10-24 21:38:42,575 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3c_lr_coverage_detection(.png/.pdf)
+2026-10-24 21:38:42,787 INFO 6-NN edge lengths: {'n_edges': 448758, 'median_um': 15.042659339359696, 'p95_um': 23.763408846375196, 'max_um': 74.38204622084457, 'frac_gt_50um': 3.565396048649829e-05, 'frac_gt_100um': 0.0}
+2026-10-24 21:38:42,797 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_6NN_edge_length_summary.json
+2026-10-24 21:39:09,288 INFO [6NN/cell_type_marker] 3100 interactions x 500 perms in 19.5s (448758 edges)
+2026-10-24 21:39:10,411 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_6NN_cell_type_marker.npz (arrays: comp_null(500, 3100), edge_null(500, 3100), matched_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:39:37,197 INFO [6NN/cell_type_leiden] 496 interactions x 500 perms in 19.2s (448758 edges)
+2026-10-24 21:39:37,410 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_6NN_cell_type_leiden.npz (arrays: comp_null(500, 496), edge_null(500, 496), matched_null(500, 496), ratio_null(500, 496))
+2026-10-24 21:39:37,581 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_6NN_scores_both_annotations.csv (3596 rows)
+2026-10-24 21:39:37,582 INFO Rows tested: compositional {'cell_type_marker': 3100, 'cell_type_leiden': 496}; edge (>=1 qualifying edge) {'cell_type_marker': 3100, 'cell_type_leiden': 496}
+2026-10-24 21:39:37,667 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_headline_CXCL12_CXCR4.csv (3 rows)
+2026-10-24 21:39:37,741 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_sensitivity_rows.csv (496 rows)
+2026-10-24 21:39:37,751 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_annotation_sensitivity_summary.csv (4 rows)
+2026-10-24 21:39:58,264 INFO [k=4] 3100 interactions x 500 perms in 13.2s (299172 edges)
+2026-10-24 21:39:58,877 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k4_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:40:25,618 INFO [k=6] 3100 interactions x 500 perms in 18.9s (448758 edges)
+2026-10-24 21:40:26,204 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k6_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:40:57,623 INFO [k=8] 3100 interactions x 500 perms in 24.9s (598344 edges)
+2026-10-24 21:40:58,253 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k8_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:41:42,283 INFO [k=12] 3100 interactions x 500 perms in 37.1s (897516 edges)
+2026-10-24 21:41:42,840 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_k12_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:41:43,270 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity.csv (12400 rows)
+2026-10-24 21:41:43,930 INFO radius 15 um: est. 2.28e+05 edges; query-cell fraction 1.000; 226452 directed edges
+2026-10-24 21:42:04,974 INFO [r=15.0] 3100 interactions x 500 perms in 15.5s (226452 edges)
+2026-10-24 21:42:05,567 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius15_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:42:06,287 INFO radius 30 um: est. 1.03e+06 edges; query-cell fraction 1.000; 1032686 directed edges
+2026-10-24 21:43:19,397 INFO [r=30.0] 3100 interactions x 500 perms in 66.1s (1032686 edges)
+2026-10-24 21:43:20,026 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius30_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:43:20,854 INFO radius 50 um: est. 2.83e+06 edges; query-cell fraction 1.000; 2829150 directed edges
+2026-10-24 21:46:37,593 INFO [r=50.0] 3100 interactions x 500 perms in 189.2s (2829150 edges)
+2026-10-24 21:46:38,189 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius50_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:46:39,143 INFO radius 75 um: est. 6.17e+06 edges; query-cell fraction 1.000; 6168628 directed edges
+2026-10-24 21:53:47,200 INFO [r=75.0] 3100 interactions x 500 perms in 419.8s (6168628 edges)
+2026-10-24 21:53:47,678 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius75_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 21:53:48,421 INFO radius 100 um: est. 1.06e+07 edges; query-cell fraction 1.000; 10615980 directed edges
+2026-10-24 22:03:23,124 INFO [r=100.0] 3100 interactions x 500 perms in 569.1s (10615980 edges)
+2026-10-24 22:03:23,603 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius100_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 22:03:24,155 INFO radius 150 um: est. 2.23e+07 edges; query-cell fraction 0.538; 12062989 directed edges
+2026-10-24 22:14:14,277 INFO [r=150.0] 3100 interactions x 500 perms in 644.4s (12062989 edges)
+2026-10-24 22:14:14,764 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_null_radius150_marker.npz (arrays: edge_null(500, 3100), ratio_null(500, 3100))
+2026-10-24 22:14:15,220 INFO radius 200 um: est. 3.74e+07 edges; query-cell fraction 0.321; 11962119 directed edges

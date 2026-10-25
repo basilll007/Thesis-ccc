@@ -1,0 +1,3 @@
+sender,receiver,n_sections,n_comp_sig,n_matched_sig,n_edge_sig,n_ratio_sig,n_edge_sig_bh,n_ratio_sig_bh,median_edge_z,median_ratio_z,median_ratio_obs
+CAF_fibroblast,T_cell,16,16,16,16,2,14,0,21.632661844866398,0.738292660001386,1.3460162693981197
+CAF_fibroblast,epithelial_ductal_tumor,16,2,2,0,1,0,1,-9.589208584250905,-6.7777823628207265,0.6870728868430152

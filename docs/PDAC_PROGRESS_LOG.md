@@ -7,8 +7,8 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - [x] Phase 0: Repo hygiene (PDCD1 caption, F:\ paths, settings note, "replication" renamed)
 - [x] Phase 1: Matched dyadic baseline (breast) — gate: matched baseline does NOT explain most C/E disagreements (3/9), but it carries all edge-significant calls (0/8 ratio-significant)
 - [x] Phase 2: Find and vet a PDAC spatial dataset — selected Mendeley PDAC-SMI (CosMx, CC BY 4.0, 37/39 genes)
-- [ ] Phase 3: Run the audit on PDAC
-- [ ] Phase 4: Benchmark against COMMOT / SpatialDM / Squidpy ligrec
+- [x] Phase 3: Run the audit on PDAC — DONE except full-catalogue radius sweep (host stopped run for low memory; headline-only radius sweep done; full sweep BLOCKED pending user go-ahead)
+- [x] Phase 4: Benchmark — COMMOT DONE (crop), SpatialDM DONE, Squidpy ligrec DONE (crop) / full-section p-values BLOCKED (all NaN, 2 attempts)
 - [ ] Phase 5: Synthesis (PDAC_SUMMARY.md, README section)
 
 ## Conventions used throughout (decided 2026-10-24)
@@ -119,3 +119,100 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
   - All 16 sections get the 6-NN main analysis as a cross-section consistency check.
   - QC thresholds are the breast ones (min_counts=10, min_cells=3). This deviates from the authors' ≥60-transcript filter, deliberately, to keep the pipeline identical.
   - Marker sets and the L–R catalogue are fixed in `src/pdac/phase3_pdac_audit.py` and `src/pdac/lr_catalog.py`.
+
+## 2026-10-24 21:37–22:20 — Phase 3: audit on PDAC (Mendeley PDAC-SMI, CosMx)
+
+- **Scripts**:
+  - `src/pdac/phase3_pdac_audit.py --dataset mendeley_pdac_smi:U5-a` (primary section; log `logs/phase3_pdac_audit_mendeley_pdac_smi__U5-a_*.log`)
+  - `src/pdac/phase3b_cross_section.py` (all 16 sections)
+  - `src/pdac/phase3c_summarise.py` (summaries and figures from saved tables)
+  - `src/pdac/phase3d_author_annotation.py` (authors' labels as a reference annotation)
+  - Shared: `src/pdac/lr_catalog.py`, `src/pdac/pdac_loaders.py`
+- **Data handling**: one section at a time; 960 Base genes (30 spike-ins and 19 negative probes dropped); coordinates px × 0.18 → µm. QC with breast thresholds (min_counts = 10, min_cells = 3) removed **0 cells and 0 genes** in every section (`results/pdac/phase3/cross_section_section_info.csv`), because the authors had already filtered cells (≥ 60 transcripts in their Methods). This is not a deviation in thresholds, but QC was effectively inert here.
+- **Annotations**:
+  - (1) Marker scoring: per-cell argmax of mean marker expression over 10 PDAC types, markers declared before the data were loaded; none dropped.
+  - (2) Leiden consensus: res 0.5, same calls as breast. In U5-a this gives only 4 types (CAF_fibroblast, endocrine, epithelial_ductal_tumor, myeloid). **No T-cell class**, so the CAF→T headline cannot be tested under Leiden labels.
+  - (3) Added during the run: the authors' `annotation_majortypes`, mapped to our coarse types (`AUTHOR_MAP` in `phase3d_author_annotation.py`) as a reference. Reason: the crosstab `mendeley_pdac_smi__U5-a_author_vs_marker_crosstab.csv` shows our marker "T_cell" class (945 cells) contains 179 CD8+ T, 20 CD4+ T, 62 Treg and 29 NK author calls (290 T/NK in total), plus 254 "Malignant" and 221 "Noise". Of the authors' 879 T cells (CD4+ 50, CD8+ 476, Treg 353), our marker scoring labels 467 as CAF_fibroblast. The marker T-cell label is impure.
+- **Coverage** (`mendeley_pdac_smi__U5-a_lr_coverage.csv`): 31/33 catalogue pairs testable; absent: PTN–SDC4, CXCL13–CXCR5. **No tested gene is detected in fewer than 20 cells** in U5-a (`mendeley_pdac_smi__U5-a_sparse_genes.csv` is empty), so no axis carries the sparse-gene flag. Receptor detection counts are in `mendeley_pdac_smi__U5-a_receptor_detection_counts.csv`.
+- **Multiple testing (U5-a, 6-NN, 500 perms; `mendeley_pdac_smi__U5-a_phase3_summary.json`)**: **3,596 rows tested** = 3,100 marker (31 pairs × 10 × 10 types) + 496 Leiden (31 × 4 × 4). Every row had ≥ 1 qualifying edge.
+
+  | Annotation | Significant (uncorrected p < 0.05, add-one p): C / M / E / Q | BH q < 0.05 within annotation: C / M / E / Q | BH across all 3,596 rows: E / Q |
+  |---|---|---|---|
+  | marker | 724 / 645 / 385 / 405 | 643 / 544 / 214 / 186 | 239 / 207 |
+  | Leiden | 164 / 137 / 155 / 147 | — | — |
+
+- **C/E decomposition (U5-a, marker)**: 495 C/E disagreements; 106 score-form and 389 proximity. 0 involve a sparse gene. Of 385 edge-significant rows, 303 are also matched-significant and **141 are also ratio-significant**. Unlike breast (0/8), PDAC shows proximity enrichment beyond the matched baseline in a sizeable minority of edge-significant rows.
+- **Headline CXCL12→CXCR4** (U5-a):
+  - CAF→T_cell (marker): 2,101 edges; C z = 33.17, M z = 36.05, E z = 23.38, Q = 1.62 with z_Q = 2.81 (p_add-one 0.0080). After BH across all 3,596 rows: E q = 0.022 (significant), Q q = 0.082 (not significant).
+  - CAF→epithelial_ductal_tumor: depleted under both marker labels (E z = −15.22, Q z = −8.85; 30,053 edges) and Leiden labels (E z = −18.65); not significant.
+- **Cross-section consistency check (16 sections; `cross_section_summary_by_interaction.csv`, `author_annotation_headline_summary.csv`)**:
+  - CAF→T_cell, **marker** labels: C 16/16, M 16/16, E 16/16 (13/16 after within-section BH), **Q 4/16 (0/16 after BH)**; median E z = 20.87, median Q = 1.35 (median z_Q = 0.75).
+  - CAF→T_cell, **author** labels: C 16/16, M 16/16, E 16/16 (14/16 BH), **Q 2/16 (0/16 BH)**; median E z = 21.63, median Q = 1.35.
+  - CAF→tumour: E 0/16 under marker, Leiden and author labels. C 3/16 (marker), 3/16 (Leiden), 2/16 (author).
+  - All sections, marker labels: 49,569 section-rows; 6,058 edge-significant, of which 4,676 matched-significant and 2,127 ratio-significant. 22 interactions are edge-significant in all 16 sections; 21 interactions are ratio-significant in ≥ 12/16 (`cross_section_ratio_sig_in_ge12_sections_marker.csv`).
+- **Annotation sensitivity (U5-a, marker vs Leiden, 496 shared rows; `mendeley_pdac_smi__U5-a_annotation_sensitivity_summary.csv`)**:
+
+  | Score | Spearman z | median abs rank shift | verdict changes |
+  |---|---|---|---|
+  | C | 0.92 | 18 | 49 |
+  | M | 0.89 | 22 | 50 |
+  | E | 0.83 | 29 | 77 |
+  | Q | 0.65 (484 rows) | 48 | 106 |
+
+  The ratio score is the most annotation-sensitive.
+- **k sensitivity (U5-a, marker; `mendeley_pdac_smi__U5-a_k_sensitivity_summary.csv`)**: edge-significant rows at k = 4 / 6 / 8 / 12 = 378 / 385 / 413 / 433. Spearman of edge z vs k = 6: 0.955 / 1 / 0.974 / 0.945. Edge verdict changes vs k = 6: 105 / 0 / 80 / 134; ratio verdict changes: 195 / 0 / 161 / 239. The headline CAF→T rows across k are in `mendeley_pdac_smi__U5-a_k_sensitivity_headline.csv`.
+- **Radius sensitivity: PARTIAL.** The primary run was **stopped by the host (Claude Code) because the system was critically low on memory** at the 200 µm radius step (about 12M edges after receiver subsampling; the 150 and 200 µm graphs used query-cell fractions of 0.538 and 0.321). Null distributions for 15–150 µm were saved (`*_null_radius{15..150}_marker.npz`). The per-radius observed table, the figures and the processed AnnData were held in memory and lost. Per the host's instruction, the full run was **not restarted automatically**. A low-memory, headline-only radius sweep is done separately (next entry). The full-catalogue radius sweep needs to be re-run when memory allows, and that requires the user's go-ahead.
+- **Edge lengths** (`mendeley_pdac_smi__U5-a_6NN_edge_length_summary.json`): 6-NN max edge 74.4 µm; 3.6e-5 of edges are longer than 50 µm. FOV-gap bridging is negligible.
+- **Interpretation (audit level)**: The headline CXCL12→CXCR4 CAF→T row is significant under C, M and E in every section and under both annotations that have a T-cell class. However, its edge significance is largely matched by the non-spatial matched baseline (M), and proximity enrichment beyond that baseline (Q) is significant in only 4/16 (marker) or 2/16 (author) sections, with 0/16 surviving BH. The marker T-cell label is substantially impure. Nothing here supports a biological claim about CAF–T-cell signalling.
+
+## 2026-10-24 22:43–22:49 — Phase 3e: headline-only radius sensitivity (low memory; SENSITIVITY ONLY)
+
+- **Done**: `src/pdac/phase3e_radius_headline.py` (log `logs/phase3e_radius_headline_20261024T224325.log`) ran the 15–300 µm radius sweep for CXCL12–CXCR4 only (all 100 sender/receiver combinations, marker labels, 500 perms), using the same receiver-subsampling RNG sequence as the stopped run. Above 12M edges, receivers are subsampled: query-cell fraction 0.538 at 150 µm, 0.321 at 200 µm, 0.163 at 300 µm.
+- **Reproducibility**: for 15–150 µm, the edge nulls are identical (max abs diff 0) to the nulls saved by the stopped full run (`mendeley_pdac_smi__U5-a_radius_headline_repro_check.json`).
+- **Key numbers** (`mendeley_pdac_smi__U5-a_radius_sensitivity_headline_pair.csv`):
+  - CAF→T_cell is edge- and ratio-significant at every radius. Q falls from 1.742 (15 µm) to 1.494–1.532 (150–300 µm), while z_Q rises from 2.09 to 6.83 (200 µm) as qualifying edges grow from 1,455 to about 59,000.
+  - CAF→tumour is depleted at every radius (E z −9.7 to −20.7).
+  - k sweep for the headline (`mendeley_pdac_smi__U5-a_k_sensitivity_headline.csv`): CAF→T z_Q = 2.54 / 2.81 / 3.24 / 4.11 at k = 4 / 6 / 8 / 12; edges 1,429 → 4,274.
+- **Interpretation**: As in breast, larger neighbourhoods inflate z through edge count, while the effect size Q does not grow. Radius and k z-values must not be read as stronger communication.
+- **Still not done**: full-catalogue radius sweep (all 31 pairs) beyond what the stopped run saved. Status: **BLOCKED pending a user go-ahead to re-run** (host memory reaping). Saved null files: `*_null_radius{15..150}_marker.npz`.
+
+## 2026-10-24 22:21–22:43 — Phase 4: benchmark vs Squidpy ligrec, COMMOT, SpatialDM
+
+- **Inputs (pre-declared)**:
+  - Primary section U5-a with marker labels. Labels were rebuilt by `phase4a` without PCA/Leiden and are identical to Phase 3 (same counts).
+  - **crop**: the 8,000 cells nearest to the cell closest to the median coordinate (extent 1,800 × 2,739 µm, because FOVs are discontiguous; `benchmark_crop_info.json`). The crop exists because COMMOT builds a dense n × n distance matrix (`commot/tools/_spatial_communication.py`: `distance_matrix(adata.obsm["spatial"], ...)`), which is infeasible for 74,793 cells.
+  - **full**: the whole section, for our scores, ligrec and SpatialDM.
+- **Scripts and logs**:
+  - `src/pdac/phase4a_ours_and_squidpy.py` (env thesis-spatial-ccc)
+  - `src/pdac/phase4a2_squidpy_serial.py`
+  - `src/pdac/phase4b_commot_spatialdm.py` (env pdac-bench; the log shows commot `__version__` as "unknown" because the package does not define it; `pip show` = 0.0.3; SpatialDM 0.3.1)
+  - `src/pdac/phase4c_compare.py`
+- **Parameters**:
+  - Squidpy ligrec: 500 perms, seed 42, threshold 0.01, use_raw.
+  - COMMOT: our 31 pairs, `dis_thr` = 50 µm, defaults otherwise; `cluster_communication` with 100 perms (package default), random_seed 42; 544 s.
+  - SpatialDM: `weight_matrix(l=25 µm, cutoff=0.2, single_cell=True)`, built-in CellChatDB (`datahost='package'`, no network), `spatialdm_global(method='z-score')`; 565 CellChatDB pairs. 26 of our 31 pairs map exactly, 5 via receptor-in-complex (`spatialdm_mapping_full.csv`).
+- **Status** (`phase4b_status.json`, `squidpy_ligrec_attempts.json`):
+  - COMMOT DONE (crop).
+  - SpatialDM DONE (crop and full).
+  - Squidpy ligrec DONE on crop (1,868/3,100 p-values NaN by design, from the 1% expression mask; 203 rows p < 0.05).
+  - **Squidpy ligrec on the full section: BLOCKED.** Attempt 1 (default, `n_jobs=4`, numba-parallel kernel because n ≥ 2^15) and attempt 2 (`numba_parallel=False`, `n_jobs=1`) both returned NaN for all 3,100 p-values, with identical means. The input has no NaN/inf and unique cell names. Cause not identified. Per the two-failure rule, no third attempt. Full-section ligrec **means** are used for rank correlation; its significance calls are excluded.
+  - Crop control: the serial re-run reproduces the NaN mask exactly. p-values differ by up to 0.072 because Squidpy's per-job seeds depend on `n_jobs`.
+- **Agreement, crop, cluster level (3,100 rows; `comparison_spearman_crop.csv`, `comparison_top20_jaccard_crop.csv`, `comparison_significance_agreement_crop.csv`)**:
+  - Spearman of our edge z with: ligrec mean 0.022, COMMOT cluster score 0.118. Our compositional z with ligrec mean: 0.258. ligrec vs COMMOT: 0.556.
+  - Top-20 Jaccard between any of our scores and ligrec or COMMOT is ≤ 0.053; ligrec vs COMMOT is 0.026.
+  - Significance kappa:
+
+    | Pair | kappa |
+    |---|---|
+    | ligrec vs our compositional | 0.449 |
+    | ligrec vs our edge | 0.004 |
+    | COMMOT vs our edge | 0.443 |
+    | COMMOT vs our compositional | 0.387 |
+    | COMMOT vs ligrec | 0.125 |
+
+    So ligrec agrees with the compositional score and COMMOT agrees with the edge score, as expected from their designs.
+- **Agreement, full section, cluster level (`comparison_spearman_full.csv`)**: Spearman of ligrec mean with our compositional z 0.098, edge z −0.081, ratio z −0.197.
+- **L–R level (31 pairs; `comparison_lr_level_spearman_{crop,full}.csv`)**:
+  - Full: SpatialDM global z vs our max edge z 0.260, vs ligrec max mean 0.542, vs our max compositional z 0.038.
+  - Crop: COMMOT total signal vs our max edge z 0.603 and vs our max ratio z 0.641; SpatialDM vs COMMOT 0.294.
+- **Interpretation (audit level)**: The four method families do not agree on the top interactions (top-20 Jaccard ≤ 0.053 for every cross-family pair). Agreement follows score design: non-spatial cluster-mean methods (ligrec) agree with our compositional score; contact or transport methods (COMMOT) agree with our edge score. The rankings depend on the method choice, which is itself an audit-relevant result.

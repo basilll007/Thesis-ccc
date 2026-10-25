@@ -1,0 +1,9 @@
+k,sender,receiver,n_qualifying_edges,edge_z,ratio_z,edge_sig,ratio_sig
+4,CAF_fibroblast,T_cell,1429,20.66974790707297,2.5350900059079127,True,True
+4,CAF_fibroblast,epithelial_ductal_tumor,18206,-12.864187153018088,-6.396514063631028,False,False
+6,CAF_fibroblast,T_cell,2101,23.380665087155204,2.812410894886574,True,True
+6,CAF_fibroblast,epithelial_ductal_tumor,30053,-15.217729850298564,-8.854404507608708,False,False
+8,CAF_fibroblast,T_cell,2817,26.474299479106783,3.241911793274188,True,True
+8,CAF_fibroblast,epithelial_ductal_tumor,42945,-16.53902474074245,-9.638648738550216,False,False
+12,CAF_fibroblast,T_cell,4274,30.71094270985411,4.111726630445386,True,True
+12,CAF_fibroblast,epithelial_ductal_tumor,70791,-19.085558322876555,-12.707759254518663,False,False

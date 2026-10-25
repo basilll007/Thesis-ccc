@@ -1,0 +1,12 @@
+cell_type_marker,CAF_fibroblast,endocrine,epithelial_ductal_tumor,myeloid,All
+B_plasma,873,0,156,30,1059
+CAF_fibroblast,19613,1,1254,1866,22734
+T_cell,822,0,112,11,945
+acinar,178,0,473,34,685
+endocrine,76,44,124,4,248
+endothelial,1067,0,190,30,1287
+epithelial_ductal_tumor,1637,0,37959,949,40545
+mast,164,0,155,52,371
+myeloid,884,0,590,4865,6339
+pericyte_smc,432,0,125,23,580
+All,25746,45,41138,7864,74793

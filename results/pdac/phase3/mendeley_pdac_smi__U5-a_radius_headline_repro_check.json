@@ -1,0 +1,26 @@
+[
+  {
+    "radius_um": 15.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  },
+  {
+    "radius_um": 30.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  },
+  {
+    "radius_um": 50.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  },
+  {
+    "radius_um": 75.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  },
+  {
+    "radius_um": 100.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  },
+  {
+    "radius_um": 150.0,
+    "max_abs_diff_vs_stopped_run_null": 0.0
+  }
+]

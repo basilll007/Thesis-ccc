@@ -1,0 +1,76 @@
+2026-10-24 22:17:16,405 INFO script=phase3d_author_annotation log=logs/phase3d_author_annotation_20261024T221716.log
+2026-10-24 22:17:16,440 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 22:17:16,577 INFO seed=42
+2026-10-24 22:17:16,578 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:17:16,593 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:17:20,510 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:17:20,800 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-10-24 22:17:28,124 INFO [T1-b/author] 4464 interactions x 500 perms in 5.9s (186504 edges)
+2026-10-24 22:17:28,142 INFO section T1-b author-mapped counts: {'CAF_fibroblast': 14895, 'epithelial_ductal_tumor': 5507, 'myeloid': 4321, 'pericyte_smc': 1518, 'unassigned': 1314, 'B_plasma': 1312, 'endothelial': 952, 'T_cell': 733, 'mast': 309, 'NK': 146, 'schwann_nerve': 76, 'endocrine': 1}
+2026-10-24 22:17:30,974 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:17:31,266 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-10-24 22:17:42,397 INFO [T2-b/author] 4464 interactions x 500 perms in 9.0s (261948 edges)
+2026-10-24 22:17:42,418 INFO section T2-b author-mapped counts: {'CAF_fibroblast': 25996, 'epithelial_ductal_tumor': 7133, 'myeloid': 5416, 'unassigned': 2000, 'B_plasma': 1164, 'mast': 664, 'endothelial': 548, 'pericyte_smc': 534, 'T_cell': 94, 'NK': 68, 'schwann_nerve': 40, 'endocrine': 1}
+2026-10-24 22:17:45,296 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:17:45,584 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-10-24 22:17:53,850 INFO [T3-b/author] 4464 interactions x 500 perms in 6.7s (202800 edges)
+2026-10-24 22:17:53,866 INFO section T3-b author-mapped counts: {'CAF_fibroblast': 18635, 'epithelial_ductal_tumor': 5900, 'myeloid': 3153, 'schwann_nerve': 1498, 'pericyte_smc': 1372, 'unassigned': 1261, 'endothelial': 1076, 'endocrine': 274, 'B_plasma': 230, 'T_cell': 230, 'NK': 96, 'mast': 75}
+2026-10-24 22:17:56,854 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:17:57,253 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-10-24 22:18:10,088 INFO [T4-a/author] 4464 interactions x 500 perms in 10.1s (332214 edges)
+2026-10-24 22:18:10,116 INFO section T4-a author-mapped counts: {'CAF_fibroblast': 26656, 'myeloid': 11987, 'epithelial_ductal_tumor': 5218, 'T_cell': 3333, 'unassigned': 2575, 'B_plasma': 1912, 'endothelial': 1301, 'pericyte_smc': 854, 'NK': 651, 'mast': 509, 'schwann_nerve': 259, 'endocrine': 114}
+2026-10-24 22:18:12,965 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:18:13,281 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-10-24 22:18:22,885 INFO [T4-b/author] 4464 interactions x 500 perms in 7.6s (254592 edges)
+2026-10-24 22:18:22,906 INFO section T4-b author-mapped counts: {'CAF_fibroblast': 20143, 'myeloid': 6755, 'epithelial_ductal_tumor': 6000, 'unassigned': 2985, 'B_plasma': 2338, 'T_cell': 1215, 'endothelial': 1148, 'pericyte_smc': 869, 'mast': 589, 'NK': 337, 'schwann_nerve': 31, 'endocrine': 22}
+2026-10-24 22:18:25,816 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:18:26,127 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-10-24 22:18:35,750 INFO [T5-a/author] 4464 interactions x 500 perms in 7.5s (262764 edges)
+2026-10-24 22:18:35,774 INFO section T5-a author-mapped counts: {'epithelial_ductal_tumor': 16099, 'CAF_fibroblast': 14855, 'myeloid': 5847, 'unassigned': 2090, 'endothelial': 1105, 'pericyte_smc': 1014, 'T_cell': 822, 'endocrine': 597, 'mast': 540, 'B_plasma': 354, 'NK': 324, 'schwann_nerve': 147}
+2026-10-24 22:18:38,598 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:18:38,830 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-10-24 22:18:42,245 INFO [T6-b/author] 4464 interactions x 500 perms in 2.9s (74838 edges)
+2026-10-24 22:18:42,258 INFO section T6-b author-mapped counts: {'CAF_fibroblast': 7862, 'myeloid': 1652, 'unassigned': 1035, 'endothelial': 457, 'pericyte_smc': 384, 'B_plasma': 342, 'epithelial_ductal_tumor': 222, 'schwann_nerve': 150, 'mast': 146, 'endocrine': 137, 'T_cell': 67, 'NK': 19}
+2026-10-24 22:18:45,162 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:18:45,438 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-10-24 22:18:50,803 INFO [U1-b/author] 3751 interactions x 500 perms in 4.2s (149364 edges)
+2026-10-24 22:18:50,822 INFO section U1-b author-mapped counts: {'CAF_fibroblast': 8661, 'epithelial_ductal_tumor': 4920, 'myeloid': 3729, 'pericyte_smc': 2357, 'unassigned': 2157, 'endothelial': 981, 'B_plasma': 951, 'T_cell': 628, 'mast': 244, 'NK': 180, 'schwann_nerve': 86}
+2026-10-24 22:18:53,733 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:18:54,016 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-10-24 22:19:02,659 INFO [U2-b/author] 4464 interactions x 500 perms in 7.1s (206004 edges)
+2026-10-24 22:19:02,675 INFO section U2-b author-mapped counts: {'epithelial_ductal_tumor': 20191, 'CAF_fibroblast': 8734, 'myeloid': 2756, 'unassigned': 970, 'endothelial': 658, 'pericyte_smc': 326, 'mast': 274, 'B_plasma': 221, 'T_cell': 120, 'NK': 61, 'schwann_nerve': 22, 'endocrine': 1}
+2026-10-24 22:19:05,601 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:19:05,866 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-10-24 22:19:09,216 INFO [U3-b/author] 3751 interactions x 500 perms in 2.7s (90114 edges)
+2026-10-24 22:19:09,224 INFO section U3-b author-mapped counts: {'CAF_fibroblast': 5696, 'epithelial_ductal_tumor': 3646, 'myeloid': 3144, 'unassigned': 803, 'endothelial': 679, 'pericyte_smc': 441, 'T_cell': 243, 'B_plasma': 165, 'mast': 115, 'NK': 60, 'schwann_nerve': 27}
+2026-10-24 22:19:12,051 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:19:12,414 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-10-24 22:19:22,653 INFO [U4-a/author] 4464 interactions x 500 perms in 7.9s (284592 edges)
+2026-10-24 22:19:22,676 INFO section U4-a author-mapped counts: {'epithelial_ductal_tumor': 17028, 'CAF_fibroblast': 14721, 'myeloid': 6720, 'unassigned': 1768, 'endothelial': 1739, 'pericyte_smc': 1700, 'B_plasma': 1656, 'T_cell': 867, 'mast': 776, 'NK': 291, 'schwann_nerve': 123, 'endocrine': 43}
+2026-10-24 22:19:25,548 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:19:25,900 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-10-24 22:19:36,200 INFO [U4-b/author] 4464 interactions x 500 perms in 8.1s (280788 edges)
+2026-10-24 22:19:36,226 INFO section U4-b author-mapped counts: {'epithelial_ductal_tumor': 18442, 'CAF_fibroblast': 15895, 'myeloid': 5176, 'unassigned': 1708, 'B_plasma': 1365, 'endothelial': 1274, 'pericyte_smc': 945, 'mast': 806, 'T_cell': 756, 'schwann_nerve': 247, 'NK': 148, 'endocrine': 36}
+2026-10-24 22:19:39,365 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:19:39,869 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-10-24 22:19:58,613 INFO [U5-a/author] 4464 interactions x 500 perms in 14.8s (448758 edges)
+2026-10-24 22:19:58,644 INFO section U5-a author-mapped counts: {'epithelial_ductal_tumor': 41216, 'CAF_fibroblast': 13799, 'myeloid': 7470, 'unassigned': 6583, 'endothelial': 1838, 'B_plasma': 1431, 'pericyte_smc': 953, 'T_cell': 879, 'NK': 320, 'mast': 189, 'schwann_nerve': 62, 'endocrine': 53}
+2026-10-24 22:20:01,601 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:20:02,046 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-10-24 22:20:19,023 INFO [U6-a_1/author] 4464 interactions x 500 perms in 13.4s (433908 edges)
+2026-10-24 22:20:19,051 INFO section U6-a_1 author-mapped counts: {'epithelial_ductal_tumor': 37451, 'CAF_fibroblast': 17564, 'myeloid': 10815, 'endothelial': 1638, 'pericyte_smc': 1595, 'unassigned': 1363, 'B_plasma': 912, 'mast': 326, 'T_cell': 255, 'schwann_nerve': 192, 'endocrine': 114, 'NK': 93}
+2026-10-24 22:20:22,063 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:20:22,584 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-10-24 22:20:39,938 INFO [U6-a_2/author] 4464 interactions x 500 perms in 13.5s (410460 edges)
+2026-10-24 22:20:39,968 INFO section U6-a_2 author-mapped counts: {'epithelial_ductal_tumor': 34746, 'CAF_fibroblast': 16040, 'myeloid': 11225, 'unassigned': 2122, 'endothelial': 1396, 'B_plasma': 983, 'pericyte_smc': 957, 'mast': 308, 'T_cell': 270, 'schwann_nerve': 156, 'endocrine': 147, 'NK': 60}
+2026-10-24 22:20:43,002 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-10-24 22:20:43,425 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-10-24 22:20:59,406 INFO [U7-a/author] 4464 interactions x 500 perms in 12.3s (425310 edges)
+2026-10-24 22:20:59,436 INFO section U7-a author-mapped counts: {'CAF_fibroblast': 22865, 'epithelial_ductal_tumor': 22530, 'B_plasma': 6862, 'myeloid': 5775, 'unassigned': 4139, 'endothelial': 3609, 'pericyte_smc': 2318, 'T_cell': 1045, 'mast': 789, 'endocrine': 358, 'NK': 357, 'schwann_nerve': 238}
+2026-10-24 22:21:00,947 INFO Saved results/pdac/phase3/author_annotation_6NN_all_sections.csv (69998 rows)
+2026-10-24 22:21:01,966 INFO Saved results/pdac/phase3/author_annotation_headline_CXCL12_CXCR4.csv (32 rows)
+2026-10-24 22:21:01,997 INFO Saved results/pdac/phase3/author_annotation_headline_summary.csv (2 rows)
+2026-10-24 22:21:02,018 INFO Saved results/pdac/phase3/author_annotation_summary.json
+2026-10-24 22:21:02,031 INFO Saved results/pdac/phase3/headline_by_annotation_all_sections.csv (80 rows)
+2026-10-24 22:21:02,798 INFO Saved figure figures/pdac/phase3/headline_edge_ratio_z_by_annotation_all_sections(.png/.pdf)
+2026-10-24 22:21:02,806 INFO run finished

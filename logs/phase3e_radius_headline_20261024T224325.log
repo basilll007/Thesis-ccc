@@ -1,0 +1,39 @@
+2026-10-24 22:43:25,577 INFO script=phase3e_radius_headline log=logs/phase3e_radius_headline_20261024T224325.log
+2026-10-24 22:43:25,617 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 22:43:25,618 INFO seed=42
+2026-10-24 22:43:25,618 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:43:25,631 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:43:26,554 INFO radius 15 um: est. 2.28e+05 edges; query-cell fraction 1.000; 226452 directed edges
+2026-10-24 22:43:32,135 INFO [r=15.0] 100 interactions x 500 perms in 1.5s (226452 edges)
+2026-10-24 22:43:32,194 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius15_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:43:32,233 INFO r=15: max |edge null - stopped-run null| = 0
+2026-10-24 22:43:32,755 INFO radius 30 um: est. 1.03e+06 edges; query-cell fraction 1.000; 1032686 directed edges
+2026-10-24 22:43:41,820 INFO [r=30.0] 100 interactions x 500 perms in 5.5s (1032686 edges)
+2026-10-24 22:43:41,872 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius30_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:43:41,904 INFO r=30: max |edge null - stopped-run null| = 0
+2026-10-24 22:43:42,492 INFO radius 50 um: est. 2.83e+06 edges; query-cell fraction 1.000; 2829150 directed edges
+2026-10-24 22:44:01,245 INFO [r=50.0] 100 interactions x 500 perms in 15.2s (2829150 edges)
+2026-10-24 22:44:01,285 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius50_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:44:01,315 INFO r=50: max |edge null - stopped-run null| = 0
+2026-10-24 22:44:02,007 INFO radius 75 um: est. 6.17e+06 edges; query-cell fraction 1.000; 6168628 directed edges
+2026-10-24 22:44:38,632 INFO [r=75.0] 100 interactions x 500 perms in 33.0s (6168628 edges)
+2026-10-24 22:44:38,681 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius75_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:44:38,713 INFO r=75: max |edge null - stopped-run null| = 0
+2026-10-24 22:44:39,445 INFO radius 100 um: est. 1.06e+07 edges; query-cell fraction 1.000; 10615980 directed edges
+2026-10-24 22:45:40,589 INFO [r=100.0] 100 interactions x 500 perms in 56.8s (10615980 edges)
+2026-10-24 22:45:40,643 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius100_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:45:40,677 INFO r=100: max |edge null - stopped-run null| = 0
+2026-10-24 22:45:41,285 INFO radius 150 um: est. 2.23e+07 edges; query-cell fraction 0.538; 12062989 directed edges
+2026-10-24 22:46:49,230 INFO [r=150.0] 100 interactions x 500 perms in 63.9s (12062989 edges)
+2026-10-24 22:46:49,273 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius150_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:46:49,303 INFO r=150: max |edge null - stopped-run null| = 0
+2026-10-24 22:46:49,785 INFO radius 200 um: est. 3.74e+07 edges; query-cell fraction 0.321; 11962119 directed edges
+2026-10-24 22:47:58,353 INFO [r=200.0] 100 interactions x 500 perms in 64.4s (11962119 edges)
+2026-10-24 22:47:58,409 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius200_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:47:58,835 INFO radius 300 um: est. 7.35e+07 edges; query-cell fraction 0.163; 11981900 directed edges
+2026-10-24 22:49:24,393 INFO [r=300.0] 100 interactions x 500 perms in 80.9s (11981900 edges)
+2026-10-24 22:49:24,438 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius300_headline_pair_nulls.npz (arrays: edge_null(500, 100), ratio_null(500, 100))
+2026-10-24 22:49:24,478 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius_sensitivity_headline_pair.csv (800 rows)
+2026-10-24 22:49:24,487 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_radius_headline_repro_check.json
+2026-10-24 22:49:25,259 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_radius_sensitivity_headline(.png/.pdf)
+2026-10-24 22:49:25,266 INFO run finished

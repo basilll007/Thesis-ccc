@@ -1,0 +1,20 @@
+2026-10-24 22:15:59,054 INFO script=phase3c_summarise log=logs/phase3c_summarise_20261024T221559.log
+2026-10-24 22:15:59,086 INFO git_commit=fc5fd29e8f0b4089392b674c86a5113de5fa0c41+dirty
+2026-10-24 22:15:59,087 INFO seed=42
+2026-10-24 22:16:06,457 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 22:16:06,470 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 22:16:06,783 INFO [cell_type_leiden] {'n_rows_tested': 496, 'n_lr_pairs': 31, 'n_cell_types': 4, 'n_edge_evaluable': 496, 'n_comp_sig_uncorrected': 164, 'n_matched_sig_uncorrected': 137, 'n_edge_sig_uncorrected': 155, 'n_ratio_sig_uncorrected': 147, 'n_comp_q_lt_0.05_bh_within_annotation': 159, 'n_matched_q_lt_0.05_bh_within_annotation': 129, 'n_edge_q_lt_0.05_bh_within_annotation': 142, 'n_ratio_q_lt_0.05_bh_within_annotation': 124, 'n_comp_q_lt_0.05_bh_all_rows': 157, 'n_matched_q_lt_0.05_bh_all_rows': 129, 'n_edge_q_lt_0.05_bh_all_rows': 126, 'n_ratio_q_lt_0.05_bh_all_rows': 108, 'n_C_E_disagree': 91, 'n_disagree_score_form': 25, 'n_disagree_proximity': 66, 'n_disagree_sparse_gene': 0, 'n_edge_sig': 155, 'n_edge_sig_and_matched_sig': 109, 'n_edge_sig_and_ratio_sig': 82, 'n_rows_sparse_gene': 0, 'spearman_z_comp_vs_edge': 0.7829315538715307, 'spearman_z_matched_vs_edge': 0.8104702040371023, 'checkpoint_rows': 112, 'checkpoint_rows_edge_sig': 40, 'checkpoint_rows_comp_sig': 37}
+2026-10-24 22:16:06,788 INFO [cell_type_marker] {'n_rows_tested': 3100, 'n_lr_pairs': 31, 'n_cell_types': 10, 'n_edge_evaluable': 3100, 'n_comp_sig_uncorrected': 724, 'n_matched_sig_uncorrected': 645, 'n_edge_sig_uncorrected': 385, 'n_ratio_sig_uncorrected': 405, 'n_comp_q_lt_0.05_bh_within_annotation': 643, 'n_matched_q_lt_0.05_bh_within_annotation': 544, 'n_edge_q_lt_0.05_bh_within_annotation': 214, 'n_ratio_q_lt_0.05_bh_within_annotation': 186, 'n_comp_q_lt_0.05_bh_all_rows': 643, 'n_matched_q_lt_0.05_bh_all_rows': 544, 'n_edge_q_lt_0.05_bh_all_rows': 239, 'n_ratio_q_lt_0.05_bh_all_rows': 207, 'n_C_E_disagree': 495, 'n_disagree_score_form': 106, 'n_disagree_proximity': 389, 'n_disagree_sparse_gene': 0, 'n_edge_sig': 385, 'n_edge_sig_and_matched_sig': 303, 'n_edge_sig_and_ratio_sig': 141, 'n_rows_sparse_gene': 0, 'spearman_z_comp_vs_edge': 0.6984026345221095, 'spearman_z_matched_vs_edge': 0.7573080481908948, 'checkpoint_rows': 700, 'checkpoint_rows_edge_sig': 119, 'checkpoint_rows_comp_sig': 219}
+2026-10-24 22:16:06,821 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_headline_summary_rows.csv (3 rows)
+2026-10-24 22:16:06,851 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_checkpoint_axes_marker.csv (700 rows)
+2026-10-24 22:16:06,867 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_sparse_genes.csv (0 rows)
+2026-10-24 22:16:06,879 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_receptor_detection_counts.csv (28 rows)
+2026-10-24 22:16:06,918 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity_summary.csv (4 rows)
+2026-10-24 22:16:07,014 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_k_sensitivity_headline.csv (8 rows)
+2026-10-24 22:16:07,065 INFO Saved results/pdac/phase3/cross_section_ratio_sig_in_ge12_sections_marker.csv (21 rows)
+2026-10-24 22:16:07,074 INFO Saved results/pdac/phase3/mendeley_pdac_smi__U5-a_phase3_summary.json
+2026-10-24 22:16:07,959 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_leiden(.png/.pdf)
+2026-10-24 22:16:08,608 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3d_z_comparison_6NN_cell_type_marker(.png/.pdf)
+2026-10-24 22:16:08,874 INFO Saved figure figures/pdac/phase3/mendeley_pdac_smi__U5-a_3e_headline_k_sensitivity(.png/.pdf)
+2026-10-24 22:16:09,095 INFO Saved figure figures/pdac/phase3/cross_section_edge_vs_ratio_sig_counts(.png/.pdf)
+2026-10-24 22:16:09,102 INFO run finished

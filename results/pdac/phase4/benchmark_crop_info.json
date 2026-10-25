@@ -1,0 +1,21 @@
+{
+  "crop_n": 8000,
+  "rule": "CROP_N nearest cells to the cell closest to the median coordinate",
+  "extent_um": [
+    1800.0,
+    2738.7000000000007
+  ],
+  "cell_type_counts": {
+    "epithelial_ductal_tumor": 5465,
+    "CAF_fibroblast": 1826,
+    "myeloid": 426,
+    "endothelial": 79,
+    "T_cell": 61,
+    "acinar": 55,
+    "pericyte_smc": 39,
+    "B_plasma": 23,
+    "mast": 17,
+    "endocrine": 9
+  },
+  "n_pairs": 31
+}
