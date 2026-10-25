@@ -14,12 +14,15 @@ import pandas as pd
 import anndata as ad
 from scipy.stats import spearmanr
 
-sys.path.insert(0, r"F:\Thesis\src")
+from pathlib import Path as _Path
+REPO_ROOT = _Path(__file__).resolve().parents[1]  # repo root; no absolute drive paths
+
+sys.path.insert(0, str(REPO_ROOT / "src"))
 from spatial_edge_score import get_spatial_graph_edges  # noqa: E402
 
-H5AD_PATH = r"F:\Thesis\data\processed\xenium_breast_baseline.h5ad"
-OUT_DIR = r"F:\Thesis\results\embedding_baseline"
-NULL_MODEL_CSV = r"F:\Thesis\results\null_model_comparison.csv"
+H5AD_PATH = str(REPO_ROOT / "data" / "processed" / "xenium_breast_baseline.h5ad")
+OUT_DIR = str(REPO_ROOT / "results" / "embedding_baseline")
+NULL_MODEL_CSV = str(REPO_ROOT / "results" / "null_model_comparison.csv")
 
 
 def main():

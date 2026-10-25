@@ -1,0 +1,9 @@
+path,phase,description,script,registered_at
+results/pdac/phase0/pdcd1_cd274_detection_recheck.csv,phase0,Recomputed CD274/PDCD1 detection counts vs results/cd274_pdcd1_detection_diagnostic.csv,src/pdac/phase0_repro_check.py,2026-10-24T21:15:45
+results/pdac/phase0/multi_axis_15um_recheck.csv,phase0,Recomputed 15 um contact-restricted multi-axis z/p vs results/multi_axis_expansion/multi_axis_summary.csv,src/pdac/phase0_repro_check.py,2026-10-24T21:15:45
+figures/pdac/phase0/phase0_multi_axis_15um_recheck_nulls.png,phase0,Null histograms for 15 um contact-restricted recheck of the four breast axes,src/pdac/phase0_repro_check.py,2026-10-24T21:15:46
+figures/pdac/phase0/phase0_multi_axis_15um_recheck_nulls.pdf,phase0,Null histograms for 15 um contact-restricted recheck of the four breast axes,src/pdac/phase0_repro_check.py,2026-10-24T21:15:46
+results/pdac/phase0/phase0_repro_summary.json,phase0,Phase 0 reproducibility-check summary,src/pdac/phase0_repro_check.py,2026-10-24T21:15:46
+logs/phase0_repro_check_20261024T211538.log,phase0,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phase0_repro_check.py,2026-10-24T21:15:46
+docs/RESULTS_SETTINGS_NOTE.md,phase0,Note separating 15 um contact-restricted (paper) vs radius-sweep (sensitivity) vs 6-NN results,manual (Phase 0),2026-10-24T21:16:48
+docs/PDAC_PROGRESS_LOG.md,all,Append-only PDAC progress log with checklist,manual,2026-10-24T21:16:48

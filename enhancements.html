@@ -79,7 +79,7 @@
         <span class="gradient-text">Continuous Null, Deep Sets, Signaling Horizon, Hybrid GNN &amp; S-PCST</span>
       </h1>
       <p class="hero-lede">
-        Building on our core thesis findings, this suite delivers seven rigorous empirical advancements: <b>(1)</b> continuous soft confidence-weighted edge null model resolving sample dilution; <b>(2)</b> isotropic, permutation-invariant Deep Sets spatial extractor proving the universal limit of node-level spatial pooling; <b>(3)</b> single-cell differential expression validation proving CXCL12 contact activates receiver motility genes (<i>S100A4</i>, <i>MMP2</i>, <i>MAP3K8</i>); <b>(4)</b> multi-scale distance-decay horizon sweep across physical interaction radii ($15\text{--}300\,\mu\text{m}$) and single-cell dose-response kinetics ($d_{1/2} = 7.0\text{--}13.2\,\mu\text{m}$); <b>(5)</b> state-of-the-art <b>Hybrid Edge-Attentive GNN</b> fusing relative geometry and multivariate BiLSTM context at the edge decision layer (<b>Val AUC = 1.0000</b>); <b>(6)</b> <b>Spatial Prize-Collecting Steiner Tree (S-PCST)</b> subnetwork optimization pruning <b>93.4%</b> of bystander edges to extract the minimal functional signaling backbone; and <b>(7)</b> <b>Cross-FOV microenvironmental replication</b> (Margin vs Core) and multi-axis signaling expansion (*CD86–CTLA4* and *PTN–SDC4*).
+        Building on our core thesis findings, this suite delivers seven rigorous empirical advancements: <b>(1)</b> continuous soft confidence-weighted edge null model resolving sample dilution; <b>(2)</b> isotropic, permutation-invariant Deep Sets spatial extractor proving the universal limit of node-level spatial pooling; <b>(3)</b> single-cell differential expression validation proving CXCL12 contact activates receiver motility genes (<i>S100A4</i>, <i>MMP2</i>, <i>MAP3K8</i>); <b>(4)</b> multi-scale distance-decay horizon sweep across physical interaction radii ($15\text{--}300\,\mu\text{m}$) and single-cell dose-response kinetics ($d_{1/2} = 7.0\text{--}13.2\,\mu\text{m}$); <b>(5)</b> state-of-the-art <b>Hybrid Edge-Attentive GNN</b> fusing relative geometry and multivariate BiLSTM context at the edge decision layer (<b>Val AUC = 1.0000</b>); <b>(6)</b> <b>Spatial Prize-Collecting Steiner Tree (S-PCST)</b> subnetwork optimization pruning <b>93.4%</b> of bystander edges to extract the minimal functional signaling backbone; and <b>(7)</b> <b>Internal regional consistency check</b> (Margin vs Core split of the same section) and multi-axis signaling expansion (*CD86–CTLA4* and *PTN–SDC4*).
       </p>
 
       <!-- KPI Grid -->
@@ -921,20 +921,20 @@ Algorithm:          Fast Goemans-Williamson Primal-Dual Approximation (Hegde et 
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
         <div class="section-badge" style="color: var(--series-3); background: rgba(16, 185, 129, 0.12); margin: 0;">
-          Enhancement 7 · Microenvironmental Replication &amp; Multi-Axis Expansion
+          Enhancement 7 · Internal Regional Consistency Check (Margin vs Core) &amp; Multi-Axis Expansion
         </div>
         <div style="display:flex; gap:8px;">
-          <span class="stat-badge success">Margin vs Core Replicated</span>
-          <span class="stat-badge success">CD86–CTLA4 (z = +19.96)</span>
+          <span class="stat-badge success">Margin vs Core Consistent (internal check)</span>
+          <span class="stat-badge success">CD86–CTLA4 (z = +19.96, 200 µm radius-sweep peak; 15 µm contact: z = +3.56)</span>
           <span class="stat-badge warning">PTN–SDC4 Rejected (z = -1.36)</span>
         </div>
       </div>
       <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 8px;">
-        Cross-FOV Replication &amp; Multi-Axis Spatial Communication Dynamics
+        Internal Regional Consistency Check (Margin vs Core Split) &amp; Multi-Axis Spatial Communication Dynamics
       </h2>
       <p style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-        To establish robust scientific reproducibility, we tested whether the critical signaling horizon ($r^* = 75\,\mu\text{m}$)
-        and single-cell extinction kinetics ($d_{1/2} \approx 7\text{--}11\,\mu\text{m}$) replicate across divergent microenvironments within the tissue:
+        As an internal regional consistency check (two halves of the same section, not an independent replication), we tested whether the critical signaling horizon ($r^* = 75\,\mu\text{m}$)
+        and single-cell extinction kinetics ($d_{1/2} \approx 7\text{--}11\,\mu\text{m}$) are consistent across two regions of the same tissue section split at the median X coordinate:
         <b>FOV 1 (Stroma-Rich Margin, 26.2% fibroblasts)</b> vs <b>FOV 2 (Dense Tumor Core, 83.8% epithelial)</b>.
         Furthermore, we expanded our framework across multiple ligand-receptor axes in the 280-gene panel: comparing paracrine chemokines (<i>CXCL12–CXCR4</i>),
         stromal growth factors (<i>PTN–SDC4</i>), and immune checkpoint contacts (<i>CD86–CTLA4</i> and <i>CD274–PDCD1</i>).
@@ -951,7 +951,7 @@ Algorithm:          Fast Goemans-Williamson Primal-Dual Approximation (Hegde et 
         </div>
 
         <div class="card" style="padding: 20px; border-left: 4px solid var(--status-success);">
-          <h4 style="margin: 0 0 6px; font-size: 15px; font-weight: 700;">2. Replicated Action Half-Distances ($d_{1/2} = 5.6\text{--}11.4\,\mu\text{m}$)</h4>
+          <h4 style="margin: 0 0 6px; font-size: 15px; font-weight: 700;">2. Consistent Action Half-Distances ($d_{1/2} = 5.6\text{--}11.4\,\mu\text{m}$)</h4>
           <p style="margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
             Single-cell dose-response kinetics for <i>S100A4</i> ($5.6\,\mu\text{m}$ in margin vs $9.7\,\mu\text{m}$ in core) and <i>MMP2</i>
             ($11.4\,\mu\text{m}$ in margin vs $8.3\,\mu\text{m}$ in core) consistently match 1–2 physical cell diameters with extreme statistical confidence ($p < 10^{-30}$).
@@ -970,13 +970,13 @@ Algorithm:          Fast Goemans-Williamson Primal-Dual Approximation (Hegde et 
       <!-- Figure Gallery -->
       <div class="figure-grid">
         <div class="card figure-card">
-          <div class="figure-img-wrap" onclick="openLightbox('figures/cross_fov_replication_analysis.png', 'Cross-FOV Replication of Signaling Horizon and Dose-Response Kinetics')">
-            <span class="figure-overlay-badge">Cross-FOV Replication</span>
-            <img src="figures/cross_fov_replication_analysis.png" alt="Cross-FOV Replication Analysis" loading="lazy">
+          <div class="figure-img-wrap" onclick="openLightbox('figures/cross_fov_replication_analysis.png', 'Internal Regional Consistency Check of Signaling Horizon and Dose-Response Kinetics')">
+            <span class="figure-overlay-badge">Internal Regional Consistency Check</span>
+            <img src="figures/cross_fov_replication_analysis.png" alt="Internal Regional Consistency Check (Margin vs Core)" loading="lazy">
           </div>
           <div class="figure-body">
             <div>
-              <div class="figure-title">Cross-FOV Microenvironmental Replication (Margin vs Core)</div>
+              <div class="figure-title">Internal Regional Consistency Check (Margin vs Core)</div>
               <div class="figure-desc">
                 Panel A maps the spatial partition. Panel B displays side-by-side signaling horizon curves showing consistent significance across scales. Panel C shows the preservation of single-cell action half-distances across stroma densities.
               </div>

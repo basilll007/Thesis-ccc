@@ -1,4 +1,4 @@
-"""Publication Visualizations for S-PCST Backbone, Cross-FOV Replication & Multi-Axis Expansion.
+"""Publication Visualizations for S-PCST Backbone, Internal Regional Consistency Check & Multi-Axis Expansion.
 
 Generates 3 dual-format (180+ dpi PNG + vector PDF via save_both):
 1. figures/spatial_pcst_signaling_backbone.png/.pdf:
@@ -7,7 +7,7 @@ Generates 3 dual-format (180+ dpi PNG + vector PDF via save_both):
 2. figures/cross_fov_replication_analysis.png/.pdf:
    - Panel A: Spatial partition of FOV 1 (Margin) vs FOV 2 (Core).
    - Panel B: Multi-scale signaling horizon comparison across both FOVs.
-   - Panel C: Single-cell dose-response extinction kinetics replication.
+   - Panel C: Single-cell dose-response extinction kinetics (internal regional consistency check).
 3. figures/multi_axis_signaling_comparison.png/.pdf:
    - Panel A: Multi-axis spatial horizon scaling (CXCL12, PTN, CD86, CD274).
    - Panel B: Peak z-score and biophysical classification bar chart.
@@ -206,8 +206,8 @@ def make_spcst_backbone_figure():
 
 
 def make_cross_fov_replication_figure():
-    """Figure 2: Cross-FOV Spatial Replication Analysis."""
-    print("Generating Cross-FOV Replication Figure...")
+    """Figure 2: Internal Regional Consistency Check (margin vs core)."""
+    print("Generating Internal Regional Consistency Check Figure...")
     csv_path = FOV_DIR / "cross_fov_horizon_comparison.csv"
     json_path = FOV_DIR / "cross_fov_summary.json"
     if not csv_path.exists() or not json_path.exists():
@@ -247,13 +247,13 @@ def make_cross_fov_replication_figure():
     ax1.axvline(75.0, color="#10b981", linestyle=":", linewidth=2, label="Critical Horizon r* = 75 µm")
     ax1.axhline(1.96, color="#94a3b8", linestyle="--", linewidth=1.2, label="Significance Gate (z = 1.96)")
 
-    ax1.set_title("B: Signaling Horizon Replication\nCXCL12 Permutation z-Score vs Radius (15 to 300 µm)", fontsize=11, fontweight="bold")
+    ax1.set_title("B: Signaling Horizon Consistency Check\nCXCL12 Permutation z-Score vs Radius (15 to 300 µm)", fontsize=11, fontweight="bold")
     ax1.set_xlabel("Physical Interaction Radius r (µm)", fontsize=9.5)
     ax1.set_ylabel("Spatial Null Permutation z-Score", fontsize=9.5)
     ax1.legend(loc="lower right", frameon=True, fontsize=8.5)
     ax1.grid(True, linestyle=":", alpha=0.4)
 
-    # Panel C: Dose-Response Kinetics Replication (S100A4 and MMP2)
+    # Panel C: Dose-Response Kinetics Consistency Check (S100A4 and MMP2)
     ax2 = axes[2]
     kin = summary.get("kinetics_replication", {})
     k_f1 = kin.get("FOV1_Margin", {})
@@ -276,12 +276,12 @@ def make_cross_fov_replication_figure():
     ax2.set_xticklabels(genes, fontsize=9.5, fontweight="bold")
     ax2.set_ylabel("Empirical Half-Distance d_1/2 (µm)", fontsize=9.5)
     ax2.set_ylim(0, 16)
-    ax2.set_title("C: Single-Cell Action Half-Distance Replication\nConsistency Across Divergent Tumor Stroma Densities", fontsize=11, fontweight="bold")
+    ax2.set_title("C: Single-Cell Action Half-Distance Consistency Check\nConsistency Across Divergent Tumor Stroma Densities", fontsize=11, fontweight="bold")
     ax2.legend(loc="upper right", frameon=True, fontsize=8.5)
     ax2.grid(True, linestyle=":", alpha=0.4)
 
     fig.suptitle(
-        "Cross-FOV Microenvironmental Replication: Critical Horizon & Single-Cell Extinction Stability",
+        "Internal Regional Consistency Check (Margin vs Core): Critical Horizon & Single-Cell Extinction",
         fontsize=13, fontweight="bold", y=0.98
     )
     plt.tight_layout()

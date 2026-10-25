@@ -1,0 +1,18 @@
+2026-10-24 21:15:38,826 INFO script=phase0_repro_check log=logs/phase0_repro_check_20261024T211538.log
+2026-10-24 21:15:38,914 INFO git_commit=3cde438ec565bae3055dc9181d70bd689a1894c8+dirty
+2026-10-24 21:15:38,914 INFO seed=42
+2026-10-24 21:15:45,298 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-24 21:15:45,320 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-24 21:15:45,394 INFO CD274 detected in 53/7163 cells (existing CSV: 53) match=True
+2026-10-24 21:15:45,406 INFO PDCD1 detected in 5/7163 cells (existing CSV: 5) match=True
+2026-10-24 21:15:45,413 INFO Saved results/pdac/phase0/pdcd1_cd274_detection_recheck.csv (2 rows)
+2026-10-24 21:15:45,443 INFO RNG: numpy.random.RandomState(42), 200 label permutations (legacy multi-axis stream)
+2026-10-24 21:15:45,501 INFO 15 um radius graph: 40618 directed edges
+2026-10-24 21:15:45,528 INFO CXCL12 -> CXCR4 15um: z=36.20 p_legacy=0.000 (reported z=36.20 p=0.000) match=True; p_plus1=0.0050
+2026-10-24 21:15:45,555 INFO PTN -> SDC4 15um: z=-1.36 p_legacy=0.920 (reported z=-1.36 p=0.920) match=True; p_plus1=0.9204
+2026-10-24 21:15:45,576 INFO CD86 -> CTLA4 15um: z=3.56 p_legacy=0.035 (reported z=3.56 p=0.035) match=True; p_plus1=0.0398
+2026-10-24 21:15:45,603 INFO CD274 -> PDCD1 15um: z=0.00 p_legacy=1.000 (reported z=0.00 p=1.000) match=True; p_plus1=1.0000
+2026-10-24 21:15:45,610 INFO Saved results/pdac/phase0/multi_axis_15um_recheck.csv (4 rows)
+2026-10-24 21:15:46,629 INFO Saved figure figures/pdac/phase0/phase0_multi_axis_15um_recheck_nulls(.png/.pdf)
+2026-10-24 21:15:46,637 INFO Saved results/pdac/phase0/phase0_repro_summary.json
+2026-10-24 21:15:46,642 INFO run finished

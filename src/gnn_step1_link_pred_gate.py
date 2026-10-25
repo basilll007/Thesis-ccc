@@ -39,9 +39,12 @@ from torch_geometric.nn import SAGEConv
 from torch_geometric.transforms import RandomLinkSplit
 from torch_geometric.utils import negative_sampling
 
-H5AD_PATH = r"F:\Thesis\data\processed\xenium_breast_baseline.h5ad"
-EMB_DIR = r"F:\Thesis\results\embedding_baseline"
-OUT_DIR = r"F:\Thesis\results\gnn_edge_score"
+from pathlib import Path as _Path
+REPO_ROOT = _Path(__file__).resolve().parents[1]  # repo root; no absolute drive paths
+
+H5AD_PATH = str(REPO_ROOT / "data" / "processed" / "xenium_breast_baseline.h5ad")
+EMB_DIR = str(REPO_ROOT / "results" / "embedding_baseline")
+OUT_DIR = str(REPO_ROOT / "results" / "gnn_edge_score")
 
 SEED = 42
 HIDDEN_DIM = 128
@@ -183,7 +186,7 @@ def main():
     print("PCA baseline features:", pca_emb.shape)
 
     import sys
-    sys.path.insert(0, r"F:\Thesis\src")
+    sys.path.insert(0, str(REPO_ROOT / "src"))
     from spatial_edge_score import get_spatial_graph_edges
     row_idx, col_idx = get_spatial_graph_edges(adata)
     print("n_directed_edges:", len(row_idx))
@@ -276,7 +279,7 @@ def main():
     if gate_pass:
         # models/ is already gitignored (holds the scGPT checkpoint too) -- keep this
         # working checkpoint out of results/ and out of git; it is not a deliverable.
-        temp_model_dir = r"F:\Thesis\models\gnn_temp"
+        temp_model_dir = str(REPO_ROOT / "models" / "gnn_temp")
         os.makedirs(temp_model_dir, exist_ok=True)
         torch.save(models["scgpt"].state_dict(), os.path.join(temp_model_dir, "scgpt_gnn_state_dict.pt"))
         print("Saved trained scGPT-features model state_dict to", temp_model_dir, "(not a deliverable, for Step 2 use only).")

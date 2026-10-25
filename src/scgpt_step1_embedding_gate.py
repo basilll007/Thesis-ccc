@@ -26,9 +26,12 @@ if not hasattr(os, "sched_getaffinity"):
 
 import scgpt.tasks.cell_emb as ce
 
-CKPT_DIR = r"F:\Thesis\models\scgpt_whole_human"
-H5AD_PATH = r"F:\Thesis\data\processed\xenium_breast_baseline.h5ad"
-OUT_DIR = r"F:\Thesis\results\embedding_baseline"
+from pathlib import Path as _Path
+REPO_ROOT = _Path(__file__).resolve().parents[1]  # repo root; no absolute drive paths
+
+CKPT_DIR = str(REPO_ROOT / "models" / "scgpt_whole_human")
+H5AD_PATH = str(REPO_ROOT / "data" / "processed" / "xenium_breast_baseline.h5ad")
+OUT_DIR = str(REPO_ROOT / "results" / "embedding_baseline")
 SUBSET_TEST = False  # set True to smoke-test on a small subset first
 
 

@@ -1,4 +1,7 @@
-"""Step 2: Cross-FOV Spatial Replication & Parameter Generalizability.
+"""Step 2: Internal Regional Consistency Check (margin vs core split of one section).
+
+NOTE: formerly described as "Cross-FOV Spatial Replication"; the two halves come from the
+same tissue section, so this is an internal consistency check, not an independent replication.
 
 Tests whether the critical signaling horizon (r* = 75 um), single-cell dose-response
 kinetics (d_1/2 in 7-11 um), and GNN link prediction generalize across distinct tumor
@@ -213,7 +216,7 @@ def run_cross_fov_replication():
     df_horizon.to_csv(OUT_DIR / "cross_fov_horizon_comparison.csv", index=False)
 
     summary_out = {
-        "dataset": "10x Xenium Breast Carcinoma 2-FOV Replication",
+        "dataset": "10x Xenium Breast Carcinoma 2-FOV Internal Regional Consistency Check",
         "split_coordinate_median_x_um": med_x,
         "fov_profiles": {
             "FOV1_Margin": {
@@ -232,7 +235,7 @@ def run_cross_fov_replication():
     with open(OUT_DIR / "cross_fov_summary.json", "w") as f:
         json.dump(summary_out, f, indent=2)
 
-    print(f"\nCross-FOV Replication Complete! Saved to {OUT_DIR}.")
+    print(f"\nInternal regional consistency check complete! Saved to {OUT_DIR}.")
 
 
 if __name__ == "__main__":

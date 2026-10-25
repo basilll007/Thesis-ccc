@@ -1,0 +1,7 @@
+{
+  "pdcd1_detected": 5,
+  "all_detection_counts_match": true,
+  "multi_axis_15um_all_exact_match": true,
+  "cd86_ctla4_15um_z": 3.556591061295416,
+  "cd86_ctla4_15um_p_legacy": 0.035
+}

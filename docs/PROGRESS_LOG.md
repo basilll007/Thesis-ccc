@@ -361,7 +361,7 @@
   - Scripts: `src/run_distance_decay_horizon.py`, `src/gnn_step5_hybrid_edge_attentive.py`, `src/visualize_spatial_communication_networks.py`.
   - Data: `results/distance_decay_horizon/`, `results/hybrid_edge_gnn/`.
   - Figures: `figures/distance_decay_signaling_horizon.png/.pdf`, `figures/receiver_activation_dose_response.png/.pdf`, `figures/spatial_communication_network_single_cell.png/.pdf`.
-## 2026-09-24 — Spatial PCST Signaling Backbone, Cross-FOV Replication & Multi-Axis Expansion
+## 2026-09-24 — Spatial PCST Signaling Backbone, Internal Regional Consistency Check (Margin vs Core) & Multi-Axis Expansion
 
 - **Date/time**: 2026-09-24; local session start ~10:00 UTC-05:00.
 - **What I did**:
@@ -379,12 +379,12 @@
        - Achieved **100.0% recall of top-decile downstream responder cells** (283/283 top-decile S100A4+ cells captured).
        - Retained edges exhibit high mean hybrid attention ($\bar{\mathcal{A}}_{uv} = 0.897 \pm 0.057$) and compact spatial length ($12.11 \pm 3.73\,\mu\text{m}$).
      - Saved `results/spatial_pcst/pcst_subnetwork_nodes.csv`, `pcst_subnetwork_edges.csv`, and `pcst_summary.json`.
-  2. **Cross-FOV Microenvironmental Spatial Replication**:
+  2. **Internal Regional Consistency Check (margin vs core split of the same section; formerly called 'Cross-FOV Replication')**:
      - Implemented `src/run_cross_fov_replication.py`: Tested whether the signaling horizon ($r^* = 50\text{--}75\,\mu\text{m}$) and single-cell extinction kinetics ($d_{1/2} \approx 5.6\text{--}11.4\,\mu\text{m}$) replicate stably between contrasting tissue microenvironments.
      - **Spatial Partition**: Split tissue at median $X = 627.3\,\mu\text{m}$ into **FOV 1 (Stroma-Rich Margin, $N = 3,581$, 26.2% fibroblasts)** vs **FOV 2 (Dense Tumor Core, $N = 3,582$, 83.8% epithelial)**.
-     - **Replication Outcomes**:
-       - *Signaling Horizon*: Both FOVs independently replicate the critical signaling horizon peak at $r^* = 50\text{--}75\,\mu\text{m}$ with absolute significance ($p = 0.0000$ across all radii $15\text{--}300\,\mu\text{m}$), peaking at raw score 16.79 in margin vs 15.30 in core.
-       - *Single-Cell Action Kinetics*: Replicated stable action half-distances matching 1–2 cell diameters across microenvironments: *S100A4* ($d_{1/2} = 5.6\,\mu\text{m}$ in margin vs $9.7\,\mu\text{m}$ in core, $p < 10^{-35}$) and *MMP2* ($d_{1/2} = 11.4\,\mu\text{m}$ in margin vs $8.3\,\mu\text{m}$ in core, $p < 10^{-32}$).
+     - **Consistency-check outcomes**:
+       - *Signaling Horizon*: Both halves show the same signaling horizon peak at $r^* = 50\text{--}75\,\mu\text{m}$ with absolute significance ($p = 0.0000$ across all radii $15\text{--}300\,\mu\text{m}$), peaking at raw score 16.79 in margin vs 15.30 in core.
+       - *Single-Cell Action Kinetics*: Consistent action half-distances matching 1–2 cell diameters across microenvironments: *S100A4* ($d_{1/2} = 5.6\,\mu\text{m}$ in margin vs $9.7\,\mu\text{m}$ in core, $p < 10^{-35}$) and *MMP2* ($d_{1/2} = 11.4\,\mu\text{m}$ in margin vs $8.3\,\mu\text{m}$ in core, $p < 10^{-32}$).
      - Saved `results/cross_fov_replication/cross_fov_horizon_comparison.csv` and `cross_fov_summary.json`.
   3. **Multi-Axis Signaling Expansion**:
      - Implemented `src/run_multi_axis_expansion.py`: Expanded evaluation across 4 ligand-receptor signaling modalities in the 280-gene panel.
@@ -404,10 +404,17 @@
      - Updated `enhancements.html` with Section 6 (S-PCST) and Section 7 (Cross-FOV & Multi-Axis), metric KPI cards, and expanded synthesis benchmark table.
      - Updated `spatial.html` with an S-PCST Functional Signaling Backbone feature showcase, metrics strip, and high-resolution figure gallery.
      - Updated `methods.html` chronological timeline with September 24 milestone entries.
-     - Updated `index.html` research portal cards with S-PCST and cross-FOV replication highlights.
+     - Updated `index.html` research portal cards with S-PCST and internal regional consistency check highlights.
 - **Key decisions**: Pre-registered gates and hypothesis tests adhered to strictly; exact algorithmic runtimes recorded; dual-format figures saved in both `figures/` and corresponding `results/` directories.
 - **Deliverables summary**:
   - Scripts: `src/run_spatial_pcst_optimization.py`, `src/run_cross_fov_replication.py`, `src/run_multi_axis_expansion.py`, `src/visualize_pcst_and_replication.py`.
   - Data: `results/spatial_pcst/`, `results/cross_fov_replication/`, `results/multi_axis_expansion/`.
   - Figures: `figures/spatial_pcst_signaling_backbone.png/.pdf`, `figures/cross_fov_replication_analysis.png/.pdf`, `figures/multi_axis_signaling_comparison.png/.pdf`.
   - Web: `enhancements.html`, `spatial.html`, `methods.html`, `index.html`.
+
+## 2026-10-24 — Correction notes (branch `pdac-extension`, Phase 0)
+
+- **PDCD1 count correction**: the 2026-09 entry above (Publication Visualizations) and `ablation.html` said PDCD1 was detected in "12/7,163 cells (0.17%)". The correct count, from `results/cd274_pdcd1_detection_diagnostic.csv` and recomputed from the processed AnnData, is **5/7,163 (0.07%)**. `ablation.html` is fixed. The figure itself always computed the count dynamically.
+- **Terminology**: the margin-vs-core split is now called an *internal regional consistency check* (one section cut in half), not a replication.
+- **Settings separation**: see `docs/RESULTS_SETTINGS_NOTE.md`. Contact-restricted 15 µm results (paper; e.g. CD86→CTLA4 z = 3.56, p = 0.035) are distinct from radius-sweep peaks (CXCL12→CXCR4 z = +79.42 to +83.70; CD86→CTLA4 z = +19.96 at 200 µm), which are sensitivity results only.
+- Further work on this branch is logged in `docs/PDAC_PROGRESS_LOG.md`.

@@ -26,17 +26,20 @@ import anndata as ad
 import torch
 from scipy.stats import spearmanr
 
-sys.path.insert(0, r"F:\Thesis\src")
+from pathlib import Path as _Path
+REPO_ROOT = _Path(__file__).resolve().parents[1]  # repo root; no absolute drive paths
+
+sys.path.insert(0, str(REPO_ROOT / "src"))
 from gnn_step1_link_pred_gate import (  # noqa: E402
     GraphSAGE, build_pca_baseline_features, make_split, train_one_model,
     SEED, HIDDEN_DIM, OUTPUT_DIM, DROPOUT, LR, MAX_EPOCHS, PATIENCE,
 )
 from spatial_edge_score import get_spatial_graph_edges  # noqa: E402
 
-H5AD_PATH = r"F:\Thesis\data\processed\xenium_breast_baseline.h5ad"
-EMB_DIR = r"F:\Thesis\results\embedding_baseline"
-OUT_DIR = r"F:\Thesis\results\gnn_edge_score"
-NULL_MODEL_CSV = r"F:\Thesis\results\null_model_comparison.csv"
+H5AD_PATH = str(REPO_ROOT / "data" / "processed" / "xenium_breast_baseline.h5ad")
+EMB_DIR = str(REPO_ROOT / "results" / "embedding_baseline")
+OUT_DIR = str(REPO_ROOT / "results" / "gnn_edge_score")
+NULL_MODEL_CSV = str(REPO_ROOT / "results" / "null_model_comparison.csv")
 PRIOR_RESULTS_JSON = os.path.join(OUT_DIR, "step1_link_prediction_results.json")
 
 

@@ -10,8 +10,11 @@ import sys
 import anndata as ad
 import scgpt
 
-CKPT_DIR = r"F:\Thesis\models\scgpt_whole_human"
-H5AD_PATH = r"F:\Thesis\data\processed\xenium_breast_baseline.h5ad"
+from pathlib import Path as _Path
+REPO_ROOT = _Path(__file__).resolve().parents[1]  # repo root; no absolute drive paths
+
+CKPT_DIR = str(REPO_ROOT / "models" / "scgpt_whole_human")
+H5AD_PATH = str(REPO_ROOT / "data" / "processed" / "xenium_breast_baseline.h5ad")
 
 
 def main():
@@ -75,7 +78,7 @@ def main():
     print("GATE (overlap_fraction >= 0.5):", "PASS" if gate_pass else "FAIL")
 
     # Save the final gene list actually usable (direct matches; case-aliased genes use panel name as key)
-    with open(r"F:\Thesis\models\scgpt_whole_human\_step0_overlap_genes.json", "w") as f:
+    with open(str(REPO_ROOT / "models" / "scgpt_whole_human" / "_step0_overlap_genes.json"), "w") as f:
         json.dump({
             "n_genes_in_panel": n_panel,
             "n_genes_in_scgpt_vocab": len(vocab_genes),
