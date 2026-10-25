@@ -57,3 +57,27 @@ Validation also reports a **loose T** definition, T and not P (CD45 not required
 - Annotations: `protein_gmm` (primary) and `protein_mad` (sensitivity). Compare with v1 marker and author labels.
 - Significance: add-one p < 0.05; BH within section (and within annotation).
 - **Headline**: CXCL12→CXCR4, `CAF_fibroblast` → `T_cell`. The question is whether Q (proximity-specific enrichment over the matched product baseline) is significant, uncorrected and after BH within section. The answer is reported whichever way it goes.
+
+---
+
+## Addendum (2026-10-25 18:35): POST-HOC consensus annotation, added after the protein rule failed validation
+
+Written **after** the protein labels were validated against the author labels and **before** any CCC was run on any v2 annotation. It is post-hoc and is labelled that way in every output.
+
+**Validation result for the pre-registered rule** (`results/pdac/phaseB/protein_labels_summary.json`, `validation_precision_recall.csv`):
+- `T_cell` precision and recall against author T: **U5-a 0.022 / 0.036**; pooled 16 sections 0.077 / 0.049.
+- The v1 marker labels score 0.276 / 0.297 (U5-a) and 0.353 / 0.318 (pooled).
+- `protein_mad` gives 0 T cells in U5-a.
+- Cause: in this dataset, `Mean.CD3` and `Mean.CD45` separate the author T cells only weakly.
+  - Per-section AUC for author T: CD3 0.45–0.92; CD45 0.50–0.89 (U5-a: 0.70 and 0.55).
+  - GMM acceptance: CD3 3/16 sections, CD45 2/16, PanCK 15/16.
+  - PanCK separates author malignant cells well (AUC 0.74–0.99).
+- **The pre-registered protein rule does not yield validated T-cell labels.** Its CCC re-run is still carried out as pre-registered, but it is reported as "labels failed validation".
+
+**Post-hoc annotation `consensus_T`**:
+- Start from the author labels mapped with the v1 `AUTHOR_MAP`.
+- A cell is **`T_cell`** only if the author label is T (CD8+ T, CD4+ T or Treg) **and** the v1 marker scoring also calls it `T_cell`. These are two independently derived RNA-based annotations that agree.
+- An author T cell not confirmed by marker scoring becomes `T_cell_unconfirmed`, a separate type that is not the headline receiver.
+- All other cells keep their author-mapped label.
+- Precision against the author labels is 1 by construction, so it is not used as evidence. Instead, a **third, independent source** is checked: CD3 and CD45 protein intensity in consensus-T cells vs author-only T cells vs marker-only T cells vs all other cells.
+- CCC: same audit as above (C/E/M/Q, 500 perms, seed 42, 6-NN, full catalogue, 16 sections).
