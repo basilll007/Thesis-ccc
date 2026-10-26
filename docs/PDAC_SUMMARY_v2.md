@@ -1,152 +1,124 @@
 # PDAC Extension v2 — Summary (2026-10-25)
 
-Branch `pdac-v2` (from `main` @ df3867c). This is an audit and diagnostic summary. Nothing in it supports a biological or clinical claim.
+## Does a proximity-specific signal exist at tumour level, or is the edge score mainly mirroring cell-type products?
 
-Every number below is in `results/pdac/phaseD/v2_key_numbers.csv` (value plus source file) or in the file cited in brackets. The full record, including failures and corrections, is in `docs/PDAC_PROGRESS_LOG.md` (section "PDAC v2"). v1 is summarised in `docs/PDAC_SUMMARY.md`.
+**The edge score mainly mirrors cell-type products.** A proximity-specific excess for CXCL12→CXCR4 CAF→T exists only as a weak, directionally consistent trend across tumours. **No single tumour or section shows it after multiple-testing correction.** This is an audit and diagnostic statement, not a biological or clinical claim.
 
-## Key question
-
-> Does the CAF→T proximity-specific signal (Q = E/M for CXCL12→CXCR4) survive validated T-cell labels and an independent dataset, or is the edge score mostly mirroring cell-type products?
-
-**Answer:**
-
-- **Validated labels: it does not survive.**
-  - With the best-validated T-cell class available, Q is significant in 2/16 sections uncorrected and in **0/16 after BH within section**. The best class is `consensus_T`: author T and marker T agree. It is post-hoc, see Phase B.
-  - The marker labels give 4/16 and 0/16; the author labels give 2/16 and 0/16.
-  - The edge score E stays significant in 15/16 sections (11/16 after BH). In every section its z is below the z of the matched cell-type product M.
-- **Independent dataset: not tested.** Phase C is BLOCKED; see below.
-- **Full catalogue: the edge score mostly mirrors the cell-type product.**
-  - Spearman(z_E, z_M) is 0.66–0.68; 0.80–0.81 on the 7 axes without a background flag.
+- **Mirroring.**
+  - Across the full catalogue (16 sections), the edge z and the z of the matched cell-type product M = L̄s·R̄r correlate at Spearman 0.66–0.68. On the 7 axes without background flags it is 0.80–0.81.
   - 77% of edge-significant section-rows are also M-significant.
-  - Only about 10% are Q-significant after BH (marker 0.098, author 0.104, consensus 0.096).
-- **Caveat: non-significance of Q is not evidence of absence.** The observed Q is above 1 in 14/16 consensus sections (median 1.32), but it does not exceed the label-permutation null at 500 permutations after correction.
+  - Only about 10% have a ratio Q = E/M that is significant after BH (marker 0.098, author 0.104, consensus 0.096).
+  - For the CAF→T headline, the edge z is below the M z in 16/16 sections (consensus T labels).
+- **Proximity-specific Q, CAF→T** (with the best-validated T labels, `consensus_T`):
+  - Sections: 2/16 significant uncorrected, **0/16 after BH within section**.
+  - Tumours: 2/13 significant (Fisher-combined p), **0/13 after BH across tumours** (smallest q 0.285).
+- **Consistency across tumours** (exploratory, not pre-registered):
+  - Consensus labels: tumour-mean z_Q > 0 in 10/13 tumours (one-sided Wilcoxon p = 0.016); observed Q > 1 in 11/13.
+  - Marker labels: 12/13 (p = 0.0085). Author labels: 12/13 (p = 0.0004).
+  - The label-permutation null breaks all spatial structure. A positive Q may therefore reflect tissue-scale zonation rather than contact (see Limitations).
+- **Independent dataset: not tested.** GSE310352 is BLOCKED.
 
-## Checklist
+Branch `pdac-v2` (from `main` @ df3867c). Every number is in `results/pdac/phaseD/v2_key_numbers.csv` or `results/pdac/phaseD/tumour_level_headline_summary.csv` (value plus source), or in the file cited in brackets. The full record, including failures and corrections, is in `docs/PDAC_PROGRESS_LOG.md` (section "PDAC v2"). v1: `docs/PDAC_SUMMARY.md`.
 
-| Phase | Status | Result |
-|---|---|---|
-| A. Housekeeping | **DONE** | Tag `aaai27-submitted` → 3cde438 (pushed; tag only). 5/5 headline numbers re-derived from row-level files; no summary correction needed. p-value conventions compared side by side. |
-| B. T-cell label purity | **DONE** (negative result) | Pre-registered protein rule **failed validation**. Post-hoc `consensus_T` used for the key question. CCC re-run on 16 sections × 3 new annotations. |
-| C. Replication on GSE310352 | **BLOCKED** | Licence not confirmed (GEO terms page behind reCAPTCHA; publisher page 403). Author labels exist only in `seurat.RDS` (no R on this host). A gated, self-tested script is ready. |
-| D. Synthesis | **DONE** | This file, `figures/pdac/phaseD/phaseD_v2_synthesis.{png,pdf}`, README links. |
+## Results
 
-## Phase A — housekeeping
+### A. Housekeeping
 
-- **Tag**: `aaai27-submitted` at 3cde438. It did not exist on the remote (`git ls-remote --tags` was empty), so only the tag was pushed.
-- **Spot-check** [`results/pdac/phaseA/spotcheck.csv`]. Each number was recomputed from row-level tables, not copied from summary files. All 5 match:
+- **Tag**: `aaai27-submitted` → 3cde438. It was not on the remote, so only the tag was pushed.
+- **Spot-check** [`results/pdac/phaseA/spotcheck.csv`]: the five v1 headline numbers were recomputed from row-level files. All 5 match:
   - breast gate 3/9
-  - CAF→T edge-significant sections: 16/16 (marker) and 16/16 (author)
-  - Q-significant sections: 4/16 (marker) and 2/16 (author); 0/16 and 0/16 after BH
-  - background-flagged axes: 24/31
-  - Spearman(edge z, ligrec mean) on the crop: 0.022
-- **p-value conventions** [`results/pdac/phaseA/pvalue_conventions_*.csv`; note in `docs/RESULTS_SETTINGS_NOTE.md`]:
-  - With all 500 nulls valid, legacy p = mean(null ≥ obs) and add-one p = (k+1)/(n+1) give **identical uncorrected verdicts**. The threshold #{null ≥ obs} ≤ 24 is the same for both.
-  - Breast: 0 uncorrected flips (292 rows, 289 with a finite p). The Phase 1 gate is 3/9 under both conventions.
-  - PDAC: 9 uncorrected flips out of 532,952 rows. All are ratio rows with fewer than 500 valid nulls.
-  - BH verdicts differ. Legacy p can be 0, which makes BH more liberal: 3 breast flips and 4,530 PDAC flips, all significant only under legacy.
-  - Headline CAF→T after BH within section: edge 16/16 (legacy) vs 13/16 (add-one) for marker labels, and 16/16 vs 14/16 for author labels. Q 0/16 vs 0/16 (marker) and 1/16 vs 0/16 (author).
-  - Breast `extra` family: CD86→CTLA4 fibroblast→immune (edge) is BH-significant only under legacy (q 0.032 vs 0.064).
-  - The recomputation from saved nulls matches the stored columns to ≤ 1.1e-16.
+  - CAF→T edge 16/16 and 16/16
+  - Q 4/16 and 2/16; 0/16 after BH
+  - 24/31 axes background-flagged
+  - Spearman(edge z, ligrec) on the crop 0.022
+- **p-value conventions** [`results/pdac/phaseA/`; note in `docs/RESULTS_SETTINGS_NOTE.md`]: legacy is mean(null ≥ obs); add-one is (k+1)/(n+1).
+  - **No uncorrected verdict flips when all 500 nulls are valid.** Breast: 0 flips (292 rows). PDAC: 9 of 532,952 rows flip, all Q rows with fewer than 500 valid nulls.
+  - Legacy p = 0 makes BH more liberal: 3 breast and 4,530 PDAC BH verdicts flip.
+  - CAF→T edge after BH: 16/16 → 13/16 (marker) and 16/16 → 14/16 (author) under add-one.
+  - The breast gate is 3/9 under both conventions.
 
-## Phase B — T-cell label purity
+### B. T-cell label purity
 
-**Rule.** `docs/PDAC_V2_PROTEIN_RULE.md` was committed (5b6089e) before any label or CCC result existed.
-- Thresholds per section on log1p(`Mean.CD3`/`Mean.CD45`/`Mean.PanCK`): a two-component GMM, accepted when Ashman D ≥ 2; otherwise median + 3·MAD.
-- Gates: T = CD3+ CD45+ PanCK−. Other compartments are subtyped by RNA marker argmax.
-- Sensitivity variant `protein_mad`: MAD thresholds for every channel.
+**Pre-registered protein rule.** [`docs/PDAC_V2_PROTEIN_RULE.md`, committed before any labels or CCC results]
+- Rule: per-section GMM or MAD thresholds on CD3, CD45 and PanCK; T = CD3+ CD45+ PanCK−.
+- **It failed validation** [`results/pdac/phaseB/validation_precision_recall.csv`, `protein_labels_summary.json`]:
+  - T precision / recall vs author T: 0.022 / 0.036 in U5-a; 0.077 / 0.049 pooled.
+  - v1 marker scoring scores 0.276 / 0.297 and 0.353 / 0.318.
+- Cause: CD3 is bimodal (Ashman D ≥ 2) in only 3/16 sections and CD45 in 2/16. PanCK works (15/16).
 
-**Validation against author labels** [`results/pdac/phaseB/validation_precision_recall.csv`, `protein_labels_summary.json`, `confusion_*`; figure `figures/pdac/phaseB/phaseB1_protein_gating_validation`]:
-
-| T_cell vs author T (CD8/CD4/Treg) | U5-a precision / recall | 16 sections pooled |
-|---|---|---|
-| protein_gmm (pre-registered) | **0.022 / 0.036** (32 of 1,467) | 0.077 / 0.049 (563 of 7,273) |
-| protein_mad | 0 T cells called | 0.031 / 0.005 |
-| v1 marker | 0.276 / 0.297 (261 of 945) | 0.353 / 0.318 (3,676 of 10,427) |
-
-- **Cause.** In this dataset the CD3 and CD45 channels barely separate the author T cells:
-  - The GMM was accepted for CD3 in 3/16 sections, for CD45 in 2/16 and for PanCK in 15/16.
-  - U5-a CD3 Ashman D = 0.43.
-  - Per-section AUC for author T vs other cells: CD3 0.45–0.92, CD45 0.50–0.89 (computed inline; recomputable from the per-cell tables).
-- **PanCK works.** It separates author malignant cells (AUC 0.74–0.99).
-- **Other classes are also worse.** Pooled per-class precision under `protein_gmm` is below marker for every class with predictions, because the CD45 gate is weak.
-- **Verdict: the pre-registered protein rule does not give validated T-cell labels.**
-
-**Post-hoc `consensus_T`.** Documented and committed (161418a) before any v2 CCC run.
-- `T_cell` = author T **and** v1 marker T. Author T without marker support is kept as a separate type. All other cells keep their author labels.
-- Size: 3,676 cells pooled; 261 in U5-a.
-- Independent protein check [`consensus_T_protein_triangulation_median.csv`; figure `phaseB2_consensus_T_protein_triangulation`]. Median AUC vs non-T cells, CD3 / CD45:
+**Post-hoc `consensus_T`.** Defined before any v2 CCC run.
+- T = author T **and** marker T; 3,676 cells pooled, 261 in U5-a.
+- Protein support is weak for every T set. Median AUC vs non-T cells, CD3 / CD45:
   - consensus T: 0.598 / 0.769
   - author-only T: 0.580 / 0.739
   - marker-only T: 0.588 / 0.684
-- Protein support is highest for the consensus set but weak for every set. "Validated" therefore means two RNA-based annotations agree, **not** protein-confirmed.
+- So "validated" here means two RNA annotations agree; it does not mean protein-confirmed.
 
-**CCC re-run.** C/E/M/Q; 500 permutations, seed 42; 6-NN; 31 pairs × all sender-receiver combinations; 16 sections; add-one p; BH within section × annotation. Sources: `results/pdac/phaseB/v2_ccc_6NN_all_rows.csv.gz`, `headline_CAF_T_summary_by_annotation.csv`, `headline_CAF_T_by_annotation_section.csv`; figure `phaseB4_headline_and_annotation_agreement`.
+**CCC re-run.** C/E/M/Q; 500 permutations, seed 42; 6-NN; 31 pairs; 16 sections. Sources: `results/pdac/phaseB/headline_CAF_T_summary_by_annotation.csv`, `edge_vs_product_mirroring_by_annotation.csv`, `annotation_pairwise_comparison.csv`.
 
-| CXCL12→CXCR4 CAF→T_cell | evaluable | E sig (BH) | **Q sig (BH)** | median z_E | median z_Q | median Q |
+| CXCL12→CXCR4 CAF→T, sections | evaluable | E sig (BH) | Q sig (BH) | median z_E | median z_Q | median Q |
 |---|---|---|---|---|---|---|
-| marker (v1) | 16 | 16 (13) | 4 (**0**) | 20.87 | 0.75 | 1.347 |
-| author (v1) | 16 | 16 (14) | 2 (**0**) | 21.63 | 0.74 | 1.346 |
-| protein_gmm (failed validation) | 14 | 10 (6) | 4 (**0**) | 5.00 | 1.17 | 1.623 |
-| protein_mad (failed validation) | 13 | 9 (4) | 5 (**0**) | 4.69 | 1.56 | 1.799 |
+| marker (v1) | 16 | 16 (13) | 4 (0) | 20.87 | 0.75 | 1.347 |
+| author (v1) | 16 | 16 (14) | 2 (0) | 21.63 | 0.74 | 1.346 |
+| protein_gmm (failed validation) | 14 | 10 (6) | 4 (0) | 5.00 | 1.17 | 1.623 |
+| protein_mad (failed validation) | 13 | 9 (4) | 5 (0) | 4.69 | 1.56 | 1.799 |
 | **consensus_T (post-hoc)** | 16 | 15 (11) | 2 (**0**) | 14.68 | 0.36 | 1.320 |
 
-- **U5-a under consensus_T**:
-  - z_C / z_M / z_E / z_Q = 21.6 / 24.6 / 17.5 / 1.94
-  - Q = 1.96, p = 0.038, BH q = 0.314; 448 edges
-  - The smallest consensus BH q over all sections is 0.314.
-  - z_M > z_E in 16/16 consensus sections. This is a descriptive comparison: z values of different scores have different null spreads.
-- **Annotation agreement** (Spearman of z on shared rows, 16 sections) [`annotation_pairwise_comparison.csv`]:
+- **U5-a, consensus_T**: z_C / z_M / z_E / z_Q = 21.6 / 24.6 / 17.5 / 1.94; Q = 1.96, p = 0.038, BH q = 0.314 (448 edges).
+- **Annotation agreement** (Spearman of z on shared rows, pooled):
   - author vs consensus: E 0.970, Q 0.951
   - marker vs author: E 0.655, Q 0.394
   - author vs protein_gmm: E 0.348, Q 0.188
-  - Q is the most annotation-sensitive score, as in v1.
+  - Q is the most annotation-sensitive score.
 
-## Phase C — independent replication (BLOCKED)
+### Tumour level (Phase D2)
 
-**Confirmed:**
-- File format: per-slide counts CSV (`fov`, `cell_ID`, 970 genes + 19 NegPrb).
-- Metadata CSV: centroids in px, plus `Mean./Max.` for PanCK/CD45/CD3/MembraneStain/DAPI.
-- Sizes: 16 small CSVs, 124,527,604 B in total.
-- No cell-type labels in the CSVs.
-- Article: Lyubetskaya et al., Cell Reports 2026, doi 10.1016/j.celrep.2025.116827. Its Europe PMC record lists `license: "cc by-nc-nd"` (the article's licence).
-- NCBI's general Molecular Data Usage policy (fetched) says NCBI places no restrictions but submitters may claim rights. That is not a dataset licence.
+Source: `results/pdac/phaseD/tumour_level_headline_CAF_T.csv`, `tumour_level_headline_summary.csv`; figure `figures/pdac/phaseD/phaseD2_tumour_level_headline`.
 
-**Not confirmed:**
-- The data licence. The GEO terms page sat behind reCAPTCHA, and the publisher page returned 403. Neither was worked around.
-- The authors' labels are only in `seurat.RDS`, and this host has no R. Phase B shows the protein channels cannot substitute for them.
+- The 16 sections map to 13 tumours (donor id without the suffixes `_2nd` / `_B`).
+- Tumour p = Fisher combination of the section add-one p; BH across tumours.
+- Tumour mean z; one-sided Wilcoxon of tumour-mean z > 0.
 
-**Ready:**
-- `src/pdac/phaseC_gse310352_audit.py` (gated by `--licence-confirmed`; exits with BLOCKED otherwise).
-- `pdac_loaders.load_geo_gse310352`.
-- Self-tested end to end on synthetic data only. All synthetic outputs were discarded; no GSE310352 numbers exist in the repository.
+| CAF→T, 13 tumours | E: tumours sig BH | M: tumours sig BH | Q: sig uncorr. (BH) | Q: z > 0 | Q: Wilcoxon p | Q: mean obs > 1 |
+|---|---|---|---|---|---|---|
+| marker | 13 | 13 | 3 (0) | 12 | 0.0085 | 12 |
+| author | 13 | 13 | 2 (0) | 12 | 0.0004 | 13 |
+| **consensus_T** | 13 | 13 | 2 (**0**) | 10 | 0.016 | 11 |
+| protein_gmm (11 tumours evaluable) | 9 | 8 | 4 (0) | 10 | 0.0068 | 10 |
+| protein_mad (10 tumours evaluable) | 7 | 5 | 6 (0) | 8 | 0.080 | 8 |
 
-**What is needed from you**: listed in the Phase C entry of `docs/PDAC_PROGRESS_LOG.md`. In short:
-1. Licence: paste the paper's "Data and code availability" text or the GEO disclaimer text, or confirm that NCBI's policy is sufficient.
-2. Labels: R + SeuratObject, or an exported `meta.data` CSV per slide (an R snippet is in the log).
-
-## Other failures, corrections and process notes
-
-- **Correction (Phase A numbers).** The settings note and the log first gave the PDAC BH-flip count as 4,533 and the PDAC row count as 533,244. Both are breast + PDAC totals. Corrected to 4,530 and 532,952, with the corrections marked in place.
-- **Manifest race.** Two processes registered files concurrently and 2 rows were lost. `src/pdac/phaseD_manifest_check.py` found and re-registered them; one stale row pointing to a deleted log was removed [`results/pdac/phaseD/manifest_check.csv`].
-- **Push of `pdac-v2`: BLOCKED for commits after 161418a.**
-  - Pushing the Phase B commit (136 files, about 86 MB of results) failed twice with `curl 56 schannel: SEC_E_MESSAGE_ALTERED`.
-  - A third attempt with Git's OpenSSL backend (certificate verification on) failed with "remote end hung up".
-  - TLS was not disabled.
-  - Phase A and the two rule commits are on the remote. Later commits are local only. To push from another network: `git push origin pdac-v2`.
-- **v1 BLOCKED items not revisited:** the full-catalogue radius sweep and the full-section Squidpy ligrec p-values.
+Synthesis figure: `figures/pdac/phaseD/phaseD_v2_synthesis.{png,pdf}`.
 
 ## Limitations
 
-- **"Validated" T cells** = agreement of two RNA-based annotations, weakly supported by protein. There is no ground truth.
-- **consensus_T is post-hoc.** It was defined after the pre-registered rule failed, though before any CCC was run on it.
-- **No independent replication.** All results come from one CosMx dataset: 16 sections from 13 tumours, which are not fully independent.
-- **Q is unstable** when M is small, and with 500 permutations the minimum add-one p is 0.002. Non-significance after BH limits what can be detected; it does not show that no effect exists.
-- **Background flags.** Checkpoint axes remain flagged as background-level (v1, 24/31 axes). The CXCL12–CXCR4 axis is not flagged.
+- **No ground-truth T cells.** "Validated" = agreement of two RNA-based annotations, with weak protein support. `consensus_T` is post-hoc: it was defined after the pre-registered rule failed, though before any CCC was run on it.
+- **The tumour-level trend is exploratory.**
+  - The Wilcoxon test was added after the section-level results were known, and it is run under five annotations.
+  - The tumour grouping (`_2nd`/`_B` = same tumour) is an assumption consistent with the stated 13 tumours.
+  - Fisher combination of discrete add-one p is conservative.
+- **Label-permutation null.** It keeps cell positions and expression but shuffles labels, so it destroys spatial structure. A positive Q can come from tissue-scale co-zonation (CAF CXCL12 and T-cell CXCR4 both higher in the same regions) as well as from contact. The audit cannot separate the two.
+- **Q is unstable when M is small.** The minimum add-one p is 0.002 with 500 permutations. Non-significance after BH is not evidence of absence.
+- **One dataset.** All of it is a single CosMx dataset (16 sections, 13 tumours). No independent replication (BLOCKED).
+- **Background-level genes.** 24/31 PDAC axes (all checkpoint axes) involve near-background genes (v1). CXCL12–CXCR4 is not flagged.
 
-## Five most important findings (including negative ones)
+## BLOCKED items
 
-1. **The CAF→T proximity-specific (Q) signal does not survive.** It is 0/16 after BH within section under every annotation, including the post-hoc `consensus_T`. Uncorrected it is 2/16 (consensus).
-2. **The edge score mostly mirrors the cell-type product.** Spearman(z_E, z_M) is 0.66–0.68 (0.80–0.81 on unflagged axes); 77% of edge-significant rows are M-significant; about 10% are Q-significant after BH.
-3. **The CosMx protein channels cannot fix T-cell label purity in this dataset.** The pre-registered rule's T precision is 0.022 in U5-a and 0.077 pooled, worse than marker scoring (0.276 / 0.353). CD3 is bimodal in only 3/16 sections.
-4. **The independent replication is BLOCKED.** The GSE310352 licence is unconfirmed and its labels need R. The pipeline is ready behind an explicit gate.
-5. **The p-value convention changes BH calls but not uncorrected calls.** Legacy p = 0 inflates BH significance (4,530 PDAC and 3 breast verdicts). Headline CAF→T edge calls after BH drop from 16/16 to 13/16 (marker) and 14/16 (author) under add-one. No uncorrected breast or headline verdict flips.
+1. **GSE310352 replication (Phase C).**
+   - Data licence not confirmed: the GEO terms page sat behind reCAPTCHA and the publisher page returned 403. Neither was worked around.
+   - The article (Lyubetskaya et al., Cell Rep 2026, doi 10.1016/j.celrep.2025.116827) is CC BY-NC-ND per Europe PMC; that is the article's licence, not a data licence.
+   - NCBI's general policy says NCBI places no restrictions but submitters may claim rights.
+   - Author cell labels exist only in `seurat.RDS`, and there is no R on this host.
+   - Ready: `src/pdac/phaseC_gse310352_audit.py` (gated by `--licence-confirmed`; self-tested on synthetic data only).
+   - Needed from you: paste the paper's "Data and code availability" section or the GEO disclaimer, or confirm NCBI's policy is sufficient. Also an exported per-slide `meta.data` CSV, or R + SeuratObject. Details and an R snippet are in the progress log.
+2. **Push of `pdac-v2` after 161418a.** A TLS read error during the large upload (`SEC_E_MESSAGE_ALTERED`) happened twice; an OpenSSL-backend attempt also failed. TLS was not disabled. Run `git push origin pdac-v2` from a stable network.
+3. **Carried over from v1:**
+   - full-catalogue radius sweep (stopped by the host for low memory)
+   - full-section Squidpy ligrec p-values (all NaN in 2 attempts)
+
+## Next steps (at most 5)
+
+1. **Unblock and run GSE310352.** Before running, pre-register the tumour-level directional test (Wilcoxon of slide-level z_Q > 0, consensus-style labels) as the replication criterion.
+2. **Add a spatially structured null**, for example permutations restricted within FOV or local windows, or toroidal shifts of one cell type. This separates contact-scale Q from tissue-scale co-zonation, the main alternative explanation for the tumour-level trend.
+3. **Raise Q's resolution on the headline only.** Use 5,000 permutations for CAF→T per section, so the add-one floor (0.002) and the BH burden are not what limits detection.
+4. **Improve T-cell purity beyond RNA agreement.** For example, flag cells whose transcripts look like neighbour contamination (CAF-marker counts in T calls), or use transcript-level re-segmentation where raw files allow. The CosMx protein channels here cannot do it.
+5. **Make the background flag part of the audit** (v1 next step 1), and re-run the two v1 BLOCKED items when there is memory headroom (chunked radius sweep; minimal ligrec reproducer).

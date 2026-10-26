@@ -331,3 +331,9 @@ logs/phaseD_synthesis_20261025T185301.log,phaseD,"run log (package versions, git
 results/pdac/phaseD/manifest_check.csv,phaseD,Manifest completeness check for v2 outputs (issues found and actions),src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:32
 logs/phaseD_manifest_check_20261025T185523.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:32
 results/pdac/phaseD/manifest_check_first_run.csv,phaseD,"First manifest-check run (3 issues: 2 rows lost to concurrent writes, re-registered; 1 stale row); restored from commit c95d2fa because the second run reused the file name",src/pdac/phaseD_manifest_check.py,2026-10-25T18:55:52
+results/pdac/phaseD/tumour_level_headline_CAF_T.csv,phaseD,"CAF->T CXCL12-CXCR4 per tumour (13): Fisher-combined section p, BH across tumours, mean z / obs",src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:05
+results/pdac/phaseD/tumour_level_headline_summary.csv,phaseD,"Tumour-level summary per annotation x score: tumours significant (Fisher, BH), Wilcoxon of tumour z > 0",src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:05
+results/pdac/phaseD/tumour_level_summary.json,phaseD,Tumour-level headline summary,src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:05
+figures/pdac/phaseD/phaseD2_tumour_level_headline.png,phaseD,"Tumour-level E/M/Q for the CAF->T headline, 5 annotations",src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:06
+figures/pdac/phaseD/phaseD2_tumour_level_headline.pdf,phaseD,"Tumour-level E/M/Q for the CAF->T headline, 5 annotations",src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:06
+logs/phaseD2_tumour_level_20261025T192656.log,phaseD,"run log (package versions, git commit, parameters, key numbers)",src/pdac/phaseD2_tumour_level.py,2026-10-25T19:27:06

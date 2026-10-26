@@ -83,7 +83,9 @@ This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using th
   - the CCC re-run on 16 sections
   - the GSE310352 replication (BLOCKED)
 
-  Key result: the CXCL12→CXCR4 CAF→T ratio Q is not significant after BH in any of the 16 sections under any annotation. Key numbers with source files: [`results/pdac/phaseD/v2_key_numbers.csv`](results/pdac/phaseD/v2_key_numbers.csv).
+  Lead question: *does a proximity-specific signal exist at tumour level, or is the edge score mainly mirroring cell-type products?*
+
+  Answer: mainly mirroring. The CXCL12→CXCR4 CAF→T ratio Q is significant after BH in 0/16 sections and 0/13 tumours under every annotation. Across tumours it shows only a weak, exploratory directional trend (consensus T labels: z_Q > 0 in 10/13 tumours). Tumour-level tables: [`results/pdac/phaseD/tumour_level_headline_summary.csv`](results/pdac/phaseD/tumour_level_headline_summary.csv). Key numbers with source files: [`results/pdac/phaseD/v2_key_numbers.csv`](results/pdac/phaseD/v2_key_numbers.csv).
 - Step-by-step log with commands, outputs and decisions: `docs/PDAC_PROGRESS_LOG.md`
 - Manifest of every produced file (path, phase, description, script): `results/pdac/MANIFEST.csv`
 - Which breast number comes from which setting (15 µm vs radius sweep vs 6-NN): `docs/RESULTS_SETTINGS_NOTE.md`

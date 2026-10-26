@@ -477,3 +477,29 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
   - 1 stale row (deleted log `phaseB1_protein_labels_20261025T183049.log`) was removed.
 - **Correction found while building the key-numbers table**: the Phase A statements "4,533 PDAC BH flips" and "533,244 PDAC rows" were breast + PDAC totals. Corrected in place to 4,530 and 532,952, in this log and in `docs/RESULTS_SETTINGS_NOTE.md`. The breast share is 3 BH flips and 292 rows.
 - **Final status**: A DONE; B DONE (negative result); C BLOCKED (licence, labels); D DONE; push BLOCKED after 161418a.
+
+## 2026-10-25 19:10 — Phase D2: tumour-level view, and summary restructured (the remaining part of the brief)
+
+- **Brief**: the user supplied the cut-off end of the v2 brief. The summary must lead with "Does a proximity-specific signal exist at tumour level, or is the edge score mainly mirroring cell-type products?", followed by results, limitations, BLOCKED items and at most 5 next steps, linked from the README.
+- **Why a new analysis**: all v2 results so far were per section. Answering "at tumour level" needs tumours as the unit.
+- **Command**: `python src/pdac/phaseD2_tumour_level.py` (log `logs/phaseD2_tumour_level_*.log`)
+- **Method** (declared in the script docstring before running):
+  - 16 sections → 13 tumours (donor id without `_2nd`/`_B`; an assumption consistent with the stated 13 tumours).
+  - Tumour p = Fisher combination of the section add-one p; BH across tumours.
+  - Exploratory one-sided Wilcoxon of tumour-mean z > 0.
+- **Outputs**:
+  - `results/pdac/phaseD/tumour_level_headline_CAF_T.csv`, `tumour_level_headline_summary.csv`, `tumour_level_summary.json`
+  - `figures/pdac/phaseD/phaseD2_tumour_level_headline.{png,pdf}`
+- **Key numbers**:
+  - CAF→T Q, tumours significant after BH: **0/13** for marker, author and consensus_T; 0/11 for protein_gmm; 0/10 for protein_mad.
+  - Uncorrected: marker 3, author 2, consensus 2.
+  - E and M: 13/13 tumours significant after BH for marker, author and consensus.
+  - Tumour-mean z_Q > 0 and Wilcoxon p:
+    - marker: 12/13, p = 0.0085
+    - author: 12/13, p = 0.0004
+    - consensus: 10/13, p = 0.016 (smallest consensus BH q = 0.285)
+  - Mean observed Q > 1: marker 12/13, author 13/13, consensus 11/13.
+- **Interpretation (audit level)**: no tumour shows a proximity-specific excess after correction. The direction is consistent across tumours, which is exploratory and confounded with tissue-scale co-zonation under the label-permutation null. The edge score mainly mirrors the cell-type product.
+- **Docs**:
+  - `docs/PDAC_SUMMARY_v2.md` rewritten to the requested structure (lead question → results → limitations → BLOCKED → 5 next steps).
+  - README v2 entry updated with the lead question and answer.

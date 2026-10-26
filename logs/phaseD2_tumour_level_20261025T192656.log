@@ -1,0 +1,26 @@
+2026-10-25 19:26:56,411 INFO script=phaseD2_tumour_level log=logs/phaseD2_tumour_level_20261025T192656.log
+2026-10-25 19:26:56,460 INFO git_commit=23457afba0dab9cc69691d7b89d5b5d990313077+dirty
+2026-10-25 19:26:56,460 INFO seed=42
+2026-10-25 19:27:05,379 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-10-25 19:27:05,400 INFO platform=Windows-10-10.0.26300-SP0
+2026-10-25 19:27:05,404 INFO section -> tumour: {'T1-b': '2540', 'T2-b': '2675', 'T3-b': '2997', 'T4-a': '2762', 'T4-b': '2762', 'T5-a': '2692', 'T6-b': '2462', 'U1-b': 'C4', 'U2-b': 'D10', 'U3-b': 'B10', 'U4-a': '011', 'U4-b': '011', 'U5-a': '004', 'U6-a_1': '2626', 'U6-a_2': '2626', 'U7-a': '2924'}; 13 tumours
+2026-10-25 19:27:05,489 INFO Saved results/pdac/phaseD/tumour_level_headline_CAF_T.csv (180 rows)
+2026-10-25 19:27:05,518 INFO Saved results/pdac/phaseD/tumour_level_headline_summary.csv (15 rows)
+2026-10-25 19:27:05,518 INFO TUMOUR marker E: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 20.58; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR marker M: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 36.05; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR marker Q: 13 tumours; sig 3 (BH 0, min q 0.104); z>0 in 12; median z 0.90; Wilcoxon p 0.0085; obs>1 12.0
+2026-10-25 19:27:05,518 INFO TUMOUR author_mapped E: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 20.24; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR author_mapped M: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 35.91; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR author_mapped Q: 13 tumours; sig 2 (BH 0, min q 0.078); z>0 in 12; median z 0.78; Wilcoxon p 0.0004; obs>1 13.0
+2026-10-25 19:27:05,518 INFO TUMOUR consensus_T E: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 14.99; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR consensus_T M: 13 tumours; sig 13 (BH 13, min q 0.000); z>0 in 13; median z 24.56; Wilcoxon p 0.0001; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR consensus_T Q: 13 tumours; sig 2 (BH 0, min q 0.285); z>0 in 10; median z 0.43; Wilcoxon p 0.0164; obs>1 11.0
+2026-10-25 19:27:05,518 INFO TUMOUR protein_gmm E: 11 tumours; sig 9 (BH 9, min q 0.001); z>0 in 10; median z 5.78; Wilcoxon p 0.0010; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR protein_gmm M: 11 tumours; sig 8 (BH 8, min q 0.000); z>0 in 10; median z 5.47; Wilcoxon p 0.0015; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR protein_gmm Q: 11 tumours; sig 4 (BH 0, min q 0.066); z>0 in 10; median z 1.09; Wilcoxon p 0.0068; obs>1 10.0
+2026-10-25 19:27:05,518 INFO TUMOUR protein_mad E: 10 tumours; sig 7 (BH 7, min q 0.000); z>0 in 8; median z 4.29; Wilcoxon p 0.0322; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR protein_mad M: 10 tumours; sig 5 (BH 5, min q 0.000); z>0 in 8; median z 1.75; Wilcoxon p 0.0244; obs>1 nan
+2026-10-25 19:27:05,518 INFO TUMOUR protein_mad Q: 10 tumours; sig 6 (BH 0, min q 0.077); z>0 in 8; median z 1.66; Wilcoxon p 0.0801; obs>1 8.0
+2026-10-25 19:27:05,538 INFO Saved results/pdac/phaseD/tumour_level_summary.json
+2026-10-25 19:27:06,696 INFO Saved figure figures/pdac/phaseD/phaseD2_tumour_level_headline(.png/.pdf)
+2026-10-25 19:27:06,709 INFO run finished
