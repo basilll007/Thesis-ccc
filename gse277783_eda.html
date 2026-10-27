@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GSE277783 EDA — Pancreatic Cancer Visium Spatial Transcriptomics</title>
+<meta name="description" content="Exploratory Data Analysis dashboard for GEO SuperSeries GSE277783: 57 10x Visium slides, 149,088 spatial spots, quality control, key-gene profiling, and cohort confounds.">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<style>
+  .kpi-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .slide-preview-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media (max-width: 992px) {
+    .slide-preview-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .preview-box {
+    background: var(--surface-card-solid);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .preview-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #000;
+    max-height: 380px;
+  }
+  .preview-box-label {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--surface-card);
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .confound-card {
+    border-left: 4px solid var(--brand-primary);
+    padding: 16px;
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+  }
+  .confound-card.critical { border-left-color: var(--status-danger); }
+  .confound-card.high { border-left-color: var(--status-warning); }
+  .confound-card.medium { border-left-color: var(--series-violet); }
+  
+  .badge-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-ok { background: var(--status-success-bg); color: var(--status-success); }
+  .badge-warn { background: var(--status-warning-bg); color: var(--status-warning); }
+  .badge-danger { background: var(--status-danger-bg); color: var(--status-danger); }
+  .badge-neutral { background: var(--status-neutral-bg); color: var(--status-neutral); }
+  
+  .data-table-wrap {
+    overflow-x: auto;
+    max-height: 440px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    text-align: left;
+  }
+  .data-table th {
+    position: sticky;
+    top: 0;
+    background: var(--surface-card-solid);
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--border-subtle);
+    font-weight: 700;
+    color: var(--text-primary);
+    z-index: 2;
+  }
+  .data-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+  .data-table tr:hover td {
+    background: var(--surface-hover);
+  }
+  .filter-select {
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-card-solid);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html">Overview</a>
+      <a href="gse277783_eda.html" class="active">GSE277783 EDA</a>
+      <a href="flips.html">Verdict Flips</a>
+      <a href="robustness.html">Leiden Robustness</a>
+      <a href="diagnostic.html">Diagnostics</a>
+      <a href="embedding.html">scGPT Baseline</a>
+      <a href="ablation.html">GNN Ablation</a>
+      <a href="enhancements.html">Enhancements</a>
+      <a href="explorer.html">Data Explorer</a>
+      <a href="spatial.html">Spatial Map</a>
+      <a href="methods.html">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge">● Dataset Audit &amp; EDA · October 2026</div>
+      <h1 class="hero-title">
+        GEO Series GSE277783<br>
+        <span class="gradient-text">Pancreatic Cancer Visium Spatial Cohort</span>
+      </h1>
+      <p class="hero-lede">
+        Exploratory Data Analysis (EDA) of GEO SuperSeries <b>GSE277783</b> ("Spatial mapping of transcriptomic and lineage plasticity in metastatic pancreatic cancer").
+        The raw download (<code>GSE277783_RAW.tar</code>, 6.28 GB) contains <b>57 10x Genomics Visium slides</b> profiling <b>149,088 spatial spots</b> across <b>13 human patients</b> and 2 PDX models.
+        All 57 H5 matrices, spatial coordinate trees, and whole-slide histology images were inspected with zero data imputation.
+      </p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px;">
+        <a href="eda_gse277783/EDA_REPORT.md" target="_blank" class="btn btn-primary">Read Full EDA Report (Markdown) ↗</a>
+        <a href="eda_gse277783/tables/qc_per_sample.csv" target="_blank" class="btn btn-outline">QC per Sample Table (.csv) ↓</a>
+        <a href="eda_gse277783/tables/key_gene_detection.csv" target="_blank" class="btn btn-outline">Key-Gene Detection (.csv) ↓</a>
+        <a href="eda_gse277783/MANIFEST.csv" target="_blank" class="btn btn-outline">Manifest Registry (.csv) ↓</a>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="kpi-grid-6">
+        <div class="card kpi-card">
+          <div class="kpi-label">Spatial Spots</div>
+          <div class="kpi-value">149,088</div>
+          <div class="kpi-subtext">Across 57 slides (median 2,696)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Visium Slides</div>
+          <div class="kpi-value">57</div>
+          <div class="kpi-subtext">100% 10x Visium (0 CosMx)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Unique Patients</div>
+          <div class="kpi-value">13</div>
+          <div class="kpi-subtext">Pt-1 to Pt-13 (+2 PDX models)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Effective Cohort N</div>
+          <div class="kpi-value" style="color: var(--status-warning);">≤ 13</div>
+          <div class="kpi-subtext">Pseudoreplication alert!</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Depth Disparity</div>
+          <div class="kpi-value" style="color: var(--status-danger);">114.2×</div>
+          <div class="kpi-subtext">130 to 14,841 median UMIs</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Problem Slides</div>
+          <div class="kpi-value" style="color: var(--status-danger);">6 / 57</div>
+          <div class="kpi-subtext">Pt-1B degraded (93.4% fail)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Slide Explorer -->
+  <section class="container" style="margin-bottom: 48px;">
+    <div class="card" style="padding: 24px;">
+      <div class="card-header-flex">
+        <div>
+          <h2 style="margin:0 0 6px; font-size: 20px; font-weight: 800;">Interactive Slide &amp; Image Visualizer</h2>
+          <p style="margin:0; font-size: 13.5px; color: var(--text-muted);">
+            Explore spatial spot UMI depth maps, histology slide thumbnails, and spot QC violin distributions for all 57 Visium slides.
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <label style="font-size:12.5px; font-weight:600; color:var(--text-secondary);">Filter Patient:</label>
+          <select id="patient-filter" class="filter-select">
+            <option value="ALL">All Patients (13)</option>
+          </select>
+          <label style="font-size:12.5px; font-weight:600; color:var(--text-secondary);">Select Slide:</label>
+          <select id="slide-select" class="filter-select" style="min-width: 240px;"></select>
+        </div>
+      </div>
+
+      <!-- Slide Detail Metrics Banner -->
+      <div id="slide-detail-banner" style="background:var(--surface-hover); border-radius:var(--radius-md); padding:14px 18px; margin: 16px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- 3-Panel Slide Preview -->
+      <div class="slide-preview-grid">
+        <div class="preview-box">
+          <div style="padding:10px 14px; font-weight:700; font-size:13px; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+            <span>Spatial Spot UMI Map</span>
+            <a id="spatial-pdf-link" href="#" target="_blank" style="font-size:11.5px; color:var(--brand-primary); font-weight:600;">Vector PDF ↗</a>
+          </div>
+          <img id="spatial-preview-img" src="" alt="Spatial UMI Depth Map">
+          <div class="preview-box-label">
+            <span>Colored by total UMI counts per spot (Viridis)</span>
+            <span id="spot-count-label"></span>
+          </div>
+        </div>
+
+        <div class="preview-box">
+          <div style="padding:10px 14px; font-weight:700; font-size:13px; border-bottom:1px solid var(--border-subtle);">
+            Histology Slide Scan
+          </div>
+          <img id="histology-preview-img" src="" alt="Histology Microscopy Scan">
+          <div class="preview-box-label">
+            <span id="histology-dims-label"></span>
+            <span id="histology-format-label"></span>
+          </div>
+        </div>
+
+        <div class="preview-box">
+          <div style="padding:10px 14px; font-weight:700; font-size:13px; border-bottom:1px solid var(--border-subtle);">
+            QC Violin Distributions
+          </div>
+          <img id="qc-preview-img" src="" alt="Spot QC Violin Distributions">
+          <div class="preview-box-label">
+            <span>UMI Depth · Genes / Spot · % Mitochondrial</span>
+            <span id="qc-fail-label"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Gene Panel & Background Flags -->
+  <section class="container" style="margin-bottom: 48px;">
+    <div class="card" style="padding: 24px;">
+      <div class="card-header-flex">
+        <div>
+          <h2 style="margin:0 0 6px; font-size: 20px; font-weight: 800;">Key-Gene Detection &amp; Technical Background Floor</h2>
+          <p style="margin:0; font-size: 13.5px; color: var(--text-muted);">
+            Evaluation of the 30 candidate ligand, receptor, and lineage markers across 149,088 spots. Visium whole-transcriptome sequencing lacks negative-control probes; background expression is assessed by spot-level detection rate.
+          </p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1.1fr 1fr; gap:20px; margin-top:16px;">
+        <div>
+          <img src="eda_gse277783/figures/key_genes_cohort_detection.png" alt="Key Genes Cohort Detection Ranking" style="width:100%; height:auto; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+          <div style="font-size:12px; color:var(--text-muted); margin-top:8px; display:flex; justify-content:space-between;">
+            <span>Thresholds: Red dashed = Background (1% spots), Orange dotted = Low (5% spots)</span>
+            <a href="eda_gse277783/figures/key_genes_cohort_detection.pdf" target="_blank" style="color:var(--brand-primary); font-weight:600;">Vector PDF ↗</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="key-genes-table">
+              <thead>
+                <tr>
+                  <th>Gene</th>
+                  <th>% Spots Expressing</th>
+                  <th>Total UMIs</th>
+                  <th>Mean / Spot</th>
+                  <th>Status Category</th>
+                </tr>
+              </thead>
+              <tbody><!-- Populated by JS --></tbody>
+            </table>
+          </div>
+          <div style="margin-top:12px; padding:12px; background:var(--surface-hover); border-radius:var(--radius-sm); font-size:12px; color:var(--text-secondary);">
+            <b>Key Takeaway:</b> Checkpoint receptors <code>CCR5</code> (0.98% spots) and <code>CTLA4</code> (0.53% spots) express &lt;1,600 total reads across all 149k spots and reside at the technical detection floor. Ductal (<code>KRT19</code>, <code>MIF</code>) and desmoplastic stroma (<code>COL1A1</code>, <code>FN1</code>) markers are robustly and ubiquitously detected.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cohort QC Distribution Overview -->
+  <section class="container" style="margin-bottom: 48px;">
+    <div class="card" style="padding: 24px;">
+      <div class="card-header-flex">
+        <div>
+          <h2 style="margin:0 0 6px; font-size: 20px; font-weight: 800;">Cohort-Wide Quality Control Overview</h2>
+          <p style="margin:0; font-size: 13.5px; color: var(--text-muted);">
+            Spot counts, median UMI depth, detected genes, and QC fail rates across all 57 Visium slides.
+          </p>
+        </div>
+        <a href="eda_gse277783/figures/cohort_qc_summary.pdf" target="_blank" class="btn btn-outline" style="font-size:12px; padding:6px 12px;">Download 4-Panel PDF ↗</a>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <img src="eda_gse277783/figures/cohort_qc_summary.png" alt="Cohort QC Overview" style="width:100%; height:auto; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+      </div>
+
+      <h3 style="margin: 24px 0 12px; font-size: 16px;">All 57 Visium Samples QC Matrix</h3>
+      <div class="data-table-wrap">
+        <table class="data-table" id="cohort-qc-table">
+          <thead>
+            <tr>
+              <th>GSM</th>
+              <th>Sample Label</th>
+              <th>Patient</th>
+              <th>Specimen Type</th>
+              <th>Spots</th>
+              <th>Median UMI</th>
+              <th>Median Genes</th>
+              <th>Median MT%</th>
+              <th>QC Fail %</th>
+              <th>QC Flag</th>
+            </tr>
+          </thead>
+          <tbody><!-- Populated by JS --></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cohort Architecture & Confounds -->
+  <section class="container" style="margin-bottom: 48px;">
+    <div class="card" style="padding: 24px;">
+      <div class="card-header-flex">
+        <div>
+          <h2 style="margin:0 0 6px; font-size: 20px; font-weight: 800;">Cohort Architecture &amp; Methodological Confounds</h2>
+          <p style="margin:0; font-size: 13.5px; color: var(--text-muted);">
+            Critical clinical, technical, and analytical confounders identified in GSE277783 that must be accounted for in downstream hypothesis testing.
+          </p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap:24px; margin-top:16px;">
+        <div>
+          <img src="eda_gse277783/figures/cohort_patient_sample_distribution.png" alt="Patient Sample Distribution" style="width:100%; height:auto; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+          <div style="margin-top:12px; padding:12px; background:var(--surface-hover); border-radius:var(--radius-sm); font-size:12px; color:var(--text-secondary);">
+            <b>Patient Distribution:</b> Slide counts range from 3 (<code>Pt-1, Pt-2, Pt-5</code>) to 8 (<code>Pt-13</code>). <code>Pt-13</code> contributes 14% of all spatial spots in the cohort.
+          </div>
+        </div>
+
+        <div id="confounds-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div>
+      <div class="footer-brand">Spatial CCC · Thesis Research Dashboard</div>
+      <div class="footer-meta">EDA on GEO Series GSE277783 · Generated October 2026</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Thesis Overview</a>
+      <a href="gse277783_eda.html">GSE277783 EDA</a>
+      <a href="spatial.html">Xenium Spatial Map</a>
+      <a href="methods.html">Methods &amp; Log</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/metrics/gse277783_eda_data.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (!window.GSE277783_DATA) {
+    console.error("GSE277783_DATA not loaded!");
+    return;
+  }
+  const data = window.GSE277783_DATA;
+  const slides = data.slides;
+  const keyGenes = data.key_genes;
+  const confounds = data.confounds;
+  const patients = data.patients;
+
+  // 1. Populate Patient Filter
+  const ptFilter = document.getElementById("patient-filter");
+  const uniquePts = [...new Set(slides.map(s => s.patient))].sort();
+  uniquePts.forEach(pt => {
+    const opt = document.createElement("option");
+    opt.value = pt;
+    opt.textContent = `${pt} (${slides.filter(s => s.patient === pt).length} slides)`;
+    ptFilter.appendChild(opt);
+  });
+
+  // 2. Populate Slide Selector
+  const slideSelect = document.getElementById("slide-select");
+  function updateSlideOptions(filterPt) {
+    slideSelect.innerHTML = "";
+    const filteredSlides = (filterPt === "ALL") ? slides : slides.filter(s => s.patient === filterPt);
+    filteredSlides.forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s.gsm;
+      opt.textContent = `${s.gsm} - ${s.label} (${s.n_spots.toLocaleString()} spots)`;
+      slideSelect.appendChild(opt);
+    });
+    if (filteredSlides.length > 0) {
+      renderSlideDetails(filteredSlides[0].gsm);
+    }
+  }
+
+  ptFilter.addEventListener("change", function() {
+    updateSlideOptions(this.value);
+  });
+
+  slideSelect.addEventListener("change", function() {
+    renderSlideDetails(this.value);
+  });
+
+  // 3. Render Slide Details & Previews
+  function renderSlideDetails(gsm) {
+    const s = slides.find(item => item.gsm === gsm);
+    if (!s) return;
+
+    // Update banner
+    const flagBadge = s.qc_flag === "OK" 
+      ? '<span class="badge-tag badge-ok">QC: PASSED</span>'
+      : `<span class="badge-tag badge-danger">FLAG: ${s.qc_flag}</span>`;
+
+    const banner = document.getElementById("slide-detail-banner");
+    banner.innerHTML = `
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <span style="font-size:15px; font-weight:800; color:var(--text-primary);">${s.gsm} &middot; ${s.label}</span>
+        <span class="badge-tag badge-neutral">${s.patient}</span>
+        <span class="badge-tag badge-neutral">${s.specimen_type}</span>
+        <span class="badge-tag badge-neutral">${s.chemistry}</span>
+        ${flagBadge}
+      </div>
+      <div style="display:flex; gap:16px; font-size:13px; color:var(--text-secondary); flex-wrap:wrap;">
+        <span>Spots: <b>${s.n_spots.toLocaleString()}</b></span>
+        <span>Median UMI: <b>${s.umi_median.toLocaleString()}</b></span>
+        <span>Median Genes: <b>${s.genes_median.toLocaleString()}</b></span>
+        <span>Median MT%: <b>${s.pct_mt_median}%</b></span>
+        <span>QC Fail: <b style="${s.fail_pct > 20 ? 'color:var(--status-danger);' : ''}">${s.fail_pct}%</b></span>
+      </div>
+    `;
+
+    // Update preview images
+    document.getElementById("spatial-preview-img").src = s.spatial_png;
+    document.getElementById("spatial-pdf-link").href = s.spatial_pdf;
+    document.getElementById("spot-count-label").textContent = `${s.n_spots.toLocaleString()} spots`;
+
+    document.getElementById("histology-preview-img").src = s.thumb_path;
+    document.getElementById("histology-dims-label").textContent = s.img_dims;
+    document.getElementById("histology-format-label").textContent = s.img_format.split(" ")[0];
+
+    document.getElementById("qc-preview-img").src = s.qc_plot_path;
+    document.getElementById("qc-fail-label").textContent = `Fail: ${s.fail_pct}%`;
+  }
+
+  // Initial populate
+  updateSlideOptions("ALL");
+
+  // 4. Populate Key Genes Table
+  const kgTableBody = document.querySelector("#key-genes-table tbody");
+  keyGenes.forEach(g => {
+    const tr = document.createElement("tr");
+    let badgeClass = "badge-ok";
+    if (g.detection_status.includes("LOW")) badgeClass = "badge-warn";
+    if (g.detection_status.includes("BACKGROUND")) badgeClass = "badge-danger";
+
+    tr.innerHTML = `
+      <td><b>${g.gene_symbol}</b></td>
+      <td>${g.pct_spots_expressing.toFixed(2)}%</td>
+      <td>${g.total_umi_counts.toLocaleString()}</td>
+      <td>${g.mean_umi_per_spot.toFixed(3)}</td>
+      <td><span class="badge-tag ${badgeClass}">${g.detection_status.split(" ")[0]}</span></td>
+    `;
+    kgTableBody.appendChild(tr);
+  });
+
+  // 5. Populate Cohort QC Table
+  const qcTableBody = document.querySelector("#cohort-qc-table tbody");
+  slides.forEach(s => {
+    const tr = document.createElement("tr");
+    const flagBadge = s.qc_flag === "OK" 
+      ? '<span class="badge-tag badge-ok">OK</span>'
+      : `<span class="badge-tag badge-danger">${s.qc_flag}</span>`;
+
+    tr.innerHTML = `
+      <td><b>${s.gsm}</b></td>
+      <td>${s.label}</td>
+      <td>${s.patient}</td>
+      <td>${s.specimen_type}</td>
+      <td>${s.n_spots.toLocaleString()}</td>
+      <td>${s.umi_median.toLocaleString()}</td>
+      <td>${s.genes_median.toLocaleString()}</td>
+      <td>${s.pct_mt_median.toFixed(2)}%</td>
+      <td style="${s.fail_pct > 20 ? 'font-weight:700; color:var(--status-danger);' : ''}">${s.fail_pct.toFixed(1)}%</td>
+      <td>${flagBadge}</td>
+    `;
+    qcTableBody.appendChild(tr);
+  });
+
+  // 6. Populate Confounds List
+  const confList = document.getElementById("confounds-list");
+  confounds.forEach(c => {
+    const div = document.createElement("div");
+    let sevClass = "medium";
+    if (c.severity === "CRITICAL") sevClass = "critical";
+    if (c.severity === "HIGH") sevClass = "high";
+
+    div.className = `confound-card ${sevClass}`;
+    div.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+        <span style="font-weight:700; font-size:13.5px; color:var(--text-primary);">${c.confound_id}: ${c.confound_category}</span>
+        <span class="badge-tag badge-${sevClass === 'critical' ? 'danger' : (sevClass === 'high' ? 'warn' : 'neutral')}">${c.severity}</span>
+      </div>
+      <p style="margin:4px 0 8px; font-size:12.5px; color:var(--text-secondary);">${c.description}</p>
+      <div style="font-size:12px; color:var(--text-muted); background:var(--surface-hover); padding:6px 10px; border-radius:var(--radius-sm);">
+        <b>Analytical Impact:</b> ${c.impact_on_analysis}
+      </div>
+    `;
+    confList.appendChild(div);
+  });
+});
+</script>
+</body>
+</html>

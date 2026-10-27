@@ -1,8 +1,10 @@
 # Downloaded and derived data are intentionally excluded from GitHub.
 data/
+eda_gse277783/extracted/
 
 # Python environments and generated caches
 .venv/
+.venv_eda/
 __pycache__/
 *.py[cod]
 

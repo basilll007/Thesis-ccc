@@ -1,0 +1,25 @@
+path,step,description
+logs/eda_log.md,Init,Master execution and decision log for EDA
+MANIFEST.csv,Init,Registry of all generated artifacts and tables
+logs/env.txt,Step 1,Pinned virtual environment package specifications
+tables/tar_inventory.csv,Step 1,Inventory of all 171 members of GSE277783_RAW.tar
+tables/nested_tar_inventory.csv,Step 1,Inventory of all 412 members in nested spatial archives
+tables/sample_map.csv,Step 1,Master sample mapping table for 57 Visium samples
+tables/h5_structure_summary.csv,Step 2,"Header integrity, format, dimensions, gene ID types, and memory metrics for all 57 H5 matrices"
+tables/image_inventory_summary.csv,Step 2,"Dimensions, file sizes, format, and thumbnail links for all 57 histology slide images"
+tables/qc_per_sample.csv,Step 3,"Comprehensive QC metrics per sample (spots, UMI depth, gene counts, %MT, zero-fraction, threshold fail counts)"
+tables/barcode_sharing_summary.csv,Step 3,Barcode frequency across all 57 slides demonstrating Visium array whitelist recurrence
+figures/cohort_qc_summary.png,Step 3,4-panel cohort-wide QC distribution overview (PNG)
+figures/cohort_qc_summary.pdf,Step 3,4-panel cohort-wide QC distribution overview (PDF)
+figures/qc/,Step 3,Directory containing individual 3-panel QC violin plots for all 57 samples
+tables/spatial_slide_summary.csv,Step 4,"Slide-level spatial coordinate ranges, spot counts under tissue, scalefactors, and annotation status for 57 slides"
+tables/key_gene_detection.csv,Step 4,"Cohort-wide detection statistics and background flags for the 30 user-specified key genes across 149,088 spots"
+tables/key_gene_detection_per_sample.csv,Step 4,"Per-sample detection counts, percentages, and total UMIs for all 30 key genes across 57 slides"
+figures/key_genes_cohort_detection.png,Step 4,Cohort key gene detection ranking bar chart (PNG)
+figures/key_genes_cohort_detection.pdf,Step 4,Cohort key gene detection ranking bar chart (PDF)
+figures/spatial/,Step 4,Directory containing 57 individual spatial scatter plots colored by total UMI count (PNG & PDF)
+tables/patient_cohort_summary.csv,Step 5,"Patient-level summary showing slide counts, spot counts, explicit primary flags, and UMI depth ranges across 13 patients"
+tables/metadata_confounds_matrix.csv,Step 5,"Systematic evaluation of 7 major clinical, technical, and analytical confounds in the dataset"
+figures/cohort_patient_sample_distribution.png,Step 5,Stacked bar chart of specimen types across all 13 patients (PNG)
+figures/cohort_patient_sample_distribution.pdf,Step 5,Stacked bar chart of specimen types across all 13 patients (PDF)
+EDA_REPORT.md,Step 6,Master comprehensive Exploratory Data Analysis report referencing all tables
