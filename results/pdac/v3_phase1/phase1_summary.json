@@ -1,0 +1,96 @@
+{
+  "shrink_verdict": {
+    "consensus_T": {
+      "global_median_z": 0.4333509845665025,
+      "block200_median_z": 0.8625982983326123,
+      "block100_median_z": 0.8106128083587157,
+      "block50_median_z": 1.2975495845670506,
+      "dist_median_z": 0.5791165779589023,
+      "global_n_zpos": 10,
+      "block50_n_zpos": 11,
+      "shrinks_toward_zero": false
+    },
+    "marker": {
+      "global_median_z": 0.8988837799585199,
+      "block200_median_z": 1.0017619191876397,
+      "block100_median_z": 1.3710835420249967,
+      "block50_median_z": 1.2344733191946948,
+      "dist_median_z": 1.078426486888999,
+      "global_n_zpos": 12,
+      "block50_n_zpos": 12,
+      "shrinks_toward_zero": false
+    },
+    "author_mapped": {
+      "global_median_z": 0.7803733031211837,
+      "block200_median_z": 0.9658114523630476,
+      "block100_median_z": 1.6985929261844543,
+      "block50_median_z": 1.484684105812108,
+      "dist_median_z": 0.816996660654556,
+      "global_n_zpos": 12,
+      "block50_n_zpos": 12,
+      "shrinks_toward_zero": false
+    }
+  },
+  "nulls": [
+    "global",
+    "block200",
+    "block100",
+    "block50",
+    "dist"
+  ],
+  "n_perms": 500,
+  "annotations": [
+    "consensus_T",
+    "marker",
+    "author_mapped"
+  ],
+  "nonbg_axes": [
+    [
+      "CXCL12",
+      "CXCR4"
+    ],
+    [
+      "FN1",
+      "ITGB1"
+    ],
+    [
+      "JAG1",
+      "NOTCH1"
+    ],
+    [
+      "MIF",
+      "CD74"
+    ],
+    [
+      "SPP1",
+      "CD44"
+    ],
+    [
+      "TGFB1",
+      "TGFBR1"
+    ],
+    [
+      "TGFB1",
+      "TGFBR2"
+    ]
+  ],
+  "section_to_tumour": {
+    "T1-b": "2540",
+    "T2-b": "2675",
+    "T3-b": "2997",
+    "T4-a": "2762",
+    "T4-b": "2762",
+    "T5-a": "2692",
+    "T6-b": "2462",
+    "U1-b": "C4",
+    "U2-b": "D10",
+    "U3-b": "B10",
+    "U4-a": "011",
+    "U4-b": "011",
+    "U5-a": "004",
+    "U6-a_1": "2626",
+    "U6-a_2": "2626",
+    "U7-a": "2924"
+  },
+  "n_skipped_runs": 0
+}

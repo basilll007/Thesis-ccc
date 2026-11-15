@@ -1,0 +1,26 @@
+2026-11-15 15:50:11,843 INFO script=v3_phase1_constrained_nulls log=logs/v3_phase1_constrained_nulls_20261115T155011.log
+2026-11-15 15:50:11,880 INFO git_commit=a73da4da2cbcec1e1960c82a020ebd7be2793104+dirty
+2026-11-15 15:50:11,880 INFO seed=42
+2026-11-15 15:50:11,882 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 15:50:11,893 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 15:50:11,893 INFO nulls=['global', 'block200', 'block100', 'block50', 'dist'] annotations=['consensus_T', 'marker', 'author_mapped'] n_perms=500; sys_avail=5.49GB load=83% proc_rss=0.42GB proc_peak=0.42GB
+2026-11-15 15:50:15,465 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 15:50:15,705 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-11-15 15:50:19,622 INFO section T6-b / consensus_T / global: 5239 rows in 3.3s; {'null': 'global'}; sys_avail=5.35GB load=83% proc_rss=0.57GB proc_peak=1.70GB
+2026-11-15 15:50:23,493 INFO section T6-b / consensus_T / block200: 5239 rows in 3.3s; {'tile_um': 200.0, 'n_tiles': 205, 'median_cells_per_tile': 51.0, 'n_singleton_tiles': 7}; sys_avail=5.50GB load=83% proc_rss=0.58GB proc_peak=1.70GB
+2026-11-15 15:50:27,461 INFO section T6-b / consensus_T / block100: 5239 rows in 3.4s; {'tile_um': 100.0, 'n_tiles': 635, 'median_cells_per_tile': 16.0, 'n_singleton_tiles': 26}; sys_avail=5.48GB load=83% proc_rss=0.58GB proc_peak=1.70GB
+2026-11-15 15:50:31,610 INFO section T6-b / consensus_T / block50: 5239 rows in 3.5s; {'tile_um': 50.0, 'n_tiles': 2140, 'median_cells_per_tile': 5.0, 'n_singleton_tiles': 264}; sys_avail=5.50GB load=83% proc_rss=0.58GB proc_peak=1.70GB
+2026-11-15 15:50:35,534 INFO section T6-b / consensus_T / dist: 5239 rows in 3.2s; {'n_tumour': 222, 'n_non_tumour': 12251, 'n_bands_used': 8, 'min_band_cells': 6, 'bands_um': [0.0, 25.0, 50.0, 100.0, 200.0, 400.0], 'median_abs_distance_um': 110.04611760530221}; sys_avail=5.39GB load=83% proc_rss=0.58GB proc_peak=1.70GB
+2026-11-15 15:50:38,707 INFO section T6-b / marker / global: 3100 rows in 2.7s; {'null': 'global'}; sys_avail=5.45GB load=83% proc_rss=0.54GB proc_peak=1.70GB
+2026-11-15 15:50:42,201 INFO section T6-b / marker / block200: 3100 rows in 2.9s; {'tile_um': 200.0, 'n_tiles': 205, 'median_cells_per_tile': 51.0, 'n_singleton_tiles': 7}; sys_avail=5.46GB load=83% proc_rss=0.54GB proc_peak=1.70GB
+2026-11-15 15:50:45,699 INFO section T6-b / marker / block100: 3100 rows in 2.9s; {'tile_um': 100.0, 'n_tiles': 635, 'median_cells_per_tile': 16.0, 'n_singleton_tiles': 26}; sys_avail=5.46GB load=83% proc_rss=0.54GB proc_peak=1.70GB
+2026-11-15 15:50:49,265 INFO section T6-b / marker / block50: 3100 rows in 3.0s; {'tile_um': 50.0, 'n_tiles': 2140, 'median_cells_per_tile': 5.0, 'n_singleton_tiles': 264}; sys_avail=5.46GB load=83% proc_rss=0.54GB proc_peak=1.70GB
+2026-11-15 15:50:52,637 INFO section T6-b / marker / dist: 3100 rows in 2.8s; {'n_tumour': 343, 'n_non_tumour': 12130, 'n_bands_used': 8, 'min_band_cells': 14, 'bands_um': [0.0, 25.0, 50.0, 100.0, 200.0, 400.0], 'median_abs_distance_um': 74.78323074058753}; sys_avail=5.48GB load=83% proc_rss=0.54GB proc_peak=1.70GB
+2026-11-15 15:50:56,168 INFO section T6-b / author_mapped / global: 4464 rows in 3.1s; {'null': 'global'}; sys_avail=5.46GB load=83% proc_rss=0.56GB proc_peak=1.70GB
+2026-11-15 15:50:59,883 INFO section T6-b / author_mapped / block200: 4464 rows in 3.1s; {'tile_um': 200.0, 'n_tiles': 205, 'median_cells_per_tile': 51.0, 'n_singleton_tiles': 7}; sys_avail=5.44GB load=83% proc_rss=0.56GB proc_peak=1.70GB
+2026-11-15 15:51:03,703 INFO section T6-b / author_mapped / block100: 4464 rows in 3.2s; {'tile_um': 100.0, 'n_tiles': 635, 'median_cells_per_tile': 16.0, 'n_singleton_tiles': 26}; sys_avail=5.44GB load=83% proc_rss=0.56GB proc_peak=1.70GB
+2026-11-15 15:51:07,504 INFO section T6-b / author_mapped / block50: 4464 rows in 3.2s; {'tile_um': 50.0, 'n_tiles': 2140, 'median_cells_per_tile': 5.0, 'n_singleton_tiles': 264}; sys_avail=5.53GB load=83% proc_rss=0.56GB proc_peak=1.70GB
+2026-11-15 15:51:11,223 INFO section T6-b / author_mapped / dist: 4464 rows in 3.1s; {'n_tumour': 222, 'n_non_tumour': 12251, 'n_bands_used': 8, 'min_band_cells': 6, 'bands_um': [0.0, 25.0, 50.0, 100.0, 200.0, 400.0], 'median_abs_distance_um': 110.04611760530221}; sys_avail=5.52GB load=83% proc_rss=0.56GB proc_peak=1.70GB
+2026-11-15 15:51:11,232 INFO Saved results/pdac/v3_phase1/sections/T6-b_null_info.json
+2026-11-15 15:51:11,342 INFO section T6-b done in 58.7s; sys_avail=5.58GB load=83% proc_rss=0.51GB proc_peak=1.70GB
+2026-11-15 15:51:11,356 INFO run finished

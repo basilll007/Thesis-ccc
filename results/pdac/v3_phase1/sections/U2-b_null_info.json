@@ -1,0 +1,115 @@
+{
+  "section": "U2-b",
+  "n_cells": 34334,
+  "n_edges": 206004,
+  "null_info": {
+    "consensus_T/global": {
+      "null": "global"
+    },
+    "consensus_T/block200": {
+      "tile_um": 200.0,
+      "n_tiles": 369,
+      "median_cells_per_tile": 92.0,
+      "n_singleton_tiles": 4
+    },
+    "consensus_T/block100": {
+      "tile_um": 100.0,
+      "n_tiles": 1293,
+      "median_cells_per_tile": 26.0,
+      "n_singleton_tiles": 45
+    },
+    "consensus_T/block50": {
+      "tile_um": 50.0,
+      "n_tiles": 4367,
+      "median_cells_per_tile": 7.0,
+      "n_singleton_tiles": 307
+    },
+    "consensus_T/dist": {
+      "n_tumour": 20191,
+      "n_non_tumour": 14143,
+      "n_bands_used": 8,
+      "min_band_cells": 244,
+      "bands_um": [
+        0.0,
+        25.0,
+        50.0,
+        100.0,
+        200.0,
+        400.0
+      ],
+      "median_abs_distance_um": 19.001299835990984
+    },
+    "marker/global": {
+      "null": "global"
+    },
+    "marker/block200": {
+      "tile_um": 200.0,
+      "n_tiles": 369,
+      "median_cells_per_tile": 92.0,
+      "n_singleton_tiles": 4
+    },
+    "marker/block100": {
+      "tile_um": 100.0,
+      "n_tiles": 1293,
+      "median_cells_per_tile": 26.0,
+      "n_singleton_tiles": 45
+    },
+    "marker/block50": {
+      "tile_um": 50.0,
+      "n_tiles": 4367,
+      "median_cells_per_tile": 7.0,
+      "n_singleton_tiles": 307
+    },
+    "marker/dist": {
+      "n_tumour": 18149,
+      "n_non_tumour": 16185,
+      "n_bands_used": 8,
+      "min_band_cells": 60,
+      "bands_um": [
+        0.0,
+        25.0,
+        50.0,
+        100.0,
+        200.0,
+        400.0
+      ],
+      "median_abs_distance_um": 18.000899977501128
+    },
+    "author_mapped/global": {
+      "null": "global"
+    },
+    "author_mapped/block200": {
+      "tile_um": 200.0,
+      "n_tiles": 369,
+      "median_cells_per_tile": 92.0,
+      "n_singleton_tiles": 4
+    },
+    "author_mapped/block100": {
+      "tile_um": 100.0,
+      "n_tiles": 1293,
+      "median_cells_per_tile": 26.0,
+      "n_singleton_tiles": 45
+    },
+    "author_mapped/block50": {
+      "tile_um": 50.0,
+      "n_tiles": 4367,
+      "median_cells_per_tile": 7.0,
+      "n_singleton_tiles": 307
+    },
+    "author_mapped/dist": {
+      "n_tumour": 20191,
+      "n_non_tumour": 14143,
+      "n_bands_used": 8,
+      "min_band_cells": 244,
+      "bands_um": [
+        0.0,
+        25.0,
+        50.0,
+        100.0,
+        200.0,
+        400.0
+      ],
+      "median_abs_distance_um": 19.001299835990984
+    }
+  }
+}
