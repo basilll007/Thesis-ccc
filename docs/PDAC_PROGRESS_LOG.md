@@ -503,3 +503,26 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - **Docs**:
   - `docs/PDAC_SUMMARY_v2.md` rewritten to the requested structure (lead question → results → limitations → BLOCKED → 5 next steps).
   - README v2 entry updated with the lead question and answer.
+
+# PDAC v3 (branch `thesis-v3`) — contact vs zonation, calibration, effect sizes
+
+## 2026-11-15 15:40 — Setup
+
+- **Brief**: v3 brief (Phases 1–6; Phases 4 and 5 gated). Autonomous run; questions are resolved by the most reasonable reading and logged here.
+- **Branch**: `thesis-v3` created from `origin/pdac-v2` (1173e52); `origin/main` (ed86917, GSE277783 Visium EDA in `eda_gse277783/`) merged in. The merge was a fast-forward (pdac-v2 is an ancestor of main), so no conflicts arose. Upstream tracking removed so nothing points at pdac-v2.
+- **Environment**: conda env `thesis-spatial-ccc` (`D:/Anaconda/envs/thesis-spatial-ccc/python.exe`, Python 3.11.10, numpy 1.26.4, pandas 2.2.3, scipy 1.14.1, scanpy 1.10.3, statsmodels 0.15.0), the same as v1/v2. The base Anaconda Python is unusable (NumPy 2.5.2 breaks compiled modules) and was not used.
+- **Gates checked at setup** (re-checked by scripts later):
+  - Phase 4: `LICENSE_CONFIRMED_GSE310352.txt` absent → will be BLOCKED (licence unconfirmed).
+  - Phase 5: no GEO SOFT/series-matrix file for GSE277783 under `data/`; `eda_gse277783/EDA_REPORT.md` records the organ site as UNKNOWN for 49/57 slides → will be BLOCKED. Gene lists were still pre-declared in `docs/v3_plans/phase5_visium_programs_gse277783.md`.
+- **Plans committed before computing**: `docs/v3_plans/phase1_contact_vs_zonation.md` (a73da4d), `phase2_calibration_simulation.md` (580987b), `phase3_effect_sizes_mixed_model.md`, `phase4_replication_gse310352.md`, `phase5_visium_programs_gse277783.md` (aef6b71).
+- **Conventions**: add-one p = (k+1)/(n+1) everywhere (stated in a `p_value_convention` column of every new table); seed 42; 500 permutations; relative paths; audit/diagnostic framing only.
+- **Shared code**: `src/pdac/v3_nulls.py` (block and distance-stratified permutation generators; section loader re-using the v2 label files `results/pdac/phaseB/sections/*`).
+
+## 2026-11-15 15:50 — Phase 1: implementation checks (before the full run)
+
+- `python src/pdac/v3_phase1_constrained_nulls.py --sections T6-b --no-aggregate` (test on the smallest section, 58.7 s).
+- **Reproduction check**: the `global` null re-creates the Phase B3 file `results/pdac/phaseB/ccc_sections/T6-b__consensus_T.csv.gz` exactly (max |diff| = 0 for E obs, E z, Q obs, Q z, Q add-one p over all 5,239 rows). The test output was kept (it is the first section of the full run; the script resumes from existing files).
+- **Tile occupancy, T6-b** (from the run log): 50 um → 2,140 tiles, median 5 cells/tile, 264 singleton tiles; 100 um → 635 tiles, median 16; 200 um → 205 tiles, median 51. Distance null: 8 of 12 bands used, smallest band 6 cells.
+- **Phase 2 fast evaluator check** (ad hoc, not saved): the per-row bincount evaluation (`PermStore.null_scores`) gives the same z for C/M/E/Q and the same add-one p as the Phase 1 files for T6-b under `global`, `block50` and `dist` (identical to 6 decimals).
+- **Housekeeping**: a 3-simulation test of `v3_phase2_calibration.py` on T6-b wrote `results/pdac/v3_phase2/sections/sim_rows_T6-b.csv.gz`, `T6-b_setup.json` and a run log; these were deleted and their 3 manifest rows removed so that the real 100-simulation run is the only Phase 2 output. The manifest was edited while Phase 1 was running; the manifest check at the end of v3 will recover any row lost to the concurrent write (as happened in v2). No further manifest-writing jobs were started while Phase 1 ran.
+- **Full run started 15:51**: `python src/pdac/v3_phase1_constrained_nulls.py` (all 16 sections, 3 annotations, 5 nulls; stdout in `logs/v3_phase1_stdout.txt`).
