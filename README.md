@@ -86,6 +86,12 @@ This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using th
   Lead question: *does a proximity-specific signal exist at tumour level, or is the edge score mainly mirroring cell-type products?*
 
   Answer: mainly mirroring. The CXCL12→CXCR4 CAF→T ratio Q is significant after BH in 0/16 sections and 0/13 tumours under every annotation. Across tumours it shows only a weak, exploratory directional trend (consensus T labels: z_Q > 0 in 10/13 tumours). Tumour-level tables: [`results/pdac/phaseD/tumour_level_headline_summary.csv`](results/pdac/phaseD/tumour_level_headline_summary.csv). Key numbers with source files: [`results/pdac/phaseD/v2_key_numbers.csv`](results/pdac/phaseD/v2_key_numbers.csv).
+- **v3 (branch `thesis-v3`)**: [`docs/PDAC_SUMMARY_v3.md`](docs/PDAC_SUMMARY_v3.md). Lead question: does the proximity-specific signal survive spatially constrained nulls, and could this audit detect a real effect of the size we would care about? It covers:
+  - Phase 1: block-permutation nulls (200 / 100 / 50 um tiles) and a distance-stratified null on the CXCL12→CXCR4 CAF→T headline and the 7 non-background axes, with tumour-level Fisher + BH. The Q signal does not shrink (median tumour z_Q 0.43 → 1.30 from global to block50, consensus_T); plan `docs/v3_plans/phase1_contact_vs_zonation.md`.
+  - Phase 2: calibration by planting contact effects (1.1x–2x) and zonation-only effects on three real sections. Q has zero power at ~25 T cells; in the largest section it detects 1.5x but every null except block200 is fooled by 200 um zonation. Table: [`results/pdac/v3_phase2/calibration_deliverable.csv`](results/pdac/v3_phase2/calibration_deliverable.csv).
+  - Phase 3: block-bootstrap CIs for Q, an exploratory mixed model (geometric-mean Q 1.24 [1.01, 1.52], consensus_T), and z vs edge-count inflation.
+  - Phases 4 and 5 (GSE310352 replication; GSE277783 programs): BLOCKED by their gates (licence unconfirmed; no series matrix with site labels).
+  - Claims register and all quoted numbers with sources: [`results/pdac/v3_phase6/claims_register.csv`](results/pdac/v3_phase6/claims_register.csv), [`results/pdac/v3_phase6/v3_key_numbers.csv`](results/pdac/v3_phase6/v3_key_numbers.csv). Plans written before computation: `docs/v3_plans/`.
 - Step-by-step log with commands, outputs and decisions: `docs/PDAC_PROGRESS_LOG.md`
 - Manifest of every produced file (path, phase, description, script): `results/pdac/MANIFEST.csv`
 - Which breast number comes from which setting (15 µm vs radius sweep vs 6-NN): `docs/RESULTS_SETTINGS_NOTE.md`

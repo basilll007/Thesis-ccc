@@ -1,0 +1,11 @@
+2026-11-15 16:57:46,204 INFO script=v3_phase6_synthesis log=logs/v3_phase6_synthesis_20261115T165746.log
+2026-11-15 16:57:46,243 INFO git_commit=673b82841572cb809d74750f68d631e421b1721f+dirty
+2026-11-15 16:57:46,243 INFO seed=42
+2026-11-15 16:57:53,707 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 16:57:53,720 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 16:57:53,857 INFO Saved results/pdac/v3_phase6/v3_key_numbers.csv (803 rows)
+2026-11-15 16:57:53,858 INFO 803 key numbers collected
+2026-11-15 16:57:53,935 INFO Saved results/pdac/v3_phase6/v3_manifest_check.csv (1 rows)
+2026-11-15 16:57:53,935 INFO manifest check: 1 v3-related issues; manifest rows 651
+2026-11-15 16:57:53,945 INFO Saved results/pdac/v3_phase6/phase6_summary.json
+2026-11-15 16:57:53,954 INFO run finished

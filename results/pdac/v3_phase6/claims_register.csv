@@ -1,0 +1,15 @@
+n,claim,evidence_file,status
+1,"The headline Q signal does not shrink toward zero under block (200/100/50 um) or distance-stratified nulls; median tumour z_Q rises from 0.43 (global) to 1.30 (block50), consensus_T","results/pdac/v3_phase1/tumour_level_summary_by_null.csv, phase1_summary.json",supported (audit level)
+2,Label zonation at ≥ 50 um does not reproduce the observed Q ≈ 1.3 (null mean Q 0.95–1.14 under every null),results/pdac/v3_phase1/headline_summary_by_null.csv,supported (audit level)
+3,Tumours with BH-significant Q under constrained nulls: 0–3 of 13 depending on null and annotation,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,exploratory (depends on null choice; no pre-registered null)
+4,The constrained nulls do not remove the catalogue-wide excess of small Q p-values (0.11–0.14 of rows at p<0.05),results/pdac/v3_phase1/nonbg_summary_by_null.csv,supported (audit level)
+5,"The Q audit has zero power in sections with ~25 T cells, even for a planted 2x contact effect",results/pdac/v3_phase2/calibration_table.csv,supported (simulation)
+6,"In the largest section, Q under global/block100/dist detects a 1.5x contact effect (power 0.78–0.92) but calls 200 um expression zonation positive in 42–88% of simulations",results/pdac/v3_phase2/calibration_table.csv,supported (simulation; zonation at one scale only)
+7,"block200 is the only null not fooled by the planted zonation, at the cost of detecting only a 2x effect at power 0.49","results/pdac/v3_phase2/calibration_deliverable.csv, calibration_table.csv",supported (simulation; scale matches the planted zonation by design)
+8,"C, M and E are saturated (detection rate ~1.0 at f = 1) and cannot distinguish contact from zonation",results/pdac/v3_phase2/calibration_deliverable.csv,supported (simulation)
+9,"Geometric-mean Q across tumours is 1.24 [1.01, 1.52] (consensus_T) with a random intercept per tumour",results/pdac/v3_phase3/mixed_model_logQ.csv,"exploratory (16 sections, 13 tumours, boundary warning)"
+10,"Per section, the block-bootstrap CI for the headline Q lies above 1 in 4/16 (consensus_T), 8/16 (marker), 7/16 (author_mapped) sections",results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,supported (audit level)
+11,\,z_E\,grows with edge count (Spearman 0.52–0.56); z_Q does not (headline −0.08)
+12,A proximity-specific CXCL12→CXCR4 CAF→T effect exists in PDAC tissue,—,not supported (not testable with this audit: see claims 5–7)
+13,The result replicates in an independent cohort (GSE310352),results/pdac/v3_phase4/phase4_gate_status.json,"not supported (BLOCKED, not run)"
+14,Primary vs metastasis differences in gene programs (GSE277783),results/pdac/v3_phase5/phase5_gate_status.json,"not supported (BLOCKED, not run)"

@@ -649,3 +649,15 @@ figures/pdac/v3_phase2/phase2_calibration.png,v3_phase2,"Power vs planted proxim
 figures/pdac/v3_phase2/phase2_calibration.pdf,v3_phase2,"Power vs planted proximity effect and false-positive rate vs zonation effect, per score and null",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:42
 logs/v3_phase2_calibration_20261115T165640.log,v3_phase2,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:42
 logs/v3_phase2_calibration_20261115T163932.log,v3_phase2,run log of the full simulation run (sim rows + tables); crashed in the final summary JSON (AttributeError on itertuples field names); aggregation re-run with --aggregate-only in the second log,src/pdac/v3_phase2_calibration.py,2026-11-15T16:57:35
+results/pdac/v3_phase6/v3_key_numbers.csv,v3_phase6,Every number quoted in docs/PDAC_SUMMARY_v3.md with its source file and column,src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
+results/pdac/v3_phase6/v3_manifest_check.csv,v3_phase6,"Manifest completeness check for v3 outputs (missing files, unregistered files)",src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
+results/pdac/v3_phase6/phase6_summary.json,v3_phase6,Phase 6 synthesis summary,src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
+logs/v3_phase6_synthesis_20261115T165746.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
+logs/v3_phase1_stdout.txt,v3_phase1,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase2_stdout.txt,v3_phase2,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase2_stdout_rerun.txt,v3_phase2,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase3_stdout.txt,v3_phase3,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase4_stdout.txt,v3_phase4,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase5_stdout.txt,v3_phase5,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+logs/v3_phase6_stdout.txt,v3_phase6,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
+results/pdac/v3_phase6/claims_register.csv,v3_phase6,"Claims register: claim, evidence file, status (supported / exploratory / not supported); same table as in docs/PDAC_SUMMARY_v3.md",docs/PDAC_SUMMARY_v3.md,2026-11-15T17:00:01

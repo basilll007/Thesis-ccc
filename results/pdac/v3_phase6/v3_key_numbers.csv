@@ -1,0 +1,804 @@
+key,value,source_file,how
+p1.headline.consensus_T.global.n_Q_p05,2,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.consensus_T.global.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.consensus_T.global.median_zQ,0.365,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.consensus_T.global.median_zE,14.68,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.consensus_T.global.n_zQ_pos,11,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.consensus_T.global.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.consensus_T.global.median_null_mean_Q,1.067,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.consensus_T.global.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.consensus_T.global.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.consensus_T.global.n_sig_uncorrected,2,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.consensus_T.global.n_mean_z_pos,10,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.consensus_T.global.median_tumour_mean_zQ,0.433,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.consensus_T.global.wilcoxon_p,0.0164,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.consensus_T.global.n_Q_gt1,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.consensus_T.global.min_q_bh,0.285,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.consensus_T.global.n_rows,17500,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.consensus_T.global.frac_Q_p05,0.138,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.consensus_T.global.frac_E_p05,0.177,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.consensus_T.global.n_Q_bh05,1234,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.consensus_T.global.rho_zQ_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.consensus_T.global.rho_zE_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.consensus_T.block200.n_Q_p05,3,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.consensus_T.block200.n_Q_bh05,1,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.consensus_T.block200.median_zQ,0.839,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.consensus_T.block200.median_zE,10.14,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.consensus_T.block200.n_zQ_pos,14,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.consensus_T.block200.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.consensus_T.block200.median_null_mean_Q,1.009,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.consensus_T.block200.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.consensus_T.block200.n_sig_bh,2,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.consensus_T.block200.n_sig_uncorrected,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.consensus_T.block200.n_mean_z_pos,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.consensus_T.block200.median_tumour_mean_zQ,0.863,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.consensus_T.block200.wilcoxon_p,0.0006,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.consensus_T.block200.n_Q_gt1,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.consensus_T.block200.min_q_bh,0.026,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.consensus_T.block200.n_rows,17500,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.consensus_T.block200.frac_Q_p05,0.131,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.consensus_T.block200.frac_E_p05,0.164,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.consensus_T.block200.n_Q_bh05,902,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.consensus_T.block200.rho_zQ_vs_global,0.792,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.consensus_T.block200.rho_zE_vs_global,0.9,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.consensus_T.block100.n_Q_p05,6,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.consensus_T.block100.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.consensus_T.block100.median_zQ,0.88,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.consensus_T.block100.median_zE,9.1,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.consensus_T.block100.n_zQ_pos,14,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.consensus_T.block100.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.consensus_T.block100.median_null_mean_Q,0.954,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.consensus_T.block100.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.consensus_T.block100.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.consensus_T.block100.n_sig_uncorrected,6,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.consensus_T.block100.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.consensus_T.block100.median_tumour_mean_zQ,0.811,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.consensus_T.block100.wilcoxon_p,0.0002,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.consensus_T.block100.n_Q_gt1,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.consensus_T.block100.min_q_bh,0.052,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.consensus_T.block100.n_rows,17500,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.consensus_T.block100.frac_Q_p05,0.126,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.consensus_T.block100.frac_E_p05,0.152,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.consensus_T.block100.n_Q_bh05,752,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.consensus_T.block100.rho_zQ_vs_global,0.706,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.consensus_T.block100.rho_zE_vs_global,0.864,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.consensus_T.block50.n_Q_p05,6,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.consensus_T.block50.n_Q_bh05,2,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.consensus_T.block50.median_zQ,1.347,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.consensus_T.block50.median_zE,8.27,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.consensus_T.block50.n_zQ_pos,13,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.consensus_T.block50.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.consensus_T.block50.median_null_mean_Q,1.056,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.consensus_T.block50.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.consensus_T.block50.n_sig_bh,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.consensus_T.block50.n_sig_uncorrected,5,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.consensus_T.block50.n_mean_z_pos,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.consensus_T.block50.median_tumour_mean_zQ,1.298,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.consensus_T.block50.wilcoxon_p,0.0009,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.consensus_T.block50.n_Q_gt1,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.consensus_T.block50.min_q_bh,0.009,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.consensus_T.block50.n_rows,17500,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.consensus_T.block50.frac_Q_p05,0.122,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.consensus_T.block50.frac_E_p05,0.139,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.consensus_T.block50.n_Q_bh05,565,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.consensus_T.block50.rho_zQ_vs_global,0.572,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.consensus_T.block50.rho_zE_vs_global,0.805,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.consensus_T.dist.n_Q_p05,3,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.consensus_T.dist.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.consensus_T.dist.median_zQ,0.377,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.consensus_T.dist.median_zE,12.16,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.consensus_T.dist.n_zQ_pos,11,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.consensus_T.dist.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.consensus_T.dist.median_null_mean_Q,1.136,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.consensus_T.dist.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.consensus_T.dist.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.consensus_T.dist.n_sig_uncorrected,2,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.consensus_T.dist.n_mean_z_pos,10,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.consensus_T.dist.median_tumour_mean_zQ,0.579,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.consensus_T.dist.wilcoxon_p,0.0199,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.consensus_T.dist.n_Q_gt1,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.consensus_T.dist.min_q_bh,0.285,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.consensus_T.dist.n_rows,17500,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.consensus_T.dist.frac_Q_p05,0.11,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.consensus_T.dist.frac_E_p05,0.163,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.consensus_T.dist.n_Q_bh05,671,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.consensus_T.dist.rho_zQ_vs_global,0.862,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.consensus_T.dist.rho_zE_vs_global,0.814,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.shrink_verdict.consensus_T,False,results/pdac/v3_phase1/phase1_summary.json,shrink_verdict.shrinks_toward_zero (rule in plan)
+p1.headline.marker.global.n_Q_p05,4,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.marker.global.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.marker.global.median_zQ,0.75,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.marker.global.median_zE,20.87,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.marker.global.n_zQ_pos,14,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.marker.global.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.marker.global.median_null_mean_Q,1.052,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.marker.global.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.marker.global.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.marker.global.n_sig_uncorrected,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.marker.global.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.marker.global.median_tumour_mean_zQ,0.899,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.marker.global.wilcoxon_p,0.0085,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.marker.global.n_Q_gt1,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.marker.global.min_q_bh,0.104,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.marker.global.n_rows,11193,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.marker.global.frac_Q_p05,0.138,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.marker.global.frac_E_p05,0.157,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.marker.global.n_Q_bh05,819,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.marker.global.rho_zQ_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.marker.global.rho_zE_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.marker.block200.n_Q_p05,4,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.marker.block200.n_Q_bh05,1,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.marker.block200.median_zQ,0.883,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.marker.block200.median_zE,12.86,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.marker.block200.n_zQ_pos,12,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.marker.block200.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.marker.block200.median_null_mean_Q,1.031,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.marker.block200.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.marker.block200.n_sig_bh,1,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.marker.block200.n_sig_uncorrected,4,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.marker.block200.n_mean_z_pos,9,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.marker.block200.median_tumour_mean_zQ,1.002,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.marker.block200.wilcoxon_p,0.0067,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.marker.block200.n_Q_gt1,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.marker.block200.min_q_bh,0.026,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.marker.block200.n_rows,11193,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.marker.block200.frac_Q_p05,0.135,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.marker.block200.frac_E_p05,0.143,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.marker.block200.n_Q_bh05,516,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.marker.block200.rho_zQ_vs_global,0.789,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.marker.block200.rho_zE_vs_global,0.893,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.marker.block100.n_Q_p05,4,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.marker.block100.n_Q_bh05,1,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.marker.block100.median_zQ,1.142,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.marker.block100.median_zE,11.48,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.marker.block100.n_zQ_pos,13,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.marker.block100.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.marker.block100.median_null_mean_Q,1.023,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.marker.block100.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.marker.block100.n_sig_bh,4,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.marker.block100.n_sig_uncorrected,4,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.marker.block100.n_mean_z_pos,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.marker.block100.median_tumour_mean_zQ,1.371,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.marker.block100.wilcoxon_p,0.0009,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.marker.block100.n_Q_gt1,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.marker.block100.min_q_bh,0.026,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.marker.block100.n_rows,11193,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.marker.block100.frac_Q_p05,0.127,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.marker.block100.frac_E_p05,0.135,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.marker.block100.n_Q_bh05,446,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.marker.block100.rho_zQ_vs_global,0.696,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.marker.block100.rho_zE_vs_global,0.85,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.marker.block50.n_Q_p05,5,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.marker.block50.n_Q_bh05,1,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.marker.block50.median_zQ,1.391,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.marker.block50.median_zE,9.74,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.marker.block50.n_zQ_pos,14,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.marker.block50.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.marker.block50.median_null_mean_Q,1.09,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.marker.block50.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.marker.block50.n_sig_bh,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.marker.block50.n_sig_uncorrected,5,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.marker.block50.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.marker.block50.median_tumour_mean_zQ,1.234,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.marker.block50.wilcoxon_p,0.0002,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.marker.block50.n_Q_gt1,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.marker.block50.min_q_bh,0.013,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.marker.block50.n_rows,11193,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.marker.block50.frac_Q_p05,0.121,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.marker.block50.frac_E_p05,0.124,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.marker.block50.n_Q_bh05,312,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.marker.block50.rho_zQ_vs_global,0.544,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.marker.block50.rho_zE_vs_global,0.786,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.marker.dist.n_Q_p05,5,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.marker.dist.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.marker.dist.median_zQ,0.828,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.marker.dist.median_zE,18.43,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.marker.dist.n_zQ_pos,13,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.marker.dist.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.marker.dist.median_null_mean_Q,1.048,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.marker.dist.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.marker.dist.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.marker.dist.n_sig_uncorrected,5,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.marker.dist.n_mean_z_pos,11,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.marker.dist.median_tumour_mean_zQ,1.078,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.marker.dist.wilcoxon_p,0.0067,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.marker.dist.n_Q_gt1,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.marker.dist.min_q_bh,0.061,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.marker.dist.n_rows,11193,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.marker.dist.frac_Q_p05,0.11,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.marker.dist.frac_E_p05,0.143,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.marker.dist.n_Q_bh05,502,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.marker.dist.rho_zQ_vs_global,0.858,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.marker.dist.rho_zE_vs_global,0.801,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.shrink_verdict.marker,False,results/pdac/v3_phase1/phase1_summary.json,shrink_verdict.shrinks_toward_zero (rule in plan)
+p1.headline.author_mapped.global.n_Q_p05,2,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.author_mapped.global.n_Q_bh05,1,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.author_mapped.global.median_zQ,0.738,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.author_mapped.global.median_zE,21.63,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.author_mapped.global.n_zQ_pos,15,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.author_mapped.global.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.author_mapped.global.median_null_mean_Q,1.034,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.author_mapped.global.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.author_mapped.global.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.author_mapped.global.n_sig_uncorrected,2,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.author_mapped.global.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.author_mapped.global.median_tumour_mean_zQ,0.78,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.author_mapped.global.wilcoxon_p,0.0004,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.author_mapped.global.n_Q_gt1,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.author_mapped.global.min_q_bh,0.078,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.author_mapped.global.n_rows,15064,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.author_mapped.global.frac_Q_p05,0.148,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.author_mapped.global.frac_E_p05,0.187,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.author_mapped.global.n_Q_bh05,1222,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.author_mapped.global.rho_zQ_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.author_mapped.global.rho_zE_vs_global,1.0,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.author_mapped.block200.n_Q_p05,5,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.author_mapped.block200.n_Q_bh05,2,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.author_mapped.block200.median_zQ,0.92,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.author_mapped.block200.median_zE,12.67,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.author_mapped.block200.n_zQ_pos,15,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.author_mapped.block200.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.author_mapped.block200.median_null_mean_Q,1.086,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.author_mapped.block200.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.author_mapped.block200.n_sig_bh,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.author_mapped.block200.n_sig_uncorrected,5,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.author_mapped.block200.n_mean_z_pos,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.author_mapped.block200.median_tumour_mean_zQ,0.966,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.author_mapped.block200.wilcoxon_p,0.0001,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.author_mapped.block200.n_Q_gt1,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.author_mapped.block200.min_q_bh,0.013,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.author_mapped.block200.n_rows,15064,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.author_mapped.block200.frac_Q_p05,0.141,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.author_mapped.block200.frac_E_p05,0.172,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.author_mapped.block200.n_Q_bh05,943,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.author_mapped.block200.rho_zQ_vs_global,0.781,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.author_mapped.block200.rho_zE_vs_global,0.9,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.author_mapped.block100.n_Q_p05,6,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.author_mapped.block100.n_Q_bh05,3,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.author_mapped.block100.median_zQ,1.509,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.author_mapped.block100.median_zE,12.43,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.author_mapped.block100.n_zQ_pos,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.author_mapped.block100.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.author_mapped.block100.median_null_mean_Q,1.092,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.author_mapped.block100.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.author_mapped.block100.n_sig_bh,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.author_mapped.block100.n_sig_uncorrected,5,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.author_mapped.block100.n_mean_z_pos,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.author_mapped.block100.median_tumour_mean_zQ,1.699,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.author_mapped.block100.wilcoxon_p,0.0001,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.author_mapped.block100.n_Q_gt1,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.author_mapped.block100.min_q_bh,0.009,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.author_mapped.block100.n_rows,15064,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.author_mapped.block100.frac_Q_p05,0.135,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.author_mapped.block100.frac_E_p05,0.16,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.author_mapped.block100.n_Q_bh05,809,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.author_mapped.block100.rho_zQ_vs_global,0.688,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.author_mapped.block100.rho_zE_vs_global,0.865,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.author_mapped.block50.n_Q_p05,7,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.author_mapped.block50.n_Q_bh05,2,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.author_mapped.block50.median_zQ,1.395,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.author_mapped.block50.median_zE,11.49,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.author_mapped.block50.n_zQ_pos,15,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.author_mapped.block50.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.author_mapped.block50.median_null_mean_Q,1.08,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.author_mapped.block50.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.author_mapped.block50.n_sig_bh,4,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.author_mapped.block50.n_sig_uncorrected,6,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.author_mapped.block50.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.author_mapped.block50.median_tumour_mean_zQ,1.485,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.author_mapped.block50.wilcoxon_p,0.0002,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.author_mapped.block50.n_Q_gt1,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.author_mapped.block50.min_q_bh,0.001,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.author_mapped.block50.n_rows,15064,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.author_mapped.block50.frac_Q_p05,0.132,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.author_mapped.block50.frac_E_p05,0.148,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.author_mapped.block50.n_Q_bh05,629,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.author_mapped.block50.rho_zQ_vs_global,0.544,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.author_mapped.block50.rho_zE_vs_global,0.804,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.headline.author_mapped.dist.n_Q_p05,3,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_p05
+p1.headline.author_mapped.dist.n_Q_bh05,0,results/pdac/v3_phase1/headline_summary_by_null.csv,n_Q_bh05
+p1.headline.author_mapped.dist.median_zQ,0.979,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_Q
+p1.headline.author_mapped.dist.median_zE,16.92,results/pdac/v3_phase1/headline_summary_by_null.csv,median_z_E
+p1.headline.author_mapped.dist.n_zQ_pos,15,results/pdac/v3_phase1/headline_summary_by_null.csv,n_zQ_pos (of n_sections_evaluable)
+p1.headline.author_mapped.dist.n_sections,16,results/pdac/v3_phase1/headline_summary_by_null.csv,n_sections_evaluable
+p1.headline.author_mapped.dist.median_null_mean_Q,1.119,results/pdac/v3_phase1/headline_summary_by_null.csv,median_null_mean_Q
+p1.tumour.author_mapped.dist.n_tumours,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_tumours
+p1.tumour.author_mapped.dist.n_sig_bh,0,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_bh (Q)
+p1.tumour.author_mapped.dist.n_sig_uncorrected,3,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_sig_uncorrected (Q)
+p1.tumour.author_mapped.dist.n_mean_z_pos,12,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_z_pos (Q)
+p1.tumour.author_mapped.dist.median_tumour_mean_zQ,0.817,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,median_tumour_mean_z (Q)
+p1.tumour.author_mapped.dist.wilcoxon_p,0.0002,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,wilcoxon_z_gt0_p (Q)
+p1.tumour.author_mapped.dist.n_Q_gt1,13,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,n_mean_obs_gt1 (Q)
+p1.tumour.author_mapped.dist.min_q_bh,0.08,results/pdac/v3_phase1/tumour_level_summary_by_null.csv,min_q_bh (Q)
+p1.catalogue.author_mapped.dist.n_rows,15064,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_rows_evaluated
+p1.catalogue.author_mapped.dist.frac_Q_p05,0.118,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_Q_p05
+p1.catalogue.author_mapped.dist.frac_E_p05,0.172,results/pdac/v3_phase1/nonbg_summary_by_null.csv,frac_E_p05
+p1.catalogue.author_mapped.dist.n_Q_bh05,647,results/pdac/v3_phase1/nonbg_summary_by_null.csv,n_Q_bh05
+p1.catalogue.author_mapped.dist.rho_zQ_vs_global,0.852,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zQ_vs_global
+p1.catalogue.author_mapped.dist.rho_zE_vs_global,0.805,results/pdac/v3_phase1/nonbg_summary_by_null.csv,spearman_zE_vs_global
+p1.shrink_verdict.author_mapped,False,results/pdac/v3_phase1/phase1_summary.json,shrink_verdict.shrinks_toward_zero (rule in plan)
+p1.n_skipped_runs,0,results/pdac/v3_phase1/phase1_summary.json,n_skipped_runs
+p2.pooled.C.global.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.C.global.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.C.global.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.C.global.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.C.global.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.C.global.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.C.global.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.C.global.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.C.global.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.C.global.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.C.global.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.C.block200.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.C.block200.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.C.block200.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.C.block200.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.C.block200.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.C.block200.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.C.block200.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.C.block200.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.C.block200.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.C.block200.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.C.block200.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.C.block100.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.C.block100.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.C.block100.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.C.block100.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.C.block100.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.C.block100.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.C.block100.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.C.block100.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.C.block100.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.C.block100.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.C.block100.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.C.block50.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.C.block50.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.C.block50.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.C.block50.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.C.block50.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.C.block50.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.C.block50.zonation_f1.25,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.C.block50.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.C.block50.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.C.block50.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.C.block50.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.C.dist.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.C.dist.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.C.dist.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.C.dist.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.C.dist.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.C.dist.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.C.dist.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.C.dist.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.C.dist.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.C.dist.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.C.dist.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.M.global.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.M.global.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.M.global.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.M.global.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.M.global.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.M.global.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.M.global.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.M.global.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.M.global.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.M.global.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.M.global.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.M.block200.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.M.block200.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.M.block200.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.M.block200.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.M.block200.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.M.block200.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.M.block200.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.M.block200.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.M.block200.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.M.block200.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.M.block200.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.M.block100.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.M.block100.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.M.block100.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.M.block100.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.M.block100.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.M.block100.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.M.block100.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.M.block100.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.M.block100.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.M.block100.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.M.block100.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.M.block50.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.M.block50.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.M.block50.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.M.block50.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.M.block50.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.M.block50.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.M.block50.zonation_f1.25,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.M.block50.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.M.block50.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.M.block50.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.M.block50.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.M.dist.proximity_f1.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.M.dist.proximity_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.M.dist.proximity_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.M.dist.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.M.dist.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.M.dist.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.M.dist.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.M.dist.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.M.dist.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.M.dist.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.M.dist.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.E.global.proximity_f1.0,0.95,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.E.global.proximity_f1.1,0.97,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.E.global.proximity_f1.25,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.E.global.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.E.global.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.E.global.zonation_f1.1,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.E.global.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.E.global.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.E.global.zonation_f2.0,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.E.global.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.E.global.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.E.block200.proximity_f1.0,0.93,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.E.block200.proximity_f1.1,0.94,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.E.block200.proximity_f1.25,0.97,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.E.block200.proximity_f1.5,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.E.block200.proximity_f2.0,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.E.block200.zonation_f1.1,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.E.block200.zonation_f1.25,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.E.block200.zonation_f1.5,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.E.block200.zonation_f2.0,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.E.block200.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.E.block200.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.E.block100.proximity_f1.0,0.95,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.E.block100.proximity_f1.1,0.97,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.E.block100.proximity_f1.25,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.E.block100.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.E.block100.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.E.block100.zonation_f1.1,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.E.block100.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.E.block100.zonation_f1.5,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.E.block100.zonation_f2.0,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.E.block100.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.E.block100.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.E.block50.proximity_f1.0,0.75,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.E.block50.proximity_f1.1,0.79,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.E.block50.proximity_f1.25,0.8,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.E.block50.proximity_f1.5,0.85,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.E.block50.proximity_f2.0,0.94,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.E.block50.zonation_f1.1,0.85,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.E.block50.zonation_f1.25,0.84,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.E.block50.zonation_f1.5,0.88,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.E.block50.zonation_f2.0,0.93,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.E.block50.min_effect_power_ge_0.8,1.25,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.E.block50.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.E.dist.proximity_f1.0,0.96,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.E.dist.proximity_f1.1,0.98,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.E.dist.proximity_f1.25,0.99,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.E.dist.proximity_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.E.dist.proximity_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.E.dist.zonation_f1.1,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.E.dist.zonation_f1.25,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.E.dist.zonation_f1.5,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.E.dist.zonation_f2.0,1.0,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.E.dist.min_effect_power_ge_0.8,1.1,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.E.dist.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.Q.global.proximity_f1.0,0.01,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.Q.global.proximity_f1.1,0.04,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.Q.global.proximity_f1.25,0.11,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.Q.global.proximity_f1.5,0.26,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.Q.global.proximity_f2.0,0.33,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.Q.global.zonation_f1.1,0.14,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.Q.global.zonation_f1.25,0.15,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.Q.global.zonation_f1.5,0.19,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.Q.global.zonation_f2.0,0.18,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.Q.global.min_effect_power_ge_0.8,,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.Q.global.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.Q.block200.proximity_f1.0,0.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.Q.block200.proximity_f1.1,0.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.Q.block200.proximity_f1.25,0.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.Q.block200.proximity_f1.5,0.01,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.Q.block200.proximity_f2.0,0.16,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.Q.block200.zonation_f1.1,0.03,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.Q.block200.zonation_f1.25,0.02,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.Q.block200.zonation_f1.5,0.02,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.Q.block200.zonation_f2.0,0.03,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.Q.block200.min_effect_power_ge_0.8,,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.Q.block200.fooled_by_zonation_f1.5,False,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.Q.block100.proximity_f1.0,0.02,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.Q.block100.proximity_f1.1,0.06,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.Q.block100.proximity_f1.25,0.16,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.Q.block100.proximity_f1.5,0.28,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.Q.block100.proximity_f2.0,0.33,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.Q.block100.zonation_f1.1,0.19,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.Q.block100.zonation_f1.25,0.2,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.Q.block100.zonation_f1.5,0.24,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.Q.block100.zonation_f2.0,0.25,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.Q.block100.min_effect_power_ge_0.8,,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.Q.block100.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.Q.block50.proximity_f1.0,0.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.Q.block50.proximity_f1.1,0.0,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.Q.block50.proximity_f1.25,0.04,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.Q.block50.proximity_f1.5,0.17,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.Q.block50.proximity_f2.0,0.33,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.Q.block50.zonation_f1.1,0.12,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.Q.block50.zonation_f1.25,0.11,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.Q.block50.zonation_f1.5,0.15,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.Q.block50.zonation_f2.0,0.14,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.Q.block50.min_effect_power_ge_0.8,,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.Q.block50.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.pooled.Q.dist.proximity_f1.0,0.06,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.0
+p2.pooled.Q.dist.proximity_f1.1,0.13,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.1
+p2.pooled.Q.dist.proximity_f1.25,0.24,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.25
+p2.pooled.Q.dist.proximity_f1.5,0.31,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f1.5
+p2.pooled.Q.dist.proximity_f2.0,0.33,results/pdac/v3_phase2/calibration_deliverable.csv,proximity_f2.0
+p2.pooled.Q.dist.zonation_f1.1,0.25,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.1
+p2.pooled.Q.dist.zonation_f1.25,0.25,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.25
+p2.pooled.Q.dist.zonation_f1.5,0.29,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f1.5
+p2.pooled.Q.dist.zonation_f2.0,0.29,results/pdac/v3_phase2/calibration_deliverable.csv,zonation_f2.0
+p2.pooled.Q.dist.min_effect_power_ge_0.8,,results/pdac/v3_phase2/calibration_deliverable.csv,min_effect_power_ge_0.8
+p2.pooled.Q.dist.fooled_by_zonation_f1.5,True,results/pdac/v3_phase2/calibration_deliverable.csv,fooled_by_zonation_f1.5
+p2.section.T2-b.Q.global.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.global.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block200.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block100.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.block50.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T2-b.Q.dist.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.proximity.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.proximity.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.zonation.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.zonation.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.zonation.f1.5.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.global.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block200.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block100.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.block50.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.T6-b.Q.dist.zonation.f2.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.proximity.f1.0.rate,0.02,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.proximity.f1.0.rate,0.06,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.proximity.f1.0.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.proximity.f1.0.rate,0.18,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.proximity.f1.1.rate,0.12,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.proximity.f1.1.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.proximity.f1.1.rate,0.18,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.proximity.f1.1.rate,0.01,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.proximity.f1.1.rate,0.39,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.proximity.f1.25.rate,0.34,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.proximity.f1.25.rate,0.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.proximity.f1.25.rate,0.47,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.proximity.f1.25.rate,0.11,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.proximity.f1.25.rate,0.73,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.proximity.f1.5.rate,0.78,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.proximity.f1.5.rate,0.02,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.proximity.f1.5.rate,0.85,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.proximity.f1.5.rate,0.52,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.proximity.f1.5.rate,0.92,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.proximity.f2.0.rate,1.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.proximity.f2.0.rate,0.49,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.proximity.f2.0.rate,1.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.proximity.f2.0.rate,1.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.proximity.f2.0.rate,1.0,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.zonation.f1.1.rate,0.42,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.zonation.f1.1.rate,0.1,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.zonation.f1.1.rate,0.56,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.zonation.f1.1.rate,0.35,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.zonation.f1.1.rate,0.74,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.zonation.f1.25.rate,0.44,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.zonation.f1.25.rate,0.06,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.zonation.f1.25.rate,0.6,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.zonation.f1.25.rate,0.32,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.zonation.f1.25.rate,0.76,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.zonation.f1.5.rate,0.56,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.zonation.f1.5.rate,0.06,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.zonation.f1.5.rate,0.73,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.zonation.f1.5.rate,0.46,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.zonation.f1.5.rate,0.88,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.global.zonation.f2.0.rate,0.54,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block200.zonation.f2.0.rate,0.08,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block100.zonation.f2.0.rate,0.74,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.block50.zonation.f2.0.rate,0.43,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.section.U5-a.Q.dist.zonation.f2.0.rate,0.86,results/pdac/v3_phase2/calibration_table.csv,rate_p05
+p2.setup.T2-b.n_T,23,results/pdac/v3_phase2/sections/T2-b_setup.json,n_T
+p2.setup.T2-b.n_CAF_T_edges,74,results/pdac/v3_phase2/sections/T2-b_setup.json,n_CAF_T_edges
+p2.setup.T2-b.n_targets,10,results/pdac/v3_phase2/sections/T2-b_setup.json,n_proximity_targets
+p2.setup.T2-b.mean_CXCR4_count_targets,0.7,results/pdac/v3_phase2/sections/T2-b_setup.json,mean_CXCR4_count_targets
+p2.setup.T2-b.n_sims,100,results/pdac/v3_phase2/sections/T2-b_setup.json,n_sims
+p2.setup.T6-b.n_T,26,results/pdac/v3_phase2/sections/T6-b_setup.json,n_T
+p2.setup.T6-b.n_CAF_T_edges,83,results/pdac/v3_phase2/sections/T6-b_setup.json,n_CAF_T_edges
+p2.setup.T6-b.n_targets,13,results/pdac/v3_phase2/sections/T6-b_setup.json,n_proximity_targets
+p2.setup.T6-b.mean_CXCR4_count_targets,1.692,results/pdac/v3_phase2/sections/T6-b_setup.json,mean_CXCR4_count_targets
+p2.setup.T6-b.n_sims,100,results/pdac/v3_phase2/sections/T6-b_setup.json,n_sims
+p2.setup.U5-a.n_T,261,results/pdac/v3_phase2/sections/U5-a_setup.json,n_T
+p2.setup.U5-a.n_CAF_T_edges,448,results/pdac/v3_phase2/sections/U5-a_setup.json,n_CAF_T_edges
+p2.setup.U5-a.n_targets,85,results/pdac/v3_phase2/sections/U5-a_setup.json,n_proximity_targets
+p2.setup.U5-a.mean_CXCR4_count_targets,1.553,results/pdac/v3_phase2/sections/U5-a_setup.json,mean_CXCR4_count_targets
+p2.setup.U5-a.n_sims,100,results/pdac/v3_phase2/sections/U5-a_setup.json,n_sims
+p3.boot.headline.author_mapped.n_ci_above_1,7,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.headline.author_mapped.n_ci_below_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.headline.author_mapped.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.headline.author_mapped.median_Q,1.346,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.headline.author_mapped.median_ci_width,0.531,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_ci_width
+p3.boot.headline.consensus_T.n_ci_above_1,4,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.headline.consensus_T.n_ci_below_1,1,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.headline.consensus_T.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.headline.consensus_T.median_Q,1.32,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.headline.consensus_T.median_ci_width,0.767,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_ci_width
+p3.boot.headline.marker.n_ci_above_1,8,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.headline.marker.n_ci_below_1,1,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.headline.marker.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.headline.marker.median_Q,1.347,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.headline.marker.median_ci_width,0.48,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_ci_width
+p3.boot.non-bg.CXCL12_CXCR4.n_ci_above_1,4,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.CXCL12_CXCR4.n_ci_below_1,1,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.CXCL12_CXCR4.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.CXCL12_CXCR4.median_Q,1.32,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.FN1_ITGB1.n_ci_above_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.FN1_ITGB1.n_ci_below_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.FN1_ITGB1.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.FN1_ITGB1.median_Q,1.047,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.JAG1_NOTCH1.n_ci_above_1,1,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.JAG1_NOTCH1.n_ci_below_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.JAG1_NOTCH1.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.JAG1_NOTCH1.median_Q,0.796,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.MIF_CD74.n_ci_above_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.MIF_CD74.n_ci_below_1,6,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.MIF_CD74.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.MIF_CD74.median_Q,0.88,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.SPP1_CD44.n_ci_above_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.SPP1_CD44.n_ci_below_1,3,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.SPP1_CD44.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.SPP1_CD44.median_Q,0.819,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.TGFB1_TGFBR1.n_ci_above_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.TGFB1_TGFBR1.n_ci_below_1,1,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.TGFB1_TGFBR1.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.TGFB1_TGFBR1.median_Q,0.905,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.non-bg.TGFB1_TGFBR2.n_ci_above_1,0,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_above_1
+p3.boot.non-bg.TGFB1_TGFBR2.n_ci_below_1,2,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_ci_below_1
+p3.boot.non-bg.TGFB1_TGFBR2.n_sections,16,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,n_sections
+p3.boot.non-bg.TGFB1_TGFBR2.median_Q,0.858,results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,median_Q
+p3.boot.section.T1-b.Q,"1.718 [1.475, 1.974] edges=542",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T2-b.Q,"1.353 [0.366, 2.751] edges=74",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T3-b.Q,"1.115 [0.809, 1.437] edges=365",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T4-a.Q,"0.831 [0.758, 0.910] edges=1602",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T4-b.Q,"1.019 [0.854, 1.199] edges=827",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T5-a.Q,"1.517 [1.229, 1.836] edges=811",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.T6-b.Q,"1.401 [0.941, 1.916] edges=83",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U1-b.Q,"1.233 [0.871, 1.607] edges=636",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U2-b.Q,"2.092 [0.939, 3.376] edges=127",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U3-b.Q,"1.047 [0.686, 1.485] edges=253",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U4-a.Q,"1.432 [1.190, 1.739] edges=570",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U4-b.Q,"1.150 [0.890, 1.424] edges=794",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U5-a.Q,"1.961 [1.549, 2.419] edges=448",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U6-a_1.Q,"1.287 [0.134, 2.878] edges=77",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U6-a_2.Q,"0.399 [0.000, 1.089] edges=83",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.boot.section.U7-a.Q,"1.415 [0.668, 2.211] edges=448",results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv,"Q_obs, Q_ci_low, Q_ci_high, n_edges (consensus_T)"
+p3.mm.consensus_T.geomean_Q,1.242,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q
+p3.mm.consensus_T.ci,"[1.013, 1.522]",results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q_ci_low/high
+p3.mm.consensus_T.n_tumours,13,results/pdac/v3_phase3/mixed_model_logQ.csv,n_tumours
+p3.mm.consensus_T.n_sections,16,results/pdac/v3_phase3/mixed_model_logQ.csv,n_sections
+p3.mm.consensus_T.tumour_var,0.0073,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_tumour_var
+p3.mm.consensus_T.converged,True,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_converged
+p3.mm.consensus_T.warnings,The MLE may be on the boundary of the parameter space.,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_warnings
+p3.t.consensus_T.geomean_Q_ci,"1.236 [1.007, 1.517]",results/pdac/v3_phase3/mixed_model_logQ.csv,"exp(ols_mean_logQ, ols_ci_low, ols_ci_high)"
+p3.mm.marker.geomean_Q,1.315,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q
+p3.mm.marker.ci,"[1.176, 1.471]",results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q_ci_low/high
+p3.mm.marker.n_tumours,13,results/pdac/v3_phase3/mixed_model_logQ.csv,n_tumours
+p3.mm.marker.n_sections,16,results/pdac/v3_phase3/mixed_model_logQ.csv,n_sections
+p3.mm.marker.tumour_var,0.0249,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_tumour_var
+p3.mm.marker.converged,True,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_converged
+p3.mm.marker.warnings,nan,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_warnings
+p3.t.marker.geomean_Q_ci,"1.297 [1.157, 1.453]",results/pdac/v3_phase3/mixed_model_logQ.csv,"exp(ols_mean_logQ, ols_ci_low, ols_ci_high)"
+p3.mm.author_mapped.geomean_Q,1.348,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q
+p3.mm.author_mapped.ci,"[1.219, 1.491]",results/pdac/v3_phase3/mixed_model_logQ.csv,mm_geomean_Q_ci_low/high
+p3.mm.author_mapped.n_tumours,13,results/pdac/v3_phase3/mixed_model_logQ.csv,n_tumours
+p3.mm.author_mapped.n_sections,16,results/pdac/v3_phase3/mixed_model_logQ.csv,n_sections
+p3.mm.author_mapped.tumour_var,0.0332,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_tumour_var
+p3.mm.author_mapped.converged,True,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_converged
+p3.mm.author_mapped.warnings,nan,results/pdac/v3_phase3/mixed_model_logQ.csv,mm_warnings
+p3.t.author_mapped.geomean_Q_ci,"1.321 [1.199, 1.456]",results/pdac/v3_phase3/mixed_model_logQ.csv,"exp(ols_mean_logQ, ols_ci_low, ols_ci_high)"
+p3.infl.author_mapped.rho_zE_edges,-0.107,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_vs_edges
+p3.infl.author_mapped.rho_zE_norm_edges,0.259,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_per_sqrt_vs_edges
+p3.infl.author_mapped.rho_absZE_edges,0.561,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_abs_edge_z_vs_edges
+p3.infl.author_mapped.rho_zQ_edges,0.015,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_vs_edges
+p3.infl.author_mapped.rho_zQ_norm_edges,0.275,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_per_sqrt_vs_edges
+p3.infl.author_mapped.n_rows,15064,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,n_rows
+p3.infl.author_mapped.headline_median_zE,21.63,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z
+p3.infl.author_mapped.headline_median_zE_norm,0.653,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z_per_sqrt
+p3.infl.author_mapped.headline_rho_zE_edges,0.762,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_spearman_edge_z_vs_edges
+p3.infl.consensus_T.rho_zE_edges,-0.115,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_vs_edges
+p3.infl.consensus_T.rho_zE_norm_edges,0.246,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_per_sqrt_vs_edges
+p3.infl.consensus_T.rho_absZE_edges,0.557,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_abs_edge_z_vs_edges
+p3.infl.consensus_T.rho_zQ_edges,0.01,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_vs_edges
+p3.infl.consensus_T.rho_zQ_norm_edges,0.281,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_per_sqrt_vs_edges
+p3.infl.consensus_T.n_rows,17500,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,n_rows
+p3.infl.consensus_T.headline_median_zE,14.68,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z
+p3.infl.consensus_T.headline_median_zE_norm,0.637,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z_per_sqrt
+p3.infl.consensus_T.headline_rho_zE_edges,0.713,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_spearman_edge_z_vs_edges
+p3.infl.marker.rho_zE_edges,-0.114,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_vs_edges
+p3.infl.marker.rho_zE_norm_edges,0.185,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_edge_z_per_sqrt_vs_edges
+p3.infl.marker.rho_absZE_edges,0.522,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_abs_edge_z_vs_edges
+p3.infl.marker.rho_zQ_edges,-0.016,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_vs_edges
+p3.infl.marker.rho_zQ_norm_edges,0.154,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,spearman_ratio_z_per_sqrt_vs_edges
+p3.infl.marker.n_rows,11193,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,n_rows
+p3.infl.marker.headline_median_zE,20.87,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z
+p3.infl.marker.headline_median_zE_norm,0.473,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_median_edge_z_per_sqrt
+p3.infl.marker.headline_rho_zE_edges,0.644,results/pdac/v3_phase3/z_vs_edge_count_summary.csv,headline_spearman_edge_z_vs_edges
+v3_phase4.status,BLOCKED,results/pdac/v3_phase4/phase4_gate_status.json,status
+v3_phase4.reason,licence unconfirmed: LICENSE_CONFIRMED_GSE310352.txt absent (user creates it after checking the data licence),results/pdac/v3_phase4/phase4_gate_status.json,reason
+v3_phase5.status,BLOCKED,results/pdac/v3_phase5/phase5_gate_status.json,status
+v3_phase5.reason,no GEO SOFT/series-matrix file for GSE277783 in data/; site labels unverifiable (eda_gse277783/EDA_REPORT.md: organ site UNKNOWN for 49/57 slides),results/pdac/v3_phase5/phase5_gate_status.json,reason
