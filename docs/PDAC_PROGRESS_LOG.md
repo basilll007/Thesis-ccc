@@ -572,3 +572,12 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 
 - `python src/pdac/v3_phase4_gate.py` → `results/pdac/v3_phase4/phase4_gate_status.json`: **BLOCKED**, licence unconfirmed (`LICENSE_CONFIRMED_GSE310352.txt` absent). `data/GSE310352_RAW.tar` (6.33 GB) is on disk; nothing was extracted or analysed. Also outstanding: um/px unverified, no author labels, patient overlap with the Mendeley set unverified.
 - `python src/pdac/v3_phase5_gate.py` → `results/pdac/v3_phase5/phase5_gate_status.json`: **BLOCKED**, no GEO SOFT/series-matrix file for GSE277783 under `data/`; organ site unknown for 49/57 slides (EDA report). The program gene lists stay pre-declared in `docs/v3_plans/phase5_visium_programs_gse277783.md` for a later run.
+
+## 2026-11-15 17:00 — Phase 6: synthesis and hygiene — DONE; push OK
+
+- **Commands**: `python src/pdac/v3_phase6_synthesis.py` (log `logs/v3_phase6_synthesis_20261115T165746.log`); claims-register CSV written from the summary table by a scratch script and registered; stdout capture files registered.
+- **Outputs**: `results/pdac/v3_phase6/v3_key_numbers.csv` (803 numbers with source file and column), `claims_register.csv` (14 claims), `v3_manifest_check.csv` (1 item: the Phase 6 log registers itself after the check; no missing or unregistered result files), `phase6_summary.json`; `docs/PDAC_SUMMARY_v3.md`; README v3 section. v1/v2 summaries untouched.
+- **Manifest**: 661 rows after Phase 6, 323 of them v3; all 256 Phase 1 section files are registered, so the concurrent manifest edit during Phase 1 lost nothing.
+- **Correction made while writing the summary**: a draft sentence said 12/16 sections have < 1,000 CAF→T edges; the file (`Q_block_bootstrap_by_section.csv`, consensus_T) gives 15/16 (6 below 300 edges; 5 sections with < 100 T cells). Fixed before commit.
+- **Push**: `git push origin thesis-v3` succeeded on the first attempt (new remote branch; 818d39d). Nothing was pushed to `main`; no force-push.
+- **Checklist**: Phase 1 DONE; Phase 2 DONE (one crash in the summary step, fixed, aggregation re-run); Phase 3 DONE; Phase 4 BLOCKED (licence unconfirmed); Phase 5 BLOCKED (no series matrix with site labels); Phase 6 DONE.

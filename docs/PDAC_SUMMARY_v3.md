@@ -107,7 +107,7 @@ The same table is in `results/pdac/v3_phase6/claims_register.csv`.
 
 - Phase 4: licence for GSE310352 unconfirmed (gate file absent); um/px and patient overlap unverified; no author labels.
 - Phase 5: no GEO SOFT/series-matrix file with site labels for GSE277783 in `data/`.
-- Push of `thesis-v3` to GitHub: see the final log entry (v2 hit TLS errors on large pushes; result files for v3 total about 0.2 GB).
+- Push of `thesis-v3`: not blocked (pushed on the first attempt at 818d39d; see the final log entry).
 
 ## Next steps (at most 5)
 
