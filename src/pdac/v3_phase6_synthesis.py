@@ -71,12 +71,12 @@ def main() -> None:
     # ---- Phase 2 ------------------------------------------------------------------------------------------
     cal = pd.read_csv(P2 / "calibration_deliverable.csv")
     tab = pd.read_csv(P2 / "calibration_table.csv")
-    for r in cal.itertuples():
+    for r in cal.to_dict(orient="records"):
         for col in cal.columns:
             if col.startswith("proximity_f") or col.startswith("zonation_f"):
-                add(f"p2.pooled.{r.score}.{r.null}.{col}", round(float(getattr(r, col)), 2), P2 / "calibration_deliverable.csv", col)
-        add(f"p2.pooled.{r.score}.{r.null}.min_effect_power_ge_0.8", getattr(r, "_14") if hasattr(r, "_14") else r[-3], P2 / "calibration_deliverable.csv", "min_effect_power_ge_0.8")
-        add(f"p2.pooled.{r.score}.{r.null}.fooled_by_zonation_f1.5", bool(getattr(r, "_15")) if hasattr(r, "_15") else r[-2], P2 / "calibration_deliverable.csv", "fooled_by_zonation_f1.5")
+                add(f"p2.pooled.{r['score']}.{r['null']}.{col}", round(float(r[col]), 2), P2 / "calibration_deliverable.csv", col)
+        add(f"p2.pooled.{r['score']}.{r['null']}.min_effect_power_ge_0.8", r["min_effect_power_ge_0.8"], P2 / "calibration_deliverable.csv", "min_effect_power_ge_0.8")
+        add(f"p2.pooled.{r['score']}.{r['null']}.fooled_by_zonation_f1.5", bool(r["fooled_by_zonation_f1.5"]), P2 / "calibration_deliverable.csv", "fooled_by_zonation_f1.5")
     per = tab[(tab.section != "pooled_3_sections") & (tab.score == "Q")]
     for r in per.itertuples():
         add(f"p2.section.{r.section}.Q.{r.null}.{r.scenario}.f{r.effect}.rate", round(float(r.rate_p05), 2), P2 / "calibration_table.csv", "rate_p05")

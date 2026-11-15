@@ -1,0 +1,9 @@
+2026-11-15 16:55:00,389 INFO script=v3_phase4_gate log=logs/v3_phase4_gate_20261115T165500.log
+2026-11-15 16:55:00,425 INFO git_commit=5c458761e70bac402f002c62d357b7404aadc326+dirty
+2026-11-15 16:55:00,425 INFO seed=42
+2026-11-15 16:55:07,844 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 16:55:07,866 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 16:55:07,866 INFO PHASE 4 GATE: {'checked_at': '2026-11-15T16:55:07', 'gate_file': 'LICENSE_CONFIRMED_GSE310352.txt', 'gate_file_exists': False, 'raw_tar_on_disk': True, 'raw_tar_bytes': 6331320320, 'n_extracted_csv_gz': 0, 'status': 'BLOCKED', 'reason': 'licence unconfirmed: LICENSE_CONFIRMED_GSE310352.txt absent (user creates it after checking the data licence)', 'also_outstanding': ['um/px for this CosMx run UNVERIFIED', 'no author cell labels (marker + Leiden labels would be used)', 'patient overlap with the Mendeley set UNVERIFIED (needs GEO sample metadata)']}
+2026-11-15 16:55:07,876 INFO Saved results/pdac/v3_phase4/phase4_gate_status.json
+2026-11-15 16:55:07,876 WARNING Phase 4 BLOCKED (licence unconfirmed); skipping replication run
+2026-11-15 16:55:07,885 INFO run finished

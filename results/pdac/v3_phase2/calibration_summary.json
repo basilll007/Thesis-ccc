@@ -1,0 +1,68 @@
+{
+  "n_sims_per_setting": 100,
+  "n_perms": 500,
+  "sections": {
+    "T6-b": "smallest",
+    "T2-b": "lower_median",
+    "U5-a": "largest"
+  },
+  "effects": [
+    1.0,
+    1.1,
+    1.25,
+    1.5,
+    2.0
+  ],
+  "nulls": [
+    "global",
+    "block200",
+    "block100",
+    "block50",
+    "dist"
+  ],
+  "min_effect_power_ge_0.8": {
+    "C/global": 1.1,
+    "C/block200": 1.1,
+    "C/block100": 1.1,
+    "C/block50": 1.1,
+    "C/dist": 1.1,
+    "M/global": 1.1,
+    "M/block200": 1.1,
+    "M/block100": 1.1,
+    "M/block50": 1.1,
+    "M/dist": 1.1,
+    "E/global": 1.1,
+    "E/block200": 1.1,
+    "E/block100": 1.1,
+    "E/block50": 1.25,
+    "E/dist": 1.1,
+    "Q/global": null,
+    "Q/block200": null,
+    "Q/block100": null,
+    "Q/block50": null,
+    "Q/dist": null
+  },
+  "fooled_by_zonation_f1.5": {
+    "C/global": true,
+    "C/block200": true,
+    "C/block100": true,
+    "C/block50": true,
+    "C/dist": true,
+    "M/global": true,
+    "M/block200": true,
+    "M/block100": true,
+    "M/block50": true,
+    "M/dist": true,
+    "E/global": true,
+    "E/block200": true,
+    "E/block100": true,
+    "E/block50": true,
+    "E/dist": true,
+    "Q/global": true,
+    "Q/block200": false,
+    "Q/block100": true,
+    "Q/block50": true,
+    "Q/dist": true
+  },
+  "note": "planted perturbation is a computational stand-in for a stimulation experiment; no experimental claim"
+}

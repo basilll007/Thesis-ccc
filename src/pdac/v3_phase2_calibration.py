@@ -229,13 +229,15 @@ def aggregate(log, od):
     wide["control_rate"] = wide["proximity_f1.0"]
     save_csv(wide, PHASE, "calibration_deliverable.csv",
              "Pooled over 3 sections: detection rate per score x null for each planted proximity effect and zonation effect; min detectable effect (power>=0.8); fooled-by-zonation flag (FPR>0.10 at f=1.5)", log)
-    for r in wide.itertuples():
+    W = wide.to_dict(orient="records")
+    for r in W:
         log.info("CALIB %s %s: control %.2f; power f1.1 %.2f f1.25 %.2f f1.5 %.2f f2 %.2f; zonation FPR f1.1 %.2f f1.25 %.2f f1.5 %.2f f2 %.2f; min f(power>=.8) %s; fooled %s",
-                 r.score, r.null, r.control_rate, r._4, r._5, r._6, r._7, r._8, r._9, r._10, r._11, r._12, r._13)
+                 r["score"], r["null"], r["control_rate"], r["proximity_f1.1"], r["proximity_f1.25"], r["proximity_f1.5"], r["proximity_f2.0"],
+                 r["zonation_f1.1"], r["zonation_f1.25"], r["zonation_f1.5"], r["zonation_f2.0"], r["min_effect_power_ge_0.8"], r["fooled_by_zonation_f1.5"])
     summary = {"n_sims_per_setting": int(df.groupby(["section", "scenario", "effect", "null", "score"]).sim.count().min()),
                "n_perms": N_PERMS, "sections": SECTIONS, "effects": EFFECTS, "nulls": vn.NULL_ORDER,
-               "min_effect_power_ge_0.8": {f"{r.score}/{r.null}": (None if np.isnan(r._14) else r._14) for r in wide.itertuples()},
-               "fooled_by_zonation_f1.5": {f"{r.score}/{r.null}": bool(r._15) for r in wide.itertuples()},
+               "min_effect_power_ge_0.8": {f"{r['score']}/{r['null']}": (None if np.isnan(r["min_effect_power_ge_0.8"]) else r["min_effect_power_ge_0.8"]) for r in W},
+               "fooled_by_zonation_f1.5": {f"{r['score']}/{r['null']}": bool(r["fooled_by_zonation_f1.5"]) for r in W},
                "note": "planted perturbation is a computational stand-in for a stimulation experiment; no experimental claim"}
     save_json(summary, PHASE, "calibration_summary.json", "Phase 2 calibration summary (min detectable effect per score/null; zonation false positives)", log)
 

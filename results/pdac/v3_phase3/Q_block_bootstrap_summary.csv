@@ -1,0 +1,11 @@
+annotation,n_sections,n_ci_excl_1,n_ci_above_1,n_ci_below_1,median_Q,median_ci_width,median_edges,total_dropped,ligand,receptor,scope
+author_mapped,16,7.0,7,0,1.3460162693981197,0.5310053933771559,1437.5,0.0,CXCL12,CXCR4,headline by annotation
+consensus_T,16,5.0,4,1,1.3201753113474548,0.7671578659602964,448.0,0.0,CXCL12,CXCR4,headline by annotation
+marker,16,9.0,8,1,1.3472346456531001,0.48030711865704834,1657.5,0.0,CXCL12,CXCR4,headline by annotation
+consensus_T,16,,4,1,1.3201753113474548,,448.0,,CXCL12,CXCR4,non-bg axes CAF->T
+consensus_T,16,,0,0,1.046595795344726,,448.0,,FN1,ITGB1,non-bg axes CAF->T
+consensus_T,16,,1,0,0.7955680171775985,,448.0,,JAG1,NOTCH1,non-bg axes CAF->T
+consensus_T,16,,0,6,0.8795397957386606,,448.0,,MIF,CD74,non-bg axes CAF->T
+consensus_T,16,,0,3,0.8185819338738367,,448.0,,SPP1,CD44,non-bg axes CAF->T
+consensus_T,16,,0,1,0.9054395859915404,,448.0,,TGFB1,TGFBR1,non-bg axes CAF->T
+consensus_T,16,,0,2,0.8579541071524801,,448.0,,TGFB1,TGFBR2,non-bg axes CAF->T

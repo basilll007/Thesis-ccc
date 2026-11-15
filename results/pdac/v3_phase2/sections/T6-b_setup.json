@@ -1,0 +1,61 @@
+{
+  "section": "T6-b",
+  "role": "smallest",
+  "n_cells": 12473,
+  "n_edges": 74838,
+  "n_CAF": 7862,
+  "n_T": 26,
+  "n_CAF_T_edges": 83,
+  "n_proximity_targets": 13,
+  "mean_CXCR4_count_targets": 1.6923076923076923,
+  "null_info": {
+    "global": {
+      "null": "global",
+      "store_MB": 31.9,
+      "median_null_edges": 98.0
+    },
+    "block200": {
+      "tile_um": 200.0,
+      "n_tiles": 205,
+      "median_cells_per_tile": 51.0,
+      "n_singleton_tiles": 7,
+      "store_MB": 31.9,
+      "median_null_edges": 86.5
+    },
+    "block100": {
+      "tile_um": 100.0,
+      "n_tiles": 635,
+      "median_cells_per_tile": 16.0,
+      "n_singleton_tiles": 26,
+      "store_MB": 31.9,
+      "median_null_edges": 84.0
+    },
+    "block50": {
+      "tile_um": 50.0,
+      "n_tiles": 2140,
+      "median_cells_per_tile": 5.0,
+      "n_singleton_tiles": 264,
+      "store_MB": 31.9,
+      "median_null_edges": 83.0
+    },
+    "dist": {
+      "n_tumour": 222,
+      "n_non_tumour": 12251,
+      "n_bands_used": 8,
+      "min_band_cells": 6,
+      "bands_um": [
+        0.0,
+        25.0,
+        50.0,
+        100.0,
+        200.0,
+        400.0
+      ],
+      "median_abs_distance_um": 110.04611760530221,
+      "store_MB": 31.9,
+      "median_null_edges": 98.0
+    }
+  },
+  "n_perms": 500,
+  "n_sims": 100
+}

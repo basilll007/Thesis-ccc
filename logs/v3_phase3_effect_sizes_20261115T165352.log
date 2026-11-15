@@ -1,0 +1,79 @@
+2026-11-15 16:53:52,352 INFO script=v3_phase3_effect_sizes log=logs/v3_phase3_effect_sizes_20261115T165352.log
+2026-11-15 16:53:52,387 INFO git_commit=5c458761e70bac402f002c62d357b7404aadc326+dirty
+2026-11-15 16:53:52,388 INFO seed=42
+2026-11-15 16:53:52,388 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 16:53:52,399 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 16:53:52,400 INFO tile_um=100 B=1000 seed=42; sys_avail=5.48GB load=83% proc_rss=0.44GB proc_peak=0.44GB
+2026-11-15 16:53:55,849 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:53:56,126 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 16:53:56,821 INFO section T1-b: headline consensus_T Q=1.718 [1.475, 1.974] edges 542 (dropped 0) in 3.7s; sys_avail=5.46GB load=83% proc_rss=0.48GB proc_peak=1.79GB
+2026-11-15 16:53:59,654 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:53:59,951 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-11-15 16:54:00,768 INFO section T2-b: headline consensus_T Q=1.353 [0.366, 2.751] edges 74 (dropped 0) in 3.9s; sys_avail=5.45GB load=83% proc_rss=0.50GB proc_peak=1.80GB
+2026-11-15 16:54:03,466 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:03,751 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-11-15 16:54:04,430 INFO section T3-b: headline consensus_T Q=1.115 [0.809, 1.437] edges 365 (dropped 0) in 3.7s; sys_avail=5.53GB load=83% proc_rss=0.50GB proc_peak=1.80GB
+2026-11-15 16:54:07,195 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:07,570 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 16:54:08,641 INFO section T4-a: headline consensus_T Q=0.831 [0.758, 0.910] edges 1602 (dropped 0) in 4.2s; sys_avail=5.60GB load=83% proc_rss=0.51GB proc_peak=1.89GB
+2026-11-15 16:54:11,368 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:11,729 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-11-15 16:54:12,572 INFO section T4-b: headline consensus_T Q=1.019 [0.854, 1.199] edges 827 (dropped 0) in 3.9s; sys_avail=5.60GB load=83% proc_rss=0.52GB proc_peak=1.89GB
+2026-11-15 16:54:15,297 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:15,616 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-11-15 16:54:16,464 INFO section T5-a: headline consensus_T Q=1.517 [1.229, 1.836] edges 811 (dropped 0) in 3.9s; sys_avail=5.59GB load=83% proc_rss=0.52GB proc_peak=1.89GB
+2026-11-15 16:54:19,098 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:19,338 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-11-15 16:54:19,684 INFO section T6-b: headline consensus_T Q=1.401 [0.941, 1.916] edges 83 (dropped 0) in 3.2s; sys_avail=5.60GB load=83% proc_rss=0.51GB proc_peak=1.89GB
+2026-11-15 16:54:22,390 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:22,640 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-11-15 16:54:23,096 INFO section U1-b: headline consensus_T Q=1.233 [0.871, 1.607] edges 636 (dropped 0) in 3.4s; sys_avail=5.60GB load=83% proc_rss=0.51GB proc_peak=1.89GB
+2026-11-15 16:54:25,787 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:26,076 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 16:54:26,759 INFO section U2-b: headline consensus_T Q=2.092 [0.939, 3.376] edges 127 (dropped 0) in 3.7s; sys_avail=5.60GB load=83% proc_rss=0.51GB proc_peak=1.89GB
+2026-11-15 16:54:29,483 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:29,735 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-11-15 16:54:30,103 INFO section U3-b: headline consensus_T Q=1.047 [0.686, 1.485] edges 253 (dropped 0) in 3.3s; sys_avail=5.57GB load=83% proc_rss=0.52GB proc_peak=1.89GB
+2026-11-15 16:54:32,806 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:33,163 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-11-15 16:54:34,110 INFO section U4-a: headline consensus_T Q=1.432 [1.190, 1.739] edges 570 (dropped 0) in 4.0s; sys_avail=5.51GB load=83% proc_rss=0.52GB proc_peak=1.90GB
+2026-11-15 16:54:36,873 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:37,216 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-11-15 16:54:38,103 INFO section U4-b: headline consensus_T Q=1.150 [0.890, 1.424] edges 794 (dropped 0) in 4.0s; sys_avail=5.51GB load=83% proc_rss=0.53GB proc_peak=1.90GB
+2026-11-15 16:54:40,906 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:41,406 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-11-15 16:54:42,976 INFO section U5-a: headline consensus_T Q=1.961 [1.549, 2.419] edges 448 (dropped 0) in 4.9s; sys_avail=5.50GB load=83% proc_rss=0.54GB proc_peak=2.05GB
+2026-11-15 16:54:45,701 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:46,138 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-11-15 16:54:47,392 INFO section U6-a_1: headline consensus_T Q=1.287 [0.134, 2.878] edges 77 (dropped 0) in 4.4s; sys_avail=5.49GB load=83% proc_rss=0.56GB proc_peak=2.05GB
+2026-11-15 16:54:50,183 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:50,625 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-11-15 16:54:51,987 INFO section U6-a_2: headline consensus_T Q=0.399 [0.000, 1.089] edges 83 (dropped 0) in 4.6s; sys_avail=5.49GB load=83% proc_rss=0.56GB proc_peak=2.05GB
+2026-11-15 16:54:54,671 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 16:54:55,053 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-11-15 16:54:56,199 INFO section U7-a: headline consensus_T Q=1.415 [0.668, 2.211] edges 448 (dropped 0) in 4.2s; sys_avail=5.48GB load=83% proc_rss=0.56GB proc_peak=2.05GB
+2026-11-15 16:54:56,231 INFO Saved results/pdac/v3_phase3/Q_block_bootstrap_by_section.csv (48 rows)
+2026-11-15 16:54:56,243 INFO Saved results/pdac/v3_phase3/Q_block_bootstrap_nonbg_axes.csv (112 rows)
+2026-11-15 16:54:56,266 INFO Saved results/pdac/v3_phase3/Q_block_bootstrap_summary.csv (10 rows)
+2026-11-15 16:54:56,266 INFO BOOT author_mapped: 16 sections; CI above 1 in 7, below 1 in 0; median Q 1.346; median CI width 0.531; median edges 1438
+2026-11-15 16:54:56,266 INFO BOOT consensus_T: 16 sections; CI above 1 in 4, below 1 in 1; median Q 1.320; median CI width 0.767; median edges 448
+2026-11-15 16:54:56,267 INFO BOOT marker: 16 sections; CI above 1 in 8, below 1 in 1; median Q 1.347; median CI width 0.480; median edges 1658
+2026-11-15 16:54:56,267 INFO BOOT nonbg CXCL12-CXCR4 CAF->T consensus_T: CI above 1 in 4/16, below 1 in 1; median Q 1.320
+2026-11-15 16:54:56,267 INFO BOOT nonbg FN1-ITGB1 CAF->T consensus_T: CI above 1 in 0/16, below 1 in 0; median Q 1.047
+2026-11-15 16:54:56,267 INFO BOOT nonbg JAG1-NOTCH1 CAF->T consensus_T: CI above 1 in 1/16, below 1 in 0; median Q 0.796
+2026-11-15 16:54:56,267 INFO BOOT nonbg MIF-CD74 CAF->T consensus_T: CI above 1 in 0/16, below 1 in 6; median Q 0.880
+2026-11-15 16:54:56,267 INFO BOOT nonbg SPP1-CD44 CAF->T consensus_T: CI above 1 in 0/16, below 1 in 3; median Q 0.819
+2026-11-15 16:54:56,268 INFO BOOT nonbg TGFB1-TGFBR1 CAF->T consensus_T: CI above 1 in 0/16, below 1 in 1; median Q 0.905
+2026-11-15 16:54:56,268 INFO BOOT nonbg TGFB1-TGFBR2 CAF->T consensus_T: CI above 1 in 0/16, below 1 in 2; median Q 0.858
+2026-11-15 16:54:56,285 INFO MIXED consensus_T: n=16 sections/13 tumours; mm geomean Q 1.242 [1.013, 1.522] (converged True; tumour var 0.0073; The MLE may be on the boundary of the parameter space.); t-interval mean logQ 0.212 [0.007, 0.417]
+2026-11-15 16:54:56,297 INFO MIXED marker: n=16 sections/13 tumours; mm geomean Q 1.315 [1.176, 1.471] (converged True; tumour var 0.0249; ); t-interval mean logQ 0.260 [0.146, 0.374]
+2026-11-15 16:54:56,316 INFO MIXED author_mapped: n=16 sections/13 tumours; mm geomean Q 1.348 [1.219, 1.491] (converged True; tumour var 0.0332; ); t-interval mean logQ 0.279 [0.182, 0.376]
+2026-11-15 16:54:56,328 INFO Saved results/pdac/v3_phase3/mixed_model_logQ.csv (3 rows)
+2026-11-15 16:54:57,661 INFO Saved results/pdac/v3_phase3/z_vs_edge_count.csv (43757 rows)
+2026-11-15 16:54:57,784 INFO INFLATION author_mapped: rho(zE, edges) -0.107 -> normalised 0.259; rho(|zE|, edges) 0.561; rho(zQ, edges) 0.015 -> 0.275; headline rho(zE,edges) 0.762 rho(zQ,edges) -0.291
+2026-11-15 16:54:57,817 INFO INFLATION consensus_T: rho(zE, edges) -0.115 -> normalised 0.246; rho(|zE|, edges) 0.557; rho(zQ, edges) 0.010 -> 0.281; headline rho(zE,edges) 0.713 rho(zQ,edges) -0.078
+2026-11-15 16:54:57,842 INFO INFLATION marker: rho(zE, edges) -0.114 -> normalised 0.185; rho(|zE|, edges) 0.522; rho(zQ, edges) -0.016 -> 0.154; headline rho(zE,edges) 0.644 rho(zQ,edges) -0.444
+2026-11-15 16:54:57,854 INFO Saved results/pdac/v3_phase3/z_vs_edge_count_summary.csv (3 rows)
+2026-11-15 16:54:57,873 INFO Saved results/pdac/v3_phase3/phase3_summary.json
+2026-11-15 16:54:59,720 INFO Saved figure figures/pdac/v3_phase3/phase3_effect_sizes(.png/.pdf)
+2026-11-15 16:54:59,728 INFO run finished

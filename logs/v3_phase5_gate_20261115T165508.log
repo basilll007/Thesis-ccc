@@ -1,0 +1,9 @@
+2026-11-15 16:55:08,418 INFO script=v3_phase5_gate log=logs/v3_phase5_gate_20261115T165508.log
+2026-11-15 16:55:08,454 INFO git_commit=5c458761e70bac402f002c62d357b7404aadc326+dirty
+2026-11-15 16:55:08,455 INFO seed=42
+2026-11-15 16:55:15,826 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 16:55:15,839 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 16:55:15,844 INFO PHASE 5 GATE: {'checked_at': '2026-11-15T16:55:15', 'patterns': ['*GSE277783*soft*', '*GSE277783*series_matrix*', '*GSE277783*.soft', '*GSE277783*.soft.gz', 'GSE277783_family*'], 'soft_or_series_matrix_files': {}, 'raw_tar_on_disk': True, 'eda_sample_map_exists': True, 'status': 'BLOCKED', 'reason': 'no GEO SOFT/series-matrix file for GSE277783 in data/; site labels unverifiable (eda_gse277783/EDA_REPORT.md: organ site UNKNOWN for 49/57 slides)'}
+2026-11-15 16:55:15,855 INFO Saved results/pdac/v3_phase5/phase5_gate_status.json
+2026-11-15 16:55:15,855 WARNING Phase 5 BLOCKED: no GEO SOFT/series-matrix file for GSE277783 in data/; site labels unverifiable (eda_gse277783/EDA_REPORT.md: organ site UNKNOWN for 49/57 slides)
+2026-11-15 16:55:15,865 INFO run finished

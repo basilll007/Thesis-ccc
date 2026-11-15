@@ -1,0 +1,31 @@
+2026-11-15 16:56:40,689 INFO script=v3_phase2_calibration log=logs/v3_phase2_calibration_20261115T165640.log
+2026-11-15 16:56:40,728 INFO git_commit=5c458761e70bac402f002c62d357b7404aadc326+dirty
+2026-11-15 16:56:40,729 INFO seed=42
+2026-11-15 16:56:40,729 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 16:56:40,750 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 16:56:40,750 INFO sections={'T6-b': 'smallest', 'T2-b': 'lower_median', 'U5-a': 'largest'} effects=[1.0, 1.1, 1.25, 1.5, 2.0] nulls=['global', 'block200', 'block100', 'block50', 'dist'] n_perms=500 n_sims=100; sys_avail=5.44GB load=83% proc_rss=0.42GB proc_peak=0.42GB
+2026-11-15 16:56:41,540 INFO Saved results/pdac/v3_phase2/calibration_table.csv (720 rows)
+2026-11-15 16:56:41,555 INFO Saved results/pdac/v3_phase2/calibration_deliverable.csv (20 rows)
+2026-11-15 16:56:41,557 INFO CALIB C global: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB C block200: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB C block100: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB C block50: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 0.99 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB C dist: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB M global: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB M block200: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB M block100: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB M block50: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 0.99 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB M dist: control 1.00; power f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB E global: control 0.95; power f1.1 0.97 f1.25 0.98 f1.5 1.00 f2 1.00; zonation FPR f1.1 0.99 f1.25 1.00 f1.5 1.00 f2 0.99; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB E block200: control 0.93; power f1.1 0.94 f1.25 0.97 f1.5 0.98 f2 0.99; zonation FPR f1.1 0.98 f1.25 0.99 f1.5 0.98 f2 0.99; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB E block100: control 0.95; power f1.1 0.97 f1.25 0.98 f1.5 1.00 f2 1.00; zonation FPR f1.1 0.99 f1.25 1.00 f1.5 0.99 f2 0.99; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,557 INFO CALIB E block50: control 0.75; power f1.1 0.79 f1.25 0.80 f1.5 0.85 f2 0.94; zonation FPR f1.1 0.85 f1.25 0.84 f1.5 0.88 f2 0.93; min f(power>=.8) 1.25; fooled True
+2026-11-15 16:56:41,557 INFO CALIB E dist: control 0.96; power f1.1 0.98 f1.25 0.99 f1.5 1.00 f2 1.00; zonation FPR f1.1 1.00 f1.25 1.00 f1.5 1.00 f2 1.00; min f(power>=.8) 1.1; fooled True
+2026-11-15 16:56:41,558 INFO CALIB Q global: control 0.01; power f1.1 0.04 f1.25 0.11 f1.5 0.26 f2 0.33; zonation FPR f1.1 0.14 f1.25 0.15 f1.5 0.19 f2 0.18; min f(power>=.8) nan; fooled True
+2026-11-15 16:56:41,558 INFO CALIB Q block200: control 0.00; power f1.1 0.00 f1.25 0.00 f1.5 0.01 f2 0.16; zonation FPR f1.1 0.03 f1.25 0.02 f1.5 0.02 f2 0.03; min f(power>=.8) nan; fooled False
+2026-11-15 16:56:41,558 INFO CALIB Q block100: control 0.02; power f1.1 0.06 f1.25 0.16 f1.5 0.28 f2 0.33; zonation FPR f1.1 0.19 f1.25 0.20 f1.5 0.24 f2 0.25; min f(power>=.8) nan; fooled True
+2026-11-15 16:56:41,558 INFO CALIB Q block50: control 0.00; power f1.1 0.00 f1.25 0.04 f1.5 0.17 f2 0.33; zonation FPR f1.1 0.12 f1.25 0.11 f1.5 0.15 f2 0.14; min f(power>=.8) nan; fooled True
+2026-11-15 16:56:41,558 INFO CALIB Q dist: control 0.06; power f1.1 0.13 f1.25 0.24 f1.5 0.31 f2 0.33; zonation FPR f1.1 0.25 f1.25 0.25 f1.5 0.29 f2 0.29; min f(power>=.8) nan; fooled True
+2026-11-15 16:56:41,574 INFO Saved results/pdac/v3_phase2/calibration_summary.json
+2026-11-15 16:56:42,643 INFO Saved figure figures/pdac/v3_phase2/phase2_calibration(.png/.pdf)
+2026-11-15 16:56:42,653 INFO run finished
