@@ -1,0 +1,14 @@
+{
+  "receiver": "tumour",
+  "commit": "51fef1a55c750c247c01d56aecd0b58b2846aba0+dirty",
+  "evaluated_at": "2026-11-16T14:56:03",
+  "models": [
+    "graph/sage",
+    "mean",
+    "ridge/genes",
+    "ridge/own",
+    "ridge/programs",
+    "xgb/genes"
+  ],
+  "note": "single touch; see plan phase4_external_test.md"
+}
