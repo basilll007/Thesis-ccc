@@ -1,0 +1,24 @@
+2026-11-16 15:08:56,358 INFO phase=phase6 script=learning_curve log=model_dev/results/phase6/run_learning_curve_20261116T150856.log
+2026-11-16 15:08:56,398 INFO git_commit=fe9205cc43e40697893bb5b273ee5bcfaf2809cd+dirty
+2026-11-16 15:08:56,398 INFO seed=42
+2026-11-16 15:08:59,899 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 15:08:59,923 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 15:08:59,923 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 15:09:04,662 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 15:09:25,454 INFO myeloid fold 0 n_tumours=3 (14407 cells): R2 0.4357
+2026-11-16 15:09:53,659 INFO myeloid fold 0 n_tumours=6 (31973 cells): R2 0.5061
+2026-11-16 15:10:27,927 INFO myeloid fold 0 n_tumours=9 (48277 cells): R2 0.5127
+2026-11-16 15:10:56,248 INFO myeloid fold 1 n_tumours=3 (29539 cells): R2 0.2569
+2026-11-16 15:11:31,861 INFO myeloid fold 1 n_tumours=6 (48200 cells): R2 0.2831
+2026-11-16 15:12:12,822 INFO myeloid fold 1 n_tumours=9 (57253 cells): R2 0.2876
+2026-11-16 15:12:35,264 INFO myeloid fold 2 n_tumours=3 (12657 cells): R2 0.1885
+2026-11-16 15:13:06,991 INFO myeloid fold 2 n_tumours=6 (39493 cells): R2 0.2920
+2026-11-16 15:13:44,921 INFO myeloid fold 2 n_tumours=8 (64082 cells): R2 0.2853
+2026-11-16 15:14:16,423 INFO myeloid fold 3 n_tumours=3 (34367 cells): R2 0.2344
+2026-11-16 15:14:57,831 INFO myeloid fold 3 n_tumours=6 (63881 cells): R2 0.2181
+2026-11-16 15:15:23,037 INFO myeloid fold 4 n_tumours=3 (16615 cells): R2 0.1921
+2026-11-16 15:15:55,432 INFO myeloid fold 4 n_tumours=6 (51574 cells): R2 0.1924
+2026-11-16 15:16:40,325 INFO myeloid fold 4 n_tumours=7 (54330 cells): R2 0.2002
+2026-11-16 15:17:10,226 INFO tumour fold 0 n_tumours=3 (18779 cells): R2 0.5281
+2026-11-16 15:18:00,103 INFO tumour fold 0 n_tumours=6 (40286 cells): R2 0.3943
+2026-11-16 15:18:00,103 INFO time budget reached; rerun to continue

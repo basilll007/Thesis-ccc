@@ -1,0 +1,1 @@
+{"receiver": "myeloid", "target": "myeloid:C1Q_TAM", "fold": 4, "n_train_tumours": 6, "n_train_cells": 51574, "model": "graph/sage", "test_r2_fold": 0.19240778009112192, "epochs": 15, "test_sse": 17051.23388671875, "test_sst": 21113.667846679688}

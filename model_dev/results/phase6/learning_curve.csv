@@ -1,0 +1,11 @@
+receiver,target,n_train_tumours,mean_train_cells,mean_r2,n_folds,loglinear_slope_per_decade,r2_at_10x_cells_extrapolated,note
+myeloid,myeloid:C1Q_TAM,3,21517.0,0.26152018095709517,5,0.06391586846911723,0.362776524606722,descriptive log-linear extrapolation; rough
+myeloid,myeloid:C1Q_TAM,6,47024.2,0.2983381198197401,5,0.06391586846911723,0.362776524606722,descriptive log-linear extrapolation; rough
+myeloid,myeloid:C1Q_TAM,7,54330.0,0.20016620070329771,1,0.06391586846911723,0.362776524606722,descriptive log-linear extrapolation; rough
+myeloid,myeloid:C1Q_TAM,8,64082.0,0.285267853520613,1,0.06391586846911723,0.362776524606722,descriptive log-linear extrapolation; rough
+myeloid,myeloid:C1Q_TAM,9,52765.0,0.40015009186843964,2,0.06391586846911723,0.362776524606722,descriptive log-linear extrapolation; rough
+tumour,tumour:classical,3,22802.4,0.49309402321393686,5,0.06598609632340219,0.5879444961641767,descriptive log-linear extrapolation; rough
+tumour,tumour:classical,6,47730.4,0.5199763075876135,5,0.06598609632340219,0.5879444961641767,descriptive log-linear extrapolation; rough
+tumour,tumour:classical,7,60778.0,0.450821068737584,1,0.06598609632340219,0.5879444961641767,descriptive log-linear extrapolation; rough
+tumour,tumour:classical,8,57906.0,0.5297932888707388,1,0.06598609632340219,0.5879444961641767,descriptive log-linear extrapolation; rough
+tumour,tumour:classical,9,64704.5,0.5725239997758282,2,0.06598609632340219,0.5879444961641767,descriptive log-linear extrapolation; rough

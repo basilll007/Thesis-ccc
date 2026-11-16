@@ -1,0 +1,13 @@
+2026-11-16 15:27:29,739 INFO phase=phase6 script=learning_curve log=model_dev/results/phase6/run_learning_curve_20261116T152729.log
+2026-11-16 15:27:29,778 INFO git_commit=fe9205cc43e40697893bb5b273ee5bcfaf2809cd+dirty
+2026-11-16 15:27:29,778 INFO seed=42
+2026-11-16 15:27:33,312 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 15:27:33,335 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 15:27:33,335 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 15:27:38,285 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 15:28:18,114 INFO tumour fold 4 n_tumours=3 (20053 cells): R2 0.3717
+2026-11-16 15:29:27,812 INFO tumour fold 4 n_tumours=6 (52778 cells): R2 0.4779
+2026-11-16 15:30:34,561 INFO tumour fold 4 n_tumours=7 (60778 cells): R2 0.4508
+2026-11-16 15:30:34,564 INFO saved model_dev/results/phase6/learning_curve_runs.csv (28 rows)
+2026-11-16 15:30:34,572 INFO saved model_dev/results/phase6/learning_curve.csv (10 rows)
+2026-11-16 15:30:34,572 INFO done

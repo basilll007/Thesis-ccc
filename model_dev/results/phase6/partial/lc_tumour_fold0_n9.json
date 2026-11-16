@@ -1,0 +1,1 @@
+{"receiver": "tumour", "target": "tumour:classical", "fold": 0, "n_train_tumours": 9, "n_train_cells": 64508, "model": "graph/sage", "test_r2_fold": 0.495618795194659, "epochs": 35, "test_sse": 11446.420166015625, "test_sst": 22693.986328125}
