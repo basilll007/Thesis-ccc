@@ -1,0 +1,17 @@
+{
+  "selected_arch": "sage",
+  "selected_lr": 0.0003,
+  "rule": "lower mean inner-validation MSE on the primary receiver at its selected learning rate",
+  "candidates": [
+    {
+      "arch": "sage",
+      "selected_lr": 0.0003,
+      "mean_inner_val_mse": 2.726012913386027
+    },
+    {
+      "arch": "attention",
+      "selected_lr": 0.0003,
+      "mean_inner_val_mse": 2.739183775583903
+    }
+  ]
+}

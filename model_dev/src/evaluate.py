@@ -172,7 +172,7 @@ def evaluate_models(receiver: str, cfg: dict, log, device: str) -> tuple[list[di
     # gains over frozen own covariates (paired unit bootstrap)
     for r in rows:
         if r["model"] != "ridge/own" and (("ridge/own", r["target"]) in pairs):
-            g, lo, hi = C.tumour_bootstrap_diff(pairs[("ridge/own", r["target"])], pairs[(r["model"], r["target"])], cfg["n_boot"])
+            g, lo, hi = C.tumour_bootstrap_diff(pairs[(r["model"], r["target"])], pairs[("ridge/own", r["target"])], cfg["n_boot"])  # R2(model) - R2(own)
             r.update({"gain_vs_own_external": g, "gain_unit_ci_low": lo, "gain_unit_ci_high": hi, "transfers": bool(lo > 0)})
         r["internal_to_external_drop"] = r["internal_r2"] - r["external_r2"] if r["internal_r2"] == r["internal_r2"] else np.nan
     return rows, pairs

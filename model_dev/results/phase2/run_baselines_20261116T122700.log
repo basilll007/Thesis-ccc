@@ -1,0 +1,12 @@
+2026-11-16 12:27:00,187 INFO phase=phase2 script=baselines log=model_dev/results/phase2/run_baselines_20261116T122700.log
+2026-11-16 12:27:00,226 INFO git_commit=b304580bb5eafb2a67562e6739b8308be41af1b9+dirty
+2026-11-16 12:27:00,226 INFO seed=42
+2026-11-16 12:27:05,161 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 12:27:05,184 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 12:27:05,184 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "n_boot": 2000, "reproduction_tolerance": 0.01, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "run_hgb": true, "hgb": {"learning_rate": [0.05, 0.1], "max_leaf_nodes": [15, 31], "max_iter": 500, "max_rows": 60000}, "run_mlp": true, "mlp": {"hidden": [256, 128], "dropout": 0.1, "learning_rate": [0.001, 0.0003], "weight_decay": 0.0001, "batch": 1024, "max_epochs": 100, "patience": 10, "seeds": [0, 1, 2]}, "_fold_budget": 2}
+2026-11-16 12:27:05,200 INFO myeloid: resumed from model_dev/results/phase2/baseline_results_myeloid.csv
+2026-11-16 12:27:06,929 INFO tumour: 102546 cells, targets ['tumour:classical', 'tumour:basal_like', 'CEACAM6', 'AGR2', 'S100P', 'LCN2', 'PIGR', 'OLFM4', 'SPINK1', 'CEACAM1', 'KRT6A', 'KRT14', 'KRT17', 'S100A2', 'SERPINB5', 'AREG', 'SLC2A1', 'KRT15', 'ITGA3', 'MET']
+2026-11-16 12:27:08,011 INFO tumour fold 0 resumed from model_dev/results/phase2/partial/tumour_fold0.json
+2026-11-16 12:31:10,521 INFO tumour fold 1 done in 242 s (peak VRAM 7136 MiB)
+2026-11-16 12:35:15,631 INFO tumour fold 2 done in 245 s (peak VRAM 7136 MiB)
+2026-11-16 12:35:15,637 INFO tumour: fold budget 2 reached; rerun to continue

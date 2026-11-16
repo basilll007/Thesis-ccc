@@ -1,0 +1,57 @@
+2026-11-16 12:44:44,865 INFO phase=phase2 script=baselines log=model_dev/results/phase2/run_baselines_20261116T124444.log
+2026-11-16 12:44:44,902 INFO git_commit=b304580bb5eafb2a67562e6739b8308be41af1b9+dirty
+2026-11-16 12:44:44,904 INFO seed=42
+2026-11-16 12:44:49,813 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 12:44:49,837 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 12:44:49,837 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "n_boot": 2000, "reproduction_tolerance": 0.01, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "run_hgb": true, "hgb": {"learning_rate": [0.05, 0.1], "max_leaf_nodes": [15, 31], "max_iter": 500, "max_rows": 60000}, "run_mlp": true, "mlp": {"hidden": [256, 128], "dropout": 0.1, "learning_rate": [0.001, 0.0003], "weight_decay": 0.0001, "batch": 1024, "max_epochs": 100, "patience": 10, "seeds": [0, 1, 2]}, "_fold_budget": null}
+2026-11-16 12:44:49,852 INFO myeloid: resumed from model_dev/results/phase2/baseline_results_myeloid.csv
+2026-11-16 12:44:49,921 INFO tumour: resumed from model_dev/results/phase2/baseline_results_tumour.csv
+2026-11-16 12:44:50,016 INFO saved model_dev/results/phase2/baseline_results.csv (5250 rows)
+2026-11-16 12:44:50,018 INFO saved model_dev/results/phase2/baseline_summary.csv (245 rows)
+2026-11-16 12:44:50,023 INFO summary (selected configs):
+receiver model feature_set                                 selected_config            target     r2  ci_low  ci_high  gain_vs_own  gain_ci_low  gain_ci_high  gain_ci_excludes_0  n_tumours  n_seeds
+ myeloid  mean        none                                      train_mean      genes_pooled 0.0000  0.0000   0.0000      -0.2648      -0.3195       -0.1913                True         13        1
+ myeloid  mean        none                                      train_mean   myeloid:C1Q_TAM 0.0000  0.0000   0.0000      -0.2995      -0.3825       -0.1880                True         13        1
+ myeloid  mean        none                                      train_mean  myeloid:SPP1_TAM 0.0000  0.0000   0.0000      -0.3346      -0.3976       -0.2544                True         13        1
+ myeloid   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2      genes_pooled 0.1827  0.0866   0.2652      -0.0822      -0.1346       -0.0449                True         13        3
+ myeloid   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2   myeloid:C1Q_TAM 0.1869  0.0084   0.3157      -0.1126      -0.2247       -0.0447                True         13        3
+ myeloid   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2  myeloid:SPP1_TAM 0.3341  0.2341   0.4052      -0.0005      -0.0278        0.0165               False         13        3
+ myeloid ridge       genes                                    alpha=1000.0      genes_pooled 0.2533  0.1851   0.3087      -0.0116      -0.0228        0.0019               False         13        1
+ myeloid ridge       genes                                    alpha=1000.0   myeloid:C1Q_TAM 0.3111  0.2040   0.4057       0.0116      -0.0140        0.0348               False         13        1
+ myeloid ridge       genes                                    alpha=1000.0  myeloid:SPP1_TAM 0.3489  0.2655   0.4060       0.0143      -0.0031        0.0421               False         13        1
+ myeloid ridge         own                                    alpha=1000.0      genes_pooled 0.2648  0.1913   0.3195       0.0000       0.0000        0.0000               False         13        1
+ myeloid ridge         own                                    alpha=1000.0   myeloid:C1Q_TAM 0.2995  0.1880   0.3825       0.0000       0.0000        0.0000               False         13        1
+ myeloid ridge         own                                    alpha=1000.0  myeloid:SPP1_TAM 0.3346  0.2544   0.3976       0.0000       0.0000        0.0000               False         13        1
+ myeloid ridge    programs                                       alpha=0.1      genes_pooled 0.2767  0.2013   0.3322       0.0119       0.0080        0.0157                True         13        1
+ myeloid ridge    programs                                       alpha=0.1   myeloid:C1Q_TAM 0.3326  0.2231   0.4171       0.0332       0.0233        0.0429                True         13        1
+ myeloid ridge    programs                                       alpha=0.1  myeloid:SPP1_TAM 0.3828  0.2992   0.4434       0.0483       0.0372        0.0573                True         13        1
+ myeloid   xgb       genes                               lr=0.05,leaves=15      genes_pooled 0.0000  0.0000   0.0000      -0.2648      -0.3195       -0.1913                True         13        1
+ myeloid   xgb       genes                               lr=0.05,leaves=15   myeloid:C1Q_TAM 0.3336  0.2217   0.4238       0.0341       0.0179        0.0480                True         13        1
+ myeloid   xgb       genes                               lr=0.05,leaves=15  myeloid:SPP1_TAM 0.3851  0.3116   0.4362       0.0505       0.0350        0.0698                True         13        1
+ myeloid   xgb    programs                                lr=0.1,leaves=15      genes_pooled 0.0000  0.0000   0.0000      -0.2648      -0.3195       -0.1913                True         13        1
+ myeloid   xgb    programs                                lr=0.1,leaves=15   myeloid:C1Q_TAM 0.3313  0.2224   0.4196       0.0318       0.0183        0.0440                True         13        1
+ myeloid   xgb    programs                                lr=0.1,leaves=15  myeloid:SPP1_TAM 0.3873  0.3070   0.4459       0.0527       0.0432        0.0644                True         13        1
+  tumour  mean        none                                      train_mean      genes_pooled 0.0000  0.0000   0.0000      -0.4253      -0.5137       -0.3522                True         13        1
+  tumour  mean        none                                      train_mean tumour:basal_like 0.0000  0.0000   0.0000      -0.3974      -0.5124       -0.2890                True         13        1
+  tumour  mean        none                                      train_mean  tumour:classical 0.0000  0.0000   0.0000      -0.6183      -0.7109       -0.5024                True         13        1
+  tumour   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2      genes_pooled 0.2523  0.1769   0.3534      -0.1730      -0.2089       -0.1326                True         13        3
+  tumour   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2 tumour:basal_like 0.2649  0.1260   0.4060      -0.1326      -0.2225       -0.0712                True         13        3
+  tumour   mlp       genes lr=0.001,seed=0;lr=0.001,seed=1;lr=0.001,seed=2  tumour:classical 0.5471  0.4160   0.6438      -0.0712      -0.1319       -0.0212                True         13        3
+  tumour ridge       genes                                    alpha=1000.0      genes_pooled 0.4125  0.3412   0.4908      -0.0129      -0.0288        0.0021               False         13        1
+  tumour ridge       genes                                    alpha=1000.0 tumour:basal_like 0.3896  0.2866   0.4893      -0.0078      -0.0327        0.0154               False         13        1
+  tumour ridge       genes                                    alpha=1000.0  tumour:classical 0.6683  0.5598   0.7506       0.0500       0.0280        0.0713                True         13        1
+  tumour ridge         own                                    alpha=1000.0      genes_pooled 0.4253  0.3522   0.5137       0.0000       0.0000        0.0000               False         13        1
+  tumour ridge         own                                    alpha=1000.0 tumour:basal_like 0.3974  0.2890   0.5124       0.0000       0.0000        0.0000               False         13        1
+  tumour ridge         own                                    alpha=1000.0  tumour:classical 0.6183  0.5024   0.7109       0.0000       0.0000        0.0000               False         13        1
+  tumour ridge    programs                                     alpha=100.0      genes_pooled 0.4353  0.3615   0.5239       0.0100       0.0058        0.0137                True         13        1
+  tumour ridge    programs                                     alpha=100.0 tumour:basal_like 0.4380  0.3253   0.5522       0.0406       0.0286        0.0523                True         13        1
+  tumour ridge    programs                                     alpha=100.0  tumour:classical 0.6927  0.5969   0.7656       0.0743       0.0517        0.1048                True         13        1
+  tumour   xgb       genes                               lr=0.05,leaves=15      genes_pooled 0.0000  0.0000   0.0000      -0.4253      -0.5137       -0.3522                True         13        1
+  tumour   xgb       genes                               lr=0.05,leaves=15 tumour:basal_like 0.4437  0.3415   0.5504       0.0462       0.0326        0.0609                True         13        1
+  tumour   xgb       genes                               lr=0.05,leaves=15  tumour:classical 0.6943  0.6008   0.7679       0.0759       0.0537        0.1066                True         13        1
+  tumour   xgb    programs                               lr=0.05,leaves=15      genes_pooled 0.0000  0.0000   0.0000      -0.4253      -0.5137       -0.3522                True         13        1
+  tumour   xgb    programs                               lr=0.05,leaves=15 tumour:basal_like 0.4375  0.3289   0.5509       0.0401       0.0300        0.0513                True         13        1
+  tumour   xgb    programs                               lr=0.05,leaves=15  tumour:classical 0.6927  0.5991   0.7656       0.0744       0.0514        0.1056                True         13        1
+2026-11-16 12:44:50,026 INFO saved model_dev/results/phase2/strongest_baseline_per_target.csv (35 rows)
+2026-11-16 12:44:50,574 INFO saved figure model_dev/results/phase2/baselines.png
+2026-11-16 12:44:50,574 INFO done

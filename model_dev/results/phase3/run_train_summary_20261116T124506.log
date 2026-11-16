@@ -1,0 +1,81 @@
+2026-11-16 12:45:06,542 INFO phase=phase3 script=train_summary log=model_dev/results/phase3/run_train_summary_20261116T124506.log
+2026-11-16 12:45:06,580 INFO git_commit=b304580bb5eafb2a67562e6739b8308be41af1b9+dirty
+2026-11-16 12:45:06,580 INFO seed=42
+2026-11-16 12:45:09,963 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 12:45:09,986 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 12:45:09,986 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 12:45:10,622 INFO saved model_dev/results/phase3/graph_summary.csv (70 rows)
+2026-11-16 12:45:10,630 INFO saved model_dev/results/phase3/architecture_selection.json
+2026-11-16 12:45:10,638 INFO graph summary:
+receiver      arch  selected_lr            target     r2  ci_low  ci_high          r2_per_seed strongest_baseline  r2_baseline  gain_vs_baseline  gain_ci_low  gain_ci_high  beats_baseline  mean_inner_val_mse
+ myeloid      sage       0.0003              C1QA 0.1925  0.1171   0.2369 0.1921;0.1938;0.1916     ridge/programs       0.1966           -0.0041      -0.0134        0.0050           False              2.7260
+ myeloid      sage       0.0003              C1QB 0.2794  0.1966   0.3396 0.2785;0.2766;0.2830     ridge/programs       0.2607            0.0186      -0.0040        0.0414           False              2.7260
+ myeloid      sage       0.0003              C1QC 0.2645  0.1642   0.3421 0.2645;0.2653;0.2637     ridge/programs       0.2508            0.0137      -0.0058        0.0299           False              2.7260
+ myeloid      sage       0.0003             CD163 0.1954  0.1078   0.2545 0.1953;0.1946;0.1964     ridge/programs       0.1897            0.0058      -0.0142        0.0224           False              2.7260
+ myeloid      sage       0.0003               CD9 0.1241  0.0865   0.1492 0.1234;0.1254;0.1234     ridge/programs       0.1120            0.0121       0.0077        0.0177            True              2.7260
+ myeloid      sage       0.0003             FABP5 0.1411  0.0951   0.1739 0.1423;0.1391;0.1419     ridge/programs       0.1242            0.0169       0.0113        0.0239            True              2.7260
+ myeloid      sage       0.0003             GPNMB 0.2279  0.1720   0.2691 0.2259;0.2293;0.2285     ridge/programs       0.2121            0.0158       0.0093        0.0222            True              2.7260
+ myeloid      sage       0.0003            LGALS3 0.1524  0.1238   0.1783 0.1501;0.1522;0.1550     ridge/programs       0.1420            0.0104       0.0071        0.0146            True              2.7260
+ myeloid      sage       0.0003              MRC1 0.0922  0.0696   0.1074 0.0906;0.0943;0.0916     ridge/programs       0.0952           -0.0031      -0.0139        0.0083           False              2.7260
+ myeloid      sage       0.0003           SELENOP 0.2713  0.2077   0.3168 0.2704;0.2680;0.2755     ridge/programs       0.2450            0.0263       0.0126        0.0439            True              2.7260
+ myeloid      sage       0.0003              SPP1 0.6538  0.5188   0.7452 0.6535;0.6538;0.6541     ridge/programs       0.6334            0.0204       0.0120        0.0377            True              2.7260
+ myeloid      sage       0.0003      genes_pooled 0.2894  0.2138   0.3478 0.2888;0.2893;0.2903     ridge/programs       0.2767            0.0127       0.0048        0.0204            True              2.7260
+ myeloid      sage       0.0003   myeloid:C1Q_TAM 0.3361  0.2198   0.4317 0.3296;0.3401;0.3386          xgb/genes       0.3336            0.0025      -0.0129        0.0149           False              2.7260
+ myeloid      sage       0.0003  myeloid:SPP1_TAM 0.3772  0.3007   0.4283 0.3754;0.3735;0.3828       xgb/programs       0.3873           -0.0100      -0.0213        0.0070           False              2.7260
+ myeloid attention       0.0003              C1QA 0.1912  0.1155   0.2362 0.1916;0.1883;0.1938     ridge/programs       0.1966           -0.0054      -0.0113        0.0031           False              2.7392
+ myeloid attention       0.0003              C1QB 0.2730  0.1873   0.3357 0.2743;0.2712;0.2735     ridge/programs       0.2607            0.0123      -0.0124        0.0368           False              2.7392
+ myeloid attention       0.0003              C1QC 0.2637  0.1606   0.3417 0.2647;0.2612;0.2654     ridge/programs       0.2508            0.0130      -0.0062        0.0295           False              2.7392
+ myeloid attention       0.0003             CD163 0.1910  0.1041   0.2513 0.1909;0.1884;0.1936     ridge/programs       0.1897            0.0013      -0.0199        0.0196           False              2.7392
+ myeloid attention       0.0003               CD9 0.1204  0.0817   0.1455 0.1251;0.1186;0.1174     ridge/programs       0.1120            0.0084       0.0041        0.0121            True              2.7392
+ myeloid attention       0.0003             FABP5 0.1369  0.0932   0.1681 0.1371;0.1371;0.1365     ridge/programs       0.1242            0.0127       0.0086        0.0190            True              2.7392
+ myeloid attention       0.0003             GPNMB 0.2224  0.1709   0.2638 0.2234;0.2196;0.2242     ridge/programs       0.2121            0.0103       0.0016        0.0200            True              2.7392
+ myeloid attention       0.0003            LGALS3 0.1520  0.1207   0.1797 0.1452;0.1572;0.1537     ridge/programs       0.1420            0.0100       0.0064        0.0141            True              2.7392
+ myeloid attention       0.0003              MRC1 0.0848  0.0591   0.1030 0.0834;0.0833;0.0878     ridge/programs       0.0952           -0.0104      -0.0177       -0.0022           False              2.7392
+ myeloid attention       0.0003           SELENOP 0.2602  0.1968   0.3080 0.2634;0.2535;0.2638     ridge/programs       0.2450            0.0152      -0.0044        0.0360           False              2.7392
+ myeloid attention       0.0003              SPP1 0.6556  0.5204   0.7465 0.6556;0.6555;0.6556     ridge/programs       0.6334            0.0222       0.0135        0.0402            True              2.7392
+ myeloid attention       0.0003      genes_pooled 0.2863  0.2104   0.3437 0.2865;0.2847;0.2875     ridge/programs       0.2767            0.0095       0.0020        0.0177            True              2.7392
+ myeloid attention       0.0003   myeloid:C1Q_TAM 0.3346  0.2147   0.4309 0.3340;0.3320;0.3377          xgb/genes       0.3336            0.0010      -0.0163        0.0138           False              2.7392
+ myeloid attention       0.0003  myeloid:SPP1_TAM 0.3811  0.3072   0.4316 0.3798;0.3776;0.3858       xgb/programs       0.3873           -0.0062      -0.0169        0.0076           False              2.7392
+  tumour      sage       0.0003              AGR2 0.4648  0.3663   0.5441 0.4588;0.4694;0.4664     ridge/programs       0.4611            0.0038      -0.0164        0.0193           False              1.9132
+  tumour      sage       0.0003              AREG 0.1464  0.0603   0.2345 0.1521;0.1371;0.1499          ridge/own       0.1575           -0.0111      -0.0277        0.0064           False              1.9132
+  tumour      sage       0.0003           CEACAM1 0.1389  0.0920   0.1942 0.1337;0.1414;0.1417     ridge/programs       0.1380            0.0010      -0.0116        0.0123           False              1.9132
+  tumour      sage       0.0003           CEACAM6 0.6513  0.5223   0.7426 0.6465;0.6569;0.6504     ridge/programs       0.6535           -0.0023      -0.0316        0.0183           False              1.9132
+  tumour      sage       0.0003             ITGA3 0.2268  0.1893   0.2735 0.2314;0.2211;0.2279     ridge/programs       0.2392           -0.0124      -0.0316        0.0078           False              1.9132
+  tumour      sage       0.0003             KRT14 0.3065  0.1159   0.5231 0.3102;0.3077;0.3017          ridge/own       0.3066           -0.0000      -0.0123        0.0098           False              1.9132
+  tumour      sage       0.0003             KRT15 0.0833  0.0624   0.1070 0.0876;0.0789;0.0834          ridge/own       0.0893           -0.0060      -0.0243        0.0073           False              1.9132
+  tumour      sage       0.0003             KRT17 0.4131  0.3357   0.5035 0.4199;0.3982;0.4212     ridge/programs       0.4334           -0.0203      -0.0491        0.0086           False              1.9132
+  tumour      sage       0.0003             KRT6A 0.5900  0.2967   0.7989 0.5860;0.5940;0.5901     ridge/programs       0.5884            0.0016      -0.0254        0.0190           False              1.9132
+  tumour      sage       0.0003              LCN2 0.5540  0.4648   0.6323 0.5510;0.5583;0.5526     ridge/programs       0.5565           -0.0025      -0.0127        0.0056           False              1.9132
+  tumour      sage       0.0003               MET 0.0761  0.0530   0.0985 0.0764;0.0731;0.0788     ridge/programs       0.0901           -0.0140      -0.0275       -0.0026           False              1.9132
+  tumour      sage       0.0003             OLFM4 0.6479  0.4432   0.7620 0.6472;0.6500;0.6466        ridge/genes       0.6421            0.0058      -0.0078        0.0241           False              1.9132
+  tumour      sage       0.0003              PIGR 0.5542  0.4314   0.6474 0.5546;0.5530;0.5551     ridge/programs       0.5491            0.0051      -0.0004        0.0098           False              1.9132
+  tumour      sage       0.0003            S100A2 0.4418  0.2071   0.6752 0.4368;0.4393;0.4495     ridge/programs       0.4563           -0.0145      -0.0838        0.0280           False              1.9132
+  tumour      sage       0.0003             S100P 0.4742  0.3765   0.5658 0.4774;0.4715;0.4737     ridge/programs       0.4855           -0.0112      -0.0266        0.0045           False              1.9132
+  tumour      sage       0.0003          SERPINB5 0.1484  0.0751   0.2603 0.1491;0.1459;0.1501     ridge/programs       0.1529           -0.0046      -0.0218        0.0091           False              1.9132
+  tumour      sage       0.0003            SLC2A1 0.2364  0.1782   0.2934 0.2351;0.2363;0.2377     ridge/programs       0.2240            0.0123       0.0021        0.0218            True              1.9132
+  tumour      sage       0.0003            SPINK1 0.6025  0.4892   0.6795 0.6047;0.6037;0.5992        ridge/genes       0.5951            0.0074       0.0006        0.0147            True              1.9132
+  tumour      sage       0.0003      genes_pooled 0.4358  0.3644   0.5228 0.4356;0.4355;0.4364     ridge/programs       0.4353            0.0005      -0.0054        0.0068           False              1.9132
+  tumour      sage       0.0003 tumour:basal_like 0.2811  0.1963   0.3674 0.2661;0.2940;0.2833          xgb/genes       0.4437           -0.1625      -0.3297       -0.0452           False              1.9132
+  tumour      sage       0.0003  tumour:classical 0.5974  0.4444   0.7025 0.5959;0.5973;0.5991          xgb/genes       0.6943           -0.0968      -0.1718       -0.0527           False              1.9132
+  tumour attention       0.0003              AGR2 0.4496  0.3460   0.5335 0.4508;0.4489;0.4491     ridge/programs       0.4611           -0.0115      -0.0370        0.0106           False              1.9301
+  tumour attention       0.0003              AREG 0.1338  0.0553   0.2071 0.1348;0.1430;0.1237          ridge/own       0.1575           -0.0237      -0.0560        0.0011           False              1.9301
+  tumour attention       0.0003           CEACAM1 0.1342  0.0886   0.1836 0.1366;0.1295;0.1364     ridge/programs       0.1380           -0.0038      -0.0164        0.0054           False              1.9301
+  tumour attention       0.0003           CEACAM6 0.6427  0.5123   0.7335 0.6312;0.6549;0.6421     ridge/programs       0.6535           -0.0108      -0.0375        0.0093           False              1.9301
+  tumour attention       0.0003             ITGA3 0.2183  0.1784   0.2680 0.2188;0.2122;0.2239     ridge/programs       0.2392           -0.0209      -0.0364       -0.0054           False              1.9301
+  tumour attention       0.0003             KRT14 0.3054  0.1155   0.5178 0.3082;0.2979;0.3100          ridge/own       0.3066           -0.0012      -0.0121        0.0066           False              1.9301
+  tumour attention       0.0003             KRT15 0.0813  0.0628   0.1024 0.0865;0.0804;0.0769          ridge/own       0.0893           -0.0080      -0.0247        0.0032           False              1.9301
+  tumour attention       0.0003             KRT17 0.4136  0.3198   0.5141 0.4251;0.4003;0.4155     ridge/programs       0.4334           -0.0198      -0.0433        0.0016           False              1.9301
+  tumour attention       0.0003             KRT6A 0.5963  0.2984   0.8060 0.5924;0.5978;0.5987     ridge/programs       0.5884            0.0079      -0.0212        0.0254           False              1.9301
+  tumour attention       0.0003              LCN2 0.5475  0.4540   0.6274 0.5391;0.5508;0.5527     ridge/programs       0.5565           -0.0089      -0.0182       -0.0010           False              1.9301
+  tumour attention       0.0003               MET 0.0764  0.0551   0.0967 0.0781;0.0795;0.0714     ridge/programs       0.0901           -0.0137      -0.0217       -0.0058           False              1.9301
+  tumour attention       0.0003             OLFM4 0.6560  0.4472   0.7732 0.6563;0.6527;0.6591        ridge/genes       0.6421            0.0139       0.0054        0.0258            True              1.9301
+  tumour attention       0.0003              PIGR 0.5549  0.4302   0.6501 0.5532;0.5550;0.5564     ridge/programs       0.5491            0.0058       0.0028        0.0083            True              1.9301
+  tumour attention       0.0003            S100A2 0.4217  0.1786   0.6648 0.4192;0.4163;0.4297     ridge/programs       0.4563           -0.0346      -0.1242        0.0202           False              1.9301
+  tumour attention       0.0003             S100P 0.4675  0.3673   0.5590 0.4676;0.4681;0.4666     ridge/programs       0.4855           -0.0180      -0.0298       -0.0072           False              1.9301
+  tumour attention       0.0003          SERPINB5 0.1450  0.0733   0.2567 0.1498;0.1447;0.1405     ridge/programs       0.1529           -0.0079      -0.0235        0.0061           False              1.9301
+  tumour attention       0.0003            SLC2A1 0.2326  0.1809   0.2871 0.2315;0.2318;0.2343     ridge/programs       0.2240            0.0085      -0.0005        0.0176           False              1.9301
+  tumour attention       0.0003            SPINK1 0.5978  0.4814   0.6751 0.5968;0.5990;0.5977        ridge/genes       0.5951            0.0027      -0.0068        0.0095           False              1.9301
+  tumour attention       0.0003      genes_pooled 0.4317  0.3595   0.5189 0.4309;0.4313;0.4329     ridge/programs       0.4353           -0.0037      -0.0105        0.0026           False              1.9301
+  tumour attention       0.0003 tumour:basal_like 0.2955  0.2341   0.3665 0.2990;0.2908;0.2966          xgb/genes       0.4437           -0.1482      -0.2793       -0.0507           False              1.9301
+  tumour attention       0.0003  tumour:classical 0.6010  0.4479   0.7098 0.5851;0.5940;0.6237          xgb/genes       0.6943           -0.0933      -0.1652       -0.0506           False              1.9301
+2026-11-16 12:45:10,638 INFO done

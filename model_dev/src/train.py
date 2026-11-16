@@ -179,8 +179,13 @@ def train_one(store, seed_global: np.ndarray, seed_cov: np.ndarray, Y: np.ndarra
     return pred_te, history, len(history), best, peak, best_state
 
 
+class TimeBudgetReached(RuntimeError):
+    """A foreground chunk used its time budget; completed runs are saved per run (resume on the next call)."""
+
+
 def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[float], phase: str, tag: str, log,
                     receivers_modes: dict | None = None) -> tuple[pd.DataFrame, dict]:
+    t_start = time.time()
     if not torch.cuda.is_available():
         raise RuntimeError("GPU-only policy: CUDA not available, refusing to train on CPU")
     device = "cuda"
@@ -234,6 +239,8 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                                     key = (receiver, mode, arch, lr, seed, t)
                                     pairs_store[key] = merge_pairs([pairs_store.get(key, {}), {g: tuple(v) for g, v in pr.items()}])
                                 continue
+                            if cfg.get("_time_budget") and time.time() - t_start > cfg["_time_budget"]:
+                                raise TimeBudgetReached(f"time budget {cfg['_time_budget']} s used; rerun to continue")
                             n_r0 = len(results)
                             run_pairs: dict = {}
                             t0 = time.time()
@@ -312,7 +319,7 @@ def summarise_graph(res: pd.DataFrame, pairs_store: dict, cfg: dict, log) -> pd.
                 pairs = seed_mean_pairs(pairs_store, receiver, "full", arch, best_lr, cfg["seeds"], t)
                 r2, lo, hi = C.tumour_bootstrap(pairs, cfg["n_boot"])
                 bname, bpairs = baseline_pairs(receiver, t)
-                gain, glo, ghi = C.tumour_bootstrap_diff(bpairs, pairs, cfg["n_boot"])
+                gain, glo, ghi = C.tumour_bootstrap_diff(pairs, bpairs, cfg["n_boot"])   # R2(graph) - R2(baseline)
                 per_seed = [C.tumour_bootstrap(pairs_store[(receiver, "full", arch, best_lr, sd, t)], 200)[0] for sd in cfg["seeds"]]
                 rows.append({"receiver": receiver, "arch": arch, "selected_lr": best_lr, "target": t, "r2": r2, "ci_low": lo,
                              "ci_high": hi, "r2_per_seed": ";".join(f"{x:.4f}" for x in per_seed), "strongest_baseline": bname,

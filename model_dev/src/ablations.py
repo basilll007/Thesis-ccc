@@ -23,14 +23,20 @@ PHASE = "phase3"
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "ablations.yaml"))
+    ap.add_argument("--time-budget", type=float, default=None, help="stop starting new runs after N seconds (resumable)")
     args = ap.parse_args()
     cfg = C.load_config(args.config)
+    cfg["_time_budget"] = args.time_budget
     log = C.start_run(PHASE, "ablations", cfg)
     sel = json.loads((C.RESULTS / PHASE / "architecture_selection.json").read_text())
     arch, lr = sel["selected_arch"], float(sel["selected_lr"])
     log.info("selected architecture %s, lr %g", arch, lr)
     modes = sorted({m for v in cfg["modes_by_receiver"].values() for m in v})
-    res, pairs = T.run_experiments(cfg, modes, [arch], [lr], PHASE, "ablation", log, receivers_modes=cfg["modes_by_receiver"])
+    try:
+        res, pairs = T.run_experiments(cfg, modes, [arch], [lr], PHASE, "ablation", log, receivers_modes=cfg["modes_by_receiver"])
+    except T.TimeBudgetReached as e:
+        log.info("%s", e)
+        return
     C.save_table(res, PHASE, "ablation_results.csv", log)
     # full-model pairs from the Phase 3 main run (same arch/lr/seeds/folds)
     rows = []
@@ -45,7 +51,7 @@ def main() -> None:
                 if not ab:
                     continue
                 r2, lo, hi = C.tumour_bootstrap(ab, cfg["n_boot"])
-                diff, dlo, dhi = C.tumour_bootstrap_diff(ab, full, cfg["n_boot"])   # full - ablation
+                diff, dlo, dhi = C.tumour_bootstrap_diff(full, ab, cfg["n_boot"])   # R2(full) - R2(ablation)
                 rows.append({"receiver": receiver, "target": t, "arch": arch, "lr": lr, "mode": mode, "r2_mode": r2,
                              "ci_low": lo, "ci_high": hi, "r2_full": r2_full[0], "full_minus_mode": diff,
                              "diff_ci_low": dlo, "diff_ci_high": dhi, "diff_ci_excludes_0": bool(dlo > 0 or dhi < 0),

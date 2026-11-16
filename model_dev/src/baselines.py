@@ -225,6 +225,10 @@ def run_receiver(receiver: str, data: A.ReceiverData, fold_table: pd.DataFrame, 
     return results, pairs_store
 
 
+class FoldBudgetReached(RuntimeError):
+    """Raised when a foreground run has computed its allotted number of folds (state is saved per fold)."""
+
+
 def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFrame, cfg: dict, log) -> tuple[list, dict]:
     """GPU version of `run_receiver` (Phase 2 plan, Amendment 1): same folds, grid, metrics and records.
 
@@ -259,7 +263,22 @@ def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFra
                             "target": t, "target_kind": kind, "n_test": int(test.sum()), "inner_val_mse": inner_val_mse,
                             "test_r2_fold": pooled_r2(pairs), **(extra or {})})
 
+    budget = cfg.get("_fold_budget")                    # foreground runs: compute at most this many new folds
+    new_folds = 0
     for k in range(n_folds):
+        part = C.RESULTS / PHASE / "partial" / f"{receiver}_fold{k}.json"
+        if part.exists():                                 # resume unit: one fold of one receiver
+            rec = json.loads(part.read_text())
+            results.extend(rec["results"])
+            for key, pr in rec["pairs"]:
+                key = tuple(key)
+                pairs_store[key] = merge_pairs([pairs_store.get(key, {}), {g: tuple(v) for g, v in pr.items()}])
+            log.info("%s fold %d resumed from %s", receiver, k, C.rel(part))
+            continue
+        if budget is not None and new_folds >= budget:
+            raise FoldBudgetReached(f"{receiver}: fold budget {budget} reached; rerun to continue")
+        n_r0 = len(results)
+        before = {kk: dict(v) for kk, v in pairs_store.items()}
         tr_in, val, tr_all, test = A.fold_masks(data, fold_table, k, n_folds)
         it, iv, ia, ie = (torch.as_tensor(np.where(m)[0], device="cuda") for m in (tr_in, val, tr_all, test))
         ytr_mean = data.Y[tr_all].mean(axis=0)
@@ -324,6 +343,16 @@ def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFra
             torch.cuda.empty_cache()
         log.info("%s fold %d done in %.0f s (peak VRAM %.0f MiB)", receiver, k, time.time() - t0,
                  torch.cuda.max_memory_allocated() / 2**20)
+        fold_pairs = []                                   # this fold's contribution only (pairs are additive)
+        for kk, v in pairs_store.items():
+            prev = before.get(kk, {})
+            delta = {g: (v[g][0] - prev.get(g, (0.0, 0.0))[0], v[g][1] - prev.get(g, (0.0, 0.0))[1]) for g in v
+                     if g not in prev or v[g] != prev[g]}
+            if delta:
+                fold_pairs.append([list(kk), delta])
+        part.parent.mkdir(parents=True, exist_ok=True)
+        part.write_text(json.dumps({"results": results[n_r0:], "pairs": fold_pairs}, default=float))
+        new_folds += 1
     del Xblk, Yg
     torch.cuda.empty_cache()
     return results, pairs_store
@@ -353,7 +382,7 @@ def summarise(results: pd.DataFrame, pairs_store: dict, receiver: str, cfg: dict
             # seed-mean for MLP: average SSE across seeds per tumour (same SST)
             pairs = {g: (float(np.mean([p[g][0] for p in per_cfg])), per_cfg[0][g][1]) for g in per_cfg[0]}
             r2, lo, hi = C.tumour_bootstrap(pairs, cfg["n_boot"])
-            gain, glo, ghi = C.tumour_bootstrap_diff(own_pairs[t], pairs, cfg["n_boot"])
+            gain, glo, ghi = C.tumour_bootstrap_diff(pairs, own_pairs[t], cfg["n_boot"])   # R2(model) - R2(own)
             rows.append({"receiver": receiver, "model": model, "feature_set": fset, "selected_config": ";".join(configs),
                          "target": t, "r2": r2, "ci_low": lo, "ci_high": hi, "gain_vs_own": gain, "gain_ci_low": glo,
                          "gain_ci_high": ghi, "gain_ci_excludes_0": bool(glo > 0 or ghi < 0),
@@ -426,8 +455,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "baselines.yaml"))
     ap.add_argument("--skip-reproduction", action="store_true")
+    ap.add_argument("--fold-budget", type=int, default=None, help="compute at most N new folds, then exit (resumable)")
     args = ap.parse_args()
     cfg = C.load_config(args.config)
+    cfg["_fold_budget"] = args.fold_budget
     log = C.start_run(PHASE, "baselines", cfg)
     if not args.skip_reproduction:
         rep = reproduction_check(cfg, log)
@@ -450,7 +481,11 @@ def main() -> None:
         else:
             data = A.build_receiver("development", receiver, log)
             log.info("%s: %d cells, targets %s", receiver, len(data.Y), data.target_names)
-            res, pairs = run_receiver_gpu(receiver, data, fold_table, cfg, log)
+            try:
+                res, pairs = run_receiver_gpu(receiver, data, fold_table, cfg, log)
+            except FoldBudgetReached as e:
+                log.info("%s", e)
+                return
             del data
             df = pd.DataFrame(res)
             df.to_csv(res_path, index=False)

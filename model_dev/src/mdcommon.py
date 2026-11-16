@@ -190,7 +190,10 @@ def tumour_bootstrap(per_group: dict[str, tuple[float, float]], n_boot: int = 20
 
 def tumour_bootstrap_diff(a: dict[str, tuple[float, float]], b: dict[str, tuple[float, float]], n_boot: int = 2000,
                           seed: int = SEED):
-    """Difference in pooled R2 (a - b) with a paired tumour bootstrap; a and b share SST per group."""
+    """R2(a) - R2(b) in pooled R2 with a paired tumour bootstrap; a and b share SST per group.
+
+    Pass the model of interest FIRST: tumour_bootstrap_diff(model_pairs, reference_pairs) is the gain of the model
+    over the reference (tests/test_metrics.py pins the sign)."""
     keys = sorted(set(a) & set(b))
     sa = np.array([a[k][0] for k in keys]); sb = np.array([b[k][0] for k in keys])
     sst = np.array([a[k][1] for k in keys])

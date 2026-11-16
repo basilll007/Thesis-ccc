@@ -181,11 +181,11 @@ def main() -> None:
     for (receiver, probe, t), p in pairs.items():
         r2, lo, hi = C.tumour_bootstrap(p, cfg["n_boot"])
         bname, bp = T.baseline_pairs(receiver, t)
-        gb, gblo, gbhi = C.tumour_bootstrap_diff(bp, p, cfg["n_boot"])
+        gb, gblo, gbhi = C.tumour_bootstrap_diff(p, bp, cfg["n_boot"])   # R2(probe) - R2(baseline)
         gp = T.pairs_from_csv("phase3", "graph", [receiver])
         sel = g3[(g3.receiver == receiver) & (g3.target == t)].sort_values("mean_inner_val_mse").iloc[0]
         gpairs = T.seed_mean_pairs(gp, receiver, "full", sel.arch, float(sel.selected_lr), [0, 1, 2], t)
-        gg, gglo, gghi = C.tumour_bootstrap_diff(gpairs, p, cfg["n_boot"])
+        gg, gglo, gghi = C.tumour_bootstrap_diff(p, gpairs, cfg["n_boot"])   # R2(probe) - R2(graph)
         out.append({"receiver": receiver, "probe": probe, "target": t, "r2": r2, "ci_low": lo, "ci_high": hi,
                     "strongest_baseline": bname, "probe_minus_baseline": gb, "pb_ci_low": gblo, "pb_ci_high": gbhi,
                     "graph_model": sel.arch, "probe_minus_graph": gg, "pg_ci_low": gglo, "pg_ci_high": gghi,
