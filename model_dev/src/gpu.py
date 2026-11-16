@@ -44,20 +44,28 @@ def apply_scaler(X: torch.Tensor, mu: torch.Tensor, sd: torch.Tensor) -> torch.T
 class RidgePath:
     """Ridge for many alphas at once: centred normal equations, one eigendecomposition, float64 on the GPU."""
 
-    def __init__(self, X: torch.Tensor, Y: torch.Tensor):
-        Xd, Yd = X.double(), Y.double()
-        self.xm, self.ym = Xd.mean(0), Yd.mean(0)
-        Xc = Xd - self.xm
-        G = Xc.T @ Xc
+    def __init__(self, X: torch.Tensor, Y: torch.Tensor, chunk: int = 8192):
+        # float64 Gram matrix accumulated over row chunks: no full-size float64 copy of X is ever materialised
+        self.xm = X.double().mean(0) if len(X) <= chunk else sum(X[i:i + chunk].double().sum(0) for i in range(0, len(X), chunk)) / len(X)
+        self.ym = Y.double().mean(0)
+        p, k = X.shape[1], Y.shape[1]
+        G = torch.zeros((p, p), dtype=torch.float64, device=X.device)
+        XtY = torch.zeros((p, k), dtype=torch.float64, device=X.device)
+        for i in range(0, len(X), chunk):
+            xc = X[i:i + chunk].double() - self.xm
+            G += xc.T @ xc
+            XtY += xc.T @ (Y[i:i + chunk].double() - self.ym)
+            del xc
         self.evals, self.V = torch.linalg.eigh(G)
-        self.b = self.V.T @ (Xc.T @ (Yd - self.ym))       # [p, k]
+        del G
+        self.b = self.V.T @ XtY                              # [p, k]
 
     def coef(self, alpha: float) -> torch.Tensor:
         return self.V @ (self.b / (self.evals.clamp(min=0) + alpha)[:, None])
 
-    def predict(self, X: torch.Tensor, alpha: float) -> torch.Tensor:
+    def predict(self, X: torch.Tensor, alpha: float, chunk: int = 16384) -> torch.Tensor:
         W = self.coef(alpha)
-        return ((X.double() - self.xm) @ W + self.ym).float()
+        return torch.cat([((X[i:i + chunk].double() - self.xm) @ W + self.ym).float() for i in range(0, len(X), chunk)])
 
 
 def xgb_fit_select(Xtr: np.ndarray, ytr: np.ndarray, Xval: np.ndarray, yval: np.ndarray, lr: float, leaves: int,

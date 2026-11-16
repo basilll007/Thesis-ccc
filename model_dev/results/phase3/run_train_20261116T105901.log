@@ -1,0 +1,9 @@
+2026-11-16 10:59:01,448 INFO phase=phase3 script=train log=model_dev/results/phase3/run_train_20261116T105901.log
+2026-11-16 10:59:01,494 INFO git_commit=08b433ef0a630318122f24d69305dd24f4358723+dirty
+2026-11-16 10:59:01,494 INFO seed=42
+2026-11-16 10:59:04,872 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 10:59:04,886 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 10:59:04,886 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 10:59:05,060 INFO myeloid: resumed from model_dev/results/phase3/results_graph_myeloid.csv, model_dev/results/phase3/compute_graph_myeloid.csv, model_dev/results/phase3/per_tumour_sse_graph_myeloid.csv
+2026-11-16 10:59:10,062 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 11:00:10,688 INFO tumour full sage lr=0.001 seed=0 fold 0: 18 epochs, val mse 2.0959, 56s, peak 2021 MiB

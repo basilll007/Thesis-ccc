@@ -283,6 +283,7 @@ def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFra
                 record("ridge", fset, f"alpha={alpha}", k, rp2.predict(Xte2, alpha).cpu().numpy(), test, ytr_mean, vmse,
                        {"selected": alpha == best_a, "n_features": Xin.shape[1]})
             del rp, rp2
+            torch.cuda.empty_cache()   # return torch's cached blocks so XGBoost (own allocator) has GPU memory
             # gradient boosting (XGBoost CUDA) on program targets; <= max_rows training rows
             if fset in ("programs", "genes") and cfg.get("run_hgb", True):
                 rng = np.random.default_rng(C.SEED)
@@ -304,6 +305,7 @@ def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFra
                         record("xgb", fset, f"lr={lr},leaves={leaves}", k, preds, test, ytr_mean, float(np.mean(vm)),
                                {"best_iters": ";".join(map(str, iters)), "n_features": Xin.shape[1]})
                 del Xin_np, Xval_np, Xtr_np, Xte_np
+                import gc; gc.collect()
             # MLP (GPU) on the genes set; early stopping on inner val; no refit
             if fset == "genes" and cfg.get("run_mlp", True):
                 Xte_inner = GP.apply_scaler(torch.cat([Xblk[b] for b in blocks], 1)[ie], mu, sd)
