@@ -11,3 +11,75 @@
 2026-11-16 01:31:04,752 INFO myeloid full attention lr=0.0003 seed=0 fold 0: 15 epochs, val mse 2.7541, 47s, peak 1901 MiB
 2026-11-16 01:31:38,144 INFO myeloid full sage lr=0.001 seed=0 fold 1: 14 epochs, val mse 2.6622, 33s, peak 1986 MiB
 2026-11-16 01:32:23,214 INFO myeloid full sage lr=0.0003 seed=0 fold 1: 19 epochs, val mse 2.6614, 45s, peak 1986 MiB
+2026-11-16 01:33:00,473 INFO myeloid full attention lr=0.001 seed=0 fold 1: 11 epochs, val mse 2.6860, 37s, peak 1988 MiB
+2026-11-16 01:33:49,997 INFO myeloid full attention lr=0.0003 seed=0 fold 1: 15 epochs, val mse 2.6851, 50s, peak 1989 MiB
+2026-11-16 01:34:29,436 INFO myeloid full sage lr=0.001 seed=0 fold 2: 14 epochs, val mse 2.7940, 39s, peak 1877 MiB
+2026-11-16 01:35:14,569 INFO myeloid full sage lr=0.0003 seed=0 fold 2: 16 epochs, val mse 2.7766, 45s, peak 1877 MiB
+2026-11-16 01:35:50,977 INFO myeloid full attention lr=0.001 seed=0 fold 2: 10 epochs, val mse 2.8131, 36s, peak 1880 MiB
+2026-11-16 01:36:49,669 INFO myeloid full attention lr=0.0003 seed=0 fold 2: 16 epochs, val mse 2.8017, 59s, peak 1880 MiB
+2026-11-16 01:37:18,214 INFO myeloid full sage lr=0.001 seed=0 fold 3: 11 epochs, val mse 2.9729, 28s, peak 1978 MiB
+2026-11-16 01:38:05,285 INFO myeloid full sage lr=0.0003 seed=0 fold 3: 16 epochs, val mse 2.9794, 47s, peak 1977 MiB
+2026-11-16 01:38:47,756 INFO myeloid full attention lr=0.001 seed=0 fold 3: 11 epochs, val mse 2.9793, 42s, peak 1979 MiB
+2026-11-16 01:39:41,138 INFO myeloid full attention lr=0.0003 seed=0 fold 3: 15 epochs, val mse 2.9804, 53s, peak 1980 MiB
+2026-11-16 01:40:13,250 INFO myeloid full sage lr=0.001 seed=0 fold 4: 13 epochs, val mse 2.4958, 32s, peak 1868 MiB
+2026-11-16 01:41:07,131 INFO myeloid full sage lr=0.0003 seed=0 fold 4: 20 epochs, val mse 2.4768, 54s, peak 1868 MiB
+2026-11-16 01:41:51,016 INFO myeloid full attention lr=0.001 seed=0 fold 4: 13 epochs, val mse 2.4826, 44s, peak 1871 MiB
+2026-11-16 01:42:49,040 INFO myeloid full attention lr=0.0003 seed=0 fold 4: 17 epochs, val mse 2.4924, 58s, peak 1871 MiB
+2026-11-16 01:42:57,819 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 01:43:29,726 INFO myeloid full sage lr=0.001 seed=1 fold 0: 14 epochs, val mse 2.7437, 31s, peak 1898 MiB
+2026-11-16 01:44:09,988 INFO myeloid full sage lr=0.0003 seed=1 fold 0: 17 epochs, val mse 2.7489, 40s, peak 1898 MiB
+2026-11-16 01:44:43,692 INFO myeloid full attention lr=0.001 seed=1 fold 0: 11 epochs, val mse 2.7472, 34s, peak 1901 MiB
+2026-11-16 01:45:27,119 INFO myeloid full attention lr=0.0003 seed=1 fold 0: 14 epochs, val mse 2.7489, 43s, peak 1901 MiB
+2026-11-16 01:46:00,759 INFO myeloid full sage lr=0.001 seed=1 fold 1: 13 epochs, val mse 2.6670, 33s, peak 1987 MiB
+2026-11-16 01:46:42,953 INFO myeloid full sage lr=0.0003 seed=1 fold 1: 18 epochs, val mse 2.6655, 42s, peak 1986 MiB
+2026-11-16 01:47:26,385 INFO myeloid full attention lr=0.001 seed=1 fold 1: 13 epochs, val mse 2.6820, 43s, peak 1989 MiB
+2026-11-16 01:48:26,913 INFO myeloid full attention lr=0.0003 seed=1 fold 1: 18 epochs, val mse 2.6833, 61s, peak 1990 MiB
+2026-11-16 01:48:53,008 INFO myeloid full sage lr=0.001 seed=1 fold 2: 10 epochs, val mse 2.8068, 26s, peak 1877 MiB
+2026-11-16 01:49:38,612 INFO myeloid full sage lr=0.0003 seed=1 fold 2: 17 epochs, val mse 2.7775, 46s, peak 1877 MiB
+2026-11-16 01:50:18,663 INFO myeloid full attention lr=0.001 seed=1 fold 2: 11 epochs, val mse 2.8191, 40s, peak 1879 MiB
+2026-11-16 01:51:14,103 INFO myeloid full attention lr=0.0003 seed=1 fold 2: 15 epochs, val mse 2.7906, 55s, peak 1880 MiB
+2026-11-16 01:51:44,310 INFO myeloid full sage lr=0.001 seed=1 fold 3: 11 epochs, val mse 2.9705, 30s, peak 1978 MiB
+2026-11-16 01:52:26,759 INFO myeloid full sage lr=0.0003 seed=1 fold 3: 15 epochs, val mse 2.9618, 42s, peak 1977 MiB
+2026-11-16 01:53:02,890 INFO myeloid full attention lr=0.001 seed=1 fold 3: 10 epochs, val mse 2.9856, 36s, peak 1980 MiB
+2026-11-16 01:53:53,066 INFO myeloid full attention lr=0.0003 seed=1 fold 3: 14 epochs, val mse 2.9744, 50s, peak 1980 MiB
+2026-11-16 01:54:27,207 INFO myeloid full sage lr=0.001 seed=1 fold 4: 13 epochs, val mse 2.4750, 34s, peak 1869 MiB
+2026-11-16 01:55:13,624 INFO myeloid full sage lr=0.0003 seed=1 fold 4: 15 epochs, val mse 2.4824, 46s, peak 1868 MiB
+2026-11-16 01:55:57,817 INFO myeloid full attention lr=0.001 seed=1 fold 4: 13 epochs, val mse 2.4953, 44s, peak 1871 MiB
+2026-11-16 01:56:57,978 INFO myeloid full attention lr=0.0003 seed=1 fold 4: 18 epochs, val mse 2.4982, 60s, peak 1872 MiB
+2026-11-16 01:57:06,772 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 01:57:37,459 INFO myeloid full sage lr=0.001 seed=2 fold 0: 13 epochs, val mse 2.7440, 30s, peak 1898 MiB
+2026-11-16 01:58:17,421 INFO myeloid full sage lr=0.0003 seed=2 fold 0: 17 epochs, val mse 2.7442, 40s, peak 1897 MiB
+2026-11-16 01:58:53,290 INFO myeloid full attention lr=0.001 seed=2 fold 0: 12 epochs, val mse 2.7490, 36s, peak 1900 MiB
+2026-11-16 01:59:39,641 INFO myeloid full attention lr=0.0003 seed=2 fold 0: 15 epochs, val mse 2.7424, 46s, peak 1900 MiB
+2026-11-16 02:00:11,142 INFO myeloid full sage lr=0.001 seed=2 fold 1: 13 epochs, val mse 2.6651, 31s, peak 1987 MiB
+2026-11-16 02:01:00,455 INFO myeloid full sage lr=0.0003 seed=2 fold 1: 19 epochs, val mse 2.6666, 49s, peak 1986 MiB
+2026-11-16 02:01:44,236 INFO myeloid full attention lr=0.001 seed=2 fold 1: 13 epochs, val mse 2.6852, 44s, peak 1989 MiB
+2026-11-16 02:02:40,853 INFO myeloid full attention lr=0.0003 seed=2 fold 1: 17 epochs, val mse 2.6784, 57s, peak 1989 MiB
+2026-11-16 02:03:14,701 INFO myeloid full sage lr=0.001 seed=2 fold 2: 12 epochs, val mse 2.7761, 34s, peak 1876 MiB
+2026-11-16 02:04:11,072 INFO myeloid full sage lr=0.0003 seed=2 fold 2: 20 epochs, val mse 2.7692, 56s, peak 1876 MiB
+2026-11-16 02:04:54,919 INFO myeloid full attention lr=0.001 seed=2 fold 2: 12 epochs, val mse 2.7752, 44s, peak 1879 MiB
+2026-11-16 02:05:50,099 INFO myeloid full attention lr=0.0003 seed=2 fold 2: 15 epochs, val mse 2.7884, 55s, peak 1879 MiB
+2026-11-16 02:06:21,769 INFO myeloid full sage lr=0.001 seed=2 fold 3: 12 epochs, val mse 2.9679, 31s, peak 1977 MiB
+2026-11-16 02:07:18,831 INFO myeloid full sage lr=0.0003 seed=2 fold 3: 20 epochs, val mse 2.9659, 57s, peak 1976 MiB
+2026-11-16 02:08:02,672 INFO myeloid full attention lr=0.001 seed=2 fold 3: 12 epochs, val mse 2.9765, 44s, peak 1979 MiB
+2026-11-16 02:09:00,780 INFO myeloid full attention lr=0.0003 seed=2 fold 3: 14 epochs, val mse 2.9844, 58s, peak 1980 MiB
+2026-11-16 02:09:32,882 INFO myeloid full sage lr=0.001 seed=2 fold 4: 11 epochs, val mse 2.4909, 32s, peak 1868 MiB
+2026-11-16 02:10:16,415 INFO myeloid full sage lr=0.0003 seed=2 fold 4: 17 epochs, val mse 2.4745, 44s, peak 1867 MiB
+2026-11-16 02:11:01,339 INFO myeloid full attention lr=0.001 seed=2 fold 4: 13 epochs, val mse 2.5040, 45s, peak 1870 MiB
+2026-11-16 02:11:59,795 INFO myeloid full attention lr=0.0003 seed=2 fold 4: 17 epochs, val mse 2.4849, 58s, peak 1871 MiB
+2026-11-16 02:12:02,218 INFO features development T1-b: 5507 receiver cells, 2832 columns
+2026-11-16 02:12:05,127 INFO features development T2-b: 7133 receiver cells, 2832 columns
+2026-11-16 02:12:07,410 INFO features development T3-b: 5900 receiver cells, 2832 columns
+2026-11-16 02:12:11,144 INFO features development T4-a: 5218 receiver cells, 2832 columns
+2026-11-16 02:12:13,867 INFO features development T4-b: 6000 receiver cells, 2832 columns
+2026-11-16 02:12:17,028 INFO features development T5-a: 16099 receiver cells, 2832 columns
+2026-11-16 02:12:17,733 INFO features development T6-b: 222 receiver cells, 2832 columns
+2026-11-16 02:12:19,615 INFO features development U1-b: 4920 receiver cells, 2832 columns
+2026-11-16 02:12:22,397 INFO features development U2-b: 20191 receiver cells, 2832 columns
+2026-11-16 02:12:23,410 INFO features development U3-b: 3646 receiver cells, 2832 columns
+2026-11-16 02:12:27,073 INFO features development U4-a: 17028 receiver cells, 2832 columns
+2026-11-16 02:12:30,671 INFO features development U4-b: 18442 receiver cells, 2832 columns
+2026-11-16 02:12:37,388 INFO features development U5-a: 41216 receiver cells, 2832 columns
+2026-11-16 02:12:42,182 INFO features development U6-a_1: 37451 receiver cells, 2832 columns
+2026-11-16 02:12:49,779 INFO features development U6-a_2: 34746 receiver cells, 2832 columns
+2026-11-16 02:12:55,806 INFO features development U7-a: 22530 receiver cells, 2832 columns

@@ -22,6 +22,8 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 DATASET_DIR = {"development": "mendeley_pdac_smi", "external": "geo_gse310352"}
+# Phase 1 plan, Amendment 2: memory-safety cap on receiver rows per section (tumour positive control only)
+RECEIVER_CAP_PER_SECTION = {"tumour": 8000}
 
 
 def section_files(split: str) -> list[Path]:
@@ -77,11 +79,16 @@ def build_receiver(split: str, receiver: str, log=None, use_cache: bool = True) 
                 for b in m["blocks"]}
         return ReceiverData(X, m["names"], prov, z["Y"], m["target_names"], z["section"], z["group"], z["row"])
     parts = []
-    for path in section_files(split):
+    cap = RECEIVER_CAP_PER_SECTION.get(receiver)
+    for s_i, path in enumerate(section_files(split)):
         d = load_section(path)
         fs, y = F.build_section_features(d, spec["class"], spec["programs"], spec["genes"], classes)
         if len(fs.rows) == 0:
             continue
+        if cap is not None and len(fs.rows) > cap:
+            keep = np.sort(np.random.default_rng([C.SEED, s_i, 1]).choice(len(fs.rows), cap, replace=False))
+            fs = subset_rows(fs, keep)
+            y = y[keep]
         F.assert_no_target_leak(fs, None, y, set(spec["genes"]), set(spec["programs"]))
         parts.append((str(d["section"]), str(d["group"]), fs, y))
         if log:
@@ -103,6 +110,14 @@ def build_receiver(split: str, receiver: str, log=None, use_cache: bool = True) 
                                              for p in prov[b]] for b in blocks}}))
     C.register_artefact(cache, "phase2", f"{split} {receiver} receiver feature blocks and targets")
     return ReceiverData(X, names, prov, Y, spec["programs"] + spec["genes"], section, group, row)
+
+
+def subset_rows(fs: F.FeatureSet, keep: np.ndarray) -> F.FeatureSet:
+    """Row subset of a FeatureSet (same columns and provenance)."""
+    out = F.FeatureSet(rows=fs.rows[keep])
+    for b in fs.blocks:
+        out.add(b, fs.blocks[b][keep], fs.names[b], fs.prov[b])
+    return out
 
 
 def folds(kind: str = "grouped") -> pd.DataFrame:

@@ -26,3 +26,6 @@
 2026-11-16 01:25:28,164 INFO features development U6-a_2: 11225 receiver cells, 2825 columns
 2026-11-16 01:25:30,486 INFO features development U7-a: 5775 receiver cells, 2825 columns
 2026-11-16 01:25:48,434 INFO myeloid: 95941 cells, targets ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM', 'C1QA', 'C1QB', 'C1QC', 'CD163', 'MRC1', 'SELENOP', 'SPP1', 'GPNMB', 'CD9', 'FABP5', 'LGALS3']
+2026-11-16 01:38:25,143 INFO myeloid fold 0 done in 757 s
+2026-11-16 01:55:23,465 INFO myeloid fold 1 done in 1018 s
+2026-11-16 02:09:18,714 INFO myeloid fold 2 done in 835 s
