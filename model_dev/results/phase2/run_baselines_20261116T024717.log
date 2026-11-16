@@ -1,0 +1,14 @@
+2026-11-16 02:47:17,314 INFO phase=phase2 script=baselines log=model_dev/results/phase2/run_baselines_20261116T024717.log
+2026-11-16 02:47:17,356 INFO git_commit=d13e2c111c2ab901980c69e752dac9009ec1ecb2+dirty
+2026-11-16 02:47:17,356 INFO seed=42
+2026-11-16 02:47:22,853 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 02:47:22,865 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 02:47:22,865 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "n_boot": 2000, "reproduction_tolerance": 0.01, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "run_hgb": true, "hgb": {"learning_rate": [0.05, 0.1], "max_leaf_nodes": [15, 31], "max_iter": 500, "max_rows": 60000}, "run_mlp": true, "mlp": {"hidden": [256, 128], "dropout": 0.1, "learning_rate": [0.001, 0.0003], "weight_decay": 0.0001, "batch": 1024, "max_epochs": 100, "patience": 10, "seeds": [0, 1, 2]}}
+2026-11-16 02:47:24,636 INFO myeloid: 95941 cells, targets ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM', 'C1QA', 'C1QB', 'C1QC', 'CD163', 'MRC1', 'SELENOP', 'SPP1', 'GPNMB', 'CD9', 'FABP5', 'LGALS3']
+2026-11-16 02:58:07,154 INFO myeloid fold 0 done in 642 s
+2026-11-16 03:10:58,701 INFO myeloid fold 1 done in 772 s
+2026-11-16 03:21:22,950 INFO myeloid fold 2 done in 624 s
+2026-11-16 03:32:14,787 INFO myeloid fold 3 done in 652 s
+2026-11-16 03:43:11,713 INFO myeloid fold 4 done in 657 s
+2026-11-16 03:43:13,586 INFO tumour: 102546 cells, targets ['tumour:classical', 'tumour:basal_like', 'CEACAM6', 'AGR2', 'S100P', 'LCN2', 'PIGR', 'OLFM4', 'SPINK1', 'CEACAM1', 'KRT6A', 'KRT14', 'KRT17', 'S100A2', 'SERPINB5', 'AREG', 'SLC2A1', 'KRT15', 'ITGA3', 'MET']
+2026-11-16 03:54:45,770 INFO tumour fold 0 done in 692 s

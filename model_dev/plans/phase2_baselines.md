@@ -30,3 +30,11 @@ Committed before `baselines.py` is run. Folds: `model_dev/results/phase1/folds.c
 
 ## Success criterion
 The reproduction check passes; every model runs on all five folds for both receivers; the strongest baseline per target is identified with a CI.
+
+## Amendment 1 (2026-11-16, GPU execution; before any Phase 2 result was summarised or inspected)
+The CPU runs were stopped three times by the host for low system memory (other applications held ~40 of the 50 GB commit limit; the CPU run kept several GB of feature copies in host RAM). Following the user's instruction to train on the GPU, Phase 2 is re-run for **both** receivers with:
+- feature blocks resident on the 8 GB GPU as float32, standardised on the GPU with training-fold statistics;
+- ridge solved in closed form on the GPU in float64 (same estimator as sklearn `Ridge`, all alphas from one eigendecomposition; `tests/test_gpu.py` checks agreement with sklearn);
+- gradient boosting with **XGBoost 3.2 (CUDA)** in place of sklearn `HistGradientBoostingRegressor` (sklearn's HGB has no GPU path). Mapped grid: learning_rate {0.05, 0.1} x max_leaves {15, 31} (lossguide growth, no depth limit), min_child_weight 50 (= min 50 samples per leaf for squared loss), up to 500 rounds with the round count chosen on the inner-validation RMSE, <= 60,000 training rows. Reported as model `xgb`;
+- the MLP unchanged in architecture and grid, with GPU-resident inputs.
+The completed CPU myeloid run (sklearn HGB etc.) is archived unmodified in `results/phase2/cpu_v1_myeloid/` and used only as a cross-implementation check of the ridge numbers; it is not mixed into the GPU results. The reproduction check (chain Phase 2, exact match) is unaffected and not re-run.

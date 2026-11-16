@@ -31,3 +31,11 @@ Branch `model-v1`, created 2026-11-16 from origin/main (cfb111c). Rules: never p
 - Claude Code stopped the Phase 2 baselines run and the Phase 3 relaunch at the same time because the system was critically low on memory while both ran in parallel (plus the earlier tumour cache build). Per the host's instruction they are NOT restarted automatically; waiting for the user.
 - State at the stop: Phase 2 finished all 5 myeloid folds (per-tumour SSE saved, MLP curves saved) but the results table with inner-validation scores is written only at the end, so it was lost; the tumour receiver had started. Phase 3: myeloid complete (resumable); tumour seed 0 complete for all 20 runs (curves and checkpoints saved), seeds 1-2 not run; the tumour per-tumour file was not yet written.
 - Code changes (no computation): Phase 2 now saves results per receiver and resumes per receiver; Phase 3 saves per-seed partial files and resumes per seed. Recommendation: run phases sequentially, not in parallel.
+
+## 2026-11-16 Restart (user approved: sequential)
+- Phase 2 (`baselines.py --skip-reproduction`; the reproduction check had already passed and is saved) then Phase 3 (`train.py`, resuming myeloid) are run one after the other in a single chain, never in parallel.
+
+## 2026-11-16 Third stop and move to GPU (user instruction)
+- The sequential Phase 2 run was also stopped by the host for low system memory during the tumour receiver (myeloid baselines had completed). Diagnosis: with none of our jobs running, Windows commit charge was 40.6 of 50.1 GB (other applications); our CPU run added several GB of host-RAM feature copies.
+- User instruction: train in batches with checkpoints, on the GPU only (no CPU training), complete the work, update the HTML dashboard, commit to main.
+- Phase 2 plan Amendment 1 (GPU execution; XGBoost-CUDA replaces sklearn HGB; ridge closed-form on GPU) written before any Phase 2 result was inspected. CPU myeloid results archived in `results/phase2/cpu_v1_myeloid/`. 13 unit tests pass (2 new GPU-vs-CPU equivalence tests).

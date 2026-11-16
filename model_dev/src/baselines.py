@@ -225,6 +225,108 @@ def run_receiver(receiver: str, data: A.ReceiverData, fold_table: pd.DataFrame, 
     return results, pairs_store
 
 
+def run_receiver_gpu(receiver: str, data: A.ReceiverData, fold_table: pd.DataFrame, cfg: dict, log) -> tuple[list, dict]:
+    """GPU version of `run_receiver` (Phase 2 plan, Amendment 1): same folds, grid, metrics and records.
+
+    Feature blocks are moved to the GPU once (host copies freed); ridge uses `gpu.RidgePath` (all alphas from one
+    eigendecomposition), gradient boosting uses XGBoost-CUDA ('xgb'), the MLP trains on GPU-resident tensors.
+    """
+    import torch
+    import gpu as GP
+    n_folds = int(fold_table.fold.max()) + 1
+    tnames = data.target_names
+    spec = A.targets_spec()[receiver]
+    n_prog = len(spec["programs"])
+    results, pairs_store = [], {}
+    for fset, blocks in FEATURE_SETS.items():
+        F.assert_no_target_leak(data.feature_set(blocks), None, data.Y, set(spec["genes"]), set(spec["programs"]))
+    Xblk = {}
+    for b in list(data.X):                                           # each block once on the GPU; host copy freed
+        Xblk[b] = GP.to_gpu(data.X[b])
+        data.X[b] = None
+    Yg = GP.to_gpu(data.Y)
+
+    def record(model, fset, config, fold, pred_test, test, ytr_mean, inner_val_mse, extra=None):
+        yte = data.Y[test]
+        cols = [(t, slice(j, j + 1), "program" if j < n_prog else "gene") for j, t in enumerate(tnames)]
+        if len(tnames) > n_prog:
+            cols.append(("genes_pooled", slice(n_prog, None), "gene_vector"))
+        for t, sl, kind in cols:
+            pairs = sse_sst_by_group(yte[:, sl], pred_test[:, sl], data.group[test], ytr_mean[sl])
+            key = (model, fset, config, t)
+            pairs_store[key] = merge_pairs([pairs_store.get(key, {}), pairs])
+            results.append({"receiver": receiver, "model": model, "feature_set": fset, "config": config, "fold": fold,
+                            "target": t, "target_kind": kind, "n_test": int(test.sum()), "inner_val_mse": inner_val_mse,
+                            "test_r2_fold": pooled_r2(pairs), **(extra or {})})
+
+    for k in range(n_folds):
+        tr_in, val, tr_all, test = A.fold_masks(data, fold_table, k, n_folds)
+        it, iv, ia, ie = (torch.as_tensor(np.where(m)[0], device="cuda") for m in (tr_in, val, tr_all, test))
+        ytr_mean = data.Y[tr_all].mean(axis=0)
+        yin_mean = data.Y[tr_in].mean(axis=0)
+        t0 = time.time()
+        record("mean", "none", "train_mean", k, np.tile(ytr_mean, (test.sum(), 1)), test, ytr_mean,
+               float(((data.Y[val] - yin_mean) ** 2).mean()))
+        for fset, blocks in FEATURE_SETS.items():
+            Xall = torch.cat([Xblk[b] for b in blocks], 1)
+            mu, sd = GP.fit_scaler(Xall[it])
+            Xin, Xval = GP.apply_scaler(Xall[it], mu, sd), GP.apply_scaler(Xall[iv], mu, sd)
+            mu2, sd2 = GP.fit_scaler(Xall[ia])
+            Xtr2, Xte2 = GP.apply_scaler(Xall[ia], mu2, sd2), GP.apply_scaler(Xall[ie], mu2, sd2)
+            del Xall
+            # ridge: alpha chosen on inner val; every alpha refitted on all training folds and recorded
+            rp = GP.RidgePath(Xin, Yg[it])
+            val_scores = {a: float(((rp.predict(Xval, a) - Yg[iv]) ** 2).mean()) for a in cfg["ridge_alphas"]}
+            best_a = min(val_scores, key=val_scores.get)
+            rp2 = GP.RidgePath(Xtr2, Yg[ia])
+            for alpha, vmse in val_scores.items():
+                record("ridge", fset, f"alpha={alpha}", k, rp2.predict(Xte2, alpha).cpu().numpy(), test, ytr_mean, vmse,
+                       {"selected": alpha == best_a, "n_features": Xin.shape[1]})
+            del rp, rp2
+            # gradient boosting (XGBoost CUDA) on program targets; <= max_rows training rows
+            if fset in ("programs", "genes") and cfg.get("run_hgb", True):
+                rng = np.random.default_rng(C.SEED)
+                sub_in = rng.choice(len(it), min(len(it), cfg["hgb"]["max_rows"]), replace=False)
+                sub_all = np.random.default_rng(C.SEED).choice(len(ia), min(len(ia), cfg["hgb"]["max_rows"]), replace=False)
+                Xin_np, Xval_np = Xin[torch.as_tensor(sub_in, device="cuda")].cpu().numpy(), Xval.cpu().numpy()
+                Xtr_np, Xte_np = Xtr2[torch.as_tensor(sub_all, device="cuda")].cpu().numpy(), Xte2.cpu().numpy()
+                yin_np, yval_np = data.Y[tr_in][sub_in], data.Y[val]
+                ytr_np = data.Y[tr_all][sub_all]
+                for lr in cfg["hgb"]["learning_rate"]:
+                    for leaves in cfg["hgb"]["max_leaf_nodes"]:
+                        preds = np.tile(ytr_mean, (test.sum(), 1)).astype(np.float32)   # gene columns: not modelled (scope)
+                        vm, iters = [], []
+                        for j in range(n_prog):
+                            best_it, vmse = GP.xgb_fit_select(Xin_np, yin_np[:, j], Xval_np, yval_np[:, j], lr, leaves,
+                                                              cfg["hgb"]["max_iter"], C.SEED)
+                            preds[:, j] = GP.xgb_fit_predict(Xtr_np, ytr_np[:, j], Xte_np, lr, leaves, best_it, C.SEED)
+                            vm.append(vmse); iters.append(best_it)
+                        record("xgb", fset, f"lr={lr},leaves={leaves}", k, preds, test, ytr_mean, float(np.mean(vm)),
+                               {"best_iters": ";".join(map(str, iters)), "n_features": Xin.shape[1]})
+                del Xin_np, Xval_np, Xtr_np, Xte_np
+            # MLP (GPU) on the genes set; early stopping on inner val; no refit
+            if fset == "genes" and cfg.get("run_mlp", True):
+                Xte_inner = GP.apply_scaler(torch.cat([Xblk[b] for b in blocks], 1)[ie], mu, sd)
+                for lr in cfg["mlp"]["learning_rate"]:
+                    for seed in cfg["mlp"]["seeds"]:
+                        mlp = GP.GPUMLP(Xin.shape[1], len(tnames), tuple(cfg["mlp"]["hidden"]), cfg["mlp"]["dropout"], lr,
+                                        cfg["mlp"]["weight_decay"], seed, cfg["mlp"]["batch"], cfg["mlp"]["max_epochs"],
+                                        cfg["mlp"]["patience"]).fit(Xin, Yg[it], Xval, Yg[iv])
+                        record("mlp", fset, f"lr={lr},seed={seed}", k, mlp.predict(Xte_inner).cpu().numpy(), test, ytr_mean,
+                               mlp.best_val, {"epochs": mlp.epochs, "n_features": Xin.shape[1]})
+                        pd.DataFrame(mlp.history).assign(receiver=receiver, fold=k, lr=lr, seed=seed).to_csv(
+                            C.RESULTS / PHASE / f"mlp_curve_{receiver}_fold{k}_lr{lr}_seed{seed}.csv", index=False)
+                        del mlp
+                del Xte_inner
+            del Xin, Xval, Xtr2, Xte2
+            torch.cuda.empty_cache()
+        log.info("%s fold %d done in %.0f s (peak VRAM %.0f MiB)", receiver, k, time.time() - t0,
+                 torch.cuda.max_memory_allocated() / 2**20)
+    del Xblk, Yg
+    torch.cuda.empty_cache()
+    return results, pairs_store
+
+
 def summarise(results: pd.DataFrame, pairs_store: dict, receiver: str, cfg: dict) -> pd.DataFrame:
     """Select per model/feature set the configuration with the lowest mean inner-validation MSE (averaged over
     folds); for the MLP, report the mean over seeds of the selected learning rate. Then pooled R2 + CI and gain."""
@@ -346,7 +448,7 @@ def main() -> None:
         else:
             data = A.build_receiver("development", receiver, log)
             log.info("%s: %d cells, targets %s", receiver, len(data.Y), data.target_names)
-            res, pairs = run_receiver(receiver, data, fold_table, cfg, log)
+            res, pairs = run_receiver_gpu(receiver, data, fold_table, cfg, log)
             del data
             df = pd.DataFrame(res)
             df.to_csv(res_path, index=False)
