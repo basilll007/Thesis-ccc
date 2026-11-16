@@ -334,15 +334,27 @@ def main() -> None:
     fold_table = A.folds("grouped")
     all_results, summaries = [], []
     for receiver in cfg["receivers"]:
-        data = A.build_receiver("development", receiver, log)
-        log.info("%s: %d cells, targets %s", receiver, len(data.Y), data.target_names)
-        res, pairs = run_receiver(receiver, data, fold_table, cfg, log)
-        df = pd.DataFrame(res)
+        res_path = C.RESULTS / PHASE / f"baseline_results_{receiver}.csv"
+        pairs_path = C.RESULTS / PHASE / f"per_tumour_sse_{receiver}.csv"
+        if res_path.exists() and pairs_path.exists():      # resume unit: one receiver
+            df = pd.read_csv(res_path)
+            pt = pd.read_csv(pairs_path)
+            pairs = {}
+            for r in pt.itertuples(index=False):
+                pairs.setdefault((r.model, r.feature_set, r.config, r.target), {})[str(r.tumour)] = (r.sse, r.sst)
+            log.info("%s: resumed from %s", receiver, C.rel(res_path))
+        else:
+            data = A.build_receiver("development", receiver, log)
+            log.info("%s: %d cells, targets %s", receiver, len(data.Y), data.target_names)
+            res, pairs = run_receiver(receiver, data, fold_table, cfg, log)
+            del data
+            df = pd.DataFrame(res)
+            df.to_csv(res_path, index=False)
+            pd.DataFrame([{"receiver": receiver, "model": k[0], "feature_set": k[1], "config": k[2], "target": k[3],
+                           "tumour": g, "sse": v[0], "sst": v[1]} for k, p in pairs.items() for g, v in p.items()]
+                         ).to_csv(pairs_path, index=False)
         all_results.append(df)
         summaries.append(summarise(df, pairs, receiver, cfg))
-        pd.DataFrame([{"receiver": receiver, "model": k[0], "feature_set": k[1], "config": k[2], "target": k[3],
-                       "tumour": g, "sse": v[0], "sst": v[1]} for k, p in pairs.items() for g, v in p.items()]
-                     ).to_csv(C.RESULTS / PHASE / f"per_tumour_sse_{receiver}.csv", index=False)
     res = pd.concat(all_results, ignore_index=True)
     summ = pd.concat(summaries, ignore_index=True)
     C.save_table(res, PHASE, "baseline_results.csv", log)

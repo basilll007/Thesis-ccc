@@ -1,0 +1,29 @@
+2026-11-16 02:16:26,018 INFO phase=phase3 script=train log=model_dev/results/phase3/run_train_20261116T021626.log
+2026-11-16 02:16:26,082 INFO git_commit=7eb87226b372598f084d48460568308a9bb052c3+dirty
+2026-11-16 02:16:26,083 INFO seed=42
+2026-11-16 02:16:34,355 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 02:16:34,377 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 02:16:34,377 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 02:16:34,413 INFO myeloid: resumed from model_dev/results/phase3/results_graph_myeloid.csv, model_dev/results/phase3/compute_graph_myeloid.csv, model_dev/results/phase3/per_tumour_sse_graph_myeloid.csv
+2026-11-16 02:16:44,815 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 02:17:32,182 INFO tumour full sage lr=0.001 seed=0 fold 0: 18 epochs, val mse 2.0959, 47s, peak 2021 MiB
+2026-11-16 02:19:01,602 INFO tumour full sage lr=0.0003 seed=0 fold 0: 35 epochs, val mse 2.0773, 89s, peak 2021 MiB
+2026-11-16 02:20:07,555 INFO tumour full attention lr=0.001 seed=0 fold 0: 18 epochs, val mse 2.1448, 66s, peak 2023 MiB
+2026-11-16 02:21:43,895 INFO tumour full attention lr=0.0003 seed=0 fold 0: 26 epochs, val mse 2.1200, 96s, peak 2024 MiB
+2026-11-16 02:22:42,293 INFO tumour full sage lr=0.001 seed=0 fold 1: 17 epochs, val mse 1.7093, 58s, peak 1983 MiB
+2026-11-16 02:24:00,055 INFO tumour full sage lr=0.0003 seed=0 fold 1: 27 epochs, val mse 1.7084, 78s, peak 1982 MiB
+2026-11-16 02:25:04,298 INFO tumour full attention lr=0.001 seed=0 fold 1: 17 epochs, val mse 1.7178, 64s, peak 1985 MiB
+2026-11-16 02:26:31,478 INFO tumour full attention lr=0.0003 seed=0 fold 1: 23 epochs, val mse 1.7145, 87s, peak 1986 MiB
+2026-11-16 02:27:20,507 INFO tumour full sage lr=0.001 seed=0 fold 2: 18 epochs, val mse 2.0444, 49s, peak 1873 MiB
+2026-11-16 02:28:35,703 INFO tumour full sage lr=0.0003 seed=0 fold 2: 30 epochs, val mse 2.0414, 75s, peak 1872 MiB
+2026-11-16 02:29:32,209 INFO tumour full attention lr=0.001 seed=0 fold 2: 16 epochs, val mse 2.1311, 57s, peak 1875 MiB
+2026-11-16 02:31:03,540 INFO tumour full attention lr=0.0003 seed=0 fold 2: 26 epochs, val mse 2.0843, 91s, peak 1875 MiB
+2026-11-16 02:31:46,409 INFO tumour full sage lr=0.001 seed=0 fold 3: 17 epochs, val mse 1.9665, 43s, peak 1907 MiB
+2026-11-16 02:33:04,641 INFO tumour full sage lr=0.0003 seed=0 fold 3: 29 epochs, val mse 1.9578, 78s, peak 1906 MiB
+2026-11-16 02:34:03,788 INFO tumour full attention lr=0.001 seed=0 fold 3: 17 epochs, val mse 1.9797, 59s, peak 1909 MiB
+2026-11-16 02:35:45,184 INFO tumour full attention lr=0.0003 seed=0 fold 3: 29 epochs, val mse 1.9706, 101s, peak 1909 MiB
+2026-11-16 02:36:22,908 INFO tumour full sage lr=0.001 seed=0 fold 4: 14 epochs, val mse 1.7821, 37s, peak 1975 MiB
+2026-11-16 02:37:47,573 INFO tumour full sage lr=0.0003 seed=0 fold 4: 28 epochs, val mse 1.7616, 85s, peak 1974 MiB
+2026-11-16 02:38:41,054 INFO tumour full attention lr=0.001 seed=0 fold 4: 15 epochs, val mse 1.7856, 53s, peak 1977 MiB
+2026-11-16 02:40:22,822 INFO tumour full attention lr=0.0003 seed=0 fold 4: 28 epochs, val mse 1.7774, 102s, peak 1977 MiB
+2026-11-16 02:40:32,013 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001

@@ -205,6 +205,16 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
         tnames, n_prog = data.target_names, len(s["programs"])
         r_modes = (receivers_modes or {}).get(receiver, modes)
         for seed in cfg["seeds"]:
+            part = [C.RESULTS / phase / "partial" / f"{n}_{tag}_{receiver}_seed{seed}.csv" for n in ("results", "compute", "per_tumour_sse")]
+            if all(p.exists() for p in part):     # resume unit inside a receiver: one seed
+                results += pd.read_csv(part[0]).to_dict("records")
+                compute += pd.read_csv(part[1]).to_dict("records")
+                pt = pd.read_csv(part[2])
+                for r in pt.itertuples(index=False):
+                    pairs_store.setdefault((r.receiver, r.mode, r.arch, float(r.lr), int(r.seed), r.target), {})[str(r.tumour)] = (r.sse, r.sst)
+                log.info("%s seed %d: resumed from partial files", receiver, seed)
+                continue
+            n_res_s, n_comp_s = len(results), len(compute)
             store0, offsets, classes = build_store("development", max(cfg["k1"], cfg["k2"]), device, log,
                                                    shuffle_seed=seed if need_shuffle else None)
             receiver_cls = classes.index(s["class"])
@@ -257,6 +267,12 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                                      receiver, mode, arch, lr, seed, k, ep, bv, time.time() - t0, peak)
             del store0
             torch.cuda.empty_cache() if device == "cuda" else None
+            part[0].parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(results[n_res_s:]).to_csv(part[0], index=False)
+            pd.DataFrame(compute[n_comp_s:]).to_csv(part[1], index=False)
+            pd.DataFrame([{"receiver": k_[0], "mode": k_[1], "arch": k_[2], "lr": k_[3], "seed": k_[4], "target": k_[5], "tumour": g,
+                           "sse": v[0], "sst": v[1]} for k_, p_ in pairs_store.items() if k_[0] == receiver and k_[4] == seed
+                          for g, v in p_.items()]).to_csv(part[2], index=False)
         pd.DataFrame([{"receiver": k[0], "mode": k[1], "arch": k[2], "lr": k[3], "seed": k[4], "target": k[5], "tumour": g,
                        "sse": v[0], "sst": v[1]} for k, p in pairs_store.items() if k[0] == receiver for g, v in p.items()]
                      ).to_csv(C.RESULTS / phase / f"per_tumour_sse_{tag}_{receiver}.csv", index=False)
