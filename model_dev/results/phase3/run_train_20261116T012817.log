@@ -1,0 +1,10 @@
+2026-11-16 01:28:17,461 INFO phase=phase3 script=train log=model_dev/results/phase3/run_train_20261116T012817.log
+2026-11-16 01:28:17,518 INFO git_commit=57e9195f1ed6a0732578fbb9b98882568a1cae88+dirty
+2026-11-16 01:28:17,518 INFO seed=42
+2026-11-16 01:28:23,797 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 01:28:23,820 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 01:28:23,820 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "archs": ["sage", "attention"], "learning_rates": [0.001, 0.0003], "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000}
+2026-11-16 01:28:32,777 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 01:29:00,367 INFO myeloid full sage lr=0.001 seed=0 fold 0: 12 epochs, val mse 2.7313, 27s, peak 1898 MiB
+2026-11-16 01:29:40,571 INFO myeloid full sage lr=0.0003 seed=0 fold 0: 17 epochs, val mse 2.7395, 40s, peak 1898 MiB
+2026-11-16 01:30:17,448 INFO myeloid full attention lr=0.001 seed=0 fold 0: 12 epochs, val mse 2.7363, 37s, peak 1900 MiB

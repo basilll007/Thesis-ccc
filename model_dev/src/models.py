@@ -42,7 +42,10 @@ class TreeBatch:
     """
 
     def __init__(self, store: GraphStore, seeds: torch.Tensor, seed_cov: torch.Tensor, receiver_cls: int, mode: str,
-                 k1: int, k2: int):
+                 k1: int, k2: int, remap: torch.Tensor | None = None, x_transform=None):
+        """`remap` (Phase 5): global index map applied to neighbour sources (e.g. a within-section, within-class
+        permutation to break the link with one neighbour class); `x_transform(x, cls)` (Phase 5): edits neighbour
+        expression (zeroing a gene group, or setting a program's genes to a quantile for one class)."""
         s = store
         self.seeds, self.seed_cov = seeds, seed_cov
         h1 = s.nbr[seeds][:, :k1]                                    # [B, k1]
@@ -64,12 +67,16 @@ class TreeBatch:
         src1, src2 = safe1, h2.clamp(min=0)
         if mode == "shuffled":
             src1, src2 = s.tile_perm[src1], s.tile_perm[src2]
+        if remap is not None:
+            src1, src2 = remap[src1], remap[src2]
         self.m1, self.m2 = m1, m2
         self.x1, self.x2 = s.X[src1].float(), s.X[src2].float()
         if mode == "composition":
             self.x1, self.x2 = torch.zeros_like(self.x1), torch.zeros_like(self.x2)
         self.cov1, self.cov2 = s.cov[src1], s.cov[src2]
         self.cls1, self.cls2 = s.cls[safe1], s.cls[h2.clamp(min=0)]   # class ids follow the ORIGINAL geometry
+        if x_transform is not None:
+            self.x1, self.x2 = x_transform(self.x1, self.cls1), x_transform(self.x2, self.cls2)
         self.d1, self.d2 = d1, d2
         self.seed_cls = s.cls[seeds]
 

@@ -1,0 +1,18 @@
+# Phase 6 pretraining feasibility (see model_dev/plans/phase6_pretraining.md)
+seed: 0
+receivers: [myeloid, tumour]
+k1: 12
+k2: 12
+hidden: 128
+emb: 16
+dropout: 0.1
+lr: 0.001
+weight_decay: 0.0001
+batch: 512
+mask_frac: 0.2
+max_epochs: 15
+patience: 3
+cells_per_epoch: 150000
+val_cells: 30000
+ridge_alphas: [0.1, 1.0, 10.0, 100.0, 1000.0]
+n_boot: 2000

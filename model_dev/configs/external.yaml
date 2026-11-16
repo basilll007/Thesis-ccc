@@ -1,0 +1,6 @@
+# Phase 4 external test (see model_dev/plans/phase4_external_test.md) - single touch
+seed: 42
+receivers: [myeloid, tumour]
+seeds: [0, 1, 2]
+n_boot: 2000
+hgb_max_rows: 60000
