@@ -191,6 +191,14 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
     need_shuffle = "shuffled" in modes
     for receiver in cfg["receivers"]:
         s = spec[receiver]
+        done = [C.RESULTS / phase / f"{n}_{tag}_{receiver}.csv" for n in ("results", "compute", "per_tumour_sse")]
+        if all(p.exists() for p in done):   # resume unit: one receiver
+            results += pd.read_csv(done[0]).to_dict("records")
+            compute += pd.read_csv(done[1]).to_dict("records")
+            pairs_store.update(pairs_from_csv(phase, tag, [receiver]))
+            log.info("%s: resumed from %s", receiver, ", ".join(C.rel(p) for p in done))
+            continue
+        n_res0, n_comp0 = len(results), len(compute)
         data = A.build_receiver("development", receiver, log)
         F.assert_no_target_leak(data.feature_set(["own", "tile"]), None, data.Y, set(s["genes"]), set(s["programs"]))
         seed_cov_raw = data.matrix(["own", "tile"])
@@ -252,6 +260,9 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
         pd.DataFrame([{"receiver": k[0], "mode": k[1], "arch": k[2], "lr": k[3], "seed": k[4], "target": k[5], "tumour": g,
                        "sse": v[0], "sst": v[1]} for k, p in pairs_store.items() if k[0] == receiver for g, v in p.items()]
                      ).to_csv(C.RESULTS / phase / f"per_tumour_sse_{tag}_{receiver}.csv", index=False)
+        pd.DataFrame(results[n_res0:]).to_csv(C.RESULTS / phase / f"results_{tag}_{receiver}.csv", index=False)
+        pd.DataFrame(compute[n_comp0:]).to_csv(C.RESULTS / phase / f"compute_{tag}_{receiver}.csv", index=False)
+        del data
     pd.DataFrame(compute).to_csv(C.RESULTS / phase / f"compute_{tag}.csv", index=False)
     return pd.DataFrame(results), pairs_store
 

@@ -1,0 +1,22 @@
+2026-11-16 02:14:16,538 INFO phase=phase2 script=tumour_cache log=model_dev/results/phase2/run_tumour_cache_20261116T021416.log
+2026-11-16 02:14:16,616 INFO git_commit=a38db88d00a3b39a4990e6fa9d5c1f3e8d59d72c+dirty
+2026-11-16 02:14:16,616 INFO seed=42
+2026-11-16 02:14:27,556 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 02:14:27,569 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 02:14:27,582 INFO config={}
+2026-11-16 02:14:28,912 INFO features development T1-b: 5507 receiver cells, 2832 columns
+2026-11-16 02:14:30,787 INFO features development T2-b: 7133 receiver cells, 2832 columns
+2026-11-16 02:14:33,134 INFO features development T3-b: 5900 receiver cells, 2832 columns
+2026-11-16 02:14:36,960 INFO features development T4-a: 5218 receiver cells, 2832 columns
+2026-11-16 02:14:39,750 INFO features development T4-b: 6000 receiver cells, 2832 columns
+2026-11-16 02:14:42,966 INFO features development T5-a: 8000 receiver cells, 2832 columns
+2026-11-16 02:14:43,725 INFO features development T6-b: 222 receiver cells, 2832 columns
+2026-11-16 02:14:45,742 INFO features development U1-b: 4920 receiver cells, 2832 columns
+2026-11-16 02:14:48,323 INFO features development U2-b: 8000 receiver cells, 2832 columns
+2026-11-16 02:14:49,387 INFO features development U3-b: 3646 receiver cells, 2832 columns
+2026-11-16 02:14:52,917 INFO features development U4-a: 8000 receiver cells, 2832 columns
+2026-11-16 02:14:56,219 INFO features development U4-b: 8000 receiver cells, 2832 columns
+2026-11-16 02:15:00,897 INFO features development U5-a: 8000 receiver cells, 2832 columns
+2026-11-16 02:15:07,150 INFO features development U6-a_1: 8000 receiver cells, 2832 columns
+2026-11-16 02:15:12,579 INFO features development U6-a_2: 8000 receiver cells, 2832 columns
+2026-11-16 02:15:17,399 INFO features development U7-a: 8000 receiver cells, 2832 columns

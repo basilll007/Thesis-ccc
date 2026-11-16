@@ -21,3 +21,8 @@ Branch `model-v1`, created 2026-11-16 from origin/main (cfb111c). Rules: never p
 
 ## 2026-11-16 Phase 2: baselines (running)
 - Reproduction check PASSED exactly: delta R2 myeloid C1Q_TAM 0.0299 vs chain 0.0299; SPP1_TAM 0.0561 vs 0.0561; tumour classical 0.1411 vs 0.1411; basal_like 0.0568 vs 0.0568 (|diff| 0.0000, tolerance 0.01; `results/phase2/reproduction_check.csv`).
+
+## 2026-11-16 Phase 3: graph models (first attempt partly failed; resumed)
+- Attempt 1 completed all 60 myeloid runs (2 architectures x 2 learning rates x 3 seeds x 5 folds; per-tumour SSE, curves and checkpoints saved), then failed with `_ArrayMemoryError` while assembling the tumour receiver matrix (246,249 x 2,695 float32) with Phase 2 running in parallel. Failure 1 for this step.
+- Fix: Phase 1 plan Amendment 2 (tumour receiver capped at 8,000 cells per section, seeded; declared before any tumour result; myeloid uncapped). The capped tumour cache (102,546 cells) was built before Phase 2 reached the tumour receiver, so Phase 2 uses the same capped rows.
+- `train.py` now saves results per receiver and resumes per receiver. The myeloid results/compute tables lost in the crash were reconstructed by `src/reconstruct_phase3_myeloid.py` from the saved curves (best val MSE and epochs, cross-checked against the log), the per-tumour SSE file and the run log (wall time, peak VRAM). No model was retrained or re-evaluated for this.
