@@ -181,9 +181,9 @@ def train_one(store, seed_global: np.ndarray, seed_cov: np.ndarray, Y: np.ndarra
 
 def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[float], phase: str, tag: str, log,
                     receivers_modes: dict | None = None) -> tuple[pd.DataFrame, dict]:
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    if device != "cuda":
-        log.warning("CUDA not available: running on CPU (logged)")
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only policy: CUDA not available, refusing to train on CPU")
+    device = "cuda"
     fold_table = A.folds("grouped")
     n_folds = int(fold_table.fold.max()) + 1
     spec = A.targets_spec()
@@ -199,22 +199,16 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
             log.info("%s: resumed from %s", receiver, ", ".join(C.rel(p) for p in done))
             continue
         n_res0, n_comp0 = len(results), len(compute)
-        data = A.build_receiver("development", receiver, log)
+        if not A.section_files("development"):
+            raise RuntimeError("no datasets")
+        if not (C.CACHE / "features" / f"development__{receiver}.npz").exists():
+            A.build_receiver("development", receiver, log)      # build the full cache once if missing
+        data = A.build_receiver("development", receiver, log, blocks=["own", "tile"])
         F.assert_no_target_leak(data.feature_set(["own", "tile"]), None, data.Y, set(s["genes"]), set(s["programs"]))
         seed_cov_raw = data.matrix(["own", "tile"])
         tnames, n_prog = data.target_names, len(s["programs"])
         r_modes = (receivers_modes or {}).get(receiver, modes)
         for seed in cfg["seeds"]:
-            part = [C.RESULTS / phase / "partial" / f"{n}_{tag}_{receiver}_seed{seed}.csv" for n in ("results", "compute", "per_tumour_sse")]
-            if all(p.exists() for p in part):     # resume unit inside a receiver: one seed
-                results += pd.read_csv(part[0]).to_dict("records")
-                compute += pd.read_csv(part[1]).to_dict("records")
-                pt = pd.read_csv(part[2])
-                for r in pt.itertuples(index=False):
-                    pairs_store.setdefault((r.receiver, r.mode, r.arch, float(r.lr), int(r.seed), r.target), {})[str(r.tumour)] = (r.sse, r.sst)
-                log.info("%s seed %d: resumed from partial files", receiver, seed)
-                continue
-            n_res_s, n_comp_s = len(results), len(compute)
             store0, offsets, classes = build_store("development", max(cfg["k1"], cfg["k2"]), device, log,
                                                    shuffle_seed=seed if need_shuffle else None)
             receiver_cls = classes.index(s["class"])
@@ -232,6 +226,16 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                 for mode in r_modes:
                     for arch in archs:
                         for lr in lrs:
+                            run_file = C.RESULTS / phase / "partial" / f"run_{tag}_{receiver}_{mode}_{arch}_lr{lr}_seed{seed}_fold{k}.json"
+                            if run_file.exists():          # resume unit: one training run (checkpoint + result)
+                                rec = json.loads(run_file.read_text())
+                                results += rec["results"]; compute.append(rec["compute"])
+                                for t, pr in rec["pairs"].items():
+                                    key = (receiver, mode, arch, lr, seed, t)
+                                    pairs_store[key] = merge_pairs([pairs_store.get(key, {}), {g: tuple(v) for g, v in pr.items()}])
+                                continue
+                            n_r0 = len(results)
+                            run_pairs: dict = {}
                             t0 = time.time()
                             torch.cuda.reset_peak_memory_stats() if device == "cuda" else None
                             pred, hist, ep, bv, peak, state = train_one(store, seed_global, seed_cov, data.Y, (tr_in, val, test),
@@ -242,6 +246,7 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                                 pairs = sse_sst_by_group(yte[:, j:j + 1], pred[:, j:j + 1], data.group[test], ytr_mean[j:j + 1])
                                 key = (receiver, mode, arch, lr, seed, t)
                                 pairs_store[key] = merge_pairs([pairs_store.get(key, {}), pairs])
+                                run_pairs[t] = pairs
                                 results.append({"receiver": receiver, "mode": mode, "arch": arch, "lr": lr, "seed": seed, "fold": k,
                                                 "target": t, "target_kind": "program" if j < n_prog else "gene",
                                                 "inner_val_mse": bv, "epochs": ep, "test_r2_fold": pooled_r2(pairs)})
@@ -249,6 +254,7 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                                 pairs = sse_sst_by_group(yte[:, n_prog:], pred[:, n_prog:], data.group[test], ytr_mean[n_prog:])
                                 key = (receiver, mode, arch, lr, seed, "genes_pooled")
                                 pairs_store[key] = merge_pairs([pairs_store.get(key, {}), pairs])
+                                run_pairs["genes_pooled"] = pairs
                                 results.append({"receiver": receiver, "mode": mode, "arch": arch, "lr": lr, "seed": seed, "fold": k,
                                                 "target": "genes_pooled", "target_kind": "gene_vector", "inner_val_mse": bv,
                                                 "epochs": ep, "test_r2_fold": pooled_r2(pairs)})
@@ -263,16 +269,12 @@ def run_experiments(cfg: dict, modes: list[str], archs: list[str], lrs: list[flo
                             compute.append({"receiver": receiver, "mode": mode, "arch": arch, "lr": lr, "seed": seed, "fold": k,
                                             "wall_s": time.time() - t0, "epochs": ep, "peak_vram_mib": peak, "device": device,
                                             "n_train": int(tr_in.sum()), "checkpoint": C.rel(ck)})
+                            run_file.parent.mkdir(parents=True, exist_ok=True)
+                            run_file.write_text(json.dumps({"results": results[n_r0:], "compute": compute[-1], "pairs": run_pairs}, default=float))
                             log.info("%s %s %s lr=%g seed=%d fold %d: %d epochs, val mse %.4f, %.0fs, peak %.0f MiB",
                                      receiver, mode, arch, lr, seed, k, ep, bv, time.time() - t0, peak)
             del store0
             torch.cuda.empty_cache() if device == "cuda" else None
-            part[0].parent.mkdir(parents=True, exist_ok=True)
-            pd.DataFrame(results[n_res_s:]).to_csv(part[0], index=False)
-            pd.DataFrame(compute[n_comp_s:]).to_csv(part[1], index=False)
-            pd.DataFrame([{"receiver": k_[0], "mode": k_[1], "arch": k_[2], "lr": k_[3], "seed": k_[4], "target": k_[5], "tumour": g,
-                           "sse": v[0], "sst": v[1]} for k_, p_ in pairs_store.items() if k_[0] == receiver and k_[4] == seed
-                          for g, v in p_.items()]).to_csv(part[2], index=False)
         pd.DataFrame([{"receiver": k[0], "mode": k[1], "arch": k[2], "lr": k[3], "seed": k[4], "target": k[5], "tumour": g,
                        "sse": v[0], "sst": v[1]} for k, p in pairs_store.items() if k[0] == receiver for g, v in p.items()]
                      ).to_csv(C.RESULTS / phase / f"per_tumour_sse_{tag}_{receiver}.csv", index=False)

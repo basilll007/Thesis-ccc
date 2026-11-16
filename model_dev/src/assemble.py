@@ -66,7 +66,9 @@ class ReceiverData:
         return fs
 
 
-def build_receiver(split: str, receiver: str, log=None, use_cache: bool = True) -> ReceiverData:
+def build_receiver(split: str, receiver: str, log=None, use_cache: bool = True, blocks: list[str] | None = None) -> ReceiverData:
+    """Receiver features/targets for a split. `blocks` restricts which feature blocks are loaded from the cache
+    (e.g. ['own', 'tile'] for the graph models), which keeps host RAM small."""
     spec = targets_spec()[receiver]
     classes = all_classes(split)
     cache = C.CACHE / "features" / f"{split}__{receiver}.npz"
@@ -74,7 +76,11 @@ def build_receiver(split: str, receiver: str, log=None, use_cache: bool = True) 
     if use_cache and cache.exists() and meta.exists():
         z = np.load(cache, allow_pickle=False)
         m = json.loads(meta.read_text())
-        X = {b: z[f"X__{b}"] for b in m["blocks"]}
+        wanted = [b for b in m["blocks"] if blocks is None or b in blocks]
+        m["blocks"] = wanted
+        m["names"] = {b: m["names"][b] for b in wanted}
+        m["prov"] = {b: m["prov"][b] for b in wanted}
+        X = {b: z[f"X__{b}"] for b in wanted}
         prov = {b: [F.Provenance(p["source"], frozenset(p["genes"]), frozenset(p["programs"])) for p in m["prov"][b]]
                 for b in m["blocks"]}
         return ReceiverData(X, m["names"], prov, z["Y"], m["target_names"], z["section"], z["group"], z["row"])
