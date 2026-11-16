@@ -439,3 +439,60 @@ results/chain/phase3/n_tests_marker.json,phase3,Number of tests per BH family; r
 figures/chain/phase3/phase3_chain_effects_marker.png,phase3,Per-hop and indirect effects (marker),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
 figures/chain/phase3/phase3_chain_effects_marker.pdf,phase3,Per-hop and indirect effects (marker),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
 logs/chain_chain_phase3_aggregate_marker_20261116T003623_62096.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
+results/chain/phase6/slides/slide1_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:36:59
+results/chain/phase6/slides/slide1_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:36:59
+results/chain/phase6/slides/slide1_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:36:59
+results/chain/phase6/slides/slide2_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:07
+results/chain/phase6/slides/slide2_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:07
+results/chain/phase6/slides/slide2_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:07
+results/chain/phase6/slides/slide3_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:12
+results/chain/phase6/slides/slide3_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:12
+results/chain/phase6/slides/slide3_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:12
+results/chain/phase6/slides/slide4_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:19
+results/chain/phase6/slides/slide4_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:19
+results/chain/phase6/slides/slide4_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:19
+results/chain/phase6/slides/slide5_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:24
+results/chain/phase6/slides/slide5_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:24
+results/chain/phase6/slides/slide5_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:24
+results/chain/phase6/slides/slide5b2_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:29
+results/chain/phase6/slides/slide5b2_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:29
+results/chain/phase6/slides/slide5b2_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:29
+results/chain/phase6/slides/slide5b3_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:31
+results/chain/phase6/slides/slide5b3_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:31
+results/chain/phase6/slides/slide5b3_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:31
+results/chain/phase6/slides/slide6_background_typeaware.csv,phase6,GSE310352 per-slide background_typeaware.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/slides/slide6_controls.csv,phase6,GSE310352 per-slide controls.csv,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/slides/slide6_info.json,phase6,GSE310352 per-slide info.json,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/slide_info.csv,phase6,"GSE310352 slide sizes, NN scaling, tile sizes (um/px UNVERIFIED)",src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/gene_background_typeaware_flags.csv,phase6,GSE310352 type-aware background per gene,src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/program_measurement_consistency.csv,phase6,Programs with >= 5 usable genes in GSE310352 (Mendeley lists unchanged),src/chain/chain_phase6_gse310352.py,2026-11-16T00:37:38
+results/chain/phase6/phase2_repeat_per_unit_sse.csv,phase6,GSE310352 leave-one-unit-out SSE/SST,src/chain/chain_phase6_gse310352.py,2026-11-16T00:39:53
+results/chain/phase6/phase2_repeat_delta_r2.csv,phase6,GSE310352 delta R2 (unit bootstrap) vs Mendeley marker-label delta R2,src/chain/chain_phase6_gse310352.py,2026-11-16T00:39:53
+results/chain/phase6/floor_by_slide_chain.csv,phase6,GSE310352 floor per slide x chain (marker labels),src/chain/chain_phase6_gse310352.py,2026-11-16T00:39:53
+results/chain/phase6/sections/slide5.npz,phase6,GSE310352 slide5: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide5.py,2026-11-16T00:41:00
+logs/chain_chain_phase6_slide_slide5_20261116T003954_18848.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide5.py,2026-11-16T00:41:00
+results/chain/phase6/sections/slide5b2.npz,phase6,GSE310352 slide5b2: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide5b2.py,2026-11-16T00:41:20
+logs/chain_chain_phase6_slide_slide5b2_20261116T003954_12436.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide5b2.py,2026-11-16T00:41:20
+results/chain/phase6/sections/slide3.npz,phase6,GSE310352 slide3: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide3.py,2026-11-16T00:41:25
+logs/chain_chain_phase6_slide_slide3_20261116T003954_38732.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide3.py,2026-11-16T00:41:25
+results/chain/phase6/sections/slide4.npz,phase6,GSE310352 slide4: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide4.py,2026-11-16T00:41:26
+logs/chain_chain_phase6_slide_slide4_20261116T003954_18744.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide4.py,2026-11-16T00:41:26
+results/chain/phase6/sections/slide5b3.npz,phase6,GSE310352 slide5b3: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide5b3.py,2026-11-16T00:41:38
+logs/chain_chain_phase6_slide_slide5b3_20261116T004100_18848.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide5b3.py,2026-11-16T00:41:38
+results/chain/phase6/sections/slide2.npz,phase6,GSE310352 slide2: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide2.py,2026-11-16T00:42:01
+logs/chain_chain_phase6_slide_slide2_20261116T003954_20980.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide2.py,2026-11-16T00:42:01
+results/chain/phase6/sections/slide1.npz,phase6,GSE310352 slide1: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide1.py,2026-11-16T00:42:03
+logs/chain_chain_phase6_slide_slide1_20261116T003954_16700.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide1.py,2026-11-16T00:42:03
+results/chain/phase6/sections/slide6.npz,phase6,GSE310352 slide6: observed chain stats + 100 expression/label null replicates,src/chain/chain_phase6_slide_slide6.py,2026-11-16T00:42:48
+logs/chain_chain_phase6_slide_slide6_20261116T004120_12436.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_slide_slide6.py,2026-11-16T00:42:48
+results/chain/phase6/phase3_repeat_unit_level.csv,phase6,"GSE310352 unit-level chain stats (100-perm add-one p), same-direction vs Mendeley",src/chain/chain_phase6_gse310352.py,2026-11-16T00:42:48
+figures/chain/phase6/phase6_consistency.png,phase6,GSE310352 consistency of Phase 2 gains and Phase 3 chain effects,src/chain/chain_phase6_gse310352.py,2026-11-16T00:42:49
+figures/chain/phase6/phase6_consistency.pdf,phase6,GSE310352 consistency of Phase 2 gains and Phase 3 chain effects,src/chain/chain_phase6_gse310352.py,2026-11-16T00:42:49
+results/chain/phase6/phase6_summary.json,phase6,Phase 6 key numbers,src/chain/chain_phase6_gse310352.py,2026-11-16T00:42:49
+logs/chain_chain_phase6_gse310352_20261116T003644_21056.log,phase6,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase6_gse310352.py,2026-11-16T00:42:49
+results/chain/phase7/key_numbers.csv,phase7,Key numbers with source files,src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:34
+results/chain/phase7/claims_register.csv,phase7,Claims register (status per pre-declared rules),src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:34
+results/chain/phase7/manifest_check.csv,phase7,"Manifest completeness check (results/chain, figures/chain)",src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:34
+figures/chain/phase7/phase7_overview.png,phase7,"Overview: Phase 2 gains, Phase 3 tests, Phase 4 power",src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:35
+figures/chain/phase7/phase7_overview.pdf,phase7,"Overview: Phase 2 gains, Phase 3 tests, Phase 4 power",src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:35
+logs/chain_chain_phase7_synthesis_20261116T004333_49064.log,phase7,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase7_synthesis.py,2026-11-16T00:43:35

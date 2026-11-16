@@ -99,3 +99,13 @@ This extends the spatial CCC audit to pancreatic ductal adenocarcinoma, using th
 - Code: `src/pdac/` (run logs in `logs/<script>_<timestamp>.log`; figures in `figures/pdac/<phase>/`)
 
 Data are not committed. Download `raw_meta_data_final.h5ad` from the Mendeley dataset page into `data/pdac/mendeley_pdac_smi/`. COMMOT and SpatialDM were run in a separate conda env, `pdac-bench`: a clone of `thesis-spatial-ccc` plus `commot` 0.0.3 and `SpatialDM` 0.3.1, with numpy pinned below 2.
+
+## Chain extension (branch `chain-v1`)
+Summary: [`docs/CHAIN_SUMMARY_v1.md`](docs/CHAIN_SUMMARY_v1.md). Plans (committed before computing): `docs/chain_plans/`. Log: `docs/CHAIN_PROGRESS_LOG.md`. Code: `src/chain/`. Results: `results/chain/` (manifest `results/chain/MANIFEST.csv`). Figures: `figures/chain/`.
+
+Question: do neighbours predict a cell's expression-program state beyond its own type, and is there support for A -> B -> C chains (e.g. tumour -> CAF -> T cell) within a simulation-calibrated range? Answer from the generated files:
+- Neighbourhood features improve held-out prediction for 6/7 programs (e.g. tumour classical ridge delta R2 0.141 [0.105, 0.164]). The gain comes from same-type neighbours and composition; other cell types' programs add <= 0.0005.
+- All 44 chain x program tests are "not supported" (author and marker labels). The calibration shows the chain test cannot detect planted 1.1x-2x chains (power <= 0.04), so no calibrated range exists.
+- Ranked candidate list: [`results/chain/ranked_hypotheses.csv`](results/chain/ranked_hypotheses.csv) (de-duplicated: `ranked_hypotheses_dedup.csv`). 0/88 hops supported, so all rows are unranked candidates, not evidence.
+- Claims register: [`results/chain/phase7/claims_register.csv`](results/chain/phase7/claims_register.csv).
+- Run order (env `thesis-spatial-ccc`): `chain_phase1_cell_states.py` (then `--amendment1`), `chain_phase2_neighbourhood.py`, `chain_phase2b_gnn.py`, `chain_phase4_simulation.py`, `chain_phase3_chain_test.py` (`--annotation marker` for the sensitivity analysis), `chain_phase5_candidates.py`, `chain_phase5b_dedup.py`, `chain_phase6_gse310352.py`, `chain_phase7_synthesis.py`.

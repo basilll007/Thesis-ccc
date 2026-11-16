@@ -1,0 +1,40 @@
+{
+  "slide": "slide6",
+  "unit": "slide6",
+  "n_cells": 88543,
+  "median_nn_px": 40.311288741492746,
+  "px_per_mendeley_um_equivalent": 4.419133042524463,
+  "tile_px": 883.8266085048925,
+  "radius_px": 132.57399127573387,
+  "um_per_px": "UNVERIFIED",
+  "label_counts": {
+    "B_plasma": 1348,
+    "CAF_fibroblast": 35088,
+    "T_cell": 1479,
+    "acinar": 2671,
+    "endocrine": 655,
+    "endothelial": 2443,
+    "epithelial_ductal_tumor": 28615,
+    "mast": 1472,
+    "myeloid": 10438,
+    "pericyte_smc": 4334
+  },
+  "program_genes_present": {
+    "tumour:classical": 8,
+    "tumour:basal_like": 10,
+    "CAF:myCAF": 8,
+    "CAF:CXCL12": 1,
+    "T:cytotoxic": 9,
+    "myeloid:C1Q_TAM": 6,
+    "myeloid:SPP1_TAM": 5
+  },
+  "program_genes_missing_from_panel": {
+    "tumour:classical": [],
+    "tumour:basal_like": [],
+    "CAF:myCAF": [],
+    "CAF:CXCL12": [],
+    "T:cytotoxic": [],
+    "myeloid:C1Q_TAM": [],
+    "myeloid:SPP1_TAM": []
+  }
+}

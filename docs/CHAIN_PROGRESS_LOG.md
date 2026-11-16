@@ -90,3 +90,27 @@ Interpretation logged at the start: the brief's "use author labels as primary an
 - The plan was committed in 7c3a6fc. Scripts: src/chain/chain_phase5_candidates.py and chain_phase5b_dedup.py.
 - 0 of 88 hops meet the support rule (q_expr < 0.05 and p_label < 0.05).
 - results/chain/ranked_hypotheses.csv has 516 rows. Each hop is repeated per program context, so results/chain/ranked_hypotheses_dedup.csv is provided with 270 unique hop x ligand-receptor rows. All rows are "hop not supported" and unranked (rank = NA), with calibration status "outside calibrated range".
+
+## 2026-11-16 Phase 3 marker-label sensitivity (DONE)
+- 44/44 not supported. Under marker labels only, single hops between CAF (myCAF/CXCL12) and myeloid C1Q_TAM pass both nulls in both directions (10 forward hop rows; see all_variant_calls_marker.csv). No chain criterion 3 is met.
+
+## 2026-11-16 Phase 6: GSE310352 consistency (DONE)
+- The plan was committed in 7c3a6fc. Script: src/chain/chain_phase6_gse310352.py. Setup: 8 slides in 6 units (slide5 grouping UNVERIFIED); marker labels; tiles scaled by nearest-neighbour distance (Mendeley median NN 9.12 um, so 200 um is about 21.9 NN); 100 permutations per null (logged reduction). All 7 programs keep their genes above type-aware background.
+- **Phase 2 repeat:** 14/14 model x program delta R2 values have the same sign as Mendeley; 12/14 CIs exclude 0.
+- **Phase 3 repeat:** all 6 chains analysed. Same-direction rates: B<-A 0.61, C<-B 0.59, indirect 0.45. The hop CXCL12-CAF <- basal-like tumour is -0.030 [-0.047, -0.017], with p = 0.0099 under both nulls.
+
+## 2026-11-16 Phase 7: synthesis (DONE)
+- The plan was committed in 00c98c5. Script: src/chain/chain_phase7_synthesis.py. Outputs: claims_register.csv (14 claims), key_numbers.csv, manifest_check.csv (0 issues), and the overview figure. Also written: docs/CHAIN_SUMMARY_v1.md and a README section.
+- Push status: the push of commit 49ada7e failed twice ("remote end hung up" with an ~84 MB results pack). The smaller commit 0a4d617 pushed fine. Logged; work continued locally, with a final retry at the end.
+- C: drive note: during the run the system drive C: had 0.10 GB free. Nothing was deleted. Temp files for these scripts were redirected to data/chain_cache/tmp on F:.
+
+## Checklist
+- Phase 0 related work: DONE.
+- Phase 1 cell states: DONE (with Amendment 1, a logged deviation).
+- Phase 2 neighbourhood prediction: DONE (GNN rule triggered; SGC fitted; leakage bug fixed).
+- Phase 3 chain test: DONE (author labels plus marker sensitivity; 44/44 not supported).
+- Phase 4 calibration: DONE (no trustworthy setting; calibrated range empty).
+- Phase 5 candidate signals: DONE (0/88 hops supported; candidates unranked).
+- Phase 6 GSE310352 consistency: DONE.
+- Phase 7 synthesis: DONE.
+- BLOCKED: none. Failures: Phase 4 T4-a MemoryError (failure 1, resolved on rerun); git push of the large results commit (logged).

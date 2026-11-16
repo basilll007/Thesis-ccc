@@ -1,0 +1,8 @@
+program,n_genes_mendeley,n_usable_gse,measurement_consistent
+tumour:classical,8,8,True
+tumour:basal_like,10,8,True
+CAF:myCAF,8,8,True
+CAF:CXCL12,1,1,True
+T:cytotoxic,9,9,True
+myeloid:C1Q_TAM,6,6,True
+myeloid:SPP1_TAM,5,5,True

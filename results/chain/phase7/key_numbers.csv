@@ -1,0 +1,47 @@
+name,value,source
+n_background_level_genes_sectionwide,630,results/chain/phase1/phase1_summary.json
+programs_kept_original_rule,tumour:classical;tumour:basal_like;tumour:EMT;CAF:myCAF;CAF:CXCL12;myeloid:SPP1_TAM,results/chain/phase1/phase1_summary.json
+programs_kept_amendment1,tumour:classical;tumour:basal_like;CAF:myCAF;CAF:CXCL12;T:cytotoxic;myeloid:C1Q_TAM;myeloid:SPP1_TAM,results/chain/phase1b/phase1_summary.json
+programs_dropped_amendment1,tumour:EMT;CAF:iCAF;T:exhaustion;myeloid:inflammatory,results/chain/phase1b/phase1_summary.json
+validity_auc_classical_vs_basal_median,0.858,results/chain/phase1b/validity_auc.csv
+primary_chain_sections_pass,14,results/chain/phase1b/chain_selection.csv
+primary_chain_tumours_pass,11,results/chain/phase1b/chain_selection.csv
+delta_r2_CAF:CXCL12_ridge,"0.0085 [0.0027, 0.0147]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_CAF:CXCL12_hgb,"0.0146 [0.0042, 0.0248]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_CAF:myCAF_ridge,"0.0341 [0.0208, 0.0454]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_CAF:myCAF_hgb,"0.0387 [0.0268, 0.0484]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_T:cytotoxic_ridge,"0.0005 [-0.0027, 0.0046]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_T:cytotoxic_hgb,"0.0057 [-0.0016, 0.0087]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_myeloid:C1Q_TAM_ridge,"0.0299 [0.0160, 0.0445]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_myeloid:C1Q_TAM_hgb,"0.0378 [0.0231, 0.0570]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_myeloid:SPP1_TAM_ridge,"0.0561 [0.0417, 0.0650]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_myeloid:SPP1_TAM_hgb,"0.0681 [0.0544, 0.0769]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_tumour:basal_like_ridge,"0.0568 [0.0335, 0.0737]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_tumour:basal_like_hgb,"0.0600 [0.0379, 0.0777]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_tumour:classical_ridge,"0.1411 [0.1052, 0.1640]",results/chain/phase2/delta_r2_by_program.csv
+delta_r2_tumour:classical_hgb,"0.1514 [0.1164, 0.1726]",results/chain/phase2/delta_r2_by_program.csv
+max_drop_group_delta_r2_other_type_programs,0.0005,results/chain/phase2/feature_group_attribution.csv
+drop_group_same_type_range,0.0030-0.1172,results/chain/phase2/feature_group_attribution.csv
+phase3_forward_combinations,44,results/chain/phase3/chain_calls_author_mapped.csv
+phase3_labels_author,"{""not supported"": 44}",results/chain/phase3/chain_calls_author_mapped.csv
+phase3_labels_marker,"{""not supported"": 44}",results/chain/phase3/chain_calls_marker.csv
+phase3_min_q_expr_beta_BA,0.0498,results/chain/phase3/tumour_level_tests_author_mapped.csv
+phase3_min_q_expr_beta_CB,0.0547,results/chain/phase3/tumour_level_tests_author_mapped.csv
+phase3_min_q_expr_indirect,0.1095,results/chain/phase3/tumour_level_tests_author_mapped.csv
+primary_beta_CB_range,0.0031 to 0.0098,results/chain/phase3/tumour_level_tests_author_mapped.csv
+primary_indirect_range,-0.0082 to 0.0079,results/chain/phase3/tumour_level_tests_author_mapped.csv
+hop_CXCL12CAF_from_basal_tumour,"-0.0283 [-0.0385, -0.0181]; 0/11 tumours positive; p_expr 0.0050; q 0.0498; p_label 1.0000",results/chain/phase3/tumour_level_tests_author_mapped.csv
+label_null_mean_range_hops,-0.243 to 0.017,results/chain/phase3/tumour_level_tests_author_mapped.csv
+marker_forward_hops_passing_both_nulls,10,results/chain/phase3/all_variant_calls_marker.csv
+max_chain_call_power_any_section_fold,0.04,results/chain/phase4/calibration_table.csv
+pooled_chain_power_by_fold,"{""1.1"": 0.0, ""1.25"": 0.0, ""1.5"": 0.0, ""2.0"": 0.0}",results/chain/phase4/calibration_pooled_3sections.csv
+T4a_zonation2_hop_rates,C<-B 1.00; B<-A 0.97; chain 0.05,results/chain/phase4/calibration_table.csv
+trustworthy_setting_found,False,results/chain/phase4/calibrated_range.json
+phase5_hops_supported,0/88,results/chain/phase5/phase5_summary.json
+ranked_hypotheses_dedup_rows,270,results/chain/ranked_hypotheses_dedup.csv
+phase6_chains_analysed,CAF->myeloid->tumour;CAF->tumour->myeloid;myeloid->CAF->tumour;myeloid->tumour->CAF;tumour->CAF->T;tumour->CAF->myeloid,results/chain/phase6/phase6_summary.json
+phase6_same_direction_rate_beta_BA,0.614,results/chain/phase6/phase6_summary.json
+phase6_same_direction_rate_beta_CB,0.591,results/chain/phase6/phase6_summary.json
+phase6_same_direction_rate_indirect,0.455,results/chain/phase6/phase6_summary.json
+phase6_phase2_same_direction_ridge,7/7,results/chain/phase6/phase2_repeat_delta_r2.csv
+phase6_phase2_ci_excl0_ridge,5/7,results/chain/phase6/phase2_repeat_delta_r2.csv

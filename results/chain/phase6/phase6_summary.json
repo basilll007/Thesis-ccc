@@ -1,0 +1,131 @@
+{
+  "chains_analysed": [
+    "CAF->myeloid->tumour",
+    "CAF->tumour->myeloid",
+    "myeloid->CAF->tumour",
+    "myeloid->tumour->CAF",
+    "tumour->CAF->T",
+    "tumour->CAF->myeloid"
+  ],
+  "chains_not_analysed": [],
+  "phase2_same_direction": [
+    {
+      "program": "CAF:CXCL12",
+      "model": "hgb",
+      "delta_r2": 0.024601937056519335,
+      "ci_low": 0.011699858865834746,
+      "ci_high": 0.058858134118181436,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "CAF:CXCL12",
+      "model": "ridge",
+      "delta_r2": 0.003631563185951563,
+      "ci_low": -0.001101299949267036,
+      "ci_high": 0.006811450671122856,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "CAF:myCAF",
+      "model": "hgb",
+      "delta_r2": 0.04764314725383466,
+      "ci_low": 0.035614072281473896,
+      "ci_high": 0.061291205265599294,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "CAF:myCAF",
+      "model": "ridge",
+      "delta_r2": 0.030133586725842182,
+      "ci_low": 0.01706704470499743,
+      "ci_high": 0.03782749531732663,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "T:cytotoxic",
+      "model": "hgb",
+      "delta_r2": 0.027301613663834292,
+      "ci_low": 0.018312520384842657,
+      "ci_high": 0.03219801404236438,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "T:cytotoxic",
+      "model": "ridge",
+      "delta_r2": 0.0033398503175938203,
+      "ci_low": -0.004673518346590783,
+      "ci_high": 0.007570390509057958,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "myeloid:C1Q_TAM",
+      "model": "hgb",
+      "delta_r2": 0.0780257304477673,
+      "ci_low": 0.04967255729528672,
+      "ci_high": 0.11732920106409536,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "myeloid:C1Q_TAM",
+      "model": "ridge",
+      "delta_r2": 0.051727690332449255,
+      "ci_low": 0.032566782271466234,
+      "ci_high": 0.07218421753474523,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "myeloid:SPP1_TAM",
+      "model": "hgb",
+      "delta_r2": 0.04924423727629247,
+      "ci_low": 0.03389259706337011,
+      "ci_high": 0.0628844041234626,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "myeloid:SPP1_TAM",
+      "model": "ridge",
+      "delta_r2": 0.031960507926913385,
+      "ci_low": 0.0018731019353970884,
+      "ci_high": 0.051968340135098545,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "tumour:basal_like",
+      "model": "hgb",
+      "delta_r2": 0.041366100089192434,
+      "ci_low": 0.03059904793957676,
+      "ci_high": 0.05243206914499446,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "tumour:basal_like",
+      "model": "ridge",
+      "delta_r2": 0.03243042837042072,
+      "ci_low": 0.019844517464409808,
+      "ci_high": 0.04625529706019802,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "tumour:classical",
+      "model": "hgb",
+      "delta_r2": 0.1049874335268554,
+      "ci_low": 0.08079632269902842,
+      "ci_high": 0.1477812163353114,
+      "same_direction_as_mendeley": true
+    },
+    {
+      "program": "tumour:classical",
+      "model": "ridge",
+      "delta_r2": 0.10408084108707445,
+      "ci_low": 0.083575986633198,
+      "ci_high": 0.12725845352851015,
+      "same_direction_as_mendeley": true
+    }
+  ],
+  "phase3_same_direction_rate": {
+    "beta_BA": 0.6136363636363636,
+    "beta_CB": 0.5909090909090909,
+    "indirect": 0.45454545454545453
+  },
+  "independence": "UNVERIFIED (consistency check, not replication)"
+}
