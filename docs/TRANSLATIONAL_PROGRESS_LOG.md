@@ -7,3 +7,7 @@ Created translational-v1 worktree from origin/thesis-v3 at 8021098. Original wor
 ## Acquisition
 
 Source downloads and access blocks: results/translational/acquisition/20261116T035450398108Z/downloads.csv. Native Git LFS media endpoints are used only when a successfully read raw pointer specifies the exact expected SHA-256; no denied endpoint is bypassed.
+
+## Phase 1 DONE
+
+NOT ROBUST. Failed checks: ['b_tumour_host', 'c_2000_UMI']. Source: results/translational/phase1/20261116T040752758116Z/summary.json. Baseline aggregate/test and every raw slide reproduced. Random signature tail p=0.00999000999000999.
