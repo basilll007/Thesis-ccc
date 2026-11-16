@@ -1,0 +1,26 @@
+{
+  "n_mendeley_base": 960,
+  "n_gse310352": 970,
+  "n_intersection": 960,
+  "mendeley_only": [],
+  "gse_only": [
+    "CEACAM5",
+    "FERMT1",
+    "LGALS4",
+    "LOX",
+    "NT5E",
+    "SLC5A3",
+    "TFF1",
+    "TFF3",
+    "TNS4",
+    "TSPAN8"
+  ],
+  "n_model_gene_set_G": 539,
+  "G_subset_of_intersection": true,
+  "usable_per_type": {
+    "tumour": 327,
+    "CAF": 272,
+    "T": 301,
+    "myeloid": 323
+  }
+}

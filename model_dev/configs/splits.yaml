@@ -1,0 +1,11 @@
+# Phase 1 targets and splits (see model_dev/plans/phase1_targets_and_splits.md)
+seed: 42
+n_folds: 5
+floor_cells_per_fold: 500
+floor_tumours_per_fold: 2
+programs: results/chain/phase1b/programs_used.json
+primary_receiver: myeloid
+receivers:
+  myeloid: {class: myeloid, role: primary, programs: ["myeloid:C1Q_TAM", "myeloid:SPP1_TAM"]}
+  tumour: {class: epithelial_ductal_tumor, role: positive control, programs: ["tumour:classical", "tumour:basal_like"]}
+primary_endpoint: "pooled held-out R2 for myeloid:C1Q_TAM (program score), grouped 5-fold; neighbourhood gain = R2(model) - R2(own-covariates) with tumour-bootstrap 95% CI"

@@ -1,0 +1,21 @@
+# Phase 0 data build (see model_dev/plans/phase0_setup_and_data.md)
+seed: 42
+cache_dir: model_cache/datasets          # relative to repo root; git-ignored
+gene_flags: results/chain/phase1b/gene_background_typeaware_flags.csv
+programs: results/chain/phase1b/programs_used.json
+chain_cache_mendeley: data/chain_cache/mendeley_v1b   # used only to assert the program scores reproduce
+typed_classes: {tumour: epithelial_ductal_tumor, CAF: CAF_fibroblast, T: T_cell, myeloid: myeloid}
+knn_k: 6
+radius_um: 30.0
+tile_um: 200.0
+mendeley_median_nn_um: 9.12   # results/chain/phase1b/phase1_summary.json (median of section medians)
+development:
+  dataset: mendeley_pdac_smi
+  label_column: author_mapped
+  label_dir: results/pdac/phaseB/sections
+external:
+  dataset: geo_gse310352
+  slides: [slide1, slide2, slide3, slide4, slide5, slide5b2, slide5b3, slide6]
+  label_file_pattern: results/pdac/v3_phase4/slides/{slide}_labels.csv.gz
+  label_column: marker
+  units: {slide5: slide5_group, slide5b2: slide5_group, slide5b3: slide5_group}   # UNVERIFIED grouping
