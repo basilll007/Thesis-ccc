@@ -60,3 +60,23 @@ Source note: these lists were written from recall of the PDAC subtype, CAF-subty
 ## Decision rules
 - Programs with < 5 usable genes: dropped (CXCL12 readout excepted, as stated).
 - Sections failing the floor for a chain: excluded from that chain's Phase 3 test. This is reported, not hidden.
+
+## Amendment 1 (2026-11-15, logged deviation; written and committed after the section-wide flags were seen, before any Phase 2-4 outcome)
+**What was seen.** Under the section-wide rule (section 1), every T-cell program gene was flagged, which left cytotoxic and exhaustion with 0 usable genes. iCAF kept 2 genes, myeloid inflammatory 1 and C1Q_TAM 3. Even the lineage gene CD3D is near background in 16/16 sections. The cause is structural: the maximum negative-probe detection rate is about 0.04-0.10 per section, so the rule requires a gene to be detected in >= 8-20 % of *all* cells. A gene specific to a type that makes up about 1.5 % of cells (T cells) cannot pass even when detection within the type is high. The rule therefore removes rare-type programs by construction, regardless of signal quality.
+
+**Amended, type-aware rule (pre-declared here, before computing it).**
+- Scope: a section is eligible for type t if it has >= 50 cells of type t (author_mapped).
+- For each eligible section, compute:
+  - det_t(g), the fraction of type-t cells with count > 0 for gene g;
+  - neg_t, the maximum over the 19 negative probes of their detection rate among the same type-t cells, which controls for the size and depth of those cells.
+- The gene is near background for t in that section if det_t(g) < 2 x neg_t.
+- Gene g is usable in a program (or lineage set) of type t if it is near background in < 50 % of eligible sections (the analogue of ">= 8 of 16").
+- The >= 5-gene rule and the CXCL12 exemption are unchanged.
+
+**How both versions are reported.**
+- The original-rule result is kept unchanged as the primary record: results/chain/phase1/ and data/chain_cache/mendeley/. Under it, every chain containing T cells is "not testable (no T-cell program above section-wide background)".
+- The amended outputs go to results/chain/phase1b/ and data/chain_cache/mendeley_v1b/ (new names; nothing is overwritten).
+- Phases 2-4 use the amended programs.
+- Every chain call carries the flag "uses Amendment 1 (type-aware background rule)".
+- Where a program is identical under both rules, the original-rule conclusion is the same and this is stated.
+- Chain selection (section 6) uses counts only and is unchanged by the amendment.
