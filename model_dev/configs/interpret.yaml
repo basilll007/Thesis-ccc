@@ -1,0 +1,4 @@
+# Phase 5 interpretation (gated; see model_dev/plans/phase5_interpretation.md)
+seed: 42
+n_boot: 2000
+quantiles: [0.1, 0.9]
