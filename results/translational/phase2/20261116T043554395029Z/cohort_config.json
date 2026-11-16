@@ -1,0 +1,38 @@
+[
+  {
+    "cohort": "TCGA_all_primary",
+    "dataset": "TCGA",
+    "clinical_table": "results/translational/phase2/20261116T043554395029Z/TCGA_all_primary_patients.csv",
+    "expression_file": "F:\\Thesis\\data\\tcga\\paad_pancan\\lfs\\data_mrna_seq_v2_rsem.txt",
+    "expression_sha256": "d67ebbc954d6137b7dc6c5b31388b38899656a8b6be30cf817e269586afe4bb0",
+    "expression_scale": "linear_RSEM_log2p1",
+    "strict": false
+  },
+  {
+    "cohort": "TCGA_confirmed_PDAC",
+    "dataset": "TCGA",
+    "clinical_table": "results/translational/phase2/20261116T043554395029Z/TCGA_confirmed_PDAC_patients.csv",
+    "expression_file": "F:\\Thesis\\data\\tcga\\paad_pancan\\lfs\\data_mrna_seq_v2_rsem.txt",
+    "expression_sha256": "d67ebbc954d6137b7dc6c5b31388b38899656a8b6be30cf817e269586afe4bb0",
+    "expression_scale": "linear_RSEM_log2p1",
+    "strict": true
+  },
+  {
+    "cohort": "CPTAC_all_primary",
+    "dataset": "CPTAC",
+    "clinical_table": "results/translational/phase2/20261116T043554395029Z/CPTAC_all_primary_patients.csv",
+    "expression_file": "F:\\Thesis\\data\\tcga\\paad_cptac\\lfs\\data_mrna_seq_v2_rsem.txt",
+    "expression_sha256": "a178c9b12c13ebec1742874ddaccf8a8290e8918e7d4263b410921ae4cf604c5",
+    "expression_scale": "already_log2_RSEM_UQ",
+    "strict": false
+  },
+  {
+    "cohort": "CPTAC_confirmed_PDAC",
+    "dataset": "CPTAC",
+    "clinical_table": "results/translational/phase2/20261116T043554395029Z/CPTAC_confirmed_PDAC_patients.csv",
+    "expression_file": "F:\\Thesis\\data\\tcga\\paad_cptac\\lfs\\data_mrna_seq_v2_rsem.txt",
+    "expression_sha256": "a178c9b12c13ebec1742874ddaccf8a8290e8918e7d4263b410921ae4cf604c5",
+    "expression_scale": "already_log2_RSEM_UQ",
+    "strict": true
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "status": "DONE",
+  "n_datasets": 2,
+  "cohorts": [
+    {
+      "cohort": "TCGA_all_primary",
+      "n_patients": 176,
+      "n_events": 92,
+      "n_censored": 84,
+      "median_observed_time_months": 15.271065525000001,
+      "reverse_KM_median_followup_months": 24.22987145,
+      "n_with_purity": 157,
+      "n_source_patients": 184,
+      "n_expression_samples": 177
+    },
+    {
+      "cohort": "TCGA_confirmed_PDAC",
+      "n_patients": 141,
+      "n_events": 81,
+      "n_censored": 60,
+      "median_observed_time_months": 15.12312194,
+      "reverse_KM_median_followup_months": 24.22987145,
+      "n_with_purity": 122,
+      "n_source_patients": 184,
+      "n_expression_samples": 177
+    },
+    {
+      "cohort": "CPTAC_all_primary",
+      "n_patients": 134,
+      "n_events": 76,
+      "n_censored": 58,
+      "median_observed_time_months": 13.125256673511293,
+      "reverse_KM_median_followup_months": 23.523613963039015,
+      "n_with_purity": 132,
+      "n_source_patients": 140,
+      "n_expression_samples": 140
+    },
+    {
+      "cohort": "CPTAC_confirmed_PDAC",
+      "n_patients": 129,
+      "n_events": 72,
+      "n_censored": 57,
+      "median_observed_time_months": 13.1088295687885,
+      "reverse_KM_median_followup_months": 23.523613963039015,
+      "n_with_purity": 127,
+      "n_source_patients": 140,
+      "n_expression_samples": 140
+    }
+  ],
+  "config": "results/translational/phase2/20261116T043554395029Z/cohort_config.json",
+  "figure": [
+    "figures/translational/phase2/cohort_vetting_20261116T043555103397Z.png",
+    "figures/translational/phase2/cohort_vetting_20261116T043555103397Z.pdf"
+  ],
+  "curated_TCGA_supplement": "BLOCKED (CAPTCHA); clinical histology fallback used",
+  "CPTAC_limitations": [
+    "Pathology cellularity differs from ABSOLUTE; percent scale inferred",
+    "FOLLOW_UP_DAYS and vital status used for OS; source paper 30-day exclusion not applied",
+    "Treatment and grade not modelled"
+  ]
+}
