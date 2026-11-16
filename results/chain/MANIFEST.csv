@@ -1,1 +1,226 @@
 path,phase,description,script,registered_at
+results/chain/phase1/gene_background_by_section.csv,phase1,Per section x panel gene: detection rate vs 2x max negative-probe detection (near_background),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:53
+results/chain/phase1/gene_background_flags.csv,phase1,Per panel gene: sections near background; background_level if >= 8/16,src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:53
+results/chain/phase1/program_genes_used.csv,phase1,"Declared program genes: panel, background-level, used, kept",src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:53
+results/chain/phase1/programs_used.json,phase1,Programs actually scored,src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:53
+results/chain/phase1/sections/T1-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T1-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T1-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T1-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T1-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T1-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:41:58
+results/chain/phase1/sections/T2-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T2-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T2-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T2-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T2-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T2-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:02
+results/chain/phase1/sections/T3-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T3-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T3-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T3-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T3-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T3-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:07
+results/chain/phase1/sections/T4-a_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-a_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-a_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-a_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-a_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-a_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:12
+results/chain/phase1/sections/T4-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T4-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T4-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T4-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T4-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T4-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:17
+results/chain/phase1/sections/T5-a_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T5-a_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T5-a_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T5-a_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T5-a_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T5-a_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:21
+results/chain/phase1/sections/T6-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/T6-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/T6-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/T6-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/T6-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/T6-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:25
+results/chain/phase1/sections/U1-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U1-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U1-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U1-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U1-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U1-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:29
+results/chain/phase1/sections/U2-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U2-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U2-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U2-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U2-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U2-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:33
+results/chain/phase1/sections/U3-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U3-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U3-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U3-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U3-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U3-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:37
+results/chain/phase1/sections/U4-a_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-a_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-a_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-a_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-a_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-a_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:42
+results/chain/phase1/sections/U4-b_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U4-b_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U4-b_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U4-b_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U4-b_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U4-b_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:47
+results/chain/phase1/sections/U5-a_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U5-a_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U5-a_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U5-a_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U5-a_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U5-a_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:42:54
+results/chain/phase1/sections/U6-a_1_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_1_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_1_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_1_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_1_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_1_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:00
+results/chain/phase1/sections/U6-a_2_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U6-a_2_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U6-a_2_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U6-a_2_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U6-a_2_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U6-a_2_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:07
+results/chain/phase1/sections/U7-a_controls.csv,phase1,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/sections/U7-a_distribution.csv,phase1,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/sections/U7-a_edges.csv,phase1,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/sections/U7-a_validity.csv,phase1,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/sections/U7-a_counts.csv,phase1,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/sections/U7-a_info.json,phase1,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/cell_counts_by_section.csv,phase1,"Cell counts per type per section (author_mapped, marker)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/program_distribution_by_section.csv,phase1,"Program score distribution among own-type cells per section (scanpy-style score, log1p CP10k)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/type_edge_counts_by_section.csv,phase1,Undirected symmetrised-6NN edges per type pair,src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/validity_auc.csv,phase1,Sanity: program contrast vs author subtypes (AUC; expected > 0.5),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/program_controls.csv,phase1,Recorded control genes per section and gene set,src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:13
+results/chain/phase1/program_distribution_by_tumour.csv,phase1,Program score distribution per tumour (pooled),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:14
+results/chain/phase1/floor_by_section_chain.csv,phase1,"Floor (>= 100 cells of A,B,C and >= 300 A-B and B-C edges) per section x chain",src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:16
+results/chain/phase1/chain_selection.csv,phase1,Outcome-free chain selection (counts/edges only; plan section 6),src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:16
+figures/chain/phase1/phase1_programs_and_floors.png,phase1,Per-tumour program medians and chain floor pass matrix,src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:17
+figures/chain/phase1/phase1_programs_and_floors.pdf,phase1,Per-tumour program medians and chain floor pass matrix,src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:17
+results/chain/phase1/phase1_summary.json,phase1,Phase 1 key numbers,src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:17
+logs/chain_chain_phase1_cell_states_20261115T214134_26348.log,phase1,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:43:17
+results/chain/phase1b/gene_background_flags.csv,phase1b,Per panel gene: sections near background; background_level if >= 8/16,src/chain/chain_phase1_cell_states.py,2026-11-15T21:45:19
+results/chain/phase1b/gene_background_typeaware_by_section.csv,phase1b,Amendment 1: per section x type x gene: detection in own-type cells vs 2x max neg-probe detection in them,src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:03
+results/chain/phase1b/gene_background_typeaware_flags.csv,phase1b,Amendment 1: per type x gene: fraction of eligible sections near background (>= 0.5 -> flagged),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:03
+results/chain/phase1b/program_genes_used.csv,phase1b,"Declared program genes: panel, background-level, used, kept",src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:03
+results/chain/phase1b/programs_used.json,phase1b,Programs actually scored,src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:03
+results/chain/phase1b/sections/T1-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T1-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T1-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T1-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T1-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T1-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:07
+results/chain/phase1b/sections/T2-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T2-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T2-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T2-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T2-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T2-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:12
+results/chain/phase1b/sections/T3-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T3-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T3-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T3-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T3-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T3-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:16
+results/chain/phase1b/sections/T4-a_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-a_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-a_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-a_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-a_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-a_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:21
+results/chain/phase1b/sections/T4-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T4-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T4-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T4-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T4-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T4-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:26
+results/chain/phase1b/sections/T5-a_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T5-a_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T5-a_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T5-a_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T5-a_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T5-a_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:31
+results/chain/phase1b/sections/T6-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/T6-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/T6-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/T6-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/T6-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/T6-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:34
+results/chain/phase1b/sections/U1-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U1-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U1-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U1-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U1-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U1-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:38
+results/chain/phase1b/sections/U2-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U2-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U2-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U2-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U2-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U2-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:43
+results/chain/phase1b/sections/U3-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U3-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U3-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U3-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U3-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U3-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:46
+results/chain/phase1b/sections/U4-a_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-a_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-a_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-a_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-a_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-a_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:51
+results/chain/phase1b/sections/U4-b_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U4-b_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U4-b_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U4-b_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U4-b_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U4-b_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:51:57
+results/chain/phase1b/sections/U5-a_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U5-a_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U5-a_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U5-a_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U5-a_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U5-a_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:04
+results/chain/phase1b/sections/U6-a_1_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_1_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_1_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_1_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_1_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_1_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:10
+results/chain/phase1b/sections/U6-a_2_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U6-a_2_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U6-a_2_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U6-a_2_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U6-a_2_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U6-a_2_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:16
+results/chain/phase1b/sections/U7-a_controls.csv,phase1b,Per-section controls (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/sections/U7-a_distribution.csv,phase1b,Per-section distribution (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/sections/U7-a_edges.csv,phase1b,Per-section edges (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/sections/U7-a_validity.csv,phase1b,Per-section validity (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/sections/U7-a_counts.csv,phase1b,Per-section counts (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/sections/U7-a_info.json,phase1b,Per-section graph/size info (Phase 1),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/cell_counts_by_section.csv,phase1b,"Cell counts per type per section (author_mapped, marker)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/program_distribution_by_section.csv,phase1b,"Program score distribution among own-type cells per section (scanpy-style score, log1p CP10k)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/type_edge_counts_by_section.csv,phase1b,Undirected symmetrised-6NN edges per type pair,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/validity_auc.csv,phase1b,Sanity: program contrast vs author subtypes (AUC; expected > 0.5),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/program_controls.csv,phase1b,Recorded control genes per section and gene set,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:22
+results/chain/phase1b/program_distribution_by_tumour.csv,phase1b,Program score distribution per tumour (pooled),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:23
+results/chain/phase1b/floor_by_section_chain.csv,phase1b,"Floor (>= 100 cells of A,B,C and >= 300 A-B and B-C edges) per section x chain",src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+results/chain/phase1b/chain_selection.csv,phase1b,Outcome-free chain selection (counts/edges only; plan section 6),src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+figures/chain/phase1b/phase1_programs_and_floors.png,phase1b,Per-tumour program medians and chain floor pass matrix,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+figures/chain/phase1b/phase1_programs_and_floors.pdf,phase1b,Per-tumour program medians and chain floor pass matrix,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+results/chain/phase1b/phase1_summary.json,phase1b,Phase 1 key numbers,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+logs/chain_chain_phase1_cell_states_20261115T214512_58184.log,phase1b,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25

@@ -1,0 +1,86 @@
+{
+  "n_sections": 16,
+  "n_tumours": 13,
+  "n_background_level_genes": 630,
+  "programs_kept": {
+    "tumour:classical": 5,
+    "tumour:basal_like": 5,
+    "tumour:EMT": 6,
+    "CAF:myCAF": 7,
+    "CAF:CXCL12": 1,
+    "myeloid:SPP1_TAM": 5
+  },
+  "programs_dropped": [
+    "CAF:iCAF",
+    "T:cytotoxic",
+    "T:exhaustion",
+    "myeloid:inflammatory",
+    "myeloid:C1Q_TAM"
+  ],
+  "chains": [
+    {
+      "chain": "myeloid->CAF->tumour",
+      "role": "secondary",
+      "n_sections_pass": 16,
+      "n_tumours_pass": 13
+    },
+    {
+      "chain": "tumour->CAF->myeloid",
+      "role": "secondary",
+      "n_sections_pass": 16,
+      "n_tumours_pass": 13
+    },
+    {
+      "chain": "CAF->myeloid->tumour",
+      "role": "secondary",
+      "n_sections_pass": 15,
+      "n_tumours_pass": 12
+    },
+    {
+      "chain": "CAF->tumour->myeloid",
+      "role": "secondary",
+      "n_sections_pass": 15,
+      "n_tumours_pass": 12
+    },
+    {
+      "chain": "myeloid->tumour->CAF",
+      "role": "secondary",
+      "n_sections_pass": 15,
+      "n_tumours_pass": 12
+    },
+    {
+      "chain": "T->CAF->tumour",
+      "role": "negative control (reversed primary)",
+      "n_sections_pass": 14,
+      "n_tumours_pass": 11
+    },
+    {
+      "chain": "tumour->CAF->T",
+      "role": "primary",
+      "n_sections_pass": 14,
+      "n_tumours_pass": 11
+    }
+  ],
+  "validity_auc_median": {
+    "CAF:myCAF - CAF:iCAF for myCAF vs iCAF": NaN,
+    "tumour:classical - tumour:basal_like for CLS vs BSL": 0.7922000744895562
+  },
+  "median_nn_um_by_section": {
+    "T1-b": 9.541697962102733,
+    "T2-b": 9.585739408100018,
+    "T3-b": 8.297590011564335,
+    "T4-a": 9.47354210419626,
+    "T4-b": 8.404284621550758,
+    "T5-a": 10.388666784937104,
+    "T6-b": 9.215226530042452,
+    "U1-b": 7.928177596396889,
+    "U2-b": 9.403169678358529,
+    "U3-b": 9.220498901903191,
+    "U4-a": 9.016185446185434,
+    "U4-b": 8.217152791570252,
+    "U5-a": 9.826087726048877,
+    "U6-a_1": 8.777653444969145,
+    "U6-a_2": 8.827343881371968,
+    "U7-a": 9.028754066868753
+  }
+}

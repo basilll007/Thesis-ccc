@@ -1,0 +1,8 @@
+{
+  "section": "T3-b",
+  "n_cells": 33800,
+  "n_genes_after_qc": 960,
+  "mean_degree_6nn_sym": 7.116390532544378,
+  "mean_degree_r30": 12.221242603550296,
+  "median_nn_um": 8.297590011564335
+}

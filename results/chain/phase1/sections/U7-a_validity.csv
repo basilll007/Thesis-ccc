@@ -1,0 +1,3 @@
+section,comparison,n_first,n_second,auc
+U7-a,tumour:classical - tumour:basal_like for CLS vs BSL,8705,12382,0.6255761800935582
+U7-a,CAF:myCAF - CAF:iCAF for myCAF vs iCAF,0,0,

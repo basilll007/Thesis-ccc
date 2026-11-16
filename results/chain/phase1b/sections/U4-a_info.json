@@ -1,0 +1,8 @@
+{
+  "section": "U4-a",
+  "n_cells": 47432,
+  "n_genes_after_qc": 960,
+  "mean_degree_6nn_sym": 6.945395513577332,
+  "mean_degree_r30": 14.94741946365323,
+  "median_nn_um": 9.016185446185434
+}

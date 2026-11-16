@@ -1,0 +1,8 @@
+{
+  "section": "U2-b",
+  "n_cells": 34334,
+  "n_genes_after_qc": 960,
+  "mean_degree_6nn_sym": 7.037106075610183,
+  "mean_degree_r30": 11.394303023242268,
+  "median_nn_um": 9.403169678358529
+}

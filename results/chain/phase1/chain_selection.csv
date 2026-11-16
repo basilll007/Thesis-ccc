@@ -1,0 +1,25 @@
+chain,n_sections_pass,n_tumours_pass,sum_min_count_pass,sections_pass,role,selection_rank
+myeloid->CAF->tumour,16,13,86987,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;T6-b;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,secondary,1
+tumour->CAF->myeloid,16,13,86987,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;T6-b;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,secondary,2
+CAF->myeloid->tumour,15,12,86765,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,secondary,3
+CAF->tumour->myeloid,15,12,86765,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,secondary,4
+myeloid->tumour->CAF,15,12,86765,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,secondary,5
+tumour->myeloid->CAF,15,12,86765,T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,6
+T->CAF->myeloid,14,11,11396,T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,7
+T->CAF->tumour,14,11,11396,T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,negative control (reversed primary),8
+myeloid->CAF->T,14,11,11396,T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,9
+tumour->CAF->T,14,11,11396,T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,primary,10
+CAF->T->myeloid,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,11
+CAF->myeloid->T,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,12
+T->myeloid->CAF,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,13
+T->myeloid->tumour,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,14
+myeloid->T->CAF,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,15
+tumour->myeloid->T,12,9,11046,T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a,not selected,16
+CAF->T->tumour,3,3,2568,T5-a;U4-a;U5-a,not selected,17
+CAF->tumour->T,3,3,2568,T5-a;U4-a;U5-a,not selected,18
+T->tumour->CAF,3,3,2568,T5-a;U4-a;U5-a,not selected,19
+T->tumour->myeloid,3,3,2568,T5-a;U4-a;U5-a,not selected,20
+myeloid->T->tumour,3,3,2568,T5-a;U4-a;U5-a,not selected,21
+myeloid->tumour->T,3,3,2568,T5-a;U4-a;U5-a,not selected,22
+tumour->T->CAF,3,3,2568,T5-a;U4-a;U5-a,not selected,23
+tumour->T->myeloid,3,3,2568,T5-a;U4-a;U5-a,not selected,24

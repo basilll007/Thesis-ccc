@@ -1,0 +1,70 @@
+{
+  "programs": {
+    "tumour:classical": [
+      "CEACAM6",
+      "S100P",
+      "LCN2",
+      "PIGR",
+      "SPINK1"
+    ],
+    "tumour:basal_like": [
+      "KRT14",
+      "KRT17",
+      "SLC2A1",
+      "KRT15",
+      "ITGA3"
+    ],
+    "tumour:EMT": [
+      "VIM",
+      "SNAI2",
+      "FN1",
+      "MMP2",
+      "VCAN",
+      "CAV1"
+    ],
+    "CAF:myCAF": [
+      "ACTA2",
+      "TAGLN",
+      "MYL9",
+      "TPM2",
+      "TPM1",
+      "COL11A1",
+      "SOX4"
+    ],
+    "CAF:CXCL12": [
+      "CXCL12"
+    ],
+    "myeloid:SPP1_TAM": [
+      "SPP1",
+      "GPNMB",
+      "CD9",
+      "FABP5",
+      "LGALS3"
+    ]
+  },
+  "lineage": {
+    "lineage:tumour": [
+      "KRT19",
+      "KRT8",
+      "KRT18",
+      "EPCAM",
+      "KRT7"
+    ],
+    "lineage:CAF": [
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "DCN",
+      "LUM"
+    ],
+    "lineage:T": [
+      "CD3E"
+    ],
+    "lineage:myeloid": [
+      "CD68",
+      "CD14",
+      "LYZ",
+      "FCGR3A"
+    ]
+  }
+}
