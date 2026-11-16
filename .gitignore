@@ -14,3 +14,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 models/
+
+# Translational raw downloads are external: F:/Thesis/data/tcga/
+/data/tcga/
+/results/translational/cache/

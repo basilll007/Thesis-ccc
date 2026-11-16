@@ -1,0 +1,165 @@
+2026-11-15 22:07:52,801 INFO commit=0d82edb02c0b8312141ff05d5350a026a4c8a48b seed=42 max_threads=4
+2026-11-15 22:07:52,929 INFO python=3.11.10 | packaged by conda-forge | (main, Oct 16 2024, 01:17:14) [MSC v.1941 64 bit (AMD64)] versions={'numpy': '1.26.4', 'pandas': '2.2.3', 'scipy': '1.14.1', 'scanpy': '1.10.3', 'anndata': '0.10.9', 'statsmodels': '0.15.0', 'h5py': '3.12.1', 'matplotlib': '3.9.2', 'lifelines': 'not installed'}
+2026-11-15 22:07:59,855 INFO Raw reproduction GSM8452847 max error 2.22e-16
+2026-11-15 22:08:00,740 INFO Raw reproduction GSM8452849 max error 2.22e-16
+2026-11-15 22:08:01,486 INFO Raw reproduction GSM8452850 max error 2.22e-16
+2026-11-15 22:08:02,316 INFO Raw reproduction GSM8452851 max error 2.22e-16
+2026-11-15 22:08:02,922 INFO Raw reproduction GSM8452852 max error 2.22e-16
+2026-11-15 22:08:03,872 INFO Raw reproduction GSM8452853 max error 2.22e-16
+2026-11-15 22:08:04,318 INFO Raw reproduction GSM8452854 max error 2.22e-16
+2026-11-15 22:08:05,032 INFO Raw reproduction GSM8452855 max error 2.22e-16
+2026-11-15 22:08:06,337 INFO Raw reproduction GSM8452856 max error 2.22e-16
+2026-11-15 22:08:07,114 INFO Raw reproduction GSM8452857 max error 2.22e-16
+2026-11-15 22:08:07,991 INFO Raw reproduction GSM8452858 max error 2.22e-16
+2026-11-15 22:08:08,943 INFO Raw reproduction GSM8452859 max error 2.22e-16
+2026-11-15 22:08:09,575 INFO Raw reproduction GSM8452860 max error 2.22e-16
+2026-11-15 22:08:10,543 INFO Raw reproduction GSM8452861 max error 2.22e-16
+2026-11-15 22:08:11,512 INFO Raw reproduction GSM8452862 max error 2.22e-16
+2026-11-15 22:08:12,023 INFO Raw reproduction GSM8452863 max error 2.22e-16
+2026-11-15 22:08:12,454 INFO Raw reproduction GSM8452864 max error 2.22e-16
+2026-11-15 22:08:13,008 INFO Raw reproduction GSM8452865 max error 2.22e-16
+2026-11-15 22:08:13,327 INFO Raw reproduction GSM8452866 max error 4.44e-16
+2026-11-15 22:08:14,054 INFO Raw reproduction GSM8452867 max error 2.22e-16
+2026-11-15 22:08:14,869 INFO Raw reproduction GSM8452868 max error 2.22e-16
+2026-11-15 22:08:15,514 INFO Raw reproduction GSM8452869 max error 2.22e-16
+2026-11-15 22:08:16,248 INFO Raw reproduction GSM8452870 max error 2.22e-16
+2026-11-15 22:08:17,210 INFO Raw reproduction GSM8452871 max error 2.22e-16
+2026-11-15 22:08:18,058 INFO Raw reproduction GSM8452872 max error 2.22e-16
+2026-11-15 22:08:18,850 INFO Raw reproduction GSM8452873 max error 4.44e-16
+2026-11-15 22:08:19,442 INFO Raw reproduction GSM8452874 max error 2.22e-16
+2026-11-15 22:08:19,933 INFO Raw reproduction GSM8452875 max error 2.22e-16
+2026-11-15 22:08:20,546 INFO Raw reproduction GSM8452876 max error 2.22e-16
+2026-11-15 22:08:20,977 INFO Raw reproduction GSM8452877 max error 2.22e-16
+2026-11-15 22:08:21,280 INFO Raw reproduction GSM8452878 max error 4.44e-16
+2026-11-15 22:08:21,609 INFO Raw reproduction GSM8452879 max error 2.22e-16
+2026-11-15 22:08:22,064 INFO Raw reproduction GSM8452880 max error 2.22e-16
+2026-11-15 22:08:22,510 INFO Raw reproduction GSM8452881 max error 2.22e-16
+2026-11-15 22:08:22,873 INFO Raw reproduction GSM8452882 max error 2.22e-16
+2026-11-15 22:08:23,490 INFO Raw reproduction GSM8452883 max error 2.22e-16
+2026-11-15 22:08:24,160 INFO Raw reproduction GSM8452884 max error 2.22e-16
+2026-11-15 22:08:24,752 INFO Raw reproduction GSM8452885 max error 2.22e-16
+2026-11-15 22:08:25,229 INFO Raw reproduction GSM8452886 max error 1.11e-16
+2026-11-15 22:08:25,628 INFO Raw reproduction GSM8452887 max error 9.89e-17
+2026-11-15 22:08:26,160 INFO Raw reproduction GSM8452888 max error 2.22e-16
+2026-11-15 22:08:26,881 INFO Raw reproduction GSM8452889 max error 1.11e-16
+2026-11-15 22:08:27,613 INFO Raw reproduction GSM8452890 max error 2.22e-16
+2026-11-15 22:08:28,451 INFO Raw reproduction GSM8452891 max error 4.44e-16
+2026-11-15 22:08:29,153 INFO Raw reproduction GSM8452892 max error 2.22e-16
+2026-11-15 22:08:29,943 INFO Raw reproduction GSM8452893 max error 2.22e-16
+2026-11-15 22:08:30,938 INFO Raw reproduction GSM8452894 max error 2.22e-16
+2026-11-15 22:08:32,269 INFO Raw reproduction GSM8452895 max error 2.22e-16
+2026-11-15 22:08:32,519 INFO Raw reproduction GSM8714177 max error 2.22e-16
+2026-11-15 22:08:32,745 INFO Raw reproduction GSM8714178 max error 2.22e-16
+2026-11-15 22:08:33,085 INFO Raw reproduction GSM8714179 max error 2.22e-16
+2026-11-15 22:08:33,413 INFO Raw reproduction GSM8714180 max error 2.22e-16
+2026-11-15 22:08:33,628 INFO Raw reproduction GSM8714181 max error 2.22e-16
+2026-11-15 22:08:34,045 INFO Raw reproduction GSM8714182 max error 4.44e-16
+2026-11-15 22:08:40,543 INFO Sensitivity scores GSM8452847 complete
+2026-11-15 22:08:44,301 INFO Sensitivity scores GSM8452849 complete
+2026-11-15 22:08:46,682 INFO Sensitivity scores GSM8452850 complete
+2026-11-15 22:08:50,014 INFO Sensitivity scores GSM8452851 complete
+2026-11-15 22:08:52,318 INFO Sensitivity scores GSM8452852 complete
+2026-11-15 22:08:56,395 INFO Sensitivity scores GSM8452853 complete
+2026-11-15 22:08:57,676 INFO Sensitivity scores GSM8452854 complete
+2026-11-15 22:09:00,515 INFO Sensitivity scores GSM8452855 complete
+2026-11-15 22:09:04,912 INFO Sensitivity scores GSM8452856 complete
+2026-11-15 22:09:08,002 INFO Sensitivity scores GSM8452857 complete
+2026-11-15 22:09:11,429 INFO Sensitivity scores GSM8452858 complete
+2026-11-15 22:09:15,863 INFO Sensitivity scores GSM8452859 complete
+2026-11-15 22:09:18,654 INFO Sensitivity scores GSM8452860 complete
+2026-11-15 22:09:22,533 INFO Sensitivity scores GSM8452861 complete
+2026-11-15 22:09:25,959 INFO Sensitivity scores GSM8452862 complete
+2026-11-15 22:09:27,902 INFO Sensitivity scores GSM8452863 complete
+2026-11-15 22:09:29,086 INFO Sensitivity scores GSM8452864 complete
+2026-11-15 22:09:31,024 INFO Sensitivity scores GSM8452865 complete
+2026-11-15 22:09:31,911 INFO Sensitivity scores GSM8452866 complete
+2026-11-15 22:09:34,857 INFO Sensitivity scores GSM8452867 complete
+2026-11-15 22:09:38,045 INFO Sensitivity scores GSM8452868 complete
+2026-11-15 22:09:40,425 INFO Sensitivity scores GSM8452869 complete
+2026-11-15 22:09:43,574 INFO Sensitivity scores GSM8452870 complete
+2026-11-15 22:09:46,850 INFO Sensitivity scores GSM8452871 complete
+2026-11-15 22:09:50,005 INFO Sensitivity scores GSM8452872 complete
+2026-11-15 22:09:53,136 INFO Sensitivity scores GSM8452873 complete
+2026-11-15 22:09:55,400 INFO Sensitivity scores GSM8452874 complete
+2026-11-15 22:09:56,822 INFO Sensitivity scores GSM8452875 complete
+2026-11-15 22:09:59,750 INFO Sensitivity scores GSM8452876 complete
+2026-11-15 22:10:01,295 INFO Sensitivity scores GSM8452877 complete
+2026-11-15 22:10:02,193 INFO Sensitivity scores GSM8452878 complete
+2026-11-15 22:10:03,114 INFO Sensitivity scores GSM8452879 complete
+2026-11-15 22:10:05,101 INFO Sensitivity scores GSM8452880 complete
+2026-11-15 22:10:06,689 INFO Sensitivity scores GSM8452881 complete
+2026-11-15 22:10:07,706 INFO Sensitivity scores GSM8452882 complete
+2026-11-15 22:10:10,062 INFO Sensitivity scores GSM8452883 complete
+2026-11-15 22:10:12,333 INFO Sensitivity scores GSM8452884 complete
+2026-11-15 22:10:14,288 INFO Sensitivity scores GSM8452885 complete
+2026-11-15 22:10:15,940 INFO Sensitivity scores GSM8452886 complete
+2026-11-15 22:10:17,164 INFO Sensitivity scores GSM8452887 complete
+2026-11-15 22:10:19,182 INFO Sensitivity scores GSM8452888 complete
+2026-11-15 22:10:21,825 INFO Sensitivity scores GSM8452889 complete
+2026-11-15 22:10:24,402 INFO Sensitivity scores GSM8452890 complete
+2026-11-15 22:10:27,587 INFO Sensitivity scores GSM8452891 complete
+2026-11-15 22:10:30,061 INFO Sensitivity scores GSM8452892 complete
+2026-11-15 22:10:33,133 INFO Sensitivity scores GSM8452893 complete
+2026-11-15 22:10:36,435 INFO Sensitivity scores GSM8452894 complete
+2026-11-15 22:10:40,694 INFO Sensitivity scores GSM8452895 complete
+2026-11-15 22:10:41,387 INFO Sensitivity scores GSM8714177 complete
+2026-11-15 22:10:41,974 INFO Sensitivity scores GSM8714178 complete
+2026-11-15 22:10:42,863 INFO Sensitivity scores GSM8714179 complete
+2026-11-15 22:10:43,774 INFO Sensitivity scores GSM8714180 complete
+2026-11-15 22:10:44,309 INFO Sensitivity scores GSM8714181 complete
+2026-11-15 22:10:45,339 INFO Sensitivity scores GSM8714182 complete
+2026-11-15 22:11:14,107 INFO Random controls GSM8452847 complete
+2026-11-15 22:11:24,189 INFO Random controls GSM8452849 complete
+2026-11-15 22:11:34,458 INFO Random controls GSM8452850 complete
+2026-11-15 22:11:45,388 INFO Random controls GSM8452851 complete
+2026-11-15 22:11:55,687 INFO Random controls GSM8452852 complete
+2026-11-15 22:12:07,312 INFO Random controls GSM8452853 complete
+2026-11-15 22:12:17,513 INFO Random controls GSM8452854 complete
+2026-11-15 22:12:28,004 INFO Random controls GSM8452855 complete
+2026-11-15 22:12:39,137 INFO Random controls GSM8452856 complete
+2026-11-15 22:12:49,804 INFO Random controls GSM8452857 complete
+2026-11-15 22:13:00,873 INFO Random controls GSM8452858 complete
+2026-11-15 22:13:12,213 INFO Random controls GSM8452859 complete
+2026-11-15 22:13:22,284 INFO Random controls GSM8452860 complete
+2026-11-15 22:13:33,039 INFO Random controls GSM8452861 complete
+2026-11-15 22:13:43,156 INFO Random controls GSM8452862 complete
+2026-11-15 22:13:53,130 INFO Random controls GSM8452863 complete
+2026-11-15 22:14:03,682 INFO Random controls GSM8452864 complete
+2026-11-15 22:14:14,219 INFO Random controls GSM8452865 complete
+2026-11-15 22:14:24,950 INFO Random controls GSM8452866 complete
+2026-11-15 22:14:36,542 INFO Random controls GSM8452867 complete
+2026-11-15 22:14:47,850 INFO Random controls GSM8452868 complete
+2026-11-15 22:14:58,850 INFO Random controls GSM8452869 complete
+2026-11-15 22:15:10,098 INFO Random controls GSM8452870 complete
+2026-11-15 22:15:21,455 INFO Random controls GSM8452871 complete
+2026-11-15 22:15:33,365 INFO Random controls GSM8452872 complete
+2026-11-15 22:15:46,051 INFO Random controls GSM8452873 complete
+2026-11-15 22:15:57,188 INFO Random controls GSM8452874 complete
+2026-11-15 22:16:07,863 INFO Random controls GSM8452875 complete
+2026-11-15 22:16:19,450 INFO Random controls GSM8452876 complete
+2026-11-15 22:16:30,196 INFO Random controls GSM8452877 complete
+2026-11-15 22:16:40,154 INFO Random controls GSM8452878 complete
+2026-11-15 22:16:50,788 INFO Random controls GSM8452879 complete
+2026-11-15 22:17:01,231 INFO Random controls GSM8452880 complete
+2026-11-15 22:17:11,951 INFO Random controls GSM8452881 complete
+2026-11-15 22:17:22,959 INFO Random controls GSM8452882 complete
+2026-11-15 22:17:34,212 INFO Random controls GSM8452883 complete
+2026-11-15 22:17:45,565 INFO Random controls GSM8452884 complete
+2026-11-15 22:17:56,647 INFO Random controls GSM8452885 complete
+2026-11-15 22:18:07,508 INFO Random controls GSM8452886 complete
+2026-11-15 22:18:19,213 INFO Random controls GSM8452887 complete
+2026-11-15 22:18:30,209 INFO Random controls GSM8452888 complete
+2026-11-15 22:18:41,604 INFO Random controls GSM8452889 complete
+2026-11-15 22:18:52,505 INFO Random controls GSM8452890 complete
+2026-11-15 22:19:04,735 INFO Random controls GSM8452891 complete
+2026-11-15 22:19:16,531 INFO Random controls GSM8452892 complete
+2026-11-15 22:19:28,323 INFO Random controls GSM8452893 complete
+2026-11-15 22:19:41,478 INFO Random controls GSM8452894 complete
+2026-11-15 22:19:54,970 INFO Random controls GSM8452895 complete
+2026-11-15 22:20:06,298 INFO Random controls GSM8714177 complete
+2026-11-15 22:20:18,114 INFO Random controls GSM8714178 complete
+2026-11-15 22:20:29,417 INFO Random controls GSM8714179 complete
+2026-11-15 22:20:41,288 INFO Random controls GSM8714180 complete
+2026-11-15 22:20:52,354 INFO Random controls GSM8714181 complete
+2026-11-15 22:21:04,056 INFO Random controls GSM8714182 complete
+2026-11-15 22:21:05,247 INFO Phase 1 NOT ROBUST; failed=['b_tumour_host', 'c_2000_UMI']; random tail=0.00999000999000999

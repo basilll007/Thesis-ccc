@@ -1,0 +1,15 @@
+gsm,patient,site,scenario,reason
+GSM8452854,Pt-3,Liver metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452864,Pt-6,Liver metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452866,Pt-6,Peritoneal metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452875,Pt-9,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452877,Pt-9,Liver metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452878,Pt-9,Peritoneal metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452879,Pt-10,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452882,Pt-10,Peritoneal metastasis,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8452887,Pt-12,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8714178,Pt-6,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8714179,Pt-6,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8714180,Pt-8,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8714181,Pt-13,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs
+GSM8714182,Pt-13,Primary PDAC,c_2000_UMI,more than half original spots below 2000 UMIs

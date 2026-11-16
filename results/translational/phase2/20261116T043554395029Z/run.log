@@ -1,0 +1,4 @@
+2026-11-15 22:35:54,436 INFO commit=3d71f33bdcf64badb7cd555b79a8374d7f0be7eb seed=42 max_threads=4
+2026-11-15 22:35:54,455 INFO python=3.11.10 | packaged by conda-forge | (main, Oct 16 2024, 01:17:14) [MSC v.1941 64 bit (AMD64)] versions={'numpy': '1.26.4', 'pandas': '2.2.3', 'scipy': '1.14.1', 'scanpy': '1.10.3', 'anndata': '0.10.9', 'statsmodels': '0.15.0', 'h5py': '3.12.1', 'matplotlib': '3.9.2', 'lifelines': 'not installed'}
+2026-11-15 22:35:54,693 INFO TCGA: source patients=184, expression samples=177
+2026-11-15 22:35:54,904 INFO CPTAC: source patients=140, expression samples=140

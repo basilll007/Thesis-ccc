@@ -1,0 +1,5 @@
+field,reproduced,saved_v3,matches
+n_pairs,13.0,13.0,True
+p,0.00244140625,0.00244140625,True
+q_bh,0.01220703125,0.01220703125,True
+median_delta_metastasis_minus_primary,0.153953895569,0.153953895569,True
