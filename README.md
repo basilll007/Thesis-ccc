@@ -109,3 +109,11 @@ Question: do neighbours predict a cell's expression-program state beyond its own
 - Ranked candidate list: [`results/chain/ranked_hypotheses.csv`](results/chain/ranked_hypotheses.csv) (de-duplicated: `ranked_hypotheses_dedup.csv`). 0/88 hops supported, so all rows are unranked candidates, not evidence.
 - Claims register: [`results/chain/phase7/claims_register.csv`](results/chain/phase7/claims_register.csv).
 - Run order (env `thesis-spatial-ccc`): `chain_phase1_cell_states.py` (then `--amendment1`), `chain_phase2_neighbourhood.py`, `chain_phase2b_gnn.py`, `chain_phase4_simulation.py`, `chain_phase3_chain_test.py` (`--annotation marker` for the sensitivity analysis), `chain_phase5_candidates.py`, `chain_phase5b_dedup.py`, `chain_phase6_gse310352.py`, `chain_phase7_synthesis.py`.
+
+## Model development (branch `model-v1`)
+Folder [`model_dev/`](model_dev/README.md): baseline-stage models that predict a cell's expression state from its spatial neighbourhood (PDAC CosMx; Mendeley development set, GSE310352 external test). Report: [`model_dev/reports/MODEL_REPORT_v1.md`](model_dev/reports/MODEL_REPORT_v1.md); dashboard page: [`neighbourhood_models.html`](neighbourhood_models.html).
+- Neighbours add +0.034 [0.018, 0.048] held-out R2 for the macrophage C1Q_TAM program (13 tumours, grouped CV); a GPU graph model (SAGE) is not better than simple aggregated baselines (+0.0025 [-0.013, 0.015]).
+- Cross-type contribution inside the graph model: +0.019 [0.004, 0.028] for macrophages (CAF neighbours lead), +0.007 [-0.004, 0.024] for tumour cells.
+- External test (single touch, 6 units of unverified independence): aggregated-neighbourhood gain transfers (XGBoost +0.072 [0.031, 0.107]); the graph model's does not (+0.014 [-0.014, 0.046]).
+- Pretraining (masked expression, linear probe) does not help like for like.
+- Environment: `model_dev/environment.yml` (CUDA torch, GPU training only); one command per phase in `model_dev/README.md`; 15 unit tests (`python -m pytest model_dev/tests -q`).

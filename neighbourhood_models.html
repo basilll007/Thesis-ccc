@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial CCC — Neighbourhood Models of Cell State</title>
+<meta name="description" content="Can a cell's neighbours predict its state? Baselines, graph models, cross-type ablations, an external test and interpretation on PDAC CosMx data.">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<style>
+  .two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+  .explain { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin: 0 0 12px; }
+  .explain b { color: var(--text-primary); }
+  .callout { padding: 20px 24px; border-left: 4px solid var(--brand-primary); }
+  .callout.good { border-left-color: var(--status-success); }
+  .callout.bad { border-left-color: var(--status-danger); }
+  .callout.warn { border-left-color: var(--status-warning); }
+  .callout h3 { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: var(--text-primary); }
+  .data-table td, .data-table th { padding: 6px 8px; }
+  .num-good { color: var(--status-success); font-weight: 700; }
+  .num-bad { color: var(--status-danger); font-weight: 700; }
+  .small-note { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+  h2.sec { font-size: 22px; font-weight: 800; margin: 0 0 16px; }
+  ul.tight { margin: 6px 0 12px 18px; padding: 0; font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-logo">S</div>
+      <div class="brand-title">
+        Spatial CCC
+        <span class="status-badge-phase">Thesis Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html" class="">Overview</a>
+      <a href="gse277783_eda.html" class="">GSE277783 EDA</a>
+      <a href="flips.html" class="">Verdict Flips</a>
+      <a href="robustness.html" class="">Leiden Robustness</a>
+      <a href="diagnostic.html" class="">Diagnostics</a>
+      <a href="embedding.html" class="">scGPT Baseline</a>
+      <a href="ablation.html" class="">GNN Ablation</a>
+      <a href="neighbourhood_models.html" class="active">Neighbour Models</a>
+      <a href="enhancements.html" class="">Enhancements</a>
+      <a href="explorer.html" class="">Data Explorer</a>
+      <a href="spatial.html" class="">Spatial Map</a>
+      <a href="methods.html" class="">Methods &amp; Log</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===================== HERO ===================== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-badge">● Model development v1 · PDAC CosMx · November 2026</div>
+      <h1 class="hero-title">
+        Can a cell's neighbours predict its state?<br>
+        <span class="gradient-text">Graph models vs simple baselines in pancreatic cancer</span>
+      </h1>
+      <p class="hero-lede">
+        We asked whether the expression state of a <b>macrophage</b> (its C1Q-type or SPP1-type program) or a <b>tumour cell</b>
+        (classical or basal-like program) can be predicted from the cells around it, using 717,493 cells from 13 pancreatic tumours
+        (CosMx, 16 sections) and testing once on an external cohort (GSE310352, 8 slides). The answer: <b>neighbours do carry
+        information</b>, but a <b>graph neural network is not better than simple aggregated baselines</b>, and only a
+        <b>small share comes from other cell types</b> — mostly from fibroblasts next to macrophages.
+      </p>
+
+      <div class="kpi-grid reveal">
+        <div class="card kpi-card">
+          <div class="kpi-label">Primary endpoint: own covariates</div>
+          <div class="kpi-value">0.300</div>
+          <div class="kpi-subtext">Macrophage C1Q_TAM R² [0.188, 0.383], no neighbour expression</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Gain from neighbours (XGBoost)</div>
+          <div class="kpi-value" style="color: var(--status-success);">+0.034</div>
+          <div class="kpi-subtext">[0.018, 0.048] held-out R², 13 tumours</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Graph model vs best baseline</div>
+          <div class="kpi-value" style="color: var(--status-warning);">+0.003</div>
+          <div class="kpi-subtext">[−0.013, 0.015] — not better (C1Q_TAM)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Cross-type contribution</div>
+          <div class="kpi-value" style="color: var(--status-success);">+0.019</div>
+          <div class="kpi-subtext">[0.004, 0.028] macrophages; tumour +0.007 [−0.004, 0.024]</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">External gain (XGBoost)</div>
+          <div class="kpi-value" style="color: var(--status-success);">+0.072</div>
+          <div class="kpi-subtext">[0.031, 0.107] on GSE310352 (single touch)</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">External gain (graph)</div>
+          <div class="kpi-value" style="color: var(--status-danger);">+0.014</div>
+          <div class="kpi-subtext">[−0.014, 0.046] — does not transfer</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Top other-type neighbour</div>
+          <div class="kpi-value">CAF</div>
+          <div class="kpi-subtext">Permutation importance 0.011 [0.009, 0.012] R²</div>
+        </div>
+        <div class="card kpi-card">
+          <div class="kpi-label">Leakage / quality tests</div>
+          <div class="kpi-value" style="color: var(--status-success);">15 / 15</div>
+          <div class="kpi-subtext">Incl. planted-target and 2-hop return-path tests</div>
+        </div>
+      </div>
+
+      <div class="card callout good" style="margin-top: 24px;">
+        <h3>Outcome in one paragraph</h3>
+        <p class="explain">
+          A macrophage's neighbourhood improves the prediction of its C1Q-type program by about <b>0.03 R²</b> beyond what its own
+          size, density and local tissue zone already explain, and this gain <b>holds on an external cohort</b> (patient independence unverified)
+          (+0.072 for XGBoost). A PyTorch graph model reaches the same level (0.336) but <b>does not beat</b> simple models built on
+          averaged neighbour features, and its advantage does not transfer externally. Inside the graph model, removing other cell
+          types costs <b>0.014–0.019 R²</b> for macrophages (a real but minority share; fibroblasts lead) and <b>nothing measurable for
+          tumour cells</b>, whose state is predicted from nearby tumour cells. These are predictive associations in expression data,
+          not evidence of signalling.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUESTION & BIOLOGY ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">1 · The question and the biology behind it</h2>
+      <div class="two-col">
+        <div class="card" style="padding: 24px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Why neighbours?</span>
+          <h3 style="margin: 10px 0 8px; font-size: 17px; font-weight: 800;">Cells read their surroundings</h3>
+          <p class="explain">
+            In a tumour, a cell's behaviour is thought to depend partly on what touches it: secreted signals act over a few cell
+            diameters, matrix and contact cues act directly. If that is true, a cell's measured expression state should be
+            <b>partly predictable from its neighbours</b> — after removing what its own properties and its broader tissue region
+            already explain. Spatial transcriptomics (here CosMx, ~960 genes per cell with positions) makes that testable.
+          </p>
+          <p class="explain">
+            The catch: cells of the same kind cluster together, regions differ (tumour core vs stroma), and in imaging data
+            transcripts can <b>spill over</b> between touching cells. A gain from neighbours is therefore an association, and the
+            important question is <b>which</b> neighbours carry it: <b>the same cell type</b> ("cells resemble their own kind nearby")
+            or <b>other cell types</b> (closer to the idea of cross-talk).
+          </p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <span class="chip-tag" style="background: rgba(217, 119, 6, 0.12); color: var(--status-warning); font-weight:700;">Biology background (general knowledge; not verified from fetched sources in this run)</span>
+          <h3 style="margin: 10px 0 8px; font-size: 17px; font-weight: 800;">The cell states we predict</h3>
+          <ul class="tight">
+            <li><b>C1Q_TAM macrophages</b> (C1QA/B/C, CD163, MRC1, SELENOP): a complement-high, "tissue-resident-like" macrophage state often described in tumours.</li>
+            <li><b>SPP1_TAM macrophages</b> (SPP1, GPNMB, CD9, FABP5, LGALS3): a lipid/matrix-associated macrophage state often linked to fibrotic, remodelling regions.</li>
+            <li><b>Classical vs basal-like tumour cells</b>: the two widely used transcriptional PDAC subtypes; basal-like is usually associated with worse outcome. In our data the classical-minus-basal score agrees with the authors' own subtype labels (median AUC 0.858).</li>
+            <li><b>CAFs</b> (cancer-associated fibroblasts; myCAF contractile genes, CXCL12 chemokine) form much of PDAC's dense stroma and sit next to many macrophages.</li>
+          </ul>
+          <p class="small-note">Program gene lists are the pre-declared lists of the chain study (results/chain/phase1b); their literature sources are recorded there as UNVERIFIED.</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 24px; margin-top: 20px;">
+        <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 0 · What the data look like</span>
+        <h3 style="margin: 8px 0 6px; font-size: 18px; font-weight: 800;">Macrophage state in its tissue neighbourhood (section U6-a_1)</h3>
+        <p class="explain">
+          Each dot is a cell. Macrophages are coloured by their C1Q_TAM program score; tumour cells are orange, CAFs blue. High-C1Q
+          macrophages (bright) and low ones (dark) occupy different neighbourhoods — the kind of spatial structure the models try to
+          exploit. Illustration only; no statistic is read from this panel.
+        </p>
+        <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+          <img src="model_dev/results/figures/fig0_spatial_example.png" alt="Spatial example of macrophage C1Q_TAM scores" style="max-width: 70%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DESIGN ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">2 · How the test was set up (and kept honest)</h2>
+      <div class="card" style="padding: 24px;">
+        <ul class="tight">
+          <li><b>Unit = patient.</b> 13 development tumours in 5 grouped folds (all sections of a tumour in one fold, ≥2 tumours per fold). Every confidence interval resamples tumours, not cells.</li>
+          <li><b>Own covariates baseline:</b> cell size (total counts, detected genes), local density, edge lengths and the <b>average target in the surrounding 200 µm tile</b> (a zonation control) — but never the cell's own expression.</li>
+          <li><b>Neighbourhood baselines:</b> ridge and XGBoost (GPU) on averaged neighbour programs and per-type neighbour gene means; an MLP.</li>
+          <li><b>Graph models</b> (PyTorch, GPU, mixed precision): SAGE-style and attention-style 2-hop message passing with cell-type embeddings and edge distances; the receiver cell is excluded from its own 2nd hop by construction.</li>
+          <li><b>No leakage, tested:</b> 15 unit tests, including one that plants the target among the inputs and must be caught, and one that checks no 2-hop path returns to the cell (the bug that inflated an earlier model).</li>
+          <li><b>Pre-registered:</b> plans committed before each phase; external cohort evaluated <b>once</b> with frozen models.</li>
+        </ul>
+        <p class="small-note">Plans: model_dev/plans/ · Full report: model_dev/reports/MODEL_REPORT_v1.md · Model card and data card: model_dev/reports/</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">3 · Result: neighbours help, graph models do not beat simple baselines</h2>
+      <div class="card" style="padding: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 1 · Model comparison</span>
+          <a href="model_dev/results/figures/fig1_model_comparison.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download PDF</a>
+        </div>
+        <h3 style="margin: 8px 0 6px; font-size: 18px; font-weight: 800;">Held-out R² for every model and target (13 tumours, 95% tumour CI)</h3>
+        <p class="explain">
+          <b>How to read it:</b> each dot is a model's held-out R² (share of variation in the target explained in tumours the model
+          never saw); bars are tumour-bootstrap 95% CIs; the dotted line is the own-covariates baseline. Points right of the line
+          mean the neighbourhood adds information. <b>What it shows:</b> for macrophages, aggregated-neighbour models (blue) and the
+          graph models (red/pink) all sit ~0.03–0.05 right of the baseline and on top of each other; the MLP (orange) is worse. For
+          tumour cells, simple aggregated models are best and the graph models fall <i>behind</i>.
+        </p>
+        <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+          <img src="model_dev/results/figures/fig1_model_comparison.png" alt="Model comparison" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div style="overflow-x:auto; margin-top: 16px;">
+          <table class="data-table" style="width:100%; font-size: 12.5px;">
+            <thead><tr><th>Target</th><th>Own covariates</th><th>Best baseline</th><th>Graph (SAGE)</th><th>Graph − best baseline</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><td>Macrophage C1Q_TAM (primary)</td><td>0.300</td><td>XGBoost/genes 0.334</td><td>0.336</td><td>+0.0025 [−0.013, 0.015]</td><td>not better</td></tr>
+              <tr><td>Macrophage SPP1_TAM</td><td>0.335</td><td>XGBoost/programs 0.387</td><td>0.377</td><td>−0.010 [−0.021, 0.007]</td><td>not better</td></tr>
+              <tr><td>Macrophage 11-gene vector</td><td>0.265</td><td>ridge/programs 0.277</td><td>0.289</td><td class="num-good">+0.013 [0.005, 0.020]</td><td>better (internal only)</td></tr>
+              <tr><td>Tumour classical</td><td>0.618</td><td>XGBoost/genes 0.694</td><td>0.597</td><td class="num-bad">−0.097 [−0.172, −0.053]</td><td>worse</td></tr>
+              <tr><td>Tumour basal-like</td><td>0.397</td><td>XGBoost/genes 0.444</td><td>0.281</td><td class="num-bad">−0.163 [−0.330, −0.045]</td><td>worse</td></tr>
+              <tr><td>Tumour 18-gene vector</td><td>0.425</td><td>ridge/programs 0.435</td><td>0.436</td><td>+0.0005 [−0.005, 0.007]</td><td>not better</td></tr>
+            </tbody>
+          </table>
+          <p class="small-note">Source: model_dev/results/phase2/baseline_summary.csv, phase3/graph_summary.csv. Seed-mean of 3 seeds for neural models. Chain-study numbers reproduce exactly (|Δ| = 0.0000).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABLATIONS ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">4 · How much comes from OTHER cell types?</h2>
+      <div class="card" style="padding: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 2 · Ablations</span>
+          <a href="model_dev/results/figures/fig2_ablations_cross_type.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download PDF</a>
+        </div>
+        <h3 style="margin: 8px 0 6px; font-size: 18px; font-weight: 800;">What the graph model loses when information is removed</h3>
+        <p class="explain">
+          <b>How to read it:</b> each bar is the R² the full graph model loses when we retrain it with some information removed
+          (same folds, same 3 seeds). <b>"Same-type only"</b> keeps only neighbours of the receiver's own type; its bar is the
+          <b>cross-type contribution</b>. <b>"Tile-shuffled"</b> swaps every neighbour's expression with a random same-type cell from
+          the same 200 µm region — it tests whether fine, cell-to-cell co-variation matters beyond regional zonation.
+        </p>
+        <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+          <img src="model_dev/results/figures/fig2_ablations_cross_type.png" alt="Ablations and cross-type contribution" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="two-col" style="margin-top: 16px;">
+          <div class="card callout good"><h3>Macrophages: a small cross-type share</h3>
+            <p class="explain">Cross-type contribution +0.019 [0.004, 0.028] (C1Q_TAM), +0.015 [0.004, 0.028] (SPP1_TAM), +0.014 [0.009, 0.018] (gene vector) — all CIs exclude zero. Shuffling neighbours within tiles costs +0.039 [0.026, 0.049]: the signal is finer than regional zonation.</p></div>
+          <div class="card callout warn"><h3>Tumour cells: same-type only</h3>
+            <p class="explain">Cross-type contribution +0.007 [−0.004, 0.024] (classical), CI includes zero. Tumour-cell state is predicted from nearby tumour cells; removing them (other-type only) costs +0.048 [0.027, 0.069].</p></div>
+        </div>
+        <p class="small-note">Caveat: the cross-type contribution is measured inside a model that does not beat the aggregated baselines on program targets, and the same-type-only ablation also removes the positions of other cell types.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXTERNAL ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">5 · External test: what transfers to another cohort</h2>
+      <div class="card" style="padding: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 3 · GSE310352 (evaluated once, frozen models)</span>
+          <a href="model_dev/results/figures/fig3_external_test.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download PDF</a>
+        </div>
+        <p class="explain">
+          <b>How to read it:</b> left — each point compares a model's internal R² (x) with its external R² (y); on the diagonal means
+          it transferred unchanged. Right — external R² per slide for the macrophage C1Q_TAM target. <b>What it shows:</b> aggregated
+          neighbourhood models transfer well (XGBoost C1Q_TAM +0.072 [0.031, 0.107] over own covariates externally); the graph
+          model's gain does not (+0.014 [−0.014, 0.046]). The tumour own-covariate baseline collapses externally (R² −0.074)
+          because the label scheme differs (author labels for training, marker labels externally).
+        </p>
+        <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+          <img src="model_dev/results/figures/fig3_external_test.png" alt="External test" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <p class="small-note">The 8 external slides form 6 units (slides 5/5b2/5b3 grouped); patient identity and independence from the development set are UNVERIFIED, so this is a consistency check, not proof of generalisation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INTERPRETATION ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">6 · Interpretation: which neighbours, and a model-based hypothesis</h2>
+      <div class="card" style="padding: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 4 · Permutation importance and in-silico perturbation</span>
+          <a href="model_dev/results/figures/fig5_importance_perturbation.pdf" class="btn btn-outline" style="font-size:12px; padding:6px 12px;" target="_blank">Download PDF</a>
+        </div>
+        <p class="explain">
+          Run only where the graph model beat the strongest baseline (the macrophage gene vector). <b>Left:</b> how much R² is lost
+          when one neighbour group is scrambled. Other macrophages matter most (0.033 [0.022, 0.041]); <b>CAFs are the leading other
+          cell type</b> (0.011 [0.009, 0.012]), then tumour cells (0.004). Zeroing the curated CAF program genes alone costs almost
+          nothing (≤0.0005), so the model uses the CAFs' broader expression profile. <b>Right:</b> predicted change in each macrophage
+          gene when neighbouring cells' program genes are set from their 10th to their 90th percentile.
+        </p>
+        <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+          <img src="model_dev/results/figures/fig5_importance_perturbation.png" alt="Permutation importance and perturbation" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="card callout warn" style="margin-top: 16px;">
+          <h3>Model-based hypothesis (not a finding)</h3>
+          <p class="explain">
+            When neighbouring CAFs express more <b>CXCL12</b>, the model predicts macrophages shifted toward the <b>C1Q/CD163/SELENOP</b>
+            state (SELENOP +0.074 [0.058, 0.094], CD163 +0.044 [0.031, 0.060]) and away from <b>SPP1</b> (−0.041 [−0.052, −0.033]); more
+            <b>basal-like</b> tumour neighbours predict higher macrophage SPP1 (+0.048 [0.019, 0.092]). Effects are small (log-expression
+            units). The CAF–C1Q macrophage direction agrees with the exploratory adjacency lead of the earlier chain study, but both come
+            from the same kind of data. A testable version: macrophage–CAF co-culture with CXCL12 blocked, reading out C1Q/SELENOP/SPP1.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRAINING + PRETRAINING ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">7 · Training behaviour, pretraining and data scale</h2>
+      <div class="two-col">
+        <div class="card" style="padding: 24px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 5 · Training curves</span>
+          <p class="explain" style="margin-top:10px;">Validation loss (solid) and training loss (dashed) for the selected SAGE model, 5 folds × 3 seeds, early stopping. Early stopping typically triggers after 17–24 epochs (median over runs); no runaway overfitting. 240 GPU runs in 3.6 GPU-hours (peak 2.0 GB VRAM), every run checkpointed.</p>
+          <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+            <img src="model_dev/results/figures/fig4_training_curves.png" alt="Training curves" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+          </div>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <span class="chip-tag" style="background: rgba(37, 99, 235, 0.12); color: var(--brand-primary); font-weight:700;">Figure 6 · Learning curve and pretraining</span>
+          <p class="explain" style="margin-top:10px;">Left: R² grows by ~0.064 per tenfold more training cells (rough extrapolation: ~0.36 for C1Q_TAM at 10× data). Right: a masked-expression self-supervised encoder probed linearly does <b>not</b> help (neighbourhood-only probe 0.192 vs 0.336 supervised for C1Q_TAM). Not a foundation model.</p>
+          <div class="figure-preview-container" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; text-align: center;">
+            <img src="model_dev/results/figures/fig6_learning_curve_pretraining.png" alt="Learning curve and pretraining" style="max-width: 100%; height: auto; border-radius: 6px; cursor: pointer;" onclick="openLightbox(this.src, this.alt)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIMITS & NEXT ===================== -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="sec">8 · Limitations and next steps</h2>
+      <div class="two-col">
+        <div class="card callout bad"><h3>Limitations</h3>
+          <ul class="tight">
+            <li>13 development tumours → wide intervals; external units not verified independent patients.</li>
+            <li>Author labels for training vs marker labels externally (annotation shift).</li>
+            <li>Transcript spillover between touching cells is not modelled; neighbour co-variation is not evidence of signalling.</li>
+            <li>Short CosMx program lists (5–10 genes); T cells too few to be targets.</li>
+            <li>Logged deviations: fold rule, tumour cap (8,000 cells/section), XGBoost-CUDA instead of sklearn HGB; a sign bug in paired differences was fixed before any result was reported.</li>
+          </ul></div>
+        <div class="card callout"><h3>Next steps</h3>
+          <ul class="tight">
+            <li>Add a segmentation-spillover control before reading cross-type co-variation biologically.</li>
+            <li>Measure the cross-type share on the best (aggregated XGBoost) model, not only the graph model.</li>
+            <li>External cohort with verified patient IDs and more units.</li>
+            <li>Test CAF CXCL12 → C1Q/SELENOP macrophages experimentally (co-culture, CXCL12 blockade).</li>
+            <li>Scale data (more tumours) before scaling models.</li>
+          </ul></div>
+      </div>
+      <p class="small-note" style="margin-top: 16px;">All numbers on this page are copied from model_dev/results (index: model_dev/results/phase7/key_numbers.csv). Expression data; predictive associations; no causal or clinical claims.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <b>Spatial CCC Thesis Research Project</b> · Graduate Thesis on Spatial Cell–Cell Communication in Tumor Tissue.
+    </div>
+    <div>
+      Mendeley PDAC-SMI (CC BY 4.0) · GEO GSE310352 · Neighbourhood-model page added November 2026
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged figure preview">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

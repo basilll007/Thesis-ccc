@@ -34,3 +34,10 @@ Every run writes `model_dev/results/<phase>/run_<timestamp>.log` with package ve
 - Patient-level splits: all sections of one tumour share a fold (`results/phase1/folds.csv`, reused everywhere).
 - No leakage: a cell's own expression (any gene in its target set or target program) is never an input; the feature registry carries provenance and `features.assert_no_target_leak` refuses offending matrices (see `tests/test_leakage.py`). Scalers, gene selection and hyperparameters are fitted on training folds only.
 - External test set (GSE310352) is evaluated once, in Phase 4, with frozen preprocessing and a frozen model.
+
+## Results (v1)
+See `reports/MODEL_REPORT_v1.md` (lead question, all tables with CIs, ablations, external test, leakage tests, compute, limitations), `reports/MODEL_CARD.md`, `reports/DATA_CARD.md`, figures in `results/figures/`, and the dashboard page `neighbourhood_models.html` at the repository root.
+
+## Running under memory pressure
+All training is GPU-only. Long phases are resumable and can be run in foreground chunks:
+`baselines.py --fold-budget N`, `ablations.py --time-budget S`, `pretrain.py --fold-budget N`, `learning_curve.py --time-budget S`; `train.py` resumes per run from `results/phase3/partial/` and checkpoints in `model_cache/checkpoints/`.
