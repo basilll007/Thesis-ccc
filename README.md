@@ -1,5 +1,7 @@
 # Thesis Prototype v0 — Spatial Cell–Cell Communication
 
+> **Key findings across all workstreams: [`FINDINGS.md`](FINDINGS.md).** Dashboard: `index.html` (incl. `neighbourhood_models.html`).
+
 This repository provides a reproducible baseline for cell–cell communication analysis in publicly available, single-cell-resolution spatial transcriptomics data from breast cancer. It performs basic quality control and normalization, Leiden clustering, coarse marker-based cell-type annotation, Squidpy spatial-neighbor graph construction, and a baseline Squidpy ligand–receptor analysis. Functional-response evidence, reproducibility calibration, and Spatial Prize-Collecting Steiner Tree optimization are future work and are not part of v0.
 
 ## Public dataset
@@ -117,3 +119,7 @@ Folder [`model_dev/`](model_dev/README.md): baseline-stage models that predict a
 - External test (single touch, 6 units of unverified independence): aggregated-neighbourhood gain transfers (XGBoost +0.072 [0.031, 0.107]); the graph model's does not (+0.014 [-0.014, 0.046]).
 - Pretraining (masked expression, linear probe) does not help like for like.
 - Environment: `model_dev/environment.yml` (CUDA torch, GPU training only); one command per phase in `model_dev/README.md`; 15 unit tests (`python -m pytest model_dev/tests -q`).
+
+## Translational link (draft, separate track)
+
+The prespecified Visium hypoxia robustness audit reproduced the original result but failed the robustness rule after tumour/host filtering and common-depth restriction. Effects remain positive; significance and paired sample size depend on the sensitivity. TCGA and CPTAC bulk PDAC cohorts are prepared with explicit histology restrictions and purity/cellularity provenance. Survival models are implemented and predeclared but **not run or validated on outcome data** at the user-requested PR hand-off. See [the draft translational summary](docs/TRANSLATIONAL_SUMMARY_v1.md), plans in `docs/translational_plans/`, and `results/translational/MANIFEST.csv`.
