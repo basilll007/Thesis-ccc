@@ -293,14 +293,29 @@ def summarise_graph(res: pd.DataFrame, pairs_store: dict, cfg: dict, log) -> pd.
     return pd.DataFrame(rows)
 
 
+def pairs_from_csv(phase: str, tag: str, receivers: list[str]) -> dict:
+    """Rebuild the pairs store from the per-tumour CSVs written by run_experiments (for re-summarising)."""
+    out = {}
+    for r in receivers:
+        df = pd.read_csv(C.RESULTS / phase / f"per_tumour_sse_{tag}_{r}.csv")
+        for row in df.itertuples(index=False):
+            out.setdefault((row.receiver, row.mode, row.arch, float(row.lr), int(row.seed), row.target), {})[str(row.tumour)] = (row.sse, row.sst)
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "graph.yaml"))
+    ap.add_argument("--summarise-only", action="store_true")
     args = ap.parse_args()
     cfg = C.load_config(args.config)
-    log = C.start_run(PHASE, "train", cfg)
-    res, pairs = run_experiments(cfg, ["full"], cfg["archs"], cfg["learning_rates"], PHASE, "graph", log)
-    C.save_table(res, PHASE, "graph_results.csv", log)
+    log = C.start_run(PHASE, "train" if not args.summarise_only else "train_summary", cfg)
+    if args.summarise_only:
+        res = pd.read_csv(C.RESULTS / PHASE / "graph_results.csv")
+        pairs = pairs_from_csv(PHASE, "graph", cfg["receivers"])
+    else:
+        res, pairs = run_experiments(cfg, ["full"], cfg["archs"], cfg["learning_rates"], PHASE, "graph", log)
+        C.save_table(res, PHASE, "graph_results.csv", log)
     summ = summarise_graph(res, pairs, cfg, log)
     C.save_table(summ, PHASE, "graph_summary.csv", log)
     # architecture selection for ablations: lower mean inner-val MSE on the primary receiver
