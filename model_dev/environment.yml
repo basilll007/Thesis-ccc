@@ -19,4 +19,5 @@ dependencies:
     - scipy==1.17.1
     - statsmodels==0.15.0
     - torch==2.11.0+cu128
+    - tabulate==0.10.0
     - torch-geometric==2.8.1

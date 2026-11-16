@@ -8,3 +8,6 @@
 2026-11-16 01:29:00,367 INFO myeloid full sage lr=0.001 seed=0 fold 0: 12 epochs, val mse 2.7313, 27s, peak 1898 MiB
 2026-11-16 01:29:40,571 INFO myeloid full sage lr=0.0003 seed=0 fold 0: 17 epochs, val mse 2.7395, 40s, peak 1898 MiB
 2026-11-16 01:30:17,448 INFO myeloid full attention lr=0.001 seed=0 fold 0: 12 epochs, val mse 2.7363, 37s, peak 1900 MiB
+2026-11-16 01:31:04,752 INFO myeloid full attention lr=0.0003 seed=0 fold 0: 15 epochs, val mse 2.7541, 47s, peak 1901 MiB
+2026-11-16 01:31:38,144 INFO myeloid full sage lr=0.001 seed=0 fold 1: 14 epochs, val mse 2.6622, 33s, peak 1986 MiB
+2026-11-16 01:32:23,214 INFO myeloid full sage lr=0.0003 seed=0 fold 1: 19 epochs, val mse 2.6614, 45s, peak 1986 MiB
