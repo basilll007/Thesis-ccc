@@ -19,7 +19,7 @@ import assemble as A  # noqa: E402
 import features as F  # noqa: E402
 import models as M  # noqa: E402
 import train as T  # noqa: E402
-from baselines import fit_ridge, merge_pairs, pooled_r2, sse_sst_by_group  # noqa: E402
+from baselines import merge_pairs, pooled_r2, sse_sst_by_group  # noqa: E402
 
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -115,7 +115,9 @@ def main() -> None:
     args = ap.parse_args()
     cfg = C.load_config(args.config)
     log = C.start_run(PHASE, "pretrain", cfg)
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only policy: CUDA not available")
+    device = "cuda"
     fold_table = A.folds("grouped"); n_folds = int(fold_table.fold.max()) + 1
     spec = A.targets_spec()
     store0, offsets, classes = T.build_store("development", max(cfg["k1"], cfg["k2"]), device, log)
@@ -139,7 +141,7 @@ def main() -> None:
         torch.save({"state": enc.state_dict(), "mu": mu.cpu(), "sd": sd.cpu(), "cfg": cfg}, ck)
         for receiver in cfg["receivers"]:
             s = spec[receiver]
-            data = A.build_receiver("development", receiver, log)
+            data = A.build_receiver("development", receiver, log, blocks=["own", "tile"])
             tr_in, val, tr_all, test = A.fold_masks(data, fold_table, k, n_folds)
             g = torch.as_tensor(np.array([offsets[x] + r for x, r in zip(data.section, data.row)])).long().to(device)
             tidx = np.array([genes.index(x) for x in s["genes"]])
@@ -148,11 +150,16 @@ def main() -> None:
                 E = embed_cells(enc, store, g, cov_all, tidx, probe == "neighbourhood_only", cfg, device)
                 fs = F.FeatureSet(rows=np.arange(len(E)))
                 fs.add("emb", E, [f"emb_{i}" for i in range(E.shape[1])], [F.Provenance("tile")] * E.shape[1])  # other cells' + own non-target genes
-                emu, esd = F.fit_scaler(E[tr_in]); Ein, Ev = F.apply_scaler(E[tr_in], emu, esd), F.apply_scaler(E[val], emu, esd)
-                vs = {a: float(((fit_ridge(Ein, data.Y[tr_in], a).predict(Ev) - data.Y[val]) ** 2).mean()) for a in cfg["ridge_alphas"]}
+                import gpu as GP
+                Eg, Yg = GP.to_gpu(E), GP.to_gpu(data.Y)
+                ti, vi, ai, ei = (torch.as_tensor(np.where(m)[0], device="cuda") for m in (tr_in, val, tr_all, test))
+                emu, esd = GP.fit_scaler(Eg[ti])
+                rp = GP.RidgePath(GP.apply_scaler(Eg[ti], emu, esd), Yg[ti])
+                Ev = GP.apply_scaler(Eg[vi], emu, esd)
+                vs = {a_: float(((rp.predict(Ev, a_) - Yg[vi]) ** 2).mean()) for a_ in cfg["ridge_alphas"]}
                 a = min(vs, key=vs.get)
-                emu2, esd2 = F.fit_scaler(E[tr_all])
-                pred = fit_ridge(F.apply_scaler(E[tr_all], emu2, esd2), data.Y[tr_all], a).predict(F.apply_scaler(E[test], emu2, esd2))
+                emu2, esd2 = GP.fit_scaler(Eg[ai])
+                pred = GP.RidgePath(GP.apply_scaler(Eg[ai], emu2, esd2), Yg[ai]).predict(GP.apply_scaler(Eg[ei], emu2, esd2), a).cpu().numpy()
                 n_prog = len(s["programs"])
                 for j, t in enumerate(data.target_names + ["genes_pooled"]):
                     if t == "genes_pooled":

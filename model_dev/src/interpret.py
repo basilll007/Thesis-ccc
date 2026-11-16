@@ -69,7 +69,9 @@ def main() -> None:
     C.save_json(gate, PHASE, "gate.json", log)
     abl = pd.read_csv(C.RESULTS / "phase3" / "ablation_summary.csv")
     gcfg = C.load_config(C.MODEL_DEV / "configs" / "graph.yaml")
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only policy: CUDA not available")
+    device = "cuda"
     fold_table = A.folds("grouped"); n_folds = int(fold_table.fold.max()) + 1
     spec = A.targets_spec()
     programs = json.loads((C.REPO_ROOT / "results/chain/phase1b/programs_used.json").read_text())
@@ -81,7 +83,7 @@ def main() -> None:
     rows, pert_rows = [], []
     for receiver in sorted(gated.receiver.unique()):
         s = spec[receiver]
-        data = A.build_receiver("development", receiver, log)
+        data = A.build_receiver("development", receiver, log, blocks=["own", "tile"])
         tnames = data.target_names
         targets = gated[gated.receiver == receiver].target.tolist()
         rc = classes.index(s["class"])

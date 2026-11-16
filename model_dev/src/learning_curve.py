@@ -35,14 +35,16 @@ def main() -> None:
     log = C.start_run(PHASE, "learning_curve", gcfg)
     sel = json.loads((C.RESULTS / "phase3" / "architecture_selection.json").read_text())
     arch, lr = sel["selected_arch"], float(sel["selected_lr"])
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only policy: CUDA not available")
+    device = "cuda"
     fold_table = A.folds("grouped"); n_folds = int(fold_table.fold.max()) + 1
     spec = A.targets_spec()
     store0, offsets, classes = T.build_store("development", max(gcfg["k1"], gcfg["k2"]), device, log)
     rows = []
     for receiver in gcfg["receivers"]:
         s = spec[receiver]
-        data = A.build_receiver("development", receiver, log)
+        data = A.build_receiver("development", receiver, log, blocks=["own", "tile"])
         rc = classes.index(s["class"])
         seed_global = np.array([offsets[x] + r for x, r in zip(data.section, data.row)])
         raw = data.matrix(["own", "tile"])

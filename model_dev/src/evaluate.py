@@ -21,7 +21,7 @@ import assemble as A  # noqa: E402
 import features as F  # noqa: E402
 import models as M  # noqa: E402
 import train as T  # noqa: E402
-from baselines import FEATURE_SETS, TorchMLP, fit_ridge, merge_pairs, pooled_r2, sse_sst_by_group  # noqa: E402
+from baselines import FEATURE_SETS, merge_pairs, pooled_r2, sse_sst_by_group  # noqa: E402
 
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -90,45 +90,42 @@ def evaluate_models(receiver: str, cfg: dict, log, device: str) -> tuple[list[di
             return float(d.r2.iloc[0]) if len(d) else np.nan
         return f
 
-    # 2. own-covariates ridge
-    for fset in ["own"] + sorted({f for f in best[best.receiver == receiver].feature_set.unique()}):
+    # 2./3. ridge (own covariates and the strongest baselines' feature sets), XGBoost-CUDA and MLP - all on the GPU
+    import gpu as GP
+    for fset in ["own"] + sorted({f for f in best[best.receiver == receiver].feature_set.unique() if f != "none"}):
         blocks = FEATURE_SETS[fset]
-        Xd, Xe = dev.matrix(blocks), ext.matrix(blocks)
-        mu, sd = F.fit_scaler(Xd)
-        Xd, Xe = F.apply_scaler(Xd, mu, sd), F.apply_scaler(Xe, mu, sd)
+        Xd, Xe = GP.to_gpu(dev.matrix(blocks)), GP.to_gpu(ext.matrix(blocks))
+        mu, sd = GP.fit_scaler(Xd)                                   # development statistics only (frozen)
+        Xd, Xe = GP.apply_scaler(Xd, mu, sd), GP.apply_scaler(Xe, mu, sd)
+        Ydg = GP.to_gpu(dev.Y)
         alpha = ridge_alpha_from(modal_config(p2, receiver, "ridge", fset))
-        m = fit_ridge(Xd, dev.Y, alpha)
-        record(f"ridge/{fset}", m.predict(Xe), internal("ridge", fset))
+        rp = GP.RidgePath(Xd, Ydg)
+        record(f"ridge/{fset}", rp.predict(Xe, alpha).cpu().numpy(), internal("ridge", fset))
+        del rp
+        torch.cuda.empty_cache()
         log.info("%s ridge/%s alpha=%g evaluated", receiver, fset, alpha)
-        # strongest-baseline models of other kinds on this feature set
         for b in best[(best.receiver == receiver) & (best.feature_set == fset)].itertuples():
-            if b.model == "hgb":
-                from sklearn.ensemble import HistGradientBoostingRegressor
-                cfgname = modal_config(p2, receiver, "hgb", fset)
+            if b.model == "xgb" and (f"xgb/{fset}", tnames[0]) not in pairs:
+                cfgname = modal_config(p2, receiver, "xgb", fset)
                 lr = float(cfgname.split("lr=")[1].split(",")[0]); leaves = int(cfgname.split("leaves=")[1])
-                d = p2[(p2.receiver == receiver) & (p2.model == "hgb") & (p2.feature_set == fset) & (p2.config == cfgname)]
-                pred = np.tile(ymean, (len(ext.Y), 1))
+                d = p2[(p2.receiver == receiver) & (p2.model == "xgb") & (p2.feature_set == fset) & (p2.config == cfgname)]
+                rows_tr = np.random.default_rng(C.SEED).choice(len(dev.Y), min(len(dev.Y), cfg["hgb_max_rows"]), replace=False)
+                Xd_np = Xd[torch.as_tensor(rows_tr, device="cuda")].cpu().numpy(); Xe_np = Xe.cpu().numpy()
+                pred = np.tile(ymean, (len(ext.Y), 1)).astype(np.float32)
                 for j in range(n_prog):
                     iters = int(np.median([int(x.split(";")[j]) for x in d.drop_duplicates("fold").best_iters]))
-                    rng = np.random.default_rng(C.SEED)
-                    rows_tr = np.arange(len(dev.Y))
-                    if len(rows_tr) > cfg["hgb_max_rows"]:
-                        rows_tr = rng.choice(rows_tr, cfg["hgb_max_rows"], replace=False)
-                    hm = HistGradientBoostingRegressor(learning_rate=lr, max_leaf_nodes=leaves, max_iter=iters, min_samples_leaf=50,
-                                                       early_stopping=False, random_state=C.SEED).fit(Xd[rows_tr], dev.Y[rows_tr, j])
-                    pred[:, j] = hm.predict(Xe)
-                if (f"hgb/{fset}", tnames[0]) not in pairs:
-                    record(f"hgb/{fset}", pred, internal("hgb", fset))
+                    pred[:, j] = GP.xgb_fit_predict(Xd_np, dev.Y[rows_tr, j], Xe_np, lr, leaves, iters, C.SEED)
+                record(f"xgb/{fset}", pred, internal("xgb", fset))
+                del Xd_np, Xe_np
             if b.model == "mlp" and (f"mlp/{fset}", tnames[0]) not in pairs:
                 d = p2[(p2.receiver == receiver) & (p2.model == "mlp") & (p2.feature_set == fset)]
                 lr = float(modal_config(p2, receiver, "mlp", fset).split("lr=")[1].split(",")[0])
                 epochs = int(np.median(d.drop_duplicates(["fold", "config"]).epochs))
-                preds = []
-                for seed in cfg["seeds"]:
-                    mlp = TorchMLP(Xd.shape[1], len(tnames), (256, 128), 0.1, lr, 1e-4, seed, 1024, epochs, 10**9)
-                    mlp.fit(Xd, dev.Y, Xd[:2048], dev.Y[:2048])   # fixed epoch budget; the 'val' here only logs, never stops
-                    preds.append(mlp.predict(Xe))
+                preds = [GP.GPUMLP(Xd.shape[1], len(tnames), (256, 128), 0.1, lr, 1e-4, seed, 1024).fit_fixed(Xd, Ydg, epochs)
+                         .predict(Xe).cpu().numpy() for seed in cfg["seeds"]]
                 record(f"mlp/{fset}", np.mean(preds, axis=0), internal("mlp", fset))
+        del Xd, Xe, Ydg
+        torch.cuda.empty_cache()
     # 4. selected graph model
     sel = json.loads((C.RESULTS / "phase3" / "architecture_selection.json").read_text())
     gcfg = C.load_config(C.MODEL_DEV / "configs" / "graph.yaml")
@@ -191,7 +188,9 @@ def main() -> None:
         raise FileExistsError("external_results.csv exists: the external set is evaluated once; delete deliberately and log it to re-run")
     log = C.start_run(PHASE, "external", cfg)
     log.info("EXTERNAL TEST: single touch at commit %s", C.git_commit())
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only policy: CUDA not available")
+    device = "cuda"
     rows = []
     for receiver in cfg["receivers"]:
         r, _ = evaluate_models(receiver, cfg, log, device)
