@@ -416,3 +416,26 @@ results/chain/phase5/phase5_summary.json,phase5,Phase 5 key numbers,src/chain/ch
 logs/chain_chain_phase5_candidates_20261116T002954_57204.log,phase5,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
 results/chain/ranked_hypotheses_dedup.csv,phase5,De-duplicated ranked_hypotheses (one row per hop x LR pair); original kept unmodified,src/chain/chain_phase5b_dedup.py,2026-11-16T00:30:32
 logs/chain_chain_phase5b_dedup_20261116T003030_56960.log,phase5,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase5b_dedup.py,2026-11-16T00:30:32
+results/chain/phase3/sections_marker/T1-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T1-b_marker.py,2026-11-16T00:32:27
+logs/chain_chain_phase3_section_T1-b_marker_20261116T002923_31308.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T1-b_marker.py,2026-11-16T00:32:27
+results/chain/phase3/sections_marker/U1-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U1-b_marker.py,2026-11-16T00:32:57
+logs/chain_chain_phase3_section_U1-b_marker_20261116T003003_22132.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U1-b_marker.py,2026-11-16T00:32:57
+results/chain/phase3/sections_marker/T3-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T3-b_marker.py,2026-11-16T00:32:59
+logs/chain_chain_phase3_section_T3-b_marker_20261116T002923_49064.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T3-b_marker.py,2026-11-16T00:32:59
+results/chain/phase3/sections_marker/T4-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T4-b_marker.py,2026-11-16T00:33:33
+logs/chain_chain_phase3_section_T4-b_marker_20261116T002923_27476.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T4-b_marker.py,2026-11-16T00:33:33
+results/chain/phase3/sections_marker/T2-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T2-b_marker.py,2026-11-16T00:33:40
+logs/chain_chain_phase3_section_T2-b_marker_20261116T002923_52012.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T2-b_marker.py,2026-11-16T00:33:40
+results/chain/phase3/sections_marker/U3-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U3-b_marker.py,2026-11-16T00:34:34
+logs/chain_chain_phase3_section_U3-b_marker_20261116T003257_22132.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U3-b_marker.py,2026-11-16T00:34:34
+results/chain/phase3/sections_marker/U2-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U2-b_marker.py,2026-11-16T00:35:49
+logs/chain_chain_phase3_section_U2-b_marker_20261116T003227_31308.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U2-b_marker.py,2026-11-16T00:35:49
+results/chain/phase3/section_level_stats_marker.csv,phase3,Per-section statistics with section-level add-one p (expr/label nulls),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+results/chain/phase3/tumour_level_tests_marker.csv,phase3,"Tumour-level estimates, bootstrap CI, add-one p (paired block nulls, 200 perms), BH q per family",src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+results/chain/phase3/all_variant_calls_marker.csv,phase3,Decision-rule criteria for forward and negative-control variants,src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+results/chain/phase3/chain_calls_marker.csv,phase3,Forward-chain calls with negative-control annotation,src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+results/chain/phase3/per_hop_effects_marker.csv,phase3,Per-hop tumour-level effects (amplification visible/absent),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+results/chain/phase3/n_tests_marker.json,phase3,Number of tests per BH family; random-B choices,src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:25
+figures/chain/phase3/phase3_chain_effects_marker.png,phase3,Per-hop and indirect effects (marker),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
+figures/chain/phase3/phase3_chain_effects_marker.pdf,phase3,Per-hop and indirect effects (marker),src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
+logs/chain_chain_phase3_aggregate_marker_20261116T003623_62096.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_aggregate_marker.py,2026-11-16T00:36:26
