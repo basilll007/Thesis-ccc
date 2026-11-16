@@ -1,0 +1,4 @@
+path,phase,description,bytes,sha256,registered_at
+results/translational/acquisition/20261116T035450398108Z/downloads.json,acquisition,"Every download URL, content identity or blocker; Git LFS identities verified",4049,b2637b2695bfc76e2f25bbfe4ded9112bf849b307f25ac90dd3d200403be905e,2026-11-16T03:54:55.211711+00:00
+results/translational/acquisition/20261116T035450398108Z/downloads.csv,acquisition,Opened download/source URLs and blocks,2893,25d0facef25e5da806fa19025a4c4ee22656453016b7b9f16bdb073401b575ee,2026-11-16T03:54:55.228470+00:00
+results/translational/acquisition/20261116T035450398108Z/run.log,acquisition,"Run log: parameters, package versions, commit and lifecycle",1515,6f9186a195846e6c8a4062965fe2bec65cb987b0b503a8cb2c8d6515523eaf2c,2026-11-16T03:54:55.240418+00:00

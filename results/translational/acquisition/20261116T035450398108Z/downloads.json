@@ -1,0 +1,93 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/meta_study.txt",
+    "file": "paad_pancan/meta_study.txt",
+    "status": "DOWNLOADED",
+    "bytes": 610,
+    "sha256": "4f60b4a96debb5330b4baf4da5ec0c6e916e5d96ab2dbd598fbe2745f6f92ac6"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/LICENSE",
+    "file": "paad_pancan/LICENSE",
+    "status": "DOWNLOADED",
+    "bytes": 446,
+    "sha256": "a290da9a9b7f53084667f3b21cc3b4fce4168f917994e7516a02dd0e44385d38"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/README.md",
+    "file": "paad_pancan/README.md",
+    "status": "DOWNLOADED",
+    "bytes": 1541,
+    "sha256": "7969716b3516ab0d994efa9dee8d19cba42efe1e48ab476a3aba9062d54b56e6"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/meta_mrna_seq_v2_rsem.txt",
+    "file": "paad_pancan/meta_mrna_seq_v2_rsem.txt",
+    "status": "DOWNLOADED",
+    "bytes": 394,
+    "sha256": "3be6c68cd2e6368cfe7a4674ac83bfa1c323f58a540a4bd76b5b76ba6bf3945c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_clinical_patient.txt",
+    "file": "paad_pancan/data_clinical_patient.txt",
+    "status": "DOWNLOADED",
+    "bytes": 130,
+    "sha256": "17bf1bec75ae8cfdca7e8f8aaafb516047317528a2f4cca78b095e16733fd08f"
+  },
+  {
+    "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_clinical_patient.txt",
+    "file": "paad_pancan/lfs/data_clinical_patient.txt",
+    "status": "DOWNLOADED",
+    "bytes": 58621,
+    "sha256": "0c2742688e59bb918d446d35f755d7a849c3e647ab184dc54d4f7e807be2efe5"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_clinical_sample.txt",
+    "file": "paad_pancan/data_clinical_sample.txt",
+    "status": "DOWNLOADED",
+    "bytes": 130,
+    "sha256": "4bb4a6e43236dd6783fb36e7edc240734be3b86a7eeb035a05deca6e71029e6c"
+  },
+  {
+    "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_clinical_sample.txt",
+    "file": "paad_pancan/lfs/data_clinical_sample.txt",
+    "status": "DOWNLOADED",
+    "bytes": 38978,
+    "sha256": "557fdead8f0376156048947aac32cbfc92f7770be9ffb1aa2f0883ff677a457c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_mrna_seq_v2_rsem.txt",
+    "file": "paad_pancan/data_mrna_seq_v2_rsem.txt",
+    "status": "DOWNLOADED",
+    "bytes": 133,
+    "sha256": "fb922c9e4bf83a3c3062793ad7c88880a54a74635664a6bfaaa14f667f991339"
+  },
+  {
+    "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/paad_tcga_pan_can_atlas_2018/data_mrna_seq_v2_rsem.txt",
+    "file": "paad_pancan/lfs/data_mrna_seq_v2_rsem.txt",
+    "status": "DOWNLOADED",
+    "bytes": 25937712,
+    "sha256": "d67ebbc954d6137b7dc6c5b31388b38899656a8b6be30cf817e269586afe4bb0"
+  },
+  {
+    "url": "https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/HALLMARK_HYPOXIA.html",
+    "file": "sources/hallmark_hypoxia.html",
+    "status": "DOWNLOADED",
+    "bytes": 196417,
+    "sha256": "2e9ebe6b9e43834dd713d09c4d735054da97c66a40ae7c499e846a472d0a8665"
+  },
+  {
+    "url": "https://docs.cbioportal.org/user-guide/faq/",
+    "file": "sources/cbio_faq.html",
+    "status": "DOWNLOADED",
+    "bytes": 95974,
+    "sha256": "2e2dc6221477d031cffcb9ba79a2f8a543f009c9146d318513fb35c0bd7a9566"
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5964983/",
+    "file": "sources/tcga2017_paper.html",
+    "status": "DOWNLOADED",
+    "bytes": 407327,
+    "sha256": "1931d782f96edfc81e1b685f357ed926550f9859251be0a1d5e8a19238bd9466"
+  }
+]

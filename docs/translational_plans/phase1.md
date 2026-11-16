@@ -17,3 +17,6 @@ f. Generate 1,000 distinct random signatures of size 12 matched to the original 
 
 ## Decision rule
 ROBUST only if median paired effect >0 in a,b,c, every leave-one-gene-out and the independent gene set, and paired p<0.05 in a,b,c. If any adequately testable required check fails: NOT ROBUST, naming it. Missing membership, failed reproduction or insufficient pairs: INCONCLUSIVE (with failed testable checks still reported). f is contextual and not an additional gate. Report raw p for planned sensitivities and BH across a,b,c as secondary, not a substitute for the declared raw-p rule. One composite PNG/PDF figure. No causal, physiological or clinical claims.
+
+## Execution clarification before sensitivity computation
+For b, select spots using the epithelial/host proxies on the full QC-passing slide and take the already reproduced baseline hypoxia score on that fixed subset; do not refit matched controls after cell selection. For f, the sparse coefficient implementation of the same Scanpy controls is checked against public score_genes on actual slide/signature examples to float32 tolerance.
