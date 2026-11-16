@@ -1,0 +1,114 @@
+2026-11-15 21:54:51,750 INFO script=src/chain/chain_phase2_neighbourhood.py log=logs/chain_chain_phase2_neighbourhood_20261115T215451_62656.log
+2026-11-15 21:54:51,790 INFO git_commit=ab6ef884d80a7c01e4a703b4a85004e9bcc72831+dirty
+2026-11-15 21:54:51,790 INFO seed=42
+2026-11-15 21:54:53,489 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 21:54:53,500 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 21:54:53,500 INFO params={"cap_per_section": 20000, "hgb_max_train": 60000, "alphas": [0.01, 0.03162277660168379, 0.1, 0.31622776601683794, 1.0, 3.1622776601683795, 10.0, 31.622776601683793, 100.0, 316.22776601683796, 1000.0, 3162.2776601683795, 10000.0], "n_boot": 2000}
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 21:54:59,943 INFO features author_mapped T1-b built: sys_avail=2.82GB load=91% proc_rss=0.46GB proc_peak=0.46GB
+2026-11-15 21:55:00,038 INFO features author_mapped T2-b built: sys_avail=2.78GB load=91% proc_rss=0.49GB proc_peak=0.49GB
+2026-11-15 21:55:00,117 INFO features author_mapped T3-b built: sys_avail=2.78GB load=91% proc_rss=0.49GB proc_peak=0.50GB
+2026-11-15 21:55:00,246 INFO features author_mapped T4-a built: sys_avail=2.73GB load=91% proc_rss=0.53GB proc_peak=0.54GB
+2026-11-15 21:55:00,350 INFO features author_mapped T4-b built: sys_avail=2.73GB load=91% proc_rss=0.53GB proc_peak=0.54GB
+2026-11-15 21:55:00,450 INFO features author_mapped T5-a built: sys_avail=2.71GB load=91% proc_rss=0.55GB proc_peak=0.55GB
+2026-11-15 21:55:00,482 INFO features author_mapped T6-b built: sys_avail=2.74GB load=91% proc_rss=0.52GB proc_peak=0.55GB
+2026-11-15 21:55:00,545 INFO features author_mapped U1-b built: sys_avail=2.72GB load=91% proc_rss=0.54GB proc_peak=0.55GB
+2026-11-15 21:55:00,625 INFO features author_mapped U2-b built: sys_avail=2.70GB load=91% proc_rss=0.56GB proc_peak=0.56GB
+2026-11-15 21:55:00,660 INFO features author_mapped U3-b built: sys_avail=2.71GB load=91% proc_rss=0.54GB proc_peak=0.56GB
+2026-11-15 21:55:00,769 INFO features author_mapped U4-a built: sys_avail=2.66GB load=92% proc_rss=0.60GB proc_peak=0.60GB
+2026-11-15 21:55:00,882 INFO features author_mapped U4-b built: sys_avail=2.65GB load=92% proc_rss=0.61GB proc_peak=0.62GB
+2026-11-15 21:55:01,046 INFO features author_mapped U5-a built: sys_avail=2.60GB load=92% proc_rss=0.66GB proc_peak=0.66GB
+2026-11-15 21:55:01,214 INFO features author_mapped U6-a_1 built: sys_avail=2.59GB load=92% proc_rss=0.68GB proc_peak=0.68GB
+2026-11-15 21:55:01,369 INFO features author_mapped U6-a_2 built: sys_avail=2.57GB load=92% proc_rss=0.69GB proc_peak=0.70GB
+2026-11-15 21:55:01,535 INFO features author_mapped U7-a built: sys_avail=2.54GB load=92% proc_rss=0.72GB proc_peak=0.72GB
+2026-11-15 21:55:02,337 INFO saved features author_mapped__tumour: 190115 rows x 50 cols
+2026-11-15 21:55:03,434 INFO saved features author_mapped__CAF: 237357 rows x 50 cols
+2026-11-15 21:55:03,487 INFO saved features author_mapped__T: 11557 rows x 47 cols
+2026-11-15 21:55:03,961 INFO saved features author_mapped__myeloid: 95941 rows x 50 cols
+2026-11-15 21:55:04,035 INFO features marker T1-b built: sys_avail=2.68GB load=91% proc_rss=0.73GB proc_peak=0.86GB
+2026-11-15 21:55:04,126 INFO features marker T2-b built: sys_avail=2.65GB load=92% proc_rss=0.76GB proc_peak=0.86GB
+2026-11-15 21:55:04,203 INFO features marker T3-b built: sys_avail=2.73GB load=91% proc_rss=0.76GB proc_peak=0.86GB
+2026-11-15 21:55:04,317 INFO features marker T4-a built: sys_avail=2.70GB load=91% proc_rss=0.80GB proc_peak=0.86GB
+2026-11-15 21:55:04,411 INFO features marker T4-b built: sys_avail=2.71GB load=91% proc_rss=0.79GB proc_peak=0.86GB
+2026-11-15 21:55:04,504 INFO features marker T5-a built: sys_avail=2.69GB load=91% proc_rss=0.81GB proc_peak=0.86GB
+2026-11-15 21:55:04,530 INFO features marker T6-b built: sys_avail=2.72GB load=91% proc_rss=0.78GB proc_peak=0.86GB
+2026-11-15 21:55:04,585 INFO features marker U1-b built: sys_avail=2.70GB load=91% proc_rss=0.80GB proc_peak=0.86GB
+2026-11-15 21:55:04,656 INFO features marker U2-b built: sys_avail=2.68GB load=91% proc_rss=0.82GB proc_peak=0.86GB
+2026-11-15 21:55:04,690 INFO features marker U3-b built: sys_avail=2.69GB load=91% proc_rss=0.80GB proc_peak=0.86GB
+2026-11-15 21:55:04,794 INFO features marker U4-a built: sys_avail=2.64GB load=92% proc_rss=0.86GB proc_peak=0.86GB
+2026-11-15 21:55:04,901 INFO features marker U4-b built: sys_avail=2.63GB load=92% proc_rss=0.87GB proc_peak=0.88GB
+2026-11-15 21:55:05,073 INFO features marker U5-a built: sys_avail=2.58GB load=92% proc_rss=0.92GB proc_peak=0.92GB
+2026-11-15 21:55:05,251 INFO features marker U6-a_1 built: sys_avail=2.56GB load=92% proc_rss=0.93GB proc_peak=0.94GB
+2026-11-15 21:55:05,408 INFO features marker U6-a_2 built: sys_avail=2.55GB load=92% proc_rss=0.95GB proc_peak=0.95GB
+2026-11-15 21:55:05,574 INFO features marker U7-a built: sys_avail=2.53GB load=92% proc_rss=0.97GB proc_peak=0.97GB
+2026-11-15 21:55:06,347 INFO saved features marker__tumour: 184653 rows x 46 cols
+2026-11-15 21:55:07,535 INFO saved features marker__CAF: 270130 rows x 46 cols
+2026-11-15 21:55:07,582 INFO saved features marker__T: 10427 rows x 43 cols
+2026-11-15 21:55:07,852 INFO saved features marker__myeloid: 57109 rows x 46 cols
+2026-11-15 21:59:04,855 INFO task ('author_mapped', 'tumour:basal_like', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__tumour-basal_like__spill0.csv; sys_avail=1.81GB load=94% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 21:59:06,592 INFO task ('author_mapped', 'tumour:classical', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__tumour-classical__spill0.csv; sys_avail=2.34GB load=92% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 21:59:40,678 INFO task ('author_mapped', 'tumour:basal_like', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__tumour-basal_like__spill1.csv; sys_avail=2.28GB load=93% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 21:59:44,538 INFO task ('author_mapped', 'tumour:classical', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__tumour-classical__spill1.csv; sys_avail=1.94GB load=94% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 21:59:52,999 INFO task ('author_mapped', 'CAF:myCAF', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__CAF-myCAF__spill0.csv; sys_avail=2.47GB load=92% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:00:01,208 INFO task ('author_mapped', 'T:cytotoxic', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__T-cytotoxic__spill0.csv; sys_avail=2.22GB load=93% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:00:09,775 INFO task ('author_mapped', 'T:cytotoxic', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__T-cytotoxic__spill1.csv; sys_avail=1.92GB load=94% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:00:29,398 INFO task ('author_mapped', 'CAF:myCAF', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__CAF-myCAF__spill1.csv; sys_avail=2.57GB load=92% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:01:51,889 INFO task ('author_mapped', 'myeloid:C1Q_TAM', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__myeloid-C1Q_TAM__spill0.csv; sys_avail=2.62GB load=92% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:02:08,730 INFO task ('author_mapped', 'myeloid:SPP1_TAM', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__myeloid-SPP1_TAM__spill0.csv; sys_avail=2.79GB load=91% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:02:25,359 INFO task ('author_mapped', 'myeloid:C1Q_TAM', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__myeloid-C1Q_TAM__spill1.csv; sys_avail=1.98GB load=94% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:02:46,377 INFO task ('author_mapped', 'myeloid:SPP1_TAM', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__myeloid-SPP1_TAM__spill1.csv; sys_avail=3.25GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:00,771 INFO task ('marker', 'tumour:classical', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__tumour-classical__spill0.csv; sys_avail=3.41GB load=89% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:03,046 INFO task ('author_mapped', 'CAF:CXCL12', False) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__CAF-CXCL12__spill0.csv; sys_avail=3.29GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:25,663 INFO task ('marker', 'tumour:classical', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__tumour-classical__spill1.csv; sys_avail=2.82GB load=91% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:26,708 INFO task ('marker', 'tumour:basal_like', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__tumour-basal_like__spill0.csv; sys_avail=3.05GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:27,801 INFO task ('author_mapped', 'CAF:CXCL12', True) done -> F:\Thesis\results\chain\phase2\tasks\author_mapped__CAF-CXCL12__spill1.csv; sys_avail=3.04GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:38,567 INFO task ('marker', 'T:cytotoxic', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__T-cytotoxic__spill0.csv; sys_avail=2.81GB load=91% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:52,178 INFO task ('marker', 'tumour:basal_like', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__tumour-basal_like__spill1.csv; sys_avail=3.08GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:03:52,342 INFO task ('marker', 'T:cytotoxic', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__T-cytotoxic__spill1.csv; sys_avail=3.01GB load=90% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:04,154 INFO task ('marker', 'CAF:myCAF', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__CAF-myCAF__spill0.csv; sys_avail=3.73GB load=88% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:20,222 INFO task ('marker', 'CAF:myCAF', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__CAF-myCAF__spill1.csv; sys_avail=3.60GB load=89% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:20,363 INFO task ('marker', 'CAF:CXCL12', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__CAF-CXCL12__spill0.csv; sys_avail=3.78GB load=88% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:24,384 INFO task ('marker', 'CAF:CXCL12', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__CAF-CXCL12__spill1.csv; sys_avail=4.28GB load=87% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:28,156 INFO task ('marker', 'myeloid:C1Q_TAM', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__myeloid-C1Q_TAM__spill0.csv; sys_avail=4.39GB load=86% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:35,181 INFO task ('marker', 'myeloid:C1Q_TAM', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__myeloid-C1Q_TAM__spill1.csv; sys_avail=4.29GB load=87% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:36,842 INFO task ('marker', 'myeloid:SPP1_TAM', False) done -> F:\Thesis\results\chain\phase2\tasks\marker__myeloid-SPP1_TAM__spill0.csv; sys_avail=4.35GB load=86% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:43,517 INFO task ('marker', 'myeloid:SPP1_TAM', True) done -> F:\Thesis\results\chain\phase2\tasks\marker__myeloid-SPP1_TAM__spill1.csv; sys_avail=4.38GB load=86% proc_rss=0.69GB proc_peak=1.11GB
+2026-11-15 22:04:44,237 INFO Saved results/chain/phase2/loto_per_tumour_sse.csv (3276 rows)
+2026-11-15 22:04:44,245 INFO Saved results/chain/phase2/delta_r2_by_program.csv (56 rows)
+2026-11-15 22:04:44,254 INFO Saved results/chain/phase2/feature_group_attribution.csv (140 rows)
+2026-11-15 22:04:44,270 INFO Saved results/chain/phase2/gnn_decision.json
+2026-11-15 22:04:44,270 INFO GNN decision: {'rule': 'GNN only if some program has delta R2 lower CI > 0.01 AND hgb delta R2 >= ridge + 0.01 (author_mapped)', 'triggered': True, 'triggering_programs': [{'program': 'myeloid:SPP1_TAM', 'spill': False, 'ridge': 0.05614611089096383, 'hgb': 0.06812256304034862}, {'program': 'tumour:classical', 'spill': False, 'ridge': 0.14109199046862955, 'hgb': 0.15135293925551882}, {'program': 'tumour:classical', 'spill': True, 'ridge': 0.12325745757666447, 'hgb': 0.1355428687380863}], 'decision': 'GNN warranted (SGC-style per plan)'}
+2026-11-15 22:04:45,043 INFO Saved figure figures/chain/phase2/phase2_delta_r2(.png/.pdf)
+2026-11-15 22:04:45,061 INFO Saved results/chain/phase2/phase2_summary.json
+2026-11-15 22:04:45,067 INFO delta R2 (author_mapped):
+   annotation           program  spillover_covariates model  n_cells  n_tumours  r2_baseline  r2_neighbour  delta_r2    ci_low  ci_high  n_tumours_delta_pos  median_tumour_delta_r2  neighbours_predict_beyond_own
+author_mapped        CAF:CXCL12                 False ridge   237357         13     0.059441      0.067940  0.008499  0.002671 0.014654                   10                0.003272                           True
+author_mapped        CAF:CXCL12                 False   hgb   237357         13     0.048463      0.063070  0.014607  0.004197 0.024806                    9                0.011759                           True
+author_mapped        CAF:CXCL12                  True ridge   237357         13     0.060333      0.068716  0.008383  0.002752 0.013800                   10                0.002603                           True
+author_mapped        CAF:CXCL12                  True   hgb   237357         13     0.054085      0.064239  0.010154  0.002144 0.016397                   10                0.006423                           True
+author_mapped         CAF:myCAF                 False ridge   237357         13     0.241336      0.275421  0.034084  0.020848 0.045444                   12                0.028183                           True
+author_mapped         CAF:myCAF                 False   hgb   237357         13     0.230749      0.269419  0.038671  0.026809 0.048421                   13                0.032020                           True
+author_mapped         CAF:myCAF                  True ridge   237357         13     0.249418      0.283216  0.033797  0.021597 0.044336                   12                0.027948                           True
+author_mapped         CAF:myCAF                  True   hgb   237357         13     0.243585      0.278983  0.035399  0.025440 0.042952                   12                0.032389                           True
+author_mapped       T:cytotoxic                 False ridge    11557         13     0.031782      0.032268  0.000486 -0.002746 0.004567                    5               -0.003132                          False
+author_mapped       T:cytotoxic                 False   hgb    11557         13     0.022100      0.027792  0.005692 -0.001562 0.008669                    8                0.006428                          False
+author_mapped       T:cytotoxic                  True ridge    11557         13     0.122015      0.121761 -0.000253 -0.004189 0.002664                    5               -0.000898                          False
+author_mapped       T:cytotoxic                  True   hgb    11557         13     0.107544      0.106782 -0.000762 -0.012321 0.005620                    7                0.000152                          False
+author_mapped   myeloid:C1Q_TAM                 False ridge    95941         13     0.194240      0.224183  0.029942  0.016015 0.044499                   13                0.015855                           True
+author_mapped   myeloid:C1Q_TAM                 False   hgb    95941         13     0.187805      0.225566  0.037760  0.023055 0.057018                   13                0.023729                           True
+author_mapped   myeloid:C1Q_TAM                  True ridge    95941         13     0.237214      0.268342  0.031128  0.018462 0.043283                   13                0.022019                           True
+author_mapped   myeloid:C1Q_TAM                  True   hgb    95941         13     0.244125      0.275353  0.031228  0.018775 0.045667                   11                0.019670                           True
+author_mapped  myeloid:SPP1_TAM                 False ridge    95941         13     0.224640      0.280786  0.056146  0.041659 0.065045                   13                0.054757                           True
+author_mapped  myeloid:SPP1_TAM                 False   hgb    95941         13     0.216086      0.284208  0.068123  0.054362 0.076919                   13                0.069700                           True
+author_mapped  myeloid:SPP1_TAM                  True ridge    95941         13     0.249855      0.295675  0.045820  0.035666 0.053233                   13                0.048335                           True
+author_mapped  myeloid:SPP1_TAM                  True   hgb    95941         13     0.253765      0.300962  0.047197  0.036824 0.056473                   13                0.045890                           True
+author_mapped tumour:basal_like                 False ridge   190115         13     0.210445      0.267286  0.056841  0.033466 0.073711                   11                0.046750                           True
+author_mapped tumour:basal_like                 False   hgb   190115         13     0.199903      0.259865  0.059962  0.037928 0.077744                   12                0.048068                           True
+author_mapped tumour:basal_like                  True ridge   190115         13     0.227160      0.279483  0.052323  0.031687 0.067926                   11                0.042362                           True
+author_mapped tumour:basal_like                  True   hgb   190115         13     0.213529      0.273675  0.060146  0.034306 0.078483                   11                0.040157                           True
+author_mapped  tumour:classical                 False ridge   190115         13     0.299062      0.440154  0.141092  0.105225 0.164023                   13                0.106096                           True
+author_mapped  tumour:classical                 False   hgb   190115         13     0.286523      0.437876  0.151353  0.116427 0.172614                   12                0.122701                           True
+author_mapped  tumour:classical                  True ridge   190115         13     0.325282      0.448540  0.123257  0.093349 0.148826                   13                0.090251                           True
+author_mapped  tumour:classical                  True   hgb   190115         13     0.312803      0.448346  0.135543  0.105801 0.160736                   12                0.099715                           True
+2026-11-15 22:04:45,079 INFO run finished

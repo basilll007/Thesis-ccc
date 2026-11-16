@@ -1,0 +1,85 @@
+2026-11-15 22:05:38,278 INFO script=src/chain/chain_phase2b_gnn.py log=logs/chain_chain_phase2b_gnn_20261115T220538_59916.log
+2026-11-15 22:05:38,333 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:38,333 INFO seed=42
+2026-11-15 22:05:40,715 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:40,730 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:40,731 INFO params={"max_train": 60000, "mlp": "(64,32), alpha 1e-3, early stopping"}
+2026-11-15 22:05:49,841 INFO hop2 myeloid T1-b done
+2026-11-15 22:05:49,946 INFO hop2 myeloid T2-b done
+2026-11-15 22:05:50,025 INFO hop2 myeloid T3-b done
+2026-11-15 22:05:50,141 INFO hop2 myeloid T4-a done
+2026-11-15 22:05:50,229 INFO hop2 myeloid T4-b done
+2026-11-15 22:05:50,320 INFO hop2 myeloid T5-a done
+2026-11-15 22:05:50,353 INFO hop2 myeloid T6-b done
+2026-11-15 22:05:50,414 INFO hop2 myeloid U1-b done
+2026-11-15 22:05:50,495 INFO hop2 myeloid U2-b done
+2026-11-15 22:05:50,532 INFO hop2 myeloid U3-b done
+2026-11-15 22:05:50,632 INFO hop2 myeloid U4-a done
+2026-11-15 22:05:50,735 INFO hop2 myeloid U4-b done
+2026-11-15 22:05:50,891 INFO hop2 myeloid U5-a done
+2026-11-15 22:05:51,052 INFO hop2 myeloid U6-a_1 done
+2026-11-15 22:05:51,200 INFO hop2 myeloid U6-a_2 done
+2026-11-15 22:05:51,348 INFO hop2 myeloid U7-a done
+2026-11-15 22:06:02,926 INFO myeloid:SPP1_TAM spill=False fold 004 done
+2026-11-15 22:06:11,724 INFO myeloid:SPP1_TAM spill=False fold 011 done
+2026-11-15 22:06:21,836 INFO myeloid:SPP1_TAM spill=False fold 2462 done
+2026-11-15 22:06:34,647 INFO myeloid:SPP1_TAM spill=False fold 2540 done
+2026-11-15 22:06:45,480 INFO myeloid:SPP1_TAM spill=False fold 2626 done
+2026-11-15 22:06:57,418 INFO myeloid:SPP1_TAM spill=False fold 2675 done
+2026-11-15 22:07:09,987 INFO myeloid:SPP1_TAM spill=False fold 2692 done
+2026-11-15 22:07:24,301 INFO myeloid:SPP1_TAM spill=False fold 2762 done
+2026-11-15 22:07:34,968 INFO myeloid:SPP1_TAM spill=False fold 2924 done
+2026-11-15 22:07:49,577 INFO myeloid:SPP1_TAM spill=False fold 2997 done
+2026-11-15 22:08:01,582 INFO myeloid:SPP1_TAM spill=False fold B10 done
+2026-11-15 22:08:15,338 INFO myeloid:SPP1_TAM spill=False fold C4 done
+2026-11-15 22:08:25,817 INFO myeloid:SPP1_TAM spill=False fold D10 done
+2026-11-15 22:08:25,891 INFO hop2 tumour T1-b done
+2026-11-15 22:08:25,988 INFO hop2 tumour T2-b done
+2026-11-15 22:08:26,060 INFO hop2 tumour T3-b done
+2026-11-15 22:08:26,183 INFO hop2 tumour T4-a done
+2026-11-15 22:08:26,277 INFO hop2 tumour T4-b done
+2026-11-15 22:08:26,369 INFO hop2 tumour T5-a done
+2026-11-15 22:08:26,399 INFO hop2 tumour T6-b done
+2026-11-15 22:08:26,454 INFO hop2 tumour U1-b done
+2026-11-15 22:08:26,533 INFO hop2 tumour U2-b done
+2026-11-15 22:08:26,568 INFO hop2 tumour U3-b done
+2026-11-15 22:08:26,672 INFO hop2 tumour U4-a done
+2026-11-15 22:08:26,776 INFO hop2 tumour U4-b done
+2026-11-15 22:08:26,958 INFO hop2 tumour U5-a done
+2026-11-15 22:08:27,122 INFO hop2 tumour U6-a_1 done
+2026-11-15 22:08:27,283 INFO hop2 tumour U6-a_2 done
+2026-11-15 22:08:27,454 INFO hop2 tumour U7-a done
+2026-11-15 22:08:39,385 INFO tumour:classical spill=False fold 004 done
+2026-11-15 22:08:54,249 INFO tumour:classical spill=False fold 011 done
+2026-11-15 22:09:06,723 INFO tumour:classical spill=False fold 2462 done
+2026-11-15 22:09:20,421 INFO tumour:classical spill=False fold 2540 done
+2026-11-15 22:09:29,774 INFO tumour:classical spill=False fold 2626 done
+2026-11-15 22:09:42,382 INFO tumour:classical spill=False fold 2675 done
+2026-11-15 22:09:52,216 INFO tumour:classical spill=False fold 2692 done
+2026-11-15 22:10:02,904 INFO tumour:classical spill=False fold 2762 done
+2026-11-15 22:10:13,274 INFO tumour:classical spill=False fold 2924 done
+2026-11-15 22:10:21,916 INFO tumour:classical spill=False fold 2997 done
+2026-11-15 22:10:31,444 INFO tumour:classical spill=False fold B10 done
+2026-11-15 22:10:39,763 INFO tumour:classical spill=False fold C4 done
+2026-11-15 22:10:51,552 INFO tumour:classical spill=False fold D10 done
+2026-11-15 22:11:05,692 INFO tumour:classical spill=True fold 004 done
+2026-11-15 22:11:15,786 INFO tumour:classical spill=True fold 011 done
+2026-11-15 22:11:25,486 INFO tumour:classical spill=True fold 2462 done
+2026-11-15 22:11:38,747 INFO tumour:classical spill=True fold 2540 done
+2026-11-15 22:11:49,842 INFO tumour:classical spill=True fold 2626 done
+2026-11-15 22:11:59,893 INFO tumour:classical spill=True fold 2675 done
+2026-11-15 22:12:08,479 INFO tumour:classical spill=True fold 2692 done
+2026-11-15 22:12:19,151 INFO tumour:classical spill=True fold 2762 done
+2026-11-15 22:12:28,698 INFO tumour:classical spill=True fold 2924 done
+2026-11-15 22:12:39,075 INFO tumour:classical spill=True fold 2997 done
+2026-11-15 22:12:52,950 INFO tumour:classical spill=True fold B10 done
+2026-11-15 22:13:02,427 INFO tumour:classical spill=True fold C4 done
+2026-11-15 22:13:14,271 INFO tumour:classical spill=True fold D10 done
+2026-11-15 22:13:14,289 INFO Saved results/chain/phase2/gnn_sgc_loto_per_tumour_sse.csv (78 rows)
+2026-11-15 22:13:14,373 INFO Saved results/chain/phase2/gnn_sgc_delta_r2.csv (3 rows)
+2026-11-15 22:13:14,377 INFO 
+   annotation          program  spillover_covariates   model  r2_baseline  r2_neighbour  delta_r2   ci_low  ci_high  n_tumours_delta_pos  ridge_delta_r2  hgb_delta_r2  r2_neighbour_ridge  r2_neighbour_hgb
+author_mapped myeloid:SPP1_TAM                 False sgc_mlp     0.227080      0.895472  0.668392 0.635228 0.719949                   13        0.056146      0.068123            0.280786          0.284208
+author_mapped tumour:classical                 False sgc_mlp     0.294138      0.805659  0.511521 0.460783 0.554608                   13        0.141092      0.151353            0.440154          0.437876
+author_mapped tumour:classical                  True sgc_mlp     0.320463      0.804090  0.483627 0.434903 0.539277                   13        0.123257      0.135543            0.448540          0.448346
+2026-11-15 22:13:14,389 INFO run finished

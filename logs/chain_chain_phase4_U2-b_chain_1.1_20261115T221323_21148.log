@@ -1,0 +1,14 @@
+2026-11-15 22:13:23,286 INFO script=src/chain/chain_phase4_U2-b_chain_1.1.py log=logs/chain_chain_phase4_U2-b_chain_1.1_20261115T221323_21148.log
+2026-11-15 22:13:23,335 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:13:23,335 INFO seed=42
+2026-11-15 22:13:23,335 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:13:23,335 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:13:23,335 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:13:27,265 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:13:27,653 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:13:30,922 INFO U2-b chain 1.10 sim 0 sys_avail=4.86GB load=85% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:14:23,882 INFO U2-b chain 1.10 sim 20 sys_avail=4.04GB load=87% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:15:18,656 INFO U2-b chain 1.10 sim 40 sys_avail=3.67GB load=88% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:16:14,750 INFO U2-b chain 1.10 sim 60 sys_avail=3.43GB load=89% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:17:08,616 INFO U2-b chain 1.10 sim 80 sys_avail=3.47GB load=89% proc_rss=0.90GB proc_peak=2.20GB
+2026-11-15 22:18:00,006 INFO run finished

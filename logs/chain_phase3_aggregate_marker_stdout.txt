@@ -1,0 +1,62 @@
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-16 00:36:23,570 INFO script=src/chain/chain_phase3_aggregate_marker.py log=logs/chain_chain_phase3_aggregate_marker_20261116T003623_62096.log
+2026-11-16 00:36:23,605 INFO git_commit=49ada7ef91893a842be663191e598a0bdf7cf2e9+dirty
+2026-11-16 00:36:23,605 INFO seed=42
+2026-11-16 00:36:23,605 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:36:23,627 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:36:23,627 INFO params={"n_perm": 200, "n_boot": 2000}
+2026-11-16 00:36:25,843 INFO Saved results/chain/phase3/section_level_stats_marker.csv (23900 rows)
+2026-11-16 00:36:25,866 INFO Saved results/chain/phase3/tumour_level_tests_marker.csv (1232 rows)
+2026-11-16 00:36:25,877 INFO Saved results/chain/phase3/all_variant_calls_marker.csv (176 rows)
+2026-11-16 00:36:25,888 INFO Saved results/chain/phase3/chain_calls_marker.csv (44 rows)
+2026-11-16 00:36:25,902 INFO Saved results/chain/phase3/per_hop_effects_marker.csv (44 rows)
+2026-11-16 00:36:25,910 INFO Saved results/chain/phase3/n_tests_marker.json
+2026-11-16 00:36:26,632 INFO Saved figure figures/chain/phase3/phase3_chain_effects_marker(.png/.pdf)
+2026-11-16 00:36:26,636 INFO forward calls:
+               chain            prog_A            prog_B            prog_C   beta_BA   beta_CB  indirect  q_expr_CB  q_expr_BA  q_expr_indirect         label
+CAF->myeloid->tumour        CAF:CXCL12   myeloid:C1Q_TAM tumour:basal_like  0.031051  0.014865  0.000585   0.218905   0.011056         0.398010 not supported
+CAF->myeloid->tumour        CAF:CXCL12   myeloid:C1Q_TAM  tumour:classical  0.031051 -0.038988 -0.000687   0.015636   0.011056         0.304035 not supported
+CAF->myeloid->tumour        CAF:CXCL12  myeloid:SPP1_TAM tumour:basal_like -0.015082 -0.001431  0.000764   0.959014   0.153081         0.300995 not supported
+CAF->myeloid->tumour        CAF:CXCL12  myeloid:SPP1_TAM  tumour:classical -0.015082  0.010868 -0.000616   0.306468   0.153081         0.328358 not supported
+CAF->myeloid->tumour         CAF:myCAF   myeloid:C1Q_TAM tumour:basal_like  0.041933  0.014865  0.000414   0.218905   0.011056         0.561857 not supported
+CAF->myeloid->tumour         CAF:myCAF   myeloid:C1Q_TAM  tumour:classical  0.041933 -0.038988 -0.000772   0.015636   0.011056         0.300995 not supported
+CAF->myeloid->tumour         CAF:myCAF  myeloid:SPP1_TAM tumour:basal_like -0.029846 -0.001431  0.000687   0.959014   0.011056         0.333570 not supported
+CAF->myeloid->tumour         CAF:myCAF  myeloid:SPP1_TAM  tumour:classical -0.029846  0.010868  0.000182   0.306468   0.011056         0.804478 not supported
+CAF->tumour->myeloid        CAF:CXCL12 tumour:basal_like   myeloid:C1Q_TAM -0.009758  0.024506 -0.001488   0.133776   0.099502         0.156361 not supported
+CAF->tumour->myeloid        CAF:CXCL12 tumour:basal_like  myeloid:SPP1_TAM -0.009758 -0.000904  0.000323   0.960199   0.099502         0.738024 not supported
+CAF->tumour->myeloid        CAF:CXCL12  tumour:classical   myeloid:C1Q_TAM -0.001897 -0.020423  0.001983   0.159204   0.807076         0.131343 not supported
+CAF->tumour->myeloid        CAF:CXCL12  tumour:classical  myeloid:SPP1_TAM -0.001897  0.027546  0.000258   0.159204   0.807076         0.804478 not supported
+CAF->tumour->myeloid         CAF:myCAF tumour:basal_like   myeloid:C1Q_TAM  0.001482  0.024506 -0.000384   0.133776   0.885048         0.688908 not supported
+CAF->tumour->myeloid         CAF:myCAF tumour:basal_like  myeloid:SPP1_TAM  0.001482 -0.000904 -0.001296   0.960199   0.885048         0.262687 not supported
+CAF->tumour->myeloid         CAF:myCAF  tumour:classical   myeloid:C1Q_TAM  0.007475 -0.020423 -0.000268   0.159204   0.661399         0.775044 not supported
+CAF->tumour->myeloid         CAF:myCAF  tumour:classical  myeloid:SPP1_TAM  0.007475  0.027546 -0.000559   0.159204   0.661399         0.600225 not supported
+myeloid->CAF->tumour   myeloid:C1Q_TAM        CAF:CXCL12 tumour:basal_like  0.017164 -0.014723 -0.002253   0.082090   0.019900         0.131343 not supported
+myeloid->CAF->tumour   myeloid:C1Q_TAM        CAF:CXCL12  tumour:classical  0.017164 -0.010033 -0.001155   0.257996   0.019900         0.273632 not supported
+myeloid->CAF->tumour   myeloid:C1Q_TAM         CAF:myCAF tumour:basal_like  0.019495  0.005675 -0.000286   0.573017   0.011056         0.760088 not supported
+myeloid->CAF->tumour   myeloid:C1Q_TAM         CAF:myCAF  tumour:classical  0.019495  0.008097  0.001395   0.576067   0.011056         0.273632 not supported
+myeloid->CAF->tumour  myeloid:SPP1_TAM        CAF:CXCL12 tumour:basal_like -0.008389 -0.014723  0.000403   0.082090   0.385572         0.603648 not supported
+myeloid->CAF->tumour  myeloid:SPP1_TAM        CAF:CXCL12  tumour:classical -0.008389 -0.010033 -0.000114   0.257996   0.385572         0.845771 not supported
+myeloid->CAF->tumour  myeloid:SPP1_TAM         CAF:myCAF tumour:basal_like -0.011901  0.005675  0.000522   0.573017   0.011056         0.561857 not supported
+myeloid->CAF->tumour  myeloid:SPP1_TAM         CAF:myCAF  tumour:classical -0.011901  0.008097 -0.000717   0.576067   0.011056         0.483416 not supported
+myeloid->tumour->CAF   myeloid:C1Q_TAM tumour:basal_like        CAF:CXCL12  0.014865 -0.030795 -0.000773   0.015636   0.170576         0.304035 not supported
+myeloid->tumour->CAF   myeloid:C1Q_TAM tumour:basal_like         CAF:myCAF  0.014865  0.017470  0.001300   0.015636   0.170576         0.156361 not supported
+myeloid->tumour->CAF   myeloid:C1Q_TAM  tumour:classical        CAF:CXCL12 -0.038988 -0.013002  0.002036   0.257996   0.011056         0.109453 not supported
+myeloid->tumour->CAF   myeloid:C1Q_TAM  tumour:classical         CAF:myCAF -0.038988  0.029622 -0.000559   0.015636   0.011056         0.561857 not supported
+myeloid->tumour->CAF  myeloid:SPP1_TAM tumour:basal_like        CAF:CXCL12 -0.001431 -0.030795  0.000194   0.015636   0.915423         0.804478 not supported
+myeloid->tumour->CAF  myeloid:SPP1_TAM tumour:basal_like         CAF:myCAF -0.001431  0.017470 -0.000599   0.015636   0.915423         0.456846 not supported
+myeloid->tumour->CAF  myeloid:SPP1_TAM  tumour:classical        CAF:CXCL12  0.010868 -0.013002  0.000778   0.257996   0.278607         0.328358 not supported
+myeloid->tumour->CAF  myeloid:SPP1_TAM  tumour:classical         CAF:myCAF  0.010868  0.029622 -0.000887   0.015636   0.278607         0.300995 not supported
+      tumour->CAF->T tumour:basal_like        CAF:CXCL12       T:cytotoxic -0.033946  0.005468  0.000851   0.804478   0.011056         0.839986 not supported
+      tumour->CAF->T tumour:basal_like         CAF:myCAF       T:cytotoxic  0.021564  0.013368 -0.001053   0.576067   0.011056         0.839138 not supported
+      tumour->CAF->T  tumour:classical        CAF:CXCL12       T:cytotoxic -0.016185  0.005468 -0.005005   0.804478   0.153081         0.561857 not supported
+      tumour->CAF->T  tumour:classical         CAF:myCAF       T:cytotoxic  0.029984  0.013368 -0.014785   0.576067   0.011056         0.131343 not supported
+tumour->CAF->myeloid tumour:basal_like        CAF:CXCL12   myeloid:C1Q_TAM -0.033946  0.031127 -0.000165   0.015636   0.011056         0.816891 not supported
+tumour->CAF->myeloid tumour:basal_like        CAF:CXCL12  myeloid:SPP1_TAM -0.033946 -0.010141  0.000614   0.424129   0.011056         0.561857 not supported
+tumour->CAF->myeloid tumour:basal_like         CAF:myCAF   myeloid:C1Q_TAM  0.021564  0.045105  0.001986   0.015636   0.011056         0.262687 not supported
+tumour->CAF->myeloid tumour:basal_like         CAF:myCAF  myeloid:SPP1_TAM  0.021564 -0.030832 -0.002128   0.015636   0.011056         0.218905 not supported
+tumour->CAF->myeloid  tumour:classical        CAF:CXCL12   myeloid:C1Q_TAM -0.016185  0.031127 -0.001573   0.015636   0.153081         0.300995 not supported
+tumour->CAF->myeloid  tumour:classical        CAF:CXCL12  myeloid:SPP1_TAM -0.016185 -0.010141  0.000482   0.424129   0.153081         0.603648 not supported
+tumour->CAF->myeloid  tumour:classical         CAF:myCAF   myeloid:C1Q_TAM  0.029984  0.045105  0.003191   0.015636   0.011056         0.109453 not supported
+tumour->CAF->myeloid  tumour:classical         CAF:myCAF  myeloid:SPP1_TAM  0.029984 -0.030832  0.000768   0.015636   0.011056         0.561857 not supported
+2026-11-16 00:36:26,644 INFO run finished

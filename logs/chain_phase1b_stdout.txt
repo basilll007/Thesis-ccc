@@ -1,0 +1,129 @@
+2026-11-15 21:45:12,328 INFO script=src/chain/chain_phase1_cell_states.py log=logs/chain_chain_phase1_cell_states_20261115T214512_58184.log
+2026-11-15 21:45:12,373 INFO git_commit=cd9af18dd236a4842e566ec5627778fd721dd114+dirty
+2026-11-15 21:45:12,374 INFO seed=42
+2026-11-15 21:45:12,858 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 21:45:12,869 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 21:45:12,870 INFO params={"bg_fold": 2.0, "bg_min_sections": 8, "min_genes": 5, "n_bins": 25, "ctrl_size": 50, "k": 6, "radius_um": 30.0, "floor_cells": 100, "floor_edges": 300, "rule": "typeaware", "phase_dir": "phase1b", "cache": "mendeley_v1b"}
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 21:45:19,103 INFO Saved results/chain/phase1b/gene_background_flags.csv (960 rows)
+2026-11-15 21:45:28,933 INFO type-aware background T1-b done
+2026-11-15 21:45:46,176 INFO type-aware background T2-b done
+2026-11-15 21:45:56,816 INFO type-aware background T3-b done
+2026-11-15 21:46:24,847 INFO type-aware background T4-a done
+2026-11-15 21:46:41,101 INFO type-aware background T4-b done
+2026-11-15 21:46:58,197 INFO type-aware background T5-a done
+2026-11-15 21:46:59,824 INFO type-aware background T6-b done
+2026-11-15 21:47:05,735 INFO type-aware background U1-b done
+2026-11-15 21:47:16,534 INFO type-aware background U2-b done
+2026-11-15 21:47:18,768 INFO type-aware background U3-b done
+2026-11-15 21:47:39,312 INFO type-aware background U4-a done
+2026-11-15 21:47:59,083 INFO type-aware background U4-b done
+2026-11-15 21:48:48,778 INFO type-aware background U5-a done
+2026-11-15 21:49:35,684 INFO type-aware background U6-a_1 done
+2026-11-15 21:50:18,157 INFO type-aware background U6-a_2 done
+2026-11-15 21:51:03,214 INFO type-aware background U7-a done
+2026-11-15 21:51:03,381 INFO Saved results/chain/phase1b/gene_background_typeaware_by_section.csv (61440 rows)
+2026-11-15 21:51:03,426 INFO Saved results/chain/phase1b/gene_background_typeaware_flags.csv (3840 rows)
+2026-11-15 21:51:03,426 INFO program tumour:classical: 9 declared, 8 usable -> kept
+2026-11-15 21:51:03,426 INFO program tumour:basal_like: 13 declared, 10 usable -> kept
+2026-11-15 21:51:03,426 INFO program tumour:EMT: 8 declared, 4 usable -> DROPPED (<5 usable genes)
+2026-11-15 21:51:03,426 INFO program CAF:myCAF: 8 declared, 8 usable -> kept
+2026-11-15 21:51:03,426 INFO program CAF:iCAF: 9 declared, 2 usable -> DROPPED (<5 usable genes)
+2026-11-15 21:51:03,426 INFO program CAF:CXCL12: 1 declared, 1 usable -> kept
+2026-11-15 21:51:03,426 INFO program T:cytotoxic: 11 declared, 9 usable -> kept
+2026-11-15 21:51:03,426 INFO program T:exhaustion: 7 declared, 4 usable -> DROPPED (<5 usable genes)
+2026-11-15 21:51:03,426 INFO program myeloid:inflammatory: 8 declared, 3 usable -> DROPPED (<5 usable genes)
+2026-11-15 21:51:03,426 INFO program myeloid:C1Q_TAM: 6 declared, 6 usable -> kept
+2026-11-15 21:51:03,426 INFO program myeloid:SPP1_TAM: 5 declared, 5 usable -> kept
+2026-11-15 21:51:03,435 INFO Saved results/chain/phase1b/program_genes_used.csv (105 rows)
+2026-11-15 21:51:03,442 INFO Saved results/chain/phase1b/programs_used.json
+2026-11-15 21:51:06,334 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:06,627 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 21:51:07,651 INFO section T1-b done: 31084 cells; sys_avail=3.50GB load=89% proc_rss=0.80GB proc_peak=2.02GB
+2026-11-15 21:51:10,560 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:10,877 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-11-15 21:51:12,172 INFO section T2-b done: 43658 cells; sys_avail=3.42GB load=89% proc_rss=0.90GB proc_peak=2.11GB
+2026-11-15 21:51:15,023 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:15,336 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-11-15 21:51:16,430 INFO section T3-b done: 33800 cells; sys_avail=3.33GB load=90% proc_rss=1.00GB proc_peak=2.21GB
+2026-11-15 21:51:19,351 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:19,787 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 21:51:21,830 INFO section T4-a done: 55369 cells; sys_avail=3.14GB load=90% proc_rss=1.19GB proc_peak=2.38GB
+2026-11-15 21:51:24,733 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:25,098 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-11-15 21:51:26,670 INFO section T4-b done: 42432 cells; sys_avail=3.40GB load=89% proc_rss=0.93GB proc_peak=2.53GB
+2026-11-15 21:51:29,489 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:29,817 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-11-15 21:51:31,374 INFO section T5-a done: 43794 cells; sys_avail=3.22GB load=90% proc_rss=1.07GB proc_peak=2.53GB
+2026-11-15 21:51:34,194 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:34,443 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-11-15 21:51:34,870 INFO section T6-b done: 12473 cells; sys_avail=3.12GB load=90% proc_rss=1.10GB proc_peak=2.53GB
+2026-11-15 21:51:37,747 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:38,021 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-11-15 21:51:38,845 INFO section U1-b done: 24894 cells; sys_avail=3.09GB load=90% proc_rss=1.15GB proc_peak=2.53GB
+2026-11-15 21:51:41,676 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:41,987 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 21:51:43,169 INFO section U2-b done: 34334 cells; sys_avail=3.23GB load=90% proc_rss=1.02GB proc_peak=2.53GB
+2026-11-15 21:51:45,979 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:46,254 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-11-15 21:51:46,793 INFO section U3-b done: 15019 cells; sys_avail=3.21GB load=90% proc_rss=1.08GB proc_peak=2.53GB
+2026-11-15 21:51:49,652 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:50,024 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-11-15 21:51:51,988 INFO section U4-a done: 47432 cells; sys_avail=2.83GB load=91% proc_rss=1.25GB proc_peak=2.53GB
+2026-11-15 21:51:55,122 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:51:55,541 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-11-15 21:51:57,273 INFO section U4-b done: 46798 cells; sys_avail=2.55GB load=92% proc_rss=1.39GB proc_peak=2.59GB
+2026-11-15 21:52:00,433 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:52:00,984 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-11-15 21:52:04,222 INFO section U5-a done: 74793 cells; sys_avail=2.61GB load=92% proc_rss=1.35GB proc_peak=2.90GB
+2026-11-15 21:52:07,226 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:52:07,692 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-11-15 21:52:10,438 INFO section U6-a_1 done: 72318 cells; sys_avail=2.43GB load=92% proc_rss=1.59GB proc_peak=2.90GB
+2026-11-15 21:52:13,412 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:52:13,879 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-11-15 21:52:16,609 INFO section U6-a_2 done: 68410 cells; sys_avail=2.12GB load=93% proc_rss=1.86GB proc_peak=3.04GB
+2026-11-15 21:52:19,492 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 21:52:19,890 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-11-15 21:52:22,254 INFO section U7-a done: 70885 cells; sys_avail=1.95GB load=94% proc_rss=2.05GB proc_peak=3.23GB
+2026-11-15 21:52:22,344 INFO Saved results/chain/phase1b/cell_counts_by_section.csv (350 rows)
+2026-11-15 21:52:22,354 INFO Saved results/chain/phase1b/program_distribution_by_section.csv (224 rows)
+2026-11-15 21:52:22,362 INFO Saved results/chain/phase1b/type_edge_counts_by_section.csv (1754 rows)
+2026-11-15 21:52:22,370 INFO Saved results/chain/phase1b/validity_auc.csv (32 rows)
+2026-11-15 21:52:22,379 INFO Saved results/chain/phase1b/program_controls.csv (176 rows)
+2026-11-15 21:52:23,733 INFO Saved results/chain/phase1b/program_distribution_by_tumour.csv (182 rows)
+2026-11-15 21:52:25,015 INFO Saved results/chain/phase1b/floor_by_section_chain.csv (768 rows)
+2026-11-15 21:52:25,038 INFO Saved results/chain/phase1b/chain_selection.csv (24 rows)
+2026-11-15 21:52:25,040 INFO chain selection:
+               chain  n_sections_pass  n_tumours_pass  sum_min_count_pass                                                                       sections_pass                                role  selection_rank
+myeloid->CAF->tumour               16              13               86987 T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;T6-b;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                           secondary               1
+tumour->CAF->myeloid               16              13               86987 T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;T6-b;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                           secondary               2
+CAF->myeloid->tumour               15              12               86765      T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                           secondary               3
+CAF->tumour->myeloid               15              12               86765      T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                           secondary               4
+myeloid->tumour->CAF               15              12               86765      T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                           secondary               5
+tumour->myeloid->CAF               15              12               86765      T1-b;T2-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected               6
+     T->CAF->myeloid               14              11               11396           T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected               7
+      T->CAF->tumour               14              11               11396           T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a negative control (reversed primary)               8
+     myeloid->CAF->T               14              11               11396           T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected               9
+      tumour->CAF->T               14              11               11396           T1-b;T3-b;T4-a;T4-b;T5-a;U1-b;U2-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                             primary              10
+     CAF->T->myeloid               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              11
+     CAF->myeloid->T               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              12
+     T->myeloid->CAF               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              13
+  T->myeloid->tumour               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              14
+     myeloid->T->CAF               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              15
+  tumour->myeloid->T               12               9               11046                     T1-b;T4-a;T4-b;T5-a;U1-b;U3-b;U4-a;U4-b;U5-a;U6-a_1;U6-a_2;U7-a                        not selected              16
+      CAF->T->tumour                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              17
+      CAF->tumour->T                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              18
+      T->tumour->CAF                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              19
+  T->tumour->myeloid                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              20
+  myeloid->T->tumour                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              21
+  myeloid->tumour->T                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              22
+      tumour->T->CAF                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              23
+  tumour->T->myeloid                3               3                2568                                                                      T5-a;U4-a;U5-a                        not selected              24
+2026-11-15 21:52:25,044 INFO validity AUC:
+                                         comparison   median      min      max  count
+             CAF:myCAF - CAF:iCAF for myCAF vs iCAF      NaN      NaN      NaN      0
+tumour:classical - tumour:basal_like for CLS vs BSL 0.858174 0.645175 0.935725     16
+2026-11-15 21:52:25,837 INFO Saved figure figures/chain/phase1b/phase1_programs_and_floors(.png/.pdf)
+2026-11-15 21:52:25,849 INFO Saved results/chain/phase1b/phase1_summary.json
+2026-11-15 21:52:25,858 INFO run finished

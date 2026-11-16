@@ -1,0 +1,14 @@
+2026-11-15 22:25:06,026 INFO script=src/chain/chain_phase4_T4-a_null_1.0.py log=logs/chain_chain_phase4_T4-a_null_1.0_20261115T222506_49356.log
+2026-11-15 22:25:06,076 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:25:06,076 INFO seed=42
+2026-11-15 22:25:07,894 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:25:07,917 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:25:07,918 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:25:18,814 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:25:19,318 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:25:28,603 INFO T4-a null 1.00 sim 0 sys_avail=6.01GB load=81% proc_rss=0.96GB proc_peak=1.88GB
+2026-11-15 22:28:10,004 INFO T4-a null 1.00 sim 20 sys_avail=7.05GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:29:31,843 INFO T4-a null 1.00 sim 40 sys_avail=7.20GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:30:58,800 INFO T4-a null 1.00 sim 60 sys_avail=7.16GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:32:21,347 INFO T4-a null 1.00 sim 80 sys_avail=7.29GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:33:40,961 INFO run finished

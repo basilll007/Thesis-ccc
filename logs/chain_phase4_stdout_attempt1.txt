@@ -1,0 +1,433 @@
+2026-11-15 22:04:48,018 INFO script=src/chain/chain_phase4_T4-a_null_1.0.py log=logs/chain_chain_phase4_T4-a_null_1.0_20261115T220448_65136.log
+2026-11-15 22:04:48,021 INFO script=src/chain/chain_phase4_T4-a_chain_1.1.py log=logs/chain_chain_phase4_T4-a_chain_1.1_20261115T220448_21148.log
+2026-11-15 22:04:48,023 INFO script=src/chain/chain_phase4_T4-a_chain_1.25.py log=logs/chain_chain_phase4_T4-a_chain_1.25_20261115T220448_60588.log
+2026-11-15 22:04:48,025 INFO script=src/chain/chain_phase4_T4-a_chain_1.5.py log=logs/chain_chain_phase4_T4-a_chain_1.5_20261115T220448_45116.log
+2026-11-15 22:04:48,035 INFO script=src/chain/chain_phase4_T4-a_chain_2.0.py log=logs/chain_chain_phase4_T4-a_chain_2.0_20261115T220448_58952.log
+2026-11-15 22:04:48,071 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,071 INFO seed=42
+2026-11-15 22:04:48,079 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,079 INFO seed=42
+2026-11-15 22:04:48,079 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,079 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,079 INFO seed=42
+2026-11-15 22:04:48,079 INFO seed=42
+2026-11-15 22:04:48,084 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,084 INFO seed=42
+2026-11-15 22:04:49,933 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,933 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,933 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,935 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,935 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,946 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,946 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,946 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:04:49,946 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:04:49,947 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,947 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,947 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:04:49,947 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:04:49,948 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,948 INFO params={"n_sim": 100, "n_perm": 100}
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 22:05:02,582 INFO script=src/chain/chain_phase4_T4-a_zonation_1.5.py log=logs/chain_chain_phase4_T4-a_zonation_1.5_20261115T220502_60588.log
+2026-11-15 22:05:02,588 INFO script=src/chain/chain_phase4_T4-a_zonation_2.0.py log=logs/chain_chain_phase4_T4-a_zonation_2.0_20261115T220502_58952.log
+2026-11-15 22:05:02,597 INFO script=src/chain/chain_phase4_T4-a_direct_1.1.py log=logs/chain_chain_phase4_T4-a_direct_1.1_20261115T220502_45116.log
+2026-11-15 22:05:02,665 INFO script=src/chain/chain_phase4_T4-a_direct_1.25.py log=logs/chain_chain_phase4_T4-a_direct_1.25_20261115T220502_21148.log
+2026-11-15 22:05:02,672 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:02,672 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:02,672 INFO script=src/chain/chain_phase4_T4-a_direct_1.5.py log=logs/chain_chain_phase4_T4-a_direct_1.5_20261115T220502_65136.log
+2026-11-15 22:05:02,672 INFO seed=42
+2026-11-15 22:05:02,672 INFO seed=42
+2026-11-15 22:05:02,673 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:02,673 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:02,673 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:02,673 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:02,673 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:02,673 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:02,673 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:02,673 INFO seed=42
+2026-11-15 22:05:02,673 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:02,673 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:02,675 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:02,737 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:02,737 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:02,737 INFO seed=42
+2026-11-15 22:05:02,738 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:02,738 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:02,737 INFO seed=42
+2026-11-15 22:05:02,738 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:02,738 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:02,738 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:02,738 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:06,118 INFO script=src/chain/chain_phase4_T4-a_direct_2.0.py log=logs/chain_chain_phase4_T4-a_direct_2.0_20261115T220506_58952.log
+2026-11-15 22:05:06,118 INFO script=src/chain/chain_phase4_T1-b_null_1.0.py log=logs/chain_chain_phase4_T1-b_null_1.0_20261115T220506_60588.log
+2026-11-15 22:05:06,181 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:06,181 INFO seed=42
+2026-11-15 22:05:06,181 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:06,181 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:06,181 INFO seed=42
+2026-11-15 22:05:06,181 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:06,181 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:06,181 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:06,181 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:06,181 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:07,270 INFO script=src/chain/chain_phase4_T1-b_chain_1.1.py log=logs/chain_chain_phase4_T1-b_chain_1.1_20261115T220507_58952.log
+2026-11-15 22:05:07,319 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:07,319 INFO seed=42
+2026-11-15 22:05:07,319 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:07,319 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:07,319 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:07,846 INFO script=src/chain/chain_phase4_T1-b_chain_1.25.py log=logs/chain_chain_phase4_T1-b_chain_1.25_20261115T220507_21148.log
+2026-11-15 22:05:07,866 INFO script=src/chain/chain_phase4_T1-b_chain_1.5.py log=logs/chain_chain_phase4_T1-b_chain_1.5_20261115T220507_45116.log
+2026-11-15 22:05:07,868 INFO script=src/chain/chain_phase4_T1-b_chain_2.0.py log=logs/chain_chain_phase4_T1-b_chain_2.0_20261115T220507_65136.log
+2026-11-15 22:05:07,906 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:07,906 INFO seed=42
+2026-11-15 22:05:07,907 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:07,907 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:07,907 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:07,935 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:07,936 INFO seed=42
+2026-11-15 22:05:07,936 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:07,937 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:07,937 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:07,937 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:07,938 INFO seed=42
+2026-11-15 22:05:07,938 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:07,938 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:07,938 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:09,704 INFO script=src/chain/chain_phase4_T1-b_zonation_1.5.py log=logs/chain_chain_phase4_T1-b_zonation_1.5_20261115T220509_58952.log
+2026-11-15 22:05:09,753 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:09,753 INFO seed=42
+2026-11-15 22:05:09,753 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:09,753 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:09,753 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:10,161 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:05:10,305 INFO script=src/chain/chain_phase4_T1-b_zonation_2.0.py log=logs/chain_chain_phase4_T1-b_zonation_2.0_20261115T220510_65136.log
+2026-11-15 22:05:10,354 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:05:10,355 INFO seed=42
+2026-11-15 22:05:10,355 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:05:10,355 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:05:10,355 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:05:10,627 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:05:11,750 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:05:11,761 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:05:12,183 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:05:12,185 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:05:13,691 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:05:13,946 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:05:14,045 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:05:14,583 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:05:14,806 INFO T1-b chain 1.25 sim 0 sys_avail=7.73GB load=76% proc_rss=0.66GB proc_peak=2.20GB
+2026-11-15 22:05:15,291 INFO T1-b null 1.00 sim 0 sys_avail=7.68GB load=76% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:05:16,642 INFO T1-b zonation 1.50 sim 0 sys_avail=7.80GB load=76% proc_rss=0.79GB proc_peak=2.60GB
+2026-11-15 22:05:16,762 INFO T1-b chain 1.50 sim 0 sys_avail=7.80GB load=76% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:05:18,987 INFO T1-b zonation 2.00 sim 0 sys_avail=7.79GB load=76% proc_rss=0.61GB proc_peak=2.39GB
+2026-11-15 22:05:59,127 INFO T1-b chain 1.25 sim 20 sys_avail=7.02GB load=78% proc_rss=0.66GB proc_peak=2.20GB
+2026-11-15 22:06:01,401 INFO T1-b zonation 1.50 sim 20 sys_avail=7.17GB load=78% proc_rss=0.79GB proc_peak=2.60GB
+2026-11-15 22:06:36,397 INFO T1-b null 1.00 sim 20 sys_avail=7.19GB load=78% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:06:37,880 INFO T1-b chain 1.50 sim 20 sys_avail=7.19GB load=78% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:06:40,787 INFO T1-b zonation 2.00 sim 20 sys_avail=6.90GB load=79% proc_rss=0.61GB proc_peak=2.39GB
+2026-11-15 22:06:44,888 INFO T1-b chain 1.25 sim 40 sys_avail=7.10GB load=78% proc_rss=0.66GB proc_peak=2.20GB
+2026-11-15 22:06:47,403 INFO T1-b zonation 1.50 sim 40 sys_avail=7.16GB load=78% proc_rss=0.79GB proc_peak=2.60GB
+2026-11-15 22:07:24,454 INFO T1-b null 1.00 sim 40 sys_avail=6.77GB load=79% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:07:25,785 INFO T1-b chain 1.50 sim 40 sys_avail=6.79GB load=79% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:07:28,954 INFO T1-b zonation 2.00 sim 40 sys_avail=6.96GB load=79% proc_rss=0.61GB proc_peak=2.39GB
+2026-11-15 22:07:32,531 INFO T1-b chain 1.25 sim 60 sys_avail=6.94GB load=79% proc_rss=0.66GB proc_peak=2.20GB
+2026-11-15 22:07:35,328 INFO T1-b zonation 1.50 sim 60 sys_avail=6.91GB load=79% proc_rss=0.78GB proc_peak=2.60GB
+2026-11-15 22:08:13,227 INFO T1-b null 1.00 sim 60 sys_avail=6.51GB load=80% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:08:14,426 INFO T1-b chain 1.50 sim 60 sys_avail=6.45GB load=80% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:08:18,441 INFO T1-b zonation 2.00 sim 60 sys_avail=6.54GB load=80% proc_rss=0.61GB proc_peak=2.39GB
+2026-11-15 22:08:22,443 INFO T1-b chain 1.25 sim 80 sys_avail=6.40GB load=80% proc_rss=0.51GB proc_peak=2.20GB
+2026-11-15 22:08:24,948 INFO T1-b zonation 1.50 sim 80 sys_avail=6.51GB load=80% proc_rss=0.78GB proc_peak=2.60GB
+2026-11-15 22:09:04,585 INFO T1-b null 1.00 sim 80 sys_avail=6.13GB load=81% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:09:05,837 INFO T1-b chain 1.50 sim 80 sys_avail=6.17GB load=81% proc_rss=0.52GB proc_peak=2.20GB
+2026-11-15 22:09:10,369 INFO T1-b zonation 2.00 sim 80 sys_avail=6.09GB load=81% proc_rss=0.61GB proc_peak=2.39GB
+2026-11-15 22:09:12,110 INFO run finished
+2026-11-15 22:09:12,118 INFO script=src/chain/chain_phase4_T1-b_direct_1.1.py log=logs/chain_chain_phase4_T1-b_direct_1.1_20261115T220912_21148.log
+2026-11-15 22:09:12,178 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:09:12,178 INFO seed=42
+2026-11-15 22:09:12,178 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:09:12,178 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:09:12,179 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:09:14,605 INFO run finished
+2026-11-15 22:09:14,612 INFO script=src/chain/chain_phase4_T1-b_direct_1.25.py log=logs/chain_chain_phase4_T1-b_direct_1.25_20261115T220914_58952.log
+2026-11-15 22:09:14,668 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:09:14,668 INFO seed=42
+2026-11-15 22:09:14,668 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:09:14,668 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:09:14,668 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:09:16,912 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:09:17,412 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:09:19,274 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:09:19,785 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:09:20,792 INFO T1-b direct 1.10 sim 0 sys_avail=5.28GB load=84% proc_rss=0.61GB proc_peak=2.20GB
+2026-11-15 22:09:22,998 INFO T1-b direct 1.25 sim 0 sys_avail=5.53GB load=83% proc_rss=1.05GB proc_peak=2.60GB
+2026-11-15 22:09:53,642 INFO run finished
+2026-11-15 22:09:53,649 INFO script=src/chain/chain_phase4_T1-b_direct_1.5.py log=logs/chain_chain_phase4_T1-b_direct_1.5_20261115T220953_60588.log
+2026-11-15 22:09:53,712 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:09:53,713 INFO seed=42
+2026-11-15 22:09:53,713 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:09:53,713 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:09:53,713 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:09:55,074 INFO run finished
+2026-11-15 22:09:55,083 INFO script=src/chain/chain_phase4_T1-b_direct_2.0.py log=logs/chain_chain_phase4_T1-b_direct_2.0_20261115T220955_45116.log
+2026-11-15 22:09:55,136 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:09:55,136 INFO seed=42
+2026-11-15 22:09:55,136 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:09:55,136 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:09:55,136 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:09:57,911 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:09:58,360 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:09:59,624 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:09:59,799 INFO run finished
+2026-11-15 22:09:59,809 INFO script=src/chain/chain_phase4_U2-b_null_1.0.py log=logs/chain_chain_phase4_U2-b_null_1.0_20261115T220959_65136.log
+2026-11-15 22:09:59,889 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:09:59,889 INFO seed=42
+2026-11-15 22:09:59,889 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:09:59,889 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:09:59,889 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:10:00,223 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-15 22:10:03,497 INFO T1-b direct 2.00 sim 0 sys_avail=4.11GB load=87% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:10:04,479 INFO T1-b direct 1.50 sim 0 sys_avail=3.98GB load=88% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:10:04,639 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:10:05,105 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:10:10,768 INFO U2-b null 1.00 sim 0 sys_avail=4.78GB load=85% proc_rss=0.91GB proc_peak=2.39GB
+2026-11-15 22:10:12,153 INFO T1-b direct 1.10 sim 20 sys_avail=4.83GB load=85% proc_rss=0.61GB proc_peak=2.20GB
+2026-11-15 22:10:14,160 INFO T1-b direct 1.25 sim 20 sys_avail=4.94GB load=85% proc_rss=1.05GB proc_peak=2.60GB
+2026-11-15 22:10:53,294 INFO T1-b direct 2.00 sim 20 sys_avail=4.70GB load=85% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:11:01,690 INFO T1-b direct 1.10 sim 40 sys_avail=5.05GB load=84% proc_rss=0.61GB proc_peak=2.20GB
+2026-11-15 22:11:03,663 INFO T1-b direct 1.25 sim 40 sys_avail=5.02GB load=84% proc_rss=1.05GB proc_peak=2.60GB
+2026-11-15 22:11:33,556 INFO T1-b direct 1.50 sim 20 sys_avail=5.03GB load=84% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:11:41,235 INFO T1-b direct 2.00 sim 40 sys_avail=5.03GB load=84% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:11:49,168 INFO U2-b null 1.00 sim 20 sys_avail=4.97GB load=85% proc_rss=0.91GB proc_peak=2.39GB
+2026-11-15 22:11:49,780 INFO T1-b direct 1.10 sim 60 sys_avail=4.98GB load=85% proc_rss=0.60GB proc_peak=2.20GB
+2026-11-15 22:11:51,715 INFO T1-b direct 1.25 sim 60 sys_avail=5.06GB load=84% proc_rss=1.05GB proc_peak=2.60GB
+2026-11-15 22:12:21,695 INFO T1-b direct 1.50 sim 40 sys_avail=4.92GB load=85% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:12:29,454 INFO T1-b direct 2.00 sim 60 sys_avail=4.88GB load=85% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:12:38,132 INFO T1-b direct 1.10 sim 80 sys_avail=4.71GB load=85% proc_rss=0.60GB proc_peak=2.20GB
+2026-11-15 22:12:40,088 INFO T1-b direct 1.25 sim 80 sys_avail=4.84GB load=85% proc_rss=1.05GB proc_peak=2.60GB
+2026-11-15 22:12:43,759 INFO U2-b null 1.00 sim 40 sys_avail=4.84GB load=85% proc_rss=0.91GB proc_peak=2.39GB
+2026-11-15 22:13:09,502 INFO T1-b direct 1.50 sim 60 sys_avail=4.78GB load=85% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:13:17,134 INFO T1-b direct 2.00 sim 80 sys_avail=5.54GB load=83% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:13:23,277 INFO run finished
+2026-11-15 22:13:23,286 INFO script=src/chain/chain_phase4_U2-b_chain_1.1.py log=logs/chain_chain_phase4_U2-b_chain_1.1_20261115T221323_21148.log
+2026-11-15 22:13:23,335 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:13:23,335 INFO seed=42
+2026-11-15 22:13:23,335 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:13:23,335 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:13:23,335 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:13:25,092 INFO run finished
+2026-11-15 22:13:25,099 INFO script=src/chain/chain_phase4_U2-b_chain_1.25.py log=logs/chain_chain_phase4_U2-b_chain_1.25_20261115T221325_58952.log
+2026-11-15 22:13:25,148 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:13:25,148 INFO seed=42
+2026-11-15 22:13:25,148 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:13:25,148 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:13:25,148 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:13:27,265 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:13:27,653 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:13:29,111 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:13:29,515 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:13:30,922 INFO U2-b chain 1.10 sim 0 sys_avail=4.86GB load=85% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:13:32,729 INFO U2-b chain 1.25 sim 0 sys_avail=4.79GB load=85% proc_rss=1.37GB proc_peak=2.60GB
+2026-11-15 22:13:37,197 INFO U2-b null 1.00 sim 60 sys_avail=4.59GB load=86% proc_rss=0.91GB proc_peak=2.39GB
+2026-11-15 22:13:55,020 INFO T1-b direct 1.50 sim 80 sys_avail=4.64GB load=86% proc_rss=0.79GB proc_peak=2.20GB
+2026-11-15 22:14:00,279 INFO run finished
+2026-11-15 22:14:00,286 INFO script=src/chain/chain_phase4_U2-b_chain_1.5.py log=logs/chain_chain_phase4_U2-b_chain_1.5_20261115T221400_45116.log
+2026-11-15 22:14:00,343 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:14:00,344 INFO seed=42
+2026-11-15 22:14:00,344 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:14:00,344 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:14:00,344 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:14:04,360 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:14:04,748 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:14:10,346 INFO U2-b chain 1.50 sim 0 sys_avail=4.22GB load=87% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:14:23,882 INFO U2-b chain 1.10 sim 20 sys_avail=4.04GB load=87% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:14:26,007 INFO U2-b chain 1.25 sim 20 sys_avail=3.98GB load=88% proc_rss=1.37GB proc_peak=2.60GB
+2026-11-15 22:14:30,437 INFO U2-b null 1.00 sim 80 sys_avail=3.85GB load=88% proc_rss=0.91GB proc_peak=2.39GB
+2026-11-15 22:14:40,745 INFO run finished
+2026-11-15 22:14:40,751 INFO script=src/chain/chain_phase4_U2-b_chain_2.0.py log=logs/chain_chain_phase4_U2-b_chain_2.0_20261115T221440_60588.log
+2026-11-15 22:14:40,800 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:14:40,800 INFO seed=42
+2026-11-15 22:14:40,802 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:14:40,802 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:14:40,802 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:14:45,052 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:14:45,493 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:14:48,838 INFO U2-b chain 2.00 sim 0 sys_avail=3.50GB load=89% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:15:18,656 INFO U2-b chain 1.10 sim 40 sys_avail=3.67GB load=88% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:15:20,585 INFO U2-b chain 1.25 sim 40 sys_avail=3.68GB load=88% proc_rss=1.37GB proc_peak=2.60GB
+2026-11-15 22:15:22,194 INFO run finished
+2026-11-15 22:15:22,202 INFO script=src/chain/chain_phase4_U2-b_zonation_1.5.py log=logs/chain_chain_phase4_U2-b_zonation_1.5_20261115T221522_65136.log
+2026-11-15 22:15:22,258 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:15:22,258 INFO seed=42
+2026-11-15 22:15:22,258 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:15:22,258 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:15:22,258 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:15:26,295 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:15:26,792 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:15:30,576 INFO U2-b zonation 1.50 sim 0 sys_avail=3.25GB load=90% proc_rss=1.20GB proc_peak=2.39GB
+2026-11-15 22:15:44,512 INFO U2-b chain 2.00 sim 20 sys_avail=3.22GB load=90% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:15:49,141 INFO U2-b chain 1.50 sim 20 sys_avail=3.25GB load=90% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:16:14,750 INFO U2-b chain 1.10 sim 60 sys_avail=3.43GB load=89% proc_rss=0.91GB proc_peak=2.20GB
+2026-11-15 22:16:16,625 INFO U2-b chain 1.25 sim 60 sys_avail=3.34GB load=89% proc_rss=1.37GB proc_peak=2.60GB
+2026-11-15 22:16:25,992 INFO U2-b zonation 1.50 sim 20 sys_avail=3.48GB load=89% proc_rss=1.20GB proc_peak=2.39GB
+2026-11-15 22:16:38,444 INFO U2-b chain 2.00 sim 40 sys_avail=3.42GB load=89% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:16:42,829 INFO U2-b chain 1.50 sim 40 sys_avail=3.30GB load=90% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:17:08,616 INFO U2-b chain 1.10 sim 80 sys_avail=3.47GB load=89% proc_rss=0.90GB proc_peak=2.20GB
+2026-11-15 22:17:10,509 INFO U2-b chain 1.25 sim 80 sys_avail=3.45GB load=89% proc_rss=1.36GB proc_peak=2.60GB
+2026-11-15 22:17:19,913 INFO U2-b zonation 1.50 sim 40 sys_avail=3.38GB load=89% proc_rss=1.20GB proc_peak=2.39GB
+2026-11-15 22:17:32,378 INFO U2-b chain 2.00 sim 60 sys_avail=3.61GB load=89% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:17:36,767 INFO U2-b chain 1.50 sim 60 sys_avail=3.46GB load=89% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:18:00,006 INFO run finished
+2026-11-15 22:18:00,013 INFO script=src/chain/chain_phase4_U2-b_zonation_2.0.py log=logs/chain_chain_phase4_U2-b_zonation_2.0_20261115T221800_21148.log
+2026-11-15 22:18:00,068 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:18:00,068 INFO seed=42
+2026-11-15 22:18:00,068 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:18:00,068 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:18:00,068 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:18:01,886 INFO run finished
+2026-11-15 22:18:01,893 INFO script=src/chain/chain_phase4_U2-b_direct_1.1.py log=logs/chain_chain_phase4_U2-b_direct_1.1_20261115T221801_58952.log
+2026-11-15 22:18:01,944 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:18:01,944 INFO seed=42
+2026-11-15 22:18:01,944 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:18:01,944 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:18:01,944 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:18:04,342 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:18:04,771 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:18:06,255 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:18:06,788 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:18:10,186 INFO U2-b direct 1.10 sim 0 sys_avail=3.74GB load=88% proc_rss=0.84GB proc_peak=2.63GB
+2026-11-15 22:18:10,562 INFO U2-b zonation 2.00 sim 0 sys_avail=3.74GB load=88% proc_rss=1.19GB proc_peak=2.20GB
+2026-11-15 22:18:14,071 INFO U2-b zonation 1.50 sim 60 sys_avail=3.81GB load=88% proc_rss=1.20GB proc_peak=2.39GB
+2026-11-15 22:18:26,547 INFO U2-b chain 2.00 sim 80 sys_avail=3.81GB load=88% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:18:30,951 INFO U2-b chain 1.50 sim 80 sys_avail=3.55GB load=89% proc_rss=1.10GB proc_peak=2.20GB
+2026-11-15 22:19:04,837 INFO U2-b direct 1.10 sim 20 sys_avail=4.23GB load=87% proc_rss=0.84GB proc_peak=2.63GB
+2026-11-15 22:19:08,907 INFO U2-b zonation 1.50 sim 80 sys_avail=4.19GB load=87% proc_rss=1.20GB proc_peak=2.39GB
+2026-11-15 22:19:19,180 INFO run finished
+2026-11-15 22:19:19,188 INFO script=src/chain/chain_phase4_U2-b_direct_1.25.py log=logs/chain_chain_phase4_U2-b_direct_1.25_20261115T221919_60588.log
+2026-11-15 22:19:19,248 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:19:19,248 INFO seed=42
+2026-11-15 22:19:19,248 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:19:19,248 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:19:19,248 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:19:23,361 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:19:23,702 INFO run finished
+2026-11-15 22:19:23,711 INFO script=src/chain/chain_phase4_U2-b_direct_1.5.py log=logs/chain_chain_phase4_U2-b_direct_1.5_20261115T221923_45116.log
+2026-11-15 22:19:23,770 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:19:23,770 INFO seed=42
+2026-11-15 22:19:23,770 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:19:23,770 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:19:23,770 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:19:23,837 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:19:27,343 INFO U2-b direct 1.25 sim 0 sys_avail=3.17GB load=90% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:19:27,956 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:19:28,429 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:19:34,013 INFO U2-b direct 1.50 sim 0 sys_avail=4.42GB load=86% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:19:50,942 INFO U2-b zonation 2.00 sim 20 sys_avail=4.05GB load=87% proc_rss=1.19GB proc_peak=2.20GB
+2026-11-15 22:19:59,927 INFO U2-b direct 1.10 sim 40 sys_avail=4.21GB load=87% proc_rss=0.84GB proc_peak=2.63GB
+2026-11-15 22:20:01,503 INFO run finished
+2026-11-15 22:20:01,512 INFO script=src/chain/chain_phase4_U2-b_direct_2.0.py log=logs/chain_chain_phase4_U2-b_direct_2.0_20261115T222001_65136.log
+2026-11-15 22:20:01,574 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:20:01,574 INFO seed=42
+2026-11-15 22:20:01,574 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:20:01,574 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:20:01,574 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:20:05,743 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:20:06,212 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-15 22:20:09,641 INFO U2-b direct 2.00 sim 0 sys_avail=4.72GB load=85% proc_rss=0.75GB proc_peak=2.47GB
+2026-11-15 22:20:22,396 INFO U2-b direct 1.25 sim 20 sys_avail=4.73GB load=85% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:20:47,160 INFO U2-b zonation 2.00 sim 40 sys_avail=4.61GB load=86% proc_rss=1.19GB proc_peak=2.20GB
+2026-11-15 22:20:55,435 INFO U2-b direct 1.10 sim 60 sys_avail=4.65GB load=86% proc_rss=0.84GB proc_peak=2.63GB
+2026-11-15 22:21:05,291 INFO U2-b direct 2.00 sim 20 sys_avail=5.06GB load=84% proc_rss=0.75GB proc_peak=2.47GB
+2026-11-15 22:21:12,102 INFO U2-b direct 1.50 sim 20 sys_avail=5.45GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:21:16,568 INFO U2-b direct 1.25 sim 40 sys_avail=5.46GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:21:40,674 INFO U2-b zonation 2.00 sim 60 sys_avail=5.40GB load=83% proc_rss=1.19GB proc_peak=2.20GB
+2026-11-15 22:21:47,988 INFO U2-b direct 1.10 sim 80 sys_avail=5.36GB load=83% proc_rss=0.83GB proc_peak=2.63GB
+2026-11-15 22:21:57,602 INFO U2-b direct 2.00 sim 40 sys_avail=5.36GB load=83% proc_rss=0.75GB proc_peak=2.47GB
+2026-11-15 22:22:04,247 INFO U2-b direct 1.50 sim 40 sys_avail=5.45GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:22:08,094 INFO U2-b direct 1.25 sim 60 sys_avail=5.44GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:22:33,309 INFO U2-b zonation 2.00 sim 80 sys_avail=5.65GB load=83% proc_rss=1.19GB proc_peak=2.20GB
+2026-11-15 22:22:37,679 INFO run finished
+2026-11-15 22:22:49,046 INFO U2-b direct 2.00 sim 60 sys_avail=5.67GB load=82% proc_rss=0.75GB proc_peak=2.47GB
+2026-11-15 22:22:55,237 INFO U2-b direct 1.50 sim 60 sys_avail=5.60GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:22:58,315 INFO U2-b direct 1.25 sim 80 sys_avail=5.58GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:23:20,651 INFO run finished
+2026-11-15 22:23:37,225 INFO U2-b direct 2.00 sim 80 sys_avail=5.62GB load=83% proc_rss=0.75GB proc_peak=2.47GB
+2026-11-15 22:23:43,174 INFO U2-b direct 1.50 sim 80 sys_avail=5.62GB load=83% proc_rss=0.66GB proc_peak=2.36GB
+2026-11-15 22:23:43,353 INFO run finished
+2026-11-15 22:24:19,966 INFO run finished
+2026-11-15 22:24:25,096 INFO run finished
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\concurrent\futures\process.py", line 261, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Thesis\src\chain\chain_phase4_simulation.py", line 129, in run_task
+    pl = Planter(section, log)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Thesis\src\chain\chain_phase4_simulation.py", line 53, in __init__
+    adata, _, _, _, _ = vn.load_section(section, log or _NullLog())
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Thesis\src\pdac\v3_nulls.py", line 38, in load_section
+    adata, meta = pdac_loaders.load(f"mendeley_pdac_smi:{section}", DATA_DIR, log)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Thesis\src\pdac\pdac_loaders.py", line 137, in load
+    return DATASETS[name](data_dir / "pdac" / name, log, section or None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Thesis\src\pdac\pdac_loaders.py", line 67, in load_mendeley_pdac_smi
+    sub = full[mask, base].to_memory()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\anndata\_core\anndata.py", line 1415, in to_memory
+    attr = getattr(self, attr_name, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\anndata\_core\anndata.py", line 557, in X
+    X = _subset(X, (self._oidx, self._vidx))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\functools.py", line 909, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\anndata\_core\sparse_dataset.py", line 660, in subset_sparsedataset
+    return d[subset_idx]
+           ~^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\anndata\_core\sparse_dataset.py", line 452, in __getitem__
+    sub = self.to_memory()[row_sp_matrix_validated, col_sp_matrix_validated]
+          ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\scipy\sparse\_csr.py", line 24, in __getitem__
+    return super().__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\scipy\sparse\_index.py", line 91, in __getitem__
+    return self._get_columnXarray(row[:,0], col.ravel())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\scipy\sparse\_compressed.py", line 745, in _get_columnXarray
+    return self._major_index_fancy(major)._minor_index_fancy(minor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\scipy\sparse\_compressed.py", line 766, in _major_index_fancy
+    res_data = np.empty(nnz, dtype=self.dtype)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 39.3 MiB for an array with shape (10297481,) and data type float32
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Thesis\src\chain\chain_phase4_simulation.py", line 287, in <module>
+    main()
+  File "F:\Thesis\src\chain\chain_phase4_simulation.py", line 273, in main
+    print("done", futs[f], f.result(), flush=True)
+                           ^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\thesis-spatial-ccc\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 39.3 MiB for an array with shape (10297481,) and data type float32

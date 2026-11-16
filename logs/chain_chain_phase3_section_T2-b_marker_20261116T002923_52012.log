@@ -1,0 +1,11 @@
+2026-11-16 00:29:23,222 INFO script=src/chain/chain_phase3_section_T2-b_marker.py log=logs/chain_chain_phase3_section_T2-b_marker_20261116T002923_52012.log
+2026-11-16 00:29:23,273 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-16 00:29:23,273 INFO seed=42
+2026-11-16 00:29:24,942 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:29:24,954 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:29:24,954 INFO params={"n_perm": 200}
+2026-11-16 00:29:27,558 INFO T2-b marker perm 0/200 sys_avail=7.62GB load=77% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-16 00:30:31,657 INFO T2-b marker perm 50/200 sys_avail=7.37GB load=77% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-16 00:31:36,335 INFO T2-b marker perm 100/200 sys_avail=7.59GB load=77% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-16 00:32:40,178 INFO T2-b marker perm 150/200 sys_avail=7.55GB load=77% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-16 00:33:40,995 INFO run finished

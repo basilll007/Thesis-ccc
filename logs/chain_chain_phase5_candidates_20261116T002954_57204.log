@@ -1,0 +1,27 @@
+2026-11-16 00:29:54,987 INFO script=src/chain/chain_phase5_candidates.py log=logs/chain_chain_phase5_candidates_20261116T002954_57204.log
+2026-11-16 00:29:55,042 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-16 00:29:55,043 INFO seed=42
+2026-11-16 00:29:56,986 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:29:57,000 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:30:05,794 INFO Saved results/chain/phase5/hop_support.csv (88 rows)
+2026-11-16 00:30:05,810 INFO Saved results/chain/phase5/lr_gene_usability_by_type.csv (224 rows)
+2026-11-16 00:30:05,823 INFO Saved results/chain/phase5/phase5_summary.json
+2026-11-16 00:30:05,823 INFO {'n_rows': 516, 'n_supported_rows': 0, 'n_hops_supported': 0, 'n_hops': 88}
+2026-11-16 00:30:05,826 INFO top:
+               chain  hop candidate_ligand candidate_receptor  hop_effect hop_support tumours_supporting                                           calibration_status
+CAF->myeloid->tumour B<-A            TGFB1             TGFBR1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A            TGFB1             TGFBR2    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A           CXCL12              CXCR4    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A             JAG1             NOTCH1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A              MIF               CD74    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A             SPP1               CD44    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A              FN1              ITGB1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A            TGFB1             TGFBR1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A            TGFB1             TGFBR2    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A           CXCL12              CXCR4    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A             JAG1             NOTCH1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A              MIF               CD74    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A             SPP1               CD44    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A              FN1              ITGB1    0.015793          no              10/12 outside calibrated range (no trustworthy setting in Phase 4)
+CAF->myeloid->tumour B<-A            TGFB1             TGFBR1   -0.014149          no               9/12 outside calibrated range (no trustworthy setting in Phase 4)
+2026-11-16 00:30:05,838 INFO run finished

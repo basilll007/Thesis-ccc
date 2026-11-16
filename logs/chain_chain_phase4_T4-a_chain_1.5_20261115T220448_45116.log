@@ -1,0 +1,6 @@
+2026-11-15 22:04:48,025 INFO script=src/chain/chain_phase4_T4-a_chain_1.5.py log=logs/chain_chain_phase4_T4-a_chain_1.5_20261115T220448_45116.log
+2026-11-15 22:04:48,079 INFO git_commit=7c3a6fcfe20a7c66dc993c2aa207c9825af70fb0+dirty
+2026-11-15 22:04:48,079 INFO seed=42
+2026-11-15 22:04:49,933 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:04:49,946 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:04:49,946 INFO params={"n_sim": 100, "n_perm": 100}

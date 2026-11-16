@@ -1,0 +1,11 @@
+2026-11-15 22:35:52,243 INFO script=src/chain/chain_phase3_section_T2-b_author_mapped.py log=logs/chain_chain_phase3_section_T2-b_author_mapped_20261115T223552_55220.log
+2026-11-15 22:35:52,325 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:35:52,325 INFO seed=42
+2026-11-15 22:35:54,505 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:35:54,518 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:35:54,519 INFO params={"n_perm": 200}
+2026-11-15 22:35:57,573 INFO T2-b author_mapped perm 0/200 sys_avail=6.57GB load=80% proc_rss=0.27GB proc_peak=0.29GB
+2026-11-15 22:37:14,007 INFO T2-b author_mapped perm 50/200 sys_avail=6.68GB load=79% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-15 22:38:27,890 INFO T2-b author_mapped perm 100/200 sys_avail=6.70GB load=79% proc_rss=0.27GB proc_peak=0.29GB
+2026-11-15 22:39:44,532 INFO T2-b author_mapped perm 150/200 sys_avail=5.97GB load=82% proc_rss=0.28GB proc_peak=0.29GB
+2026-11-15 22:41:00,532 INFO run finished

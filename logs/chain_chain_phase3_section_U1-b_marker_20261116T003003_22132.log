@@ -1,0 +1,11 @@
+2026-11-16 00:30:03,995 INFO script=src/chain/chain_phase3_section_U1-b_marker.py log=logs/chain_chain_phase3_section_U1-b_marker_20261116T003003_22132.log
+2026-11-16 00:30:04,041 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-16 00:30:04,041 INFO seed=42
+2026-11-16 00:30:04,041 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:30:04,041 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:30:04,041 INFO params={"n_perm": 200}
+2026-11-16 00:30:05,811 INFO U1-b marker perm 0/200 sys_avail=7.38GB load=77% proc_rss=0.27GB proc_peak=0.28GB
+2026-11-16 00:30:48,559 INFO U1-b marker perm 50/200 sys_avail=7.72GB load=76% proc_rss=0.27GB proc_peak=0.28GB
+2026-11-16 00:31:32,885 INFO U1-b marker perm 100/200 sys_avail=7.72GB load=76% proc_rss=0.27GB proc_peak=0.28GB
+2026-11-16 00:32:16,266 INFO U1-b marker perm 150/200 sys_avail=7.55GB load=77% proc_rss=0.27GB proc_peak=0.28GB
+2026-11-16 00:32:57,905 INFO run finished

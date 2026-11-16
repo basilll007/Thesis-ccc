@@ -1,0 +1,14 @@
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 22:19:27,978 INFO script=src/chain/chain_phase3_section_U7-a_author_mapped.py log=logs/chain_chain_phase3_section_U7-a_author_mapped_20261115T221927_50340.log
+2026-11-15 22:19:28,035 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:19:28,035 INFO seed=42
+2026-11-15 22:19:30,276 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:19:30,293 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:19:30,293 INFO params={"n_perm": 200}
+2026-11-15 22:19:35,631 INFO U7-a author_mapped perm 0/200 sys_avail=4.36GB load=86% proc_rss=0.32GB proc_peak=0.34GB
+2026-11-15 22:21:49,607 INFO U7-a author_mapped perm 50/200 sys_avail=5.35GB load=83% proc_rss=0.32GB proc_peak=0.34GB
+2026-11-15 22:23:48,414 INFO U7-a author_mapped perm 100/200 sys_avail=5.73GB load=82% proc_rss=0.32GB proc_peak=0.35GB
+2026-11-15 22:25:29,098 INFO U7-a author_mapped perm 150/200 sys_avail=6.02GB load=81% proc_rss=0.32GB proc_peak=0.35GB
+2026-11-15 22:27:44,692 INFO run finished
+done U7-a F:\Thesis\results\chain\phase3\sections_author_mapped\U7-a.npz

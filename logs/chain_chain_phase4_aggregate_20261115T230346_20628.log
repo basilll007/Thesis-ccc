@@ -1,0 +1,65 @@
+2026-11-15 23:03:46,670 INFO script=src/chain/chain_phase4_aggregate.py log=logs/chain_chain_phase4_aggregate_20261115T230346_20628.log
+2026-11-15 23:03:46,725 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:03:46,725 INFO seed=42
+2026-11-15 23:03:48,516 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:03:48,530 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:03:48,530 INFO params={"sections": ["T4-a", "T1-b", "U2-b"], "plant": ["tumour:basal_like", "CAF:myCAF", "T:cytotoxic"], "settings": [["null", 1.0], ["chain", 1.1], ["chain", 1.25], ["chain", 1.5], ["chain", 2.0], ["zonation", 1.5], ["zonation", 2.0], ["direct", 1.1], ["direct", 1.25], ["direct", 1.5], ["direct", 2.0]], "n_sim": 100, "n_perm": 100, "n_sim_label": 20}
+2026-11-15 23:03:48,542 INFO Logged reductions: 100 expression-null permutations per simulation (Phase 3 uses 200); label null on 20 sims for 4 settings
+2026-11-15 23:03:48,579 INFO aggregated T4-a
+2026-11-15 23:03:48,617 INFO aggregated T1-b
+2026-11-15 23:03:48,650 INFO aggregated U2-b
+2026-11-15 23:03:48,679 INFO Saved results/chain/phase4/calibration_table.csv (33 rows)
+2026-11-15 23:03:48,692 INFO Saved results/chain/phase4/calibration_pooled_3sections.csv (11 rows)
+2026-11-15 23:03:48,713 INFO Saved results/chain/phase4/trustworthy_settings.csv (12 rows)
+2026-11-15 23:03:48,730 INFO Saved results/chain/phase4/calibrated_range.json
+2026-11-15 23:03:49,426 INFO Saved figure figures/chain/phase4/phase4_calibration(.png/.pdf)
+2026-11-15 23:03:49,434 INFO calibration table:
+section scenario  fold  median_n_chain  chain_call_rate  hop_CB_rate  hop_BA_rate  indirect_rate
+   T4-a     null  1.00           230.0             0.00         0.17         0.23           0.02
+   T4-a    chain  1.10           230.0             0.01         0.11         0.83           0.10
+   T4-a    chain  1.25           230.0             0.00         0.11         0.99           0.10
+   T4-a    chain  1.50           230.0             0.01         0.11         1.00           0.13
+   T4-a    chain  2.00           230.0             0.02         0.25         1.00           0.27
+   T4-a zonation  1.50           230.0             0.00         0.71         0.70           0.06
+   T4-a zonation  2.00           230.0             0.05         1.00         0.97           0.12
+   T4-a   direct  1.10           230.0             0.00         0.16         0.25           0.03
+   T4-a   direct  1.25           230.0             0.00         0.06         0.24           0.03
+   T4-a   direct  1.50           230.0             0.01         0.09         0.22           0.04
+   T4-a   direct  2.00           230.0             0.00         0.12         0.21           0.03
+   T1-b     null  1.00            53.0             0.00         0.08         0.06           0.29
+   T1-b    chain  1.10            53.0             0.02         0.14         0.60           0.26
+   T1-b    chain  1.25            53.0             0.02         0.12         1.00           0.33
+   T1-b    chain  1.50            53.0             0.04         0.12         1.00           0.28
+   T1-b    chain  2.00            53.0             0.01         0.20         1.00           0.09
+   T1-b zonation  1.50            53.0             0.00         0.02         0.22           0.21
+   T1-b zonation  2.00            53.0             0.00         0.00         0.79           0.08
+   T1-b   direct  1.10            53.0             0.00         0.07         0.04           0.16
+   T1-b   direct  1.25            53.0             0.00         0.10         0.04           0.21
+   T1-b   direct  1.50            53.0             0.00         0.11         0.01           0.26
+   T1-b   direct  2.00            53.0             0.00         0.09         0.06           0.25
+   U2-b     null  1.00            65.0             0.00         0.00         0.00           0.02
+   U2-b    chain  1.10            65.0             0.00         0.00         0.16           0.01
+   U2-b    chain  1.25            65.0             0.00         0.00         0.94           0.00
+   U2-b    chain  1.50            65.0             0.00         0.00         1.00           0.03
+   U2-b    chain  2.00            65.0             0.00         0.01         1.00           0.02
+   U2-b zonation  1.50            65.0             0.00         0.00         0.05           0.00
+   U2-b zonation  2.00            65.0             0.00         0.00         0.46           0.00
+   U2-b   direct  1.10            65.0             0.00         0.01         0.00           0.02
+   U2-b   direct  1.25            65.0             0.00         0.00         0.00           0.00
+   U2-b   direct  1.50            65.0             0.00         0.00         0.01           0.03
+   U2-b   direct  2.00            65.0             0.00         0.00         0.01           0.00
+2026-11-15 23:03:49,437 INFO pooled:
+scenario  fold pooled_sections  chain_call_rate  hop_CB_rate  hop_BA_rate  indirect_rate  mean_indirect
+    null  1.00  T4-a;T1-b;U2-b              0.0         0.00         0.31           0.15       0.011186
+   chain  1.10  T4-a;T1-b;U2-b              0.0         0.00         0.99           0.13       0.010953
+   chain  1.25  T4-a;T1-b;U2-b              0.0         0.00         1.00           0.19       0.012541
+   chain  1.50  T4-a;T1-b;U2-b              0.0         0.00         1.00           0.09       0.010632
+   chain  2.00  T4-a;T1-b;U2-b              0.0         0.01         1.00           0.04       0.006927
+zonation  1.50  T4-a;T1-b;U2-b              0.0         0.00         0.88           0.16       0.008500
+zonation  2.00  T4-a;T1-b;U2-b              0.0         0.03         1.00           0.07       0.002972
+  direct  1.10  T4-a;T1-b;U2-b              0.0         0.03         0.30           0.08       0.010053
+  direct  1.25  T4-a;T1-b;U2-b              0.0         0.01         0.34           0.09       0.011870
+  direct  1.50  T4-a;T1-b;U2-b              0.0         0.00         0.36           0.15       0.013384
+  direct  2.00  T4-a;T1-b;U2-b              0.0         0.00         0.31           0.14       0.011740
+2026-11-15 23:03:49,437 INFO calibrated range: {"trustworthy_setting_found": false, "note": "No (fold, section) met power >= 0.8 with null/zonation/direct call rates <= 0.10; every Phase 3 chain call is outside the calibrated range", "null_call_rate": {"T4-a": 0.0, "T1-b": 0.0, "U2-b": 0.0}, "zonation2_call_rate": {"T4-a": 0.05, "T1-b": 0.0, "U2-b": 0.0}}
+2026-11-15 23:03:49,452 INFO run finished

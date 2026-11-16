@@ -1,0 +1,242 @@
+2026-11-15 22:25:06,026 INFO script=src/chain/chain_phase4_T4-a_null_1.0.py log=logs/chain_chain_phase4_T4-a_null_1.0_20261115T222506_49356.log
+2026-11-15 22:25:06,027 INFO script=src/chain/chain_phase4_T4-a_chain_1.1.py log=logs/chain_chain_phase4_T4-a_chain_1.1_20261115T222506_60660.log
+2026-11-15 22:25:06,076 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:25:06,076 INFO seed=42
+2026-11-15 22:25:06,076 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:25:06,076 INFO seed=42
+2026-11-15 22:25:07,894 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:25:07,896 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:25:07,917 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:25:07,917 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:25:07,918 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:25:07,918 INFO params={"n_sim": 100, "n_perm": 100}
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 22:25:18,814 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:25:18,817 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:25:19,318 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:25:19,332 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:25:24,492 INFO T4-a chain 1.10 sim 0 sys_avail=6.08GB load=81% proc_rss=0.97GB proc_peak=1.88GB
+2026-11-15 22:25:28,603 INFO T4-a null 1.00 sim 0 sys_avail=6.01GB load=81% proc_rss=0.96GB proc_peak=1.88GB
+2026-11-15 22:26:54,373 INFO T4-a chain 1.10 sim 20 sys_avail=6.26GB load=81% proc_rss=0.97GB proc_peak=1.88GB
+2026-11-15 22:28:10,004 INFO T4-a null 1.00 sim 20 sys_avail=7.05GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:28:20,163 INFO T4-a chain 1.10 sim 40 sys_avail=7.07GB load=78% proc_rss=0.97GB proc_peak=1.88GB
+2026-11-15 22:29:31,843 INFO T4-a null 1.00 sim 40 sys_avail=7.20GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:29:42,480 INFO T4-a chain 1.10 sim 60 sys_avail=6.69GB load=79% proc_rss=0.96GB proc_peak=1.88GB
+2026-11-15 22:30:58,800 INFO T4-a null 1.00 sim 60 sys_avail=7.16GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:31:09,379 INFO T4-a chain 1.10 sim 80 sys_avail=7.26GB load=78% proc_rss=0.96GB proc_peak=1.88GB
+2026-11-15 22:32:21,347 INFO T4-a null 1.00 sim 80 sys_avail=7.29GB load=78% proc_rss=0.58GB proc_peak=1.88GB
+2026-11-15 22:32:27,248 INFO run finished
+done ('T4-a', 0, 'chain', 1.1) F:\Thesis\results\chain\phase4\tasks\T4-a__chain__1.1.npz
+2026-11-15 22:32:27,249 INFO script=src/chain/chain_phase4_T4-a_chain_1.25.py log=logs/chain_chain_phase4_T4-a_chain_1.25_20261115T223227_60660.log
+2026-11-15 22:32:27,301 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:32:27,302 INFO seed=42
+2026-11-15 22:32:27,303 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:32:27,303 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:32:27,303 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:32:31,139 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:32:31,872 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:32:37,041 INFO T4-a chain 1.25 sim 0 sys_avail=7.23GB load=78% proc_rss=0.91GB proc_peak=2.03GB
+2026-11-15 22:33:40,961 INFO run finished
+done ('T4-a', 0, 'null', 1.0) F:\Thesis\results\chain\phase4\tasks\T4-a__null__1.0.npz
+2026-11-15 22:33:40,963 INFO script=src/chain/chain_phase4_T4-a_chain_1.5.py log=logs/chain_chain_phase4_T4-a_chain_1.5_20261115T223340_49356.log
+2026-11-15 22:33:41,013 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:33:41,013 INFO seed=42
+2026-11-15 22:33:41,014 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:33:41,014 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:33:41,014 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:33:44,997 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:33:45,547 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:33:54,268 INFO T4-a chain 1.50 sim 0 sys_avail=6.71GB load=79% proc_rss=0.90GB proc_peak=2.02GB
+2026-11-15 22:33:59,635 INFO T4-a chain 1.25 sim 20 sys_avail=6.70GB load=79% proc_rss=0.91GB proc_peak=2.03GB
+2026-11-15 22:35:17,136 INFO T4-a chain 1.25 sim 40 sys_avail=6.89GB load=79% proc_rss=0.91GB proc_peak=2.03GB
+2026-11-15 22:36:17,347 INFO T4-a chain 1.50 sim 20 sys_avail=6.73GB load=79% proc_rss=0.90GB proc_peak=2.02GB
+2026-11-15 22:36:39,175 INFO T4-a chain 1.25 sim 60 sys_avail=6.63GB load=80% proc_rss=0.91GB proc_peak=2.03GB
+2026-11-15 22:37:45,222 INFO T4-a chain 1.50 sim 40 sys_avail=6.60GB load=80% proc_rss=0.90GB proc_peak=2.02GB
+2026-11-15 22:38:06,846 INFO T4-a chain 1.25 sim 80 sys_avail=6.64GB load=80% proc_rss=0.91GB proc_peak=2.03GB
+2026-11-15 22:39:15,089 INFO T4-a chain 1.50 sim 60 sys_avail=6.66GB load=80% proc_rss=0.90GB proc_peak=2.02GB
+2026-11-15 22:39:32,509 INFO run finished
+done ('T4-a', 0, 'chain', 1.25) F:\Thesis\results\chain\phase4\tasks\T4-a__chain__1.25.npz
+2026-11-15 22:39:32,518 INFO script=src/chain/chain_phase4_T4-a_chain_2.0.py log=logs/chain_chain_phase4_T4-a_chain_2.0_20261115T223932_60660.log
+2026-11-15 22:39:32,574 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:39:32,574 INFO seed=42
+2026-11-15 22:39:32,574 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:39:32,574 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:39:32,574 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:39:36,829 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:39:37,374 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:39:43,361 INFO T4-a chain 2.00 sim 0 sys_avail=5.99GB load=82% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:40:45,893 INFO T4-a chain 1.50 sim 80 sys_avail=6.19GB load=81% proc_rss=0.90GB proc_peak=2.02GB
+2026-11-15 22:41:14,866 INFO T4-a chain 2.00 sim 20 sys_avail=6.15GB load=81% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:42:12,117 INFO run finished
+done ('T4-a', 0, 'chain', 1.5) F:\Thesis\results\chain\phase4\tasks\T4-a__chain__1.5.npz
+2026-11-15 22:42:12,127 INFO script=src/chain/chain_phase4_T4-a_zonation_1.5.py log=logs/chain_chain_phase4_T4-a_zonation_1.5_20261115T224212_49356.log
+2026-11-15 22:42:12,183 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:42:12,183 INFO seed=42
+2026-11-15 22:42:12,183 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:42:12,183 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:42:12,183 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:42:16,390 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:42:16,959 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:42:22,571 INFO T4-a zonation 1.50 sim 0 sys_avail=5.57GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:42:45,383 INFO T4-a chain 2.00 sim 40 sys_avail=5.46GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:43:51,790 INFO T4-a zonation 1.50 sim 20 sys_avail=5.23GB load=84% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:44:15,000 INFO T4-a chain 2.00 sim 60 sys_avail=5.36GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:45:20,257 INFO T4-a zonation 1.50 sim 40 sys_avail=5.55GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:45:44,595 INFO T4-a chain 2.00 sim 80 sys_avail=5.44GB load=83% proc_rss=1.28GB proc_peak=2.21GB
+2026-11-15 22:46:49,066 INFO T4-a zonation 1.50 sim 60 sys_avail=5.45GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:47:09,857 INFO run finished
+done ('T4-a', 0, 'chain', 2.0) F:\Thesis\results\chain\phase4\tasks\T4-a__chain__2.0.npz
+2026-11-15 22:47:09,867 INFO script=src/chain/chain_phase4_T4-a_zonation_2.0.py log=logs/chain_chain_phase4_T4-a_zonation_2.0_20261115T224709_60660.log
+2026-11-15 22:47:09,923 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:47:09,923 INFO seed=42
+2026-11-15 22:47:09,924 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:47:09,924 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:47:09,924 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:47:14,215 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:47:14,763 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:47:23,730 INFO T4-a zonation 2.00 sim 0 sys_avail=5.29GB load=84% proc_rss=1.66GB proc_peak=2.60GB
+2026-11-15 22:48:11,901 INFO T4-a zonation 1.50 sim 80 sys_avail=5.35GB load=83% proc_rss=1.29GB proc_peak=2.21GB
+2026-11-15 22:49:26,045 INFO run finished
+done ('T4-a', 0, 'zonation', 1.5) F:\Thesis\results\chain\phase4\tasks\T4-a__zonation__1.5.npz
+2026-11-15 22:49:26,054 INFO script=src/chain/chain_phase4_T4-a_direct_1.1.py log=logs/chain_chain_phase4_T4-a_direct_1.1_20261115T224926_49356.log
+2026-11-15 22:49:26,105 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:49:26,105 INFO seed=42
+2026-11-15 22:49:26,105 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:49:26,105 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:49:26,105 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:49:29,920 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:49:30,394 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:49:35,380 INFO T4-a direct 1.10 sim 0 sys_avail=4.87GB load=85% proc_rss=1.67GB proc_peak=2.59GB
+2026-11-15 22:49:50,666 INFO T4-a zonation 2.00 sim 20 sys_avail=4.54GB load=86% proc_rss=1.66GB proc_peak=2.60GB
+2026-11-15 22:50:54,618 INFO T4-a direct 1.10 sim 20 sys_avail=4.80GB load=85% proc_rss=1.67GB proc_peak=2.59GB
+2026-11-15 22:51:10,117 INFO T4-a zonation 2.00 sim 40 sys_avail=4.65GB load=86% proc_rss=1.66GB proc_peak=2.60GB
+2026-11-15 22:52:10,233 INFO T4-a direct 1.10 sim 40 sys_avail=4.86GB load=85% proc_rss=1.67GB proc_peak=2.59GB
+2026-11-15 22:52:24,832 INFO T4-a zonation 2.00 sim 60 sys_avail=4.82GB load=85% proc_rss=1.66GB proc_peak=2.60GB
+2026-11-15 22:53:21,217 INFO T4-a direct 1.10 sim 60 sys_avail=5.99GB load=82% proc_rss=1.67GB proc_peak=2.59GB
+2026-11-15 22:53:35,315 INFO T4-a zonation 2.00 sim 80 sys_avail=5.02GB load=84% proc_rss=1.66GB proc_peak=2.60GB
+2026-11-15 22:54:39,014 INFO T4-a direct 1.10 sim 80 sys_avail=3.22GB load=90% proc_rss=1.67GB proc_peak=2.59GB
+2026-11-15 22:54:51,516 INFO run finished
+done ('T4-a', 0, 'zonation', 2.0) F:\Thesis\results\chain\phase4\tasks\T4-a__zonation__2.0.npz
+2026-11-15 22:54:51,524 INFO script=src/chain/chain_phase4_T4-a_direct_1.25.py log=logs/chain_chain_phase4_T4-a_direct_1.25_20261115T225451_60660.log
+2026-11-15 22:54:51,574 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:54:51,574 INFO seed=42
+2026-11-15 22:54:51,574 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:54:51,574 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:54:51,574 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:54:55,250 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:54:55,733 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:55:00,717 INFO T4-a direct 1.25 sim 0 sys_avail=2.70GB load=91% proc_rss=2.06GB proc_peak=2.99GB
+2026-11-15 22:55:54,028 INFO run finished
+done ('T4-a', 0, 'direct', 1.1) F:\Thesis\results\chain\phase4\tasks\T4-a__direct__1.1.npz
+2026-11-15 22:55:54,036 INFO script=src/chain/chain_phase4_T4-a_direct_1.5.py log=logs/chain_chain_phase4_T4-a_direct_1.5_20261115T225554_49356.log
+2026-11-15 22:55:54,088 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:55:54,088 INFO seed=42
+2026-11-15 22:55:54,089 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:55:54,089 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:55:54,089 INFO params={"n_sim": 100, "n_perm": 100}
+2026-11-15 22:55:57,740 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-15 22:55:58,203 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-15 22:56:06,968 INFO T4-a direct 1.50 sim 0 sys_avail=3.30GB load=90% proc_rss=1.11GB proc_peak=2.59GB
+2026-11-15 22:56:20,773 INFO T4-a direct 1.25 sim 20 sys_avail=3.35GB load=89% proc_rss=2.06GB proc_peak=2.99GB
+2026-11-15 22:57:41,680 INFO T4-a direct 1.25 sim 40 sys_avail=3.20GB load=90% proc_rss=2.06GB proc_peak=2.99GB
+2026-11-15 22:58:35,725 INFO T4-a direct 1.50 sim 20 sys_avail=3.12GB load=90% proc_rss=1.11GB proc_peak=2.59GB
+2026-11-15 22:59:05,928 INFO T4-a direct 1.25 sim 60 sys_avail=3.26GB load=90% proc_rss=2.06GB proc_peak=2.99GB
+2026-11-15 22:59:59,820 INFO T4-a direct 1.50 sim 40 sys_avail=3.15GB load=90% proc_rss=1.11GB proc_peak=2.59GB
+2026-11-15 23:00:30,556 INFO T4-a direct 1.25 sim 80 sys_avail=3.29GB load=90% proc_rss=2.06GB proc_peak=2.99GB
+2026-11-15 23:01:21,895 INFO T4-a direct 1.50 sim 60 sys_avail=3.22GB load=90% proc_rss=1.11GB proc_peak=2.59GB
+2026-11-15 23:01:46,931 INFO run finished
+done ('T4-a', 0, 'direct', 1.25) F:\Thesis\results\chain\phase4\tasks\T4-a__direct__1.25.npz
+done ('T4-a', 0, 'direct', 2.0) F:\Thesis\results\chain\phase4\tasks\T4-a__direct__2.0.npz
+done ('T1-b', 1, 'null', 1.0) F:\Thesis\results\chain\phase4\tasks\T1-b__null__1.0.npz
+done ('T1-b', 1, 'chain', 1.1) F:\Thesis\results\chain\phase4\tasks\T1-b__chain__1.1.npz
+done ('T1-b', 1, 'chain', 1.25) F:\Thesis\results\chain\phase4\tasks\T1-b__chain__1.25.npz
+done ('T1-b', 1, 'chain', 1.5) F:\Thesis\results\chain\phase4\tasks\T1-b__chain__1.5.npz
+done ('T1-b', 1, 'chain', 2.0) F:\Thesis\results\chain\phase4\tasks\T1-b__chain__2.0.npz
+done ('T1-b', 1, 'zonation', 1.5) F:\Thesis\results\chain\phase4\tasks\T1-b__zonation__1.5.npz
+done ('T1-b', 1, 'zonation', 2.0) F:\Thesis\results\chain\phase4\tasks\T1-b__zonation__2.0.npz
+done ('T1-b', 1, 'direct', 1.1) F:\Thesis\results\chain\phase4\tasks\T1-b__direct__1.1.npz
+done ('T1-b', 1, 'direct', 1.25) F:\Thesis\results\chain\phase4\tasks\T1-b__direct__1.25.npz
+done ('T1-b', 1, 'direct', 1.5) F:\Thesis\results\chain\phase4\tasks\T1-b__direct__1.5.npz
+done ('T1-b', 1, 'direct', 2.0) F:\Thesis\results\chain\phase4\tasks\T1-b__direct__2.0.npz
+done ('U2-b', 2, 'null', 1.0) F:\Thesis\results\chain\phase4\tasks\U2-b__null__1.0.npz
+done ('U2-b', 2, 'chain', 1.1) F:\Thesis\results\chain\phase4\tasks\U2-b__chain__1.1.npz
+done ('U2-b', 2, 'chain', 1.25) F:\Thesis\results\chain\phase4\tasks\U2-b__chain__1.25.npz
+done ('U2-b', 2, 'chain', 1.5) F:\Thesis\results\chain\phase4\tasks\U2-b__chain__1.5.npz
+done ('U2-b', 2, 'chain', 2.0) F:\Thesis\results\chain\phase4\tasks\U2-b__chain__2.0.npz
+done ('U2-b', 2, 'zonation', 1.5) F:\Thesis\results\chain\phase4\tasks\U2-b__zonation__1.5.npz
+done ('U2-b', 2, 'zonation', 2.0) F:\Thesis\results\chain\phase4\tasks\U2-b__zonation__2.0.npz
+done ('U2-b', 2, 'direct', 1.1) F:\Thesis\results\chain\phase4\tasks\U2-b__direct__1.1.npz
+done ('U2-b', 2, 'direct', 1.25) F:\Thesis\results\chain\phase4\tasks\U2-b__direct__1.25.npz
+done ('U2-b', 2, 'direct', 1.5) F:\Thesis\results\chain\phase4\tasks\U2-b__direct__1.5.npz
+done ('U2-b', 2, 'direct', 2.0) F:\Thesis\results\chain\phase4\tasks\U2-b__direct__2.0.npz
+2026-11-15 23:02:36,305 INFO T4-a direct 1.50 sim 80 sys_avail=4.41GB load=86% proc_rss=1.11GB proc_peak=2.59GB
+2026-11-15 23:03:45,883 INFO run finished
+done ('T4-a', 0, 'direct', 1.5) F:\Thesis\results\chain\phase4\tasks\T4-a__direct__1.5.npz
+2026-11-15 23:03:46,670 INFO script=src/chain/chain_phase4_aggregate.py log=logs/chain_chain_phase4_aggregate_20261115T230346_20628.log
+2026-11-15 23:03:46,725 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:03:46,725 INFO seed=42
+2026-11-15 23:03:48,516 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:03:48,530 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:03:48,530 INFO params={"sections": ["T4-a", "T1-b", "U2-b"], "plant": ["tumour:basal_like", "CAF:myCAF", "T:cytotoxic"], "settings": [["null", 1.0], ["chain", 1.1], ["chain", 1.25], ["chain", 1.5], ["chain", 2.0], ["zonation", 1.5], ["zonation", 2.0], ["direct", 1.1], ["direct", 1.25], ["direct", 1.5], ["direct", 2.0]], "n_sim": 100, "n_perm": 100, "n_sim_label": 20}
+2026-11-15 23:03:48,542 INFO Logged reductions: 100 expression-null permutations per simulation (Phase 3 uses 200); label null on 20 sims for 4 settings
+2026-11-15 23:03:48,579 INFO aggregated T4-a
+2026-11-15 23:03:48,617 INFO aggregated T1-b
+2026-11-15 23:03:48,650 INFO aggregated U2-b
+2026-11-15 23:03:48,679 INFO Saved results/chain/phase4/calibration_table.csv (33 rows)
+2026-11-15 23:03:48,692 INFO Saved results/chain/phase4/calibration_pooled_3sections.csv (11 rows)
+2026-11-15 23:03:48,713 INFO Saved results/chain/phase4/trustworthy_settings.csv (12 rows)
+2026-11-15 23:03:48,730 INFO Saved results/chain/phase4/calibrated_range.json
+2026-11-15 23:03:49,426 INFO Saved figure figures/chain/phase4/phase4_calibration(.png/.pdf)
+2026-11-15 23:03:49,434 INFO calibration table:
+section scenario  fold  median_n_chain  chain_call_rate  hop_CB_rate  hop_BA_rate  indirect_rate
+   T4-a     null  1.00           230.0             0.00         0.17         0.23           0.02
+   T4-a    chain  1.10           230.0             0.01         0.11         0.83           0.10
+   T4-a    chain  1.25           230.0             0.00         0.11         0.99           0.10
+   T4-a    chain  1.50           230.0             0.01         0.11         1.00           0.13
+   T4-a    chain  2.00           230.0             0.02         0.25         1.00           0.27
+   T4-a zonation  1.50           230.0             0.00         0.71         0.70           0.06
+   T4-a zonation  2.00           230.0             0.05         1.00         0.97           0.12
+   T4-a   direct  1.10           230.0             0.00         0.16         0.25           0.03
+   T4-a   direct  1.25           230.0             0.00         0.06         0.24           0.03
+   T4-a   direct  1.50           230.0             0.01         0.09         0.22           0.04
+   T4-a   direct  2.00           230.0             0.00         0.12         0.21           0.03
+   T1-b     null  1.00            53.0             0.00         0.08         0.06           0.29
+   T1-b    chain  1.10            53.0             0.02         0.14         0.60           0.26
+   T1-b    chain  1.25            53.0             0.02         0.12         1.00           0.33
+   T1-b    chain  1.50            53.0             0.04         0.12         1.00           0.28
+   T1-b    chain  2.00            53.0             0.01         0.20         1.00           0.09
+   T1-b zonation  1.50            53.0             0.00         0.02         0.22           0.21
+   T1-b zonation  2.00            53.0             0.00         0.00         0.79           0.08
+   T1-b   direct  1.10            53.0             0.00         0.07         0.04           0.16
+   T1-b   direct  1.25            53.0             0.00         0.10         0.04           0.21
+   T1-b   direct  1.50            53.0             0.00         0.11         0.01           0.26
+   T1-b   direct  2.00            53.0             0.00         0.09         0.06           0.25
+   U2-b     null  1.00            65.0             0.00         0.00         0.00           0.02
+   U2-b    chain  1.10            65.0             0.00         0.00         0.16           0.01
+   U2-b    chain  1.25            65.0             0.00         0.00         0.94           0.00
+   U2-b    chain  1.50            65.0             0.00         0.00         1.00           0.03
+   U2-b    chain  2.00            65.0             0.00         0.01         1.00           0.02
+   U2-b zonation  1.50            65.0             0.00         0.00         0.05           0.00
+   U2-b zonation  2.00            65.0             0.00         0.00         0.46           0.00
+   U2-b   direct  1.10            65.0             0.00         0.01         0.00           0.02
+   U2-b   direct  1.25            65.0             0.00         0.00         0.00           0.00
+   U2-b   direct  1.50            65.0             0.00         0.00         0.01           0.03
+   U2-b   direct  2.00            65.0             0.00         0.00         0.01           0.00
+2026-11-15 23:03:49,437 INFO pooled:
+scenario  fold pooled_sections  chain_call_rate  hop_CB_rate  hop_BA_rate  indirect_rate  mean_indirect
+    null  1.00  T4-a;T1-b;U2-b              0.0         0.00         0.31           0.15       0.011186
+   chain  1.10  T4-a;T1-b;U2-b              0.0         0.00         0.99           0.13       0.010953
+   chain  1.25  T4-a;T1-b;U2-b              0.0         0.00         1.00           0.19       0.012541
+   chain  1.50  T4-a;T1-b;U2-b              0.0         0.00         1.00           0.09       0.010632
+   chain  2.00  T4-a;T1-b;U2-b              0.0         0.01         1.00           0.04       0.006927
+zonation  1.50  T4-a;T1-b;U2-b              0.0         0.00         0.88           0.16       0.008500
+zonation  2.00  T4-a;T1-b;U2-b              0.0         0.03         1.00           0.07       0.002972
+  direct  1.10  T4-a;T1-b;U2-b              0.0         0.03         0.30           0.08       0.010053
+  direct  1.25  T4-a;T1-b;U2-b              0.0         0.01         0.34           0.09       0.011870
+  direct  1.50  T4-a;T1-b;U2-b              0.0         0.00         0.36           0.15       0.013384
+  direct  2.00  T4-a;T1-b;U2-b              0.0         0.00         0.31           0.14       0.011740
+2026-11-15 23:03:49,437 INFO calibrated range: {"trustworthy_setting_found": false, "note": "No (fold, section) met power >= 0.8 with null/zonation/direct call rates <= 0.10; every Phase 3 chain call is outside the calibrated range", "null_call_rate": {"T4-a": 0.0, "T1-b": 0.0, "U2-b": 0.0}, "zonation2_call_rate": {"T4-a": 0.05, "T1-b": 0.0, "U2-b": 0.0}}
+2026-11-15 23:03:49,452 INFO run finished

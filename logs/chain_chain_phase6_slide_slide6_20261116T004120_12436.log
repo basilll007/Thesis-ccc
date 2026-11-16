@@ -1,0 +1,11 @@
+2026-11-16 00:41:20,807 INFO script=src/chain/chain_phase6_slide_slide6.py log=logs/chain_chain_phase6_slide_slide6_20261116T004120_12436.log
+2026-11-16 00:41:20,854 INFO git_commit=00c98c57a2a9f24502825bf39c5e7d39f98b397f+dirty
+2026-11-16 00:41:20,854 INFO seed=42
+2026-11-16 00:41:20,855 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:41:20,855 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:41:20,855 INFO params={"n_perm": 100}
+2026-11-16 00:41:23,163 INFO slide6 perm 0 sys_avail=9.25GB load=72% proc_rss=0.32GB proc_peak=0.36GB
+2026-11-16 00:41:48,116 INFO slide6 perm 25 sys_avail=9.20GB load=72% proc_rss=0.33GB proc_peak=0.36GB
+2026-11-16 00:42:09,991 INFO slide6 perm 50 sys_avail=9.31GB load=72% proc_rss=0.33GB proc_peak=0.36GB
+2026-11-16 00:42:29,523 INFO slide6 perm 75 sys_avail=9.26GB load=72% proc_rss=0.33GB proc_peak=0.36GB
+2026-11-16 00:42:48,259 INFO run finished

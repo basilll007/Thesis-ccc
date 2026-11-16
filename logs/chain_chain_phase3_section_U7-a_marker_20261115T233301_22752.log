@@ -1,0 +1,11 @@
+2026-11-15 23:33:01,008 INFO script=src/chain/chain_phase3_section_U7-a_marker.py log=logs/chain_chain_phase3_section_U7-a_marker_20261115T233301_22752.log
+2026-11-15 23:33:01,040 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:33:01,040 INFO seed=42
+2026-11-15 23:33:01,041 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:33:01,041 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:33:01,041 INFO params={"n_perm": 200}
+2026-11-15 23:33:04,427 INFO U7-a marker perm 0/200 sys_avail=7.88GB load=76% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:34:31,781 INFO U7-a marker perm 50/200 sys_avail=8.07GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:35:59,483 INFO U7-a marker perm 100/200 sys_avail=7.96GB load=76% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:37:27,490 INFO U7-a marker perm 150/200 sys_avail=8.08GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:38:52,469 INFO run finished

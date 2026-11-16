@@ -1,0 +1,11 @@
+2026-11-15 22:45:14,678 INFO script=src/chain/chain_phase3_section_U4-a_author_mapped.py log=logs/chain_chain_phase3_section_U4-a_author_mapped_20261115T224514_64192.log
+2026-11-15 22:45:14,731 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:45:14,731 INFO seed=42
+2026-11-15 22:45:14,731 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:45:14,731 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:45:14,731 INFO params={"n_perm": 200}
+2026-11-15 22:45:18,576 INFO U4-a author_mapped perm 0/200 sys_avail=5.58GB load=83% proc_rss=0.34GB proc_peak=0.35GB
+2026-11-15 22:47:01,232 INFO U4-a author_mapped perm 50/200 sys_avail=5.56GB load=83% proc_rss=0.34GB proc_peak=0.35GB
+2026-11-15 22:48:33,715 INFO U4-a author_mapped perm 100/200 sys_avail=5.24GB load=84% proc_rss=0.34GB proc_peak=0.35GB
+2026-11-15 22:50:02,645 INFO U4-a author_mapped perm 150/200 sys_avail=4.76GB load=85% proc_rss=0.34GB proc_peak=0.35GB
+2026-11-15 22:51:29,813 INFO run finished

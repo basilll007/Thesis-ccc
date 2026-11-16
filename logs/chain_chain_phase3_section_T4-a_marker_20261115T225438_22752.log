@@ -1,0 +1,11 @@
+2026-11-15 22:54:38,807 INFO script=src/chain/chain_phase3_section_T4-a_marker.py log=logs/chain_chain_phase3_section_T4-a_marker_20261115T225438_22752.log
+2026-11-15 22:54:38,859 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:54:38,859 INFO seed=42
+2026-11-15 22:54:40,840 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:54:40,856 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:54:40,856 INFO params={"n_perm": 200}
+2026-11-15 22:54:43,561 INFO T4-a marker perm 0/200 sys_avail=3.08GB load=90% proc_rss=0.29GB proc_peak=0.31GB
+2026-11-15 22:55:51,683 INFO T4-a marker perm 50/200 sys_avail=2.52GB load=92% proc_rss=0.30GB proc_peak=0.31GB
+2026-11-15 22:57:00,589 INFO T4-a marker perm 100/200 sys_avail=3.38GB load=89% proc_rss=0.29GB proc_peak=0.31GB
+2026-11-15 22:58:10,961 INFO T4-a marker perm 150/200 sys_avail=3.29GB load=90% proc_rss=0.30GB proc_peak=0.31GB
+2026-11-15 22:59:22,721 INFO run finished

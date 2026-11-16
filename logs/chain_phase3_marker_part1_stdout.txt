@@ -1,0 +1,98 @@
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 22:54:38,807 INFO script=src/chain/chain_phase3_section_T4-a_marker.py log=logs/chain_chain_phase3_section_T4-a_marker_20261115T225438_22752.log
+2026-11-15 22:54:38,859 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:54:38,859 INFO seed=42
+2026-11-15 22:54:40,840 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:54:40,856 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:54:40,856 INFO params={"n_perm": 200}
+2026-11-15 22:54:43,561 INFO T4-a marker perm 0/200 sys_avail=3.08GB load=90% proc_rss=0.29GB proc_peak=0.31GB
+2026-11-15 22:55:51,683 INFO T4-a marker perm 50/200 sys_avail=2.52GB load=92% proc_rss=0.30GB proc_peak=0.31GB
+2026-11-15 22:57:00,589 INFO T4-a marker perm 100/200 sys_avail=3.38GB load=89% proc_rss=0.29GB proc_peak=0.31GB
+2026-11-15 22:58:10,961 INFO T4-a marker perm 150/200 sys_avail=3.29GB load=90% proc_rss=0.30GB proc_peak=0.31GB
+2026-11-15 22:59:22,721 INFO run finished
+done T4-a F:\Thesis\results\chain\phase3\sections_marker\T4-a.npz
+2026-11-15 22:59:22,722 INFO script=src/chain/chain_phase3_section_T5-a_marker.py log=logs/chain_chain_phase3_section_T5-a_marker_20261115T225922_22752.log
+2026-11-15 22:59:22,779 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:59:22,779 INFO seed=42
+2026-11-15 22:59:22,779 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:59:22,779 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:59:22,779 INFO params={"n_perm": 200}
+2026-11-15 22:59:26,690 INFO T5-a marker perm 0/200 sys_avail=3.16GB load=90% proc_rss=0.37GB proc_peak=0.38GB
+2026-11-15 23:01:03,880 INFO T5-a marker perm 50/200 sys_avail=3.16GB load=90% proc_rss=0.37GB proc_peak=0.38GB
+2026-11-15 23:02:31,629 INFO T5-a marker perm 100/200 sys_avail=4.54GB load=86% proc_rss=0.37GB proc_peak=0.38GB
+2026-11-15 23:03:55,771 INFO T5-a marker perm 150/200 sys_avail=6.07GB load=81% proc_rss=0.37GB proc_peak=0.38GB
+2026-11-15 23:05:06,886 INFO run finished
+done T5-a F:\Thesis\results\chain\phase3\sections_marker\T5-a.npz
+2026-11-15 23:05:06,891 INFO script=src/chain/chain_phase3_section_U4-a_marker.py log=logs/chain_chain_phase3_section_U4-a_marker_20261115T230506_22752.log
+2026-11-15 23:05:06,927 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:05:06,927 INFO seed=42
+2026-11-15 23:05:06,927 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:05:06,927 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:05:06,927 INFO params={"n_perm": 200}
+2026-11-15 23:05:09,411 INFO U4-a marker perm 0/200 sys_avail=8.67GB load=74% proc_rss=0.37GB proc_peak=0.39GB
+2026-11-15 23:06:13,319 INFO U4-a marker perm 50/200 sys_avail=8.66GB load=74% proc_rss=0.38GB proc_peak=0.39GB
+2026-11-15 23:07:16,639 INFO U4-a marker perm 100/200 sys_avail=8.67GB load=74% proc_rss=0.38GB proc_peak=0.39GB
+2026-11-15 23:08:20,010 INFO U4-a marker perm 150/200 sys_avail=8.42GB load=74% proc_rss=0.38GB proc_peak=0.39GB
+2026-11-15 23:09:23,943 INFO run finished
+done U4-a F:\Thesis\results\chain\phase3\sections_marker\U4-a.npz
+2026-11-15 23:09:23,948 INFO script=src/chain/chain_phase3_section_U4-b_marker.py log=logs/chain_chain_phase3_section_U4-b_marker_20261115T230923_22752.log
+2026-11-15 23:09:23,984 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:09:23,984 INFO seed=42
+2026-11-15 23:09:23,984 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:09:23,984 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:09:23,984 INFO params={"n_perm": 200}
+2026-11-15 23:09:26,502 INFO U4-b marker perm 0/200 sys_avail=8.23GB load=75% proc_rss=0.37GB proc_peak=0.39GB
+2026-11-15 23:10:30,187 INFO U4-b marker perm 50/200 sys_avail=8.38GB load=74% proc_rss=0.37GB proc_peak=0.39GB
+2026-11-15 23:11:28,728 INFO U4-b marker perm 100/200 sys_avail=8.41GB load=74% proc_rss=0.37GB proc_peak=0.39GB
+2026-11-15 23:12:27,369 INFO U4-b marker perm 150/200 sys_avail=8.39GB load=74% proc_rss=0.37GB proc_peak=0.39GB
+2026-11-15 23:13:24,577 INFO run finished
+done U4-b F:\Thesis\results\chain\phase3\sections_marker\U4-b.npz
+2026-11-15 23:13:24,581 INFO script=src/chain/chain_phase3_section_U5-a_marker.py log=logs/chain_chain_phase3_section_U5-a_marker_20261115T231324_22752.log
+2026-11-15 23:13:24,613 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:13:24,613 INFO seed=42
+2026-11-15 23:13:24,613 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:13:24,613 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:13:24,613 INFO params={"n_perm": 200}
+2026-11-15 23:13:28,897 INFO U5-a marker perm 0/200 sys_avail=8.26GB load=75% proc_rss=0.42GB proc_peak=0.44GB
+2026-11-15 23:15:10,893 INFO U5-a marker perm 50/200 sys_avail=8.31GB load=75% proc_rss=0.42GB proc_peak=0.44GB
+2026-11-15 23:16:52,443 INFO U5-a marker perm 100/200 sys_avail=8.23GB load=75% proc_rss=0.42GB proc_peak=0.44GB
+2026-11-15 23:18:35,740 INFO U5-a marker perm 150/200 sys_avail=7.98GB load=76% proc_rss=0.42GB proc_peak=0.45GB
+2026-11-15 23:20:17,925 INFO run finished
+done U5-a F:\Thesis\results\chain\phase3\sections_marker\U5-a.npz
+2026-11-15 23:20:17,931 INFO script=src/chain/chain_phase3_section_U6-a_1_marker.py log=logs/chain_chain_phase3_section_U6-a_1_marker_20261115T232017_22752.log
+2026-11-15 23:20:17,963 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:20:17,963 INFO seed=42
+2026-11-15 23:20:17,963 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:20:17,963 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:20:17,963 INFO params={"n_perm": 200}
+2026-11-15 23:20:21,578 INFO U6-a_1 marker perm 0/200 sys_avail=8.20GB load=75% proc_rss=0.42GB proc_peak=0.45GB
+2026-11-15 23:21:58,510 INFO U6-a_1 marker perm 50/200 sys_avail=8.07GB load=75% proc_rss=0.42GB proc_peak=0.45GB
+2026-11-15 23:23:35,347 INFO U6-a_1 marker perm 100/200 sys_avail=7.86GB load=76% proc_rss=0.42GB proc_peak=0.45GB
+2026-11-15 23:25:11,543 INFO U6-a_1 marker perm 150/200 sys_avail=8.17GB load=75% proc_rss=0.42GB proc_peak=0.45GB
+2026-11-15 23:26:46,486 INFO run finished
+done U6-a_1 F:\Thesis\results\chain\phase3\sections_marker\U6-a_1.npz
+2026-11-15 23:26:46,492 INFO script=src/chain/chain_phase3_section_U6-a_2_marker.py log=logs/chain_chain_phase3_section_U6-a_2_marker_20261115T232646_22752.log
+2026-11-15 23:26:46,523 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:26:46,523 INFO seed=42
+2026-11-15 23:26:46,524 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:26:46,524 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:26:46,524 INFO params={"n_perm": 200}
+2026-11-15 23:26:50,112 INFO U6-a_2 marker perm 0/200 sys_avail=8.04GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:28:23,399 INFO U6-a_2 marker perm 50/200 sys_avail=8.12GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:29:56,563 INFO U6-a_2 marker perm 100/200 sys_avail=8.02GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:31:29,528 INFO U6-a_2 marker perm 150/200 sys_avail=8.10GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:33:01,003 INFO run finished
+done U6-a_2 F:\Thesis\results\chain\phase3\sections_marker\U6-a_2.npz
+2026-11-15 23:33:01,008 INFO script=src/chain/chain_phase3_section_U7-a_marker.py log=logs/chain_chain_phase3_section_U7-a_marker_20261115T233301_22752.log
+2026-11-15 23:33:01,040 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 23:33:01,040 INFO seed=42
+2026-11-15 23:33:01,041 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 23:33:01,041 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 23:33:01,041 INFO params={"n_perm": 200}
+2026-11-15 23:33:04,427 INFO U7-a marker perm 0/200 sys_avail=7.88GB load=76% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:34:31,781 INFO U7-a marker perm 50/200 sys_avail=8.07GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:35:59,483 INFO U7-a marker perm 100/200 sys_avail=7.96GB load=76% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:37:27,490 INFO U7-a marker perm 150/200 sys_avail=8.08GB load=75% proc_rss=0.41GB proc_peak=0.45GB
+2026-11-15 23:38:52,469 INFO run finished
+done U7-a F:\Thesis\results\chain\phase3\sections_marker\U7-a.npz

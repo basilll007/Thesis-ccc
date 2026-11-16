@@ -1,0 +1,56 @@
+2026-11-16 00:36:44,312 INFO script=src/chain/chain_phase6_gse310352.py log=logs/chain_chain_phase6_gse310352_20261116T003644_21056.log
+2026-11-16 00:36:44,349 INFO git_commit=2f85b0bbc822c981f41ad88993178e3a239fd0a7+dirty
+2026-11-16 00:36:44,349 INFO seed=42
+2026-11-16 00:36:45,683 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:36:45,693 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:36:45,693 INFO params={"slides": ["slide1", "slide2", "slide3", "slide4", "slide5", "slide5b2", "slide5b3", "slide6"], "units": {"slide1": "slide1", "slide2": "slide2", "slide3": "slide3", "slide4": "slide4", "slide5": "slide5_group", "slide5b2": "slide5_group", "slide5b3": "slide5_group", "slide6": "slide6"}, "n_perm": 100, "mendeley_median_nn_um": 9.121990298455604}
+2026-11-16 00:36:57,191 INFO GSE310352 slide1 (GSM9294399): 124165 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:36:57,456 INFO QC (breast thresholds min_counts=10, min_cells=3): (124165, 970) -> (109130, 970)
+2026-11-16 00:36:59,715 INFO prepared slide1: 109130 cells, median NN 39.81 px, tile 872.9 px; sys_avail=9.91GB load=70% proc_rss=0.71GB proc_peak=2.87GB
+2026-11-16 00:37:05,121 INFO GSE310352 slide2 (GSM9294400): 118096 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:05,366 INFO QC (breast thresholds min_counts=10, min_cells=3): (118096, 970) -> (114083, 970)
+2026-11-16 00:37:07,690 INFO prepared slide2: 114083 cells, median NN 34.23 px, tile 750.6 px; sys_avail=10.03GB load=69% proc_rss=0.68GB proc_peak=2.87GB
+2026-11-16 00:37:10,720 INFO GSE310352 slide3 (GSM9294401): 67100 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:10,937 INFO QC (breast thresholds min_counts=10, min_cells=3): (67100, 970) -> (66599, 970)
+2026-11-16 00:37:12,450 INFO prepared slide3: 66599 cells, median NN 43.42 px, tile 951.9 px; sys_avail=10.03GB load=69% proc_rss=0.70GB proc_peak=2.87GB
+2026-11-16 00:37:17,295 INFO GSE310352 slide4 (GSM9294402): 88103 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:17,532 INFO QC (breast thresholds min_counts=10, min_cells=3): (88103, 970) -> (86459, 970)
+2026-11-16 00:37:19,449 INFO prepared slide4: 86459 cells, median NN 40.72 px, tile 892.8 px; sys_avail=9.82GB load=70% proc_rss=0.70GB proc_peak=2.87GB
+2026-11-16 00:37:22,455 INFO GSE310352 slide5 (GSM9294404): 57464 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:22,650 INFO QC (breast thresholds min_counts=10, min_cells=3): (57464, 970) -> (56938, 970)
+2026-11-16 00:37:24,080 INFO prepared slide5: 56938 cells, median NN 42.05 px, tile 921.9 px; sys_avail=9.71GB load=70% proc_rss=0.78GB proc_peak=2.87GB
+2026-11-16 00:37:27,673 INFO GSE310352 slide5b2 (GSM9294405): 73401 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:27,844 INFO QC (breast thresholds min_counts=10, min_cells=3): (73401, 970) -> (70823, 970)
+2026-11-16 00:37:29,278 INFO prepared slide5b2: 70823 cells, median NN 44.72 px, tile 980.5 px; sys_avail=10.01GB load=69% proc_rss=0.73GB proc_peak=2.87GB
+2026-11-16 00:37:31,089 INFO GSE310352 slide5b3 (GSM9294406): 42857 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:31,191 INFO QC (breast thresholds min_counts=10, min_cells=3): (42857, 970) -> (39685, 970)
+2026-11-16 00:37:31,984 INFO prepared slide5b3: 39685 cells, median NN 43.42 px, tile 951.9 px; sys_avail=10.19GB load=69% proc_rss=0.56GB proc_peak=2.87GB
+2026-11-16 00:37:36,067 INFO GSE310352 slide6 (GSM9294403): 89004 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 00:37:36,336 INFO QC (breast thresholds min_counts=10, min_cells=3): (89004, 970) -> (88543, 970)
+2026-11-16 00:37:38,301 INFO prepared slide6: 88543 cells, median NN 40.31 px, tile 883.8 px; sys_avail=10.00GB load=69% proc_rss=0.93GB proc_peak=2.87GB
+2026-11-16 00:37:38,324 INFO Saved results/chain/phase6/slide_info.csv (8 rows)
+2026-11-16 00:37:38,346 INFO Saved results/chain/phase6/gene_background_typeaware_flags.csv (67 rows)
+2026-11-16 00:37:38,356 INFO Saved results/chain/phase6/program_measurement_consistency.csv (7 rows)
+2026-11-16 00:38:06,817 INFO phase2 repeat tumour:classical done
+2026-11-16 00:38:29,284 INFO phase2 repeat tumour:basal_like done
+2026-11-16 00:38:50,142 INFO phase2 repeat CAF:myCAF done
+2026-11-16 00:39:06,348 INFO phase2 repeat CAF:CXCL12 done
+2026-11-16 00:39:11,883 INFO phase2 repeat T:cytotoxic done
+2026-11-16 00:39:33,534 INFO phase2 repeat myeloid:C1Q_TAM done
+2026-11-16 00:39:53,092 INFO phase2 repeat myeloid:SPP1_TAM done
+2026-11-16 00:39:53,104 INFO Saved results/chain/phase6/phase2_repeat_per_unit_sse.csv (336 rows)
+2026-11-16 00:39:53,160 INFO Saved results/chain/phase6/phase2_repeat_delta_r2.csv (28 rows)
+2026-11-16 00:39:53,717 INFO Saved results/chain/phase6/floor_by_slide_chain.csv (48 rows)
+2026-11-16 00:39:53,719 INFO chains analysed (floor in >= 3 units): ['CAF->myeloid->tumour', 'CAF->tumour->myeloid', 'myeloid->CAF->tumour', 'myeloid->tumour->CAF', 'tumour->CAF->T', 'tumour->CAF->myeloid']
+2026-11-16 00:41:00,764 INFO slide slide5 done
+2026-11-16 00:41:20,806 INFO slide slide5b2 done
+2026-11-16 00:41:25,707 INFO slide slide3 done
+2026-11-16 00:41:26,968 INFO slide slide4 done
+2026-11-16 00:41:38,857 INFO slide slide5b3 done
+2026-11-16 00:42:01,223 INFO slide slide2 done
+2026-11-16 00:42:03,773 INFO slide slide1 done
+2026-11-16 00:42:48,263 INFO slide slide6 done
+2026-11-16 00:42:48,912 INFO Saved results/chain/phase6/phase3_repeat_unit_level.csv (308 rows)
+2026-11-16 00:42:49,559 INFO Saved figure figures/chain/phase6/phase6_consistency(.png/.pdf)
+2026-11-16 00:42:49,570 INFO Saved results/chain/phase6/phase6_summary.json
+2026-11-16 00:42:49,579 INFO run finished

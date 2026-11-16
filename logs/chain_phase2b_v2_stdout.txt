@@ -1,0 +1,87 @@
+2026-11-15 22:14:09,654 INFO script=src/chain/chain_phase2b_gnn.py log=logs/chain_chain_phase2b_gnn_20261115T221409_38224.log
+2026-11-15 22:14:09,711 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-15 22:14:09,711 INFO seed=42
+2026-11-15 22:14:11,901 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-15 22:14:11,916 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 22:14:11,916 INFO params={"max_train": 60000, "mlp": "(64,32), alpha 1e-3, early stopping"}
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 22:14:21,038 INFO hop2 myeloid T1-b done
+2026-11-15 22:14:21,181 INFO hop2 myeloid T2-b done
+2026-11-15 22:14:21,299 INFO hop2 myeloid T3-b done
+2026-11-15 22:14:21,484 INFO hop2 myeloid T4-a done
+2026-11-15 22:14:21,656 INFO hop2 myeloid T4-b done
+2026-11-15 22:14:21,871 INFO hop2 myeloid T5-a done
+2026-11-15 22:14:21,917 INFO hop2 myeloid T6-b done
+2026-11-15 22:14:22,000 INFO hop2 myeloid U1-b done
+2026-11-15 22:14:22,116 INFO hop2 myeloid U2-b done
+2026-11-15 22:14:22,167 INFO hop2 myeloid U3-b done
+2026-11-15 22:14:22,330 INFO hop2 myeloid U4-a done
+2026-11-15 22:14:22,486 INFO hop2 myeloid U4-b done
+2026-11-15 22:14:22,740 INFO hop2 myeloid U5-a done
+2026-11-15 22:14:22,990 INFO hop2 myeloid U6-a_1 done
+2026-11-15 22:14:23,239 INFO hop2 myeloid U6-a_2 done
+2026-11-15 22:14:23,491 INFO hop2 myeloid U7-a done
+2026-11-15 22:14:30,857 INFO myeloid:SPP1_TAM spill=False fold 004 done
+2026-11-15 22:14:35,829 INFO myeloid:SPP1_TAM spill=False fold 011 done
+2026-11-15 22:14:40,772 INFO myeloid:SPP1_TAM spill=False fold 2462 done
+2026-11-15 22:14:47,084 INFO myeloid:SPP1_TAM spill=False fold 2540 done
+2026-11-15 22:14:55,149 INFO myeloid:SPP1_TAM spill=False fold 2626 done
+2026-11-15 22:15:02,061 INFO myeloid:SPP1_TAM spill=False fold 2675 done
+2026-11-15 22:15:10,225 INFO myeloid:SPP1_TAM spill=False fold 2692 done
+2026-11-15 22:15:17,724 INFO myeloid:SPP1_TAM spill=False fold 2762 done
+2026-11-15 22:15:25,871 INFO myeloid:SPP1_TAM spill=False fold 2924 done
+2026-11-15 22:15:33,834 INFO myeloid:SPP1_TAM spill=False fold 2997 done
+2026-11-15 22:15:39,810 INFO myeloid:SPP1_TAM spill=False fold B10 done
+2026-11-15 22:15:49,083 INFO myeloid:SPP1_TAM spill=False fold C4 done
+2026-11-15 22:15:55,646 INFO myeloid:SPP1_TAM spill=False fold D10 done
+2026-11-15 22:15:55,760 INFO hop2 tumour T1-b done
+2026-11-15 22:15:55,906 INFO hop2 tumour T2-b done
+2026-11-15 22:15:56,030 INFO hop2 tumour T3-b done
+2026-11-15 22:15:56,217 INFO hop2 tumour T4-a done
+2026-11-15 22:15:56,366 INFO hop2 tumour T4-b done
+2026-11-15 22:15:56,512 INFO hop2 tumour T5-a done
+2026-11-15 22:15:56,555 INFO hop2 tumour T6-b done
+2026-11-15 22:15:56,637 INFO hop2 tumour U1-b done
+2026-11-15 22:15:56,752 INFO hop2 tumour U2-b done
+2026-11-15 22:15:56,801 INFO hop2 tumour U3-b done
+2026-11-15 22:15:56,956 INFO hop2 tumour U4-a done
+2026-11-15 22:15:57,118 INFO hop2 tumour U4-b done
+2026-11-15 22:15:57,376 INFO hop2 tumour U5-a done
+2026-11-15 22:15:57,647 INFO hop2 tumour U6-a_1 done
+2026-11-15 22:15:57,919 INFO hop2 tumour U6-a_2 done
+2026-11-15 22:15:58,176 INFO hop2 tumour U7-a done
+2026-11-15 22:16:05,844 INFO tumour:classical spill=False fold 004 done
+2026-11-15 22:16:12,318 INFO tumour:classical spill=False fold 011 done
+2026-11-15 22:16:18,031 INFO tumour:classical spill=False fold 2462 done
+2026-11-15 22:16:25,362 INFO tumour:classical spill=False fold 2540 done
+2026-11-15 22:16:30,529 INFO tumour:classical spill=False fold 2626 done
+2026-11-15 22:16:37,290 INFO tumour:classical spill=False fold 2675 done
+2026-11-15 22:16:45,092 INFO tumour:classical spill=False fold 2692 done
+2026-11-15 22:16:50,595 INFO tumour:classical spill=False fold 2762 done
+2026-11-15 22:16:56,538 INFO tumour:classical spill=False fold 2924 done
+2026-11-15 22:17:02,408 INFO tumour:classical spill=False fold 2997 done
+2026-11-15 22:17:08,021 INFO tumour:classical spill=False fold B10 done
+2026-11-15 22:17:13,631 INFO tumour:classical spill=False fold C4 done
+2026-11-15 22:17:20,439 INFO tumour:classical spill=False fold D10 done
+2026-11-15 22:17:30,407 INFO tumour:classical spill=True fold 004 done
+2026-11-15 22:17:37,640 INFO tumour:classical spill=True fold 011 done
+2026-11-15 22:17:43,833 INFO tumour:classical spill=True fold 2462 done
+2026-11-15 22:17:51,427 INFO tumour:classical spill=True fold 2540 done
+2026-11-15 22:17:58,831 INFO tumour:classical spill=True fold 2626 done
+2026-11-15 22:18:05,902 INFO tumour:classical spill=True fold 2675 done
+2026-11-15 22:18:11,134 INFO tumour:classical spill=True fold 2692 done
+2026-11-15 22:18:18,478 INFO tumour:classical spill=True fold 2762 done
+2026-11-15 22:18:24,602 INFO tumour:classical spill=True fold 2924 done
+2026-11-15 22:18:32,935 INFO tumour:classical spill=True fold 2997 done
+2026-11-15 22:18:42,631 INFO tumour:classical spill=True fold B10 done
+2026-11-15 22:18:48,722 INFO tumour:classical spill=True fold C4 done
+2026-11-15 22:18:54,372 INFO tumour:classical spill=True fold D10 done
+2026-11-15 22:18:54,391 INFO Saved results/chain/phase2/gnn_sgc_v2_loto_per_tumour_sse.csv (78 rows)
+2026-11-15 22:18:54,418 INFO Saved results/chain/phase2/gnn_sgc_v2_delta_r2.csv (3 rows)
+2026-11-15 22:18:54,423 INFO 
+   annotation          program  spillover_covariates   model  r2_baseline  r2_neighbour  delta_r2   ci_low  ci_high  n_tumours_delta_pos  ridge_delta_r2  hgb_delta_r2  r2_neighbour_ridge  r2_neighbour_hgb
+author_mapped myeloid:SPP1_TAM                 False sgc_mlp     0.227080      0.274982  0.047901 0.030736 0.058534                   12        0.056146      0.068123            0.280786          0.284208
+author_mapped tumour:classical                 False sgc_mlp     0.294138      0.428901  0.134763 0.097224 0.164004                   13        0.141092      0.151353            0.440154          0.437876
+author_mapped tumour:classical                  True sgc_mlp     0.320463      0.436291  0.115829 0.084530 0.149973                   13        0.123257      0.135543            0.448540          0.448346
+2026-11-15 22:18:54,436 INFO run finished

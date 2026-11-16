@@ -1,0 +1,7 @@
+2026-11-16 00:30:30,710 INFO script=src/chain/chain_phase5b_dedup.py log=logs/chain_chain_phase5b_dedup_20261116T003030_56960.log
+2026-11-16 00:30:30,759 INFO git_commit=0a4d617fe463245699fc54b3b37d86aabca59aa9+dirty
+2026-11-16 00:30:30,759 INFO seed=42
+2026-11-16 00:30:32,836 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0"}
+2026-11-16 00:30:32,850 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-16 00:30:32,868 INFO rows: original 516 -> dedup 270; supported hops: 0
+2026-11-16 00:30:32,879 INFO run finished
