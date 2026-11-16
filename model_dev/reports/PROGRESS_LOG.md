@@ -17,3 +17,7 @@ Branch `model-v1`, created 2026-11-16 from origin/main (cfb111c). Rules: never p
 
 ## 2026-11-16 Phase 1: targets and splits
 - First run of the declared greedy rule produced folds with a single tumour (2626 and 2762 alone), failing the >= 2 tumours floor. Plan Amendment 1 (snake deal of the first 10 tumours, then greedy) was written and committed before any model was fitted; the rejected check is kept as `fold_floor_check_v1_rejected.csv`.
+- Amended rule run: folds 0-4 hold 2/2/2/3/4 tumours with 15,642-25,193 myeloid cells each; all pass the floor (`fold_floor_check.csv`). 11 unit tests pass (`tests/`: leakage guard incl. planted target, tile LOO, train-only scaler, 2-hop seed exclusion, fold rules).
+
+## 2026-11-16 Phase 2: baselines (running)
+- Reproduction check PASSED exactly: delta R2 myeloid C1Q_TAM 0.0299 vs chain 0.0299; SPP1_TAM 0.0561 vs 0.0561; tumour classical 0.1411 vs 0.1411; basal_like 0.0568 vs 0.0568 (|diff| 0.0000, tolerance 0.01; `results/phase2/reproduction_check.csv`).

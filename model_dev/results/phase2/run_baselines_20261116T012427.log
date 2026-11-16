@@ -1,0 +1,28 @@
+2026-11-16 01:24:27,322 INFO phase=phase2 script=baselines log=model_dev/results/phase2/run_baselines_20261116T012427.log
+2026-11-16 01:24:27,360 INFO git_commit=5affa12e403e52fc2b2680e1dccf3a1148f3322c+dirty
+2026-11-16 01:24:27,360 INFO seed=42
+2026-11-16 01:24:32,088 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 01:24:32,102 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 01:24:32,102 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "n_boot": 2000, "reproduction_tolerance": 0.01, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "run_hgb": true, "hgb": {"learning_rate": [0.05, 0.1], "max_leaf_nodes": [15, 31], "max_iter": 500, "max_rows": 60000}, "run_mlp": true, "mlp": {"hidden": [256, 128], "dropout": 0.1, "learning_rate": [0.001, 0.0003], "weight_decay": 0.0001, "batch": 1024, "max_epochs": 100, "patience": 10, "seeds": [0, 1, 2]}}
+2026-11-16 01:24:40,656 INFO reproduction myeloid:C1Q_TAM: delta R2 0.0299 vs chain 0.0299 (|diff| 0.0000)
+2026-11-16 01:24:44,312 INFO reproduction myeloid:SPP1_TAM: delta R2 0.0561 vs chain 0.0561 (|diff| 0.0000)
+2026-11-16 01:24:57,268 INFO reproduction tumour:classical: delta R2 0.1411 vs chain 0.1411 (|diff| 0.0000)
+2026-11-16 01:25:05,612 INFO reproduction tumour:basal_like: delta R2 0.0568 vs chain 0.0568 (|diff| 0.0000)
+2026-11-16 01:25:05,629 INFO saved model_dev/results/phase2/reproduction_check.csv (4 rows)
+2026-11-16 01:25:06,670 INFO features development T1-b: 4321 receiver cells, 2825 columns
+2026-11-16 01:25:08,083 INFO features development T2-b: 5416 receiver cells, 2825 columns
+2026-11-16 01:25:09,171 INFO features development T3-b: 3153 receiver cells, 2825 columns
+2026-11-16 01:25:11,095 INFO features development T4-a: 11987 receiver cells, 2825 columns
+2026-11-16 01:25:12,534 INFO features development T4-b: 6755 receiver cells, 2825 columns
+2026-11-16 01:25:13,965 INFO features development T5-a: 5847 receiver cells, 2825 columns
+2026-11-16 01:25:14,512 INFO features development T6-b: 1652 receiver cells, 2825 columns
+2026-11-16 01:25:15,370 INFO features development U1-b: 3729 receiver cells, 2825 columns
+2026-11-16 01:25:16,466 INFO features development U2-b: 2756 receiver cells, 2825 columns
+2026-11-16 01:25:16,977 INFO features development U3-b: 3144 receiver cells, 2825 columns
+2026-11-16 01:25:18,594 INFO features development U4-a: 6720 receiver cells, 2825 columns
+2026-11-16 01:25:20,151 INFO features development U4-b: 5176 receiver cells, 2825 columns
+2026-11-16 01:25:22,858 INFO features development U5-a: 7470 receiver cells, 2825 columns
+2026-11-16 01:25:25,757 INFO features development U6-a_1: 10815 receiver cells, 2825 columns
+2026-11-16 01:25:28,164 INFO features development U6-a_2: 11225 receiver cells, 2825 columns
+2026-11-16 01:25:30,486 INFO features development U7-a: 5775 receiver cells, 2825 columns
+2026-11-16 01:25:48,434 INFO myeloid: 95941 cells, targets ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM', 'C1QA', 'C1QB', 'C1QC', 'CD163', 'MRC1', 'SELENOP', 'SPP1', 'GPNMB', 'CD9', 'FABP5', 'LGALS3']

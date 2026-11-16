@@ -1,0 +1,18 @@
+# Phase 3 graph models (see model_dev/plans/phase3_graph_models.md)
+seed: 42
+receivers: [myeloid, tumour]
+primary_receiver: myeloid
+archs: [sage, attention]
+learning_rates: [0.001, 0.0003]
+seeds: [0, 1, 2]
+k1: 12
+k2: 12
+hidden: 128
+emb: 16
+heads: 4
+dropout: 0.1
+weight_decay: 0.0001
+batch: 512
+max_epochs: 60
+patience: 8
+n_boot: 2000

@@ -1,0 +1,63 @@
+{
+  "myeloid": {
+    "class": "myeloid",
+    "role": "primary",
+    "programs": [
+      "myeloid:C1Q_TAM",
+      "myeloid:SPP1_TAM"
+    ],
+    "genes": [
+      "C1QA",
+      "C1QB",
+      "C1QC",
+      "CD163",
+      "MRC1",
+      "SELENOP",
+      "SPP1",
+      "GPNMB",
+      "CD9",
+      "FABP5",
+      "LGALS3"
+    ],
+    "n_genes": 11,
+    "testable": true
+  },
+  "tumour": {
+    "class": "epithelial_ductal_tumor",
+    "role": "positive control",
+    "programs": [
+      "tumour:classical",
+      "tumour:basal_like"
+    ],
+    "genes": [
+      "CEACAM6",
+      "AGR2",
+      "S100P",
+      "LCN2",
+      "PIGR",
+      "OLFM4",
+      "SPINK1",
+      "CEACAM1",
+      "KRT6A",
+      "KRT14",
+      "KRT17",
+      "S100A2",
+      "SERPINB5",
+      "AREG",
+      "SLC2A1",
+      "KRT15",
+      "ITGA3",
+      "MET"
+    ],
+    "n_genes": 18,
+    "testable": true
+  },
+  "T": {
+    "class": "T_cell",
+    "role": "not testable by declaration (too few cells)",
+    "n_cells_total": 11557,
+    "testable": false
+  },
+  "_primary_endpoint": "pooled held-out R2 for myeloid:C1Q_TAM (program score), grouped 5-fold; neighbourhood gain = R2(model) - R2(own-covariates) with tumour-bootstrap 95% CI",
+  "_inner_validation_rule": "inner val = training fold (k + 1) mod n_folds; inner train = other 3 folds"
+}

@@ -1,0 +1,24 @@
+2026-11-16 01:23:51,734 INFO phase=phase1 script=splits log=model_dev/results/phase1/run_splits_20261116T012351.log
+2026-11-16 01:23:51,768 INFO git_commit=5affa12e403e52fc2b2680e1dccf3a1148f3322c+dirty
+2026-11-16 01:23:51,769 INFO seed=42
+2026-11-16 01:23:56,533 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 01:23:56,545 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 01:23:56,545 INFO config={"seed": 42, "n_folds": 5, "floor_cells_per_fold": 500, "floor_tumours_per_fold": 2, "programs": "results/chain/phase1b/programs_used.json", "primary_receiver": "myeloid", "receivers": {"myeloid": {"class": "myeloid", "role": "primary", "programs": ["myeloid:C1Q_TAM", "myeloid:SPP1_TAM"]}, "tumour": {"class": "epithelial_ductal_tumor", "role": "positive control", "programs": ["tumour:classical", "tumour:basal_like"]}}, "primary_endpoint": "pooled held-out R2 for myeloid:C1Q_TAM (program score), grouped 5-fold; neighbourhood gain = R2(model) - R2(own-covariates) with tumour-bootstrap 95% CI"}
+2026-11-16 01:23:56,565 INFO saved model_dev/results/phase1/folds.csv (16 rows)
+2026-11-16 01:23:56,566 INFO saved model_dev/results/phase1/folds_loto_reproduction_only.csv (16 rows)
+2026-11-16 01:23:56,569 INFO saved model_dev/results/phase1/fold_floor_check.csv (10 rows)
+2026-11-16 01:23:56,571 INFO saved model_dev/results/phase1/targets.json
+2026-11-16 01:23:56,571 INFO fold assignment: {"2626": 0, "2762": 1, "011": 2, "004": 3, "2692": 4, "2924": 4, "2675": 3, "2540": 2, "C4": 1, "2997": 0, "B10": 4, "D10": 3, "2462": 4}
+2026-11-16 01:23:56,572 INFO floor check:
+receiver                   class  fold            tumours  n_tumours  n_receiver_cells  passes_floor
+ myeloid                 myeloid     0          2626;2997          2             25193          True
+ myeloid                 myeloid     1            2762;C4          2             22471          True
+ myeloid                 myeloid     2           011;2540          2             16217          True
+ myeloid                 myeloid     3       004;2675;D10          3             15642          True
+ myeloid                 myeloid     4 2462;2692;2924;B10          4             16418          True
+  tumour epithelial_ductal_tumor     0          2626;2997          2             78097          True
+  tumour epithelial_ductal_tumor     1            2762;C4          2             16138          True
+  tumour epithelial_ductal_tumor     2           011;2540          2             40977          True
+  tumour epithelial_ductal_tumor     3       004;2675;D10          3             68540          True
+  tumour epithelial_ductal_tumor     4 2462;2692;2924;B10          4             42497          True
+2026-11-16 01:23:56,572 INFO done

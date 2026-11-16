@@ -1,0 +1,19 @@
+# Phase 3 ablations (plan section "Ablations"); architecture and lr come from results/phase3/architecture_selection.json
+seed: 42
+receivers: [myeloid, tumour]
+primary_receiver: myeloid
+modes_by_receiver:
+  myeloid: [same_type, other_type, composition, shuffled, no_graph]
+  tumour: [same_type, other_type, no_graph]
+seeds: [0, 1, 2]
+k1: 12
+k2: 12
+hidden: 128
+emb: 16
+heads: 4
+dropout: 0.1
+weight_decay: 0.0001
+batch: 512
+max_epochs: 60
+patience: 8
+n_boot: 2000
