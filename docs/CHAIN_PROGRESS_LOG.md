@@ -114,3 +114,4 @@ Interpretation logged at the start: the brief's "use author labels as primary an
 - Phase 6 GSE310352 consistency: DONE.
 - Phase 7 synthesis: DONE.
 - BLOCKED: none. Failures: Phase 4 T4-a MemoryError (failure 1, resolved on rerun); git push of the large results commit (logged).
+- Final push retry (2026-11-16): failed again for 49ada7e ("remote end hung up"). origin/chain-v1 is at 0a4d617; the 4 later commits (49ada7e, 2f85b0b, 00c98c5, and the Phases 6-7 commit) exist locally only. No force-push was attempted.
