@@ -1,0 +1,144 @@
+2026-11-16 15:02:43,833 INFO phase=phase6 script=pretrain log=model_dev/results/phase6/run_pretrain_20261116T150243.log
+2026-11-16 15:02:43,875 INFO git_commit=64f35d2852062e95323b1498bf5f6e1f4cc82b87+dirty
+2026-11-16 15:02:43,876 INFO seed=42
+2026-11-16 15:02:47,299 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 15:02:47,323 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 15:02:47,323 INFO config={"seed": 0, "receivers": ["myeloid", "tumour"], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "dropout": 0.1, "lr": 0.001, "weight_decay": 0.0001, "batch": 512, "mask_frac": 0.2, "max_epochs": 15, "patience": 3, "cells_per_epoch": 150000, "val_cells": 30000, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "n_boot": 2000}
+2026-11-16 15:02:52,108 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 15:02:52,285 INFO fold 0 resumed
+2026-11-16 15:02:58,294 INFO pretrain epoch 0: train 0.8589 val 0.8460
+2026-11-16 15:03:03,687 INFO pretrain epoch 1: train 0.8163 val 0.8353
+2026-11-16 15:03:09,095 INFO pretrain epoch 2: train 0.8090 val 0.8283
+2026-11-16 15:03:14,497 INFO pretrain epoch 3: train 0.8042 val 0.8246
+2026-11-16 15:03:19,849 INFO pretrain epoch 4: train 0.8014 val 0.8221
+2026-11-16 15:03:25,230 INFO pretrain epoch 5: train 0.8001 val 0.8216
+2026-11-16 15:03:30,631 INFO pretrain epoch 6: train 0.7992 val 0.8196
+2026-11-16 15:03:35,989 INFO pretrain epoch 7: train 0.7974 val 0.8202
+2026-11-16 15:03:41,377 INFO pretrain epoch 8: train 0.7967 val 0.8187
+2026-11-16 15:03:46,799 INFO pretrain epoch 9: train 0.7972 val 0.8197
+2026-11-16 15:03:52,146 INFO pretrain epoch 10: train 0.7957 val 0.8179
+2026-11-16 15:03:57,533 INFO pretrain epoch 11: train 0.7962 val 0.8183
+2026-11-16 15:04:02,974 INFO pretrain epoch 12: train 0.7955 val 0.8178
+2026-11-16 15:04:08,310 INFO pretrain epoch 13: train 0.7951 val 0.8177
+2026-11-16 15:04:13,675 INFO pretrain epoch 14: train 0.7948 val 0.8153
+2026-11-16 15:04:22,350 INFO fold 1 done in 90 s
+2026-11-16 15:04:28,080 INFO pretrain epoch 0: train 0.8652 val 0.8737
+2026-11-16 15:04:33,491 INFO pretrain epoch 1: train 0.8247 val 0.8615
+2026-11-16 15:04:38,844 INFO pretrain epoch 2: train 0.8157 val 0.8551
+2026-11-16 15:04:44,199 INFO pretrain epoch 3: train 0.8136 val 0.8545
+2026-11-16 15:04:49,593 INFO pretrain epoch 4: train 0.8101 val 0.8532
+2026-11-16 15:04:54,960 INFO pretrain epoch 5: train 0.8086 val 0.8535
+2026-11-16 15:05:00,302 INFO pretrain epoch 6: train 0.8072 val 0.8514
+2026-11-16 15:05:05,680 INFO pretrain epoch 7: train 0.8056 val 0.8500
+2026-11-16 15:05:11,055 INFO pretrain epoch 8: train 0.8049 val 0.8505
+2026-11-16 15:05:16,389 INFO pretrain epoch 9: train 0.8047 val 0.8489
+2026-11-16 15:05:21,763 INFO pretrain epoch 10: train 0.8038 val 0.8497
+2026-11-16 15:05:27,155 INFO pretrain epoch 11: train 0.8028 val 0.8486
+2026-11-16 15:05:32,492 INFO pretrain epoch 12: train 0.8022 val 0.8493
+2026-11-16 15:05:37,862 INFO pretrain epoch 13: train 0.8031 val 0.8486
+2026-11-16 15:05:43,243 INFO pretrain epoch 14: train 0.8014 val 0.8480
+2026-11-16 15:05:51,908 INFO fold 2 done in 90 s
+2026-11-16 15:05:57,688 INFO pretrain epoch 0: train 0.8574 val 0.8673
+2026-11-16 15:06:03,026 INFO pretrain epoch 1: train 0.8171 val 0.8559
+2026-11-16 15:06:08,370 INFO pretrain epoch 2: train 0.8084 val 0.8520
+2026-11-16 15:06:13,757 INFO pretrain epoch 3: train 0.8040 val 0.8511
+2026-11-16 15:06:19,092 INFO pretrain epoch 4: train 0.8020 val 0.8481
+2026-11-16 15:06:24,473 INFO pretrain epoch 5: train 0.7996 val 0.8454
+2026-11-16 15:06:29,870 INFO pretrain epoch 6: train 0.7982 val 0.8455
+2026-11-16 15:06:35,243 INFO pretrain epoch 7: train 0.7972 val 0.8455
+2026-11-16 15:06:40,608 INFO pretrain epoch 8: train 0.7964 val 0.8420
+2026-11-16 15:06:46,006 INFO pretrain epoch 9: train 0.7961 val 0.8426
+2026-11-16 15:06:51,411 INFO pretrain epoch 10: train 0.7945 val 0.8435
+2026-11-16 15:06:56,780 INFO pretrain epoch 11: train 0.7948 val 0.8424
+2026-11-16 15:07:05,484 INFO fold 3 done in 74 s
+2026-11-16 15:07:11,196 INFO pretrain epoch 0: train 0.8764 val 0.8122
+2026-11-16 15:07:16,578 INFO pretrain epoch 1: train 0.8365 val 0.7958
+2026-11-16 15:07:22,007 INFO pretrain epoch 2: train 0.8275 val 0.7936
+2026-11-16 15:07:27,358 INFO pretrain epoch 3: train 0.8235 val 0.7899
+2026-11-16 15:07:32,729 INFO pretrain epoch 4: train 0.8205 val 0.7871
+2026-11-16 15:07:38,170 INFO pretrain epoch 5: train 0.8196 val 0.7851
+2026-11-16 15:07:43,506 INFO pretrain epoch 6: train 0.8172 val 0.7855
+2026-11-16 15:07:48,873 INFO pretrain epoch 7: train 0.8160 val 0.7816
+2026-11-16 15:07:54,296 INFO pretrain epoch 8: train 0.8157 val 0.7821
+2026-11-16 15:07:59,626 INFO pretrain epoch 9: train 0.8158 val 0.7803
+2026-11-16 15:08:04,978 INFO pretrain epoch 10: train 0.8149 val 0.7819
+2026-11-16 15:08:10,388 INFO pretrain epoch 11: train 0.8142 val 0.7810
+2026-11-16 15:08:15,740 INFO pretrain epoch 12: train 0.8137 val 0.7789
+2026-11-16 15:08:21,092 INFO pretrain epoch 13: train 0.8140 val 0.7805
+2026-11-16 15:08:26,474 INFO pretrain epoch 14: train 0.8134 val 0.7807
+2026-11-16 15:08:35,175 INFO fold 4 done in 90 s
+2026-11-16 15:08:35,179 INFO saved model_dev/results/phase6/probe_results.csv (350 rows)
+2026-11-16 15:08:36,324 INFO saved model_dev/results/phase6/probe_summary.csv (70 rows)
+2026-11-16 15:08:36,333 INFO probe summary:
+receiver              probe            target     r2  ci_low  ci_high strongest_baseline  probe_minus_baseline  pb_ci_low  pb_ci_high graph_model  probe_minus_graph  pg_ci_low  pg_ci_high  pretraining_helps
+ myeloid      target_masked   myeloid:C1Q_TAM 0.4845  0.3816   0.5443          xgb/genes                0.1509     0.1083      0.1961        sage             0.1484     0.1006      0.1945              False
+ myeloid      target_masked  myeloid:SPP1_TAM 0.3894  0.2804   0.4662       xgb/programs                0.0022    -0.0533      0.0417        sage             0.0122    -0.0444      0.0464              False
+ myeloid      target_masked              C1QA 0.2584  0.1889   0.2995     ridge/programs                0.0618     0.0508      0.0806        sage             0.0660     0.0548      0.0802              False
+ myeloid      target_masked              C1QB 0.3339  0.2555   0.3828     ridge/programs                0.0732     0.0490      0.0939        sage             0.0546     0.0339      0.0765              False
+ myeloid      target_masked              C1QC 0.3392  0.2527   0.4003     ridge/programs                0.0885     0.0738      0.1099        sage             0.0747     0.0548      0.0996              False
+ myeloid      target_masked             CD163 0.2642  0.1657   0.3227     ridge/programs                0.0745     0.0348      0.1003        sage             0.0688     0.0328      0.0974              False
+ myeloid      target_masked              MRC1 0.1136  0.0762   0.1457     ridge/programs                0.0183     0.0006      0.0318        sage             0.0214    -0.0043      0.0433              False
+ myeloid      target_masked           SELENOP 0.2574  0.1885   0.3090     ridge/programs                0.0124    -0.0244      0.0513        sage            -0.0138    -0.0427      0.0122              False
+ myeloid      target_masked              SPP1 0.5223  0.3400   0.6371     ridge/programs               -0.1111    -0.1732     -0.0768        sage            -0.1316    -0.1914     -0.1027              False
+ myeloid      target_masked             GPNMB 0.2589  0.2175   0.2959     ridge/programs                0.0468     0.0221      0.0750        sage             0.0311     0.0055      0.0576              False
+ myeloid      target_masked               CD9 0.1255  0.0769   0.1558     ridge/programs                0.0135     0.0013      0.0213        sage             0.0014    -0.0147      0.0114              False
+ myeloid      target_masked             FABP5 0.1448  0.1009   0.1780     ridge/programs                0.0206     0.0155      0.0297        sage             0.0037    -0.0009      0.0083              False
+ myeloid      target_masked            LGALS3 0.1544  0.1260   0.1826     ridge/programs                0.0124     0.0040      0.0247        sage             0.0019    -0.0069      0.0150              False
+ myeloid      target_masked      genes_pooled 0.2947  0.2228   0.3447     ridge/programs                0.0180     0.0031      0.0367        sage             0.0053    -0.0093      0.0222              False
+ myeloid neighbourhood_only   myeloid:C1Q_TAM 0.1919  0.1155   0.2366          xgb/genes               -0.1417    -0.1965     -0.0897        sage            -0.1442    -0.2069     -0.0803              False
+ myeloid neighbourhood_only  myeloid:SPP1_TAM 0.2403  0.1246   0.3342       xgb/programs               -0.1470    -0.2117     -0.1074        sage            -0.1370    -0.2048     -0.0886              False
+ myeloid neighbourhood_only              C1QA 0.1184  0.0752   0.1563     ridge/programs               -0.0782    -0.1194     -0.0309        sage            -0.0741    -0.1189     -0.0318              False
+ myeloid neighbourhood_only              C1QB 0.1815  0.1256   0.2213     ridge/programs               -0.0792    -0.1233     -0.0353        sage            -0.0979    -0.1614     -0.0460              False
+ myeloid neighbourhood_only              C1QC 0.1628  0.1020   0.1998     ridge/programs               -0.0879    -0.1388     -0.0361        sage            -0.1017    -0.1646     -0.0451              False
+ myeloid neighbourhood_only             CD163 0.0936  0.0266   0.1497     ridge/programs               -0.0961    -0.1518     -0.0451        sage            -0.1019    -0.1654     -0.0432              False
+ myeloid neighbourhood_only              MRC1 0.0661  0.0391   0.0887     ridge/programs               -0.0291    -0.0385     -0.0151        sage            -0.0260    -0.0383     -0.0151              False
+ myeloid neighbourhood_only           SELENOP 0.1192  0.0740   0.1562     ridge/programs               -0.1258    -0.1476     -0.0877        sage            -0.1521    -0.1807     -0.1182              False
+ myeloid neighbourhood_only              SPP1 0.4503  0.2023   0.5810     ridge/programs               -0.1831    -0.3061     -0.1281        sage            -0.2036    -0.3274     -0.1449              False
+ myeloid neighbourhood_only             GPNMB 0.1080  0.0863   0.1335     ridge/programs               -0.1041    -0.1468     -0.0565        sage            -0.1199    -0.1641     -0.0729              False
+ myeloid neighbourhood_only               CD9 0.0931  0.0514   0.1200     ridge/programs               -0.0189    -0.0298     -0.0102        sage            -0.0310    -0.0455     -0.0223              False
+ myeloid neighbourhood_only             FABP5 0.1092  0.0750   0.1385     ridge/programs               -0.0150    -0.0261     -0.0016        sage            -0.0319    -0.0436     -0.0184              False
+ myeloid neighbourhood_only            LGALS3 0.1167  0.0941   0.1439     ridge/programs               -0.0253    -0.0386     -0.0087        sage            -0.0357    -0.0488     -0.0209              False
+ myeloid neighbourhood_only      genes_pooled 0.1838  0.1204   0.2266     ridge/programs               -0.0929    -0.1089     -0.0719        sage            -0.1056    -0.1257     -0.0807              False
+  tumour      target_masked  tumour:classical 0.5018  0.3418   0.6327          xgb/genes               -0.1924    -0.2830     -0.1114        sage            -0.0956    -0.1719     -0.0240              False
+  tumour      target_masked tumour:basal_like 0.3593  0.2452   0.4937          xgb/genes               -0.0843    -0.1290     -0.0442        sage             0.0782    -0.0475      0.2694              False
+  tumour      target_masked           CEACAM6 0.4796  0.2802   0.6318     ridge/programs               -0.1739    -0.3702     -0.0486        sage            -0.1717    -0.3376     -0.0605              False
+  tumour      target_masked              AGR2 0.3533  0.2468   0.4471     ridge/programs               -0.1078    -0.1635     -0.0556        sage            -0.1115    -0.1512     -0.0668              False
+  tumour      target_masked             S100P 0.3788  0.2902   0.4610     ridge/programs               -0.1066    -0.1631     -0.0585        sage            -0.0954    -0.1450     -0.0522              False
+  tumour      target_masked              LCN2 0.3094  0.2163   0.3958     ridge/programs               -0.2471    -0.3357     -0.1637        sage            -0.2446    -0.3319     -0.1644              False
+  tumour      target_masked              PIGR 0.3889  0.2119   0.5126     ridge/programs               -0.1602    -0.2874     -0.0763        sage            -0.1653    -0.2914     -0.0808              False
+  tumour      target_masked             OLFM4 0.3498  0.0133   0.5216        ridge/genes               -0.2924    -0.5179     -0.1609        sage            -0.2981    -0.5305     -0.1665              False
+  tumour      target_masked            SPINK1 0.4332  0.3059   0.5413        ridge/genes               -0.1618    -0.2130     -0.1089        sage            -0.1693    -0.2194     -0.1183              False
+  tumour      target_masked           CEACAM1 0.1059  0.0515   0.1553     ridge/programs               -0.0320    -0.0590     -0.0059        sage            -0.0330    -0.0575     -0.0030              False
+  tumour      target_masked             KRT6A 0.4168  0.1565   0.5795     ridge/programs               -0.1716    -0.2193     -0.0802        sage            -0.1732    -0.2228     -0.0827              False
+  tumour      target_masked             KRT14 0.2210  0.1028   0.3426          ridge/own               -0.0856    -0.1809     -0.0066        sage            -0.0856    -0.1869     -0.0065              False
+  tumour      target_masked             KRT17 0.3450  0.2671   0.4233     ridge/programs               -0.0884    -0.1472     -0.0399        sage            -0.0681    -0.1072     -0.0393              False
+  tumour      target_masked            S100A2 0.2460  0.0497   0.4347     ridge/programs               -0.2103    -0.2879     -0.0887        sage            -0.1958    -0.2488     -0.0997              False
+  tumour      target_masked          SERPINB5 0.1274  0.0560   0.2337     ridge/programs               -0.0255    -0.0425     -0.0086        sage            -0.0210    -0.0334     -0.0042              False
+  tumour      target_masked              AREG 0.0584  0.0157   0.0932          ridge/own               -0.0991    -0.1846     -0.0386        sage            -0.0880    -0.1577     -0.0375              False
+  tumour      target_masked            SLC2A1 0.2185  0.1646   0.2760     ridge/programs               -0.0056    -0.0138      0.0045        sage            -0.0179    -0.0285     -0.0074              False
+  tumour      target_masked             KRT15 0.1071  0.0869   0.1284          ridge/own                0.0178     0.0080      0.0255        sage             0.0238     0.0088      0.0386              False
+  tumour      target_masked             ITGA3 0.2632  0.2206   0.3230     ridge/programs                0.0240     0.0055      0.0409        sage             0.0364     0.0207      0.0531              False
+  tumour      target_masked               MET 0.0736  0.0460   0.1001     ridge/programs               -0.0164    -0.0343     -0.0027        sage            -0.0025    -0.0117      0.0072              False
+  tumour      target_masked      genes_pooled 0.3104  0.2459   0.3861     ridge/programs               -0.1250    -0.1584     -0.0915        sage            -0.1255    -0.1556     -0.0959              False
+  tumour neighbourhood_only  tumour:classical 0.3109  0.2173   0.3899          xgb/genes               -0.3833    -0.4740     -0.2827        sage            -0.2865    -0.4009     -0.1504              False
+  tumour neighbourhood_only tumour:basal_like 0.1773  0.0359   0.3233          xgb/genes               -0.2664    -0.3538     -0.1950        sage            -0.1039    -0.2768      0.1087              False
+  tumour neighbourhood_only           CEACAM6 0.2841  0.1799   0.3843     ridge/programs               -0.3694    -0.4745     -0.2371        sage            -0.3672    -0.4755     -0.2424              False
+  tumour neighbourhood_only              AGR2 0.2559  0.1832   0.3329     ridge/programs               -0.2052    -0.2694     -0.1263        sage            -0.2090    -0.2695     -0.1320              False
+  tumour neighbourhood_only             S100P 0.2715  0.1773   0.3713     ridge/programs               -0.2140    -0.2737     -0.1583        sage            -0.2027    -0.2640     -0.1518              False
+  tumour neighbourhood_only              LCN2 0.2091  0.1218   0.3027     ridge/programs               -0.3474    -0.4354     -0.2453        sage            -0.3449    -0.4323     -0.2437              False
+  tumour neighbourhood_only              PIGR 0.1885  0.0933   0.2744     ridge/programs               -0.3606    -0.4595     -0.2490        sage            -0.3657    -0.4663     -0.2519              False
+  tumour neighbourhood_only             OLFM4 0.1064 -0.0524   0.2670        ridge/genes               -0.5357    -0.7056     -0.3386        sage            -0.5415    -0.7062     -0.3551              False
+  tumour neighbourhood_only            SPINK1 0.2972  0.1604   0.4444        ridge/genes               -0.2979    -0.4300     -0.1662        sage            -0.3053    -0.4390     -0.1747              False
+  tumour neighbourhood_only           CEACAM1 0.0387 -0.0460   0.0971     ridge/programs               -0.0993    -0.1603     -0.0530        sage            -0.1003    -0.1539     -0.0529              False
+  tumour neighbourhood_only             KRT6A 0.2132  0.0739   0.2966     ridge/programs               -0.3753    -0.5006     -0.1820        sage            -0.3768    -0.5067     -0.1700              False
+  tumour neighbourhood_only             KRT14 0.1441  0.0561   0.2469          ridge/own               -0.1625    -0.2784     -0.0407        sage            -0.1625    -0.2836     -0.0401              False
+  tumour neighbourhood_only             KRT17 0.2397  0.1445   0.3632     ridge/programs               -0.1937    -0.2780     -0.1115        sage            -0.1734    -0.2420     -0.1067              False
+  tumour neighbourhood_only            S100A2 0.1111 -0.0862   0.2568     ridge/programs               -0.3452    -0.4325     -0.1791        sage            -0.3307    -0.4425     -0.1767              False
+  tumour neighbourhood_only          SERPINB5 0.1050  0.0637   0.1586     ridge/programs               -0.0479    -0.1078     -0.0043        sage            -0.0434    -0.1018      0.0007              False
+  tumour neighbourhood_only              AREG 0.0567 -0.0172   0.1201          ridge/own               -0.1008    -0.1513     -0.0463        sage            -0.0897    -0.1309     -0.0430              False
+  tumour neighbourhood_only            SLC2A1 0.1571  0.1168   0.2036     ridge/programs               -0.0669    -0.0879     -0.0416        sage            -0.0792    -0.1046     -0.0492              False
+  tumour neighbourhood_only             KRT15 0.0781  0.0655   0.0915          ridge/own               -0.0112    -0.0265      0.0007        sage            -0.0052    -0.0263      0.0153              False
+  tumour neighbourhood_only             ITGA3 0.1825  0.1309   0.2525     ridge/programs               -0.0567    -0.0920     -0.0217        sage            -0.0443    -0.0771     -0.0077              False
+  tumour neighbourhood_only               MET 0.0675  0.0429   0.0905     ridge/programs               -0.0226    -0.0373     -0.0082        sage            -0.0086    -0.0167     -0.0013              False
+  tumour neighbourhood_only      genes_pooled 0.1885  0.1504   0.2337     ridge/programs               -0.2469    -0.3047     -0.1797        sage            -0.2474    -0.3047     -0.1829              False
+2026-11-16 15:08:36,333 INFO done

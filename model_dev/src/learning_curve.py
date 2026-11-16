@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -30,7 +31,9 @@ PHASE = "phase6"
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "graph.yaml"))
+    ap.add_argument("--time-budget", type=float, default=None)
     args = ap.parse_args()
+    t_start = time.time()
     gcfg = C.load_config(args.config)
     log = C.start_run(PHASE, "learning_curve", gcfg)
     sel = json.loads((C.RESULTS / "phase3" / "architecture_selection.json").read_text())
@@ -61,13 +64,23 @@ def main() -> None:
             sizes = sorted({n for n in (3, 6, 9, len(order)) if n <= len(order)})
             ytr_mean = data.Y[tr_all].mean(axis=0)
             for n in sizes:
+                run_file = C.RESULTS / PHASE / "partial" / f"lc_{receiver}_fold{k}_n{n}.json"
+                if run_file.exists():                      # resume unit: one learning-curve run
+                    rows.append(json.loads(run_file.read_text()))
+                    continue
+                if args.time_budget and time.time() - t_start > args.time_budget:
+                    log.info("time budget reached; rerun to continue")
+                    return
                 sub = tr_in & np.isin(data.group, order[:n])
                 smu, ssd = F.fit_scaler(raw[sub]); cov = F.apply_scaler(raw, smu, ssd)
                 pred, hist, ep, bv, peak, _ = T.train_one(store, seed_global, cov, data.Y, (sub, val, test), rc, "full", arch, lr, 0,
                                                           gcfg, len(classes), device, log)
                 p = sse_sst_by_group(data.Y[test][:, j:j + 1], pred[:, j:j + 1], data.group[test], ytr_mean[j:j + 1])
                 rows.append({"receiver": receiver, "target": data.target_names[j], "fold": k, "n_train_tumours": n,
-                             "n_train_cells": int(sub.sum()), "model": f"graph/{arch}", "test_r2_fold": pooled_r2(p), "epochs": ep})
+                             "n_train_cells": int(sub.sum()), "model": f"graph/{arch}", "test_r2_fold": pooled_r2(p), "epochs": ep,
+                             "test_sse": sum(v[0] for v in p.values()), "test_sst": sum(v[1] for v in p.values())})
+                run_file.parent.mkdir(parents=True, exist_ok=True)
+                run_file.write_text(json.dumps(rows[-1], default=float))
                 log.info("%s fold %d n_tumours=%d (%d cells): R2 %.4f", receiver, k, n, int(sub.sum()), pooled_r2(p))
     df = pd.DataFrame(rows)
     C.save_table(df, PHASE, "learning_curve_runs.csv", log)

@@ -1,0 +1,24 @@
+2026-11-16 15:00:54,358 INFO phase=phase6 script=pretrain log=model_dev/results/phase6/run_pretrain_20261116T150054.log
+2026-11-16 15:00:54,395 INFO git_commit=64f35d2852062e95323b1498bf5f6e1f4cc82b87+dirty
+2026-11-16 15:00:54,395 INFO seed=42
+2026-11-16 15:00:57,915 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 15:00:57,927 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 15:00:57,927 INFO config={"seed": 0, "receivers": ["myeloid", "tumour"], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "dropout": 0.1, "lr": 0.001, "weight_decay": 0.0001, "batch": 512, "mask_frac": 0.2, "max_epochs": 15, "patience": 3, "cells_per_epoch": 150000, "val_cells": 30000, "ridge_alphas": [0.1, 1.0, 10.0, 100.0, 1000.0], "n_boot": 2000}
+2026-11-16 15:01:02,657 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 15:01:08,887 INFO pretrain epoch 0: train 0.8470 val 0.9165
+2026-11-16 15:01:14,221 INFO pretrain epoch 1: train 0.8075 val 0.9048
+2026-11-16 15:01:19,564 INFO pretrain epoch 2: train 0.7990 val 0.8996
+2026-11-16 15:01:24,889 INFO pretrain epoch 3: train 0.7933 val 0.8954
+2026-11-16 15:01:30,180 INFO pretrain epoch 4: train 0.7920 val 0.8957
+2026-11-16 15:01:35,517 INFO pretrain epoch 5: train 0.7906 val 0.8960
+2026-11-16 15:01:40,899 INFO pretrain epoch 6: train 0.7890 val 0.8918
+2026-11-16 15:01:46,291 INFO pretrain epoch 7: train 0.7879 val 0.8935
+2026-11-16 15:01:51,652 INFO pretrain epoch 8: train 0.7860 val 0.8911
+2026-11-16 15:01:57,071 INFO pretrain epoch 9: train 0.7861 val 0.8898
+2026-11-16 15:02:02,394 INFO pretrain epoch 10: train 0.7861 val 0.8888
+2026-11-16 15:02:07,745 INFO pretrain epoch 11: train 0.7853 val 0.8916
+2026-11-16 15:02:13,157 INFO pretrain epoch 12: train 0.7852 val 0.8883
+2026-11-16 15:02:18,491 INFO pretrain epoch 13: train 0.7844 val 0.8905
+2026-11-16 15:02:23,850 INFO pretrain epoch 14: train 0.7841 val 0.8903
+2026-11-16 15:02:32,565 INFO fold 0 done in 90 s
+2026-11-16 15:02:32,565 INFO fold budget 1 reached; rerun to continue
