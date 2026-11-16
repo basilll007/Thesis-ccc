@@ -40,3 +40,12 @@ Branch `model-v1`, created 2026-11-16 from origin/main (cfb111c). Rules: never p
 - User instruction: train in batches with checkpoints, on the GPU only (no CPU training), complete the work, update the HTML dashboard, commit to main.
 - Phase 2 plan Amendment 1 (GPU execution; XGBoost-CUDA replaces sklearn HGB; ridge closed-form on GPU) written before any Phase 2 result was inspected. CPU myeloid results archived in `results/phase2/cpu_v1_myeloid/`. 13 unit tests pass (2 new GPU-vs-CPU equivalence tests).
 - GPU Phase 2 attempt 1 failed in XGBoost ("No GPU memory is available"): torch still cached the float64 ridge copies. Fix: ridge Gram matrix accumulated in float64 row chunks (no full float64 copy), torch cache emptied before XGBoost. GPU tests still pass. Phase 3 (tumour) proceeds first; Phase 2 is re-run right after it.
+
+## 2026-11-16 Phases 2-7 completed on the GPU (user instruction: GPU only, batches, checkpoints, complete)
+- Phase 2 (GPU; Amendment 1): GPU attempt 1 failed in XGBoost (no free GPU memory; torch cache held float64 ridge copies) -> chunked ridge + cache release. Myeloid ran in one background run; the tumour receiver was then run in foreground chunks of 1-2 folds (per-fold resume) after the host stopped the background chain a fourth time. GPU ridge = archived CPU ridge to within 4e-5 R2 (1,050 fold x target results).
+- **Bug found and fixed before any result was reported:** `tumour_bootstrap_diff(a, b)` returns R2(a) - R2(b), but every caller passed the reference first, inverting all gains (baselines, graph vs baseline, ablations, external, probe). All callers fixed; `tests/test_metrics.py` pins the sign; summaries regenerated from saved per-tumour SSE (no recomputation).
+- Phase 3: tumour graph runs completed (per-run checkpoints); summary + architecture selection (SAGE, lr 3e-4); 120 ablation runs in 13 foreground chunks (time budget 500 s, per-run resume).
+- Phase 4: external test run once per receiver (`external_touch_*.json`). A syntax error stopped the first call before any external data was loaded; fixed and committed before the single touch.
+- Phase 5: gate passed only for the myeloid gene vector; permutation importance + double-gated in-silico perturbation (model-based hypotheses).
+- Phase 6: per-fold pretraining (~90 s/fold) and probes; learning curve in 3 foreground chunks.
+- Phase 7: key numbers, data card, figures (7, PNG + PDF), checkpoint manifest (245 files), MODEL_REPORT_v1.md, MODEL_CARD.md. 15 unit tests pass.

@@ -1,0 +1,1851 @@
+name,value,source
+n_model_genes_G,539,model_dev/results/phase0/panel_intersection.json
+n_gse_only_genes_dropped,10,model_dev/results/phase0/panel_intersection.json
+n_dev_cells,717493,model_dev/results/phase0/cell_counts.csv
+n_ext_cells,632260,model_dev/results/phase0/cell_counts.csv
+n_development_myeloid,95941,model_dev/results/phase0/cell_counts.csv
+n_external_myeloid,68094,model_dev/results/phase0/cell_counts.csv
+n_development_epithelial_ductal_tumor,246249,model_dev/results/phase0/cell_counts.csv
+n_external_epithelial_ductal_tumor,237272,model_dev/results/phase0/cell_counts.csv
+n_development_T_cell,11557,model_dev/results/phase0/cell_counts.csv
+n_external_T_cell,18276,model_dev/results/phase0/cell_counts.csv
+n_folds,5,model_dev/results/phase1/folds.csv
+all_folds_pass_floor,True,model_dev/results/phase1/fold_floor_check.csv
+reproduction_max_abs_diff,7.899451349990816e-09,model_dev/results/phase2/reproduction_check.csv
+reproduction_pass,True,model_dev/results/phase2/reproduction_check.csv
+p2_myeloid_C1QA_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_mean/none_gain,"-0.1800 [-0.2269, -0.1012]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_mean/none_gain,"-0.2554 [-0.3044, -0.1753]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_mean/none_gain,"-0.2375 [-0.3018, -0.1393]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_mean/none_gain,"-0.1856 [-0.2375, -0.1061]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_mean/none_gain,"-0.1059 [-0.1298, -0.0700]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_mean/none_gain,"-0.1178 [-0.1417, -0.0829]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_mean/none_gain,"-0.1928 [-0.2240, -0.1461]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_mean/none_gain,"-0.1359 [-0.1604, -0.1088]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_mean/none_gain,"-0.0941 [-0.1175, -0.0624]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_mean/none_gain,"-0.2287 [-0.2729, -0.1616]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_mean/none_gain,"-0.6130 [-0.7069, -0.4780]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_mean/none_gain,"-0.2648 [-0.3195, -0.1913]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_mean/none_gain,"-0.2995 [-0.3825, -0.1880]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_mean/none_gain,"-0.3346 [-0.3976, -0.2544]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_mlp/genes_r2,0.0733,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_mlp/genes_gain,"-0.1067 [-0.1906, -0.0412]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_mlp/genes_r2,0.1247,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_mlp/genes_gain,"-0.1306 [-0.2383, -0.0367]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_mlp/genes_r2,0.108,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_mlp/genes_gain,"-0.1295 [-0.2317, -0.0514]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_mlp/genes_r2,0.0517,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_mlp/genes_gain,"-0.1339 [-0.2089, -0.0730]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_mlp/genes_r2,0.0791,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_mlp/genes_gain,"-0.0269 [-0.0386, -0.0063]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_mlp/genes_r2,0.0999,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_mlp/genes_gain,"-0.0179 [-0.0334, -0.0034]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_mlp/genes_r2,0.1343,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_mlp/genes_gain,"-0.0584 [-0.1040, -0.0322]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_mlp/genes_r2,0.0838,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_mlp/genes_gain,"-0.0521 [-0.0786, -0.0294]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_mlp/genes_r2,0.0164,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_mlp/genes_gain,"-0.0777 [-0.1206, -0.0305]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_mlp/genes_r2,0.2037,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_mlp/genes_gain,"-0.0250 [-0.0608, 0.0169]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_mlp/genes_r2,0.5431,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_mlp/genes_gain,"-0.0699 [-0.1563, -0.0272]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_mlp/genes_r2,0.1827,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_mlp/genes_gain,"-0.0822 [-0.1346, -0.0449]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_mlp/genes_r2,0.1869,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_mlp/genes_gain,"-0.1126 [-0.2247, -0.0447]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_mlp/genes_r2,0.3341,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_mlp/genes_gain,"-0.0005 [-0.0278, 0.0165]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/genes_r2,0.161,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/genes_gain,"-0.0190 [-0.0334, -0.0051]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/genes_r2,0.2511,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/genes_gain,"-0.0043 [-0.0192, 0.0116]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/genes_r2,0.2347,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/genes_gain,"-0.0028 [-0.0199, 0.0122]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/genes_r2,0.1566,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/genes_gain,"-0.0291 [-0.0478, -0.0058]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/genes_r2,0.0871,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/genes_gain,"-0.0188 [-0.0341, -0.0082]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/genes_r2,0.0939,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/genes_gain,"-0.0239 [-0.0415, -0.0105]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/genes_r2,0.1907,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/genes_gain,"-0.0021 [-0.0282, 0.0162]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/genes_r2,0.1056,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/genes_gain,"-0.0303 [-0.0362, -0.0234]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/genes_r2,0.056,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/genes_gain,"-0.0381 [-0.0556, -0.0178]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/genes_r2,0.2351,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/genes_gain,"0.0064 [-0.0105, 0.0306]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/genes_r2,0.6168,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/genes_gain,"0.0037 [-0.0111, 0.0377]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/genes_r2,0.2533,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/genes_gain,"-0.0116 [-0.0228, 0.0019]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/genes_r2,0.3111,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/genes_gain,"0.0116 [-0.0140, 0.0348]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/genes_r2,0.3489,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/genes_gain,"0.0143 [-0.0031, 0.0421]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/own_r2,0.18,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/own_r2,0.2554,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/own_r2,0.2375,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/own_r2,0.1856,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/own_r2,0.1059,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/own_r2,0.1178,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/own_r2,0.1928,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/own_r2,0.1359,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/own_r2,0.0941,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/own_r2,0.2287,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/own_r2,0.613,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/own_r2,0.2648,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/own_r2,0.2995,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/own_r2,0.3346,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/programs_r2,0.1966,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_ridge/programs_gain,"0.0167 [0.0107, 0.0212]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/programs_r2,0.2607,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_ridge/programs_gain,"0.0053 [-0.0003, 0.0148]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/programs_r2,0.2508,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_ridge/programs_gain,"0.0133 [0.0053, 0.0205]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/programs_r2,0.1897,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_ridge/programs_gain,"0.0040 [-0.0055, 0.0112]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/programs_r2,0.112,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_ridge/programs_gain,"0.0060 [0.0023, 0.0092]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/programs_r2,0.1242,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_ridge/programs_gain,"0.0064 [-0.0011, 0.0126]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/programs_r2,0.2121,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_ridge/programs_gain,"0.0193 [0.0086, 0.0290]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/programs_r2,0.142,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_ridge/programs_gain,"0.0062 [0.0012, 0.0114]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/programs_r2,0.0952,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_ridge/programs_gain,"0.0011 [-0.0028, 0.0059]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/programs_r2,0.245,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_ridge/programs_gain,"0.0163 [0.0086, 0.0253]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/programs_r2,0.6334,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_ridge/programs_gain,"0.0204 [0.0109, 0.0307]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/programs_r2,0.2767,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_ridge/programs_gain,"0.0119 [0.0080, 0.0157]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/programs_r2,0.3326,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_ridge/programs_gain,"0.0332 [0.0233, 0.0429]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/programs_r2,0.3828,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_ridge/programs_gain,"0.0483 [0.0372, 0.0573]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_xgb/genes_gain,"-0.1800 [-0.2269, -0.1012]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_xgb/genes_gain,"-0.2554 [-0.3044, -0.1753]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_xgb/genes_gain,"-0.2375 [-0.3018, -0.1393]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_xgb/genes_gain,"-0.1856 [-0.2375, -0.1061]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_xgb/genes_gain,"-0.1059 [-0.1298, -0.0700]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_xgb/genes_gain,"-0.1178 [-0.1417, -0.0829]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_xgb/genes_gain,"-0.1928 [-0.2240, -0.1461]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_xgb/genes_gain,"-0.1359 [-0.1604, -0.1088]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_xgb/genes_gain,"-0.0941 [-0.1175, -0.0624]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_xgb/genes_gain,"-0.2287 [-0.2729, -0.1616]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_xgb/genes_gain,"-0.6130 [-0.7069, -0.4780]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_xgb/genes_gain,"-0.2648 [-0.3195, -0.1913]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_xgb/genes_r2,0.3336,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_xgb/genes_gain,"0.0341 [0.0179, 0.0480]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_xgb/genes_r2,0.3851,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_xgb/genes_gain,"0.0505 [0.0350, 0.0698]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QA_xgb/programs_gain,"-0.1800 [-0.2269, -0.1012]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QB_xgb/programs_gain,"-0.2554 [-0.3044, -0.1753]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_C1QC_xgb/programs_gain,"-0.2375 [-0.3018, -0.1393]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD163_xgb/programs_gain,"-0.1856 [-0.2375, -0.1061]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_CD9_xgb/programs_gain,"-0.1059 [-0.1298, -0.0700]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_FABP5_xgb/programs_gain,"-0.1178 [-0.1417, -0.0829]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_GPNMB_xgb/programs_gain,"-0.1928 [-0.2240, -0.1461]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_LGALS3_xgb/programs_gain,"-0.1359 [-0.1604, -0.1088]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_MRC1_xgb/programs_gain,"-0.0941 [-0.1175, -0.0624]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SELENOP_xgb/programs_gain,"-0.2287 [-0.2729, -0.1616]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_SPP1_xgb/programs_gain,"-0.6130 [-0.7069, -0.4780]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_genes_pooled_xgb/programs_gain,"-0.2648 [-0.3195, -0.1913]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_xgb/programs_r2,0.3313,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:C1Q_TAM_xgb/programs_gain,"0.0318 [0.0183, 0.0440]",model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_xgb/programs_r2,0.3873,model_dev/results/phase2/baseline_summary.csv
+p2_myeloid_myeloid:SPP1_TAM_xgb/programs_gain,"0.0527 [0.0432, 0.0644]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_mean/none_gain,"-0.4506 [-0.5197, -0.3620]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_mean/none_gain,"-0.1575 [-0.2628, -0.0586]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_mean/none_gain,"-0.1325 [-0.1728, -0.0950]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_mean/none_gain,"-0.6266 [-0.7225, -0.4802]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_mean/none_gain,"-0.2383 [-0.2950, -0.2005]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_mean/none_gain,"-0.3066 [-0.5193, -0.1172]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_mean/none_gain,"-0.0893 [-0.1089, -0.0719]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_mean/none_gain,"-0.4281 [-0.5477, -0.3282]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_mean/none_gain,"-0.5735 [-0.7813, -0.2897]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_mean/none_gain,"-0.5399 [-0.6223, -0.4469]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_mean/none_gain,"-0.0863 [-0.1055, -0.0654]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_mean/none_gain,"-0.6036 [-0.7362, -0.3872]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_mean/none_gain,"-0.5350 [-0.6281, -0.4111]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_mean/none_gain,"-0.4527 [-0.6485, -0.1968]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_mean/none_gain,"-0.4656 [-0.5676, -0.3579]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_mean/none_gain,"-0.1471 [-0.2554, -0.0825]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_mean/none_gain,"-0.2175 [-0.2687, -0.1666]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_mean/none_gain,"-0.5791 [-0.6558, -0.4658]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_mean/none_gain,"-0.4253 [-0.5137, -0.3522]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_mean/none_gain,"-0.3974 [-0.5124, -0.2890]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_mean/none_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_mean/none_gain,"-0.6183 [-0.7109, -0.5024]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_mlp/genes_r2,0.2902,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_mlp/genes_gain,"-0.1605 [-0.2399, -0.0602]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_mlp/genes_r2,0.0818,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_mlp/genes_gain,"-0.0756 [-0.1284, -0.0317]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_mlp/genes_r2,0.0677,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_mlp/genes_gain,"-0.0647 [-0.0894, -0.0432]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_mlp/genes_r2,0.4053,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_mlp/genes_gain,"-0.2213 [-0.3820, -0.0919]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_mlp/genes_r2,0.0477,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_mlp/genes_gain,"-0.1906 [-0.2411, -0.1446]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_mlp/genes_r2,0.0874,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_mlp/genes_gain,"-0.2192 [-0.3580, -0.0914]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_mlp/genes_r2,-0.0263,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_mlp/genes_gain,"-0.1156 [-0.1466, -0.0813]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_mlp/genes_r2,0.0164,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_mlp/genes_gain,"-0.4117 [-0.5733, -0.2607]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_mlp/genes_r2,0.4882,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_mlp/genes_gain,"-0.0854 [-0.1109, -0.0569]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_mlp/genes_r2,0.2749,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_mlp/genes_gain,"-0.2650 [-0.3708, -0.1492]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_mlp/genes_r2,0.0188,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_mlp/genes_gain,"-0.0675 [-0.0992, -0.0390]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_mlp/genes_r2,0.5117,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_mlp/genes_gain,"-0.0920 [-0.1364, -0.0503]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_mlp/genes_r2,0.467,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_mlp/genes_gain,"-0.0680 [-0.0917, -0.0455]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_mlp/genes_r2,0.3134,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_mlp/genes_gain,"-0.1393 [-0.2193, -0.0419]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_mlp/genes_r2,0.2101,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_mlp/genes_gain,"-0.2555 [-0.3408, -0.1574]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_mlp/genes_r2,0.0648,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_mlp/genes_gain,"-0.0822 [-0.1152, -0.0460]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_mlp/genes_r2,0.0867,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_mlp/genes_gain,"-0.1308 [-0.1827, -0.0817]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_mlp/genes_r2,0.374,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_mlp/genes_gain,"-0.2051 [-0.2920, -0.0933]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_mlp/genes_r2,0.2523,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_mlp/genes_gain,"-0.1730 [-0.2089, -0.1326]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_mlp/genes_r2,0.2649,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_mlp/genes_gain,"-0.1326 [-0.2225, -0.0712]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_mlp/genes_r2,0.5471,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_mlp/genes_gain,"-0.0712 [-0.1319, -0.0212]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/genes_r2,0.4406,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/genes_gain,"-0.0100 [-0.0332, 0.0091]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/genes_r2,0.0849,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/genes_gain,"-0.0726 [-0.1095, -0.0446]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/genes_r2,0.0914,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/genes_gain,"-0.0411 [-0.0698, -0.0190]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/genes_r2,0.6465,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/genes_gain,"0.0199 [-0.0107, 0.0537]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/genes_r2,0.2008,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/genes_gain,"-0.0376 [-0.0767, -0.0124]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/genes_r2,0.255,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/genes_gain,"-0.0516 [-0.0933, -0.0140]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/genes_r2,0.0306,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/genes_gain,"-0.0587 [-0.0869, -0.0342]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/genes_r2,0.4126,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/genes_gain,"-0.0155 [-0.0519, 0.0125]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/genes_r2,0.5651,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/genes_gain,"-0.0084 [-0.0719, 0.0221]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/genes_r2,0.5472,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/genes_gain,"0.0072 [-0.0109, 0.0235]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/genes_r2,0.0357,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/genes_gain,"-0.0506 [-0.0728, -0.0341]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/genes_r2,0.6421,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/genes_gain,"0.0385 [-0.0010, 0.0774]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/genes_r2,0.5321,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/genes_gain,"-0.0030 [-0.0214, 0.0087]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/genes_r2,0.4196,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/genes_gain,"-0.0331 [-0.0507, 0.0002]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/genes_r2,0.4589,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/genes_gain,"-0.0068 [-0.0493, 0.0219]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/genes_r2,0.0865,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/genes_gain,"-0.0606 [-0.1118, -0.0265]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/genes_r2,0.1905,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/genes_gain,"-0.0270 [-0.0503, -0.0066]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/genes_r2,0.5951,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/genes_gain,"0.0160 [0.0000, 0.0346]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/genes_r2,0.4125,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/genes_gain,"-0.0129 [-0.0288, 0.0021]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/genes_r2,0.3896,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/genes_gain,"-0.0078 [-0.0327, 0.0154]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/genes_r2,0.6683,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/genes_gain,"0.0500 [0.0280, 0.0713]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/own_r2,0.4506,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/own_r2,0.1575,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/own_r2,0.1325,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/own_r2,0.6266,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/own_r2,0.2383,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/own_r2,0.3066,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/own_r2,0.0893,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/own_r2,0.4281,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/own_r2,0.5735,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/own_r2,0.5399,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/own_r2,0.0863,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/own_r2,0.6036,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/own_r2,0.535,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/own_r2,0.4527,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/own_r2,0.4656,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/own_r2,0.1471,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/own_r2,0.2175,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/own_r2,0.5791,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/own_r2,0.4253,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/own_r2,0.3974,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/own_r2,0.6183,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/own_gain,"0.0000 [0.0000, 0.0000]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/programs_r2,0.4611,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_ridge/programs_gain,"0.0104 [0.0033, 0.0160]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/programs_r2,0.1495,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_ridge/programs_gain,"-0.0080 [-0.0129, -0.0032]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/programs_r2,0.138,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_ridge/programs_gain,"0.0055 [-0.0009, 0.0109]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/programs_r2,0.6535,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_ridge/programs_gain,"0.0269 [0.0175, 0.0393]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/programs_r2,0.2392,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_ridge/programs_gain,"0.0009 [-0.0064, 0.0070]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/programs_r2,0.301,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_ridge/programs_gain,"-0.0056 [-0.0287, 0.0118]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/programs_r2,0.0789,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_ridge/programs_gain,"-0.0104 [-0.0180, -0.0040]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/programs_r2,0.4334,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_ridge/programs_gain,"0.0053 [-0.0025, 0.0136]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/programs_r2,0.5884,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_ridge/programs_gain,"0.0149 [0.0023, 0.0301]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/programs_r2,0.5565,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_ridge/programs_gain,"0.0166 [0.0060, 0.0271]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/programs_r2,0.0901,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_ridge/programs_gain,"0.0038 [0.0003, 0.0076]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/programs_r2,0.6165,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_ridge/programs_gain,"0.0129 [-0.0042, 0.0252]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/programs_r2,0.5491,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_ridge/programs_gain,"0.0141 [0.0059, 0.0207]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/programs_r2,0.4563,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_ridge/programs_gain,"0.0037 [-0.0093, 0.0158]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/programs_r2,0.4855,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_ridge/programs_gain,"0.0198 [0.0115, 0.0266]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/programs_r2,0.1529,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_ridge/programs_gain,"0.0059 [0.0006, 0.0120]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/programs_r2,0.224,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_ridge/programs_gain,"0.0065 [-0.0008, 0.0119]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/programs_r2,0.5932,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_ridge/programs_gain,"0.0141 [0.0048, 0.0212]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/programs_r2,0.4353,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_ridge/programs_gain,"0.0100 [0.0058, 0.0137]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/programs_r2,0.438,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_ridge/programs_gain,"0.0406 [0.0286, 0.0523]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/programs_r2,0.6927,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_ridge/programs_gain,"0.0743 [0.0517, 0.1048]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_xgb/genes_gain,"-0.4506 [-0.5197, -0.3620]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_xgb/genes_gain,"-0.1575 [-0.2628, -0.0586]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_xgb/genes_gain,"-0.1325 [-0.1728, -0.0950]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_xgb/genes_gain,"-0.6266 [-0.7225, -0.4802]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_xgb/genes_gain,"-0.2383 [-0.2950, -0.2005]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_xgb/genes_gain,"-0.3066 [-0.5193, -0.1172]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_xgb/genes_gain,"-0.0893 [-0.1089, -0.0719]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_xgb/genes_gain,"-0.4281 [-0.5477, -0.3282]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_xgb/genes_gain,"-0.5735 [-0.7813, -0.2897]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_xgb/genes_gain,"-0.5399 [-0.6223, -0.4469]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_xgb/genes_gain,"-0.0863 [-0.1055, -0.0654]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_xgb/genes_gain,"-0.6036 [-0.7362, -0.3872]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_xgb/genes_gain,"-0.5350 [-0.6281, -0.4111]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_xgb/genes_gain,"-0.4527 [-0.6485, -0.1968]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_xgb/genes_gain,"-0.4656 [-0.5676, -0.3579]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_xgb/genes_gain,"-0.1471 [-0.2554, -0.0825]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_xgb/genes_gain,"-0.2175 [-0.2687, -0.1666]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_xgb/genes_gain,"-0.5791 [-0.6558, -0.4658]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_xgb/genes_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_xgb/genes_gain,"-0.4253 [-0.5137, -0.3522]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_xgb/genes_r2,0.4437,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_xgb/genes_gain,"0.0462 [0.0326, 0.0609]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_xgb/genes_r2,0.6943,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_xgb/genes_gain,"0.0759 [0.0537, 0.1066]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AGR2_xgb/programs_gain,"-0.4506 [-0.5197, -0.3620]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_AREG_xgb/programs_gain,"-0.1575 [-0.2628, -0.0586]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM1_xgb/programs_gain,"-0.1325 [-0.1728, -0.0950]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_CEACAM6_xgb/programs_gain,"-0.6266 [-0.7225, -0.4802]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_ITGA3_xgb/programs_gain,"-0.2383 [-0.2950, -0.2005]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT14_xgb/programs_gain,"-0.3066 [-0.5193, -0.1172]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT15_xgb/programs_gain,"-0.0893 [-0.1089, -0.0719]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT17_xgb/programs_gain,"-0.4281 [-0.5477, -0.3282]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_KRT6A_xgb/programs_gain,"-0.5735 [-0.7813, -0.2897]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_LCN2_xgb/programs_gain,"-0.5399 [-0.6223, -0.4469]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_MET_xgb/programs_gain,"-0.0863 [-0.1055, -0.0654]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_OLFM4_xgb/programs_gain,"-0.6036 [-0.7362, -0.3872]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_PIGR_xgb/programs_gain,"-0.5350 [-0.6281, -0.4111]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100A2_xgb/programs_gain,"-0.4527 [-0.6485, -0.1968]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_S100P_xgb/programs_gain,"-0.4656 [-0.5676, -0.3579]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SERPINB5_xgb/programs_gain,"-0.1471 [-0.2554, -0.0825]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SLC2A1_xgb/programs_gain,"-0.2175 [-0.2687, -0.1666]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_SPINK1_xgb/programs_gain,"-0.5791 [-0.6558, -0.4658]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_xgb/programs_r2,0.0,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_genes_pooled_xgb/programs_gain,"-0.4253 [-0.5137, -0.3522]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_xgb/programs_r2,0.4375,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:basal_like_xgb/programs_gain,"0.0401 [0.0300, 0.0513]",model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_xgb/programs_r2,0.6927,model_dev/results/phase2/baseline_summary.csv
+p2_tumour_tumour:classical_xgb/programs_gain,"0.0744 [0.0514, 0.1056]",model_dev/results/phase2/baseline_summary.csv
+strongest_baseline_tumour_tumour:classical,xgb/genes R2 0.6943,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_CEACAM6,ridge/programs R2 0.6535,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_OLFM4,ridge/genes R2 0.6421,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_SPP1,ridge/programs R2 0.6334,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_SPINK1,ridge/genes R2 0.5951,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_KRT6A,ridge/programs R2 0.5884,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_LCN2,ridge/programs R2 0.5565,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_PIGR,ridge/programs R2 0.5491,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_S100P,ridge/programs R2 0.4855,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_AGR2,ridge/programs R2 0.4611,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_S100A2,ridge/programs R2 0.4563,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_tumour:basal_like,xgb/genes R2 0.4437,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_genes_pooled,ridge/programs R2 0.4353,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_KRT17,ridge/programs R2 0.4334,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_myeloid:SPP1_TAM,xgb/programs R2 0.3873,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_myeloid:C1Q_TAM,xgb/genes R2 0.3336,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_KRT14,ridge/own R2 0.3066,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_genes_pooled,ridge/programs R2 0.2767,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_C1QB,ridge/programs R2 0.2607,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_C1QC,ridge/programs R2 0.2508,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_SELENOP,ridge/programs R2 0.2450,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_ITGA3,ridge/programs R2 0.2392,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_SLC2A1,ridge/programs R2 0.2240,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_GPNMB,ridge/programs R2 0.2121,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_C1QA,ridge/programs R2 0.1966,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_CD163,ridge/programs R2 0.1897,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_AREG,ridge/own R2 0.1575,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_SERPINB5,ridge/programs R2 0.1529,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_LGALS3,ridge/programs R2 0.1420,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_CEACAM1,ridge/programs R2 0.1380,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_FABP5,ridge/programs R2 0.1242,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_CD9,ridge/programs R2 0.1120,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_myeloid_MRC1,ridge/programs R2 0.0952,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_MET,ridge/programs R2 0.0901,model_dev/results/phase2/strongest_baseline_per_target.csv
+strongest_baseline_tumour_KRT15,ridge/own R2 0.0893,model_dev/results/phase2/strongest_baseline_per_target.csv
+selected_arch,sage,model_dev/results/phase3/architecture_selection.json
+selected_lr,0.0003,model_dev/results/phase3/architecture_selection.json
+p3_myeloid_C1QA_sage_r2,"0.192 [0.117, 0.237]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QA_sage_gain_vs_baseline,"-0.004 [-0.013, 0.005]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QA_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_sage_r2,"0.279 [0.197, 0.340]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_sage_gain_vs_baseline,"0.019 [-0.004, 0.041]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_sage_r2,"0.265 [0.164, 0.342]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_sage_gain_vs_baseline,"0.014 [-0.006, 0.030]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_sage_r2,"0.195 [0.108, 0.255]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_sage_gain_vs_baseline,"0.006 [-0.014, 0.022]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_sage_r2,"0.124 [0.087, 0.149]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_sage_gain_vs_baseline,"0.012 [0.008, 0.018]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_sage_r2,"0.141 [0.095, 0.174]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_sage_gain_vs_baseline,"0.017 [0.011, 0.024]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_sage_r2,"0.228 [0.172, 0.269]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_sage_gain_vs_baseline,"0.016 [0.009, 0.022]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_sage_r2,"0.152 [0.124, 0.178]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_sage_gain_vs_baseline,"0.010 [0.007, 0.015]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_sage_r2,"0.092 [0.070, 0.107]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_sage_gain_vs_baseline,"-0.003 [-0.014, 0.008]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_sage_r2,"0.271 [0.208, 0.317]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_sage_gain_vs_baseline,"0.026 [0.013, 0.044]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_sage_r2,"0.654 [0.519, 0.745]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_sage_gain_vs_baseline,"0.020 [0.012, 0.038]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_sage_r2,"0.289 [0.214, 0.348]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_sage_gain_vs_baseline,"0.013 [0.005, 0.020]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_sage_r2,"0.336 [0.220, 0.432]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_sage_gain_vs_baseline,"0.003 [-0.013, 0.015]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_sage_r2,"0.377 [0.301, 0.428]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_sage_gain_vs_baseline,"-0.010 [-0.021, 0.007]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QA_attention_r2,"0.191 [0.115, 0.236]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QA_attention_gain_vs_baseline,"-0.005 [-0.011, 0.003]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QA_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_attention_r2,"0.273 [0.187, 0.336]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_attention_gain_vs_baseline,"0.012 [-0.012, 0.037]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QB_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_attention_r2,"0.264 [0.161, 0.342]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_attention_gain_vs_baseline,"0.013 [-0.006, 0.030]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_C1QC_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_attention_r2,"0.191 [0.104, 0.251]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_attention_gain_vs_baseline,"0.001 [-0.020, 0.020]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD163_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_attention_r2,"0.120 [0.082, 0.146]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_attention_gain_vs_baseline,"0.008 [0.004, 0.012]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_CD9_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_attention_r2,"0.137 [0.093, 0.168]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_attention_gain_vs_baseline,"0.013 [0.009, 0.019]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_FABP5_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_attention_r2,"0.222 [0.171, 0.264]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_attention_gain_vs_baseline,"0.010 [0.002, 0.020]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_GPNMB_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_attention_r2,"0.152 [0.121, 0.180]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_attention_gain_vs_baseline,"0.010 [0.006, 0.014]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_LGALS3_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_attention_r2,"0.085 [0.059, 0.103]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_attention_gain_vs_baseline,"-0.010 [-0.018, -0.002]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_MRC1_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_attention_r2,"0.260 [0.197, 0.308]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_attention_gain_vs_baseline,"0.015 [-0.004, 0.036]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SELENOP_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_attention_r2,"0.656 [0.520, 0.746]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_attention_gain_vs_baseline,"0.022 [0.013, 0.040]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_SPP1_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_attention_r2,"0.286 [0.210, 0.344]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_attention_gain_vs_baseline,"0.010 [0.002, 0.018]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_genes_pooled_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_attention_r2,"0.335 [0.215, 0.431]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_attention_gain_vs_baseline,"0.001 [-0.016, 0.014]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:C1Q_TAM_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_attention_r2,"0.381 [0.307, 0.432]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_attention_gain_vs_baseline,"-0.006 [-0.017, 0.008]",model_dev/results/phase3/graph_summary.csv
+p3_myeloid_myeloid:SPP1_TAM_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_sage_r2,"0.465 [0.366, 0.544]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_sage_gain_vs_baseline,"0.004 [-0.016, 0.019]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_sage_r2,"0.146 [0.060, 0.234]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_sage_gain_vs_baseline,"-0.011 [-0.028, 0.006]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_sage_r2,"0.139 [0.092, 0.194]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_sage_gain_vs_baseline,"0.001 [-0.012, 0.012]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_sage_r2,"0.651 [0.522, 0.743]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_sage_gain_vs_baseline,"-0.002 [-0.032, 0.018]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_sage_r2,"0.227 [0.189, 0.274]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_sage_gain_vs_baseline,"-0.012 [-0.032, 0.008]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_sage_r2,"0.307 [0.116, 0.523]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_sage_gain_vs_baseline,"-0.000 [-0.012, 0.010]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_sage_r2,"0.083 [0.062, 0.107]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_sage_gain_vs_baseline,"-0.006 [-0.024, 0.007]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_sage_r2,"0.413 [0.336, 0.504]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_sage_gain_vs_baseline,"-0.020 [-0.049, 0.009]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_sage_r2,"0.590 [0.297, 0.799]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_sage_gain_vs_baseline,"0.002 [-0.025, 0.019]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_sage_r2,"0.554 [0.465, 0.632]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_sage_gain_vs_baseline,"-0.003 [-0.013, 0.006]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_sage_r2,"0.076 [0.053, 0.098]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_sage_gain_vs_baseline,"-0.014 [-0.028, -0.003]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_sage_r2,"0.648 [0.443, 0.762]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_sage_gain_vs_baseline,"0.006 [-0.008, 0.024]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_sage_r2,"0.554 [0.431, 0.647]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_sage_gain_vs_baseline,"0.005 [-0.000, 0.010]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_sage_r2,"0.442 [0.207, 0.675]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_sage_gain_vs_baseline,"-0.014 [-0.084, 0.028]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_sage_r2,"0.474 [0.377, 0.566]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_sage_gain_vs_baseline,"-0.011 [-0.027, 0.005]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_sage_r2,"0.148 [0.075, 0.260]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_sage_gain_vs_baseline,"-0.005 [-0.022, 0.009]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_sage_r2,"0.236 [0.178, 0.293]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_sage_gain_vs_baseline,"0.012 [0.002, 0.022]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_sage_r2,"0.603 [0.489, 0.679]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_sage_gain_vs_baseline,"0.007 [0.001, 0.015]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_sage_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_sage_r2,"0.436 [0.364, 0.523]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_sage_gain_vs_baseline,"0.000 [-0.005, 0.007]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_sage_r2,"0.281 [0.196, 0.367]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_sage_gain_vs_baseline,"-0.163 [-0.330, -0.045]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_sage_r2,"0.597 [0.444, 0.703]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_sage_gain_vs_baseline,"-0.097 [-0.172, -0.053]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_sage_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_attention_r2,"0.450 [0.346, 0.533]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_attention_gain_vs_baseline,"-0.011 [-0.037, 0.011]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AGR2_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_attention_r2,"0.134 [0.055, 0.207]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_attention_gain_vs_baseline,"-0.024 [-0.056, 0.001]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_AREG_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_attention_r2,"0.134 [0.089, 0.184]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_attention_gain_vs_baseline,"-0.004 [-0.016, 0.005]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM1_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_attention_r2,"0.643 [0.512, 0.734]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_attention_gain_vs_baseline,"-0.011 [-0.037, 0.009]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_CEACAM6_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_attention_r2,"0.218 [0.178, 0.268]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_attention_gain_vs_baseline,"-0.021 [-0.036, -0.005]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_ITGA3_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_attention_r2,"0.305 [0.116, 0.518]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_attention_gain_vs_baseline,"-0.001 [-0.012, 0.007]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT14_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_attention_r2,"0.081 [0.063, 0.102]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_attention_gain_vs_baseline,"-0.008 [-0.025, 0.003]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT15_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_attention_r2,"0.414 [0.320, 0.514]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_attention_gain_vs_baseline,"-0.020 [-0.043, 0.002]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT17_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_attention_r2,"0.596 [0.298, 0.806]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_attention_gain_vs_baseline,"0.008 [-0.021, 0.025]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_KRT6A_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_attention_r2,"0.548 [0.454, 0.627]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_attention_gain_vs_baseline,"-0.009 [-0.018, -0.001]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_LCN2_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_attention_r2,"0.076 [0.055, 0.097]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_attention_gain_vs_baseline,"-0.014 [-0.022, -0.006]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_MET_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_attention_r2,"0.656 [0.447, 0.773]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_attention_gain_vs_baseline,"0.014 [0.005, 0.026]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_OLFM4_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_attention_r2,"0.555 [0.430, 0.650]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_attention_gain_vs_baseline,"0.006 [0.003, 0.008]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_PIGR_attention_beats_baseline,True,model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_attention_r2,"0.422 [0.179, 0.665]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_attention_gain_vs_baseline,"-0.035 [-0.124, 0.020]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100A2_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_attention_r2,"0.467 [0.367, 0.559]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_attention_gain_vs_baseline,"-0.018 [-0.030, -0.007]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_S100P_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_attention_r2,"0.145 [0.073, 0.257]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_attention_gain_vs_baseline,"-0.008 [-0.024, 0.006]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SERPINB5_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_attention_r2,"0.233 [0.181, 0.287]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_attention_gain_vs_baseline,"0.009 [-0.000, 0.018]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SLC2A1_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_attention_r2,"0.598 [0.481, 0.675]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_attention_gain_vs_baseline,"0.003 [-0.007, 0.009]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_SPINK1_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_attention_r2,"0.432 [0.359, 0.519]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_attention_gain_vs_baseline,"-0.004 [-0.010, 0.003]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_genes_pooled_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_attention_r2,"0.295 [0.234, 0.367]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_attention_gain_vs_baseline,"-0.148 [-0.279, -0.051]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:basal_like_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_attention_r2,"0.601 [0.448, 0.710]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_attention_gain_vs_baseline,"-0.093 [-0.165, -0.051]",model_dev/results/phase3/graph_summary.csv
+p3_tumour_tumour:classical_attention_beats_baseline,False,model_dev/results/phase3/graph_summary.csv
+abl_myeloid_C1QA_same_type_full_minus,"0.010 [0.001, 0.019]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_same_type_r2,"0.183 [0.107, 0.228]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_other_type_full_minus,"0.018 [0.007, 0.024]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_other_type_r2,"0.175 [0.107, 0.215]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_composition_full_minus,"0.015 [0.004, 0.025]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_composition_r2,"0.178 [0.105, 0.221]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_shuffled_full_minus,"0.017 [0.011, 0.022]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_shuffled_r2,"0.176 [0.103, 0.220]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_no_graph_full_minus,"0.013 [0.001, 0.025]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QA_no_graph_r2,"0.180 [0.103, 0.226]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_same_type_full_minus,"0.009 [0.001, 0.016]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_same_type_r2,"0.271 [0.186, 0.329]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_other_type_full_minus,"0.021 [0.007, 0.030]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_other_type_r2,"0.258 [0.183, 0.312]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_composition_full_minus,"0.017 [0.001, 0.034]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_composition_r2,"0.262 [0.175, 0.318]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_shuffled_full_minus,"0.025 [0.015, 0.032]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_shuffled_r2,"0.255 [0.173, 0.313]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_no_graph_full_minus,"0.018 [0.000, 0.036]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QB_no_graph_r2,"0.261 [0.175, 0.317]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_same_type_full_minus,"0.011 [-0.001, 0.021]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_same_type_r2,"0.253 [0.151, 0.327]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_other_type_full_minus,"0.020 [0.011, 0.027]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_other_type_r2,"0.244 [0.146, 0.318]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_composition_full_minus,"0.019 [-0.002, 0.039]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_composition_r2,"0.245 [0.144, 0.311]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_shuffled_full_minus,"0.027 [0.015, 0.037]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_shuffled_r2,"0.237 [0.139, 0.309]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_no_graph_full_minus,"0.021 [0.001, 0.040]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_C1QC_no_graph_r2,"0.243 [0.138, 0.313]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_same_type_full_minus,"0.006 [-0.005, 0.014]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_same_type_r2,"0.190 [0.104, 0.247]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_other_type_full_minus,"0.013 [0.002, 0.019]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_other_type_r2,"0.183 [0.096, 0.241]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_composition_full_minus,"0.012 [-0.005, 0.024]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_composition_r2,"0.183 [0.104, 0.239]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_shuffled_full_minus,"0.012 [0.007, 0.016]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_shuffled_r2,"0.184 [0.094, 0.243]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_no_graph_full_minus,"0.012 [-0.008, 0.026]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD163_no_graph_r2,"0.184 [0.107, 0.236]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_same_type_full_minus,"0.007 [0.004, 0.009]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_same_type_r2,"0.117 [0.081, 0.142]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_other_type_full_minus,"0.015 [0.011, 0.019]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_other_type_r2,"0.109 [0.071, 0.136]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_composition_full_minus,"0.010 [0.006, 0.017]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_composition_r2,"0.114 [0.074, 0.140]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_shuffled_full_minus,"0.011 [0.007, 0.013]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_shuffled_r2,"0.113 [0.078, 0.138]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_no_graph_full_minus,"0.011 [0.008, 0.016]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_CD9_no_graph_r2,"0.113 [0.076, 0.138]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_same_type_full_minus,"0.010 [0.003, 0.016]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_same_type_r2,"0.131 [0.091, 0.161]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_other_type_full_minus,"0.014 [0.008, 0.019]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_other_type_r2,"0.127 [0.087, 0.155]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_composition_full_minus,"0.014 [0.006, 0.020]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_composition_r2,"0.127 [0.089, 0.155]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_shuffled_full_minus,"0.013 [0.008, 0.016]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_shuffled_r2,"0.128 [0.085, 0.158]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_no_graph_full_minus,"0.020 [0.010, 0.028]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_FABP5_no_graph_r2,"0.121 [0.084, 0.147]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_same_type_full_minus,"0.018 [0.009, 0.026]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_same_type_r2,"0.210 [0.162, 0.245]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_other_type_full_minus,"0.035 [0.021, 0.044]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_other_type_r2,"0.193 [0.147, 0.227]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_composition_full_minus,"0.022 [0.011, 0.032]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_composition_r2,"0.206 [0.158, 0.241]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_shuffled_full_minus,"0.031 [0.022, 0.038]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_shuffled_r2,"0.197 [0.150, 0.234]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_no_graph_full_minus,"0.031 [0.019, 0.042]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_GPNMB_no_graph_r2,"0.197 [0.151, 0.229]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_same_type_full_minus,"0.006 [0.002, 0.010]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_same_type_r2,"0.147 [0.119, 0.172]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_other_type_full_minus,"0.015 [0.009, 0.019]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_other_type_r2,"0.138 [0.111, 0.162]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_composition_full_minus,"0.007 [0.003, 0.012]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_composition_r2,"0.145 [0.119, 0.170]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_shuffled_full_minus,"0.010 [0.007, 0.013]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_shuffled_r2,"0.142 [0.116, 0.167]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_no_graph_full_minus,"0.014 [0.010, 0.017]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_LGALS3_no_graph_r2,"0.138 [0.108, 0.165]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_same_type_full_minus,"0.001 [-0.006, 0.012]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_same_type_r2,"0.091 [0.063, 0.111]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_other_type_full_minus,"0.007 [0.002, 0.012]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_other_type_r2,"0.086 [0.062, 0.103]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_composition_full_minus,"0.000 [-0.004, 0.006]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_composition_r2,"0.092 [0.065, 0.109]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_shuffled_full_minus,"0.002 [-0.001, 0.005]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_shuffled_r2,"0.090 [0.066, 0.107]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_no_graph_full_minus,"0.004 [-0.000, 0.011]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_MRC1_no_graph_r2,"0.088 [0.062, 0.105]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_same_type_full_minus,"0.032 [0.019, 0.052]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_same_type_r2,"0.240 [0.173, 0.285]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_other_type_full_minus,"0.024 [0.015, 0.029]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_other_type_r2,"0.248 [0.189, 0.291]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_composition_full_minus,"0.030 [0.016, 0.051]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_composition_r2,"0.241 [0.176, 0.285]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_shuffled_full_minus,"0.029 [0.019, 0.036]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_shuffled_r2,"0.242 [0.182, 0.287]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_no_graph_full_minus,"0.038 [0.019, 0.061]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SELENOP_no_graph_r2,"0.234 [0.169, 0.276]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_same_type_full_minus,"0.025 [0.016, 0.036]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_same_type_r2,"0.628 [0.493, 0.718]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_other_type_full_minus,"0.032 [0.019, 0.039]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_other_type_r2,"0.622 [0.498, 0.710]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_composition_full_minus,"0.033 [0.020, 0.052]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_composition_r2,"0.621 [0.488, 0.713]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_shuffled_full_minus,"0.033 [0.018, 0.050]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_shuffled_r2,"0.621 [0.494, 0.713]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_no_graph_full_minus,"0.039 [0.023, 0.066]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_SPP1_no_graph_r2,"0.615 [0.479, 0.709]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_same_type_full_minus,"0.014 [0.009, 0.018]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_same_type_r2,"0.276 [0.200, 0.332]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_other_type_full_minus,"0.021 [0.013, 0.026]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_other_type_r2,"0.268 [0.199, 0.324]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_composition_full_minus,"0.019 [0.010, 0.028]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_composition_r2,"0.271 [0.198, 0.326]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_shuffled_full_minus,"0.021 [0.015, 0.027]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_shuffled_r2,"0.268 [0.196, 0.324]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_no_graph_full_minus,"0.022 [0.013, 0.033]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_genes_pooled_no_graph_r2,"0.267 [0.194, 0.324]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_same_type_full_minus,"0.019 [0.004, 0.028]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_same_type_r2,"0.317 [0.205, 0.410]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_other_type_full_minus,"0.028 [0.013, 0.035]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_other_type_r2,"0.308 [0.199, 0.402]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_composition_full_minus,"0.028 [0.004, 0.048]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_composition_r2,"0.308 [0.194, 0.390]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_shuffled_full_minus,"0.039 [0.026, 0.049]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_shuffled_r2,"0.297 [0.182, 0.388]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_no_graph_full_minus,"0.029 [0.005, 0.051]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:C1Q_TAM_no_graph_r2,"0.307 [0.191, 0.394]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_same_type_full_minus,"0.015 [0.004, 0.028]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_same_type_r2,"0.362 [0.282, 0.422]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_other_type_full_minus,"0.047 [0.038, 0.055]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_other_type_r2,"0.330 [0.254, 0.384]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_composition_full_minus,"0.031 [0.014, 0.050]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_composition_r2,"0.347 [0.268, 0.411]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_shuffled_full_minus,"0.035 [0.025, 0.048]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_shuffled_r2,"0.342 [0.267, 0.398]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_no_graph_full_minus,"0.052 [0.037, 0.071]",model_dev/results/phase3/ablation_summary.csv
+abl_myeloid_myeloid:SPP1_TAM_no_graph_r2,"0.325 [0.254, 0.381]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_same_type_full_minus,"-0.004 [-0.010, 0.000]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_same_type_r2,"0.469 [0.371, 0.547]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_other_type_full_minus,"0.034 [0.023, 0.045]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_other_type_r2,"0.431 [0.334, 0.509]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_no_graph_full_minus,"0.016 [-0.003, 0.033]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AGR2_no_graph_r2,"0.449 [0.357, 0.524]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_same_type_full_minus,"0.006 [-0.001, 0.012]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_same_type_r2,"0.140 [0.060, 0.223]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_other_type_full_minus,"0.009 [0.003, 0.014]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_other_type_r2,"0.137 [0.056, 0.222]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_no_graph_full_minus,"0.010 [-0.000, 0.018]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_AREG_no_graph_r2,"0.137 [0.059, 0.216]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_same_type_full_minus,"-0.003 [-0.007, 0.001]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_same_type_r2,"0.142 [0.097, 0.193]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_other_type_full_minus,"0.013 [-0.002, 0.029]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_other_type_r2,"0.126 [0.089, 0.166]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_no_graph_full_minus,"0.016 [-0.001, 0.031]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM1_no_graph_r2,"0.123 [0.085, 0.165]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_same_type_full_minus,"0.003 [-0.006, 0.010]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_same_type_r2,"0.648 [0.519, 0.739]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_other_type_full_minus,"0.058 [0.033, 0.086]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_other_type_r2,"0.593 [0.444, 0.690]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_no_graph_full_minus,"0.035 [0.001, 0.065]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_CEACAM6_no_graph_r2,"0.616 [0.469, 0.712]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_same_type_full_minus,"-0.001 [-0.011, 0.009]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_same_type_r2,"0.228 [0.186, 0.283]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_other_type_full_minus,"0.019 [-0.001, 0.039]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_other_type_r2,"0.208 [0.161, 0.268]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_no_graph_full_minus,"0.012 [-0.009, 0.035]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_ITGA3_no_graph_r2,"0.214 [0.166, 0.274]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_same_type_full_minus,"0.010 [-0.003, 0.025]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_same_type_r2,"0.296 [0.117, 0.499]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_other_type_full_minus,"0.029 [0.005, 0.051]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_other_type_r2,"0.278 [0.101, 0.474]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_no_graph_full_minus,"0.018 [-0.001, 0.034]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT14_no_graph_r2,"0.288 [0.107, 0.492]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_same_type_full_minus,"-0.002 [-0.015, 0.006]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_same_type_r2,"0.085 [0.069, 0.105]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_other_type_full_minus,"0.009 [-0.002, 0.020]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_other_type_r2,"0.075 [0.060, 0.091]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_no_graph_full_minus,"0.006 [-0.009, 0.018]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT15_no_graph_r2,"0.078 [0.062, 0.094]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_same_type_full_minus,"-0.009 [-0.027, 0.007]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_same_type_r2,"0.422 [0.337, 0.528]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_other_type_full_minus,"0.021 [-0.007, 0.050]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_other_type_r2,"0.392 [0.311, 0.496]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_no_graph_full_minus,"0.002 [-0.025, 0.026]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT17_no_graph_r2,"0.411 [0.325, 0.521]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_same_type_full_minus,"-0.007 [-0.015, -0.003]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_same_type_r2,"0.597 [0.308, 0.804]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_other_type_full_minus,"0.078 [0.038, 0.099]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_other_type_r2,"0.512 [0.240, 0.711]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_no_graph_full_minus,"0.046 [0.012, 0.071]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_KRT6A_no_graph_r2,"0.544 [0.264, 0.751]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_same_type_full_minus,"0.001 [-0.007, 0.008]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_same_type_r2,"0.553 [0.462, 0.631]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_other_type_full_minus,"0.052 [0.032, 0.070]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_other_type_r2,"0.502 [0.411, 0.581]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_no_graph_full_minus,"0.032 [0.013, 0.053]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_LCN2_no_graph_r2,"0.522 [0.424, 0.605]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_same_type_full_minus,"-0.001 [-0.007, 0.004]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_same_type_r2,"0.077 [0.057, 0.096]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_other_type_full_minus,"0.001 [-0.008, 0.008]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_other_type_r2,"0.076 [0.056, 0.093]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_no_graph_full_minus,"-0.007 [-0.018, 0.001]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_MET_no_graph_r2,"0.083 [0.062, 0.103]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_same_type_full_minus,"-0.009 [-0.016, -0.002]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_same_type_r2,"0.657 [0.449, 0.773]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_other_type_full_minus,"0.061 [0.030, 0.097]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_other_type_r2,"0.587 [0.359, 0.722]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_no_graph_full_minus,"0.053 [0.020, 0.089]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_OLFM4_no_graph_r2,"0.595 [0.368, 0.727]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_same_type_full_minus,"0.003 [-0.003, 0.008]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_same_type_r2,"0.551 [0.429, 0.646]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_other_type_full_minus,"0.034 [0.023, 0.048]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_other_type_r2,"0.520 [0.395, 0.617]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_no_graph_full_minus,"0.025 [0.013, 0.036]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_PIGR_no_graph_r2,"0.529 [0.408, 0.622]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_same_type_full_minus,"0.007 [0.002, 0.015]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_same_type_r2,"0.435 [0.199, 0.672]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_other_type_full_minus,"0.076 [0.028, 0.114]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_other_type_r2,"0.366 [0.154, 0.562]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_no_graph_full_minus,"0.047 [-0.006, 0.092]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100A2_no_graph_r2,"0.395 [0.179, 0.583]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_same_type_full_minus,"0.000 [-0.006, 0.007]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_same_type_r2,"0.474 [0.376, 0.566]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_other_type_full_minus,"0.031 [0.014, 0.047]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_other_type_r2,"0.444 [0.339, 0.542]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_no_graph_full_minus,"0.019 [-0.001, 0.042]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_S100P_no_graph_r2,"0.455 [0.345, 0.558]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_same_type_full_minus,"0.000 [-0.004, 0.004]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_same_type_r2,"0.148 [0.076, 0.260]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_other_type_full_minus,"0.013 [0.000, 0.026]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_other_type_r2,"0.135 [0.069, 0.239]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_no_graph_full_minus,"0.006 [-0.005, 0.014]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SERPINB5_no_graph_r2,"0.143 [0.074, 0.251]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_same_type_full_minus,"0.003 [-0.006, 0.010]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_same_type_r2,"0.234 [0.180, 0.288]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_other_type_full_minus,"0.027 [0.011, 0.043]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_other_type_r2,"0.209 [0.164, 0.258]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_no_graph_full_minus,"0.030 [0.008, 0.050]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SLC2A1_no_graph_r2,"0.207 [0.166, 0.251]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_same_type_full_minus,"-0.003 [-0.006, -0.001]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_same_type_r2,"0.606 [0.493, 0.683]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_other_type_full_minus,"0.042 [0.029, 0.063]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_other_type_r2,"0.560 [0.433, 0.646]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_no_graph_full_minus,"0.025 [0.014, 0.043]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_SPINK1_no_graph_r2,"0.577 [0.457, 0.660]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_same_type_full_minus,"-0.001 [-0.002, 0.001]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_same_type_r2,"0.437 [0.364, 0.524]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_other_type_full_minus,"0.039 [0.029, 0.050]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_other_type_r2,"0.397 [0.326, 0.478]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_no_graph_full_minus,"0.025 [0.016, 0.034]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_genes_pooled_no_graph_r2,"0.411 [0.338, 0.495]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_same_type_full_minus,"-0.041 [-0.121, 0.011]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_same_type_r2,"0.322 [0.266, 0.374]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_other_type_full_minus,"-0.038 [-0.193, 0.066]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_other_type_r2,"0.319 [0.223, 0.414]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_no_graph_full_minus,"-0.059 [-0.215, 0.045]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:basal_like_no_graph_r2,"0.340 [0.250, 0.433]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_same_type_full_minus,"0.007 [-0.004, 0.024]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_same_type_r2,"0.591 [0.424, 0.705]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_other_type_full_minus,"0.048 [0.027, 0.069]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_other_type_r2,"0.549 [0.389, 0.665]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_no_graph_full_minus,"0.031 [0.011, 0.052]",model_dev/results/phase3/ablation_summary.csv
+abl_tumour_tumour:classical_no_graph_r2,"0.567 [0.414, 0.677]",model_dev/results/phase3/ablation_summary.csv
+p3_total_gpu_hours,3.59,model_dev/results/phase3/compute_*.csv
+p3_n_runs,240,model_dev/results/phase3/compute_*.csv
+p3_peak_vram_mib,2026.61865234375,model_dev/results/phase3/compute_*.csv
+p3_median_epochs,18.0,model_dev/results/phase3/compute_*.csv
+p4_myeloid_myeloid:C1Q_TAM_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_mean_gain_vs_own_external,"-0.310 [-0.463, -0.211]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_mean_gain_vs_own_external,"-0.325 [-0.438, -0.203]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_mean_gain_vs_own_external,"-0.218 [-0.341, -0.115]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_mean_gain_vs_own_external,"-0.176 [-0.232, -0.109]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_mean_gain_vs_own_external,"-0.353 [-0.497, -0.227]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_mean_gain_vs_own_external,"-0.211 [-0.295, -0.135]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_mean_gain_vs_own_external,"-0.150 [-0.327, -0.053]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_mean_gain_vs_own_external,"-0.182 [-0.192, -0.168]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_mean_gain_vs_own_external,"-0.549 [-0.664, -0.409]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_mean_gain_vs_own_external,"-0.290 [-0.420, -0.174]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_mean_gain_vs_own_external,"-0.012 [-0.095, 0.064]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_mean_gain_vs_own_external,"-0.112 [-0.151, -0.076]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_mean_gain_vs_own_external,"-0.074 [-0.090, -0.050]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_mean_gain_vs_own_external,"-0.251 [-0.322, -0.192]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/own_external_r2,"0.310 [0.211, 0.463]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/own_drop,-0.0105,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/own_external_r2,"0.325 [0.203, 0.438]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/own_drop,0.0095,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/own_external_r2,"0.218 [0.115, 0.341]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/own_drop,-0.0382,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/own_external_r2,"0.176 [0.109, 0.232]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/own_drop,0.0792,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/own_external_r2,"0.353 [0.227, 0.497]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/own_drop,-0.1157,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/own_external_r2,"0.211 [0.135, 0.295]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/own_drop,-0.0255,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/own_external_r2,"0.150 [0.053, 0.327]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/own_drop,-0.0562,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/own_external_r2,"0.182 [0.168, 0.192]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/own_drop,0.047,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/own_external_r2,"0.549 [0.409, 0.664]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/own_drop,0.0639,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/own_external_r2,"0.290 [0.174, 0.420]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/own_drop,-0.0969,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/own_external_r2,"0.012 [-0.064, 0.095]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/own_drop,0.0935,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/own_external_r2,"0.112 [0.076, 0.151]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/own_drop,0.0054,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/own_external_r2,"0.074 [0.050, 0.090]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/own_drop,0.0622,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/own_external_r2,"0.251 [0.192, 0.322]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/own_drop,0.0137,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/genes_external_r2,"0.330 [0.244, 0.465]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/genes_drop,-0.0188,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/genes_gain_vs_own_external,"0.020 [-0.003, 0.044]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/genes_external_r2,"0.347 [0.232, 0.445]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/genes_drop,0.0024,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/genes_gain_vs_own_external,"0.021 [-0.011, 0.052]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/genes_external_r2,"0.206 [0.111, 0.329]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/genes_drop,-0.0451,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/genes_gain_vs_own_external,"-0.012 [-0.025, -0.002]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/genes_external_r2,"0.180 [0.105, 0.241]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/genes_drop,0.0707,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/genes_gain_vs_own_external,"0.004 [-0.008, 0.017]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/genes_external_r2,"0.340 [0.221, 0.479]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/genes_drop,-0.1048,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/genes_gain_vs_own_external,"-0.014 [-0.031, 0.001]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/genes_external_r2,"0.181 [0.092, 0.280]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/genes_drop,-0.024,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/genes_gain_vs_own_external,"-0.031 [-0.058, -0.010]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/genes_external_r2,"0.181 [0.115, 0.316]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/genes_drop,-0.1247,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/genes_gain_vs_own_external,"0.030 [-0.017, 0.066]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/genes_external_r2,"0.187 [0.145, 0.213]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/genes_drop,0.0476,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/genes_gain_vs_own_external,"0.006 [-0.036, 0.027]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/genes_external_r2,"0.574 [0.446, 0.676]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/genes_drop,0.0429,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/genes_gain_vs_own_external,"0.025 [-0.003, 0.056]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/genes_external_r2,"0.304 [0.198, 0.431]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/genes_drop,-0.1134,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/genes_gain_vs_own_external,"0.014 [-0.003, 0.034]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/genes_external_r2,"0.022 [-0.041, 0.079]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/genes_drop,0.0655,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/genes_gain_vs_own_external,"0.009 [-0.020, 0.030]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/genes_external_r2,"0.095 [0.055, 0.134]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/genes_drop,-0.0015,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/genes_gain_vs_own_external,"-0.017 [-0.029, -0.007]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/genes_external_r2,"0.096 [0.068, 0.123]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/genes_drop,0.01,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/genes_gain_vs_own_external,"0.022 [0.000, 0.044]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/genes_external_r2,"0.254 [0.200, 0.317]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/genes_drop,-0.0004,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/genes_gain_vs_own_external,"0.002 [-0.009, 0.014]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/genes_external_r2,"0.382 [0.304, 0.500]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/genes_drop,-0.0481,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/genes_gain_vs_own_external,"0.072 [0.031, 0.107]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/genes_external_r2,"0.375 [0.270, 0.467]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/genes_drop,0.0105,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/genes_gain_vs_own_external,"0.050 [0.020, 0.076]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/genes_gain_vs_own_external,"-0.218 [-0.341, -0.115]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/genes_gain_vs_own_external,"-0.176 [-0.232, -0.109]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/genes_gain_vs_own_external,"-0.353 [-0.497, -0.227]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/genes_gain_vs_own_external,"-0.211 [-0.295, -0.135]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/genes_gain_vs_own_external,"-0.150 [-0.327, -0.053]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/genes_gain_vs_own_external,"-0.182 [-0.192, -0.168]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/genes_gain_vs_own_external,"-0.549 [-0.664, -0.409]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/genes_gain_vs_own_external,"-0.290 [-0.420, -0.174]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/genes_gain_vs_own_external,"-0.012 [-0.095, 0.064]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/genes_gain_vs_own_external,"-0.112 [-0.151, -0.076]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/genes_gain_vs_own_external,"-0.074 [-0.090, -0.050]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/genes_gain_vs_own_external,"-0.251 [-0.322, -0.192]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/programs_external_r2,"0.359 [0.271, 0.496]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/programs_drop,-0.0262,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_ridge/programs_gain_vs_own_external,"0.049 [0.029, 0.068]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/programs_external_r2,"0.357 [0.254, 0.442]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/programs_drop,0.0261,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_ridge/programs_gain_vs_own_external,"0.032 [-0.006, 0.062]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/programs_external_r2,"0.236 [0.140, 0.358]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/programs_drop,-0.0395,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_ridge/programs_gain_vs_own_external,"0.018 [-0.002, 0.037]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/programs_external_r2,"0.200 [0.147, 0.252]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/programs_drop,0.0605,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_ridge/programs_gain_vs_own_external,"0.024 [0.004, 0.044]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/programs_external_r2,"0.363 [0.238, 0.504]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/programs_drop,-0.1123,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_ridge/programs_gain_vs_own_external,"0.010 [0.002, 0.019]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/programs_external_r2,"0.223 [0.142, 0.314]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/programs_drop,-0.0334,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_ridge/programs_gain_vs_own_external,"0.012 [-0.007, 0.029]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/programs_external_r2,"0.178 [0.099, 0.333]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/programs_drop,-0.0827,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_ridge/programs_gain_vs_own_external,"0.028 [0.001, 0.049]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/programs_external_r2,"0.196 [0.168, 0.214]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/programs_drop,0.0491,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_ridge/programs_gain_vs_own_external,"0.014 [-0.005, 0.027]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/programs_external_r2,"0.587 [0.461, 0.681]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/programs_drop,0.0461,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_ridge/programs_gain_vs_own_external,"0.038 [0.017, 0.060]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/programs_external_r2,"0.318 [0.205, 0.453]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/programs_drop,-0.106,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_ridge/programs_gain_vs_own_external,"0.028 [0.015, 0.036]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/programs_external_r2,"0.052 [-0.010, 0.117]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/programs_drop,0.0602,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_ridge/programs_gain_vs_own_external,"0.039 [0.019, 0.054]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/programs_external_r2,"0.114 [0.069, 0.156]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/programs_drop,0.0103,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_ridge/programs_gain_vs_own_external,"0.002 [-0.016, 0.012]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/programs_external_r2,"0.103 [0.069, 0.129]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/programs_drop,0.0393,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_ridge/programs_gain_vs_own_external,"0.029 [0.014, 0.046]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/programs_external_r2,"0.274 [0.212, 0.341]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/programs_drop,0.0031,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_ridge/programs_gain_vs_own_external,"0.022 [0.013, 0.033]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/programs_external_r2,"0.391 [0.308, 0.520]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/programs_drop,-0.0601,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_xgb/programs_gain_vs_own_external,"0.081 [0.051, 0.111]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/programs_external_r2,"0.360 [0.257, 0.444]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/programs_drop,0.0275,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_xgb/programs_gain_vs_own_external,"0.035 [-0.002, 0.067]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_xgb/programs_gain_vs_own_external,"-0.218 [-0.341, -0.115]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_xgb/programs_gain_vs_own_external,"-0.176 [-0.232, -0.109]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_xgb/programs_gain_vs_own_external,"-0.353 [-0.497, -0.227]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_xgb/programs_gain_vs_own_external,"-0.211 [-0.295, -0.135]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_xgb/programs_gain_vs_own_external,"-0.150 [-0.327, -0.053]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_xgb/programs_gain_vs_own_external,"-0.182 [-0.192, -0.168]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_xgb/programs_gain_vs_own_external,"-0.549 [-0.664, -0.409]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_xgb/programs_gain_vs_own_external,"-0.290 [-0.420, -0.174]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_xgb/programs_gain_vs_own_external,"-0.012 [-0.095, 0.064]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_xgb/programs_gain_vs_own_external,"-0.112 [-0.151, -0.076]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_xgb/programs_gain_vs_own_external,"-0.074 [-0.090, -0.050]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/programs_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/programs_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_xgb/programs_gain_vs_own_external,"-0.251 [-0.322, -0.192]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_graph/sage_external_r2,"0.324 [0.239, 0.452]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_graph/sage_drop,0.0126,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:C1Q_TAM_graph/sage_gain_vs_own_external,"0.014 [-0.014, 0.046]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_graph/sage_external_r2,"0.375 [0.272, 0.466]",model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_graph/sage_drop,0.0024,model_dev/results/phase4/external_results.csv
+p4_myeloid_myeloid:SPP1_TAM_graph/sage_gain_vs_own_external,"0.050 [0.016, 0.086]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_graph/sage_external_r2,"0.202 [0.103, 0.339]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_graph/sage_drop,-0.0098,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QA_graph/sage_gain_vs_own_external,"-0.016 [-0.043, 0.005]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_graph/sage_external_r2,"0.156 [0.091, 0.214]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_graph/sage_drop,0.1229,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QB_graph/sage_gain_vs_own_external,"-0.020 [-0.062, 0.024]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_graph/sage_external_r2,"0.321 [0.193, 0.464]",model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_graph/sage_drop,-0.0567,model_dev/results/phase4/external_results.csv
+p4_myeloid_C1QC_graph/sage_gain_vs_own_external,"-0.032 [-0.051, -0.014]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_graph/sage_external_r2,"0.219 [0.139, 0.310]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_graph/sage_drop,-0.0237,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD163_graph/sage_gain_vs_own_external,"0.008 [-0.007, 0.021]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_graph/sage_external_r2,"0.182 [0.103, 0.329]",model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_graph/sage_drop,-0.0901,model_dev/results/phase4/external_results.csv
+p4_myeloid_MRC1_graph/sage_gain_vs_own_external,"0.032 [0.004, 0.055]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_graph/sage_external_r2,"0.227 [0.200, 0.246]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_graph/sage_drop,0.0444,model_dev/results/phase4/external_results.csv
+p4_myeloid_SELENOP_graph/sage_gain_vs_own_external,"0.045 [0.023, 0.059]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_graph/sage_external_r2,"0.627 [0.521, 0.714]",model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_graph/sage_drop,0.0269,model_dev/results/phase4/external_results.csv
+p4_myeloid_SPP1_graph/sage_gain_vs_own_external,"0.078 [0.048, 0.110]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_graph/sage_external_r2,"0.295 [0.168, 0.441]",model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_graph/sage_drop,-0.0667,model_dev/results/phase4/external_results.csv
+p4_myeloid_GPNMB_graph/sage_gain_vs_own_external,"0.005 [-0.014, 0.024]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_graph/sage_external_r2,"0.038 [-0.036, 0.122]",model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_graph/sage_drop,0.0857,model_dev/results/phase4/external_results.csv
+p4_myeloid_CD9_graph/sage_gain_vs_own_external,"0.026 [0.001, 0.052]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_graph/sage_external_r2,"0.163 [0.114, 0.217]",model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_graph/sage_drop,-0.0214,model_dev/results/phase4/external_results.csv
+p4_myeloid_FABP5_graph/sage_gain_vs_own_external,"0.050 [0.033, 0.070]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_graph/sage_external_r2,"0.108 [0.053, 0.171]",model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_graph/sage_drop,0.0444,model_dev/results/phase4/external_results.csv
+p4_myeloid_LGALS3_graph/sage_gain_vs_own_external,"0.034 [-0.017, 0.091]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_graph/sage_external_r2,"0.266 [0.203, 0.339]",model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_graph/sage_drop,0.0236,model_dev/results/phase4/external_results.csv
+p4_myeloid_genes_pooled_graph/sage_gain_vs_own_external,"0.015 [-0.002, 0.029]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_mean_gain_vs_own_external,"0.074 [-0.266, 0.346]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_mean_gain_vs_own_external,"-0.375 [-0.433, -0.290]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_mean_gain_vs_own_external,"-0.285 [-0.411, -0.192]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_mean_gain_vs_own_external,"-0.275 [-0.352, -0.224]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_mean_gain_vs_own_external,"-0.323 [-0.412, -0.250]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_mean_gain_vs_own_external,"-0.414 [-0.588, -0.291]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_mean_gain_vs_own_external,"-0.270 [-0.345, -0.160]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_mean_gain_vs_own_external,"-0.244 [-0.291, -0.132]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_mean_gain_vs_own_external,"-0.458 [-0.514, -0.331]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_mean_gain_vs_own_external,"0.005 [-0.043, 0.052]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_mean_gain_vs_own_external,"-0.314 [-0.379, -0.233]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_mean_gain_vs_own_external,"-0.275 [-0.342, -0.183]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_mean_gain_vs_own_external,"-0.471 [-0.507, -0.411]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_mean_gain_vs_own_external,"-0.464 [-0.592, -0.280]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_mean_gain_vs_own_external,"-0.183 [-0.236, -0.125]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_mean_gain_vs_own_external,"-0.137 [-0.184, -0.101]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_mean_gain_vs_own_external,"-0.159 [-0.223, -0.120]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_mean_gain_vs_own_external,"0.022 [-0.006, 0.057]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_mean_gain_vs_own_external,"-0.074 [-0.167, 0.001]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_mean_gain_vs_own_external,"-0.117 [-0.154, -0.089]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_mean_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_mean_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_mean_gain_vs_own_external,"-0.286 [-0.327, -0.259]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/own_external_r2,"-0.074 [-0.346, 0.266]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/own_drop,0.6925,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/own_external_r2,"0.375 [0.290, 0.433]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/own_drop,0.0219,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/own_external_r2,"0.285 [0.192, 0.411]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/own_drop,0.3421,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/own_external_r2,"0.275 [0.224, 0.352]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/own_drop,0.1758,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/own_external_r2,"0.323 [0.250, 0.412]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/own_drop,0.143,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/own_external_r2,"0.414 [0.291, 0.588]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/own_drop,0.1257,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/own_external_r2,"0.270 [0.160, 0.345]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/own_drop,0.2653,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/own_external_r2,"0.244 [0.132, 0.291]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/own_drop,0.3599,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/own_external_r2,"0.458 [0.331, 0.514]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/own_drop,0.1212,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/own_external_r2,"-0.005 [-0.052, 0.043]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/own_drop,0.1377,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/own_external_r2,"0.314 [0.233, 0.379]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/own_drop,0.2593,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/own_external_r2,"0.275 [0.183, 0.342]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/own_drop,0.0319,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/own_external_r2,"0.471 [0.411, 0.507]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/own_drop,-0.0425,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/own_external_r2,"0.464 [0.280, 0.592]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/own_drop,-0.0114,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/own_external_r2,"0.183 [0.125, 0.236]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/own_drop,-0.0361,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/own_external_r2,"0.137 [0.101, 0.184]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/own_drop,0.0208,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/own_external_r2,"0.159 [0.120, 0.223]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/own_drop,0.0587,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/own_external_r2,"-0.022 [-0.057, 0.006]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/own_drop,0.1115,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/own_external_r2,"0.074 [-0.001, 0.167]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/own_drop,0.1642,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/own_external_r2,"0.117 [0.089, 0.154]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/own_drop,-0.0305,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/own_external_r2,"0.286 [0.259, 0.327]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/own_drop,0.139,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/genes_external_r2,"0.468 [0.374, 0.571]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/genes_drop,0.2008,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/genes_gain_vs_own_external,"0.542 [0.311, 0.735]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/genes_external_r2,"0.261 [0.121, 0.373]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/genes_drop,0.1282,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/genes_gain_vs_own_external,"-0.114 [-0.180, -0.033]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/genes_external_r2,"0.492 [0.386, 0.602]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/genes_drop,0.155,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/genes_gain_vs_own_external,"0.207 [0.133, 0.276]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/genes_external_r2,"0.449 [0.394, 0.515]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/genes_drop,-0.0083,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/genes_gain_vs_own_external,"0.174 [0.123, 0.197]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/genes_external_r2,"0.391 [0.289, 0.445]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/genes_drop,0.068,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/genes_gain_vs_own_external,"0.068 [-0.007, 0.113]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/genes_external_r2,"0.441 [0.340, 0.597]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/genes_drop,0.1057,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/genes_gain_vs_own_external,"0.027 [-0.013, 0.058]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/genes_external_r2,"0.400 [0.263, 0.471]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/genes_drop,0.1325,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/genes_gain_vs_own_external,"0.130 [0.095, 0.146]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/genes_external_r2,"0.393 [0.270, 0.446]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/genes_drop,0.2489,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/genes_gain_vs_own_external,"0.150 [0.110, 0.204]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/genes_external_r2,"0.527 [0.370, 0.602]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/genes_drop,0.0683,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/genes_gain_vs_own_external,"0.069 [0.033, 0.096]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/genes_external_r2,"0.042 [-0.031, 0.097]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/genes_drop,0.0489,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/genes_gain_vs_own_external,"0.048 [-0.012, 0.098]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/genes_external_r2,"0.296 [0.168, 0.414]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/genes_drop,0.2695,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/genes_gain_vs_own_external,"-0.019 [-0.081, 0.035]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/genes_external_r2,"0.060 [-0.048, 0.137]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/genes_drop,0.1953,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/genes_gain_vs_own_external,"-0.215 [-0.308, -0.167]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/genes_external_r2,"0.451 [0.392, 0.479]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/genes_drop,-0.0381,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/genes_gain_vs_own_external,"-0.020 [-0.091, 0.026]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/genes_external_r2,"0.425 [0.223, 0.573]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/genes_drop,-0.0058,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/genes_gain_vs_own_external,"-0.039 [-0.107, -0.003]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/genes_external_r2,"0.088 [0.010, 0.138]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/genes_drop,-0.0018,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/genes_gain_vs_own_external,"-0.095 [-0.129, -0.061]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/genes_external_r2,"0.083 [0.012, 0.142]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/genes_drop,0.0021,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/genes_gain_vs_own_external,"-0.054 [-0.122, -0.021]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/genes_external_r2,"-0.058 [-0.109, -0.012]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/genes_drop,0.2482,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/genes_gain_vs_own_external,"-0.216 [-0.286, -0.156]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/genes_external_r2,"-0.051 [-0.102, -0.011]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/genes_drop,0.0815,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/genes_gain_vs_own_external,"-0.029 [-0.069, 0.024]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/genes_external_r2,"0.055 [-0.067, 0.173]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/genes_drop,0.1457,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/genes_gain_vs_own_external,"-0.019 [-0.124, 0.053]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/genes_external_r2,"0.080 [0.056, 0.108]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/genes_drop,-0.0443,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/genes_gain_vs_own_external,"-0.037 [-0.074, -0.016]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/genes_external_r2,"0.325 [0.276, 0.352]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/genes_drop,0.088,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/genes_gain_vs_own_external,"0.038 [-0.005, 0.066]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_xgb/genes_external_r2,"0.587 [0.493, 0.707]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_xgb/genes_drop,0.1072,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_xgb/genes_gain_vs_own_external,"0.661 [0.449, 0.842]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_xgb/genes_external_r2,"0.500 [0.419, 0.546]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_xgb/genes_drop,-0.0564,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_xgb/genes_gain_vs_own_external,"0.125 [0.100, 0.143]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_xgb/genes_gain_vs_own_external,"-0.285 [-0.411, -0.192]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_xgb/genes_gain_vs_own_external,"-0.275 [-0.352, -0.224]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_xgb/genes_gain_vs_own_external,"-0.323 [-0.412, -0.250]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_xgb/genes_gain_vs_own_external,"-0.414 [-0.588, -0.291]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_xgb/genes_gain_vs_own_external,"-0.270 [-0.345, -0.160]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_xgb/genes_gain_vs_own_external,"-0.244 [-0.291, -0.132]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_xgb/genes_gain_vs_own_external,"-0.458 [-0.514, -0.331]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_xgb/genes_gain_vs_own_external,"0.005 [-0.043, 0.052]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_xgb/genes_gain_vs_own_external,"-0.314 [-0.379, -0.233]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_xgb/genes_gain_vs_own_external,"-0.275 [-0.342, -0.183]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_xgb/genes_gain_vs_own_external,"-0.471 [-0.507, -0.411]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_xgb/genes_gain_vs_own_external,"-0.464 [-0.592, -0.280]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_xgb/genes_gain_vs_own_external,"-0.183 [-0.236, -0.125]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_xgb/genes_gain_vs_own_external,"-0.137 [-0.184, -0.101]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_xgb/genes_gain_vs_own_external,"-0.159 [-0.223, -0.120]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_xgb/genes_gain_vs_own_external,"0.022 [-0.006, 0.057]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_xgb/genes_gain_vs_own_external,"-0.074 [-0.167, 0.001]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_xgb/genes_gain_vs_own_external,"-0.117 [-0.154, -0.089]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_xgb/genes_external_r2,"0.000 [0.000, 0.000]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_xgb/genes_drop,0.0,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_xgb/genes_gain_vs_own_external,"-0.286 [-0.327, -0.259]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/own_external_r2,"-0.074 [-0.346, 0.266]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/own_drop,0.6925,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/own_external_r2,"0.375 [0.290, 0.433]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/own_drop,0.0219,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/own_external_r2,"0.285 [0.192, 0.411]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/own_drop,0.3421,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/own_external_r2,"0.275 [0.224, 0.352]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/own_drop,0.1758,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/own_external_r2,"0.323 [0.250, 0.412]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/own_drop,0.143,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/own_external_r2,"0.414 [0.291, 0.588]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/own_drop,0.1257,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/own_external_r2,"0.270 [0.160, 0.345]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/own_drop,0.2653,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/own_external_r2,"0.244 [0.132, 0.291]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/own_drop,0.3599,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/own_external_r2,"0.458 [0.331, 0.514]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/own_drop,0.1212,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/own_external_r2,"-0.005 [-0.052, 0.043]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/own_drop,0.1377,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/own_external_r2,"0.314 [0.233, 0.379]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/own_drop,0.2593,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/own_external_r2,"0.275 [0.183, 0.342]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/own_drop,0.0319,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/own_external_r2,"0.471 [0.411, 0.507]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/own_drop,-0.0425,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/own_external_r2,"0.464 [0.280, 0.592]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/own_drop,-0.0114,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/own_external_r2,"0.183 [0.125, 0.236]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/own_drop,-0.0361,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/own_external_r2,"0.137 [0.101, 0.184]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/own_drop,0.0208,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/own_external_r2,"0.159 [0.120, 0.223]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/own_drop,0.0587,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/own_external_r2,"-0.022 [-0.057, 0.006]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/own_drop,0.1115,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/own_external_r2,"0.074 [-0.001, 0.167]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/own_drop,0.1642,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/own_external_r2,"0.117 [0.089, 0.154]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/own_drop,-0.0305,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/own_external_r2,"0.286 [0.259, 0.327]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/own_drop,0.139,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/programs_external_r2,"0.471 [0.356, 0.616]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/programs_drop,0.2213,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_ridge/programs_gain_vs_own_external,"0.546 [0.357, 0.708]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/programs_external_r2,"0.423 [0.348, 0.469]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/programs_drop,0.0155,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_ridge/programs_gain_vs_own_external,"0.047 [0.027, 0.070]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/programs_external_r2,"0.509 [0.418, 0.600]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/programs_drop,0.1448,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_ridge/programs_gain_vs_own_external,"0.224 [0.159, 0.280]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/programs_external_r2,"0.400 [0.331, 0.459]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/programs_drop,0.0614,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_ridge/programs_gain_vs_own_external,"0.125 [0.082, 0.148]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/programs_external_r2,"0.440 [0.364, 0.503]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/programs_drop,0.0452,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_ridge/programs_gain_vs_own_external,"0.118 [0.083, 0.139]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/programs_external_r2,"0.472 [0.366, 0.624]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/programs_drop,0.0845,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_ridge/programs_gain_vs_own_external,"0.058 [0.030, 0.077]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/programs_external_r2,"0.373 [0.266, 0.457]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/programs_drop,0.1765,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_ridge/programs_gain_vs_own_external,"0.103 [0.093, 0.119]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/programs_external_r2,"0.390 [0.285, 0.437]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/programs_drop,0.2264,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_ridge/programs_gain_vs_own_external,"0.146 [0.133, 0.177]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/programs_external_r2,"0.552 [0.416, 0.615]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/programs_drop,0.0412,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_ridge/programs_gain_vs_own_external,"0.094 [0.082, 0.107]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/programs_external_r2,"0.090 [0.035, 0.139]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/programs_drop,0.0483,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_ridge/programs_gain_vs_own_external,"0.095 [0.069, 0.112]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/programs_external_r2,"0.371 [0.286, 0.442]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/programs_drop,0.2172,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_ridge/programs_gain_vs_own_external,"0.057 [0.044, 0.070]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/programs_external_r2,"0.264 [0.175, 0.330]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/programs_drop,0.0374,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_ridge/programs_gain_vs_own_external,"-0.011 [-0.019, 0.001]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/programs_external_r2,"0.504 [0.455, 0.534]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/programs_drop,-0.0706,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_ridge/programs_gain_vs_own_external,"0.033 [0.020, 0.046]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/programs_external_r2,"0.473 [0.307, 0.599]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/programs_drop,-0.0164,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_ridge/programs_gain_vs_own_external,"0.009 [-0.001, 0.030]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/programs_external_r2,"0.143 [0.079, 0.188]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/programs_drop,0.0095,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_ridge/programs_gain_vs_own_external,"-0.040 [-0.068, -0.009]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/programs_external_r2,"0.138 [0.101, 0.185]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/programs_drop,0.0113,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_ridge/programs_gain_vs_own_external,"0.002 [-0.001, 0.003]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/programs_external_r2,"0.198 [0.148, 0.246]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/programs_drop,0.0258,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_ridge/programs_gain_vs_own_external,"0.039 [0.012, 0.063]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/programs_external_r2,"-0.003 [-0.046, 0.027]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/programs_drop,0.0818,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_ridge/programs_gain_vs_own_external,"0.019 [0.001, 0.045]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/programs_external_r2,"0.194 [0.129, 0.259]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/programs_drop,0.045,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_ridge/programs_gain_vs_own_external,"0.120 [0.088, 0.141]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/programs_external_r2,"0.131 [0.109, 0.162]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/programs_drop,-0.0408,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_ridge/programs_gain_vs_own_external,"0.014 [-0.003, 0.028]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/programs_external_r2,"0.372 [0.339, 0.399]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/programs_drop,0.063,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_ridge/programs_gain_vs_own_external,"0.086 [0.065, 0.100]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_graph/sage_external_r2,"0.466 [0.351, 0.593]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_graph/sage_drop,0.1312,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:classical_graph/sage_gain_vs_own_external,"0.540 [0.325, 0.724]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_graph/sage_external_r2,"0.449 [0.358, 0.504]",model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_graph/sage_drop,-0.1677,model_dev/results/phase4/external_results.csv
+p4_tumour_tumour:basal_like_graph/sage_gain_vs_own_external,"0.073 [0.024, 0.106]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_graph/sage_external_r2,"0.475 [0.374, 0.562]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_graph/sage_drop,0.1762,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM6_graph/sage_gain_vs_own_external,"0.191 [0.133, 0.240]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_graph/sage_external_r2,"0.329 [0.281, 0.414]",model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_graph/sage_drop,0.1362,model_dev/results/phase4/external_results.csv
+p4_tumour_AGR2_graph/sage_gain_vs_own_external,"0.054 [-0.009, 0.115]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_graph/sage_external_r2,"0.419 [0.292, 0.514]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_graph/sage_drop,0.0554,model_dev/results/phase4/external_results.csv
+p4_tumour_S100P_graph/sage_gain_vs_own_external,"0.096 [0.027, 0.129]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_graph/sage_external_r2,"0.477 [0.379, 0.611]",model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_graph/sage_drop,0.0769,model_dev/results/phase4/external_results.csv
+p4_tumour_LCN2_graph/sage_gain_vs_own_external,"0.063 [0.012, 0.094]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_graph/sage_external_r2,"0.303 [0.207, 0.340]",model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_graph/sage_drop,0.2513,model_dev/results/phase4/external_results.csv
+p4_tumour_PIGR_graph/sage_gain_vs_own_external,"0.033 [-0.028, 0.080]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_graph/sage_external_r2,"0.483 [0.374, 0.533]",model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_graph/sage_drop,0.1646,model_dev/results/phase4/external_results.csv
+p4_tumour_OLFM4_graph/sage_gain_vs_own_external,"0.240 [0.213, 0.290]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_graph/sage_external_r2,"0.469 [0.375, 0.549]",model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_graph/sage_drop,0.1335,model_dev/results/phase4/external_results.csv
+p4_tumour_SPINK1_graph/sage_gain_vs_own_external,"0.011 [-0.017, 0.073]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_graph/sage_external_r2,"0.177 [0.100, 0.243]",model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_graph/sage_drop,-0.0383,model_dev/results/phase4/external_results.csv
+p4_tumour_CEACAM1_graph/sage_gain_vs_own_external,"0.183 [0.112, 0.240]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_graph/sage_external_r2,"0.379 [0.302, 0.431]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_graph/sage_drop,0.2107,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT6A_graph/sage_gain_vs_own_external,"0.065 [0.033, 0.090]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_graph/sage_external_r2,"0.398 [0.279, 0.489]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_graph/sage_drop,-0.0912,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT14_graph/sage_gain_vs_own_external,"0.123 [0.084, 0.155]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_graph/sage_external_r2,"0.485 [0.440, 0.529]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_graph/sage_drop,-0.0716,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT17_graph/sage_gain_vs_own_external,"0.014 [-0.000, 0.045]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_graph/sage_external_r2,"0.465 [0.341, 0.546]",model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_graph/sage_drop,-0.0228,model_dev/results/phase4/external_results.csv
+p4_tumour_S100A2_graph/sage_gain_vs_own_external,"0.001 [-0.045, 0.063]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_graph/sage_external_r2,"0.200 [0.148, 0.248]",model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_graph/sage_drop,-0.0516,model_dev/results/phase4/external_results.csv
+p4_tumour_SERPINB5_graph/sage_gain_vs_own_external,"0.017 [0.001, 0.042]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_graph/sage_external_r2,"0.141 [0.114, 0.198]",model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_graph/sage_drop,0.0056,model_dev/results/phase4/external_results.csv
+p4_tumour_AREG_graph/sage_gain_vs_own_external,"0.004 [-0.027, 0.034]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_graph/sage_external_r2,"0.320 [0.231, 0.393]",model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_graph/sage_drop,-0.0832,model_dev/results/phase4/external_results.csv
+p4_tumour_SLC2A1_graph/sage_gain_vs_own_external,"0.161 [0.090, 0.206]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_graph/sage_external_r2,"0.145 [0.068, 0.205]",model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_graph/sage_drop,-0.0613,model_dev/results/phase4/external_results.csv
+p4_tumour_KRT15_graph/sage_gain_vs_own_external,"0.167 [0.111, 0.203]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_graph/sage_external_r2,"0.352 [0.263, 0.413]",model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_graph/sage_drop,-0.125,model_dev/results/phase4/external_results.csv
+p4_tumour_ITGA3_graph/sage_gain_vs_own_external,"0.278 [0.207, 0.323]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_graph/sage_external_r2,"0.174 [0.150, 0.210]",model_dev/results/phase4/external_results.csv
+p4_tumour_MET_graph/sage_drop,-0.0975,model_dev/results/phase4/external_results.csv
+p4_tumour_MET_graph/sage_gain_vs_own_external,"0.057 [0.037, 0.076]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_graph/sage_external_r2,"0.385 [0.336, 0.427]",model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_graph/sage_drop,0.0509,model_dev/results/phase4/external_results.csv
+p4_tumour_genes_pooled_graph/sage_gain_vs_own_external,"0.099 [0.070, 0.115]",model_dev/results/phase4/external_results.csv
+p5_gate,Phase 5 run for the targets listed,model_dev/results/phase5/gate.json
+p5_imp_myeloid_genes_pooled_genes:other_G_genes,"0.138 [0.107, 0.176]",model_dev/results/phase5/permutation_importance.csv
+p5_imp_myeloid_genes_pooled_class:myeloid,"0.033 [0.022, 0.041]",model_dev/results/phase5/permutation_importance.csv
+p5_imp_myeloid_genes_pooled_genes:myeloid:SPP1_TAM,"0.032 [0.016, 0.047]",model_dev/results/phase5/permutation_importance.csv
+p5_imp_myeloid_genes_pooled_genes:myeloid:C1Q_TAM,"0.024 [0.011, 0.040]",model_dev/results/phase5/permutation_importance.csv
+p5_imp_myeloid_genes_pooled_class:CAF_fibroblast,"0.011 [0.009, 0.012]",model_dev/results/phase5/permutation_importance.csv
+p5_imp_myeloid_genes_pooled_class:epithelial_ductal_tumor,"0.004 [0.001, 0.008]",model_dev/results/phase5/permutation_importance.csv
+p6_myeloid_target_masked_myeloid:C1Q_TAM_r2,"0.485 [0.382, 0.544]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_myeloid:C1Q_TAM_minus_graph,"0.148 [0.101, 0.195]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_myeloid:SPP1_TAM_r2,"0.389 [0.280, 0.466]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_myeloid:SPP1_TAM_minus_graph,"0.012 [-0.044, 0.046]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QA_r2,"0.258 [0.189, 0.299]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QA_minus_graph,"0.066 [0.055, 0.080]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QB_r2,"0.334 [0.256, 0.383]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QB_minus_graph,"0.055 [0.034, 0.076]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QC_r2,"0.339 [0.253, 0.400]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_C1QC_minus_graph,"0.075 [0.055, 0.100]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_CD163_r2,"0.264 [0.166, 0.323]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_CD163_minus_graph,"0.069 [0.033, 0.097]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_MRC1_r2,"0.114 [0.076, 0.146]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_MRC1_minus_graph,"0.021 [-0.004, 0.043]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_SELENOP_r2,"0.257 [0.188, 0.309]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_SELENOP_minus_graph,"-0.014 [-0.043, 0.012]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_SPP1_r2,"0.522 [0.340, 0.637]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_SPP1_minus_graph,"-0.132 [-0.191, -0.103]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_GPNMB_r2,"0.259 [0.218, 0.296]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_GPNMB_minus_graph,"0.031 [0.006, 0.058]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_CD9_r2,"0.126 [0.077, 0.156]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_CD9_minus_graph,"0.001 [-0.015, 0.011]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_FABP5_r2,"0.145 [0.101, 0.178]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_FABP5_minus_graph,"0.004 [-0.001, 0.008]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_LGALS3_r2,"0.154 [0.126, 0.183]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_LGALS3_minus_graph,"0.002 [-0.007, 0.015]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_genes_pooled_r2,"0.295 [0.223, 0.345]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_target_masked_genes_pooled_minus_graph,"0.005 [-0.009, 0.022]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_myeloid:C1Q_TAM_r2,"0.192 [0.115, 0.237]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_myeloid:C1Q_TAM_minus_graph,"-0.144 [-0.207, -0.080]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_myeloid:SPP1_TAM_r2,"0.240 [0.125, 0.334]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_myeloid:SPP1_TAM_minus_graph,"-0.137 [-0.205, -0.089]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QA_r2,"0.118 [0.075, 0.156]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QA_minus_graph,"-0.074 [-0.119, -0.032]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QB_r2,"0.182 [0.126, 0.221]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QB_minus_graph,"-0.098 [-0.161, -0.046]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QC_r2,"0.163 [0.102, 0.200]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_C1QC_minus_graph,"-0.102 [-0.165, -0.045]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_CD163_r2,"0.094 [0.027, 0.150]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_CD163_minus_graph,"-0.102 [-0.165, -0.043]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_MRC1_r2,"0.066 [0.039, 0.089]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_MRC1_minus_graph,"-0.026 [-0.038, -0.015]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_SELENOP_r2,"0.119 [0.074, 0.156]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_SELENOP_minus_graph,"-0.152 [-0.181, -0.118]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_SPP1_r2,"0.450 [0.202, 0.581]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_SPP1_minus_graph,"-0.204 [-0.327, -0.145]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_GPNMB_r2,"0.108 [0.086, 0.134]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_GPNMB_minus_graph,"-0.120 [-0.164, -0.073]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_CD9_r2,"0.093 [0.051, 0.120]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_CD9_minus_graph,"-0.031 [-0.045, -0.022]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_FABP5_r2,"0.109 [0.075, 0.139]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_FABP5_minus_graph,"-0.032 [-0.044, -0.018]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_LGALS3_r2,"0.117 [0.094, 0.144]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_LGALS3_minus_graph,"-0.036 [-0.049, -0.021]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_genes_pooled_r2,"0.184 [0.120, 0.227]",model_dev/results/phase6/probe_summary.csv
+p6_myeloid_neighbourhood_only_genes_pooled_minus_graph,"-0.106 [-0.126, -0.081]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_tumour:classical_r2,"0.502 [0.342, 0.633]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_tumour:classical_minus_graph,"-0.096 [-0.172, -0.024]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_tumour:basal_like_r2,"0.359 [0.245, 0.494]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_tumour:basal_like_minus_graph,"0.078 [-0.047, 0.269]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_CEACAM6_r2,"0.480 [0.280, 0.632]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_CEACAM6_minus_graph,"-0.172 [-0.338, -0.061]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_AGR2_r2,"0.353 [0.247, 0.447]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_AGR2_minus_graph,"-0.112 [-0.151, -0.067]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_S100P_r2,"0.379 [0.290, 0.461]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_S100P_minus_graph,"-0.095 [-0.145, -0.052]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_LCN2_r2,"0.309 [0.216, 0.396]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_LCN2_minus_graph,"-0.245 [-0.332, -0.164]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_PIGR_r2,"0.389 [0.212, 0.513]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_PIGR_minus_graph,"-0.165 [-0.291, -0.081]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_OLFM4_r2,"0.350 [0.013, 0.522]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_OLFM4_minus_graph,"-0.298 [-0.530, -0.166]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SPINK1_r2,"0.433 [0.306, 0.541]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SPINK1_minus_graph,"-0.169 [-0.219, -0.118]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_CEACAM1_r2,"0.106 [0.052, 0.155]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_CEACAM1_minus_graph,"-0.033 [-0.057, -0.003]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT6A_r2,"0.417 [0.157, 0.579]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT6A_minus_graph,"-0.173 [-0.223, -0.083]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT14_r2,"0.221 [0.103, 0.343]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT14_minus_graph,"-0.086 [-0.187, -0.007]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT17_r2,"0.345 [0.267, 0.423]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT17_minus_graph,"-0.068 [-0.107, -0.039]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_S100A2_r2,"0.246 [0.050, 0.435]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_S100A2_minus_graph,"-0.196 [-0.249, -0.100]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SERPINB5_r2,"0.127 [0.056, 0.234]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SERPINB5_minus_graph,"-0.021 [-0.033, -0.004]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_AREG_r2,"0.058 [0.016, 0.093]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_AREG_minus_graph,"-0.088 [-0.158, -0.037]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SLC2A1_r2,"0.218 [0.165, 0.276]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_SLC2A1_minus_graph,"-0.018 [-0.029, -0.007]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT15_r2,"0.107 [0.087, 0.128]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_KRT15_minus_graph,"0.024 [0.009, 0.039]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_ITGA3_r2,"0.263 [0.221, 0.323]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_ITGA3_minus_graph,"0.036 [0.021, 0.053]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_MET_r2,"0.074 [0.046, 0.100]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_MET_minus_graph,"-0.002 [-0.012, 0.007]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_genes_pooled_r2,"0.310 [0.246, 0.386]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_target_masked_genes_pooled_minus_graph,"-0.125 [-0.156, -0.096]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_tumour:classical_r2,"0.311 [0.217, 0.390]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_tumour:classical_minus_graph,"-0.286 [-0.401, -0.150]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_tumour:basal_like_r2,"0.177 [0.036, 0.323]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_tumour:basal_like_minus_graph,"-0.104 [-0.277, 0.109]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_CEACAM6_r2,"0.284 [0.180, 0.384]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_CEACAM6_minus_graph,"-0.367 [-0.476, -0.242]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_AGR2_r2,"0.256 [0.183, 0.333]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_AGR2_minus_graph,"-0.209 [-0.269, -0.132]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_S100P_r2,"0.272 [0.177, 0.371]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_S100P_minus_graph,"-0.203 [-0.264, -0.152]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_LCN2_r2,"0.209 [0.122, 0.303]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_LCN2_minus_graph,"-0.345 [-0.432, -0.244]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_PIGR_r2,"0.188 [0.093, 0.274]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_PIGR_minus_graph,"-0.366 [-0.466, -0.252]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_OLFM4_r2,"0.106 [-0.052, 0.267]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_OLFM4_minus_graph,"-0.541 [-0.706, -0.355]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SPINK1_r2,"0.297 [0.160, 0.444]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SPINK1_minus_graph,"-0.305 [-0.439, -0.175]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_CEACAM1_r2,"0.039 [-0.046, 0.097]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_CEACAM1_minus_graph,"-0.100 [-0.154, -0.053]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT6A_r2,"0.213 [0.074, 0.297]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT6A_minus_graph,"-0.377 [-0.507, -0.170]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT14_r2,"0.144 [0.056, 0.247]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT14_minus_graph,"-0.162 [-0.284, -0.040]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT17_r2,"0.240 [0.144, 0.363]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT17_minus_graph,"-0.173 [-0.242, -0.107]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_S100A2_r2,"0.111 [-0.086, 0.257]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_S100A2_minus_graph,"-0.331 [-0.442, -0.177]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SERPINB5_r2,"0.105 [0.064, 0.159]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SERPINB5_minus_graph,"-0.043 [-0.102, 0.001]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_AREG_r2,"0.057 [-0.017, 0.120]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_AREG_minus_graph,"-0.090 [-0.131, -0.043]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SLC2A1_r2,"0.157 [0.117, 0.204]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_SLC2A1_minus_graph,"-0.079 [-0.105, -0.049]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT15_r2,"0.078 [0.066, 0.091]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_KRT15_minus_graph,"-0.005 [-0.026, 0.015]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_ITGA3_r2,"0.183 [0.131, 0.252]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_ITGA3_minus_graph,"-0.044 [-0.077, -0.008]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_MET_r2,"0.067 [0.043, 0.091]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_MET_minus_graph,"-0.009 [-0.017, -0.001]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_genes_pooled_r2,"0.188 [0.150, 0.234]",model_dev/results/phase6/probe_summary.csv
+p6_tumour_neighbourhood_only_genes_pooled_minus_graph,"-0.247 [-0.305, -0.183]",model_dev/results/phase6/probe_summary.csv
+unit_tests,15 passed in 3.12s,model_dev/results/pytest model_dev/tests
+n_registered_artefacts,28,model_dev/results/phase0/artefacts.csv
+artefacts_missing,0,model_dev/results/phase0/artefacts.csv

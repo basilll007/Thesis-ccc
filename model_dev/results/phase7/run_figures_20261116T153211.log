@@ -1,0 +1,14 @@
+2026-11-16 15:32:11,792 INFO phase=phase7 script=figures log=model_dev/results/phase7/run_figures_20261116T153211.log
+2026-11-16 15:32:11,835 INFO git_commit=277855e49a87f375f5f2a2a4fc58724983759d4e+dirty
+2026-11-16 15:32:11,835 INFO seed=42
+2026-11-16 15:32:16,485 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 15:32:16,509 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 15:32:17,363 INFO done: spatial_example
+2026-11-16 15:32:18,060 INFO done: model_comparison
+2026-11-16 15:32:18,583 INFO done: ablations
+2026-11-16 15:32:18,968 INFO done: external
+2026-11-16 15:32:19,398 INFO done: training_curves
+2026-11-16 15:32:19,998 INFO done: importance_and_perturbation
+2026-11-16 15:32:20,609 INFO done: learning_and_pretraining
+2026-11-16 15:32:22,178 INFO done: checkpoint_manifest
+2026-11-16 15:32:22,179 INFO done
