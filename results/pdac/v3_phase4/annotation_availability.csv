@@ -1,0 +1,17 @@
+section,annotation,n_cells,n_T_cells,n_CAF_cells,median_positive_nn_px,headline_types_present,reason_if_absent
+slide1,marker,109130,2184,29878,39.81205847478876,True,
+slide1,leiden_consensus,109130,0,49253,39.81205847478876,False,no T-cell class recovered
+slide2,marker,114083,3041,23919,34.23448553724738,True,
+slide2,leiden_consensus,114083,0,37687,34.23448553724738,False,no T-cell class recovered
+slide3,marker,66599,2078,14692,43.41658669218482,True,
+slide3,leiden_consensus,66599,4673,10770,43.41658669218482,True,
+slide4,marker,86459,6528,19380,40.718546143004666,True,
+slide4,leiden_consensus,86459,15308,20761,40.718546143004666,True,
+slide5,marker,56938,947,12347,42.04759208325769,True,
+slide5,leiden_consensus,56938,0,12843,42.04759208325769,False,no T-cell class recovered
+slide5b2,marker,70823,1448,15491,44.721359549995796,True,
+slide5b2,leiden_consensus,70823,0,16458,44.721359549995796,False,no T-cell class recovered
+slide5b3,marker,39685,571,5110,43.41658669218482,True,
+slide5b3,leiden_consensus,39685,0,7150,43.41658669218482,False,no T-cell class recovered
+slide6,marker,88543,1479,35088,40.311288741492746,True,
+slide6,leiden_consensus,88543,0,45380,40.311288741492746,False,no T-cell class recovered

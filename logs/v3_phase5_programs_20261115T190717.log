@@ -1,0 +1,134 @@
+2026-11-15 19:07:17,611 INFO script=v3_phase5_programs log=logs/v3_phase5_programs_20261115T190717.log
+2026-11-15 19:07:17,666 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:07:17,666 INFO seed=42
+2026-11-15 19:07:23,549 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:07:23,560 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 19:07:23,572 INFO Parameters: {'seed': 42, 'min_umi': 500, 'max_fail_fraction': 0.5, 'ctrl_size_per_bin': 50, 'n_bins': 25, 'ctrl_as_ref': True, 'normalization': 10000.0, 'programs': {'CAF': ['COL1A1', 'COL1A2', 'COL3A1', 'DCN', 'LUM', 'FAP', 'PDGFRB', 'ACTA2', 'POSTN', 'THY1', 'SFRP2', 'VCAN'], 'EMT': ['VIM', 'FN1', 'CDH2', 'ZEB1', 'ZEB2', 'SNAI1', 'SNAI2', 'TWIST1', 'MMP2', 'SPARC', 'TGFBI', 'S100A4'], 'Hypoxia': ['VEGFA', 'SLC2A1', 'CA9', 'LDHA', 'PGK1', 'ADM', 'NDRG1', 'BNIP3', 'ANKRD37', 'P4HA1', 'ENO1', 'HK2'], 'Interferon': ['ISG15', 'IFI6', 'IFI27', 'IFIT1', 'IFIT2', 'IFIT3', 'MX1', 'OAS1', 'STAT1', 'IRF7', 'IFI44L', 'BST2'], 'Immune_infiltration': ['PTPRC', 'CD3E', 'CD3D', 'CD2', 'CD8A', 'CD4', 'MS4A1', 'CD79A', 'CD68', 'CD163', 'LYZ', 'NKG7']}, 'scanpy': '1.10.3'}
+2026-11-15 19:07:23,597 INFO Saved results/pdac/v3_phase5/verified_sample_metadata.csv (57 rows)
+2026-11-15 19:07:24,626 INFO Saved results/pdac/v3_phase5/slides/GSM8452847_summary.json
+2026-11-15 19:07:24,626 INFO GSM8452847: scored; 2675/2753 spots retained
+2026-11-15 19:07:24,824 INFO Saved results/pdac/v3_phase5/slides/GSM8452848_summary.json
+2026-11-15 19:07:24,824 INFO GSM8452848: more than 50% of spots below 500 UMIs; 14/2956 spots retained
+2026-11-15 19:07:26,476 INFO Saved results/pdac/v3_phase5/slides/GSM8452849_summary.json
+2026-11-15 19:07:26,476 INFO GSM8452849: scored; 2998/3047 spots retained
+2026-11-15 19:07:27,656 INFO Saved results/pdac/v3_phase5/slides/GSM8452850_summary.json
+2026-11-15 19:07:27,656 INFO GSM8452850: scored; 2637/2674 spots retained
+2026-11-15 19:07:29,211 INFO Saved results/pdac/v3_phase5/slides/GSM8452851_summary.json
+2026-11-15 19:07:29,211 INFO GSM8452851: scored; 2859/2867 spots retained
+2026-11-15 19:07:30,339 INFO Saved results/pdac/v3_phase5/slides/GSM8452852_summary.json
+2026-11-15 19:07:30,339 INFO GSM8452852: scored; 2298/2322 spots retained
+2026-11-15 19:07:32,229 INFO Saved results/pdac/v3_phase5/slides/GSM8452853_summary.json
+2026-11-15 19:07:32,229 INFO GSM8452853: scored; 2994/2999 spots retained
+2026-11-15 19:07:33,084 INFO Saved results/pdac/v3_phase5/slides/GSM8452854_summary.json
+2026-11-15 19:07:33,084 INFO GSM8452854: scored; 2386/2696 spots retained
+2026-11-15 19:07:34,396 INFO Saved results/pdac/v3_phase5/slides/GSM8452855_summary.json
+2026-11-15 19:07:34,396 INFO GSM8452855: scored; 2486/2537 spots retained
+2026-11-15 19:07:36,580 INFO Saved results/pdac/v3_phase5/slides/GSM8452856_summary.json
+2026-11-15 19:07:36,580 INFO GSM8452856: scored; 3041/3155 spots retained
+2026-11-15 19:07:37,973 INFO Saved results/pdac/v3_phase5/slides/GSM8452857_summary.json
+2026-11-15 19:07:37,973 INFO GSM8452857: scored; 2759/2773 spots retained
+2026-11-15 19:07:39,567 INFO Saved results/pdac/v3_phase5/slides/GSM8452858_summary.json
+2026-11-15 19:07:39,567 INFO GSM8452858: scored; 2615/2623 spots retained
+2026-11-15 19:07:41,320 INFO Saved results/pdac/v3_phase5/slides/GSM8452859_summary.json
+2026-11-15 19:07:41,320 INFO GSM8452859: scored; 3433/3493 spots retained
+2026-11-15 19:07:42,505 INFO Saved results/pdac/v3_phase5/slides/GSM8452860_summary.json
+2026-11-15 19:07:42,505 INFO GSM8452860: scored; 2926/2931 spots retained
+2026-11-15 19:07:44,141 INFO Saved results/pdac/v3_phase5/slides/GSM8452861_summary.json
+2026-11-15 19:07:44,141 INFO GSM8452861: scored; 2769/2772 spots retained
+2026-11-15 19:07:45,707 INFO Saved results/pdac/v3_phase5/slides/GSM8452862_summary.json
+2026-11-15 19:07:45,707 INFO GSM8452862: scored; 2396/2397 spots retained
+2026-11-15 19:07:46,665 INFO Saved results/pdac/v3_phase5/slides/GSM8452863_summary.json
+2026-11-15 19:07:46,665 INFO GSM8452863: scored; 1685/1758 spots retained
+2026-11-15 19:07:47,482 INFO Saved results/pdac/v3_phase5/slides/GSM8452864_summary.json
+2026-11-15 19:07:47,482 INFO GSM8452864: scored; 2223/2686 spots retained
+2026-11-15 19:07:48,494 INFO Saved results/pdac/v3_phase5/slides/GSM8452865_summary.json
+2026-11-15 19:07:48,494 INFO GSM8452865: scored; 2172/2260 spots retained
+2026-11-15 19:07:49,086 INFO Saved results/pdac/v3_phase5/slides/GSM8452866_summary.json
+2026-11-15 19:07:49,087 INFO GSM8452866: scored; 1872/2660 spots retained
+2026-11-15 19:07:50,512 INFO Saved results/pdac/v3_phase5/slides/GSM8452867_summary.json
+2026-11-15 19:07:50,513 INFO GSM8452867: scored; 3856/3954 spots retained
+2026-11-15 19:07:52,046 INFO Saved results/pdac/v3_phase5/slides/GSM8452868_summary.json
+2026-11-15 19:07:52,046 INFO GSM8452868: scored; 3375/3435 spots retained
+2026-11-15 19:07:53,256 INFO Saved results/pdac/v3_phase5/slides/GSM8452869_summary.json
+2026-11-15 19:07:53,256 INFO GSM8452869: scored; 2708/2731 spots retained
+2026-11-15 19:07:54,575 INFO Saved results/pdac/v3_phase5/slides/GSM8452870_summary.json
+2026-11-15 19:07:54,575 INFO GSM8452870: scored; 3129/3226 spots retained
+2026-11-15 19:07:56,162 INFO Saved results/pdac/v3_phase5/slides/GSM8452871_summary.json
+2026-11-15 19:07:56,162 INFO GSM8452871: scored; 3911/3952 spots retained
+2026-11-15 19:07:57,710 INFO Saved results/pdac/v3_phase5/slides/GSM8452872_summary.json
+2026-11-15 19:07:57,711 INFO GSM8452872: scored; 2525/2531 spots retained
+2026-11-15 19:07:59,270 INFO Saved results/pdac/v3_phase5/slides/GSM8452873_summary.json
+2026-11-15 19:07:59,270 INFO GSM8452873: scored; 2884/2915 spots retained
+2026-11-15 19:08:00,464 INFO Saved results/pdac/v3_phase5/slides/GSM8452874_summary.json
+2026-11-15 19:08:00,464 INFO GSM8452874: scored; 2254/2327 spots retained
+2026-11-15 19:08:01,453 INFO Saved results/pdac/v3_phase5/slides/GSM8452875_summary.json
+2026-11-15 19:08:01,453 INFO GSM8452875: scored; 2996/3177 spots retained
+2026-11-15 19:08:02,647 INFO Saved results/pdac/v3_phase5/slides/GSM8452876_summary.json
+2026-11-15 19:08:02,647 INFO GSM8452876: scored; 2679/2887 spots retained
+2026-11-15 19:08:03,468 INFO Saved results/pdac/v3_phase5/slides/GSM8452877_summary.json
+2026-11-15 19:08:03,469 INFO GSM8452877: scored; 2799/3271 spots retained
+2026-11-15 19:08:04,038 INFO Saved results/pdac/v3_phase5/slides/GSM8452878_summary.json
+2026-11-15 19:08:04,038 INFO GSM8452878: scored; 1757/2169 spots retained
+2026-11-15 19:08:04,683 INFO Saved results/pdac/v3_phase5/slides/GSM8452879_summary.json
+2026-11-15 19:08:04,683 INFO GSM8452879: scored; 1590/2225 spots retained
+2026-11-15 19:08:05,542 INFO Saved results/pdac/v3_phase5/slides/GSM8452880_summary.json
+2026-11-15 19:08:05,542 INFO GSM8452880: scored; 2287/2686 spots retained
+2026-11-15 19:08:06,361 INFO Saved results/pdac/v3_phase5/slides/GSM8452881_summary.json
+2026-11-15 19:08:06,361 INFO GSM8452881: scored; 1764/1873 spots retained
+2026-11-15 19:08:07,046 INFO Saved results/pdac/v3_phase5/slides/GSM8452882_summary.json
+2026-11-15 19:08:07,046 INFO GSM8452882: scored; 1686/2008 spots retained
+2026-11-15 19:08:08,211 INFO Saved results/pdac/v3_phase5/slides/GSM8452883_summary.json
+2026-11-15 19:08:08,211 INFO GSM8452883: scored; 3514/3563 spots retained
+2026-11-15 19:08:09,370 INFO Saved results/pdac/v3_phase5/slides/GSM8452884_summary.json
+2026-11-15 19:08:09,370 INFO GSM8452884: scored; 2720/2741 spots retained
+2026-11-15 19:08:10,401 INFO Saved results/pdac/v3_phase5/slides/GSM8452885_summary.json
+2026-11-15 19:08:10,402 INFO GSM8452885: scored; 2578/2635 spots retained
+2026-11-15 19:08:11,267 INFO Saved results/pdac/v3_phase5/slides/GSM8452886_summary.json
+2026-11-15 19:08:11,268 INFO GSM8452886: scored; 2699/2845 spots retained
+2026-11-15 19:08:12,077 INFO Saved results/pdac/v3_phase5/slides/GSM8452887_summary.json
+2026-11-15 19:08:12,077 INFO GSM8452887: scored; 2520/2892 spots retained
+2026-11-15 19:08:13,062 INFO Saved results/pdac/v3_phase5/slides/GSM8452888_summary.json
+2026-11-15 19:08:13,062 INFO GSM8452888: scored; 2108/2123 spots retained
+2026-11-15 19:08:14,532 INFO Saved results/pdac/v3_phase5/slides/GSM8452889_summary.json
+2026-11-15 19:08:14,532 INFO GSM8452889: scored; 3305/3361 spots retained
+2026-11-15 19:08:15,949 INFO Saved results/pdac/v3_phase5/slides/GSM8452890_summary.json
+2026-11-15 19:08:15,949 INFO GSM8452890: scored; 2656/2696 spots retained
+2026-11-15 19:08:17,554 INFO Saved results/pdac/v3_phase5/slides/GSM8452891_summary.json
+2026-11-15 19:08:17,554 INFO GSM8452891: scored; 3055/3073 spots retained
+2026-11-15 19:08:18,783 INFO Saved results/pdac/v3_phase5/slides/GSM8452892_summary.json
+2026-11-15 19:08:18,783 INFO GSM8452892: scored; 2520/2815 spots retained
+2026-11-15 19:08:20,277 INFO Saved results/pdac/v3_phase5/slides/GSM8452893_summary.json
+2026-11-15 19:08:20,277 INFO GSM8452893: scored; 2568/2622 spots retained
+2026-11-15 19:08:21,908 INFO Saved results/pdac/v3_phase5/slides/GSM8452894_summary.json
+2026-11-15 19:08:21,909 INFO GSM8452894: scored; 2157/2160 spots retained
+2026-11-15 19:08:24,003 INFO Saved results/pdac/v3_phase5/slides/GSM8452895_summary.json
+2026-11-15 19:08:24,003 INFO GSM8452895: scored; 2876/2883 spots retained
+2026-11-15 19:08:24,431 INFO Saved results/pdac/v3_phase5/slides/GSM8714177_summary.json
+2026-11-15 19:08:24,431 INFO GSM8714177: scored; 439/444 spots retained
+2026-11-15 19:08:24,840 INFO Saved results/pdac/v3_phase5/slides/GSM8714178_summary.json
+2026-11-15 19:08:24,840 INFO GSM8714178: scored; 528/660 spots retained
+2026-11-15 19:08:25,457 INFO Saved results/pdac/v3_phase5/slides/GSM8714179_summary.json
+2026-11-15 19:08:25,457 INFO GSM8714179: scored; 1650/1829 spots retained
+2026-11-15 19:08:26,040 INFO Saved results/pdac/v3_phase5/slides/GSM8714180_summary.json
+2026-11-15 19:08:26,040 INFO GSM8714180: scored; 1064/1453 spots retained
+2026-11-15 19:08:26,430 INFO Saved results/pdac/v3_phase5/slides/GSM8714181_summary.json
+2026-11-15 19:08:26,431 INFO GSM8714181: scored; 298/419 spots retained
+2026-11-15 19:08:27,114 INFO Saved results/pdac/v3_phase5/slides/GSM8714182_summary.json
+2026-11-15 19:08:27,114 INFO GSM8714182: scored; 1656/1701 spots retained
+2026-11-15 19:08:27,640 INFO Saved results/pdac/v3_phase5/slides/GSM8714183_summary.json
+2026-11-15 19:08:27,641 INFO GSM8714183: PDX excluded from patient inference; 4190/4339 spots retained
+2026-11-15 19:08:28,110 INFO Saved results/pdac/v3_phase5/slides/GSM8714184_summary.json
+2026-11-15 19:08:28,110 INFO GSM8714184: PDX excluded from patient inference; 1622/2108 spots retained
+2026-11-15 19:08:28,250 INFO Saved results/pdac/v3_phase5/slide_qc.csv (57 rows)
+2026-11-15 19:08:28,262 INFO Saved results/pdac/v3_phase5/slide_program_scores.csv (270 rows)
+2026-11-15 19:08:28,282 INFO Saved results/pdac/v3_phase5/program_gene_coverage_controls.csv (270 rows)
+2026-11-15 19:08:28,294 INFO Saved results/pdac/v3_phase5/matrix_input_manifest.csv (57 rows)
+2026-11-15 19:08:32,049 INFO Saved results/pdac/v3_phase5/patient_site_program_scores.csv (210 rows)
+2026-11-15 19:08:32,061 INFO Saved results/pdac/v3_phase5/patient_arm_program_scores.csv (130 rows)
+2026-11-15 19:08:32,070 INFO Saved results/pdac/v3_phase5/program_comparisons.csv (20 rows)
+2026-11-15 19:08:32,080 INFO Saved results/pdac/v3_phase5/exploratory_covariate_models.csv (30 rows)
+2026-11-15 19:08:32,096 INFO Saved results/pdac/v3_phase5/site_chemistry_balance.csv (5 rows)
+2026-11-15 19:08:32,845 INFO Saved figure figures/pdac/v3_phase5/phase5_programs(.png/.pdf)
+2026-11-15 19:08:32,857 INFO Saved results/pdac/v3_phase5/phase5_summary.json
+2026-11-15 19:08:32,857 INFO Summary: {'status': 'DONE', 'parameters': {'seed': 42, 'min_umi': 500, 'max_fail_fraction': 0.5, 'ctrl_size_per_bin': 50, 'n_bins': 25, 'ctrl_as_ref': True, 'normalization': 10000.0, 'programs': {'CAF': ['COL1A1', 'COL1A2', 'COL3A1', 'DCN', 'LUM', 'FAP', 'PDGFRB', 'ACTA2', 'POSTN', 'THY1', 'SFRP2', 'VCAN'], 'EMT': ['VIM', 'FN1', 'CDH2', 'ZEB1', 'ZEB2', 'SNAI1', 'SNAI2', 'TWIST1', 'MMP2', 'SPARC', 'TGFBI', 'S100A4'], 'Hypoxia': ['VEGFA', 'SLC2A1', 'CA9', 'LDHA', 'PGK1', 'ADM', 'NDRG1', 'BNIP3', 'ANKRD37', 'P4HA1', 'ENO1', 'HK2'], 'Interferon': ['ISG15', 'IFI6', 'IFI27', 'IFIT1', 'IFIT2', 'IFIT3', 'MX1', 'OAS1', 'STAT1', 'IRF7', 'IFI44L', 'BST2'], 'Immune_infiltration': ['PTPRC', 'CD3E', 'CD3D', 'CD2', 'CD8A', 'CD4', 'MS4A1', 'CD79A', 'CD68', 'CD163', 'LYZ', 'NKG7']}, 'scanpy': '1.10.3'}, 'n_input_slides': 57, 'n_pdx_excluded': 2, 'n_qc_excluded_human': 1, 'n_included_slides': 54, 'n_patients': 13, 'n_retained_spots': 132335, 'n_main_bh_significant': 1, 'soft_sha256': 'c52316f624c8785e32d7deb0b4c990c1c25ed94338b9c173fbbd8c77cfbb3d35', 'script_sha256': '2956fa28f441572839f186903e4d977f263e756de3b3a8c2ae8165843e7cf544', 'limitations': ['Mixed-spot expression and composition cannot be separated', 'Patient IDs parsed from GEO titles', 'Chemistry inferred from archive batch; CytAssist restricted to primary tissues', 'Exploratory OLS; 13 patient clusters']}
+2026-11-15 19:08:32,868 INFO run finished

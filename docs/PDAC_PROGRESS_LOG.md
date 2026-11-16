@@ -581,3 +581,102 @@ Append-only log. Every number here comes from a file listed in `results/pdac/MAN
 - **Correction made while writing the summary**: a draft sentence said 12/16 sections have < 1,000 CAF→T edges; the file (`Q_block_bootstrap_by_section.csv`, consensus_T) gives 15/16 (6 below 300 edges; 5 sections with < 100 T cells). Fixed before commit.
 - **Push**: `git push origin thesis-v3` succeeded on the first attempt (new remote branch; 818d39d). Nothing was pushed to `main`; no force-push.
 - **Checklist**: Phase 1 DONE; Phase 2 DONE (one crash in the summary step, fixed, aggregation re-run); Phase 3 DONE; Phase 4 BLOCKED (licence unconfirmed); Phase 5 BLOCKED (no series matrix with site labels); Phase 6 DONE.
+
+## 2026-11-15 — Resume authorised; metadata installed and Phase 5 completed
+
+- The user asked to install the missing data, then explicitly asked to continue
+  Claude's unfinished work. Both raw TARs were already on disk. Downloaded GEO
+  family SOFT metadata for GSE277783 and GSE310352 plus the GSE310352 file list.
+  Download URLs, bytes and SHA-256 digests are in
+  `data/geo_metadata_download_manifest.json`. The attempted GSE277783 series
+  matrix returned HTTP 403; its SOFT alternative downloaded successfully and
+  contains the required per-GSM tissue labels. The GEO disclaimer request
+  returned a reCAPTCHA page, not usable licence text.
+- Extracted only the 16 GSE310352 count/metadata CSVs from the existing TAR,
+  checking each published size and gzip CRC; recorded SHA-256 digests in
+  `data/GSE310352_install_manifest.json`. Verified tissue labels for all 57
+  existing Visium slides by accession. No raw dataset was redownloaded.
+- The user explicitly confirmed reviewing the GSE310352 terms and authorised
+  analysis. Recorded that confirmation in `LICENSE_CONFIRMED_GSE310352.txt`;
+  no specific data licence or redistribution permission is asserted.
+- Wrote `docs/v3_plans/resume_execution_addendum.md` before resumed outcome
+  computation, resolving control-bin, patient/site aggregation, exact-test,
+  chemistry and physical-scale details without changing the program gene lists.
+- Used `D:/Anaconda/envs/thesis-spatial-ccc/python.exe` (Python 3.11.10,
+  Scanpy 1.10.3, SciPy 1.14.1). The EDA venv lacks Scanpy, and the system base
+  Anaconda has incompatible NumPy packages; neither environment was modified.
+  Numba initially attempted to cache into the read-only conda installation;
+  stopped the two diagnostic import processes and set NUMBA_CACHE_DIR to
+  `data/pdac/numba_cache`, fixing imports without modifying the environment.
+- Implemented and ran `src/pdac/v3_phase5_programs.py` after the gate opened.
+  An initial validation assertion stopped before any slide result was saved:
+  SciPy sparse mean and Scanpy's float64-first summation differed by up to
+  3.1e-7. Verified exact agreement using Scanpy's own summation helper and set
+  the independent arithmetic check tolerance to 1e-6; the scoring method and
+  parameters were not changed. Initial log:
+  `logs/v3_phase5_programs_20261115T190600.log`; completed run:
+  `logs/v3_phase5_programs_20261115T190717.log`.
+- Phase 5: **DONE**, 54 included human slides, 13 paired patients, 132,335
+  retained spots; two PDXs excluded, one human slide (GSM8452848) fails the
+  planned >50%-below-500-UMI rule. The hypoxia-associated program is the only
+  main comparison passing BH (median paired difference metastasis minus primary
+  +0.154; exact p=0.00244140625; q=0.01220703125). This is a mixed-spot program
+  association, not proof of physiological hypoxia or a causal mechanism.
+  All raw-QC, spot/slide/patient aggregation, control disjointness, exact
+  Wilcoxon sign-enumeration and BH checks passed for 57 inputs and 20 tests
+  (`src/pdac/v3_resume_validation.py --phase5-only`). Inspected the PNG figure;
+  all five panels and labels are readable. Patient-clustered exploratory OLS
+  and chemistry/site imbalance tables were also saved.
+- Phase 4: launched `src/pdac/v3_phase4_consistency.py`, 8 slides, marker and
+  Leiden-consensus labels, 6-NN, 500 permutations, global / block20nn /
+  block10nn / block5nn / distance-in-nn nulls. Label blocks use measured pixel
+  nearest-neighbour scales; no um/px is assumed. Independence from Mendeley is
+  unverified; outputs are a cross-dataset consistency audit. Per-slide outputs
+  and null results are saved incrementally. Integer-encoded global permutations
+  were verified to give the same draws as the original string shuffles, and
+  block permutations preserve every within-tile type count.
+
+## 2026-11-15 19:45 — Resumed Phases 4/5 and synthesis complete
+
+- Phase 4 finished successfully at 19:42:29 (exit 0): 8 slides, 632,260
+  post-QC cells, all 80 annotation/null runs, no skipped nulls. Source log:
+  `logs/v3_phase4_consistency_20261115T190935.log`; full stdout retained.
+  Marker-label headline Q>1 in 8/8 slides, median Q=1.4078585368. Global
+  BH-significant count is 0/8; block20nn and distance each give 1/8, block10nn
+  and block5nn give 0/8. Three marker slides have at least one headline gene
+  flagged near negative-probe background. These are diagnostic flags, not
+  post-hoc exclusions. Leiden consensus recovers T cells on only slides 3/4;
+  the other six headlines are untestable. No patient-level or independent
+  replication claim is made. Inspected the Phase 4 PNG; both panels are
+  readable. Tables and PNG/PDF figures are registered.
+- Combined validation (`src/pdac/v3_resume_validation.py`) exited 0. Log:
+  `logs/v3_resume_validation_20261115T194330.log`. Phase 4 passes observed-score
+  invariance, Q=E/M, add-one p-value grid and valid q-value checks for all 80
+  outputs. Phase 5 passes raw-matrix QC and aggregation checks, disjoint
+  controls, independent exhaustive Wilcoxon enumeration and BH for all 20
+  main/exploratory comparisons. Explicit annotation availability is saved in
+  `results/pdac/v3_phase4/annotation_availability.csv`; validation receipt:
+  `results/pdac/v3_phase6/resumed_validation.json`.
+- Updated `docs/PDAC_SUMMARY_v3.md`, README, key-number synthesis and claims
+  parser. Fixed the pre-existing escaped-|z_E| CSV parsing bug and consolidated
+  duplicate claim numbering during the report merge. Claim numbers and
+  key-number identifiers must now be unique. Gate readiness is recorded
+  separately from actual DONE statuses.
+- Phase 6 collects 4,358 source-linked key numbers, with the updated claims
+  register and manifest completeness check. The check reports zero issues;
+  no registered file is missing. Retained both the initial Phase 5 validation
+  stop log and the successful run log. No Phase 1–3 statistics were recomputed.
+- Final checklist: Phase 1 DONE; Phase 2 DONE; Phase 3 DONE; Phase 4 consistency
+  audit DONE (independence/physical scale unverified); Phase 5 DONE; Phase 6
+  refreshed. Changes are local on `thesis-v3`; no commit or push was requested
+  for this resumed work, and neither was performed.
+
+## 2026-11-15 19:40–20:00 — Claude session: verification of the resumed work, commit and push
+
+- **Context**: the user asked Claude to download the data and continue. The download, licence record, Phase 5 run and Phase 4 run had already been done by a separate (Codex) session working in the same tree, uncommitted. Claude did not re-download anything and did not start a parallel run. It waited for the Phase 4 process (PID 55324) to exit at 19:42:29.
+- **Independent checks by Claude (not saved as files)**:
+  - Re-parsed `data/GSE277783_family.soft.gz` independently: 64 samples (22 Primary PDAC, 20 liver, 14 peritoneal, 6 lung metastasis, 2 PDX). Tissue labels match `results/pdac/v3_phase5/verified_sample_metadata.csv` for all 57 Visium slides. The only patient-ID mismatches against the EDA filename parse are 8 slides whose filenames use `Pt3_Pri2` / `PDXPt10` formats; their GEO titles agree with the assigned patient.
+  - Ran `python src/pdac/v3_resume_validation.py` (full, including Phase 4): exit 0, PASS for both phases (log `logs/v3_resume_validation_20261115T194301.log`).
+- **Concurrent-edit incident**: both sessions edited `docs/PDAC_SUMMARY_v3.md` at 19:44. One Claude edit was rejected because the file had changed; three applied. Claude then stopped writing until the other session's files had been quiet for 5 minutes (19:46–19:51). The other session had already merged Claude's claim rows and lead-paragraph sentence; the final text was re-read in full and found consistent with the result files. Claude then added two Phase 4 points (per-axis direction vs Mendeley; slide5/5b2/5b3 possibly one specimen, UNVERIFIED).
+- **Note on BH families**: Phase 4 applies BH over the full catalogue within slide x annotation x null; Phase 1 applied it within the 7 non-background axes. Stated in the summary.
+- **Commit and push**: all resumed work committed on `thesis-v3` and pushed to `origin/thesis-v3` (not to `main`; no force-push).

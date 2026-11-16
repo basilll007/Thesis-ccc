@@ -1,0 +1,10 @@
+2026-11-15 19:05:48,718 INFO script=v3_phase5_gate log=logs/v3_phase5_gate_20261115T190548.log
+2026-11-15 19:05:48,770 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:05:48,770 INFO seed=42
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 19:05:57,188 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:05:57,199 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 19:05:57,208 INFO PHASE 5 GATE: {'checked_at': '2026-11-15T19:05:57', 'patterns': ['*GSE277783*soft*', '*GSE277783*series_matrix*', '*GSE277783*.soft', '*GSE277783*.soft.gz', 'GSE277783_family*'], 'soft_or_series_matrix_files': {'data/GSE277783_family.soft.gz': {'n_characteristic_lines': 320, 'n_site_like_lines': 128}}, 'raw_tar_on_disk': True, 'eda_sample_map_exists': True, 'status': 'RUN', 'reason': None}
+2026-11-15 19:05:57,214 INFO Saved results/pdac/v3_phase5/phase5_gate_status.json
+2026-11-15 19:05:57,223 INFO run finished

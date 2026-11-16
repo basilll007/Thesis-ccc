@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-11-15T16:55:07",
+  "checked_at": "2026-11-15T19:09:26",
   "gate_file": "LICENSE_CONFIRMED_GSE310352.txt",
-  "gate_file_exists": false,
+  "gate_file_exists": true,
   "raw_tar_on_disk": true,
   "raw_tar_bytes": 6331320320,
-  "n_extracted_csv_gz": 0,
-  "status": "BLOCKED",
-  "reason": "licence unconfirmed: LICENSE_CONFIRMED_GSE310352.txt absent (user creates it after checking the data licence)",
+  "n_extracted_csv_gz": 16,
+  "status": "RUN",
+  "reason": null,
   "also_outstanding": [
     "um/px for this CosMx run UNVERIFIED",
     "no author cell labels (marker + Leiden labels would be used)",

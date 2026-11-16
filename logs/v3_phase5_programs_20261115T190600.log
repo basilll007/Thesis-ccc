@@ -1,0 +1,7 @@
+2026-11-15 19:06:00,155 INFO script=v3_phase5_programs log=logs/v3_phase5_programs_20261115T190600.log
+2026-11-15 19:06:00,208 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:06:00,208 INFO seed=42
+2026-11-15 19:06:06,064 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:06:06,075 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 19:06:06,076 INFO Parameters: {'seed': 42, 'min_umi': 500, 'max_fail_fraction': 0.5, 'ctrl_size_per_bin': 50, 'n_bins': 25, 'ctrl_as_ref': True, 'normalization': 10000.0, 'programs': {'CAF': ['COL1A1', 'COL1A2', 'COL3A1', 'DCN', 'LUM', 'FAP', 'PDGFRB', 'ACTA2', 'POSTN', 'THY1', 'SFRP2', 'VCAN'], 'EMT': ['VIM', 'FN1', 'CDH2', 'ZEB1', 'ZEB2', 'SNAI1', 'SNAI2', 'TWIST1', 'MMP2', 'SPARC', 'TGFBI', 'S100A4'], 'Hypoxia': ['VEGFA', 'SLC2A1', 'CA9', 'LDHA', 'PGK1', 'ADM', 'NDRG1', 'BNIP3', 'ANKRD37', 'P4HA1', 'ENO1', 'HK2'], 'Interferon': ['ISG15', 'IFI6', 'IFI27', 'IFIT1', 'IFIT2', 'IFIT3', 'MX1', 'OAS1', 'STAT1', 'IRF7', 'IFI44L', 'BST2'], 'Immune_infiltration': ['PTPRC', 'CD3E', 'CD3D', 'CD2', 'CD8A', 'CD4', 'MS4A1', 'CD79A', 'CD68', 'CD163', 'LYZ', 'NKG7']}, 'scanpy': '1.10.3'}
+2026-11-15 19:06:06,109 INFO Saved results/pdac/v3_phase5/verified_sample_metadata.csv (57 rows)

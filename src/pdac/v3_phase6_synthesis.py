@@ -5,11 +5,15 @@ Nothing here recomputes a statistic; it only reads registered Phase 1-5 outputs.
 from __future__ import annotations
 
 import json
+import os
+import re
 import sys
 from pathlib import Path
 
+os.environ.setdefault("NUMBA_CACHE_DIR", str(Path(__file__).resolve().parents[2] / "data/pdac/numba_cache"))
+os.environ.setdefault("NUMBA_NUM_THREADS", "4")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import RESULTS_PDAC, REPO_ROOT, finish_run, rel, save_csv, save_json, start_run  # noqa: E402
+from common import RESULTS_PDAC, REPO_ROOT, finish_run, register, rel, save_csv, save_json, start_run  # noqa: E402
 
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -21,6 +25,21 @@ NULLS = ["global", "block200", "block100", "block50", "dist"]
 
 def main() -> None:
     log = start_run("v3_phase6_synthesis")
+    register(log.log_path, PHASE, "Phase 6 synthesis run log (registered before completeness check)")
+    # Retain the failed validation attempt and explicit resumed stdout captures.
+    captures = [
+        ("v3_phase5_programs_20261115T190600.log", "v3_phase5", "Initial run stopped by overly strict float32 arithmetic check; see progress log"),
+        ("v3_phase5_resume_gate_stdout.txt", "v3_phase5", "Resumed Phase 5 metadata gate stdout"),
+        ("v3_phase4_resume_gate_stdout.txt", "v3_phase4", "Resumed Phase 4 licence gate stdout"),
+        ("v3_phase5_programs_stdout.txt", "v3_phase5", "Completed Phase 5 program run stdout"),
+        ("v3_phase4_consistency_stdout.txt", "v3_phase4", "Completed Phase 4 consistency audit stdout"),
+        ("v3_resume_validation_stdout.txt", PHASE, "Independent resumed-results validation stdout"),
+        ("v3_phase6_resume_stdout.txt", PHASE, "Resumed synthesis stdout"),
+    ]
+    for name, phase, description in captures:
+        path = REPO_ROOT / "logs" / name
+        if path.exists():
+            register(path, phase, description)
     K: list[dict] = []
 
     def add(name, value, source, how):
@@ -123,17 +142,58 @@ def main() -> None:
         add(f"p3.infl.{r.annotation}.headline_median_zE_norm", round(float(r.headline_median_edge_z_per_sqrt), 3), P3 / "z_vs_edge_count_summary.csv", "headline_median_edge_z_per_sqrt")
         add(f"p3.infl.{r.annotation}.headline_rho_zE_edges", round(float(r.headline_spearman_edge_z_vs_edges), 3), P3 / "z_vs_edge_count_summary.csv", "headline_spearman_edge_z_vs_edges")
 
+    # ---- resumed Phases 4/5: collect actual result tables, not gate readiness -------------------------------
+    for ph, summary_file in (("v3_phase4", "phase4_summary.json"), ("v3_phase5", "phase5_summary.json")):
+        source = RESULTS_PDAC / ph / summary_file
+        if source.exists():
+            content = json.loads(source.read_text())
+            for key, value in content.items():
+                if not isinstance(value, (dict, list)):
+                    add(f"{ph}.{key}", value, source, key)
+    tables = [
+        ("v3_phase4", "headline_summary_by_null.csv", ["annotation", "null"]),
+        ("v3_phase4", "axis_consistency_summary.csv", ["annotation", "null", "ligand", "receptor"]),
+        ("v3_phase4", "annotation_availability.csv", ["section", "annotation"]),
+        ("v3_phase5", "program_comparisons.csv", ["scope", "program"]),
+        ("v3_phase5", "exploratory_covariate_models.csv", ["program", "term"]),
+    ]
+    for ph, filename, ids in tables:
+        source = RESULTS_PDAC / ph / filename
+        if source.exists():
+            for record in pd.read_csv(source).to_dict(orient="records"):
+                tag = ".".join(str(record[k]) for k in ids)
+                for key, value in record.items():
+                    if key not in ids:
+                        add(f"{ph}.{filename.removesuffix('.csv')}.{tag}.{key}", value, source, key)
+
     # ---- gates ---------------------------------------------------------------------------------------------
     for ph in ("v3_phase4", "v3_phase5"):
         f = RESULTS_PDAC / ph / f"{ph.replace('v3_', '')}_gate_status.json"
         if f.exists():
             s = json.loads(f.read_text())
-            add(f"{ph}.status", s["status"], f, "status")
-            add(f"{ph}.reason", s["reason"], f, "reason")
+            add(f"{ph}.gate_status", s["status"], f, "status (readiness, not analysis completion)")
+            add(f"{ph}.gate_reason", s["reason"], f, "reason")
 
     kn = pd.DataFrame(K)
+    if kn.key.duplicated().any():
+        raise ValueError("Duplicate key-number identifiers")
     save_csv(kn, PHASE, "v3_key_numbers.csv", "Every number quoted in docs/PDAC_SUMMARY_v3.md with its source file and column", log)
     log.info("%d key numbers collected", len(kn))
+
+    # Parse only unescaped table separators: escaped |z_E| must stay in one cell.
+    claims = []
+    for line in (REPO_ROOT / "docs/PDAC_SUMMARY_v3.md").read_text(encoding="utf-8").splitlines():
+        if re.match(r"^\|\s*\d+\s*\|", line):
+            parts = [s.strip().replace(r"\|", "|").replace("`", "")
+                     for s in re.split(r"(?<!\\)\|", line)[1:-1]]
+            if len(parts) != 4:
+                raise ValueError(f"Malformed claims-register row: {line}")
+            claims.append(dict(zip(["n", "claim", "evidence_file", "status"], parts)))
+    if not claims:
+        raise ValueError("No claims register found in summary")
+    if len({row["n"] for row in claims}) != len(claims):
+        raise ValueError("Duplicate claim numbers in summary")
+    save_csv(pd.DataFrame(claims), PHASE, "claims_register.csv", "Claims register parsed from summary, preserving escaped bars", log)
 
     # ---- manifest check for v3 files -------------------------------------------------------------------------
     man = pd.read_csv(RESULTS_PDAC / "MANIFEST.csv")
@@ -143,7 +203,8 @@ def main() -> None:
             issues.append({"path": p, "issue": "registered but missing on disk"})
     reg = set(man.path)
     for d in ("results/pdac/v3_phase1", "results/pdac/v3_phase2", "results/pdac/v3_phase3", "results/pdac/v3_phase4", "results/pdac/v3_phase5",
-              "results/pdac/v3_phase6", "figures/pdac/v3_phase1", "figures/pdac/v3_phase2", "figures/pdac/v3_phase3"):
+              "results/pdac/v3_phase6", "figures/pdac/v3_phase1", "figures/pdac/v3_phase2", "figures/pdac/v3_phase3",
+              "figures/pdac/v3_phase4", "figures/pdac/v3_phase5"):
         for f in sorted((REPO_ROOT / d).rglob("*")):
             if f.is_file() and rel(f) not in reg and f.name != "v3_manifest_check.csv":
                 issues.append({"path": rel(f), "issue": "on disk but not registered"})

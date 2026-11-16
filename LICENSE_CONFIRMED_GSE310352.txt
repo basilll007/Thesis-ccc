@@ -1,0 +1,9 @@
+GSE310352 licence/terms confirmation
+
+On 2026-11-15, the user explicitly confirmed in this conversation that they
+had reviewed the GSE310352 data terms and authorised proceeding with thesis
+analysis: "yes I have reviewed it and you are good to go !"
+
+This records the user's confirmation required by
+docs/v3_plans/phase4_replication_gse310352.md. It does not assert a particular
+data licence or grant redistribution rights.

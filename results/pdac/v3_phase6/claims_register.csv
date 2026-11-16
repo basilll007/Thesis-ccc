@@ -9,7 +9,10 @@ n,claim,evidence_file,status
 8,"C, M and E are saturated (detection rate ~1.0 at f = 1) and cannot distinguish contact from zonation",results/pdac/v3_phase2/calibration_deliverable.csv,supported (simulation)
 9,"Geometric-mean Q across tumours is 1.24 [1.01, 1.52] (consensus_T) with a random intercept per tumour",results/pdac/v3_phase3/mixed_model_logQ.csv,"exploratory (16 sections, 13 tumours, boundary warning)"
 10,"Per section, the block-bootstrap CI for the headline Q lies above 1 in 4/16 (consensus_T), 8/16 (marker), 7/16 (author_mapped) sections",results/pdac/v3_phase3/Q_block_bootstrap_summary.csv,supported (audit level)
-11,\,z_E\,grows with edge count (Spearman 0.52–0.56); z_Q does not (headline −0.08)
+11,|z_E| grows with edge count (Spearman 0.52–0.56); z_Q does not (headline −0.08),results/pdac/v3_phase3/z_vs_edge_count_summary.csv,supported (audit level)
 12,A proximity-specific CXCL12→CXCR4 CAF→T effect exists in PDAC tissue,—,not supported (not testable with this audit: see claims 5–7)
-13,The result replicates in an independent cohort (GSE310352),results/pdac/v3_phase4/phase4_gate_status.json,"not supported (BLOCKED, not run)"
-14,Primary vs metastasis differences in gene programs (GSE277783),results/pdac/v3_phase5/phase5_gate_status.json,"not supported (BLOCKED, not run)"
+13,The result replicates in an independent cohort (GSE310352),results/pdac/v3_phase4/geo_sample_metadata.csv,not supported (patient independence unverified)
+14,The hypoxia-associated program score is higher in metastases than primary PDAC in 13 paired patients (median paired difference +0.154; exact p=0.00244; BH q=0.01221),results/pdac/v3_phase5/program_comparisons.csv,supported (mixed-spot program association; not physiological or causal evidence)
+15,"CAF, EMT, interferon and immune-infiltration scores differ between primary PDAC and metastases after BH correction",results/pdac/v3_phase5/program_comparisons.csv,not supported (all main-comparison q>0.05)
+16,"In GSE310352 with marker labels, the headline Q is above 1 in 8/8 slides (median 1.408), the same direction as Mendeley, and does not shrink under nearest-neighbour-scaled block or distance nulls",results/pdac/v3_phase4/headline_summary_by_null.csv,exploratory (consistency only; slides not independent patients; 0–1/8 BH-significant; background flag in 3/8)
+17,Leiden-consensus labels allow the GSE310352 headline to be tested on all 8 slides,results/pdac/v3_phase4/annotation_availability.csv,not supported (T-cell class recovered on only 2/8 slides)

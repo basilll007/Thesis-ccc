@@ -1,0 +1,189 @@
+{
+  "slide": "slide6",
+  "gsm": "GSM9294403",
+  "n_before_qc": 89004,
+  "n_cells": 88543,
+  "n_testable_axes": 31,
+  "n_edges": 531258,
+  "median_positive_nn_px": 40.311288741492746,
+  "n_zero_nn": 0,
+  "um_per_px": "UNVERIFIED",
+  "patient_independence": "UNVERIFIED",
+  "markers_used": {
+    "epithelial_ductal_tumor": [
+      "KRT19",
+      "KRT7",
+      "EPCAM",
+      "KRT8",
+      "KRT18",
+      "KRT17",
+      "CEACAM6",
+      "TFF1",
+      "SOX9"
+    ],
+    "acinar": [
+      "CPB1",
+      "REG1A"
+    ],
+    "endocrine": [
+      "INS",
+      "GCG",
+      "SST",
+      "CHGA"
+    ],
+    "CAF_fibroblast": [
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "DCN",
+      "LUM",
+      "PDGFRA",
+      "PDGFRB"
+    ],
+    "T_cell": [
+      "CD3D",
+      "CD3E",
+      "CD2",
+      "CD3G",
+      "CD8A",
+      "CD4",
+      "IL7R"
+    ],
+    "B_plasma": [
+      "MS4A1",
+      "CD79A",
+      "CD19",
+      "JCHAIN",
+      "MZB1",
+      "IGKC"
+    ],
+    "myeloid": [
+      "CD68",
+      "CD163",
+      "CD14",
+      "LYZ",
+      "CSF1R",
+      "C1QA",
+      "C1QB",
+      "ITGAM",
+      "FCGR3A"
+    ],
+    "endothelial": [
+      "PECAM1",
+      "VWF",
+      "CDH5",
+      "KDR"
+    ],
+    "mast": [
+      "TPSAB1",
+      "TPSB2",
+      "CPA3",
+      "KIT"
+    ],
+    "pericyte_smc": [
+      "RGS5",
+      "ACTA2",
+      "MYH11",
+      "NOTCH3"
+    ]
+  },
+  "types_dropped": [],
+  "label_counts": {
+    "marker": {
+      "CAF_fibroblast": 35088,
+      "epithelial_ductal_tumor": 28615,
+      "myeloid": 10438,
+      "pericyte_smc": 4334,
+      "acinar": 2671,
+      "endothelial": 2443,
+      "T_cell": 1479,
+      "mast": 1472,
+      "B_plasma": 1348,
+      "endocrine": 655
+    },
+    "leiden_consensus": {
+      "CAF_fibroblast": 45380,
+      "epithelial_ductal_tumor": 23438,
+      "myeloid": 11433,
+      "pericyte_smc": 3297,
+      "endothelial": 3191,
+      "acinar": 1804
+    }
+  },
+  "null_info": {
+    "marker/global": {
+      "scale": "global"
+    },
+    "marker/block20nn": {
+      "tile_px": 806.2257748298549,
+      "tile_nn_multiple": 20,
+      "n_tiles": 762,
+      "median_cells_per_tile": 120.0,
+      "n_singleton_tiles": 1
+    },
+    "marker/block10nn": {
+      "tile_px": 403.11288741492746,
+      "tile_nn_multiple": 10,
+      "n_tiles": 2792,
+      "median_cells_per_tile": 32.0,
+      "n_singleton_tiles": 23
+    },
+    "marker/block5nn": {
+      "tile_px": 201.55644370746373,
+      "tile_nn_multiple": 5,
+      "n_tiles": 10164,
+      "median_cells_per_tile": 9.0,
+      "n_singleton_tiles": 269
+    },
+    "marker/dist_nn": {
+      "bands_px": [
+        0.0,
+        100.77822185373186,
+        201.55644370746373,
+        403.11288741492746,
+        806.2257748298549,
+        1612.4515496597098
+      ],
+      "n_tumour": 28615,
+      "n_bands_used": 9,
+      "min_band_cells": 78
+    },
+    "leiden_consensus/global": {
+      "scale": "global"
+    },
+    "leiden_consensus/block20nn": {
+      "tile_px": 806.2257748298549,
+      "tile_nn_multiple": 20,
+      "n_tiles": 762,
+      "median_cells_per_tile": 120.0,
+      "n_singleton_tiles": 1
+    },
+    "leiden_consensus/block10nn": {
+      "tile_px": 403.11288741492746,
+      "tile_nn_multiple": 10,
+      "n_tiles": 2792,
+      "median_cells_per_tile": 32.0,
+      "n_singleton_tiles": 23
+    },
+    "leiden_consensus/block5nn": {
+      "tile_px": 201.55644370746373,
+      "tile_nn_multiple": 5,
+      "n_tiles": 10164,
+      "median_cells_per_tile": 9.0,
+      "n_singleton_tiles": 269
+    },
+    "leiden_consensus/dist_nn": {
+      "bands_px": [
+        0.0,
+        100.77822185373186,
+        201.55644370746373,
+        403.11288741492746,
+        806.2257748298549,
+        1612.4515496597098
+      ],
+      "n_tumour": 23438,
+      "n_bands_used": 10,
+      "min_band_cells": 8
+    }
+  }
+}

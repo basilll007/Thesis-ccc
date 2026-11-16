@@ -1,0 +1,16 @@
+{
+  "phase4": {
+    "phase": 4,
+    "checks": "80 run markers; add-one p grid; Q=E/M; observed-score invariance across nulls",
+    "status": "PASS",
+    "n_evaluated": 80,
+    "n_skipped": 0
+  },
+  "phase5": {
+    "phase": 5,
+    "checks": "raw matrix QC; spot/slide/patient aggregation; control disjointness; exhaustive Wilcoxon; BH",
+    "status": "PASS",
+    "n_slides_checked": 57,
+    "n_tests_checked": 20
+  }
+}

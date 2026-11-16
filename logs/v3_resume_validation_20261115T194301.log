@@ -1,0 +1,6 @@
+2026-11-15 19:43:01,083 INFO script=v3_resume_validation log=logs/v3_resume_validation_20261115T194301.log
+2026-11-15 19:43:01,139 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:43:01,140 INFO seed=42
+2026-11-15 19:43:09,184 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:43:09,332 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 19:43:22,972 INFO run finished

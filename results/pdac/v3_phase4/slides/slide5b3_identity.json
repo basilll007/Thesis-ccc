@@ -1,0 +1,26 @@
+{
+  "inputs": {
+    "cell_by_gene_counts": "d5df9bdecf0c4d5b52741ef04099492c99d5026f56494183e125888684bb948b",
+    "cell_metadata": "1e4a10bbd4c08d7586069f8dcdda2543cd233d627bb01e80d42a840a127af893"
+  },
+  "params": {
+    "n_perms": 500,
+    "seed": 42,
+    "k": 6,
+    "blocks_in_nn": [
+      20,
+      10,
+      5
+    ],
+    "distance_bands_in_nn": [
+      0,
+      2.5,
+      5,
+      10,
+      20,
+      40
+    ],
+    "independence": "UNVERIFIED"
+  },
+  "annotation_method": "phase3_qc_preprocess_annotate_v1"
+}

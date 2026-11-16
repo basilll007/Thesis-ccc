@@ -1,0 +1,6 @@
+site,chemistry,n_slides,n_patients
+Liver metastasis,Visium_v1_inferred,15,11
+Lung metastasis,Visium_v1_inferred,6,6
+Peritoneal metastasis,Visium_v1_inferred,14,12
+Primary PDAC,CytAssist_inferred,6,4
+Primary PDAC,Visium_v1_inferred,13,13

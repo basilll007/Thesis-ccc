@@ -1,0 +1,176 @@
+2026-11-15 19:09:35,501 INFO script=v3_phase4_consistency log=logs/v3_phase4_consistency_20261115T190935.log
+2026-11-15 19:09:35,554 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:09:35,555 INFO seed=42
+2026-11-15 19:09:35,555 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:09:35,565 INFO platform=Windows-10-10.0.26300-SP0
+2026-11-15 19:09:35,577 INFO Parameters: {'n_perms': 500, 'seed': 42, 'k': 6, 'blocks_in_nn': [20, 10, 5], 'distance_bands_in_nn': [0, 2.5, 5, 10, 20, 40], 'independence': 'UNVERIFIED'}; sys_avail=3.46GB load=89% proc_rss=0.42GB proc_peak=0.42GB
+2026-11-15 19:09:35,592 INFO Saved results/pdac/v3_phase4/geo_sample_metadata.csv (8 rows)
+2026-11-15 19:09:41,843 INFO GSE310352 slide1 (GSM9294399): 124165 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:09:42,130 INFO QC (breast thresholds min_counts=10, min_cells=3): (124165, 970) -> (109130, 970)
+2026-11-15 19:09:42,754 INFO Saved results/pdac/v3_phase4/slides/slide1_background.csv (52 rows)
+2026-11-15 19:09:42,770 INFO Saved results/pdac/v3_phase4/slides/slide1_negative_probes.csv (19 rows)
+2026-11-15 19:10:53,476 INFO Leiden res 0.5: 11 clusters
+2026-11-15 19:10:53,476 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:10:54,520 INFO Saved results/pdac/v3_phase4/slides/slide1_labels.csv.gz (109130 rows)
+2026-11-15 19:11:13,707 INFO slide1/marker/global 18.0s; sys_avail=2.27GB load=93% proc_rss=1.85GB proc_peak=2.88GB
+2026-11-15 19:11:42,117 INFO slide1/marker/block20nn 20.6s; sys_avail=2.18GB load=93% proc_rss=1.85GB proc_peak=2.88GB
+2026-11-15 19:12:10,768 INFO slide1/marker/block10nn 21.0s; sys_avail=2.28GB load=93% proc_rss=1.85GB proc_peak=2.88GB
+2026-11-15 19:12:40,656 INFO slide1/marker/block5nn 22.1s; sys_avail=1.88GB load=94% proc_rss=1.85GB proc_peak=2.88GB
+2026-11-15 19:13:09,480 INFO slide1/marker/dist_nn 21.3s; sys_avail=2.22GB load=93% proc_rss=1.85GB proc_peak=2.88GB
+2026-11-15 19:13:30,649 INFO slide1/leiden_consensus/global 19.8s; sys_avail=2.19GB load=93% proc_rss=1.77GB proc_peak=2.88GB
+2026-11-15 19:14:01,515 INFO slide1/leiden_consensus/block20nn 23.2s; sys_avail=2.08GB load=93% proc_rss=1.77GB proc_peak=2.88GB
+2026-11-15 19:14:32,849 INFO slide1/leiden_consensus/block10nn 23.8s; sys_avail=2.21GB load=93% proc_rss=1.77GB proc_peak=2.88GB
+2026-11-15 19:15:04,865 INFO slide1/leiden_consensus/block5nn 24.1s; sys_avail=2.33GB load=93% proc_rss=1.77GB proc_peak=2.88GB
+2026-11-15 19:15:36,093 INFO slide1/leiden_consensus/dist_nn 24.1s; sys_avail=2.24GB load=93% proc_rss=1.77GB proc_peak=2.88GB
+2026-11-15 19:15:36,409 INFO Saved results/pdac/v3_phase4/slides/slide1_info.json
+2026-11-15 19:15:36,419 INFO Saved results/pdac/v3_phase4/slides/slide1_identity.json
+2026-11-15 19:15:36,419 INFO slide1 complete in 360.8s
+2026-11-15 19:15:42,507 INFO GSE310352 slide2 (GSM9294400): 118096 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:15:42,794 INFO QC (breast thresholds min_counts=10, min_cells=3): (118096, 970) -> (114083, 970)
+2026-11-15 19:15:43,490 INFO Saved results/pdac/v3_phase4/slides/slide2_background.csv (52 rows)
+2026-11-15 19:15:43,508 INFO Saved results/pdac/v3_phase4/slides/slide2_negative_probes.csv (19 rows)
+2026-11-15 19:17:24,778 INFO Leiden res 0.5: 8 clusters
+2026-11-15 19:17:24,778 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:17:25,900 INFO Saved results/pdac/v3_phase4/slides/slide2_labels.csv.gz (114083 rows)
+2026-11-15 19:17:44,774 INFO slide2/marker/global 17.6s; sys_avail=2.28GB load=93% proc_rss=1.91GB proc_peak=3.20GB
+2026-11-15 19:18:12,978 INFO slide2/marker/block20nn 20.1s; sys_avail=2.33GB load=93% proc_rss=1.89GB proc_peak=3.20GB
+2026-11-15 19:18:41,700 INFO slide2/marker/block10nn 20.4s; sys_avail=2.16GB load=93% proc_rss=1.89GB proc_peak=3.20GB
+2026-11-15 19:19:10,539 INFO slide2/marker/block5nn 20.7s; sys_avail=2.30GB load=93% proc_rss=1.89GB proc_peak=3.20GB
+2026-11-15 19:19:38,201 INFO slide2/marker/dist_nn 19.9s; sys_avail=2.17GB load=93% proc_rss=1.90GB proc_peak=3.20GB
+2026-11-15 19:19:59,685 INFO slide2/leiden_consensus/global 20.2s; sys_avail=2.33GB load=93% proc_rss=1.80GB proc_peak=3.20GB
+2026-11-15 19:20:33,547 INFO slide2/leiden_consensus/block20nn 25.9s; sys_avail=2.44GB load=92% proc_rss=1.80GB proc_peak=3.20GB
+2026-11-15 19:21:07,777 INFO slide2/leiden_consensus/block10nn 26.2s; sys_avail=2.41GB load=92% proc_rss=1.80GB proc_peak=3.20GB
+2026-11-15 19:21:42,810 INFO slide2/leiden_consensus/block5nn 27.0s; sys_avail=2.30GB load=93% proc_rss=1.80GB proc_peak=3.20GB
+2026-11-15 19:22:17,666 INFO slide2/leiden_consensus/dist_nn 26.9s; sys_avail=2.41GB load=92% proc_rss=1.80GB proc_peak=3.20GB
+2026-11-15 19:22:17,946 INFO Saved results/pdac/v3_phase4/slides/slide2_info.json
+2026-11-15 19:22:17,956 INFO Saved results/pdac/v3_phase4/slides/slide2_identity.json
+2026-11-15 19:22:17,957 INFO slide2 complete in 401.3s
+2026-11-15 19:22:21,328 INFO GSE310352 slide3 (GSM9294401): 67100 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:22:21,538 INFO QC (breast thresholds min_counts=10, min_cells=3): (67100, 970) -> (66599, 970)
+2026-11-15 19:22:22,074 INFO Saved results/pdac/v3_phase4/slides/slide3_background.csv (52 rows)
+2026-11-15 19:22:22,089 INFO Saved results/pdac/v3_phase4/slides/slide3_negative_probes.csv (19 rows)
+2026-11-15 19:22:39,653 INFO Leiden res 0.5: 12 clusters
+2026-11-15 19:22:39,653 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:22:40,414 INFO Saved results/pdac/v3_phase4/slides/slide3_labels.csv.gz (66599 rows)
+2026-11-15 19:22:52,586 INFO slide3/marker/global 11.4s; sys_avail=2.48GB load=92% proc_rss=1.62GB proc_peak=3.20GB
+2026-11-15 19:23:09,804 INFO slide3/marker/block20nn 12.7s; sys_avail=2.52GB load=92% proc_rss=1.62GB proc_peak=3.20GB
+2026-11-15 19:23:27,797 INFO slide3/marker/block10nn 13.4s; sys_avail=2.48GB load=92% proc_rss=1.60GB proc_peak=3.20GB
+2026-11-15 19:23:45,895 INFO slide3/marker/block5nn 13.5s; sys_avail=2.37GB load=92% proc_rss=1.60GB proc_peak=3.20GB
+2026-11-15 19:24:04,273 INFO slide3/marker/dist_nn 13.9s; sys_avail=2.49GB load=92% proc_rss=1.61GB proc_peak=3.20GB
+2026-11-15 19:24:16,839 INFO slide3/leiden_consensus/global 11.6s; sys_avail=2.55GB load=92% proc_rss=1.56GB proc_peak=3.20GB
+2026-11-15 19:24:34,154 INFO slide3/leiden_consensus/block20nn 12.9s; sys_avail=2.49GB load=92% proc_rss=1.56GB proc_peak=3.20GB
+2026-11-15 19:24:51,873 INFO slide3/leiden_consensus/block10nn 13.3s; sys_avail=2.53GB load=92% proc_rss=1.56GB proc_peak=3.20GB
+2026-11-15 19:25:10,287 INFO slide3/leiden_consensus/block5nn 13.9s; sys_avail=2.65GB load=92% proc_rss=1.55GB proc_peak=3.20GB
+2026-11-15 19:25:29,013 INFO slide3/leiden_consensus/dist_nn 14.3s; sys_avail=2.67GB load=92% proc_rss=1.56GB proc_peak=3.20GB
+2026-11-15 19:25:29,350 INFO Saved results/pdac/v3_phase4/slides/slide3_info.json
+2026-11-15 19:25:29,360 INFO Saved results/pdac/v3_phase4/slides/slide3_identity.json
+2026-11-15 19:25:29,360 INFO slide3 complete in 191.1s
+2026-11-15 19:25:33,843 INFO GSE310352 slide4 (GSM9294402): 88103 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:25:34,113 INFO QC (breast thresholds min_counts=10, min_cells=3): (88103, 970) -> (86459, 970)
+2026-11-15 19:25:34,738 INFO Saved results/pdac/v3_phase4/slides/slide4_background.csv (52 rows)
+2026-11-15 19:25:34,754 INFO Saved results/pdac/v3_phase4/slides/slide4_negative_probes.csv (19 rows)
+2026-11-15 19:26:10,968 INFO Leiden res 0.5: 13 clusters
+2026-11-15 19:26:10,969 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:26:11,903 INFO Saved results/pdac/v3_phase4/slides/slide4_labels.csv.gz (86459 rows)
+2026-11-15 19:26:25,778 INFO slide4/marker/global 12.9s; sys_avail=2.36GB load=92% proc_rss=1.78GB proc_peak=3.20GB
+2026-11-15 19:26:46,913 INFO slide4/marker/block20nn 15.2s; sys_avail=2.27GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:27:08,386 INFO slide4/marker/block10nn 15.5s; sys_avail=2.43GB load=92% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:27:30,280 INFO slide4/marker/block5nn 15.9s; sys_avail=2.43GB load=92% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:27:51,401 INFO slide4/marker/dist_nn 15.0s; sys_avail=2.33GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:28:05,307 INFO slide4/leiden_consensus/global 12.8s; sys_avail=2.37GB load=92% proc_rss=1.74GB proc_peak=3.20GB
+2026-11-15 19:28:27,133 INFO slide4/leiden_consensus/block20nn 15.9s; sys_avail=2.38GB load=92% proc_rss=1.74GB proc_peak=3.20GB
+2026-11-15 19:28:49,453 INFO slide4/leiden_consensus/block10nn 16.4s; sys_avail=2.21GB load=93% proc_rss=1.74GB proc_peak=3.20GB
+2026-11-15 19:29:12,119 INFO slide4/leiden_consensus/block5nn 16.7s; sys_avail=2.33GB load=93% proc_rss=1.74GB proc_peak=3.20GB
+2026-11-15 19:29:34,173 INFO slide4/leiden_consensus/dist_nn 15.8s; sys_avail=2.25GB load=93% proc_rss=1.74GB proc_peak=3.20GB
+2026-11-15 19:29:34,578 INFO Saved results/pdac/v3_phase4/slides/slide4_info.json
+2026-11-15 19:29:34,589 INFO Saved results/pdac/v3_phase4/slides/slide4_identity.json
+2026-11-15 19:29:34,590 INFO slide4 complete in 245.0s
+2026-11-15 19:29:39,079 INFO GSE310352 slide6 (GSM9294403): 89004 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:29:39,353 INFO QC (breast thresholds min_counts=10, min_cells=3): (89004, 970) -> (88543, 970)
+2026-11-15 19:29:40,054 INFO Saved results/pdac/v3_phase4/slides/slide6_background.csv (52 rows)
+2026-11-15 19:29:40,070 INFO Saved results/pdac/v3_phase4/slides/slide6_negative_probes.csv (19 rows)
+2026-11-15 19:30:06,074 INFO Leiden res 0.5: 10 clusters
+2026-11-15 19:30:06,074 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:30:07,056 INFO Saved results/pdac/v3_phase4/slides/slide6_labels.csv.gz (88543 rows)
+2026-11-15 19:30:22,752 INFO slide6/marker/global 14.7s; sys_avail=2.30GB load=93% proc_rss=1.84GB proc_peak=3.20GB
+2026-11-15 19:30:44,936 INFO slide6/marker/block20nn 16.1s; sys_avail=2.24GB load=93% proc_rss=1.84GB proc_peak=3.20GB
+2026-11-15 19:31:08,111 INFO slide6/marker/block10nn 17.0s; sys_avail=2.35GB load=92% proc_rss=1.82GB proc_peak=3.20GB
+2026-11-15 19:31:32,043 INFO slide6/marker/block5nn 17.7s; sys_avail=2.34GB load=92% proc_rss=1.82GB proc_peak=3.20GB
+2026-11-15 19:31:55,783 INFO slide6/marker/dist_nn 17.6s; sys_avail=2.15GB load=93% proc_rss=1.83GB proc_peak=3.20GB
+2026-11-15 19:32:12,820 INFO slide6/leiden_consensus/global 15.9s; sys_avail=2.30GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:32:35,932 INFO slide6/leiden_consensus/block20nn 17.0s; sys_avail=2.12GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:32:59,701 INFO slide6/leiden_consensus/block10nn 17.5s; sys_avail=2.11GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:33:24,164 INFO slide6/leiden_consensus/block5nn 18.4s; sys_avail=2.21GB load=93% proc_rss=1.76GB proc_peak=3.20GB
+2026-11-15 19:33:49,428 INFO slide6/leiden_consensus/dist_nn 19.2s; sys_avail=2.09GB load=93% proc_rss=1.77GB proc_peak=3.20GB
+2026-11-15 19:33:49,780 INFO Saved results/pdac/v3_phase4/slides/slide6_info.json
+2026-11-15 19:33:49,791 INFO Saved results/pdac/v3_phase4/slides/slide6_identity.json
+2026-11-15 19:33:49,791 INFO slide6 complete in 254.9s
+2026-11-15 19:33:52,940 INFO GSE310352 slide5 (GSM9294404): 57464 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:33:53,149 INFO QC (breast thresholds min_counts=10, min_cells=3): (57464, 970) -> (56938, 970)
+2026-11-15 19:33:53,674 INFO Saved results/pdac/v3_phase4/slides/slide5_background.csv (52 rows)
+2026-11-15 19:33:53,689 INFO Saved results/pdac/v3_phase4/slides/slide5_negative_probes.csv (19 rows)
+2026-11-15 19:34:07,007 INFO Leiden res 0.5: 12 clusters
+2026-11-15 19:34:07,007 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:34:07,725 INFO Saved results/pdac/v3_phase4/slides/slide5_labels.csv.gz (56938 rows)
+2026-11-15 19:34:19,580 INFO slide5/marker/global 11.2s; sys_avail=2.37GB load=92% proc_rss=1.61GB proc_peak=3.20GB
+2026-11-15 19:34:35,933 INFO slide5/marker/block20nn 12.4s; sys_avail=2.35GB load=92% proc_rss=1.57GB proc_peak=3.20GB
+2026-11-15 19:34:52,500 INFO slide5/marker/block10nn 12.7s; sys_avail=2.32GB load=93% proc_rss=1.57GB proc_peak=3.20GB
+2026-11-15 19:35:09,309 INFO slide5/marker/block5nn 12.9s; sys_avail=2.50GB load=92% proc_rss=1.57GB proc_peak=3.20GB
+2026-11-15 19:35:26,852 INFO slide5/marker/dist_nn 13.7s; sys_avail=2.48GB load=92% proc_rss=1.58GB proc_peak=3.20GB
+2026-11-15 19:35:38,977 INFO slide5/leiden_consensus/global 11.3s; sys_avail=2.51GB load=92% proc_rss=1.50GB proc_peak=3.20GB
+2026-11-15 19:35:55,298 INFO slide5/leiden_consensus/block20nn 12.6s; sys_avail=2.36GB load=92% proc_rss=1.50GB proc_peak=3.20GB
+2026-11-15 19:36:12,178 INFO slide5/leiden_consensus/block10nn 13.1s; sys_avail=2.50GB load=92% proc_rss=1.50GB proc_peak=3.20GB
+2026-11-15 19:36:29,359 INFO slide5/leiden_consensus/block5nn 13.4s; sys_avail=2.51GB load=92% proc_rss=1.50GB proc_peak=3.20GB
+2026-11-15 19:36:47,025 INFO slide5/leiden_consensus/dist_nn 14.0s; sys_avail=2.41GB load=92% proc_rss=1.50GB proc_peak=3.20GB
+2026-11-15 19:36:47,315 INFO Saved results/pdac/v3_phase4/slides/slide5_info.json
+2026-11-15 19:36:47,325 INFO Saved results/pdac/v3_phase4/slides/slide5_identity.json
+2026-11-15 19:36:47,325 INFO slide5 complete in 177.3s
+2026-11-15 19:36:51,074 INFO GSE310352 slide5b2 (GSM9294405): 73401 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:36:51,253 INFO QC (breast thresholds min_counts=10, min_cells=3): (73401, 970) -> (70823, 970)
+2026-11-15 19:36:51,702 INFO Saved results/pdac/v3_phase4/slides/slide5b2_background.csv (52 rows)
+2026-11-15 19:36:51,719 INFO Saved results/pdac/v3_phase4/slides/slide5b2_negative_probes.csv (19 rows)
+2026-11-15 19:37:14,765 INFO Leiden res 0.5: 10 clusters
+2026-11-15 19:37:14,765 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:37:15,553 INFO Saved results/pdac/v3_phase4/slides/slide5b2_labels.csv.gz (70823 rows)
+2026-11-15 19:37:28,763 INFO slide5b2/marker/global 12.4s; sys_avail=2.38GB load=92% proc_rss=1.69GB proc_peak=3.20GB
+2026-11-15 19:37:48,697 INFO slide5b2/marker/block20nn 15.0s; sys_avail=2.23GB load=93% proc_rss=1.69GB proc_peak=3.20GB
+2026-11-15 19:38:08,329 INFO slide5b2/marker/block10nn 14.6s; sys_avail=2.30GB load=93% proc_rss=1.65GB proc_peak=3.20GB
+2026-11-15 19:38:28,476 INFO slide5b2/marker/block5nn 15.2s; sys_avail=2.29GB load=93% proc_rss=1.65GB proc_peak=3.20GB
+2026-11-15 19:38:48,373 INFO slide5b2/marker/dist_nn 15.0s; sys_avail=2.17GB load=93% proc_rss=1.65GB proc_peak=3.20GB
+2026-11-15 19:39:01,439 INFO slide5b2/leiden_consensus/global 12.1s; sys_avail=2.22GB load=93% proc_rss=1.59GB proc_peak=3.20GB
+2026-11-15 19:39:20,558 INFO slide5b2/leiden_consensus/block20nn 14.3s; sys_avail=2.45GB load=92% proc_rss=1.59GB proc_peak=3.20GB
+2026-11-15 19:39:39,972 INFO slide5b2/leiden_consensus/block10nn 14.7s; sys_avail=2.38GB load=92% proc_rss=1.58GB proc_peak=3.20GB
+2026-11-15 19:39:59,771 INFO slide5b2/leiden_consensus/block5nn 15.0s; sys_avail=2.39GB load=92% proc_rss=1.58GB proc_peak=3.20GB
+2026-11-15 19:40:19,596 INFO slide5b2/leiden_consensus/dist_nn 14.9s; sys_avail=2.47GB load=92% proc_rss=1.58GB proc_peak=3.20GB
+2026-11-15 19:40:19,918 INFO Saved results/pdac/v3_phase4/slides/slide5b2_info.json
+2026-11-15 19:40:19,929 INFO Saved results/pdac/v3_phase4/slides/slide5b2_identity.json
+2026-11-15 19:40:19,929 INFO slide5b2 complete in 212.3s
+2026-11-15 19:40:22,239 INFO GSE310352 slide5b3 (GSM9294406): 42857 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-15 19:40:22,329 INFO QC (breast thresholds min_counts=10, min_cells=3): (42857, 970) -> (39685, 970)
+2026-11-15 19:40:22,568 INFO Saved results/pdac/v3_phase4/slides/slide5b3_background.csv (52 rows)
+2026-11-15 19:40:22,582 INFO Saved results/pdac/v3_phase4/slides/slide5b3_negative_probes.csv (19 rows)
+2026-11-15 19:40:33,122 INFO Leiden res 0.5: 8 clusters
+2026-11-15 19:40:33,122 INFO Marker types used: {'epithelial_ductal_tumor': 9, 'acinar': 2, 'endocrine': 4, 'CAF_fibroblast': 7, 'T_cell': 7, 'B_plasma': 6, 'myeloid': 9, 'endothelial': 4, 'mast': 4, 'pericyte_smc': 4}; dropped (<2 markers on panel): []
+2026-11-15 19:40:33,525 INFO Saved results/pdac/v3_phase4/slides/slide5b3_labels.csv.gz (39685 rows)
+2026-11-15 19:40:40,655 INFO slide5b3/marker/global 6.7s; sys_avail=2.56GB load=92% proc_rss=1.46GB proc_peak=3.20GB
+2026-11-15 19:40:51,770 INFO slide5b3/marker/block20nn 8.4s; sys_avail=2.33GB load=93% proc_rss=1.46GB proc_peak=3.20GB
+2026-11-15 19:41:03,046 INFO slide5b3/marker/block10nn 8.5s; sys_avail=2.51GB load=92% proc_rss=1.42GB proc_peak=3.20GB
+2026-11-15 19:41:14,484 INFO slide5b3/marker/block5nn 8.7s; sys_avail=2.58GB load=92% proc_rss=1.42GB proc_peak=3.20GB
+2026-11-15 19:41:25,270 INFO slide5b3/marker/dist_nn 8.0s; sys_avail=2.52GB load=92% proc_rss=1.42GB proc_peak=3.20GB
+2026-11-15 19:41:34,106 INFO slide5b3/leiden_consensus/global 8.1s; sys_avail=2.36GB load=92% proc_rss=1.34GB proc_peak=3.20GB
+2026-11-15 19:41:47,167 INFO slide5b3/leiden_consensus/block20nn 10.3s; sys_avail=2.27GB load=93% proc_rss=1.34GB proc_peak=3.20GB
+2026-11-15 19:42:00,289 INFO slide5b3/leiden_consensus/block10nn 10.4s; sys_avail=2.28GB load=93% proc_rss=1.33GB proc_peak=3.20GB
+2026-11-15 19:42:13,722 INFO slide5b3/leiden_consensus/block5nn 10.8s; sys_avail=2.33GB load=93% proc_rss=1.33GB proc_peak=3.20GB
+2026-11-15 19:42:26,652 INFO slide5b3/leiden_consensus/dist_nn 10.3s; sys_avail=2.18GB load=93% proc_rss=1.33GB proc_peak=3.20GB
+2026-11-15 19:42:26,935 INFO Saved results/pdac/v3_phase4/slides/slide5b3_info.json
+2026-11-15 19:42:26,947 INFO Saved results/pdac/v3_phase4/slides/slide5b3_identity.json
+2026-11-15 19:42:26,947 INFO slide5b3 complete in 126.8s
+2026-11-15 19:42:28,872 INFO Saved results/pdac/v3_phase4/headline_by_null.csv (50 rows)
+2026-11-15 19:42:28,886 INFO Saved results/pdac/v3_phase4/headline_summary_by_null.csv (10 rows)
+2026-11-15 19:42:28,940 INFO Saved results/pdac/v3_phase4/CAF_T_all_axes_by_null.csv (1550 rows)
+2026-11-15 19:42:28,959 INFO Saved results/pdac/v3_phase4/axis_consistency_summary.csv (310 rows)
+2026-11-15 19:42:28,978 INFO Saved results/pdac/v3_phase4/background_diagnostics.csv (416 rows)
+2026-11-15 19:42:28,994 INFO Saved results/pdac/v3_phase4/skipped_runs.csv (0 rows)
+2026-11-15 19:42:29,460 INFO Saved figure figures/pdac/v3_phase4/phase4_consistency(.png/.pdf)
+2026-11-15 19:42:29,481 INFO Saved results/pdac/v3_phase4/phase4_summary.json
+2026-11-15 19:42:29,523 INFO run finished

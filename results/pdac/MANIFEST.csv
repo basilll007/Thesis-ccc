@@ -637,9 +637,7 @@ results/pdac/v3_phase3/phase3_summary.json,v3_phase3,"Phase 3 summary (bootstrap
 figures/pdac/v3_phase3/phase3_effect_sizes.png,v3_phase3,Headline Q with block-bootstrap CI per section; mixed-model geometric-mean Q; z vs edge count,src/pdac/v3_phase3_effect_sizes.py,2026-11-15T16:54:59
 figures/pdac/v3_phase3/phase3_effect_sizes.pdf,v3_phase3,Headline Q with block-bootstrap CI per section; mixed-model geometric-mean Q; z vs edge count,src/pdac/v3_phase3_effect_sizes.py,2026-11-15T16:54:59
 logs/v3_phase3_effect_sizes_20261115T165352.log,v3_phase3,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase3_effect_sizes.py,2026-11-15T16:54:59
-results/pdac/v3_phase4/phase4_gate_status.json,v3_phase4,Phase 4 gate check (licence file) and outstanding blockers,src/pdac/v3_phase4_gate.py,2026-11-15T16:55:07
 logs/v3_phase4_gate_20261115T165500.log,v3_phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase4_gate.py,2026-11-15T16:55:07
-results/pdac/v3_phase5/phase5_gate_status.json,v3_phase5,Phase 5 gate check (GEO SOFT/series matrix with site labels),src/pdac/v3_phase5_gate.py,2026-11-15T16:55:15
 logs/v3_phase5_gate_20261115T165508.log,v3_phase5,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase5_gate.py,2026-11-15T16:55:15
 results/pdac/v3_phase2/sim_rows.csv.gz,v3_phase2,"All Phase 2 simulation rows (3 sections): obs, null mean/sd, z, add-one p per score x null x scenario x effect x sim",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:41
 results/pdac/v3_phase2/calibration_table.csv,v3_phase2,"Power (proximity) / false-positive rate (zonation) per section and pooled, per scenario x effect x null x score; 100 sims each",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:41
@@ -649,9 +647,6 @@ figures/pdac/v3_phase2/phase2_calibration.png,v3_phase2,"Power vs planted proxim
 figures/pdac/v3_phase2/phase2_calibration.pdf,v3_phase2,"Power vs planted proximity effect and false-positive rate vs zonation effect, per score and null",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:42
 logs/v3_phase2_calibration_20261115T165640.log,v3_phase2,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase2_calibration.py,2026-11-15T16:56:42
 logs/v3_phase2_calibration_20261115T163932.log,v3_phase2,run log of the full simulation run (sim rows + tables); crashed in the final summary JSON (AttributeError on itertuples field names); aggregation re-run with --aggregate-only in the second log,src/pdac/v3_phase2_calibration.py,2026-11-15T16:57:35
-results/pdac/v3_phase6/v3_key_numbers.csv,v3_phase6,Every number quoted in docs/PDAC_SUMMARY_v3.md with its source file and column,src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
-results/pdac/v3_phase6/v3_manifest_check.csv,v3_phase6,"Manifest completeness check for v3 outputs (missing files, unregistered files)",src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
-results/pdac/v3_phase6/phase6_summary.json,v3_phase6,Phase 6 synthesis summary,src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
 logs/v3_phase6_synthesis_20261115T165746.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase6_synthesis.py,2026-11-15T16:57:53
 logs/v3_phase1_stdout.txt,v3_phase1,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
 logs/v3_phase2_stdout.txt,v3_phase2,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
@@ -660,4 +655,280 @@ logs/v3_phase3_stdout.txt,v3_phase3,captured stdout of the run (same content as 
 logs/v3_phase4_stdout.txt,v3_phase4,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
 logs/v3_phase5_stdout.txt,v3_phase5,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
 logs/v3_phase6_stdout.txt,v3_phase6,captured stdout of the run (same content as the run log),shell,2026-11-15T16:58:26
-results/pdac/v3_phase6/claims_register.csv,v3_phase6,"Claims register: claim, evidence file, status (supported / exploratory / not supported); same table as in docs/PDAC_SUMMARY_v3.md",docs/PDAC_SUMMARY_v3.md,2026-11-15T17:00:01
+results/pdac/v3_phase5/phase5_gate_status.json,v3_phase5,Phase 5 gate check (GEO SOFT/series matrix with site labels),src/pdac/v3_phase5_gate.py,2026-11-15T19:05:57
+logs/v3_phase5_gate_20261115T190548.log,v3_phase5,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase5_gate.py,2026-11-15T19:05:57
+results/pdac/v3_phase5/verified_sample_metadata.csv,v3_phase5,"GEO tissue labels, title-parsed patient IDs and chemistry evidence",src/pdac/v3_phase5_programs.py,2026-11-15T19:07:23
+results/pdac/v3_phase5/slides/GSM8452847_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452847,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:24
+results/pdac/v3_phase5/slides/GSM8452847_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452847,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:24
+results/pdac/v3_phase5/slides/GSM8452848_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452848,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:24
+results/pdac/v3_phase5/slides/GSM8452849_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452849,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:26
+results/pdac/v3_phase5/slides/GSM8452849_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452849,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:26
+results/pdac/v3_phase5/slides/GSM8452850_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452850,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:27
+results/pdac/v3_phase5/slides/GSM8452850_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452850,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:27
+results/pdac/v3_phase5/slides/GSM8452851_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452851,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:29
+results/pdac/v3_phase5/slides/GSM8452851_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452851,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:29
+results/pdac/v3_phase5/slides/GSM8452852_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452852,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:30
+results/pdac/v3_phase5/slides/GSM8452852_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452852,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:30
+results/pdac/v3_phase5/slides/GSM8452853_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452853,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:32
+results/pdac/v3_phase5/slides/GSM8452853_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452853,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:32
+results/pdac/v3_phase5/slides/GSM8452854_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452854,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:33
+results/pdac/v3_phase5/slides/GSM8452854_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452854,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:33
+results/pdac/v3_phase5/slides/GSM8452855_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452855,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:34
+results/pdac/v3_phase5/slides/GSM8452855_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452855,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:34
+results/pdac/v3_phase5/slides/GSM8452856_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452856,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:36
+results/pdac/v3_phase5/slides/GSM8452856_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452856,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:36
+results/pdac/v3_phase5/slides/GSM8452857_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452857,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:37
+results/pdac/v3_phase5/slides/GSM8452857_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452857,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:37
+results/pdac/v3_phase5/slides/GSM8452858_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452858,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:39
+results/pdac/v3_phase5/slides/GSM8452858_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452858,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:39
+results/pdac/v3_phase5/slides/GSM8452859_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452859,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:41
+results/pdac/v3_phase5/slides/GSM8452859_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452859,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:41
+results/pdac/v3_phase5/slides/GSM8452860_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452860,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:42
+results/pdac/v3_phase5/slides/GSM8452860_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452860,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:42
+results/pdac/v3_phase5/slides/GSM8452861_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452861,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:44
+results/pdac/v3_phase5/slides/GSM8452861_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452861,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:44
+results/pdac/v3_phase5/slides/GSM8452862_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452862,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:45
+results/pdac/v3_phase5/slides/GSM8452862_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452862,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:45
+results/pdac/v3_phase5/slides/GSM8452863_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452863,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:46
+results/pdac/v3_phase5/slides/GSM8452863_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452863,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:46
+results/pdac/v3_phase5/slides/GSM8452864_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452864,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:47
+results/pdac/v3_phase5/slides/GSM8452864_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452864,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:47
+results/pdac/v3_phase5/slides/GSM8452865_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452865,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:48
+results/pdac/v3_phase5/slides/GSM8452865_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452865,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:48
+results/pdac/v3_phase5/slides/GSM8452866_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452866,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:49
+results/pdac/v3_phase5/slides/GSM8452866_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452866,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:49
+results/pdac/v3_phase5/slides/GSM8452867_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452867,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:50
+results/pdac/v3_phase5/slides/GSM8452867_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452867,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:50
+results/pdac/v3_phase5/slides/GSM8452868_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452868,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:52
+results/pdac/v3_phase5/slides/GSM8452868_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452868,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:52
+results/pdac/v3_phase5/slides/GSM8452869_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452869,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:53
+results/pdac/v3_phase5/slides/GSM8452869_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452869,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:53
+results/pdac/v3_phase5/slides/GSM8452870_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452870,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:54
+results/pdac/v3_phase5/slides/GSM8452870_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452870,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:54
+results/pdac/v3_phase5/slides/GSM8452871_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452871,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:56
+results/pdac/v3_phase5/slides/GSM8452871_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452871,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:56
+results/pdac/v3_phase5/slides/GSM8452872_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452872,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:57
+results/pdac/v3_phase5/slides/GSM8452872_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452872,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:57
+results/pdac/v3_phase5/slides/GSM8452873_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452873,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:59
+results/pdac/v3_phase5/slides/GSM8452873_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452873,src/pdac/v3_phase5_programs.py,2026-11-15T19:07:59
+results/pdac/v3_phase5/slides/GSM8452874_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452874,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:00
+results/pdac/v3_phase5/slides/GSM8452874_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452874,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:00
+results/pdac/v3_phase5/slides/GSM8452875_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452875,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:01
+results/pdac/v3_phase5/slides/GSM8452875_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452875,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:01
+results/pdac/v3_phase5/slides/GSM8452876_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452876,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:02
+results/pdac/v3_phase5/slides/GSM8452876_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452876,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:02
+results/pdac/v3_phase5/slides/GSM8452877_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452877,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:03
+results/pdac/v3_phase5/slides/GSM8452877_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452877,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:03
+results/pdac/v3_phase5/slides/GSM8452878_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452878,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:04
+results/pdac/v3_phase5/slides/GSM8452878_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452878,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:04
+results/pdac/v3_phase5/slides/GSM8452879_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452879,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:04
+results/pdac/v3_phase5/slides/GSM8452879_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452879,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:04
+results/pdac/v3_phase5/slides/GSM8452880_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452880,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:05
+results/pdac/v3_phase5/slides/GSM8452880_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452880,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:05
+results/pdac/v3_phase5/slides/GSM8452881_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452881,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:06
+results/pdac/v3_phase5/slides/GSM8452881_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452881,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:06
+results/pdac/v3_phase5/slides/GSM8452882_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452882,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:07
+results/pdac/v3_phase5/slides/GSM8452882_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452882,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:07
+results/pdac/v3_phase5/slides/GSM8452883_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452883,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:08
+results/pdac/v3_phase5/slides/GSM8452883_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452883,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:08
+results/pdac/v3_phase5/slides/GSM8452884_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452884,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:09
+results/pdac/v3_phase5/slides/GSM8452884_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452884,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:09
+results/pdac/v3_phase5/slides/GSM8452885_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452885,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:10
+results/pdac/v3_phase5/slides/GSM8452885_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452885,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:10
+results/pdac/v3_phase5/slides/GSM8452886_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452886,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:11
+results/pdac/v3_phase5/slides/GSM8452886_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452886,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:11
+results/pdac/v3_phase5/slides/GSM8452887_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452887,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:12
+results/pdac/v3_phase5/slides/GSM8452887_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452887,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:12
+results/pdac/v3_phase5/slides/GSM8452888_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452888,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:13
+results/pdac/v3_phase5/slides/GSM8452888_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452888,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:13
+results/pdac/v3_phase5/slides/GSM8452889_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452889,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:14
+results/pdac/v3_phase5/slides/GSM8452889_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452889,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:14
+results/pdac/v3_phase5/slides/GSM8452890_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452890,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:15
+results/pdac/v3_phase5/slides/GSM8452890_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452890,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:15
+results/pdac/v3_phase5/slides/GSM8452891_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452891,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:17
+results/pdac/v3_phase5/slides/GSM8452891_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452891,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:17
+results/pdac/v3_phase5/slides/GSM8452892_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452892,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:18
+results/pdac/v3_phase5/slides/GSM8452892_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452892,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:18
+results/pdac/v3_phase5/slides/GSM8452893_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452893,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:20
+results/pdac/v3_phase5/slides/GSM8452893_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452893,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:20
+results/pdac/v3_phase5/slides/GSM8452894_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452894,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:21
+results/pdac/v3_phase5/slides/GSM8452894_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452894,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:21
+results/pdac/v3_phase5/slides/GSM8452895_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8452895,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:23
+results/pdac/v3_phase5/slides/GSM8452895_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8452895,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:23
+results/pdac/v3_phase5/slides/GSM8714177_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714177,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:24
+results/pdac/v3_phase5/slides/GSM8714177_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714177,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:24
+results/pdac/v3_phase5/slides/GSM8714178_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714178,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:24
+results/pdac/v3_phase5/slides/GSM8714178_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714178,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:24
+results/pdac/v3_phase5/slides/GSM8714179_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714179,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:25
+results/pdac/v3_phase5/slides/GSM8714179_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714179,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:25
+results/pdac/v3_phase5/slides/GSM8714180_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714180,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:26
+results/pdac/v3_phase5/slides/GSM8714180_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714180,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:26
+results/pdac/v3_phase5/slides/GSM8714181_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714181,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:26
+results/pdac/v3_phase5/slides/GSM8714181_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714181,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:26
+results/pdac/v3_phase5/slides/GSM8714182_spot_scores.csv.gz,v3_phase5,Retained-spot program scores and raw UMIs: GSM8714182,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:27
+results/pdac/v3_phase5/slides/GSM8714182_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714182,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:27
+results/pdac/v3_phase5/slides/GSM8714183_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714183,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:27
+results/pdac/v3_phase5/slides/GSM8714184_summary.json,v3_phase5/slides,Resumable slide QC and program summaries: GSM8714184,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:28
+results/pdac/v3_phase5/slide_qc.csv,v3_phase5,Planned UMI QC and PDX exclusions,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:28
+results/pdac/v3_phase5/slide_program_scores.csv,v3_phase5,Median spot score per included slide and program,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:28
+results/pdac/v3_phase5/program_gene_coverage_controls.csv,v3_phase5,Actual program genes and Scanpy sampled controls,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:28
+results/pdac/v3_phase5/matrix_input_manifest.csv,v3_phase5,SHA-256 of every matrix actually inspected,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:28
+results/pdac/v3_phase5/patient_site_program_scores.csv,v3_phase5,Equal-weight slide means per patient and anatomical site,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase5/patient_arm_program_scores.csv,v3_phase5,Equal-weight anatomical-site means per patient and arm,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase5/program_comparisons.csv,v3_phase5,Patient-level exact tests; main and organ-specific BH families,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase5/exploratory_covariate_models.csv,v3_phase5,OLS site + raw depth + inferred chemistry; patient-clustered SEs,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase5/site_chemistry_balance.csv,v3_phase5,Confounding and chemistry/site imbalance,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+figures/pdac/v3_phase5/phase5_programs.png,v3_phase5,Paired patient scores; metastasis is equal-weight site mean,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+figures/pdac/v3_phase5/phase5_programs.pdf,v3_phase5,Paired patient scores; metastasis is equal-weight site mean,src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase5/phase5_summary.json,v3_phase5,"Phase 5 completion, input identities and limitations",src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+logs/v3_phase5_programs_20261115T190717.log,v3_phase5,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase5_programs.py,2026-11-15T19:08:32
+results/pdac/v3_phase4/phase4_gate_status.json,v3_phase4,Phase 4 gate check (licence file) and outstanding blockers,src/pdac/v3_phase4_gate.py,2026-11-15T19:09:26
+logs/v3_phase4_gate_20261115T190919.log,v3_phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase4_gate.py,2026-11-15T19:09:27
+results/pdac/v3_phase4/geo_sample_metadata.csv,v3_phase4,GEO sample titles and tissue metadata; no patient identities provided,src/pdac/v3_phase4_consistency.py,2026-11-15T19:09:35
+results/pdac/v3_phase4/slides/slide1_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:09:42
+results/pdac/v3_phase4/slides/slide1_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:09:42
+results/pdac/v3_phase4/slides/slide1_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:10:54
+results/pdac/v3_phase4/slides/slide1__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:11:13
+results/pdac/v3_phase4/slides/slide1__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:11:42
+results/pdac/v3_phase4/slides/slide1__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:12:11
+results/pdac/v3_phase4/slides/slide1__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:12:40
+results/pdac/v3_phase4/slides/slide1__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:13:09
+results/pdac/v3_phase4/slides/slide1__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:13:30
+results/pdac/v3_phase4/slides/slide1__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:14:01
+results/pdac/v3_phase4/slides/slide1__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:14:32
+results/pdac/v3_phase4/slides/slide1__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:04
+results/pdac/v3_phase4/slides/slide1__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide1/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:36
+results/pdac/v3_phase4/slides/slide1_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:36
+results/pdac/v3_phase4/slides/slide1_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:36
+results/pdac/v3_phase4/slides/slide2_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:43
+results/pdac/v3_phase4/slides/slide2_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:15:43
+results/pdac/v3_phase4/slides/slide2_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:17:25
+results/pdac/v3_phase4/slides/slide2__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:17:45
+results/pdac/v3_phase4/slides/slide2__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:18:13
+results/pdac/v3_phase4/slides/slide2__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:18:41
+results/pdac/v3_phase4/slides/slide2__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:19:10
+results/pdac/v3_phase4/slides/slide2__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:19:38
+results/pdac/v3_phase4/slides/slide2__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:19:59
+results/pdac/v3_phase4/slides/slide2__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:20:33
+results/pdac/v3_phase4/slides/slide2__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:21:07
+results/pdac/v3_phase4/slides/slide2__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:21:42
+results/pdac/v3_phase4/slides/slide2__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide2/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:17
+results/pdac/v3_phase4/slides/slide2_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:17
+results/pdac/v3_phase4/slides/slide2_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:17
+results/pdac/v3_phase4/slides/slide3_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:22
+results/pdac/v3_phase4/slides/slide3_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:22
+results/pdac/v3_phase4/slides/slide3_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:40
+results/pdac/v3_phase4/slides/slide3__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:22:52
+results/pdac/v3_phase4/slides/slide3__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:23:10
+results/pdac/v3_phase4/slides/slide3__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:23:28
+results/pdac/v3_phase4/slides/slide3__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:23:46
+results/pdac/v3_phase4/slides/slide3__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:24:04
+results/pdac/v3_phase4/slides/slide3__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:24:16
+results/pdac/v3_phase4/slides/slide3__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:24:34
+results/pdac/v3_phase4/slides/slide3__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:24:52
+results/pdac/v3_phase4/slides/slide3__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:10
+results/pdac/v3_phase4/slides/slide3__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide3/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:29
+results/pdac/v3_phase4/slides/slide3_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:29
+results/pdac/v3_phase4/slides/slide3_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:29
+results/pdac/v3_phase4/slides/slide4_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:34
+results/pdac/v3_phase4/slides/slide4_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:25:34
+results/pdac/v3_phase4/slides/slide4_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:26:11
+results/pdac/v3_phase4/slides/slide4__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:26:26
+results/pdac/v3_phase4/slides/slide4__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:26:47
+results/pdac/v3_phase4/slides/slide4__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:27:08
+results/pdac/v3_phase4/slides/slide4__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:27:30
+results/pdac/v3_phase4/slides/slide4__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:27:51
+results/pdac/v3_phase4/slides/slide4__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:28:05
+results/pdac/v3_phase4/slides/slide4__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:28:27
+results/pdac/v3_phase4/slides/slide4__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:28:49
+results/pdac/v3_phase4/slides/slide4__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:12
+results/pdac/v3_phase4/slides/slide4__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide4/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:34
+results/pdac/v3_phase4/slides/slide4_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:34
+results/pdac/v3_phase4/slides/slide4_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:34
+results/pdac/v3_phase4/slides/slide6_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:40
+results/pdac/v3_phase4/slides/slide6_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:29:40
+results/pdac/v3_phase4/slides/slide6_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:30:07
+results/pdac/v3_phase4/slides/slide6__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:30:22
+results/pdac/v3_phase4/slides/slide6__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:30:45
+results/pdac/v3_phase4/slides/slide6__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:31:08
+results/pdac/v3_phase4/slides/slide6__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:31:32
+results/pdac/v3_phase4/slides/slide6__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:31:56
+results/pdac/v3_phase4/slides/slide6__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:32:12
+results/pdac/v3_phase4/slides/slide6__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:32:36
+results/pdac/v3_phase4/slides/slide6__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:32:59
+results/pdac/v3_phase4/slides/slide6__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:24
+results/pdac/v3_phase4/slides/slide6__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide6/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:49
+results/pdac/v3_phase4/slides/slide6_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:49
+results/pdac/v3_phase4/slides/slide6_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:49
+results/pdac/v3_phase4/slides/slide5_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:53
+results/pdac/v3_phase4/slides/slide5_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:33:53
+results/pdac/v3_phase4/slides/slide5_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:34:07
+results/pdac/v3_phase4/slides/slide5__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:34:19
+results/pdac/v3_phase4/slides/slide5__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:34:36
+results/pdac/v3_phase4/slides/slide5__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:34:52
+results/pdac/v3_phase4/slides/slide5__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:35:09
+results/pdac/v3_phase4/slides/slide5__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:35:27
+results/pdac/v3_phase4/slides/slide5__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:35:39
+results/pdac/v3_phase4/slides/slide5__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:35:55
+results/pdac/v3_phase4/slides/slide5__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:12
+results/pdac/v3_phase4/slides/slide5__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:29
+results/pdac/v3_phase4/slides/slide5__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:47
+results/pdac/v3_phase4/slides/slide5_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:47
+results/pdac/v3_phase4/slides/slide5_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:47
+results/pdac/v3_phase4/slides/slide5b2_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:51
+results/pdac/v3_phase4/slides/slide5b2_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:36:51
+results/pdac/v3_phase4/slides/slide5b2_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:37:15
+results/pdac/v3_phase4/slides/slide5b2__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:37:28
+results/pdac/v3_phase4/slides/slide5b2__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:37:48
+results/pdac/v3_phase4/slides/slide5b2__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:38:08
+results/pdac/v3_phase4/slides/slide5b2__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:38:28
+results/pdac/v3_phase4/slides/slide5b2__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:38:48
+results/pdac/v3_phase4/slides/slide5b2__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:39:01
+results/pdac/v3_phase4/slides/slide5b2__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:39:20
+results/pdac/v3_phase4/slides/slide5b2__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:39:40
+results/pdac/v3_phase4/slides/slide5b2__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:39:59
+results/pdac/v3_phase4/slides/slide5b2__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b2/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:19
+results/pdac/v3_phase4/slides/slide5b2_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:19
+results/pdac/v3_phase4/slides/slide5b2_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:19
+results/pdac/v3_phase4/slides/slide5b3_background.csv,v3_phase4/slides,Gene detection vs negative probes (<2x max diagnostic),src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:22
+results/pdac/v3_phase4/slides/slide5b3_negative_probes.csv,v3_phase4/slides,Actual negative-probe detection and mean counts,src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:22
+results/pdac/v3_phase4/slides/slide5b3_labels.csv.gz,v3_phase4/slides,Marker/Leiden labels; original FOV and cell identifiers,src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:33
+results/pdac/v3_phase4/slides/slide5b3__marker__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/marker/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:40
+results/pdac/v3_phase4/slides/slide5b3__marker__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/marker/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:40:52
+results/pdac/v3_phase4/slides/slide5b3__marker__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/marker/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:41:03
+results/pdac/v3_phase4/slides/slide5b3__marker__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/marker/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:41:14
+results/pdac/v3_phase4/slides/slide5b3__marker__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/marker/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:41:25
+results/pdac/v3_phase4/slides/slide5b3__leiden_consensus__global.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/leiden_consensus/global; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:41:34
+results/pdac/v3_phase4/slides/slide5b3__leiden_consensus__block20nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/leiden_consensus/block20nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:41:47
+results/pdac/v3_phase4/slides/slide5b3__leiden_consensus__block10nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/leiden_consensus/block10nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:00
+results/pdac/v3_phase4/slides/slide5b3__leiden_consensus__block5nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/leiden_consensus/block5nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:13
+results/pdac/v3_phase4/slides/slide5b3__leiden_consensus__dist_nn.csv.gz,v3_phase4,"GSE310352 full catalogue, slide5b3/leiden_consensus/dist_nn; 500 add-one permutations",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:26
+results/pdac/v3_phase4/slides/slide5b3_info.json,v3_phase4/slides,"QC, scale, annotation, compartment and null-construction diagnostics",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:26
+results/pdac/v3_phase4/slides/slide5b3_identity.json,v3_phase4/slides,Input digests and immutable resume parameters,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:26
+results/pdac/v3_phase4/headline_by_null.csv,v3_phase4,Headline CAF to T CXCL12-CXCR4 with calibration/background diagnostics,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+results/pdac/v3_phase4/headline_summary_by_null.csv,v3_phase4,Across-slide headline summaries (not patient-level inference),src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+results/pdac/v3_phase4/CAF_T_all_axes_by_null.csv,v3_phase4,Per-axis CAF to T results under every null,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+results/pdac/v3_phase4/axis_consistency_summary.csv,v3_phase4,Direction vs Mendeley marker Q; independence unverified,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+results/pdac/v3_phase4/background_diagnostics.csv,v3_phase4,Raw detection relative to measured negative probes,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+results/pdac/v3_phase4/skipped_runs.csv,v3_phase4,Skipped nulls and reasons,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:28
+figures/pdac/v3_phase4/phase4_consistency.png,v3_phase4,Per-slide headline zQ; blocks in multiples of median nearest-neighbour distance,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:29
+figures/pdac/v3_phase4/phase4_consistency.pdf,v3_phase4,Per-slide headline zQ; blocks in multiples of median nearest-neighbour distance,src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:29
+results/pdac/v3_phase4/phase4_summary.json,v3_phase4,"Completion, dataset scope, limitations and headline findings",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:29
+logs/v3_phase4_consistency_20261115T190935.log,v3_phase4,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase4_consistency.py,2026-11-15T19:42:29
+logs/v3_resume_validation_20261115T194301.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_resume_validation.py,2026-11-15T19:43:22
+results/pdac/v3_phase4/annotation_availability.csv,v3_phase4,Explicit cell-type availability; missing receivers mean untestable headline,src/pdac/v3_resume_validation.py,2026-11-15T19:43:50
+results/pdac/v3_phase6/resumed_validation.json,v3_phase6,"Independent checks of raw QC, aggregation, exact tests and CCC invariants",src/pdac/v3_resume_validation.py,2026-11-15T19:43:50
+logs/v3_resume_validation_20261115T194330.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_resume_validation.py,2026-11-15T19:43:50
+logs/v3_phase6_synthesis_20261115T194419.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase6_synthesis.py,2026-11-15T19:44:28
+logs/v3_phase5_programs_20261115T190600.log,v3_phase5,Initial run stopped by overly strict float32 arithmetic check; see progress log,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_phase5_resume_gate_stdout.txt,v3_phase5,Resumed Phase 5 metadata gate stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_phase4_resume_gate_stdout.txt,v3_phase4,Resumed Phase 4 licence gate stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_phase5_programs_stdout.txt,v3_phase5,Completed Phase 5 program run stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_phase4_consistency_stdout.txt,v3_phase4,Completed Phase 4 consistency audit stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_resume_validation_stdout.txt,v3_phase6,Independent resumed-results validation stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+logs/v3_phase6_resume_stdout.txt,v3_phase6,Resumed synthesis stdout,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:04
+results/pdac/v3_phase6/v3_key_numbers.csv,v3_phase6,Every number quoted in docs/PDAC_SUMMARY_v3.md with its source file and column,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:05
+results/pdac/v3_phase6/claims_register.csv,v3_phase6,"Claims register parsed from summary, preserving escaped bars",src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:05
+results/pdac/v3_phase6/v3_manifest_check.csv,v3_phase6,"Manifest completeness check for v3 outputs (missing files, unregistered files)",src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:05
+results/pdac/v3_phase6/phase6_summary.json,v3_phase6,Phase 6 synthesis summary,src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:05
+logs/v3_phase6_synthesis_20261115T194557.log,v3_phase6,"run log (package versions, git commit, parameters, key numbers)",src/pdac/v3_phase6_synthesis.py,2026-11-15T19:46:05

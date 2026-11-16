@@ -1,0 +1,10 @@
+2026-11-15 19:43:30,176 INFO script=v3_resume_validation log=logs/v3_resume_validation_20261115T194330.log
+2026-11-15 19:43:30,227 INFO git_commit=56054f14eea0a0beede88a481dd18ac08e984437+dirty
+2026-11-15 19:43:30,227 INFO seed=42
+D:\Anaconda\envs\thesis-spatial-ccc\Lib\site-packages\dask\dataframe\__init__.py:31: FutureWarning: The legacy Dask DataFrame implementation is deprecated and will be removed in a future version. Set the configuration option `dataframe.query-planning` to `True` or None to enable the new Dask Dataframe implementation and silence this warning.
+  warnings.warn(
+2026-11-15 19:43:37,357 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "scanpy": "1.10.3", "squidpy": "1.6.5", "anndata": "0.10.9", "sklearn": "1.5.2", "matplotlib": "3.9.2", "statsmodels": "0.15.0", "leidenalg": "unknown", "igraph": "0.11.8"}
+2026-11-15 19:43:37,518 INFO platform=Windows-10-10.0.26300-SP0
+{'phase': 5, 'checks': 'raw matrix QC; spot/slide/patient aggregation; control disjointness; exhaustive Wilcoxon; BH', 'status': 'PASS', 'n_slides_checked': 57, 'n_tests_checked': 20}
+{'phase': 4, 'checks': '80 run markers; add-one p grid; Q=E/M; observed-score invariance across nulls', 'status': 'PASS', 'n_evaluated': 80, 'n_skipped': 0}
+2026-11-15 19:43:50,250 INFO run finished

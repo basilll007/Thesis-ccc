@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-15T16:55:15",
+  "checked_at": "2026-11-15T19:05:57",
   "patterns": [
     "*GSE277783*soft*",
     "*GSE277783*series_matrix*",
@@ -7,9 +7,14 @@
     "*GSE277783*.soft.gz",
     "GSE277783_family*"
   ],
-  "soft_or_series_matrix_files": {},
+  "soft_or_series_matrix_files": {
+    "data/GSE277783_family.soft.gz": {
+      "n_characteristic_lines": 320,
+      "n_site_like_lines": 128
+    }
+  },
   "raw_tar_on_disk": true,
   "eda_sample_map_exists": true,
-  "status": "BLOCKED",
-  "reason": "no GEO SOFT/series-matrix file for GSE277783 in data/; site labels unverifiable (eda_gse277783/EDA_REPORT.md: organ site UNKNOWN for 49/57 slides)"
+  "status": "RUN",
+  "reason": null
 }
