@@ -1,0 +1,3 @@
+## Translational link (draft, separate track)
+
+The prespecified Visium hypoxia robustness audit reproduced the original result but failed the robustness rule after tumour/host filtering and common-depth restriction. Effects remain positive; significance and paired sample size depend on the sensitivity. TCGA and CPTAC bulk PDAC cohorts are prepared with explicit histology restrictions and purity/cellularity provenance. Survival models are implemented and predeclared but **not run or validated on outcome data** at the user-requested PR hand-off. See [the draft translational summary](TRANSLATIONAL_SUMMARY_v1.md), plans in `translational_plans/`, and `results/translational/MANIFEST.csv`.

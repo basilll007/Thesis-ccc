@@ -1,0 +1,18 @@
+{
+  "gsm": "GSM8452854",
+  "n_qc_spots": 2386,
+  "n_selected": 736,
+  "epithelial_genes": [
+    "KRT19",
+    "KRT7",
+    "EPCAM"
+  ],
+  "host_genes": [
+    "ALB",
+    "APOA1",
+    "APOA2",
+    "TTR"
+  ],
+  "epithelial_threshold": 1.7394099235534668,
+  "host_threshold": 0.9300082921981812
+}

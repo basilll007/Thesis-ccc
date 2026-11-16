@@ -1,0 +1,5 @@
+cohort,n_patients,n_events,n_censored,median_observed_time_months,reverse_KM_median_followup_months,n_with_purity,n_source_patients,n_expression_samples
+TCGA_all_primary,176,92,84,15.271065525000001,24.22987145,157,184,177
+TCGA_confirmed_PDAC,141,81,60,15.12312194,24.22987145,122,184,177
+CPTAC_all_primary,134,76,58,13.125256673511293,23.523613963039015,132,140,140
+CPTAC_confirmed_PDAC,129,72,57,13.1088295687885,23.523613963039015,127,140,140

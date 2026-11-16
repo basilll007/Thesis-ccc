@@ -17,3 +17,6 @@ models/
 
 # Model-development large artefacts (processed tensors, checkpoints)
 model_cache/
+# Translational raw downloads are external: F:/Thesis/data/tcga/
+/data/tcga/
+/results/translational/cache/

@@ -1,0 +1,174 @@
+{
+  "status": "DONE",
+  "decision": "NOT ROBUST",
+  "failed_checks": [
+    "b_tumour_host",
+    "c_2000_UMI"
+  ],
+  "baseline_reproduced": true,
+  "n_slides": 54,
+  "n_original_pairs": 13,
+  "random_tail_p": 0.00999000999000999,
+  "random_percentile": 99.1,
+  "n_random_sets": 1000,
+  "figure": [
+    "figures/translational/phase1/hypoxia_robustness_20261116T042104430235Z.png",
+    "figures/translational/phase1/hypoxia_robustness_20261116T042104430235Z.pdf"
+  ],
+  "results": [
+    {
+      "scenario": "baseline",
+      "n_pairs": 13,
+      "median_paired_effect": 0.153953895569,
+      "p": 0.00244140625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "a_no_CytAssist",
+      "n_pairs": 13,
+      "median_paired_effect": 0.146444762548,
+      "p": 0.0478515625,
+      "n_slides": 48,
+      "status": "TESTABLE",
+      "secondary_q_abc": 0.1021728515625
+    },
+    {
+      "scenario": "b_tumour_host",
+      "n_pairs": 13,
+      "median_paired_effect": 0.078823058486,
+      "p": 0.068115234375,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": 0.1021728515625
+    },
+    {
+      "scenario": "c_2000_UMI",
+      "n_pairs": 10,
+      "median_paired_effect": 0.1229851100385,
+      "p": 0.193359375,
+      "n_slides": 40,
+      "status": "TESTABLE",
+      "secondary_q_abc": 0.193359375
+    },
+    {
+      "scenario": "d_LOO_VEGFA",
+      "n_pairs": 13,
+      "median_paired_effect": 0.138489041569,
+      "p": 0.006103515625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_SLC2A1",
+      "n_pairs": 13,
+      "median_paired_effect": 0.117444148497,
+      "p": 0.004638671875,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_CA9",
+      "n_pairs": 13,
+      "median_paired_effect": 0.172726879698,
+      "p": 0.00244140625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_LDHA",
+      "n_pairs": 13,
+      "median_paired_effect": 0.141633447589,
+      "p": 0.006103515625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_PGK1",
+      "n_pairs": 13,
+      "median_paired_effect": 0.150399484394,
+      "p": 0.004638671875,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_ADM",
+      "n_pairs": 13,
+      "median_paired_effect": 0.162930431221,
+      "p": 0.008056640625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_NDRG1",
+      "n_pairs": 13,
+      "median_paired_effect": 0.135361948297,
+      "p": 0.001708984375,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_BNIP3",
+      "n_pairs": 13,
+      "median_paired_effect": 0.13506652832,
+      "p": 0.001220703125,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_ANKRD37",
+      "n_pairs": 13,
+      "median_paired_effect": 0.205405148198,
+      "p": 0.004638671875,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_P4HA1",
+      "n_pairs": 13,
+      "median_paired_effect": 0.163594542995,
+      "p": 0.00244140625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_ENO1",
+      "n_pairs": 13,
+      "median_paired_effect": 0.172483926831,
+      "p": 0.00244140625,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_LOO_HK2",
+      "n_pairs": 13,
+      "median_paired_effect": 0.180685071014,
+      "p": 0.00341796875,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    },
+    {
+      "scenario": "d_Hallmark",
+      "n_pairs": 13,
+      "median_paired_effect": 0.073530454986,
+      "p": 0.00048828125,
+      "n_slides": 54,
+      "status": "TESTABLE",
+      "secondary_q_abc": NaN
+    }
+  ],
+  "plan_commit": "0d82edb02c0b8312141ff05d5350a026a4c8a48b"
+}

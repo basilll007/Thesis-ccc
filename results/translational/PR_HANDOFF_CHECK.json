@@ -1,0 +1,12 @@
+{
+  "manifest_files_checked": 89,
+  "issues": [],
+  "analysis_status": {
+    "phase1": "DONE_NOT_ROBUST",
+    "phase2": "DONE",
+    "phase3": "NOT_RUN_USER_STOP",
+    "phase4": "NOT_RUN_USER_STOP",
+    "phase5": "PARTIAL_PR_HANDOFF"
+  },
+  "no_survival_results_claimed": true
+}
