@@ -22,7 +22,7 @@ conda env create -f model_dev/environment.yml
 | 1 targets/splits | `python model_dev/src/splits.py --config model_dev/configs/splits.yaml` |
 | 2 baselines | `python model_dev/src/baselines.py --config model_dev/configs/baselines.yaml` |
 | 3 graph models | `python model_dev/src/train.py --config model_dev/configs/graph.yaml` then `python model_dev/src/ablations.py --config model_dev/configs/ablations.yaml` |
-| 4 external test | `python model_dev/src/evaluate.py --config model_dev/configs/external.yaml` |
+| 4 external test | `python model_dev/src/evaluate.py --receiver myeloid` then `--receiver tumour` (each runs once) |
 | 5 interpretation | `python model_dev/src/interpret.py --config model_dev/configs/interpret.yaml` |
 | 6 pretraining | `python model_dev/src/pretrain.py --config model_dev/configs/pretrain.yaml` |
 | 7 report | `python model_dev/src/report.py` |

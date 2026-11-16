@@ -38,6 +38,11 @@ def class_permutation(store0, classes_arr: np.ndarray, cls_id: int, seed: int, d
     return torch.as_tensor(perm).long().to(device)
 
 
+def target_cols(t: str, tnames: list[str], n_prog: int) -> list[int]:
+    """Columns of the prediction matrix that make up target t ('genes_pooled' = all gene columns)."""
+    return list(range(n_prog, len(tnames))) if t == "genes_pooled" else [tnames.index(t)]
+
+
 def predict(model, store, g, cov, rc, cfg, device, remap=None, x_transform=None) -> np.ndarray:
     model.eval()
     out = []
@@ -57,7 +62,8 @@ def main() -> None:
     summ3 = pd.read_csv(C.RESULTS / "phase3" / "graph_summary.csv")
     sel = json.loads((C.RESULTS / "phase3" / "architecture_selection.json").read_text())
     arch, lr = sel["selected_arch"], float(sel["selected_lr"])
-    gated = summ3[(summ3.arch == arch) & summ3.beats_baseline.astype(str).eq("True") & summ3.target.str.contains(":")]
+    gated = summ3[(summ3.arch == arch) & summ3.beats_baseline.astype(str).eq("True") &
+                  (summ3.target.str.contains(":") | (summ3.target == "genes_pooled"))]
     gate = {"selected_arch": arch, "targets_passing_gate": gated[["receiver", "target", "gain_vs_baseline", "gain_ci_low"]].to_dict("records"),
             "rule": "graph model beats strongest baseline (paired tumour-bootstrap CI of gain excludes 0)"}
     if gated.empty:
@@ -85,7 +91,18 @@ def main() -> None:
         s = spec[receiver]
         data = A.build_receiver("development", receiver, log, blocks=["own", "tile"])
         tnames = data.target_names
+        n_prog = len(s["programs"])
         targets = gated[gated.receiver == receiver].target.tolist()
+        # perturbation quantiles per other-type program, computed once on the GPU from development cells (raw log1p)
+        recv_key = {v: k for k, v in F.TYPED.items()}[s["class"]]
+        other_progs = [pn for pn in gene_groups if pn.split(":")[0] in F.TYPED and pn.split(":")[0] != recv_key]
+        qcache = {}
+        for pn in other_progs:
+            ci_ = classes.index(F.TYPED[pn.split(":")[0]])
+            idx_c = torch.nonzero(store0.cls == ci_).squeeze(1)
+            idx_c = idx_c[torch.randperm(len(idx_c), generator=torch.Generator(device=device).manual_seed(C.SEED), device=device)[:50000]]
+            xq = store0.X[idx_c][:, torch.as_tensor(gene_groups[pn], device=device)].float()
+            qcache[pn] = {q: torch.quantile(xq, q, dim=0) for q in cfg["quantiles"]}
         rc = classes.index(s["class"])
         g_all = torch.as_tensor(np.array([offsets[x] + r for x, r in zip(data.section, data.row)])).long().to(device)
         raw = data.matrix(["own", "tile"])
@@ -112,38 +129,37 @@ def main() -> None:
                     pred = predict(model, store, g, c, rc, gcfg, device, remap=obj if kind == "remap" else None,
                                    x_transform=obj if kind == "xt" else None)
                     for t in targets:
-                        j = tnames.index(t)
+                        j = target_cols(t, tnames, n_prog)
                         for tum in np.unique(data.group[te]):
                             m = data.group[te] == tum
-                            sse_b = float(((data.Y[te][m, j] - base[m, j]) ** 2).sum())
-                            sse_p = float(((data.Y[te][m, j] - pred[m, j]) ** 2).sum())
-                            sst = float(((data.Y[te][m, j] - ytr_mean[j]) ** 2).sum())
+                            sse_b = float(((data.Y[te][m][:, j] - base[m][:, j]) ** 2).sum())
+                            sse_p = float(((data.Y[te][m][:, j] - pred[m][:, j]) ** 2).sum())
+                            sst = float(((data.Y[te][m][:, j] - ytr_mean[j]) ** 2).sum())
                             drops.setdefault((gname, t), {}).setdefault(tum, []).append((sse_p - sse_b, sst))
                 # in-silico perturbation (double gate): cross-type contribution CI excludes 0 for this target
                 for t in targets:
                     a = abl[(abl.receiver == receiver) & (abl.target == t) & (abl["mode"] == "same_type")]
                     if a.empty or not bool(a.diff_ci_excludes_0.iloc[0]):
                         continue
-                    for pname, gi in gene_groups.items():
-                        if ":" not in pname or pname.split(":")[0] == {v: k for k, v in F.TYPED.items()}.get(s["class"]):
-                            continue  # only other-type programs
-                        ptype = F.TYPED[pname.split(":")[0]]
-                        ci = classes.index(ptype)
+                    for pname in other_progs:
+                        gi = gene_groups[pname]
+                        ci = classes.index(F.TYPED[pname.split(":")[0]])
+                        gi_t = torch.as_tensor(gi, device=device)
                         for q in cfg["quantiles"]:
-                            qv = torch.as_tensor(np.quantile(store0.X[store0.cls == ci].float().cpu().numpy()[:, gi], q, axis=0)).to(device)
-                            qv = (qv - ck["mu"][gi].to(device)) / ck["sd"][gi].to(device)
-                            gi_t = torch.as_tensor(gi).to(device)
+                            qv = (qcache[pname][q] - ck["mu"].to(device)[gi_t]) / ck["sd"].to(device)[gi_t]
 
                             def xt(x, cls, qv=qv, gi_t=gi_t, ci=ci):
                                 x = x.clone()
-                                sel_c = (cls == ci)
-                                x[..., gi_t] = torch.where(sel_c.unsqueeze(-1), qv.expand(x[..., gi_t].shape), x[..., gi_t])
+                                sel_c = (cls == ci).unsqueeze(-1)
+                                x[..., gi_t] = torch.where(sel_c, qv.expand_as(x[..., gi_t]), x[..., gi_t])
                                 return x
                             pred = predict(model, store, g, c, rc, gcfg, device, x_transform=xt)
-                            j = tnames.index(t)
+                            j = target_cols(t, tnames, n_prog)
                             for tum in np.unique(data.group[te]):
                                 m = data.group[te] == tum
-                                changes.setdefault((pname, q, t), {}).setdefault(tum, []).append(float((pred[m, j] - base[m, j]).mean()))
+                                changes.setdefault((pname, q, t), {}).setdefault(tum, []).append(float((pred[m][:, j] - base[m][:, j]).mean()))
+                                for jj in j:
+                                    changes.setdefault((pname, q, tnames[jj]), {}).setdefault(tum, []).append(float((pred[m, jj] - base[m, jj]).mean()))
                 del model
             log.info("%s fold %d importance done", receiver, k)
         for (gname, t), per_t in drops.items():

@@ -1,0 +1,20 @@
+2026-11-16 13:03:39,002 INFO phase=phase3 script=ablations log=model_dev/results/phase3/run_ablations_20261116T130339.log
+2026-11-16 13:03:39,041 INFO git_commit=eec9f1be8213e2faa336a2ee3e846334db7d940c+dirty
+2026-11-16 13:03:39,041 INFO seed=42
+2026-11-16 13:03:42,661 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 13:03:42,674 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 13:03:42,674 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "modes_by_receiver": {"myeloid": ["same_type", "other_type", "composition", "shuffled", "no_graph"], "tumour": ["same_type", "other_type", "no_graph"]}, "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000, "_time_budget": 500.0}
+2026-11-16 13:03:42,675 INFO selected architecture sage, lr 0.0003
+2026-11-16 13:03:47,581 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 13:04:22,760 INFO myeloid shuffled sage lr=0.0003 seed=0 fold 4: 15 epochs, val mse 2.5762, 34s, peak 1874 MiB
+2026-11-16 13:06:16,730 INFO myeloid no_graph sage lr=0.0003 seed=0 fold 4: 51 epochs, val mse 2.5826, 114s, peak 1875 MiB
+2026-11-16 13:06:21,736 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 13:06:50,252 INFO myeloid same_type sage lr=0.0003 seed=1 fold 0: 14 epochs, val mse 2.7894, 28s, peak 1904 MiB
+2026-11-16 13:07:18,638 INFO myeloid other_type sage lr=0.0003 seed=1 fold 0: 14 epochs, val mse 2.8309, 28s, peak 1904 MiB
+2026-11-16 13:08:05,250 INFO myeloid composition sage lr=0.0003 seed=1 fold 0: 22 epochs, val mse 2.7802, 47s, peak 1930 MiB
+2026-11-16 13:08:37,674 INFO myeloid shuffled sage lr=0.0003 seed=1 fold 0: 16 epochs, val mse 2.8261, 32s, peak 1904 MiB
+2026-11-16 13:09:37,320 INFO myeloid no_graph sage lr=0.0003 seed=1 fold 0: 30 epochs, val mse 2.7922, 60s, peak 1904 MiB
+2026-11-16 13:10:13,736 INFO myeloid same_type sage lr=0.0003 seed=1 fold 1: 15 epochs, val mse 2.7446, 36s, peak 1993 MiB
+2026-11-16 13:10:49,864 INFO myeloid other_type sage lr=0.0003 seed=1 fold 1: 15 epochs, val mse 2.7765, 36s, peak 1993 MiB
+2026-11-16 13:13:10,640 INFO myeloid composition sage lr=0.0003 seed=1 fold 1: 56 epochs, val mse 2.7820, 141s, peak 2018 MiB
+2026-11-16 13:13:10,640 INFO time budget 500.0 s used; rerun to continue

@@ -1,0 +1,20 @@
+2026-11-16 14:16:03,996 INFO phase=phase3 script=ablations log=model_dev/results/phase3/run_ablations_20261116T141603.log
+2026-11-16 14:16:04,037 INFO git_commit=eec9f1be8213e2faa336a2ee3e846334db7d940c+dirty
+2026-11-16 14:16:04,038 INFO seed=42
+2026-11-16 14:16:07,571 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 14:16:07,582 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 14:16:07,582 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "modes_by_receiver": {"myeloid": ["same_type", "other_type", "composition", "shuffled", "no_graph"], "tumour": ["same_type", "other_type", "no_graph"]}, "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000, "_time_budget": 500.0}
+2026-11-16 14:16:07,585 INFO selected architecture sage, lr 0.0003
+2026-11-16 14:16:07,602 INFO myeloid: resumed from model_dev/results/phase3/results_ablation_myeloid.csv, model_dev/results/phase3/compute_ablation_myeloid.csv, model_dev/results/phase3/per_tumour_sse_ablation_myeloid.csv
+2026-11-16 14:16:12,839 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:16:18,691 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:17:50,079 INFO tumour no_graph sage lr=0.0003 seed=1 fold 2: 39 epochs, val mse 2.2876, 91s, peak 1878 MiB
+2026-11-16 14:18:43,740 INFO tumour same_type sage lr=0.0003 seed=1 fold 3: 23 epochs, val mse 1.9319, 53s, peak 1911 MiB
+2026-11-16 14:19:25,543 INFO tumour other_type sage lr=0.0003 seed=1 fold 3: 18 epochs, val mse 2.0100, 42s, peak 1911 MiB
+2026-11-16 14:20:23,713 INFO tumour no_graph sage lr=0.0003 seed=1 fold 3: 25 epochs, val mse 1.9665, 58s, peak 1911 MiB
+2026-11-16 14:21:28,684 INFO tumour same_type sage lr=0.0003 seed=1 fold 4: 27 epochs, val mse 1.7510, 65s, peak 1979 MiB
+2026-11-16 14:22:26,377 INFO tumour other_type sage lr=0.0003 seed=1 fold 4: 24 epochs, val mse 1.8784, 58s, peak 1979 MiB
+2026-11-16 14:24:06,545 INFO tumour no_graph sage lr=0.0003 seed=1 fold 4: 39 epochs, val mse 1.8388, 100s, peak 1979 MiB
+2026-11-16 14:24:11,825 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:25:26,935 INFO tumour same_type sage lr=0.0003 seed=2 fold 0: 31 epochs, val mse 2.0793, 75s, peak 2025 MiB
+2026-11-16 14:25:26,937 INFO time budget 500.0 s used; rerun to continue

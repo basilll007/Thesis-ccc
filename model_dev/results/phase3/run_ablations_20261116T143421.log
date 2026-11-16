@@ -1,0 +1,156 @@
+2026-11-16 14:34:21,713 INFO phase=phase3 script=ablations log=model_dev/results/phase3/run_ablations_20261116T143421.log
+2026-11-16 14:34:21,753 INFO git_commit=eec9f1be8213e2faa336a2ee3e846334db7d940c+dirty
+2026-11-16 14:34:21,754 INFO seed=42
+2026-11-16 14:34:25,223 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 14:34:25,235 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 14:34:25,235 INFO config={"seed": 42, "receivers": ["myeloid", "tumour"], "primary_receiver": "myeloid", "modes_by_receiver": {"myeloid": ["same_type", "other_type", "composition", "shuffled", "no_graph"], "tumour": ["same_type", "other_type", "no_graph"]}, "seeds": [0, 1, 2], "k1": 12, "k2": 12, "hidden": 128, "emb": 16, "heads": 4, "dropout": 0.1, "weight_decay": 0.0001, "batch": 512, "max_epochs": 60, "patience": 8, "n_boot": 2000, "_time_budget": 500.0}
+2026-11-16 14:34:25,237 INFO selected architecture sage, lr 0.0003
+2026-11-16 14:34:25,253 INFO myeloid: resumed from model_dev/results/phase3/results_ablation_myeloid.csv, model_dev/results/phase3/compute_ablation_myeloid.csv, model_dev/results/phase3/per_tumour_sse_ablation_myeloid.csv
+2026-11-16 14:34:30,299 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:34:36,135 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:34:41,953 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:36:01,653 INFO tumour no_graph sage lr=0.0003 seed=2 fold 2: 34 epochs, val mse 2.2846, 79s, peak 1878 MiB
+2026-11-16 14:36:57,974 INFO tumour same_type sage lr=0.0003 seed=2 fold 3: 24 epochs, val mse 1.9714, 56s, peak 1911 MiB
+2026-11-16 14:37:46,788 INFO tumour other_type sage lr=0.0003 seed=2 fold 3: 21 epochs, val mse 2.0153, 49s, peak 1911 MiB
+2026-11-16 14:38:56,132 INFO tumour no_graph sage lr=0.0003 seed=2 fold 3: 30 epochs, val mse 1.9696, 69s, peak 1911 MiB
+2026-11-16 14:40:01,496 INFO tumour same_type sage lr=0.0003 seed=2 fold 4: 27 epochs, val mse 1.7548, 65s, peak 1979 MiB
+2026-11-16 14:41:00,718 INFO tumour other_type sage lr=0.0003 seed=2 fold 4: 24 epochs, val mse 1.8824, 59s, peak 1979 MiB
+2026-11-16 14:43:18,773 INFO tumour no_graph sage lr=0.0003 seed=2 fold 4: 53 epochs, val mse 1.8368, 138s, peak 1979 MiB
+2026-11-16 14:43:18,815 INFO saved model_dev/results/phase3/ablation_results.csv (1995 rows)
+2026-11-16 14:43:18,964 INFO saved model_dev/results/phase3/ablation_summary.csv (133 rows)
+2026-11-16 14:43:18,980 INFO ablation summary:
+receiver            target arch     lr        mode  r2_mode  ci_low  ci_high  r2_full  full_minus_mode  diff_ci_low  diff_ci_high  diff_ci_excludes_0                                                quantity
+ myeloid              C1QA sage 0.0003   same_type   0.1829  0.1073   0.2277   0.1925           0.0095       0.0005        0.0187                True         cross-type contribution (full - same-type only)
+ myeloid              C1QA sage 0.0003  other_type   0.1748  0.1065   0.2151   0.1925           0.0176       0.0071        0.0238                True                                  full - other-type only
+ myeloid              C1QA sage 0.0003 composition   0.1777  0.1052   0.2210   0.1925           0.0148       0.0039        0.0253                True                                 full - composition only
+ myeloid              C1QA sage 0.0003    shuffled   0.1758  0.1027   0.2201   0.1925           0.0167       0.0110        0.0220                True full - shuffled neighbour expression (zonation control)
+ myeloid              C1QA sage 0.0003    no_graph   0.1796  0.1027   0.2256   0.1925           0.0129       0.0014        0.0246                True                                         full - no graph
+ myeloid              C1QB sage 0.0003   same_type   0.2708  0.1864   0.3287   0.2794           0.0085       0.0006        0.0161                True         cross-type contribution (full - same-type only)
+ myeloid              C1QB sage 0.0003  other_type   0.2581  0.1833   0.3124   0.2794           0.0213       0.0068        0.0298                True                                  full - other-type only
+ myeloid              C1QB sage 0.0003 composition   0.2620  0.1755   0.3180   0.2794           0.0173       0.0007        0.0341                True                                 full - composition only
+ myeloid              C1QB sage 0.0003    shuffled   0.2547  0.1727   0.3132   0.2794           0.0246       0.0154        0.0325                True full - shuffled neighbour expression (zonation control)
+ myeloid              C1QB sage 0.0003    no_graph   0.2610  0.1752   0.3172   0.2794           0.0184       0.0003        0.0361                True                                         full - no graph
+ myeloid              C1QC sage 0.0003   same_type   0.2531  0.1514   0.3270   0.2645           0.0114      -0.0006        0.0209               False         cross-type contribution (full - same-type only)
+ myeloid              C1QC sage 0.0003  other_type   0.2441  0.1465   0.3178   0.2645           0.0204       0.0108        0.0272                True                                  full - other-type only
+ myeloid              C1QC sage 0.0003 composition   0.2451  0.1443   0.3112   0.2645           0.0194      -0.0023        0.0385               False                                 full - composition only
+ myeloid              C1QC sage 0.0003    shuffled   0.2373  0.1393   0.3094   0.2645           0.0272       0.0154        0.0369                True full - shuffled neighbour expression (zonation control)
+ myeloid              C1QC sage 0.0003    no_graph   0.2431  0.1377   0.3131   0.2645           0.0214       0.0009        0.0402                True                                         full - no graph
+ myeloid             CD163 sage 0.0003   same_type   0.1898  0.1044   0.2473   0.1954           0.0056      -0.0050        0.0135               False         cross-type contribution (full - same-type only)
+ myeloid             CD163 sage 0.0003  other_type   0.1827  0.0965   0.2406   0.1954           0.0127       0.0015        0.0188                True                                  full - other-type only
+ myeloid             CD163 sage 0.0003 composition   0.1834  0.1039   0.2386   0.1954           0.0121      -0.0049        0.0245               False                                 full - composition only
+ myeloid             CD163 sage 0.0003    shuffled   0.1837  0.0945   0.2426   0.1954           0.0117       0.0070        0.0164                True full - shuffled neighbour expression (zonation control)
+ myeloid             CD163 sage 0.0003    no_graph   0.1837  0.1071   0.2361   0.1954           0.0118      -0.0081        0.0260               False                                         full - no graph
+ myeloid               CD9 sage 0.0003   same_type   0.1175  0.0806   0.1416   0.1241           0.0066       0.0043        0.0092                True         cross-type contribution (full - same-type only)
+ myeloid               CD9 sage 0.0003  other_type   0.1095  0.0708   0.1358   0.1241           0.0146       0.0110        0.0191                True                                  full - other-type only
+ myeloid               CD9 sage 0.0003 composition   0.1142  0.0741   0.1402   0.1241           0.0099       0.0061        0.0167                True                                 full - composition only
+ myeloid               CD9 sage 0.0003    shuffled   0.1133  0.0777   0.1383   0.1241           0.0107       0.0074        0.0132                True full - shuffled neighbour expression (zonation control)
+ myeloid               CD9 sage 0.0003    no_graph   0.1129  0.0764   0.1380   0.1241           0.0111       0.0076        0.0156                True                                         full - no graph
+ myeloid             FABP5 sage 0.0003   same_type   0.1313  0.0906   0.1606   0.1411           0.0098       0.0033        0.0158                True         cross-type contribution (full - same-type only)
+ myeloid             FABP5 sage 0.0003  other_type   0.1273  0.0869   0.1552   0.1411           0.0138       0.0075        0.0193                True                                  full - other-type only
+ myeloid             FABP5 sage 0.0003 composition   0.1273  0.0891   0.1545   0.1411           0.0138       0.0061        0.0197                True                                 full - composition only
+ myeloid             FABP5 sage 0.0003    shuffled   0.1282  0.0854   0.1584   0.1411           0.0129       0.0081        0.0157                True full - shuffled neighbour expression (zonation control)
+ myeloid             FABP5 sage 0.0003    no_graph   0.1215  0.0839   0.1473   0.1411           0.0196       0.0100        0.0280                True                                         full - no graph
+ myeloid             GPNMB sage 0.0003   same_type   0.2098  0.1616   0.2449   0.2279           0.0181       0.0088        0.0265                True         cross-type contribution (full - same-type only)
+ myeloid             GPNMB sage 0.0003  other_type   0.1933  0.1472   0.2275   0.2279           0.0346       0.0212        0.0436                True                                  full - other-type only
+ myeloid             GPNMB sage 0.0003 composition   0.2058  0.1583   0.2407   0.2279           0.0221       0.0113        0.0316                True                                 full - composition only
+ myeloid             GPNMB sage 0.0003    shuffled   0.1970  0.1501   0.2343   0.2279           0.0309       0.0219        0.0376                True full - shuffled neighbour expression (zonation control)
+ myeloid             GPNMB sage 0.0003    no_graph   0.1967  0.1508   0.2291   0.2279           0.0311       0.0187        0.0416                True                                         full - no graph
+ myeloid            LGALS3 sage 0.0003   same_type   0.1465  0.1190   0.1720   0.1524           0.0059       0.0025        0.0097                True         cross-type contribution (full - same-type only)
+ myeloid            LGALS3 sage 0.0003  other_type   0.1379  0.1115   0.1621   0.1524           0.0146       0.0093        0.0193                True                                  full - other-type only
+ myeloid            LGALS3 sage 0.0003 composition   0.1455  0.1190   0.1697   0.1524           0.0070       0.0030        0.0116                True                                 full - composition only
+ myeloid            LGALS3 sage 0.0003    shuffled   0.1423  0.1157   0.1674   0.1524           0.0101       0.0065        0.0128                True full - shuffled neighbour expression (zonation control)
+ myeloid            LGALS3 sage 0.0003    no_graph   0.1383  0.1084   0.1649   0.1524           0.0141       0.0102        0.0174                True                                         full - no graph
+ myeloid              MRC1 sage 0.0003   same_type   0.0908  0.0628   0.1110   0.0922           0.0014      -0.0064        0.0116               False         cross-type contribution (full - same-type only)
+ myeloid              MRC1 sage 0.0003  other_type   0.0856  0.0616   0.1034   0.0922           0.0065       0.0019        0.0116                True                                  full - other-type only
+ myeloid              MRC1 sage 0.0003 composition   0.0917  0.0654   0.1094   0.0922           0.0004      -0.0038        0.0061               False                                 full - composition only
+ myeloid              MRC1 sage 0.0003    shuffled   0.0904  0.0665   0.1070   0.0922           0.0018      -0.0009        0.0052               False full - shuffled neighbour expression (zonation control)
+ myeloid              MRC1 sage 0.0003    no_graph   0.0880  0.0621   0.1051   0.0922           0.0042      -0.0004        0.0113               False                                         full - no graph
+ myeloid           SELENOP sage 0.0003   same_type   0.2398  0.1726   0.2846   0.2713           0.0315       0.0189        0.0521                True         cross-type contribution (full - same-type only)
+ myeloid           SELENOP sage 0.0003  other_type   0.2478  0.1894   0.2907   0.2713           0.0235       0.0153        0.0287                True                                  full - other-type only
+ myeloid           SELENOP sage 0.0003 composition   0.2408  0.1755   0.2845   0.2713           0.0305       0.0157        0.0508                True                                 full - composition only
+ myeloid           SELENOP sage 0.0003    shuffled   0.2423  0.1823   0.2874   0.2713           0.0290       0.0186        0.0360                True full - shuffled neighbour expression (zonation control)
+ myeloid           SELENOP sage 0.0003    no_graph   0.2336  0.1692   0.2758   0.2713           0.0377       0.0191        0.0607                True                                         full - no graph
+ myeloid              SPP1 sage 0.0003   same_type   0.6284  0.4930   0.7182   0.6538           0.0254       0.0160        0.0355                True         cross-type contribution (full - same-type only)
+ myeloid              SPP1 sage 0.0003  other_type   0.6216  0.4976   0.7105   0.6538           0.0322       0.0191        0.0392                True                                  full - other-type only
+ myeloid              SPP1 sage 0.0003 composition   0.6207  0.4884   0.7132   0.6538           0.0331       0.0195        0.0522                True                                 full - composition only
+ myeloid              SPP1 sage 0.0003    shuffled   0.6209  0.4937   0.7133   0.6538           0.0330       0.0179        0.0499                True full - shuffled neighbour expression (zonation control)
+ myeloid              SPP1 sage 0.0003    no_graph   0.6148  0.4789   0.7090   0.6538           0.0390       0.0226        0.0660                True                                         full - no graph
+ myeloid      genes_pooled sage 0.0003   same_type   0.2759  0.2003   0.3322   0.2894           0.0136       0.0089        0.0175                True         cross-type contribution (full - same-type only)
+ myeloid      genes_pooled sage 0.0003  other_type   0.2682  0.1993   0.3240   0.2894           0.0212       0.0127        0.0256                True                                  full - other-type only
+ myeloid      genes_pooled sage 0.0003 composition   0.2708  0.1978   0.3259   0.2894           0.0186       0.0097        0.0278                True                                 full - composition only
+ myeloid      genes_pooled sage 0.0003    shuffled   0.2681  0.1958   0.3243   0.2894           0.0213       0.0146        0.0274                True full - shuffled neighbour expression (zonation control)
+ myeloid      genes_pooled sage 0.0003    no_graph   0.2671  0.1936   0.3238   0.2894           0.0223       0.0128        0.0333                True                                         full - no graph
+ myeloid   myeloid:C1Q_TAM sage 0.0003   same_type   0.3173  0.2050   0.4102   0.3361           0.0188       0.0041        0.0284                True         cross-type contribution (full - same-type only)
+ myeloid   myeloid:C1Q_TAM sage 0.0003  other_type   0.3082  0.1994   0.4016   0.3361           0.0279       0.0130        0.0353                True                                  full - other-type only
+ myeloid   myeloid:C1Q_TAM sage 0.0003 composition   0.3083  0.1938   0.3900   0.3361           0.0278       0.0044        0.0476                True                                 full - composition only
+ myeloid   myeloid:C1Q_TAM sage 0.0003    shuffled   0.2972  0.1825   0.3884   0.3361           0.0389       0.0262        0.0491                True full - shuffled neighbour expression (zonation control)
+ myeloid   myeloid:C1Q_TAM sage 0.0003    no_graph   0.3071  0.1911   0.3942   0.3361           0.0290       0.0053        0.0513                True                                         full - no graph
+ myeloid  myeloid:SPP1_TAM sage 0.0003   same_type   0.3619  0.2821   0.4217   0.3772           0.0153       0.0040        0.0282                True         cross-type contribution (full - same-type only)
+ myeloid  myeloid:SPP1_TAM sage 0.0003  other_type   0.3300  0.2540   0.3837   0.3772           0.0472       0.0375        0.0549                True                                  full - other-type only
+ myeloid  myeloid:SPP1_TAM sage 0.0003 composition   0.3465  0.2678   0.4108   0.3772           0.0307       0.0138        0.0499                True                                 full - composition only
+ myeloid  myeloid:SPP1_TAM sage 0.0003    shuffled   0.3421  0.2672   0.3983   0.3772           0.0352       0.0253        0.0485                True full - shuffled neighbour expression (zonation control)
+ myeloid  myeloid:SPP1_TAM sage 0.0003    no_graph   0.3253  0.2538   0.3813   0.3772           0.0520       0.0368        0.0708                True                                         full - no graph
+  tumour              AGR2 sage 0.0003   same_type   0.4686  0.3708   0.5469   0.4648          -0.0037      -0.0096        0.0004               False         cross-type contribution (full - same-type only)
+  tumour              AGR2 sage 0.0003  other_type   0.4309  0.3337   0.5087   0.4648           0.0339       0.0232        0.0446                True                                  full - other-type only
+  tumour              AGR2 sage 0.0003    no_graph   0.4492  0.3571   0.5237   0.4648           0.0156      -0.0025        0.0331               False                                         full - no graph
+  tumour              AREG sage 0.0003   same_type   0.1403  0.0599   0.2234   0.1464           0.0060      -0.0005        0.0116               False         cross-type contribution (full - same-type only)
+  tumour              AREG sage 0.0003  other_type   0.1371  0.0557   0.2218   0.1464           0.0092       0.0031        0.0135                True                                  full - other-type only
+  tumour              AREG sage 0.0003    no_graph   0.1366  0.0594   0.2165   0.1464           0.0098      -0.0003        0.0185               False                                         full - no graph
+  tumour           CEACAM1 sage 0.0003   same_type   0.1419  0.0973   0.1934   0.1389          -0.0029      -0.0075        0.0012               False         cross-type contribution (full - same-type only)
+  tumour           CEACAM1 sage 0.0003  other_type   0.1257  0.0885   0.1663   0.1389           0.0133      -0.0019        0.0290               False                                  full - other-type only
+  tumour           CEACAM1 sage 0.0003    no_graph   0.1234  0.0851   0.1648   0.1389           0.0156      -0.0011        0.0310               False                                         full - no graph
+  tumour           CEACAM6 sage 0.0003   same_type   0.6484  0.5189   0.7388   0.6513           0.0028      -0.0057        0.0098               False         cross-type contribution (full - same-type only)
+  tumour           CEACAM6 sage 0.0003  other_type   0.5928  0.4435   0.6901   0.6513           0.0584       0.0335        0.0861                True                                  full - other-type only
+  tumour           CEACAM6 sage 0.0003    no_graph   0.6161  0.4687   0.7116   0.6513           0.0351       0.0009        0.0651                True                                         full - no graph
+  tumour             ITGA3 sage 0.0003   same_type   0.2276  0.1859   0.2827   0.2268          -0.0008      -0.0110        0.0085               False         cross-type contribution (full - same-type only)
+  tumour             ITGA3 sage 0.0003  other_type   0.2080  0.1615   0.2678   0.2268           0.0188      -0.0010        0.0391               False                                  full - other-type only
+  tumour             ITGA3 sage 0.0003    no_graph   0.2144  0.1659   0.2737   0.2268           0.0125      -0.0085        0.0352               False                                         full - no graph
+  tumour             KRT14 sage 0.0003   same_type   0.2965  0.1173   0.4994   0.3065           0.0100      -0.0031        0.0253               False         cross-type contribution (full - same-type only)
+  tumour             KRT14 sage 0.0003  other_type   0.2779  0.1009   0.4741   0.3065           0.0287       0.0053        0.0515                True                                  full - other-type only
+  tumour             KRT14 sage 0.0003    no_graph   0.2882  0.1071   0.4924   0.3065           0.0183      -0.0008        0.0341               False                                         full - no graph
+  tumour             KRT15 sage 0.0003   same_type   0.0850  0.0690   0.1048   0.0833          -0.0017      -0.0146        0.0062               False         cross-type contribution (full - same-type only)
+  tumour             KRT15 sage 0.0003  other_type   0.0746  0.0598   0.0911   0.0833           0.0087      -0.0024        0.0200               False                                  full - other-type only
+  tumour             KRT15 sage 0.0003    no_graph   0.0775  0.0623   0.0945   0.0833           0.0058      -0.0086        0.0183               False                                         full - no graph
+  tumour             KRT17 sage 0.0003   same_type   0.4217  0.3375   0.5279   0.4131          -0.0086      -0.0275        0.0075               False         cross-type contribution (full - same-type only)
+  tumour             KRT17 sage 0.0003  other_type   0.3924  0.3108   0.4963   0.4131           0.0207      -0.0066        0.0496               False                                  full - other-type only
+  tumour             KRT17 sage 0.0003    no_graph   0.4113  0.3253   0.5212   0.4131           0.0018      -0.0253        0.0256               False                                         full - no graph
+  tumour             KRT6A sage 0.0003   same_type   0.5971  0.3077   0.8038   0.5900          -0.0070      -0.0149       -0.0027                True         cross-type contribution (full - same-type only)
+  tumour             KRT6A sage 0.0003  other_type   0.5119  0.2399   0.7108   0.5900           0.0781       0.0383        0.0993                True                                  full - other-type only
+  tumour             KRT6A sage 0.0003    no_graph   0.5440  0.2643   0.7506   0.5900           0.0460       0.0125        0.0713                True                                         full - no graph
+  tumour              LCN2 sage 0.0003   same_type   0.5533  0.4616   0.6311   0.5540           0.0007      -0.0068        0.0077               False         cross-type contribution (full - same-type only)
+  tumour              LCN2 sage 0.0003  other_type   0.5021  0.4108   0.5808   0.5540           0.0519       0.0324        0.0697                True                                  full - other-type only
+  tumour              LCN2 sage 0.0003    no_graph   0.5219  0.4242   0.6051   0.5540           0.0321       0.0135        0.0529                True                                         full - no graph
+  tumour               MET sage 0.0003   same_type   0.0775  0.0574   0.0963   0.0761          -0.0014      -0.0069        0.0042               False         cross-type contribution (full - same-type only)
+  tumour               MET sage 0.0003  other_type   0.0755  0.0558   0.0933   0.0761           0.0006      -0.0082        0.0076               False                                  full - other-type only
+  tumour               MET sage 0.0003    no_graph   0.0833  0.0621   0.1034   0.0761          -0.0072      -0.0175        0.0014               False                                         full - no graph
+  tumour             OLFM4 sage 0.0003   same_type   0.6566  0.4492   0.7726   0.6479          -0.0087      -0.0163       -0.0025                True         cross-type contribution (full - same-type only)
+  tumour             OLFM4 sage 0.0003  other_type   0.5867  0.3595   0.7224   0.6479           0.0613       0.0305        0.0967                True                                  full - other-type only
+  tumour             OLFM4 sage 0.0003    no_graph   0.5945  0.3684   0.7274   0.6479           0.0534       0.0200        0.0894                True                                         full - no graph
+  tumour              PIGR sage 0.0003   same_type   0.5511  0.4286   0.6460   0.5542           0.0031      -0.0027        0.0083               False         cross-type contribution (full - same-type only)
+  tumour              PIGR sage 0.0003  other_type   0.5198  0.3953   0.6173   0.5542           0.0345       0.0225        0.0485                True                                  full - other-type only
+  tumour              PIGR sage 0.0003    no_graph   0.5289  0.4078   0.6218   0.5542           0.0253       0.0130        0.0356                True                                         full - no graph
+  tumour            S100A2 sage 0.0003   same_type   0.4351  0.1987   0.6724   0.4418           0.0068       0.0016        0.0149                True         cross-type contribution (full - same-type only)
+  tumour            S100A2 sage 0.0003  other_type   0.3663  0.1536   0.5624   0.4418           0.0755       0.0280        0.1138                True                                  full - other-type only
+  tumour            S100A2 sage 0.0003    no_graph   0.3951  0.1794   0.5829   0.4418           0.0468      -0.0061        0.0921               False                                         full - no graph
+  tumour             S100P sage 0.0003   same_type   0.4739  0.3760   0.5659   0.4742           0.0004      -0.0062        0.0074               False         cross-type contribution (full - same-type only)
+  tumour             S100P sage 0.0003  other_type   0.4436  0.3389   0.5422   0.4742           0.0306       0.0143        0.0465                True                                  full - other-type only
+  tumour             S100P sage 0.0003    no_graph   0.4552  0.3447   0.5578   0.4742           0.0190      -0.0010        0.0420               False                                         full - no graph
+  tumour          SERPINB5 sage 0.0003   same_type   0.1483  0.0757   0.2598   0.1484           0.0000      -0.0037        0.0037               False         cross-type contribution (full - same-type only)
+  tumour          SERPINB5 sage 0.0003  other_type   0.1354  0.0687   0.2395   0.1484           0.0130       0.0002        0.0256                True                                  full - other-type only
+  tumour          SERPINB5 sage 0.0003    no_graph   0.1428  0.0739   0.2510   0.1484           0.0055      -0.0046        0.0144               False                                         full - no graph
+  tumour            SLC2A1 sage 0.0003   same_type   0.2336  0.1801   0.2879   0.2364           0.0028      -0.0061        0.0095               False         cross-type contribution (full - same-type only)
+  tumour            SLC2A1 sage 0.0003  other_type   0.2094  0.1636   0.2577   0.2364           0.0270       0.0111        0.0427                True                                  full - other-type only
+  tumour            SLC2A1 sage 0.0003    no_graph   0.2068  0.1658   0.2514   0.2364           0.0296       0.0079        0.0500                True                                         full - no graph
+  tumour            SPINK1 sage 0.0003   same_type   0.6060  0.4929   0.6830   0.6025          -0.0035      -0.0057       -0.0008                True         cross-type contribution (full - same-type only)
+  tumour            SPINK1 sage 0.0003  other_type   0.5600  0.4333   0.6457   0.6025           0.0425       0.0288        0.0625                True                                  full - other-type only
+  tumour            SPINK1 sage 0.0003    no_graph   0.5772  0.4565   0.6600   0.6025           0.0253       0.0139        0.0432                True                                         full - no graph
+  tumour      genes_pooled sage 0.0003   same_type   0.4366  0.3645   0.5239   0.4358          -0.0007      -0.0025        0.0007               False         cross-type contribution (full - same-type only)
+  tumour      genes_pooled sage 0.0003  other_type   0.3971  0.3258   0.4782   0.4358           0.0387       0.0288        0.0496                True                                  full - other-type only
+  tumour      genes_pooled sage 0.0003    no_graph   0.4111  0.3382   0.4955   0.4358           0.0247       0.0158        0.0344                True                                         full - no graph
+  tumour tumour:basal_like sage 0.0003   same_type   0.3221  0.2662   0.3740   0.2811          -0.0410      -0.1212        0.0107               False         cross-type contribution (full - same-type only)
+  tumour tumour:basal_like sage 0.0003  other_type   0.3194  0.2233   0.4135   0.2811          -0.0382      -0.1933        0.0663               False                                  full - other-type only
+  tumour tumour:basal_like sage 0.0003    no_graph   0.3401  0.2503   0.4327   0.2811          -0.0589      -0.2150        0.0447               False                                         full - no graph
+  tumour  tumour:classical sage 0.0003   same_type   0.5907  0.4237   0.7054   0.5974           0.0067      -0.0044        0.0238               False         cross-type contribution (full - same-type only)
+  tumour  tumour:classical sage 0.0003  other_type   0.5491  0.3894   0.6651   0.5974           0.0484       0.0274        0.0688                True                                  full - other-type only
+  tumour  tumour:classical sage 0.0003    no_graph   0.5667  0.4138   0.6775   0.5974           0.0308       0.0109        0.0517                True                                         full - no graph
+2026-11-16 14:43:18,981 INFO done

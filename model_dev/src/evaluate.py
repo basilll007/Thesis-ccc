@@ -181,27 +181,29 @@ def evaluate_models(receiver: str, cfg: dict, log, device: str) -> tuple[list[di
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "external.yaml"))
+    ap.add_argument("--receiver", required=True, help="one receiver per call (keeps each call short); each is evaluated once")
     args = ap.parse_args()
     cfg = C.load_config(args.config)
-    out = C.RESULTS / PHASE / "external_results.csv"
+    out = C.RESULTS / PHASE / f"external_results_{args.receiver}.csv"
     if out.exists():
-        raise FileExistsError("external_results.csv exists: the external set is evaluated once; delete deliberately and log it to re-run")
-    log = C.start_run(PHASE, "external", cfg)
-    log.info("EXTERNAL TEST: single touch at commit %s", C.git_commit())
+        raise FileExistsError(f"{C.rel(out)} exists: the external set is evaluated once per receiver; delete deliberately and log it to re-run")
+    log = C.start_run(PHASE, f"external_{args.receiver}", cfg)
+    log.info("EXTERNAL TEST: single touch for %s at commit %s", args.receiver, C.git_commit())
     if not torch.cuda.is_available():
         raise RuntimeError("GPU-only policy: CUDA not available")
-    device = "cuda"
-    rows = []
-    for receiver in cfg["receivers"]:
-        r, _ = evaluate_models(receiver, cfg, log, device)
-        rows += r
+    rows, _ = evaluate_models(args.receiver, cfg, log, "cuda")
     df = pd.DataFrame(rows)
-    C.save_table(df, PHASE, "external_results.csv", log)
-    C.save_json({"commit": C.git_commit(), "evaluated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+    C.save_table(df, PHASE, out.name, log)
+    C.save_json({"receiver": args.receiver, "commit": C.git_commit(), "evaluated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
                  "models": sorted(df.model.unique()), "note": "single touch; see plan phase4_external_test.md"},
-                PHASE, "external_touch.json", log)
-    log.info("external results:\n%s", df[["receiver", "model", "target", "internal_r2", "external_r2", "unit_ci_low", "unit_ci_high",
-                                           "gain_vs_own_external", "transfers"]].round(4).to_string(index=False))
+                PHASE, f"external_touch_{args.receiver}.json", log)
+    parts = [C.RESULTS / PHASE / f"external_results_{r}.csv" for r in cfg["receivers"]]
+    if all(p.exists() for p in parts):
+        C.save_table(pd.concat([pd.read_csv(p) for p in parts], ignore_index=True), PHASE, "external_results.csv", log)
+    cols = [c for c in ["receiver", "model", "target", "internal_r2", "external_r2", "unit_ci_low", "unit_ci_high",
+                        "gain_vs_own_external", "transfers"] if c in df]
+    log.info("external results:
+%s", df[cols].round(4).to_string(index=False))
     log.info("done")
 
 
