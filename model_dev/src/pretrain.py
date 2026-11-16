@@ -112,6 +112,7 @@ def embed_cells(enc, store, g: torch.Tensor, cov: torch.Tensor, target_gene_idx:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(C.MODEL_DEV / "configs" / "pretrain.yaml"))
+    ap.add_argument("--fold-budget", type=int, default=None, help="pretrain at most N new folds, then exit (resumable)")
     args = ap.parse_args()
     cfg = C.load_config(args.config)
     log = C.start_run(PHASE, "pretrain", cfg)
@@ -124,7 +125,24 @@ def main() -> None:
     genes = [str(g) for g in A.load_section(A.section_files("development")[0])["genes"]]
     rows, pairs = [], {}
     curves = []
+    import json as _json
+    budget = args.fold_budget
+    new_folds = 0
     for k in range(n_folds):
+        part = C.RESULTS / PHASE / "partial" / f"fold{k}.json"
+        if part.exists():                                    # resume unit: one fold (encoder checkpoint + probe rows)
+            rec = _json.loads(part.read_text())
+            rows += rec["rows"]; curves += rec["curves"]
+            for key, pr in rec["pairs"]:
+                key = tuple(key)
+                pairs[key] = merge_pairs([pairs.get(key, {}), {g: tuple(v) for g, v in pr.items()}])
+            log.info("fold %d resumed", k)
+            continue
+        if budget is not None and new_folds >= budget:
+            log.info("fold budget %d reached; rerun to continue", budget)
+            return
+        n_rows0, n_cur0 = len(rows), len(curves)
+        before = {kk: dict(v) for kk, v in pairs.items()}
         t0 = time.time()
         secs_tr = set(fold_table[(fold_table.fold != k) & (fold_table.fold != (k + 1) % n_folds)].section)
         secs_val = set(fold_table[fold_table.fold == (k + 1) % n_folds].section)
@@ -170,6 +188,18 @@ def main() -> None:
                     key = (receiver, probe, t)
                     pairs[key] = merge_pairs([pairs.get(key, {}), p])
                     rows.append({"receiver": receiver, "probe": probe, "fold": k, "target": t, "alpha": a, "test_r2_fold": pooled_r2(p)})
+        fold_pairs = []
+        for kk, v in pairs.items():
+            prev = before.get(kk, {})
+            delta = {g: (v[g][0] - prev.get(g, (0.0, 0.0))[0], v[g][1] - prev.get(g, (0.0, 0.0))[1]) for g in v
+                     if g not in prev or v[g] != prev[g]}
+            if delta:
+                fold_pairs.append([list(kk), delta])
+        part.parent.mkdir(parents=True, exist_ok=True)
+        part.write_text(_json.dumps({"rows": rows[n_rows0:], "curves": curves[n_cur0:], "pairs": fold_pairs}, default=float))
+        new_folds += 1
+        del enc
+        torch.cuda.empty_cache()
         log.info("fold %d done in %.0f s", k, time.time() - t0)
     res = pd.DataFrame(rows)
     C.save_table(res, PHASE, "probe_results.csv", log)
