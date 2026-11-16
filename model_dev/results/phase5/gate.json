@@ -1,0 +1,13 @@
+{
+  "selected_arch": "sage",
+  "targets_passing_gate": [
+    {
+      "receiver": "myeloid",
+      "target": "genes_pooled",
+      "gain_vs_baseline": 0.012711572870131,
+      "gain_ci_low": 0.0047848685888806
+    }
+  ],
+  "rule": "graph model beats strongest baseline (paired tumour-bootstrap CI of gain excludes 0)",
+  "decision": "Phase 5 run for the targets listed"
+}

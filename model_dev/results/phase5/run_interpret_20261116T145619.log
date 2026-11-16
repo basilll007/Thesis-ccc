@@ -1,0 +1,26 @@
+2026-11-16 14:56:19,054 INFO phase=phase5 script=interpret log=model_dev/results/phase5/run_interpret_20261116T145619.log
+2026-11-16 14:56:19,092 INFO git_commit=500641fd3664c55b2c2e15ab7efce25de8a4e75c+dirty
+2026-11-16 14:56:19,092 INFO seed=42
+2026-11-16 14:56:22,555 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 14:56:22,579 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 14:56:22,579 INFO config={"seed": 42, "n_boot": 2000, "quantiles": [0.1, 0.9]}
+2026-11-16 14:56:22,585 INFO saved model_dev/results/phase5/gate.json
+2026-11-16 14:56:27,494 INFO store development: 717493 cells, 12 classes, truncated-degree fraction 0.0001
+2026-11-16 14:57:25,151 INFO myeloid fold 0 importance done
+2026-11-16 14:58:16,845 INFO myeloid fold 1 importance done
+2026-11-16 14:58:55,808 INFO myeloid fold 2 importance done
+2026-11-16 14:59:33,631 INFO myeloid fold 3 importance done
+2026-11-16 15:00:13,361 INFO myeloid fold 4 importance done
+2026-11-16 15:00:13,403 INFO saved model_dev/results/phase5/permutation_importance.csv (24 rows)
+2026-11-16 15:00:13,405 INFO saved model_dev/results/phase5/in_silico_perturbation.csv (120 rows)
+2026-11-16 15:00:13,407 INFO top importances:
+receiver       target                         group  r2_drop  ci_low  ci_high  n_tumours
+ myeloid genes_pooled           genes:other_G_genes   0.1380  0.1074   0.1758         13
+ myeloid genes_pooled                 class:myeloid   0.0332  0.0220   0.0412         13
+ myeloid genes_pooled        genes:myeloid:SPP1_TAM   0.0325  0.0164   0.0474         13
+ myeloid genes_pooled         genes:myeloid:C1Q_TAM   0.0242  0.0111   0.0398         13
+ myeloid genes_pooled          class:CAF_fibroblast   0.0107  0.0092   0.0123         13
+ myeloid genes_pooled class:epithelial_ductal_tumor   0.0041  0.0013   0.0083         13
+ myeloid genes_pooled         genes:lineage:myeloid   0.0029  0.0015   0.0045         13
+ myeloid genes_pooled              class:unassigned   0.0020  0.0015   0.0030         13
+2026-11-16 15:00:13,407 INFO done
