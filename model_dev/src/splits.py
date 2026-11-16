@@ -24,12 +24,18 @@ PHASE = "phase1"
 
 
 def grouped_folds(counts: pd.Series, n_folds: int) -> dict[str, int]:
-    """Greedy balanced assignment: largest group first, into the fold with the smallest running total."""
+    """Balanced assignment with >= 2 groups per fold (Phase 1 plan, Amendment 1).
+
+    Groups sorted by size (descending, ties by name); the first 2 * n_folds are dealt in snake order
+    (0..n-1, n-1..0), which guarantees two groups per fold; the rest go greedily to the fold with the smallest
+    running total.
+    """
     order = sorted(counts.index, key=lambda t: (-counts[t], t))
+    snake = list(range(n_folds)) + list(range(n_folds - 1, -1, -1))
     totals = np.zeros(n_folds)
     out = {}
-    for t in order:
-        k = int(np.argmin(totals))
+    for i, t in enumerate(order):
+        k = snake[i] if i < len(snake) else int(np.argmin(totals))
         out[t] = k
         totals[k] += counts[t]
     return out

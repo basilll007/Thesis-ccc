@@ -45,6 +45,18 @@ def edge_arrays(A: sp.csr_matrix, xy: np.ndarray) -> dict[str, np.ndarray]:
     return {"indptr": A.indptr.astype(np.int64), "indices": A.indices.astype(np.int64), "length": length}
 
 
+def info_from_npz(path: Path, dataset: str, log) -> dict:
+    """Resume: reconstruct the per-section summary from an already built dataset file (no recomputation)."""
+    z = np.load(path, allow_pickle=False)
+    n = len(z["label"])
+    info = {"path": path, "controls": pd.DataFrame(), "scores": z["scores"], "score_names": z["score_names"],
+            "cell_id": z["cell_id"], "label": z["label"].astype(str), "n_cells": n, "group": str(z["group"]),
+            "mean_knn_degree": len(z["knn_indices"]) / n, "mean_r30_degree": len(z["r30_indices"]) / n,
+            "median_nn": float(z["median_nn"])}
+    log.info("%s %s: resumed from %s (%d cells)", dataset, path.stem, C.rel(path), n)
+    return info
+
+
 def build_one(name: str, adata, lab: np.ndarray, group: str, genes: list[str], cfg: dict, s_idx: int,
               scale: float, dataset: str, log) -> dict:
     """Build and save one section dataset. `scale` converts the Mendeley um parameters to this section's units."""
@@ -101,6 +113,14 @@ def build_development(cfg: dict, genes: list[str], log) -> tuple[list[dict], pd.
     sections = sorted(s2t)
     infos, checks = [], []
     for i, s in enumerate(sections):
+        done = C.CACHE / "datasets" / cfg["development"]["dataset"] / f"{s}.npz"
+        if done.exists():
+            info = info_from_npz(done, cfg["development"]["dataset"], log)
+            info["section"] = s
+            infos.append(info)
+            checks.append({"section": s, "max_abs_score_diff_vs_chain_cache": np.nan, "n_cells": info["n_cells"],
+                           "note": "resumed; check done in an earlier run"})
+            continue
         adata, _, labs, _, _ = vn.load_section(s, log)  # QC + normalize_total + log1p; counts layer kept
         lab = labs[cfg["development"]["label_column"]].astype(str).to_numpy()
         info = build_one(s, adata, lab, s2t[s], genes, cfg, i, 1.0, cfg["development"]["dataset"], log)
@@ -124,16 +144,23 @@ def build_external(cfg: dict, genes: list[str], log) -> list[dict]:
     from phase3_pdac_audit import qc
     ext = cfg["external"]
     infos = []
+    panel_set = set(genes_all_mendeley(cfg))
     first = C.RESULTS / PHASE / "external_first_load.json"
     if not first.exists():
         C.save_json({"commit": C.git_commit(), "loaded_at": pd.Timestamp.now().isoformat(),
                      "purpose": "Phase 0 data build and data card only; no model touches it until Phase 4"},
                     PHASE, "external_first_load.json", log)
     for i, slide in enumerate(ext["slides"]):
+        done = C.CACHE / "datasets" / ext["dataset"] / f"{slide}.npz"
+        if done.exists():
+            info = info_from_npz(done, ext["dataset"], log)
+            info["section"] = slide
+            infos.append(info)
+            continue
         adata, _ = pdac_loaders.load(f"{ext['dataset']}:{slide}", C.DATA_DIR, log)
         adata, _, _ = qc(adata, log)
         # restrict to the panel intersection BEFORE normalisation/scoring so preprocessing matches Mendeley
-        keep = [g for g in adata.var_names if g in set(genes_all_mendeley(cfg))]
+        keep = [g for g in adata.var_names if g in panel_set]
         adata = adata[:, keep].copy()
         adata.layers["counts"] = adata.X.copy()
         sc.pp.normalize_total(adata, target_sum=1e4)
@@ -183,6 +210,10 @@ def main() -> None:
     C.save_json(panel, PHASE, "panel_intersection.json", log)
     log.info("panel: %s", json.dumps(panel))
     dev, checks = build_development(cfg, genes, log)
+    prev = C.RESULTS / PHASE / "score_reproduction_check.csv"
+    if prev.exists():
+        old_chk = pd.read_csv(prev)
+        checks = pd.concat([old_chk, checks[~checks.section.isin(old_chk.section)]], ignore_index=True)
     C.save_table(checks, PHASE, "score_reproduction_check.csv", log)
     ext = [] if args.skip_external else build_external(cfg, genes, log)
     rows, ctrls, secs = [], [], []
@@ -199,7 +230,11 @@ def main() -> None:
     C.save_table(counts, PHASE, "cell_counts.csv", log)
     C.save_table(counts.groupby(["split", "group", "cell_type"]).n_cells.sum().reset_index(), PHASE,
                  "cell_counts_by_group.csv", log)
-    C.save_table(pd.concat(ctrls, ignore_index=True), PHASE, "program_controls.csv", log)
+    ctrl_df = pd.concat([c for c in ctrls if len(c)], ignore_index=True) if any(len(c) for c in ctrls) else pd.DataFrame()
+    prev = C.RESULTS / PHASE / "program_controls.csv"
+    if prev.exists():  # keep controls recorded by earlier (non-resumed) runs
+        ctrl_df = pd.concat([pd.read_csv(prev), ctrl_df], ignore_index=True).drop_duplicates(["dataset", "section", "set"])
+    C.save_table(ctrl_df, PHASE, "program_controls.csv", log)
     C.save_table(pd.DataFrame(secs), PHASE, "section_info.csv", log)
     log.info("max score diff vs chain cache over sections: %.2e", checks.max_abs_score_diff_vs_chain_cache.max())
     log.info("done")

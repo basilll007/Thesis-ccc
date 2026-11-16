@@ -38,3 +38,6 @@ Committed before `splits.py` is run and before any model is fitted. Inputs: Phas
 - "Neighbours predict beyond own covariates" is supported for a target when the gain CI excludes 0.
 - A graph model "beats the strongest baseline" only when R2(graph) - R2(best baseline) has a CI excluding 0 (Phase 3).
 - The **cross-type contribution** (Phase 3) = R2(full model) - R2(same-type-neighbours-only model), with CI; "other cell types carry signal" is supported only when that CI excludes 0.
+
+## Amendment 1 (2026-11-16, before any model was fitted)
+The greedy rule above assigned the two tumours with the most myeloid cells (2626: 22,040; 2762: 18,742) alone to folds 0 and 1, so those folds failed the declared floor of >= 2 tumours (`model_dev/results/phase1/fold_floor_check.csv` from the first run is kept as `fold_floor_check_v1_rejected.csv`). The assignment rule is replaced, before any model is fitted, by: tumours sorted by myeloid cell count (descending, ties by name); the first 2 x n_folds tumours are dealt in snake order (0,1,2,3,4,4,3,2,1,0), which guarantees two tumours per fold; the remaining tumours go greedily to the fold with the fewest myeloid cells. Everything else in this plan is unchanged.

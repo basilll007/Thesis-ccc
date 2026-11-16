@@ -1,0 +1,11 @@
+receiver,class,fold,tumours,n_tumours,n_receiver_cells,passes_floor
+myeloid,myeloid,0,2626,1,22040,False
+myeloid,myeloid,1,2762,1,18742,False
+myeloid,myeloid,2,011;B10;C4,3,18769,True
+myeloid,myeloid,3,004;2462;2675;2997,4,17691,True
+myeloid,myeloid,4,2540;2692;2924;D10,4,18699,True
+tumour,epithelial_ductal_tumor,0,2626,1,72197,False
+tumour,epithelial_ductal_tumor,1,2762,1,11218,False
+tumour,epithelial_ductal_tumor,2,011;B10;C4,3,44036,True
+tumour,epithelial_ductal_tumor,3,004;2462;2675;2997,4,54471,True
+tumour,epithelial_ductal_tumor,4,2540;2692;2924;D10,4,64327,True

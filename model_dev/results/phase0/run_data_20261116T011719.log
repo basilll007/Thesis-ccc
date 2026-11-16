@@ -1,0 +1,104 @@
+2026-11-16 01:17:19,371 INFO phase=phase0 script=data log=model_dev/results/phase0/run_data_20261116T011719.log
+2026-11-16 01:17:19,405 INFO git_commit=58ce3c9c08c4ea84a72c71b770423fb1aaf58810+dirty
+2026-11-16 01:17:19,405 INFO seed=42
+2026-11-16 01:17:20,310 INFO package_versions={"python": "3.11.10", "numpy": "1.26.4", "pandas": "2.2.3", "scipy": "1.14.1", "sklearn": "1.5.2", "scanpy": "1.10.3", "anndata": "0.10.9", "torch": "not installed", "torch_geometric": "not installed", "yaml": "6.0.3", "pytest": "not installed"}
+2026-11-16 01:17:20,320 INFO platform=Windows-10-10.0.26300-SP0 gpu=torch not installed
+2026-11-16 01:17:20,320 INFO config={"seed": 42, "cache_dir": "model_cache/datasets", "gene_flags": "results/chain/phase1b/gene_background_typeaware_flags.csv", "programs": "results/chain/phase1b/programs_used.json", "chain_cache_mendeley": "data/chain_cache/mendeley_v1b", "typed_classes": {"tumour": "epithelial_ductal_tumor", "CAF": "CAF_fibroblast", "T": "T_cell", "myeloid": "myeloid"}, "knn_k": 6, "radius_um": 30.0, "tile_um": 200.0, "mendeley_median_nn_um": 9.12, "development": {"dataset": "mendeley_pdac_smi", "label_column": "author_mapped", "label_dir": "results/pdac/phaseB/sections"}, "external": {"dataset": "geo_gse310352", "slides": ["slide1", "slide2", "slide3", "slide4", "slide5", "slide5b2", "slide5b3", "slide6"], "label_file_pattern": "results/pdac/v3_phase4/slides/{slide}_labels.csv.gz", "label_column": "marker", "units": {"slide5": "slide5_group", "slide5b2": "slide5_group", "slide5b3": "slide5_group"}}}
+2026-11-16 01:17:20,332 INFO saved model_dev/results/phase0/gene_set.csv (539 rows)
+2026-11-16 01:17:20,946 INFO saved model_dev/results/phase0/panel_intersection.json
+2026-11-16 01:17:20,946 INFO panel: {"n_mendeley_base": 960, "n_gse310352": 970, "n_intersection": 960, "mendeley_only": [], "gse_only": ["CEACAM5", "FERMT1", "LGALS4", "LOX", "NT5E", "SLC5A3", "TFF1", "TFF3", "TNS4", "TSPAN8"], "n_model_gene_set_G": 539, "G_subset_of_intersection": true, "usable_per_type": {"tumour": 327, "CAF": 272, "T": 301, "myeloid": 323}}
+2026-11-16 01:17:29,248 INFO Mendeley PDAC-SMI section T1-b: 31084 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:17:29,514 INFO QC (breast thresholds min_counts=10, min_cells=3): (31084, 960) -> (31084, 960)
+2026-11-16 01:17:32,462 INFO mendeley_pdac_smi T1-b: 31084 cells, 539 genes in G, mean knn degree 7.14, mean r30 degree 9.05, median NN 9.54
+2026-11-16 01:17:32,486 INFO T1-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:17:35,196 INFO Mendeley PDAC-SMI section T2-b: 43658 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:17:35,472 INFO QC (breast thresholds min_counts=10, min_cells=3): (43658, 960) -> (43658, 960)
+2026-11-16 01:17:38,885 INFO mendeley_pdac_smi T2-b: 43658 cells, 539 genes in G, mean knn degree 7.11, mean r30 degree 8.18, median NN 9.59
+2026-11-16 01:17:38,919 INFO T2-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:17:41,618 INFO Mendeley PDAC-SMI section T3-b: 33800 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:17:41,901 INFO QC (breast thresholds min_counts=10, min_cells=3): (33800, 960) -> (33800, 960)
+2026-11-16 01:17:45,141 INFO mendeley_pdac_smi T3-b: 33800 cells, 539 genes in G, mean knn degree 7.12, mean r30 degree 12.22, median NN 8.30
+2026-11-16 01:17:45,167 INFO T3-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:17:47,898 INFO Mendeley PDAC-SMI section T4-a: 55369 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:17:48,266 INFO QC (breast thresholds min_counts=10, min_cells=3): (55369, 960) -> (55369, 960)
+2026-11-16 01:17:54,636 INFO mendeley_pdac_smi T4-a: 55369 cells, 539 genes in G, mean knn degree 6.92, mean r30 degree 13.28, median NN 9.47
+2026-11-16 01:17:54,677 INFO T4-a score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:17:57,426 INFO Mendeley PDAC-SMI section T4-b: 42432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:17:57,739 INFO QC (breast thresholds min_counts=10, min_cells=3): (42432, 960) -> (42432, 960)
+2026-11-16 01:18:02,193 INFO mendeley_pdac_smi T4-b: 42432 cells, 539 genes in G, mean knn degree 7.02, mean r30 degree 13.64, median NN 8.40
+2026-11-16 01:18:02,226 INFO T4-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:04,978 INFO Mendeley PDAC-SMI section T5-a: 43794 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:05,337 INFO QC (breast thresholds min_counts=10, min_cells=3): (43794, 960) -> (43794, 960)
+2026-11-16 01:18:09,934 INFO mendeley_pdac_smi T5-a: 43794 cells, 539 genes in G, mean knn degree 7.01, mean r30 degree 10.55, median NN 10.39
+2026-11-16 01:18:09,970 INFO T5-a score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:12,720 INFO Mendeley PDAC-SMI section T6-b: 12473 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:12,959 INFO QC (breast thresholds min_counts=10, min_cells=3): (12473, 960) -> (12473, 960)
+2026-11-16 01:18:14,039 INFO mendeley_pdac_smi T6-b: 12473 cells, 539 genes in G, mean knn degree 7.13, mean r30 degree 9.75, median NN 9.22
+2026-11-16 01:18:14,050 INFO T6-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:16,733 INFO Mendeley PDAC-SMI section U1-b: 24894 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:16,977 INFO QC (breast thresholds min_counts=10, min_cells=3): (24894, 960) -> (24894, 960)
+2026-11-16 01:18:19,005 INFO mendeley_pdac_smi U1-b: 24894 cells, 539 genes in G, mean knn degree 7.04, mean r30 degree 15.19, median NN 7.93
+2026-11-16 01:18:19,026 INFO U1-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:21,775 INFO Mendeley PDAC-SMI section U2-b: 34334 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:22,062 INFO QC (breast thresholds min_counts=10, min_cells=3): (34334, 960) -> (34334, 960)
+2026-11-16 01:18:25,396 INFO mendeley_pdac_smi U2-b: 34334 cells, 539 genes in G, mean knn degree 7.04, mean r30 degree 11.39, median NN 9.40
+2026-11-16 01:18:25,422 INFO U2-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:28,047 INFO Mendeley PDAC-SMI section U3-b: 15019 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:28,280 INFO QC (breast thresholds min_counts=10, min_cells=3): (15019, 960) -> (15019, 960)
+2026-11-16 01:18:29,633 INFO mendeley_pdac_smi U3-b: 15019 cells, 539 genes in G, mean knn degree 7.09, mean r30 degree 11.04, median NN 9.22
+2026-11-16 01:18:29,645 INFO U3-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:32,330 INFO Mendeley PDAC-SMI section U4-a: 47432 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:32,663 INFO QC (breast thresholds min_counts=10, min_cells=3): (47432, 960) -> (47432, 960)
+2026-11-16 01:18:38,297 INFO mendeley_pdac_smi U4-a: 47432 cells, 539 genes in G, mean knn degree 6.95, mean r30 degree 14.95, median NN 9.02
+2026-11-16 01:18:38,335 INFO U4-a score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:41,047 INFO Mendeley PDAC-SMI section U4-b: 46798 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:41,413 INFO QC (breast thresholds min_counts=10, min_cells=3): (46798, 960) -> (46798, 960)
+2026-11-16 01:18:46,597 INFO mendeley_pdac_smi U4-b: 46798 cells, 539 genes in G, mean knn degree 7.04, mean r30 degree 15.38, median NN 8.22
+2026-11-16 01:18:46,633 INFO U4-b score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:18:49,378 INFO Mendeley PDAC-SMI section U5-a: 74793 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:18:49,843 INFO QC (breast thresholds min_counts=10, min_cells=3): (74793, 960) -> (74793, 960)
+2026-11-16 01:19:00,007 INFO mendeley_pdac_smi U5-a: 74793 cells, 539 genes in G, mean knn degree 6.82, mean r30 degree 13.81, median NN 9.83
+2026-11-16 01:19:00,065 INFO U5-a score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:19:02,758 INFO Mendeley PDAC-SMI section U6-a_1: 72318 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:19:03,143 INFO QC (breast thresholds min_counts=10, min_cells=3): (72318, 960) -> (72318, 960)
+2026-11-16 01:19:11,133 INFO mendeley_pdac_smi U6-a_1: 72318 cells, 539 genes in G, mean knn degree 6.89, mean r30 degree 16.04, median NN 8.78
+2026-11-16 01:19:11,188 INFO U6-a_1 score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:19:13,925 INFO Mendeley PDAC-SMI section U6-a_2: 68410 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:19:14,349 INFO QC (breast thresholds min_counts=10, min_cells=3): (68410, 960) -> (68410, 960)
+2026-11-16 01:19:23,169 INFO mendeley_pdac_smi U6-a_2: 68410 cells, 539 genes in G, mean knn degree 6.89, mean r30 degree 15.71, median NN 8.83
+2026-11-16 01:19:23,225 INFO U6-a_2 score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:19:25,973 INFO Mendeley PDAC-SMI section U7-a: 70885 cells x 960 Base genes (dropped 49 spike-in/negative probes); um/px=0.18
+2026-11-16 01:19:26,335 INFO QC (breast thresholds min_counts=10, min_cells=3): (70885, 960) -> (70885, 960)
+2026-11-16 01:19:33,010 INFO mendeley_pdac_smi U7-a: 70885 cells, 539 genes in G, mean knn degree 6.94, mean r30 degree 15.49, median NN 9.03
+2026-11-16 01:19:33,076 INFO U7-a score reproduction vs chain cache: max abs diff 0.00e+00
+2026-11-16 01:19:33,077 INFO saved model_dev/results/phase0/score_reproduction_check.csv (16 rows)
+2026-11-16 01:19:39,952 INFO GSE310352 slide1 (GSM9294399): 124165 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:19:40,236 INFO QC (breast thresholds min_counts=10, min_cells=3): (124165, 970) -> (109130, 970)
+2026-11-16 01:19:47,683 INFO geo_gse310352 slide1: 109130 cells, 539 genes in G, mean knn degree 6.89, mean r30 degree 15.60, median NN 39.81
+2026-11-16 01:19:52,593 INFO GSE310352 slide2 (GSM9294400): 118096 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:19:52,831 INFO QC (breast thresholds min_counts=10, min_cells=3): (118096, 970) -> (114083, 970)
+2026-11-16 01:20:00,032 INFO geo_gse310352 slide2: 114083 cells, 539 genes in G, mean knn degree 6.87, mean r30 degree 16.05, median NN 34.23
+2026-11-16 01:20:03,232 INFO GSE310352 slide3 (GSM9294401): 67100 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:03,452 INFO QC (breast thresholds min_counts=10, min_cells=3): (67100, 970) -> (66599, 970)
+2026-11-16 01:20:09,748 INFO geo_gse310352 slide3: 66599 cells, 539 genes in G, mean knn degree 6.99, mean r30 degree 13.70, median NN 43.42
+2026-11-16 01:20:13,706 INFO GSE310352 slide4 (GSM9294402): 88103 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:13,936 INFO QC (breast thresholds min_counts=10, min_cells=3): (88103, 970) -> (86459, 970)
+2026-11-16 01:20:20,825 INFO geo_gse310352 slide4: 86459 cells, 539 genes in G, mean knn degree 6.90, mean r30 degree 14.49, median NN 40.72
+2026-11-16 01:20:23,569 INFO GSE310352 slide5 (GSM9294404): 57464 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:23,751 INFO QC (breast thresholds min_counts=10, min_cells=3): (57464, 970) -> (56938, 970)
+2026-11-16 01:20:29,410 INFO geo_gse310352 slide5: 56938 cells, 539 genes in G, mean knn degree 6.95, mean r30 degree 13.70, median NN 42.05
+2026-11-16 01:20:32,599 INFO GSE310352 slide5b2 (GSM9294405): 73401 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:32,761 INFO QC (breast thresholds min_counts=10, min_cells=3): (73401, 970) -> (70823, 970)
+2026-11-16 01:20:37,753 INFO geo_gse310352 slide5b2: 70823 cells, 539 genes in G, mean knn degree 6.99, mean r30 degree 12.87, median NN 44.72
+2026-11-16 01:20:39,542 INFO GSE310352 slide5b3 (GSM9294406): 42857 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:39,626 INFO QC (breast thresholds min_counts=10, min_cells=3): (42857, 970) -> (39685, 970)
+2026-11-16 01:20:42,168 INFO geo_gse310352 slide5b3: 39685 cells, 539 genes in G, mean knn degree 6.93, mean r30 degree 14.23, median NN 43.42
+2026-11-16 01:20:46,092 INFO GSE310352 slide6 (GSM9294403): 89004 cells x 970 genes (+19 NegPrb kept separately); coordinates in px (um/px UNVERIFIED)
+2026-11-16 01:20:46,349 INFO QC (breast thresholds min_counts=10, min_cells=3): (89004, 970) -> (88543, 970)
+2026-11-16 01:20:54,470 INFO geo_gse310352 slide6: 88543 cells, 539 genes in G, mean knn degree 6.93, mean r30 degree 13.41, median NN 40.31
+2026-11-16 01:20:54,852 INFO saved model_dev/results/phase0/cell_counts.csv (270 rows)
+2026-11-16 01:20:54,855 INFO saved model_dev/results/phase0/cell_counts_by_group.csv (214 rows)
+2026-11-16 01:20:54,860 INFO saved model_dev/results/phase0/program_controls.csv (264 rows)
+2026-11-16 01:20:54,862 INFO saved model_dev/results/phase0/section_info.csv (24 rows)
+2026-11-16 01:20:54,862 INFO max score diff vs chain cache over sections: 0.00e+00
+2026-11-16 01:20:54,862 INFO done
