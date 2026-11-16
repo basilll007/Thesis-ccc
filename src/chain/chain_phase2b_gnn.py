@@ -29,9 +29,35 @@ ANN = "author_mapped"
 MAX_TRAIN = 60000
 
 
+def two_hop_no_return(W, lab, classes, S, progs, d):
+    """2-hop path-weighted means over i - j - k with k != i (v1 bug: k == i paths leaked the cell's own score).
+
+    For symmetric W with zero diagonal, the k == i contribution of sum_j W_ij W_jk x_k is deg_i * x_i.
+    """
+    deg = np.asarray(W.sum(axis=1)).ravel()
+    n = len(lab)
+    cols = []
+    onehot = np.zeros((n, len(classes)))
+    onehot[np.arange(n), [classes.index(x) for x in lab]] = 1
+    num = W @ (W @ onehot) - deg[:, None] * onehot
+    den = (W @ (W @ np.ones(n))) - deg
+    cols.append(num / np.maximum(den, 1)[:, None])
+    for t2, cls2 in cf.TYPES.items():
+        pl = [p for p in progs if p.startswith(t2 + ":")]
+        mem = (lab == cls2).astype(float)
+        X = S[:, [d["score_names"].index(p) for p in pl]] * mem[:, None]
+        num = W @ (W @ X) - deg[:, None] * X
+        cnt = W @ (W @ mem) - deg * mem
+        fill = X[mem > 0].mean(axis=0) if mem.any() else np.zeros(len(pl))
+        with np.errstate(invalid="ignore", divide="ignore"):
+            m = num / cnt[:, None]
+        cols.append(np.where(cnt[:, None] > 0, m, fill[None, :]))
+    return np.column_stack(cols)
+
+
 def build_hop2(t, log):
     """Per section: 1-hop features (nb6 means, comp6) for all cells, then propagate one more hop (A_norm @ X)."""
-    out = cc.CACHE / "phase2_features" / f"{ANN}__{t}__hop2.npz"
+    out = cc.CACHE / "phase2_features" / f"{ANN}__{t}__hop2_v2.npz"
     if out.exists():
         return out
     progs = cf.programs_used()
@@ -63,7 +89,7 @@ def build_hop2(t, log):
             feats.append(m)
             names += [f"hop1nb__{p}" for p in pl]
         H1 = np.column_stack(feats)
-        H2 = An @ H1  # second propagation step
+        H2 = two_hop_no_return(W, lab, classes, S, progs, d)  # v2: excludes paths returning to the cell itself
         # select the same rows as the Phase 2 feature matrix (same seeds -> same sampled cells)
         mem_t = np.where(lab == cf.TYPES[t])[0]
         rng = np.random.default_rng([cc.SEED, s_i, list(cf.TYPES).index(t)])
@@ -99,7 +125,7 @@ def main():
         t = prog.split(":")[0]
         build_hop2(t, log)
         z = np.load(cc.CACHE / "phase2_features" / f"{ANN}__{t}.npz")
-        h = np.load(cc.CACHE / "phase2_features" / f"{ANN}__{t}__hop2.npz")
+        h = np.load(cc.CACHE / "phase2_features" / f"{ANN}__{t}__hop2_v2.npz")
         names = [str(x) for x in z["names"]]
         ni = {n: i for i, n in enumerate(names)}
         y = z["X"][:, ni[f"y__{prog}"]].astype(np.float64)
@@ -117,7 +143,7 @@ def main():
                              "sse": float(np.sum((y[te] - p) ** 2)), "sst": sst, "n_features": X.shape[1]})
             log.info("%s spill=%s fold %s done", prog, spill, held)
     df = pd.DataFrame(rows)
-    cc.save_csv(df, PHASE, "gnn_sgc_loto_per_tumour_sse.csv", "SGC-style MLP LOTO per-tumour SSE/SST (triggered programs)", log)
+    cc.save_csv(df, PHASE, "gnn_sgc_v2_loto_per_tumour_sse.csv", "SGC-style MLP LOTO per-tumour SSE/SST (v2: no return-to-self 2-hop paths)", log)
     rng = np.random.default_rng(cc.SEED)
     res, prev = [], pd.read_csv(cc.RESULTS / PHASE / "delta_r2_by_program.csv")
     for (prog, spill), d in df.groupby(["program", "spillover_covariates"]):
@@ -129,7 +155,7 @@ def main():
                     "hgb_delta_r2": pv.loc["hgb", "delta_r2"], "r2_neighbour_ridge": pv.loc["ridge", "r2_neighbour"],
                     "r2_neighbour_hgb": pv.loc["hgb", "r2_neighbour"]})
     res = pd.DataFrame(res)
-    cc.save_csv(res, PHASE, "gnn_sgc_delta_r2.csv", "SGC-style graph model delta R2 vs ridge/HGB (tumour bootstrap CI)", log)
+    cc.save_csv(res, PHASE, "gnn_sgc_v2_delta_r2.csv", "SGC-style graph model delta R2 vs ridge/HGB (v2, leakage fixed; tumour bootstrap CI)", log)
     log.info("\n%s", res.to_string(index=False))
     cc.finish_run(log, PHASE)
 

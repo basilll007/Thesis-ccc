@@ -1,0 +1,106 @@
+{
+  "n_receiver_programs": 7,
+  "n_combinations": 56,
+  "combinations": "programs x annotation(2) x spillover(2) x model(2)",
+  "author_mapped_no_spill": [
+    {
+      "program": "CAF:CXCL12",
+      "model": "ridge",
+      "delta_r2": 0.00849889675992663,
+      "ci_low": 0.0026713346171588826,
+      "ci_high": 0.01465432234416613
+    },
+    {
+      "program": "CAF:CXCL12",
+      "model": "hgb",
+      "delta_r2": 0.014607048412740773,
+      "ci_low": 0.004196673492440672,
+      "ci_high": 0.024806264123731527
+    },
+    {
+      "program": "CAF:myCAF",
+      "model": "ridge",
+      "delta_r2": 0.03408436566963931,
+      "ci_low": 0.020847987068586298,
+      "ci_high": 0.045443849565452284
+    },
+    {
+      "program": "CAF:myCAF",
+      "model": "hgb",
+      "delta_r2": 0.038670597478874094,
+      "ci_low": 0.02680929279848991,
+      "ci_high": 0.048421076043156625
+    },
+    {
+      "program": "T:cytotoxic",
+      "model": "ridge",
+      "delta_r2": 0.00048581420253297823,
+      "ci_low": -0.0027457699610939925,
+      "ci_high": 0.004566686217338275
+    },
+    {
+      "program": "T:cytotoxic",
+      "model": "hgb",
+      "delta_r2": 0.005692171415524975,
+      "ci_low": -0.00156159182011246,
+      "ci_high": 0.008668905941577407
+    },
+    {
+      "program": "myeloid:C1Q_TAM",
+      "model": "ridge",
+      "delta_r2": 0.029942489668180194,
+      "ci_low": 0.01601477520378713,
+      "ci_high": 0.04449869058854018
+    },
+    {
+      "program": "myeloid:C1Q_TAM",
+      "model": "hgb",
+      "delta_r2": 0.03776045889053764,
+      "ci_low": 0.02305523166973631,
+      "ci_high": 0.05701803026127077
+    },
+    {
+      "program": "myeloid:SPP1_TAM",
+      "model": "ridge",
+      "delta_r2": 0.05614611089096383,
+      "ci_low": 0.04165906462783794,
+      "ci_high": 0.0650446431205125
+    },
+    {
+      "program": "myeloid:SPP1_TAM",
+      "model": "hgb",
+      "delta_r2": 0.06812256304034862,
+      "ci_low": 0.05436196127295658,
+      "ci_high": 0.076919206798365
+    },
+    {
+      "program": "tumour:basal_like",
+      "model": "ridge",
+      "delta_r2": 0.05684092885320959,
+      "ci_low": 0.03346582343914965,
+      "ci_high": 0.07371068756307983
+    },
+    {
+      "program": "tumour:basal_like",
+      "model": "hgb",
+      "delta_r2": 0.059961792844349666,
+      "ci_low": 0.03792849940220432,
+      "ci_high": 0.07774366647879231
+    },
+    {
+      "program": "tumour:classical",
+      "model": "ridge",
+      "delta_r2": 0.14109199046862955,
+      "ci_low": 0.10522469372728818,
+      "ci_high": 0.16402302967166976
+    },
+    {
+      "program": "tumour:classical",
+      "model": "hgb",
+      "delta_r2": 0.15135293925551882,
+      "ci_low": 0.11642707366765198,
+      "ci_high": 0.17261440560366145
+    }
+  ],
+  "gnn": "GNN warranted (SGC-style per plan)"
+}

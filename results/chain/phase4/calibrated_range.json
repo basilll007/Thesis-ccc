@@ -1,0 +1,14 @@
+{
+  "trustworthy_setting_found": false,
+  "note": "No (fold, section) met power >= 0.8 with null/zonation/direct call rates <= 0.10; every Phase 3 chain call is outside the calibrated range",
+  "null_call_rate": {
+    "T4-a": 0.0,
+    "T1-b": 0.0,
+    "U2-b": 0.0
+  },
+  "zonation2_call_rate": {
+    "T4-a": 0.05,
+    "T1-b": 0.0,
+    "U2-b": 0.0
+  }
+}

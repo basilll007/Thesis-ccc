@@ -224,3 +224,195 @@ figures/chain/phase1b/phase1_programs_and_floors.png,phase1b,Per-tumour program 
 figures/chain/phase1b/phase1_programs_and_floors.pdf,phase1b,Per-tumour program medians and chain floor pass matrix,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
 results/chain/phase1b/phase1_summary.json,phase1b,Phase 1 key numbers,src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
 logs/chain_chain_phase1_cell_states_20261115T214512_58184.log,phase1b,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase1_cell_states.py,2026-11-15T21:52:25
+results/chain/phase2/tasks/author_mapped__CAF-CXCL12__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__CAF-CXCL12__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__CAF-myCAF__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__CAF-myCAF__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__myeloid-C1Q_TAM__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__myeloid-C1Q_TAM__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__myeloid-SPP1_TAM__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__myeloid-SPP1_TAM__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__T-cytotoxic__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__T-cytotoxic__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__tumour-basal_like__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__tumour-basal_like__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__tumour-classical__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/author_mapped__tumour-classical__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__CAF-CXCL12__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__CAF-CXCL12__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__CAF-myCAF__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__CAF-myCAF__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__myeloid-C1Q_TAM__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__myeloid-C1Q_TAM__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__myeloid-SPP1_TAM__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__myeloid-SPP1_TAM__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__T-cytotoxic__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__T-cytotoxic__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__tumour-basal_like__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__tumour-basal_like__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__tumour-classical__spill0.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/tasks/marker__tumour-classical__spill1.csv,phase2,Per-task LOTO SSE/SST (resume unit),src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:43
+results/chain/phase2/loto_per_tumour_sse.csv,phase2,Per held-out tumour SSE/SST for every config/model,src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:44
+results/chain/phase2/delta_r2_by_program.csv,phase2,"Held-out (LOTO) delta R2 neighbour vs baseline, tumour-bootstrap 95% CI (2000)",src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:44
+results/chain/phase2/feature_group_attribution.csv,phase2,"Ridge drop-group (R2 lost) and add-group (R2 gained) per neighbour feature group, tumour-bootstrap CI",src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:44
+results/chain/phase2/gnn_decision.json,phase2,GNN decision per pre-declared rule,src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:44
+figures/chain/phase2/phase2_delta_r2.png,phase2,Phase 2 held-out delta R2 per receiver program,src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:45
+figures/chain/phase2/phase2_delta_r2.pdf,phase2,Phase 2 held-out delta R2 per receiver program,src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:45
+results/chain/phase2/phase2_summary.json,phase2,Phase 2 key numbers,src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:45
+logs/chain_chain_phase2_neighbourhood_20261115T215451_62656.log,phase2,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase2_neighbourhood.py,2026-11-15T22:04:45
+results/chain/phase4/tasks/T1-b__chain__1.25.npz,phase4,Simulation task T1-b chain f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_chain_1.25.py,2026-11-15T22:09:12
+logs/chain_chain_phase4_T1-b_chain_1.25_20261115T220507_21148.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_chain_1.25.py,2026-11-15T22:09:12
+results/chain/phase4/tasks/T1-b__zonation__1.5.npz,phase4,Simulation task T1-b zonation f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_zonation_1.5.py,2026-11-15T22:09:14
+logs/chain_chain_phase4_T1-b_zonation_1.5_20261115T220509_58952.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_zonation_1.5.py,2026-11-15T22:09:14
+results/chain/phase4/tasks/T1-b__null__1.0.npz,phase4,Simulation task T1-b null f=1.0: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_null_1.0.py,2026-11-15T22:09:53
+logs/chain_chain_phase4_T1-b_null_1.0_20261115T220506_60588.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_null_1.0.py,2026-11-15T22:09:53
+results/chain/phase4/tasks/T1-b__chain__1.5.npz,phase4,Simulation task T1-b chain f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_chain_1.5.py,2026-11-15T22:09:55
+logs/chain_chain_phase4_T1-b_chain_1.5_20261115T220507_45116.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_chain_1.5.py,2026-11-15T22:09:55
+results/chain/phase4/tasks/T1-b__zonation__2.0.npz,phase4,Simulation task T1-b zonation f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_zonation_2.0.py,2026-11-15T22:09:59
+logs/chain_chain_phase4_T1-b_zonation_2.0_20261115T220510_65136.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_zonation_2.0.py,2026-11-15T22:09:59
+logs/chain_chain_phase2b_gnn_20261115T220538_59916.log,phase2,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase2b_gnn.py,2026-11-15T22:13:14
+results/chain/phase4/tasks/T1-b__direct__1.1.npz,phase4,Simulation task T1-b direct f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_direct_1.1.py,2026-11-15T22:13:23
+logs/chain_chain_phase4_T1-b_direct_1.1_20261115T220912_21148.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_direct_1.1.py,2026-11-15T22:13:23
+results/chain/phase4/tasks/T1-b__direct__1.25.npz,phase4,Simulation task T1-b direct f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_direct_1.25.py,2026-11-15T22:13:25
+logs/chain_chain_phase4_T1-b_direct_1.25_20261115T220914_58952.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_direct_1.25.py,2026-11-15T22:13:25
+results/chain/phase4/tasks/T1-b__direct__2.0.npz,phase4,Simulation task T1-b direct f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_direct_2.0.py,2026-11-15T22:14:00
+logs/chain_chain_phase4_T1-b_direct_2.0_20261115T220955_45116.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_direct_2.0.py,2026-11-15T22:14:00
+results/chain/phase2/gnn_sgc_delta_r2.csv,phase2,"INVALID (v1 bug: 2-hop features included return-to-self paths, leaking the cell own score); superseded by gnn_sgc_v2_*; kept unmodified per never-overwrite rule",,2026-11-15T22:14:08
+results/chain/phase2/gnn_sgc_loto_per_tumour_sse.csv,phase2,"INVALID (v1 bug: 2-hop features included return-to-self paths, leaking the cell own score); superseded by gnn_sgc_v2_*; kept unmodified per never-overwrite rule",,2026-11-15T22:14:08
+results/chain/phase4/tasks/T1-b__direct__1.5.npz,phase4,Simulation task T1-b direct f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_direct_1.5.py,2026-11-15T22:14:40
+logs/chain_chain_phase4_T1-b_direct_1.5_20261115T220953_60588.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_direct_1.5.py,2026-11-15T22:14:40
+results/chain/phase4/tasks/U2-b__null__1.0.npz,phase4,Simulation task U2-b null f=1.0: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_null_1.0.py,2026-11-15T22:15:22
+logs/chain_chain_phase4_U2-b_null_1.0_20261115T220959_65136.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_null_1.0.py,2026-11-15T22:15:22
+results/chain/phase4/tasks/U2-b__chain__1.1.npz,phase4,Simulation task U2-b chain f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_chain_1.1.py,2026-11-15T22:17:59
+logs/chain_chain_phase4_U2-b_chain_1.1_20261115T221323_21148.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_chain_1.1.py,2026-11-15T22:18:00
+results/chain/phase4/tasks/U2-b__chain__1.25.npz,phase4,Simulation task U2-b chain f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_chain_1.25.py,2026-11-15T22:18:01
+logs/chain_chain_phase4_U2-b_chain_1.25_20261115T221325_58952.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_chain_1.25.py,2026-11-15T22:18:01
+results/chain/phase2/gnn_sgc_v2_loto_per_tumour_sse.csv,phase2,SGC-style MLP LOTO per-tumour SSE/SST (v2: no return-to-self 2-hop paths),src/chain/chain_phase2b_gnn.py,2026-11-15T22:18:54
+results/chain/phase2/gnn_sgc_v2_delta_r2.csv,phase2,"SGC-style graph model delta R2 vs ridge/HGB (v2, leakage fixed; tumour bootstrap CI)",src/chain/chain_phase2b_gnn.py,2026-11-15T22:18:54
+logs/chain_chain_phase2b_gnn_20261115T221409_38224.log,phase2,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase2b_gnn.py,2026-11-15T22:18:54
+results/chain/phase4/tasks/U2-b__chain__2.0.npz,phase4,Simulation task U2-b chain f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_chain_2.0.py,2026-11-15T22:19:19
+logs/chain_chain_phase4_U2-b_chain_2.0_20261115T221440_60588.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_chain_2.0.py,2026-11-15T22:19:19
+results/chain/phase4/tasks/U2-b__chain__1.5.npz,phase4,Simulation task U2-b chain f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_chain_1.5.py,2026-11-15T22:19:23
+logs/chain_chain_phase4_U2-b_chain_1.5_20261115T221400_45116.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_chain_1.5.py,2026-11-15T22:19:23
+results/chain/phase4/tasks/U2-b__zonation__1.5.npz,phase4,Simulation task U2-b zonation f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_zonation_1.5.py,2026-11-15T22:20:01
+logs/chain_chain_phase4_U2-b_zonation_1.5_20261115T221522_65136.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_zonation_1.5.py,2026-11-15T22:20:01
+results/chain/phase4/tasks/U2-b__direct__1.1.npz,phase4,Simulation task U2-b direct f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_direct_1.1.py,2026-11-15T22:22:37
+logs/chain_chain_phase4_U2-b_direct_1.1_20261115T221801_58952.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_direct_1.1.py,2026-11-15T22:22:37
+results/chain/phase4/tasks/U2-b__zonation__2.0.npz,phase4,Simulation task U2-b zonation f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_zonation_2.0.py,2026-11-15T22:23:20
+logs/chain_chain_phase4_U2-b_zonation_2.0_20261115T221800_21148.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_zonation_2.0.py,2026-11-15T22:23:20
+results/chain/phase4/tasks/U2-b__direct__1.25.npz,phase4,Simulation task U2-b direct f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_direct_1.25.py,2026-11-15T22:23:43
+logs/chain_chain_phase4_U2-b_direct_1.25_20261115T221919_60588.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_direct_1.25.py,2026-11-15T22:23:43
+results/chain/phase4/tasks/U2-b__direct__2.0.npz,phase4,Simulation task U2-b direct f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_direct_2.0.py,2026-11-15T22:24:19
+logs/chain_chain_phase4_U2-b_direct_2.0_20261115T222001_65136.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_direct_2.0.py,2026-11-15T22:24:19
+results/chain/phase4/tasks/U2-b__direct__1.5.npz,phase4,Simulation task U2-b direct f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_U2-b_direct_1.5.py,2026-11-15T22:24:25
+logs/chain_chain_phase4_U2-b_direct_1.5_20261115T221923_45116.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_U2-b_direct_1.5.py,2026-11-15T22:24:25
+results/chain/phase3/sections_author_mapped/U7-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U7-a_author_mapped.py,2026-11-15T22:27:44
+logs/chain_chain_phase3_section_U7-a_author_mapped_20261115T221927_50340.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U7-a_author_mapped.py,2026-11-15T22:27:44
+results/chain/phase4/tasks/T4-a__chain__1.1.npz,phase4,Simulation task T4-a chain f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_chain_1.1.py,2026-11-15T22:32:27
+logs/chain_chain_phase4_T4-a_chain_1.1_20261115T222506_60660.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_chain_1.1.py,2026-11-15T22:32:27
+results/chain/phase4/tasks/T4-a__null__1.0.npz,phase4,Simulation task T4-a null f=1.0: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_null_1.0.py,2026-11-15T22:33:40
+logs/chain_chain_phase4_T4-a_null_1.0_20261115T222506_49356.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_null_1.0.py,2026-11-15T22:33:40
+results/chain/phase3/sections_author_mapped/U5-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U5-a_author_mapped.py,2026-11-15T22:34:47
+logs/chain_chain_phase3_section_U5-a_author_mapped_20261115T222522_27124.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U5-a_author_mapped.py,2026-11-15T22:34:47
+results/chain/phase3/sections_author_mapped/U6-a_2.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U6-a_2_author_mapped.py,2026-11-15T22:35:02
+logs/chain_chain_phase3_section_U6-a_2_author_mapped_20261115T222522_61556.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U6-a_2_author_mapped.py,2026-11-15T22:35:02
+results/chain/phase3/sections_author_mapped/U6-a_1.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U6-a_1_author_mapped.py,2026-11-15T22:35:29
+logs/chain_chain_phase3_section_U6-a_1_author_mapped_20261115T222522_42072.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U6-a_1_author_mapped.py,2026-11-15T22:35:29
+results/chain/phase4/tasks/T4-a__chain__1.25.npz,phase4,Simulation task T4-a chain f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_chain_1.25.py,2026-11-15T22:39:32
+logs/chain_chain_phase4_T4-a_chain_1.25_20261115T223227_60660.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_chain_1.25.py,2026-11-15T22:39:32
+results/chain/phase3/sections_author_mapped/T1-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T1-b_author_mapped.py,2026-11-15T22:39:55
+logs/chain_chain_phase3_section_T1-b_author_mapped_20261115T223552_64192.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T1-b_author_mapped.py,2026-11-15T22:39:55
+results/chain/phase3/sections_author_mapped/T3-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T3-b_author_mapped.py,2026-11-15T22:40:21
+logs/chain_chain_phase3_section_T3-b_author_mapped_20261115T223552_64620.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T3-b_author_mapped.py,2026-11-15T22:40:21
+results/chain/phase3/sections_author_mapped/T2-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T2-b_author_mapped.py,2026-11-15T22:41:00
+logs/chain_chain_phase3_section_T2-b_author_mapped_20261115T223552_55220.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T2-b_author_mapped.py,2026-11-15T22:41:00
+results/chain/phase3/sections_author_mapped/T6-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T6-b_author_mapped.py,2026-11-15T22:41:41
+logs/chain_chain_phase3_section_T6-b_author_mapped_20261115T224100_55220.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T6-b_author_mapped.py,2026-11-15T22:41:41
+results/chain/phase4/tasks/T4-a__chain__1.5.npz,phase4,Simulation task T4-a chain f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_chain_1.5.py,2026-11-15T22:42:12
+logs/chain_chain_phase4_T4-a_chain_1.5_20261115T223340_49356.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_chain_1.5.py,2026-11-15T22:42:12
+results/chain/phase3/sections_author_mapped/T4-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T4-a_author_mapped.py,2026-11-15T22:42:12
+logs/chain_chain_phase3_section_T4-a_author_mapped_20261115T223552_29248.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T4-a_author_mapped.py,2026-11-15T22:42:12
+results/chain/phase3/sections_author_mapped/U1-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U1-b_author_mapped.py,2026-11-15T22:45:12
+logs/chain_chain_phase3_section_U1-b_author_mapped_20261115T224141_55220.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U1-b_author_mapped.py,2026-11-15T22:45:12
+results/chain/phase3/sections_author_mapped/T4-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T4-b_author_mapped.py,2026-11-15T22:45:14
+logs/chain_chain_phase3_section_T4-b_author_mapped_20261115T223955_64192.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T4-b_author_mapped.py,2026-11-15T22:45:14
+results/chain/phase4/tasks/T4-a__chain__2.0.npz,phase4,Simulation task T4-a chain f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_chain_2.0.py,2026-11-15T22:47:09
+logs/chain_chain_phase4_T4-a_chain_2.0_20261115T223932_60660.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_chain_2.0.py,2026-11-15T22:47:09
+results/chain/phase3/sections_author_mapped/T5-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_T5-a_author_mapped.py,2026-11-15T22:47:13
+logs/chain_chain_phase3_section_T5-a_author_mapped_20261115T224021_64620.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T5-a_author_mapped.py,2026-11-15T22:47:13
+results/chain/phase3/sections_author_mapped/U2-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U2-b_author_mapped.py,2026-11-15T22:47:14
+logs/chain_chain_phase3_section_U2-b_author_mapped_20261115T224212_29248.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U2-b_author_mapped.py,2026-11-15T22:47:14
+results/chain/phase3/sections_author_mapped/U3-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U3-b_author_mapped.py,2026-11-15T22:47:44
+logs/chain_chain_phase3_section_U3-b_author_mapped_20261115T224512_55220.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U3-b_author_mapped.py,2026-11-15T22:47:44
+results/chain/phase4/tasks/T4-a__zonation__1.5.npz,phase4,Simulation task T4-a zonation f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_zonation_1.5.py,2026-11-15T22:49:26
+logs/chain_chain_phase4_T4-a_zonation_1.5_20261115T224212_49356.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_zonation_1.5.py,2026-11-15T22:49:26
+results/chain/phase3/sections_author_mapped/U4-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U4-a_author_mapped.py,2026-11-15T22:51:29
+logs/chain_chain_phase3_section_U4-a_author_mapped_20261115T224514_64192.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U4-a_author_mapped.py,2026-11-15T22:51:29
+results/chain/phase3/sections_author_mapped/U4-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (author_mapped),src/chain/chain_phase3_section_U4-b_author_mapped.py,2026-11-15T22:52:56
+logs/chain_chain_phase3_section_U4-b_author_mapped_20261115T224713_64620.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U4-b_author_mapped.py,2026-11-15T22:52:56
+results/chain/phase3/section_level_stats_author_mapped_precalibration.csv,phase3,Per-section statistics with section-level add-one p (expr/label nulls),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+results/chain/phase3/tumour_level_tests_author_mapped_precalibration.csv,phase3,"Tumour-level estimates, bootstrap CI, add-one p (paired block nulls, 200 perms), BH q per family",src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+results/chain/phase3/all_variant_calls_author_mapped_precalibration.csv,phase3,Decision-rule criteria for forward and negative-control variants,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+results/chain/phase3/chain_calls_author_mapped_precalibration.csv,phase3,Forward-chain calls with negative-control annotation,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+results/chain/phase3/per_hop_effects_author_mapped_precalibration.csv,phase3,Per-hop tumour-level effects (amplification visible/absent),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+results/chain/phase3/n_tests_author_mapped_precalibration.json,phase3,Number of tests per BH family; random-B choices,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:53
+figures/chain/phase3/phase3_chain_effects_author_mapped.png,phase3,Per-hop and indirect effects (author_mapped),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:55
+figures/chain/phase3/phase3_chain_effects_author_mapped.pdf,phase3,Per-hop and indirect effects (author_mapped),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:55
+logs/chain_chain_phase3_aggregate_author_mapped_20261115T225350_18796.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-15T22:53:55
+results/chain/phase4/tasks/T4-a__zonation__2.0.npz,phase4,Simulation task T4-a zonation f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_zonation_2.0.py,2026-11-15T22:54:51
+logs/chain_chain_phase4_T4-a_zonation_2.0_20261115T224709_60660.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_zonation_2.0.py,2026-11-15T22:54:51
+results/chain/phase4/tasks/T4-a__direct__1.1.npz,phase4,Simulation task T4-a direct f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_direct_1.1.py,2026-11-15T22:55:54
+logs/chain_chain_phase4_T4-a_direct_1.1_20261115T224926_49356.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_1.1.py,2026-11-15T22:55:54
+results/chain/phase4/tasks/T1-b__chain__1.1.npz,phase4,Simulation task T1-b chain f=1.1: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_chain_1.1.py,2026-11-15T22:57:22
+logs/chain_chain_phase4_T1-b_chain_1.1_20261115T225330_49692.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_chain_1.1.py,2026-11-15T22:57:22
+results/chain/phase4/tasks/T1-b__chain__2.0.npz,phase4,Simulation task T1-b chain f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T1-b_chain_2.0.py,2026-11-15T22:57:23
+logs/chain_chain_phase4_T1-b_chain_2.0_20261115T225330_10060.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T1-b_chain_2.0.py,2026-11-15T22:57:23
+results/chain/phase3/sections_marker/T4-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T4-a_marker.py,2026-11-15T22:59:22
+logs/chain_chain_phase3_section_T4-a_marker_20261115T225438_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T4-a_marker.py,2026-11-15T22:59:22
+results/chain/phase4/tasks/T4-a__direct__2.0.npz,phase4,Simulation task T4-a direct f=2.0: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_direct_2.0.py,2026-11-15T23:00:31
+logs/chain_chain_phase4_T4-a_direct_2.0_20261115T225330_58384.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_2.0.py,2026-11-15T23:00:31
+logs/chain_chain_phase4_T4-a_direct_1.25_20261115T225451_60660.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_1.25.py,2026-11-15T23:01:46
+logs/chain_chain_phase4_T4-a_direct_1.5_20261115T225554_49356.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_1.5.py,2026-11-15T23:03:45
+results/chain/phase4/calibration_table.csv,phase4,"Per section x scenario x fold: chain-call rate (power / FPR), per-hop rates, mean effects (add-one p, 100 perms)",src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:48
+results/chain/phase4/calibration_pooled_3sections.csv,phase4,Pooled 3-section (tumour-level style) call rates,src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:48
+results/chain/phase4/trustworthy_settings.csv,phase4,Decision-rule check per section x fold (plan: calibrated range),src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:48
+results/chain/phase4/calibrated_range.json,phase4,Calibrated range for interpreting Phase 3 (decision rule in plan),src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:48
+figures/chain/phase4/phase4_calibration.png,phase4,"Chain-test calibration: power, zonation FPR, direct-effect misclassification",src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:49
+figures/chain/phase4/phase4_calibration.pdf,phase4,"Chain-test calibration: power, zonation FPR, direct-effect misclassification",src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:49
+logs/chain_chain_phase4_aggregate_20261115T230346_20628.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_aggregate.py,2026-11-15T23:03:49
+results/chain/phase4/tasks/T4-a__direct__1.25.npz,phase4,Simulation task T4-a direct f=1.25: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_direct_1.25.py,2026-11-15T23:03:59
+logs/chain_chain_phase4_T4-a_direct_1.25_20261115T225723_10060.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_1.25.py,2026-11-15T23:03:59
+results/chain/phase4/tasks/T4-a__direct__1.5.npz,phase4,Simulation task T4-a direct f=1.5: observed stats + expression-null replicates,src/chain/chain_phase4_T4-a_direct_1.5.py,2026-11-15T23:04:56
+logs/chain_chain_phase4_T4-a_direct_1.5_20261115T225722_49692.log,phase4,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase4_T4-a_direct_1.5.py,2026-11-15T23:04:56
+results/chain/phase3/sections_marker/T5-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T5-a_marker.py,2026-11-15T23:05:06
+logs/chain_chain_phase3_section_T5-a_marker_20261115T225922_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T5-a_marker.py,2026-11-15T23:05:06
+results/chain/phase3/sections_marker/U4-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U4-a_marker.py,2026-11-15T23:09:23
+logs/chain_chain_phase3_section_U4-a_marker_20261115T230506_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U4-a_marker.py,2026-11-15T23:09:23
+results/chain/phase3/sections_marker/U4-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U4-b_marker.py,2026-11-15T23:13:24
+logs/chain_chain_phase3_section_U4-b_marker_20261115T230923_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U4-b_marker.py,2026-11-15T23:13:24
+results/chain/phase3/sections_marker/U5-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U5-a_marker.py,2026-11-15T23:20:17
+logs/chain_chain_phase3_section_U5-a_marker_20261115T231324_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U5-a_marker.py,2026-11-15T23:20:17
+results/chain/phase3/sections_marker/U6-a_1.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U6-a_1_marker.py,2026-11-15T23:26:46
+logs/chain_chain_phase3_section_U6-a_1_marker_20261115T232017_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U6-a_1_marker.py,2026-11-15T23:26:46
+results/chain/phase3/sections_marker/U6-a_2.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U6-a_2_marker.py,2026-11-15T23:33:00
+logs/chain_chain_phase3_section_U6-a_2_marker_20261115T232646_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U6-a_2_marker.py,2026-11-15T23:33:01
+results/chain/phase3/sections_marker/U7-a.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_U7-a_marker.py,2026-11-15T23:38:52
+logs/chain_chain_phase3_section_U7-a_marker_20261115T233301_22752.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_U7-a_marker.py,2026-11-15T23:38:52
+results/chain/phase3/section_level_stats_author_mapped.csv,phase3,Per-section statistics with section-level add-one p (expr/label nulls),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:51
+results/chain/phase3/tumour_level_tests_author_mapped.csv,phase3,"Tumour-level estimates, bootstrap CI, add-one p (paired block nulls, 200 perms), BH q per family",src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:52
+results/chain/phase3/all_variant_calls_author_mapped.csv,phase3,Decision-rule criteria for forward and negative-control variants,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:52
+results/chain/phase3/chain_calls_author_mapped.csv,phase3,Forward-chain calls with negative-control annotation,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:52
+results/chain/phase3/per_hop_effects_author_mapped.csv,phase3,Per-hop tumour-level effects (amplification visible/absent),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:52
+results/chain/phase3/n_tests_author_mapped.json,phase3,Number of tests per BH family; random-B choices,src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:52
+figures/chain/phase3/phase3_chain_effects_author_mapped_20261116T002952.png,phase3,Per-hop and indirect effects (author_mapped),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:53
+figures/chain/phase3/phase3_chain_effects_author_mapped_20261116T002952.pdf,phase3,Per-hop and indirect effects (author_mapped),src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:53
+logs/chain_chain_phase3_aggregate_author_mapped_20261116T002949_17640.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_aggregate_author_mapped.py,2026-11-16T00:29:53
+results/chain/phase3/sections_marker/T6-b.npz,phase3,Per-section observed stats + 200 expression/label block-null replicates (marker),src/chain/chain_phase3_section_T6-b_marker.py,2026-11-16T00:30:03
+logs/chain_chain_phase3_section_T6-b_marker_20261116T002923_22132.log,phase3,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase3_section_T6-b_marker.py,2026-11-16T00:30:03
+results/chain/ranked_hypotheses.csv,phase5,"Ranked candidate hypotheses (chain hop x catalogue LR; candidate, not evidence)",src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
+results/chain/phase5/hop_support.csv,phase5,Hop support per plan (q_expr < 0.05 and p_label < 0.05),src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
+results/chain/phase5/lr_gene_usability_by_type.csv,phase5,Catalogue genes usable (type-aware non-background) per cell type,src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
+results/chain/phase5/phase5_summary.json,phase5,Phase 5 key numbers,src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
+logs/chain_chain_phase5_candidates_20261116T002954_57204.log,phase5,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase5_candidates.py,2026-11-16T00:30:05
+results/chain/ranked_hypotheses_dedup.csv,phase5,De-duplicated ranked_hypotheses (one row per hop x LR pair); original kept unmodified,src/chain/chain_phase5b_dedup.py,2026-11-16T00:30:32
+logs/chain_chain_phase5b_dedup_20261116T003030_56960.log,phase5,"run log (package versions, git commit, parameters, key numbers)",src/chain/chain_phase5b_dedup.py,2026-11-16T00:30:32

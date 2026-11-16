@@ -1,0 +1,41 @@
+{
+  "n_tests_after_dedup_per_variant_family": {
+    "forward|beta_CB": 22,
+    "forward|beta_BA": 20,
+    "forward|indirect": 44,
+    "randomB|beta_CB": 14,
+    "randomB|beta_BA": 12,
+    "randomB|indirect": 28,
+    "reversed|beta_CB": 24,
+    "reversed|beta_BA": 22,
+    "reversed|indirect": 44,
+    "shuffledB|beta_CB": 22,
+    "shuffledB|beta_BA": 20,
+    "shuffledB|indirect": 44
+  },
+  "n_perm": 200,
+  "random_B_choice": {
+    "tumour->CAF->T": "B_plasma",
+    "myeloid->CAF->tumour": "pericyte_smc",
+    "tumour->CAF->myeloid": "mast",
+    "CAF->myeloid->tumour": "endocrine",
+    "CAF->tumour->myeloid": "endocrine",
+    "myeloid->tumour->CAF": "pericyte_smc"
+  },
+  "random_B_candidates": [
+    "B_plasma",
+    "CAF_fibroblast",
+    "NK",
+    "T_cell",
+    "endocrine",
+    "endothelial",
+    "epithelial_ductal_tumor",
+    "mast",
+    "myeloid",
+    "pericyte_smc",
+    "schwann_nerve",
+    "unassigned"
+  ],
+  "calibration_file_present": false,
+  "calibration": null
+}

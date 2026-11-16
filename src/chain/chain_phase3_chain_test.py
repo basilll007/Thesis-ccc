@@ -332,12 +332,17 @@ def main():
     ann = sys.argv[sys.argv.index("--annotation") + 1] if "--annotation" in sys.argv else "author_mapped"
     import v3_nulls as vn
     sections = sorted(vn.section_to_tumour())
+    all_sections = list(sections)
+    if os.environ.get("CHAIN_SECTIONS"):  # optional subset for scheduling under the 6-worker cap
+        sections = [s for s in sections if s in os.environ["CHAIN_SECTIONS"].split(",")]
     if "--aggregate-only" not in sys.argv:
         n_workers = min(6, int(os.environ.get("CHAIN_WORKERS", "6")))
         with ProcessPoolExecutor(max_workers=n_workers) as ex:
-            futs = {ex.submit(run_section, s, i, ann): s for i, s in enumerate(sections)}
+            futs = {ex.submit(run_section, s, all_sections.index(s), ann): s for s in sections}
             for f in as_completed(futs):
                 print("done", futs[f], f.result(), flush=True)
+        if os.environ.get("CHAIN_SECTIONS"):
+            return
     log = cc.start_run(f"chain_phase3_aggregate_{ann}", {"n_perm": N_PERM, "n_boot": N_BOOT})
     rb, cands = random_b_choice(ann)
     sec, tl, ntests = aggregate(ann, log)

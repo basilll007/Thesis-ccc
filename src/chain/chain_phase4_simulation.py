@@ -267,10 +267,14 @@ def aggregate(log):
 def main():
     if "--aggregate-only" not in sys.argv:
         tasks = [(s, i, scen, f) for i, s in enumerate(SECTIONS) for scen, f in SETTINGS]
+        if os.environ.get("CHAIN_REVERSE"):  # second scheduler instance takes tasks from the end (6-worker cap)
+            tasks = [t for t in tasks[::-1] if not (cc.RESULTS / PHASE / "tasks" / f"{t[0]}__{t[2]}__{t[3]}.npz").exists()]
         with ProcessPoolExecutor(max_workers=min(6, int(os.environ.get("CHAIN_WORKERS", "6")))) as ex:
             futs = {ex.submit(run_task, *t): t for t in tasks}
             for f in as_completed(futs):
                 print("done", futs[f], f.result(), flush=True)
+        if os.environ.get("CHAIN_REVERSE"):
+            return
     log = cc.start_run("chain_phase4_aggregate", {"sections": SECTIONS, "plant": PLANT, "settings": SETTINGS,
                                                   "n_sim": N_SIM, "n_perm": N_PERM, "n_sim_label": N_SIM_LABEL})
     log.info("Logged reductions: 100 expression-null permutations per simulation (Phase 3 uses 200); label null "
