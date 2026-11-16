@@ -202,8 +202,7 @@ def main() -> None:
         C.save_table(pd.concat([pd.read_csv(p) for p in parts], ignore_index=True), PHASE, "external_results.csv", log)
     cols = [c for c in ["receiver", "model", "target", "internal_r2", "external_r2", "unit_ci_low", "unit_ci_high",
                         "gain_vs_own_external", "transfers"] if c in df]
-    log.info("external results:
-%s", df[cols].round(4).to_string(index=False))
+    log.info("external results:%s%s", chr(10), df[cols].round(4).to_string(index=False))
     log.info("done")
 
 
