@@ -1,0 +1,8 @@
+2026-11-16 20:46:38,330 INFO v2 Phase 3 survival; commit=1cd50daa9fe5db553e7c18dabe78de5bad431d1a seed=42 max_threads=4 versions={'numpy': '2.4.6', 'pandas': '2.3.3', 'scipy': '1.17.1', 'statsmodels': '0.15.0', 'matplotlib': '3.11.2'}
+2026-11-16 20:46:38,330 INFO plan: docs/translational_plans/phase3.md + model_dev/plans/v2_phase3_survival.md
+2026-11-16 20:46:45,637 INFO PH validation: {'status': 'PASS', 'null_rejection_rate': 0.04, 'time_varying_detection_rate': 1.0, 'max_gradient_error': 5.68434634917736e-08, 'source': 'https://raw.githubusercontent.com/CamDavidsonPilon/lifelines/master/lifelines/statistics.py', 'limitations': 'Approximate score diagnostic; not exact equivalence to current R cox.zph, especially for ties'}
+2026-11-16 20:46:46,650 INFO TCGA_all_primary: n=176; model status {'DONE': 27}
+2026-11-16 20:46:47,490 INFO TCGA_confirmed_PDAC: n=141; model status {'DONE': 27}
+2026-11-16 20:46:48,448 INFO CPTAC_all_primary: n=134; model status {'DONE': 27}
+2026-11-16 20:46:49,544 INFO CPTAC_confirmed_PDAC: n=129; model status {'DONE': 27}
+2026-11-16 20:46:52,596 INFO primary adjusted q<0.05: []

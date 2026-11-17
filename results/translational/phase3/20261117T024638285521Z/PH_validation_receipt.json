@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "null_rejection_rate": 0.04,
+  "time_varying_detection_rate": 1.0,
+  "max_gradient_error": 5.68434634917736e-08,
+  "source": "https://raw.githubusercontent.com/CamDavidsonPilon/lifelines/master/lifelines/statistics.py",
+  "limitations": "Approximate score diagnostic; not exact equivalence to current R cox.zph, especially for ties"
+}
