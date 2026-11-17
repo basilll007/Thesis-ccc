@@ -1,0 +1,30 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.2.0, pluggy-1.7.0 -- F:\Thesis\model_cache\envs\thesis-model-v2\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: F:\Thesis
+plugins: zarr-3.1.6
+collecting ... collected 20 items
+
+model_dev/tests/test_gpu.py::test_gpu_ridge_matches_sklearn PASSED       [  5%]
+model_dev/tests/test_gpu.py::test_gpu_scaler_matches_cpu_scaler_with_nan PASSED [ 10%]
+model_dev/tests/test_leakage.py::test_clean_features_pass PASSED         [ 15%]
+model_dev/tests/test_leakage.py::test_planted_target_copy_is_detected_even_with_innocent_tag PASSED [ 20%]
+model_dev/tests/test_leakage.py::test_self_sourced_target_gene_is_detected_by_provenance PASSED [ 25%]
+model_dev/tests/test_leakage.py::test_self_sourced_target_program_is_detected_by_provenance PASSED [ 30%]
+model_dev/tests/test_leakage.py::test_neighbour_copy_of_target_gene_is_allowed PASSED [ 35%]
+model_dev/tests/test_leakage.py::test_tile_loo_mean_excludes_the_cell_itself PASSED [ 40%]
+model_dev/tests/test_leakage.py::test_scaler_fit_on_training_rows_only PASSED [ 45%]
+model_dev/tests/test_leakage.py::test_two_hop_tree_excludes_seed PASSED  [ 50%]
+model_dev/tests/test_metrics.py::test_pooled_r2_and_bootstrap_point PASSED [ 55%]
+model_dev/tests/test_metrics.py::test_paired_difference_sign_model_first PASSED [ 60%]
+model_dev/tests/test_splits.py::test_grouped_folds_rule_guarantees_two_groups_per_fold PASSED [ 65%]
+model_dev/tests/test_splits.py::test_written_folds_keep_sections_of_a_tumour_together_and_meet_floor PASSED [ 70%]
+model_dev/tests/test_splits.py::test_inner_validation_fold_is_disjoint_from_test PASSED [ 75%]
+model_dev/tests/test_v2.py::test_column_type_and_kind PASSED             [ 80%]
+model_dev/tests/test_v2.py::test_nearest_type_distance_excludes_self PASSED [ 85%]
+model_dev/tests/test_v2.py::test_gram_ridge_subblock_matches_sklearn PASSED [ 90%]
+model_dev/tests/test_v2.py::test_pairs_for_and_ratio_bootstrap PASSED    [ 95%]
+model_dev/tests/test_v2.py::test_leak_guard_refuses_contamination_covariate_on_marker_target PASSED [100%]
+
+-- generated xml file: F:\Thesis\model_dev\results\v2_tests\pytest_junit.xml --
+============================= 20 passed in 4.27s ==============================
