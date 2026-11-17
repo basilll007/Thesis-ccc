@@ -46,3 +46,16 @@ Branch `model-v2`, created 2026-11-16 from origin/main (71ebd43).
   - 108 of 108 models were estimable (4 cohorts x 9 signatures x 3 families).
 - **Primary result:** no signature has adjusted BH q < 0.05 in strict TCGA.
 - **Coverage:** SELENOP is absent from the TCGA expression matrix, so the TCGA C1Q signature uses 5 of 6 genes (the plan's coverage rule is met); CPTAC has 6 of 6. TRAC is absent in both cohorts (T-cell proxy 8 of 9).
+
+## 2026-11-16 Phase 2: attempt 2 BLOCKED; environment lost; attempt 3
+- **Attempt 2 (one fold per process) failed twice with the same error class:**
+  - XGBoost CUDA out-of-memory errors at the start of fold 1 in fresh processes, and one host allocation failure.
+  - Windows commit charge was ~46 of 58 GB, mostly held by other applications (as in v1).
+  - Per the stop rule this configuration is **BLOCKED**. The tumour and adjusted runs then also failed fast.
+  - The adjusted run completed fold 0 for both of its groups before the environment disappeared.
+- **Environment lost at ~21:43.** The D: volume holding Anaconda and the `thesis-model` env vanished from the system: no D: volume is listed, and the last chain process returned rc=127 because python.exe was not found. Nothing was changed on any disk to recover it.
+- **Attempt 3 (materially different, declared before any Phase 2 result was summarised):**
+  - The pinned v1 environment (`model_dev/environment.yml`, plus xgboost 3.2.x and psutil) is rebuilt with uv at `model_cache/envs/thesis-model-v2` (git-ignored; caches and temp on F:).
+  - The XGBoost loop now keeps at most two DMatrices alive and builds each from a GPU column slice. Each XGBoost DMatrix holds a dense host copy of about 1.4 GB, and attempt 2 had four alive at once. The inputs and seeds of every fit are unchanged.
+  - To avoid mixing environments, **all** Phase 2 folds are recomputed in the new environment. The 3 old-environment fold-0 files are archived, unused, in `model_cache/v2/phase2_attempt1_oldenv/`.
+  - Phase 1 and Phase 3 results (old environment) are unchanged. The reproduction check against v1 Phase 2 tests the new environment.

@@ -154,47 +154,59 @@ def run_group(X: torch.Tensor, names: list[str], prov: list, section: np.ndarray
             Ws = g_all.coefs(c, RIDGE_ALPHAS)
             out[f"ridge_pred__{v}"] = np.stack([g_all.predict(Xte2, c, W).cpu().numpy() for W in Ws]).astype(np.float32)
         del g_in, g_all
-        # XGBoost: host copies of the (subsampled) scaled rows, as v1
+        # XGBoost (v1 protocol: <= 60,000 seeded rows; rounds chosen on inner validation; refit on all training
+        # folds). Low-memory order (v2 Phase 2 attempt 3): scaled matrices stay on the GPU; each DMatrix is built
+        # from a host copy of one column slice that is freed at once; at most two DMatrices exist at a time
+        # (selection pass: inner-train + validation; refit pass: all-train + test). Every fit has the same
+        # inputs and seed as before, so the fitted models are unchanged.
         if xgb_idx and group.xgb_variants:
             rng = np.random.default_rng(C.SEED)
             sub_in = rng.choice(len(it), min(len(it), MAX_ROWS), replace=False)
             sub_all = np.random.default_rng(C.SEED).choice(len(ia), min(len(ia), MAX_ROWS), replace=False)
-            Xin_np = Xin[torch.as_tensor(sub_in, device="cuda")].cpu().numpy()
-            Xval_np = Xval.cpu().numpy()
-            Xtr_np = Xtr2[torch.as_tensor(sub_all, device="cuda")].cpu().numpy()
-            Xte_np = Xte2.cpu().numpy()
+            Xin_s = Xin[torch.as_tensor(sub_in, device="cuda")]
+            Xtr_s = Xtr2[torch.as_tensor(sub_all, device="cuda")]
+            del Xin, Xtr2
+            torch.cuda.empty_cache()
             yin = group.Y[np.where(tr_in)[0][sub_in]][:, xgb_idx]
             yval = group.Y[val][:, xgb_idx]
             ytr = group.Y[np.where(tr_all)[0][sub_all]][:, xgb_idx]
-            del Xin, Xval, Xtr2, Xte2
-            torch.cuda.empty_cache()
+
+            def dm(T, cols):
+                a = T[:, torch.as_tensor(cols, device="cuda")].cpu().numpy()
+                d = xgb.DMatrix(a)
+                del a
+                return d
             for v in group.xgb_variants:
                 cols = np.asarray(group.variants[v])
-                d_in = xgb.DMatrix(np.ascontiguousarray(Xin_np[:, cols]))
-                d_val = xgb.DMatrix(np.ascontiguousarray(Xval_np[:, cols]))
-                d_tr = xgb.DMatrix(np.ascontiguousarray(Xtr_np[:, cols]))
-                d_te = xgb.DMatrix(np.ascontiguousarray(Xte_np[:, cols]))
-                preds = np.zeros((len(group.xgb_grid), int(test.sum()), len(xgb_idx)), np.float32)
-                vm = np.zeros((len(group.xgb_grid), len(xgb_idx)))
-                rounds = np.zeros((len(group.xgb_grid), len(xgb_idx)), np.int32)
-                for j in range(len(xgb_idx)):
-                    d_in.set_label(yin[:, j]); d_val.set_label(yval[:, j]); d_tr.set_label(ytr[:, j])
+                G, J = len(group.xgb_grid), len(xgb_idx)
+                preds = np.zeros((G, int(test.sum()), J), np.float32)
+                vm = np.zeros((G, J))
+                rounds = np.zeros((G, J), np.int32)
+                d_in, d_val = dm(Xin_s, cols), dm(Xval, cols)
+                for j in range(J):
+                    d_in.set_label(yin[:, j]); d_val.set_label(yval[:, j])
                     for g, (lr, leaves) in enumerate(group.xgb_grid):
                         ev: dict = {}
                         p = {**_xgb_params(lr, leaves, C.SEED), "eval_metric": "rmse"}
-                        ev.clear(); _train_retry(p, d_in, MAX_ROUNDS, evals=[(d_val, "val")], evals_result=ev, verbose_eval=False)
+                        _train_retry(p, d_in, MAX_ROUNDS, evals=[(d_val, "val")], evals_result=ev, verbose_eval=False)
                         rmse = np.array(ev["val"]["rmse"])
                         best = int(np.argmin(rmse)) + 1
-                        booster = _train_retry(_xgb_params(lr, leaves, C.SEED), d_tr, best)
-                        preds[g, :, j] = booster.predict(d_te)
                         vm[g, j], rounds[g, j] = float(rmse[best - 1] ** 2), best
-                        del booster
-                out[f"xgb_pred__{v}"], out[f"xgb_valmse__{v}"], out[f"xgb_rounds__{v}"] = preds, vm, rounds
-                del d_in, d_val, d_tr, d_te
+                del d_in, d_val
                 gc.collect()
+                d_tr, d_te = dm(Xtr_s, cols), dm(Xte2, cols)
+                for j in range(J):
+                    d_tr.set_label(ytr[:, j])
+                    for g, (lr, leaves) in enumerate(group.xgb_grid):
+                        booster = _train_retry(_xgb_params(lr, leaves, C.SEED), d_tr, int(rounds[g, j]))
+                        preds[g, :, j] = booster.predict(d_te)
+                        del booster
+                del d_tr, d_te
+                gc.collect()
+                out[f"xgb_pred__{v}"], out[f"xgb_valmse__{v}"], out[f"xgb_rounds__{v}"] = preds, vm, rounds
             out["xgb_targets"] = np.array(group.xgb_targets)
             out["xgb_grid"] = np.array(group.xgb_grid, dtype=float)
-            del Xin_np, Xval_np, Xtr_np, Xte_np
+            del Xin_s, Xtr_s, Xval, Xte2
         else:
             del Xin, Xval, Xtr2, Xte2
         del Yg
