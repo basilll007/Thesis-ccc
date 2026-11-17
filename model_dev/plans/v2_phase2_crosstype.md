@@ -56,3 +56,10 @@ The `all` variant re-fits the v1 models.
   - GPU only; CPU workers capped at 4;
   - the run order is myeloid, then tumour, then the adjusted re-run, one at a time;
   - free RAM is logged before each run, and a run does not start below 8 GB.
+
+## Clarification 1 (2026-11-16, before any Phase 2 computation)
+"Exactly as v1 `summarise`" is made precise:
+- In v1, the XGBoost configuration was selected jointly over the receiver's program targets: the inner-validation MSE was averaged over the program targets and over folds.
+- The ridge alpha was selected jointly over all target columns of the receiver.
+- Phase 2 does the same per group and variant, so the `all` variant can reproduce v1.
+- The phrase "per (receiver, target, variant)" above is replaced by "per (receiver, variant), jointly over the group's targets". This is a protocol fidelity fix, made before any Phase 2 fit or result.
