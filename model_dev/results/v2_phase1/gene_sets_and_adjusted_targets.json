@@ -1,0 +1,75 @@
+{
+  "M": {
+    "genes": [
+      "COL1A1",
+      "COL3A1",
+      "COL1A2",
+      "IGFBP7",
+      "FN1",
+      "TAGLN",
+      "BGN",
+      "COL6A2",
+      "COL6A3",
+      "DCN",
+      "LUM",
+      "CALD1",
+      "COL6A1",
+      "TPM1",
+      "MMP2",
+      "THBS2",
+      "MGP",
+      "COL5A1",
+      "COL4A2",
+      "COL12A1"
+    ],
+    "ratio_threshold": 5.0,
+    "n_passing_before_cap": null
+  },
+  "S": {
+    "genes": [
+      "HLA-DRB1",
+      "HLA-DRA",
+      "SPP1",
+      "CD163",
+      "ITGAX"
+    ],
+    "ratio_threshold": 10.0
+  },
+  "removed_target_genes": [
+    "CD9",
+    "LGALS3",
+    "SELENOP"
+  ],
+  "retained": {
+    "C1Q_TAM": [
+      "C1QA",
+      "C1QB",
+      "C1QC",
+      "CD163",
+      "MRC1"
+    ],
+    "SPP1_TAM": [
+      "SPP1",
+      "GPNMB",
+      "FABP5"
+    ]
+  },
+  "estimable": {
+    "C1Q_TAM": true,
+    "SPP1_TAM": true
+  },
+  "gene_vector_adj": [
+    "C1QA",
+    "C1QB",
+    "C1QC",
+    "CD163",
+    "MRC1",
+    "SPP1",
+    "GPNMB",
+    "FABP5"
+  ],
+  "blocked": {
+    "b_c_i": false,
+    "d": false
+  }
+}

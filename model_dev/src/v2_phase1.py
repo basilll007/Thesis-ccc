@@ -430,6 +430,12 @@ def summarise(args) -> None:
     decide(res, sets, log)
 
 
+def redecide(args) -> None:
+    """Re-run only the decision from the saved summary table (no refit, no re-summarise)."""
+    log = C.start_run(PHASE, "v2_phase1_decide")
+    decide(pd.read_csv(OUT / "phase1_summary.csv"), json.loads((OUT / "gene_sets_and_adjusted_targets.json").read_text()), log)
+
+
 _TARGET_CACHE: dict = {}
 
 
@@ -452,7 +458,7 @@ def decide(res: pd.DataFrame, sets: dict, log) -> None:
         return None if d.empty else d.iloc[0]
 
     def pos(row):
-        return row is not None and row.Q_ci_low > 0
+        return bool(row is not None and row.Q_ci_low > 0)
 
     ref = get("ref", "myeloid:C1Q_TAM")
     bin_rows = {b: get("ref", "myeloid:C1Q_TAM", stratum="bin", level=b) for b in BINS}
@@ -478,10 +484,11 @@ def decide(res: pd.DataFrame, sets: dict, log) -> None:
         verdict = "inconclusive"
 
     def q(row):
-        return None if row is None else {"Q": row.Q_caf_expr, "ci": [row.Q_ci_low, row.Q_ci_high], "gain": row.neighbour_gain,
+        return None if row is None else {"Q": float(row.Q_caf_expr), "ci": [row.Q_ci_low, row.Q_ci_high], "gain": row.neighbour_gain,
                                          "gain_ci": [row.gain_ci_low, row.gain_ci_high], "r2_full": row.r2_full}
-    out = {"verdict": verdict, "failed_checks": failed, "check_a_pass": a_pass, "check_c_pass": c_pass, "check_d_pass": d_pass,
-           "a_separated_bin_strict_pass": pos(bin_rows["separated"]), "spillover_distance_pattern": spill_pattern,
+    out = {"verdict": verdict, "failed_checks": failed, "check_a_pass": bool(a_pass), "check_c_pass": bool(c_pass),
+           "check_d_pass": bool(d_pass), "a_separated_bin_strict_pass": bool(pos(bin_rows["separated"])),
+           "spillover_distance_pattern": bool(spill_pattern),
            "reference_Q_C1Q_TAM": q(ref), "Q_by_bin": {b: q(v) for b, v in bin_rows.items()},
            "c_target": c_target, "c_adjusted_Q": q(c_row), "d_S_mean_Q": q(d_row), "d_M_mean_Q": q(get("ref", "M_mean")),
            "rule": "plans/v2_phase1_spillover.md, Decision rule"}
@@ -491,11 +498,11 @@ def decide(res: pd.DataFrame, sets: dict, log) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["prepare", "fit", "summarise"])
+    ap.add_argument("step", choices=["prepare", "fit", "summarise", "decide"])
     ap.add_argument("--group", nargs="*")
     ap.add_argument("--fold-budget", type=int)
     args = ap.parse_args()
-    {"prepare": prepare, "fit": fit, "summarise": summarise}[args.step](args)
+    {"prepare": prepare, "fit": fit, "summarise": summarise, "decide": redecide}[args.step](args)
 
 
 if __name__ == "__main__":

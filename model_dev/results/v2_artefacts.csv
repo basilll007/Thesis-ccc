@@ -1,2 +1,4 @@
 path,phase,description,bytes,sha256,registered_at
 model_cache/v2/cell_meta.csv.gz,v2_phase1,per-cell area and protein channel means (Mendeley h5ad obs) matched to Phase 0 rows,23915162,ea5e6a04dfaf1a7a7c0da4ff59b9ef922292bce48fe6b5893251824ac3b8a587,2026-11-16T19:27:40
+model_cache/v2/phase1_gene_stats_per_tumour.csv.gz,v2_phase1,"per-tumour gene statistics (CAF, isolated/touching macrophages)",421461,c598372e7efc5d15d9ffec349af4e9f434f39efe2646b19e28379a64562c261f,2026-11-16T19:34:00
+model_cache/v2/phase1_receivers.npz,v2_phase1,"per-receiver arrays: distance bins, 3-nearest-CAF block, contamination score, new targets, protein flags",52647544,75b41ee48dd9f156d95a1de3c28abca45ca06bb966b82fe55a874954e3cd03e9,2026-11-16T19:34:13

@@ -1,0 +1,36 @@
+2026-11-16 19:34:43,656 INFO phase=v2_phase1 script=v2_phase1_fit log=model_dev/results/v2_phase1/run_v2_phase1_fit_20261116T193443.log
+2026-11-16 19:34:43,691 INFO git_commit=acf1282a28fda1cc79849955b6d4c39620f20b9e+dirty
+2026-11-16 19:34:43,691 INFO seed=42
+F:\Thesis\model_dev\src\mdcommon.py:62: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('scanpy')` instead
+  out[name] = getattr(importlib.import_module(name), "__version__", "unknown")
+F:\Thesis\model_dev\src\mdcommon.py:62: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  out[name] = getattr(importlib.import_module(name), "__version__", "unknown")
+2026-11-16 19:34:47,001 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 19:34:47,024 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 19:34:47,025 INFO free RAM 9.97 GB (minimum to start 8.0 GB)
+2026-11-16 19:34:49,378 INFO design: 95941 rows x 3373 columns on GPU; 42 target columns
+2026-11-16 19:34:49,388 INFO group ref: variants {'own': 24, 'full': 3372, 'minuscaf': 2272}; 42 ridge targets; XGBoost ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM', 'C1Q_TAM_mean', 'SPP1_TAM_mean', 'C1Q_TAM_adj', 'SPP1_TAM_adj', 'S_mean', 'M_mean'] on ['full', 'minuscaf']; rows all
+2026-11-16 19:39:26,292 INFO ref fold 0 done in 276 s (n_test 25193; peak VRAM 6030 MiB)
+2026-11-16 19:45:08,607 INFO ref fold 1 done in 342 s (n_test 22471; peak VRAM 6229 MiB)
+2026-11-16 19:50:03,896 INFO ref fold 2 done in 295 s (n_test 16217; peak VRAM 6651 MiB)
+2026-11-16 19:55:33,222 INFO ref fold 3 done in 329 s (n_test 15642; peak VRAM 6689 MiB)
+2026-11-16 20:00:53,811 INFO ref fold 4 done in 321 s (n_test 16418; peak VRAM 6689 MiB)
+2026-11-16 20:00:53,812 INFO group sc: variants {'own_sc': 25, 'full_sc': 3373, 'minuscaf_sc': 2273}; 21 ridge targets; XGBoost ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM', 'C1Q_TAM_adj', 'SPP1_TAM_adj'] on ['full_sc', 'minuscaf_sc']; rows all
+2026-11-16 20:03:30,308 INFO sc fold 0 done in 156 s (n_test 25193; peak VRAM 6689 MiB)
+2026-11-16 20:06:47,235 INFO sc fold 1 done in 197 s (n_test 22471; peak VRAM 6689 MiB)
+2026-11-16 20:09:41,784 INFO sc fold 2 done in 175 s (n_test 16217; peak VRAM 6689 MiB)
+2026-11-16 20:12:40,949 INFO sc fold 3 done in 179 s (n_test 15642; peak VRAM 6689 MiB)
+2026-11-16 20:15:40,511 INFO sc fold 4 done in 180 s (n_test 16418; peak VRAM 6689 MiB)
+2026-11-16 20:15:40,512 INFO group cd45_gt_caf75: variants {'own': 24, 'full': 3372, 'minuscaf': 2272}; 13 ridge targets; XGBoost ['myeloid:C1Q_TAM'] on ['full', 'minuscaf']; rows 61531
+2026-11-16 20:16:33,070 INFO cd45_gt_caf75 fold 0 done in 52 s (n_test 16379; peak VRAM 6689 MiB)
+2026-11-16 20:17:29,111 INFO cd45_gt_caf75 fold 1 done in 56 s (n_test 11976; peak VRAM 6689 MiB)
+2026-11-16 20:18:20,754 INFO cd45_gt_caf75 fold 2 done in 52 s (n_test 11628; peak VRAM 6689 MiB)
+2026-11-16 20:19:14,281 INFO cd45_gt_caf75 fold 3 done in 54 s (n_test 9975; peak VRAM 6689 MiB)
+2026-11-16 20:20:04,093 INFO cd45_gt_caf75 fold 4 done in 50 s (n_test 11573; peak VRAM 6689 MiB)
+2026-11-16 20:20:04,094 INFO group cd45_gt_caf90: variants {'own': 24, 'full': 3372, 'minuscaf': 2272}; 13 ridge targets; XGBoost ['myeloid:C1Q_TAM'] on ['full', 'minuscaf']; rows 37837
+2026-11-16 20:20:46,849 INFO cd45_gt_caf90 fold 0 done in 43 s (n_test 9764; peak VRAM 6689 MiB)
+2026-11-16 20:21:28,340 INFO cd45_gt_caf90 fold 1 done in 41 s (n_test 6232; peak VRAM 6689 MiB)
+2026-11-16 20:22:04,531 INFO cd45_gt_caf90 fold 2 done in 36 s (n_test 7636; peak VRAM 6689 MiB)
+2026-11-16 20:22:42,606 INFO cd45_gt_caf90 fold 3 done in 38 s (n_test 6511; peak VRAM 6689 MiB)
+2026-11-16 20:23:23,803 INFO cd45_gt_caf90 fold 4 done in 41 s (n_test 7694; peak VRAM 6689 MiB)
+2026-11-16 20:23:23,804 INFO fit finished

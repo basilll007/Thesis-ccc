@@ -1,0 +1,35 @@
+2026-11-16 19:33:44,508 INFO phase=v2_phase1 script=v2_phase1_prepare log=model_dev/results/v2_phase1/run_v2_phase1_prepare_20261116T193344.log
+2026-11-16 19:33:44,545 INFO git_commit=9a10d7f6588db493850db32a9944657b202d9e9d+dirty
+2026-11-16 19:33:44,545 INFO seed=42
+2026-11-16 19:33:49,266 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 19:33:49,277 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 19:33:49,289 INFO free RAM 9.97 GB (minimum to start 8.0 GB)
+2026-11-16 19:33:59,992 INFO gene statistics: 13 tumours x 3 classes x 539 genes
+2026-11-16 19:34:00,119 INFO saved model_dev/results/v2_phase1/gene_statistics_median_over_tumours.csv (539 rows)
+2026-11-16 19:34:00,121 INFO M (20, ratio>=5): ['COL1A1', 'COL3A1', 'COL1A2', 'IGFBP7', 'FN1', 'TAGLN', 'BGN', 'COL6A2', 'COL6A3', 'DCN', 'LUM', 'CALD1', 'COL6A1', 'TPM1', 'MMP2', 'THBS2', 'MGP', 'COL5A1', 'COL4A2', 'COL12A1']
+2026-11-16 19:34:00,121 INFO S (5, ratio>=10): ['HLA-DRB1', 'HLA-DRA', 'SPP1', 'CD163', 'ITGAX']
+2026-11-16 19:34:00,121 INFO removed target genes (CAF/iso >= 0.5): ['CD9', 'LGALS3', 'SELENOP']; retained {'C1Q_TAM': ['C1QA', 'C1QB', 'C1QC', 'CD163', 'MRC1'], 'SPP1_TAM': ['SPP1', 'GPNMB', 'FABP5']}
+2026-11-16 19:34:00,122 INFO saved model_dev/results/v2_phase1/gene_sets_and_adjusted_targets.json
+2026-11-16 19:34:01,152 INFO T1-b: 4321 receivers
+2026-11-16 19:34:01,417 INFO T2-b: 5416 receivers
+2026-11-16 19:34:01,625 INFO T3-b: 3153 receivers
+2026-11-16 19:34:02,069 INFO T4-a: 11987 receivers
+2026-11-16 19:34:02,364 INFO T4-b: 6755 receivers
+2026-11-16 19:34:02,656 INFO T5-a: 5847 receivers
+2026-11-16 19:34:02,736 INFO T6-b: 1652 receivers
+2026-11-16 19:34:02,889 INFO U1-b: 3729 receivers
+2026-11-16 19:34:03,092 INFO U2-b: 2756 receivers
+2026-11-16 19:34:03,200 INFO U3-b: 3144 receivers
+2026-11-16 19:34:03,546 INFO U4-a: 6720 receivers
+2026-11-16 19:34:03,860 INFO U4-b: 5176 receivers
+2026-11-16 19:34:04,393 INFO U5-a: 7470 receivers
+2026-11-16 19:34:04,937 INFO U6-a_1: 10815 receivers
+2026-11-16 19:34:05,456 INFO U6-a_2: 11225 receivers
+2026-11-16 19:34:05,880 INFO U7-a: 5775 receivers
+2026-11-16 19:34:13,316 INFO saved model_dev/results/v2_phase1/receiver_build.json
+2026-11-16 19:34:13,377 INFO saved model_dev/results/v2_phase1/b_contamination_by_adjacency.csv (8 rows)
+2026-11-16 19:34:13,400 INFO saved model_dev/results/v2_phase1/b_spillover_rate.csv (2 rows)
+2026-11-16 19:34:13,421 INFO saved model_dev/results/v2_phase1/b_marker_correlation_with_nearest_cafs.csv (13 rows)
+2026-11-16 19:34:13,478 INFO saved model_dev/results/v2_phase1/e_protein_area_descriptives.csv (8 rows)
+2026-11-16 19:34:13,522 INFO saved model_dev/results/v2_phase1/f_target_genes_caf_vs_macrophage.csv (11 rows)
+2026-11-16 19:34:13,522 INFO descriptives saved
