@@ -1,0 +1,16 @@
+{
+  "median_eq_diameter_um": 12.144107067490548,
+  "n_cells": 717493,
+  "n_myeloid": 95941,
+  "bin_edges_um": [
+    0,
+    12.144107067490548,
+    24.288214134981096,
+    "inf"
+  ],
+  "bin_counts_all": {
+    "touching": 40626,
+    "near": 37235,
+    "separated": 18080
+  }
+}

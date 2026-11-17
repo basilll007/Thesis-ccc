@@ -1,0 +1,16 @@
+2026-11-16 19:21:38,147 INFO phase=v2_phase1/preplan script=v2_preplan_descriptives log=model_dev/results/v2_phase1/preplan/run_v2_preplan_descriptives_20261116T192138.log
+2026-11-16 19:21:38,183 INFO git_commit=71ebd43dd637d06aeef761dcf2eba365e67d5ff5+dirty
+2026-11-16 19:21:38,184 INFO seed=42
+2026-11-16 19:21:43,134 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 19:21:43,145 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 19:21:43,157 INFO free RAM 9.67 GB (minimum to start 8.0 GB)
+2026-11-16 19:21:51,373 INFO cell metadata: 717493 cells, saved model_cache/v2/cell_meta.csv.gz
+2026-11-16 19:21:51,473 INFO saved model_dev/results/v2_phase1/preplan/cell_diameter_by_type.csv (12 rows)
+2026-11-16 19:21:51,480 INFO median equivalent cell diameter (all development cells) = 12.14 um
+2026-11-16 19:21:51,987 INFO saved model_dev/results/v2_phase1/preplan/myeloid_nearest_caf_distance_quantiles.csv (8 rows)
+2026-11-16 19:21:51,998 INFO saved model_dev/results/v2_phase1/preplan/myeloid_distance_bins_by_tumour.csv (14 rows)
+2026-11-16 19:21:52,002 INFO saved model_dev/results/v2_phase1/preplan/myeloid_nearest_caf_distance_hist.csv (50 rows)
+2026-11-16 19:21:52,099 INFO saved model_dev/results/v2_phase1/preplan/protein_quantiles_by_section_type.csv (190 rows)
+2026-11-16 19:21:52,164 INFO saved model_dev/results/v2_phase1/preplan/protein_median_by_type.csv (12 rows)
+2026-11-16 19:21:52,164 INFO saved model_dev/results/v2_phase1/preplan/preplan_summary.json
+2026-11-16 19:21:52,165 INFO bins ALL: {'touching': 40626.0, 'near': 37235.0, 'separated': 18080.0, 'n': 95941.0, 'frac_touching': 0.42344774392595447, 'frac_near': 0.3881031050333017, 'frac_separated': 0.18844915104074378}

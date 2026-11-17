@@ -27,3 +27,4 @@ model_cache/features/development__myeloid.npz,phase2,development myeloid receive
 model_cache/features/development__tumour.npz,phase2,development tumour receiver feature blocks and targets,172345360,0e1c37531a5a1420a69de541ace0e075b7fa8fb0955ee8461ba4697ac63e4dfe,2026-11-16T02:15:41
 model_cache/features/external__myeloid.npz,phase2,external myeloid receiver feature blocks and targets,118678680,d1ef2d39adc9c10bc84a29a246e87995cb49ba9617f3d28ab252c4c2b695d34b,2026-11-16T14:45:39
 model_cache/features/external__tumour.npz,phase2,external tumour receiver feature blocks and targets,93631235,e7e92720a941f0916eaf7511dbc6c798273e0024fa8a32334d684bce29d0b43b,2026-11-16T14:50:15
+model_cache/v2/cell_meta.csv.gz,v2_phase1,per-cell area and protein channel means (Mendeley h5ad obs) matched to Phase 0 rows,23915162,ea5e6a04dfaf1a7a7c0da4ff59b9ef922292bce48fe6b5893251824ac3b8a587,2026-11-16T19:21:51
