@@ -1,0 +1,13 @@
+Mon, Nov 16, 2026  8:47:07 PM myeloid iteration 0 failed: GPU OOM in fold 1 XGBoost (failure 1 of the single-process run); switching to one fold per process
+Mon, Nov 16, 2026  8:49:20 PM myeloid iteration 1 failed rc=1 (failure 1)
+Mon, Nov 16, 2026  8:50:38 PM myeloid iteration 2 failed rc=1 (failure 2)
+Mon, Nov 16, 2026  8:50:38 PM myeloid BLOCKED after 2 failures
+Mon, Nov 16, 2026  8:50:38 PM myeloid chain finished
+Mon, Nov 16, 2026  8:51:06 PM tumour iteration 1 failed rc=1 (failure 1)
+Mon, Nov 16, 2026  8:51:33 PM tumour iteration 2 failed rc=1 (failure 2)
+Mon, Nov 16, 2026  8:51:33 PM tumour BLOCKED after 2 failures
+Mon, Nov 16, 2026  8:51:33 PM tumour chain finished
+Mon, Nov 16, 2026  8:52:51 PM adjusted iteration 1 failed rc=1 (failure 1)
+Mon, Nov 16, 2026  9:43:03 PM adjusted iteration 3 failed rc=127 (failure 2)
+Mon, Nov 16, 2026  9:43:03 PM adjusted BLOCKED after 2 failures
+Mon, Nov 16, 2026  9:43:03 PM adjusted chain finished

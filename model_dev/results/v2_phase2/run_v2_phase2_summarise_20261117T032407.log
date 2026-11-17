@@ -1,0 +1,13 @@
+2026-11-17 03:24:07,688 INFO phase=v2_phase2 script=v2_phase2_summarise log=model_dev/results/v2_phase2/run_v2_phase2_summarise_20261117T032407.log
+2026-11-17 03:24:07,726 INFO git_commit=0f46561ac0eb3e3935754a7a4edb3a578d75b46d+dirty
+2026-11-17 03:24:07,726 INFO seed=42
+2026-11-17 03:24:11,093 INFO package_versions={"python": "3.11.15", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-17 03:24:11,105 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-17 03:24:13,579 INFO summarised myeloid_orig
+2026-11-17 03:24:17,470 INFO summarised tumour_orig
+2026-11-17 03:24:19,577 INFO summarised myeloid_adj_sc
+2026-11-17 03:24:20,569 INFO summarised myeloid_mean_ref
+2026-11-17 03:24:20,575 INFO saved model_dev/results/v2_phase2/phase2_quantities.csv (600 rows)
+2026-11-17 03:24:20,580 INFO saved model_dev/results/v2_phase2/agreement_with_graph_estimate.csv (4 rows)
+2026-11-17 03:24:20,603 INFO saved model_dev/results/v2_phase2/reproduction_check_vs_v1.csv (10 rows)
+2026-11-17 03:24:20,603 INFO reproduction: 10/10 within tolerance

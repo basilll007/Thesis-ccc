@@ -41,3 +41,14 @@ See `reports/MODEL_REPORT_v1.md` (lead question, all tables with CIs, ablations,
 ## Running under memory pressure
 All training is GPU-only. Long phases are resumable and can be run in foreground chunks:
 `baselines.py --fold-budget N`, `ablations.py --time-budget S`, `pretrain.py --fold-budget N`, `learning_curve.py --time-budget S`; `train.py` resumes per run from `results/phase3/partial/` and checkpoints in `model_cache/checkpoints/`.
+
+## v2 (branch model-v2): spillover control, cross-type share on aggregated models, survival
+- Plans: `plans/v2_phase1_spillover.md`, `plans/v2_phase2_crosstype.md`, `plans/v2_phase3_survival.md`.
+- Report: `reports/MODEL_REPORT_v2.md`; wet-lab brief: `reports/WETLAB_BRIEF_v1.md`; log: `reports/PROGRESS_LOG_v2.md`.
+- Figures (with test results printed on them): `results/figures/v2_fig*.png|pdf`, index `results/figures/v2_figure_index.csv`.
+- Commands (environment `model_cache/envs/thesis-model-v2`, rebuilt from `environment.yml` + xgboost 3.2.0 + psutil):
+  `python model_dev/src/v2_phase1.py prepare|fit|summarise`;
+  `python model_dev/src/v2_phase2.py fit --run myeloid|tumour|adjusted --fold-budget 1` then `summarise`;
+  `python model_dev/src/v2_phase3_survival.py`;
+  `python model_dev/src/v2_figures.py tests phase1 phase2 phase3`;
+  `python model_dev/src/v2_dashboard.py`.

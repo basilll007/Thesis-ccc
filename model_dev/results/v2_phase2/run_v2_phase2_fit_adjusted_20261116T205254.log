@@ -1,0 +1,15 @@
+2026-11-16 20:52:54,058 INFO phase=v2_phase2 script=v2_phase2_fit_adjusted log=model_dev/results/v2_phase2/run_v2_phase2_fit_adjusted_20261116T205254.log
+2026-11-16 20:52:54,096 INFO git_commit=ad36a29caa9372efff08b63b3baba0edd84f3d25+dirty
+2026-11-16 20:52:54,096 INFO seed=42
+2026-11-16 20:52:57,366 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 20:52:57,378 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 20:52:57,380 INFO free RAM 9.22 GB (minimum to start 8.0 GB)
+2026-11-16 20:52:59,070 INFO adjusted run: targets ['C1Q_TAM_adj', 'SPP1_TAM_adj'], gene_vector_adj ['C1QA', 'C1QB', 'C1QC', 'CD163', 'MRC1', 'SPP1', 'GPNMB', 'FABP5']; reference ['C1Q_TAM_mean', 'SPP1_TAM_mean']
+2026-11-16 20:52:59,317 INFO adjusted design: 95941 x 2830 on GPU
+2026-11-16 20:52:59,320 INFO group myeloid_adj_sc: {'r_own': 23, 'r_all': 135, 'r_same': 47, 'r_other_only': 111, 'r_same_plus_other_comp': 69, 'r_minus_CAF': 111, 'r_minus_tumour': 111, 'r_minus_T': 111, 'r_minus_other': 119, 'x_own': 23, 'x_all': 2830, 'x_same': 586, 'x_other_only': 2267, 'x_same_plus_other_comp': 608, 'x_minus_CAF': 2267, 'x_minus_tumour': 2267, 'x_minus_T': 2267, 'x_minus_other': 2275}; XGBoost targets ['C1Q_TAM_adj', 'SPP1_TAM_adj']
+2026-11-16 21:08:10,231 INFO myeloid_adj_sc fold 0 done in 910 s (n_test 25193; peak VRAM 5051 MiB)
+2026-11-16 21:08:10,231 INFO myeloid_adj_sc: fold budget 1 reached
+2026-11-16 21:08:10,234 INFO group myeloid_mean_ref: {'r_own': 22, 'r_all': 134, 'r_same': 46, 'r_other_only': 110, 'r_same_plus_other_comp': 68, 'r_minus_CAF': 110, 'r_minus_tumour': 110, 'r_minus_T': 110, 'r_minus_other': 118, 'x_own': 22, 'x_all': 2829, 'x_same': 585, 'x_other_only': 2266, 'x_same_plus_other_comp': 607, 'x_minus_CAF': 2266, 'x_minus_tumour': 2266, 'x_minus_T': 2266, 'x_minus_other': 2274}; XGBoost targets ['C1Q_TAM_mean', 'SPP1_TAM_mean']
+2026-11-16 21:23:29,201 INFO myeloid_mean_ref fold 0 done in 919 s (n_test 25193; peak VRAM 5057 MiB)
+2026-11-16 21:23:29,201 INFO myeloid_mean_ref: fold budget 1 reached
+2026-11-16 21:23:29,201 INFO fit adjusted finished

@@ -1,0 +1,10 @@
+2026-11-16 20:47:10,365 INFO phase=v2_phase2 script=v2_phase2_fit_myeloid log=model_dev/results/v2_phase2/run_v2_phase2_fit_myeloid_20261116T204710.log
+2026-11-16 20:47:10,402 INFO git_commit=1cd50daa9fe5db553e7c18dabe78de5bad431d1a+dirty
+2026-11-16 20:47:10,402 INFO seed=42
+2026-11-16 20:47:14,315 INFO package_versions={"python": "3.11.18", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 20:47:14,330 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 20:47:14,332 INFO free RAM 7.78 GB (minimum to start 8.0 GB)
+2026-11-16 20:47:14,332 WARNING free RAM below 8.0 GB: waiting 60 s
+2026-11-16 20:48:14,335 INFO free RAM 8.35 GB (minimum to start 8.0 GB)
+2026-11-16 20:48:16,314 INFO myeloid design: 95941 x 2825 on GPU
+2026-11-16 20:48:16,316 INFO group myeloid_orig: {'r_own': 18, 'r_all': 130, 'r_same': 42, 'r_other_only': 106, 'r_same_plus_other_comp': 64, 'r_minus_CAF': 106, 'r_minus_tumour': 106, 'r_minus_T': 106, 'r_minus_other': 114, 'x_own': 18, 'x_all': 2825, 'x_same': 581, 'x_other_only': 2262, 'x_same_plus_other_comp': 603, 'x_minus_CAF': 2262, 'x_minus_tumour': 2262, 'x_minus_T': 2262, 'x_minus_other': 2270}; XGBoost targets ['myeloid:C1Q_TAM', 'myeloid:SPP1_TAM']

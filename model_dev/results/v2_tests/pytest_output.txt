@@ -27,4 +27,4 @@ model_dev/tests/test_v2.py::test_pairs_for_and_ratio_bootstrap PASSED    [ 95%]
 model_dev/tests/test_v2.py::test_leak_guard_refuses_contamination_covariate_on_marker_target PASSED [100%]
 
 -- generated xml file: F:\Thesis\model_dev\results\v2_tests\pytest_junit.xml --
-============================= 20 passed in 4.27s ==============================
+============================= 20 passed in 3.04s ==============================

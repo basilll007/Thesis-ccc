@@ -162,52 +162,76 @@ def phase1():
 
 def phase2():
     q = pd.read_csv(C.RESULTS / "v2_phase2" / "phase2_quantities.csv")
+    VIOLET = "#6250d6"
     show = [("myeloid_orig", "myeloid:C1Q_TAM"), ("myeloid_orig", "myeloid:SPP1_TAM"), ("tumour_orig", "tumour:classical"),
             ("tumour_orig", "tumour:basal_like"), ("myeloid_adj_sc", "C1Q_TAM_adj"), ("myeloid_adj_sc", "SPP1_TAM_adj")]
     show = [s for s in show if ((q.group == s[0]) & (q.target == s[1])).any()]
-    qs = [("neighbour gain (all - own)", "neighbour gain", INK2), ("cross-type contribution (all - same)", "cross-type", BLUE),
-          ("who is nearby: other-type composition (same_plus_other_comp - same)", "other-type composition", AQUA),
-          ("what they express: other-type expression (all - same_plus_other_comp)", "other-type expression", ORANGE)]
-    fig, axs = plt.subplots(1, 2, figsize=(13, 5.2), gridspec_kw={"width_ratios": [1.4, 1]})
-    ax = axs[0]
-    for j, (qq, lab, color) in enumerate(qs):
-        rows = []
-        for g, t in show:
-            r = q[(q.group == g) & (q.target == t) & (q.model == "xgb (genes set)") & (q.quantity == qq)]
-            rows.append(r.iloc[0] if len(r) else None)
-        xs = [i for i, r in enumerate(rows) if r is not None]
-        ci_points(ax, xs, [r for r in rows if r is not None], color, lab, "value", "ci_low", "ci_high", off=-0.24 + 0.16 * j)
-    ax.axhline(0, color=INK2, lw=0.8)
-    ax.set_xticks(range(len(show)), [f"{t.split(':')[-1]}\n({g.split('_')[0]}{', adjusted' if 'adj' in g else ''})" for g, t in show], fontsize=7)
-    ax.set_ylabel("held-out R2 difference")
-    ax.set_title("A  XGBoost (genes set): neighbour gain and its other-type parts")
-    ax.legend(frameon=False, fontsize=7); style(ax)
-    ax = axs[1]
-    rows = []
-    for g, t in show:
-        r = q[(q.group == g) & (q.target == t) & (q.model == "xgb (genes set)") & q.quantity.str.startswith("unique contribution")]
-        rows.append(r)
-    types = ["CAF", "tumour", "myeloid", "T", "other"]
-    cols = {"CAF": ORANGE, "tumour": BLUE, "myeloid": BLUE, "T": AQUA, "other": INK2}
-    for i, r in enumerate(rows):
-        for k, t in enumerate(types):
-            rr = r[r.quantity.str.contains(f" of {t} ")]
-            if rr.empty:
-                continue
-            rr = rr.iloc[0]
-            ax.errorbar(rr.value, i + (k - 2) * 0.15, xerr=[[rr.value - rr.ci_low], [rr.ci_high - rr.value]], fmt="o", ms=4,
-                        color=cols[t], lw=1.3, label=t if i == 0 or (t == "myeloid" and i == 2) else None)
-    ax.axvline(0, color=INK2, lw=0.8)
-    ax.set_yticks(range(len(show)), [f"{t.split(':')[-1]} ({g.split('_')[0]})" for g, t in show], fontsize=7)
-    ax.set_xlabel("unique contribution (all - minus type), R2")
-    ax.set_title("B  Unique contribution of each other cell type")
-    h, l_ = ax.get_legend_handles_labels()
-    ax.legend(h, l_, frameon=False, fontsize=7, title="neighbour type (other-type only)"); style(ax, "x")
-    fig.suptitle("v2 Phase 2: cross-type share on the aggregated baselines (development set; paired tumour-bootstrap 95% CIs)", fontsize=10)
-    fig.tight_layout()
+    adj_suffix = ",\nadjusted"
+    labels = [f"{t.split(':')[-1]}\n({'tumour' if g.startswith('tumour') else 'macrophage'}{adj_suffix if 'adj' in g else ''})" for g, t in show]
+
+    def get(g, t, model, quantity):
+        r = q[(q.group == g) & (q.target == t) & (q.model == model) & q.quantity.str.startswith(quantity)]
+        return None if r.empty else r.iloc[0]
+
+    def series(ax, model, quantity, color, label, off):
+        rows = [(i, get(g, t, model, quantity)) for i, (g, t) in enumerate(show)]
+        rows = [(i, r) for i, r in rows if r is not None and pd.notna(r.value)]
+        if rows:
+            ci_points(ax, [i for i, _ in rows], [r for _, r in rows], color, label, "value", "ci_low", "ci_high", off=off, side=True, fs=5.5)
+
+    fig = plt.figure(figsize=(16, 15))
+    mos = fig.subplot_mosaic([["A", "B"], ["C", "T"], ["D", "D"]])
+    axs = {"A": mos["A"], "B": mos["B"], "C": mos["C"], "D": mos["D"]}
+    X, R = "xgb (genes set)", "ridge (programs set)"
+    ax = axs["A"]
+    series(ax, X, "neighbour gain", INK2, "XGBoost (genes set)", -0.15)
+    series(ax, R, "neighbour gain", ORANGE, "ridge (programs set)", 0.15)
+    ax.set_title("A  Neighbour gain (all neighbours - own covariates)")
+    ax.set_ylim(bottom=0)
+    ax = axs["B"]
+    series(ax, X, "cross-type contribution", BLUE, "XGBoost (genes set)", -0.15)
+    series(ax, R, "cross-type contribution", ORANGE, "ridge (programs set)", 0.15)
+    ax.axhline(0.019, color=AQUA, lw=1, ls=":")
+    ax.text(-0.55, 0.019, "v1 graph model, C1Q_TAM: +0.019 [0.004, 0.028]", color=INK2, fontsize=6.5, ha="left", va="bottom")
+    ax.set_title("B  Cross-type contribution (all - same-type only): model dependent")
+    ax = axs["C"]
+    series(ax, X, "who is nearby", AQUA, "who is nearby: other-type composition", -0.15)
+    series(ax, X, "what they express", VIOLET, "what they express: other-type expression", 0.15)
+    ax.set_title("C  Other-type information split (XGBoost)")
+    ax = axs["D"]
+    types = [("CAF", ORANGE), ("tumour", BLUE), ("myeloid", VIOLET), ("T", AQUA), ("other", INK2)]
+    for k, (tp, color) in enumerate(types):
+        series(ax, X, f"unique contribution of {tp} ", color, tp, -0.36 + 0.18 * k)
+    ax.set_title("D  Unique contribution of each other cell type (all - minus type; XGBoost)")
+    for ax in axs.values():
+        ax.axhline(0, color=INK2, lw=0.8)
+        ax.set_xticks(range(len(show)), labels, fontsize=7)
+        ax.set_xlim(-0.6, len(show) - 0.1)
+        ax.set_ylabel("held-out R2 difference")
+        ax.legend(frameon=False, fontsize=7, loc="lower right" if ax is axs["B"] else "upper right")
+        style(ax)
+    ax = mos["T"]
+    ax.axis("off")
+    ag = pd.read_csv(C.RESULTS / "v2_phase2" / "agreement_with_graph_estimate.csv")
+    rows = [[f"{r.receiver} {r.target.split(':')[-1]}", r.aggregated_model.split(" (")[0],
+             f"{r.aggregated_cross_type:+.3f} [{r.aggregated_ci_low:+.3f}, {r.aggregated_ci_high:+.3f}]",
+             f"{r.graph_cross_type:+.3f} [{r.graph_ci_low:+.3f}, {r.graph_ci_high:+.3f}]",
+             "AGREES" if r.agrees else f"NO ({r.direction_if_not})"] for r in ag.itertuples()]
+    t = ax.table(cellText=rows, colLabels=["target", "model", "aggregated cross-type", "graph v1 cross-type", "agreement test"],
+                 loc="center", cellLoc="center")
+    t.auto_set_font_size(False); t.set_fontsize(7); t.scale(1, 1.6); t.auto_set_column_width(list(range(5)))
+    for (i, j), c in t.get_celld().items():
+        c.set_edgecolor(GRID)
+        if i == 0:
+            c.set_text_props(fontweight="bold")
+        elif j == 4:
+            c.set_text_props(fontweight="bold", color="#008300" if c.get_text().get_text() == "AGREES" else "#e34948")
+    ax.set_title("Pre-declared agreement test with the v1 graph estimate\n(each CI must contain the other point estimate)", fontsize=9, fontweight="bold")
+    fig.suptitle("v2 Phase 2: cross-type share on the aggregated baselines (development set; estimates with paired tumour-bootstrap 95% CIs)", fontsize=10)
+    fig.tight_layout(rect=[0, 0, 1, 0.975])
     save(fig, "v2_fig2_crosstype")
-    record("v2_fig2_crosstype", "Phase 2 cross-type share on aggregated XGBoost: neighbour gain, cross-type, composition vs "
-           "expression, unique per-type contributions; estimates with paired tumour-bootstrap 95% CIs printed on the plot",
+    record("v2_fig2_crosstype", "Phase 2 cross-type share on aggregated models: neighbour gain, cross-type contribution (XGBoost vs ridge), "
+           "composition vs expression, unique per-type contributions; estimates with paired tumour-bootstrap 95% CIs printed on the plot",
            ["model_dev/results/v2_phase2/phase2_quantities.csv", "agreement_with_graph_estimate.csv"])
 
 

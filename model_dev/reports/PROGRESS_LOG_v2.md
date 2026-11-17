@@ -59,3 +59,18 @@ Branch `model-v2`, created 2026-11-16 from origin/main (71ebd43).
   - The XGBoost loop now keeps at most two DMatrices alive and builds each from a GPU column slice. Each XGBoost DMatrix holds a dense host copy of about 1.4 GB, and attempt 2 had four alive at once. The inputs and seeds of every fit are unchanged.
   - To avoid mixing environments, **all** Phase 2 folds are recomputed in the new environment. The 3 old-environment fold-0 files are archived, unused, in `model_cache/v2/phase2_attempt1_oldenv/`.
   - Phase 1 and Phase 3 results (old environment) are unchanged. The reproduction check against v1 Phase 2 tests the new environment.
+
+## 2026-11-17 Phase 2 attempt 3 (DONE)
+- **Runs:** all 20 group x fold files were computed in the rebuilt environment (myeloid 5, tumour 5, adjusted 2 x 5), one fold per process, with no failure. Folds took 15-19 min (peak VRAM 5.0-6.0 GB).
+- **Reproduction of v1 Phase 2:** 10/10 within tolerance (ridge |diff| < 1e-7; XGBoost <= 0.0008).
+- **Summary:** `results/v2_phase2/phase2_quantities.csv`, `agreement_with_graph_estimate.csv` (no estimate agrees with the graph value; all smaller).
+
+## 2026-11-17 Figures, tests, Phase 4
+- **User request:** record all graphs, with the test results on them.
+  - Every v2 figure is saved as PNG + PDF, with estimates, 95 % CIs and PASS/FAIL of the pre-declared checks printed on the plot.
+  - `v2_fig0_tests_and_checks` shows all 20 unit tests (JUnit XML in `results/v2_tests/`) and every decision check.
+  - `results/figures/v2_figure_index.csv` lists each figure with its sources and SHA-256.
+- **Phase 4:**
+  - `reports/MODEL_REPORT_v2.md` and `reports/WETLAB_BRIEF_v1.md`;
+  - FINDINGS.md updated;
+  - dashboard section 9 + hero banner on `neighbourhood_models.html` and an index card note, generated from the result files by `src/v2_dashboard.py`.

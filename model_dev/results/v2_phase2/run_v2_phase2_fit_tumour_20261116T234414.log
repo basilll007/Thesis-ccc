@@ -1,0 +1,11 @@
+2026-11-16 23:44:14,537 INFO phase=v2_phase2 script=v2_phase2_fit_tumour log=model_dev/results/v2_phase2/run_v2_phase2_fit_tumour_20261116T234414.log
+2026-11-16 23:44:14,576 INFO git_commit=f81eaccf9d4510e216c1c191008c661dc67da5eb+dirty
+2026-11-16 23:44:14,577 INFO seed=42
+2026-11-16 23:44:17,777 INFO package_versions={"python": "3.11.15", "numpy": "2.4.6", "pandas": "2.3.3", "scipy": "1.17.1", "sklearn": "1.9.1", "scanpy": "1.11.5", "anndata": "0.12.19", "torch": "2.11.0+cu128", "torch_geometric": "2.8.1", "yaml": "6.0.3", "pytest": "9.2.0"}
+2026-11-16 23:44:17,789 INFO platform=Windows-10-10.0.26300-SP0 gpu=NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB); torch 2.11.0+cu128; cuda 12.8
+2026-11-16 23:44:17,791 INFO free RAM 9.44 GB (minimum to start 8.0 GB)
+2026-11-16 23:44:19,904 INFO tumour design: 102546 x 2832 on GPU
+2026-11-16 23:44:19,906 INFO group tumour_orig: {'r_own': 25, 'r_all': 137, 'r_same': 49, 'r_other_only': 113, 'r_same_plus_other_comp': 71, 'r_minus_CAF': 113, 'r_minus_myeloid': 113, 'r_minus_T': 113, 'r_minus_other': 121, 'x_own': 25, 'x_all': 2832, 'x_same': 588, 'x_other_only': 2269, 'x_same_plus_other_comp': 610, 'x_minus_CAF': 2269, 'x_minus_myeloid': 2269, 'x_minus_T': 2269, 'x_minus_other': 2277}; XGBoost targets ['tumour:classical', 'tumour:basal_like']
+2026-11-17 00:00:45,597 INFO tumour_orig fold 2 done in 985 s (n_test 21507; peak VRAM 5715 MiB)
+2026-11-17 00:00:45,597 INFO tumour_orig: fold budget 1 reached
+2026-11-17 00:00:45,603 INFO fit tumour finished
