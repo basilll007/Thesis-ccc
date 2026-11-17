@@ -81,6 +81,19 @@ def _xgb_params(lr: float, leaves: int, seed: int) -> dict:
             "nthread": 4}   # nthread: CPU-worker cap only; does not change the fitted model
 
 
+def _train_retry(params, dtrain, rounds, **kw):
+    """xgb.train with one retry after releasing GPU caches if CUDA runs out of memory (same inputs, same result)."""
+    import xgboost as xgb
+    try:
+        return xgb.train(params, dtrain, rounds, **kw)
+    except xgb.core.XGBoostError as e:
+        if "out of memory" not in str(e) and "cudaErrorMemoryAllocation" not in str(e):
+            raise
+        gc.collect()
+        torch.cuda.empty_cache()
+        return xgb.train(params, dtrain, rounds, **kw)
+
+
 def fold_masks(section: np.ndarray, sec2fold: dict, k: int, n_folds: int):
     """(train_inner, val, train_all, test) for outer fold k; inner val = fold (k+1) mod n (v1 rule)."""
     fold_of = np.array([sec2fold[s] for s in section])
@@ -169,10 +182,10 @@ def run_group(X: torch.Tensor, names: list[str], prov: list, section: np.ndarray
                     for g, (lr, leaves) in enumerate(group.xgb_grid):
                         ev: dict = {}
                         p = {**_xgb_params(lr, leaves, C.SEED), "eval_metric": "rmse"}
-                        xgb.train(p, d_in, MAX_ROUNDS, evals=[(d_val, "val")], evals_result=ev, verbose_eval=False)
+                        ev.clear(); _train_retry(p, d_in, MAX_ROUNDS, evals=[(d_val, "val")], evals_result=ev, verbose_eval=False)
                         rmse = np.array(ev["val"]["rmse"])
                         best = int(np.argmin(rmse)) + 1
-                        booster = xgb.train(_xgb_params(lr, leaves, C.SEED), d_tr, best)
+                        booster = _train_retry(_xgb_params(lr, leaves, C.SEED), d_tr, best)
                         preds[g, :, j] = booster.predict(d_te)
                         vm[g, j], rounds[g, j] = float(rmse[best - 1] ** 2), best
                         del booster
