@@ -1,0 +1,2 @@
+path,phase,description,bytes,sha256,registered_at
+model_cache/v2/cell_meta.csv.gz,v2_phase1,per-cell area and protein channel means (Mendeley h5ad obs) matched to Phase 0 rows,23915162,ea5e6a04dfaf1a7a7c0da4ff59b9ef922292bce48fe6b5893251824ac3b8a587,2026-11-16T19:27:40

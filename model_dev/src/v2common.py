@@ -76,7 +76,7 @@ def cell_metadata(log=None) -> pd.DataFrame:
     out["eq_diam_um"] = 2 * np.sqrt(out["area_um2"] / np.pi)
     V2_CACHE.mkdir(parents=True, exist_ok=True)
     out.to_csv(path, index=False)
-    C.register_artefact(path, "v2_phase1", "per-cell area and protein channel means (Mendeley h5ad obs) matched to Phase 0 rows")
+    register_v2_artefact(path, "v2_phase1", "per-cell area and protein channel means (Mendeley h5ad obs) matched to Phase 0 rows")
     if log:
         log.info("cell metadata: %d cells, saved %s", len(out), C.rel(path))
     return out
@@ -121,3 +121,15 @@ def column_kind(name: str) -> str:
     if name.startswith(("nb_knn_", "nb_r30_", "ncaf_expr__")):
         return "expression"
     return "own"
+
+
+def register_v2_artefact(path: Path, phase: str, description: str) -> None:
+    """Record a large v2 artefact (outside git) with its checksum in model_dev/results/v2_artefacts.csv.
+    v2 keeps its own registry so the v1 registry (results/phase0/artefacts.csv) is never modified."""
+    from datetime import datetime
+    reg = C.RESULTS / "v2_artefacts.csv"
+    row = {"path": C.rel(path), "phase": phase, "description": description, "bytes": Path(path).stat().st_size,
+           "sha256": C.sha256(path), "registered_at": datetime.now().isoformat(timespec="seconds")}
+    df = pd.read_csv(reg) if reg.exists() else pd.DataFrame(columns=list(row))
+    df = df[df.path != row["path"]]
+    pd.concat([df, pd.DataFrame([row])], ignore_index=True).to_csv(reg, index=False)

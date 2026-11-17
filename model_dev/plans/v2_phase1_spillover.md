@@ -127,7 +127,7 @@ Primary quantity: Q for macrophage C1Q_TAM, XGBoost. "CI > 0" means the paired t
   - per-bin table; contamination table; protein-check table; hypothesis-gene table;
   - per-task summary (R2, gains, Q with CIs);
   - decision JSON, figure, run logs.
-- Large per-cell arrays go in `model_cache/v2/`, with checksums in `results/phase0/artefacts.csv`.
+- Large per-cell arrays go in `model_cache/v2/`, with checksums in `results/v2_artefacts.csv` (the v1 registry is not modified).
 
 ## Compute and safety
 - GPU for all model fits; CPU workers capped at 4.
