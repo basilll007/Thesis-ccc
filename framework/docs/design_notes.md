@@ -1,6 +1,6 @@
-# ccc-audit Design Notes: Assumptions and Defaults
+# cellalibi Design Notes: Assumptions and Defaults
 
-This document records the empirical rationale for all default parameter values, spatial thresholds, and statistical assumptions used throughout the `ccc_audit` framework.
+This document records the empirical rationale for all default parameter values, spatial thresholds, and statistical assumptions used throughout the `cellalibi` framework.
 
 ---
 

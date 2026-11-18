@@ -24,8 +24,8 @@ from typing import Sequence
 import numpy as np
 import pandas as pd
 
-from ccc_audit.graphs import assign_tiles
-from ccc_audit.nulls import global_null, block_null
+from cellalibi.graphs import assign_tiles
+from cellalibi.nulls import global_null, block_null
 
 
 def simulate_planted_proximity(

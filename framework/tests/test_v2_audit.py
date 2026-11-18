@@ -2,9 +2,9 @@
 import numpy as np
 import pytest
 
-from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext
-from ccc_audit.simulate import synthetic_tissue
-from ccc_audit.verdicts import AuditVerdict, CHECKS, audit_claim, claims_table, primary_verdict
+from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext
+from cellalibi.simulate import synthetic_tissue
+from cellalibi.verdicts import AuditVerdict, CHECKS, audit_claim, claims_table, primary_verdict
 
 CFG = AuditConfig(n_perms=1000)
 
@@ -71,7 +71,7 @@ def test_min_attainable_p_reported():
 
 def test_knn_graph_keeps_nearest_neighbour():
     """Regression test for the v1 bug: knn_graph dropped each cell's true nearest neighbour."""
-    from ccc_audit.graphs import knn_graph
+    from cellalibi.graphs import knn_graph
     xy = np.array([[0.0, 0.0], [1.0, 0.0], [3.0, 0.0], [6.0, 0.0], [10.0, 0.0]])
     r, c = knn_graph(xy, k=1)
     assert list(c) == [1, 0, 1, 2, 3]

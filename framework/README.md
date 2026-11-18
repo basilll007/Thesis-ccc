@@ -1,6 +1,28 @@
-# ccc-audit: Spatial Cell-Cell Communication Audit Framework
+# cellalibi: Spatial Cell-Cell Communication Audit Framework
 
-`ccc-audit` is an installable, tested Python framework designed to audit spatial transcriptomics cell-cell communication (CCC) hypotheses. It determines whether apparent intercellular signaling signals are genuine juxtacrine/proximity effects or artefacts of:
+> **Name note:** this package was previously called `ccc_audit` / CLI `ccc-audit` (v0.1.0, branch `framework-v1`).
+> It was renamed to `cellalibi` (CLI `cellalibi`) in v0.2.0 on branch `framework-v2`. Nothing has been published to PyPI.
+
+## What changed in v0.2.0 (framework-v2)
+- **Claim audit with all checks reported** (`cellalibi.audit_claim`): power / abundance / zonation / spillover, each
+  PASS, FAIL or NOT_RUN, plus one primary verdict from a pre-declared priority rule (`cellalibi.PRIORITY_RULE`).
+- Contact tests permute expression **within cell type** (globally, within tiles, and against nearby non-touching
+  receivers). Spillover is computed separately for each claim's own sender/receiver pair on all genes.
+- Default 1000 permutations (minimum attainable p = 1/1001).
+- Bug fix: `knn_graph` used to drop each cell's nearest neighbour.
+- Reproduction tests now recompute thesis numbers from the raw inputs.
+- See `framework/reports/FRAMEWORK_REPORT_v2.md` for the ground-truth benchmark and tool comparison.
+
+```python
+import cellalibi as cb
+ctx = cb.SpatialContext(xy, labels)                 # contact graph, tiles, diameter
+ex = cb.ExpressionData(counts, gene_names)          # counts -> CP10K / log1p
+audit = cb.audit_claim(ctx, ex, "CAF", "Macrophage", "FN1", "ITGB1")
+audit.checks        # {'power': 'PASS', 'abundance': 'FAIL', 'zonation': 'FAIL', 'spillover': 'PASS'}
+audit.primary       # AuditVerdict.EXPLAINED_BY_ABUNDANCE
+```
+
+`cellalibi` is an installable, tested Python framework designed to audit spatial transcriptomics cell-cell communication (CCC) hypotheses. It determines whether apparent intercellular signaling signals are genuine juxtacrine/proximity effects or artefacts of:
 1. **Cell-type Abundance**: Non-spatial baseline co-expression mirroring cellular frequencies.
 2. **Regional Zonation**: Coarse spatial compartmentalisation (e.g., stroma vs tumour nests) that inflates naive spatial tests.
 3. **Segmentation Spillover**: Optical and transcript bleeding from adjacent cells that mimics receptor upregulation.
@@ -13,7 +35,7 @@ Current CCC tools frequently report hundreds of "significant" ligand-receptor in
 - Spatially unconstrained (global) permutation tests reject almost anywhere cell types are regionally segregated.
 - High-plex in situ platforms (CosMx, Xenium, MERSCOPE) suffer from imperfect optical segmentation: touching cells carry up to 20–30% excess transcripts from their neighbours.
 
-`ccc-audit` decomposes interaction scores into:
+`cellalibi` decomposes interaction scores into:
 - $C_{sr} = (\bar{L}_s + \bar{R}_r) / 2$ (Compositional score)
 - $E_{sr} = \frac{1}{|E_{sr}|} \sum_{(i \to j) \in G} L_i R_j$ (Edge-restricted contact score)
 - $M_{sr} = \bar{L}_s \cdot \bar{R}_r$ (Matched dyadic non-spatial baseline)
@@ -41,7 +63,7 @@ pip install -e ".[models,dev]"
 ---
 
 ## 3. Input Contract
-`ccc-audit` consumes standard single-cell spatial transcriptomics data formatted as an [`AnnData`](https://anndata.readthedocs.io/) object.
+`cellalibi` consumes standard single-cell spatial transcriptomics data formatted as an [`AnnData`](https://anndata.readthedocs.io/) object.
 
 ### Required `adata.obs` Columns
 - `cell_type` (str / categorical): High-confidence cell type annotation.
@@ -61,7 +83,7 @@ pip install -e ".[models,dev]"
 Run an end-to-end audit on your spatial dataset with a YAML configuration:
 
 ```bash
-ccc-audit run config.yaml
+cellalibi run config.yaml
 ```
 
 ### Example `config.yaml`
@@ -144,7 +166,7 @@ flowchart TD
 ---
 
 ## 8. Underlying Methods and Citations
-The methods, null models, and baseline architectures integrated into `ccc-audit` build upon the following foundations:
+The methods, null models, and baseline architectures integrated into `cellalibi` build upon the following foundations:
 
 - **Squidpy:**
   Palla, G., Spitzer, H., Klein, M. *et al.* "Squidpy: a scalable framework for spatial omics analysis." *Nat Methods* 19, 171–178 (2022).

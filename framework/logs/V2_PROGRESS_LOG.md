@@ -39,3 +39,12 @@ DONE / BLOCKED status.
 - v2 demo outputs were regenerated after the kNN fix (the claim verdicts did not change; only the thesis-style
   C/E/M/Q tables use `knn_graph`).
 - Tests: 29/29 pass. Phase 2 status: **DONE**.
+
+## Phase 3
+- Renamed `ccc_audit` -> `cellalibi` (import, distribution, CLI), v0.2.0. Installed editable into the
+  thesis-model-v2 venv with `uv pip install -e --no-deps` (the venv has no pip).
+- PyPI 404 for `cellalibi` and `cell-alibi`; GitHub repo/user search 0 hits; GitHub code search not run (no auth).
+  See framework/docs/NAMING_LOG.md. Nothing published.
+- After rename: 23 non-repro tests pass; 6/6 reproduction tests pass (pytest_reproduction_after_rename.txt);
+  `cellalibi run` works on the crop config.
+- Phase 3 status: **DONE**.

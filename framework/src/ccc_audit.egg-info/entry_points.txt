@@ -1,2 +1,0 @@
-[console_scripts]
-ccc-audit = ccc_audit.cli:main

@@ -5,11 +5,11 @@ from pathlib import Path
 import numpy as np, pandas as pd
 from scipy.stats import binom
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
-from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext, contact_statistics
-from ccc_audit.simulate import synthetic_tissue
-from ccc_audit.graphs import knn_graph
-from ccc_audit.nulls import global_null, block_null
-from ccc_audit.scores import prepare_lr_setup, compute_scores_for_labels
+from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext, contact_statistics
+from cellalibi.simulate import synthetic_tissue
+from cellalibi.graphs import knn_graph
+from cellalibi.nulls import global_null, block_null
+from cellalibi.scores import prepare_lr_setup, compute_scores_for_labels
 import anndata as ad
 
 rows = []

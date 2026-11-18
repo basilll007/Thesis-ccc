@@ -25,3 +25,6 @@ model_cache/
 framework/tests/local_reproduction_config.yaml
 local_reproduction_config.yaml
 
+
+# build metadata
+*.egg-info/

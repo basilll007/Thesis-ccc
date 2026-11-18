@@ -1,4 +1,4 @@
-"""Unit tests on synthetic data for ccc_audit framework.
+"""Unit tests on synthetic data for cellalibi framework.
 
 Validates that:
 1. Null models are calibrated under the null (type I error near 0.05).
@@ -14,14 +14,14 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from ccc_audit.io import DataContractError, validate_spatial_data
-from ccc_audit.graphs import knn_graph, assign_tiles
-from ccc_audit.scores import compute_ccc_scores
-from ccc_audit.nulls import global_null, block_null
-from ccc_audit.calibration import simulate_planted_proximity
-from ccc_audit.spillover import audit_spillover
-from ccc_audit.neighbour_models import evaluate_neighbour_prediction
-from ccc_audit.verdicts import AuditVerdict, decide_verdict, generate_claims_register
+from cellalibi.io import DataContractError, validate_spatial_data
+from cellalibi.graphs import knn_graph, assign_tiles
+from cellalibi.scores import compute_ccc_scores
+from cellalibi.nulls import global_null, block_null
+from cellalibi.calibration import simulate_planted_proximity
+from cellalibi.spillover import audit_spillover
+from cellalibi.neighbour_models import evaluate_neighbour_prediction
+from cellalibi.verdicts import AuditVerdict, decide_verdict, generate_claims_register
 
 
 def create_synthetic_tissue(

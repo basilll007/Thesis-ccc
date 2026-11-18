@@ -20,10 +20,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from ccc_audit.datasets import MENDELEY_SECTIONS, load_mendeley_section, mendeley_section_to_tumour
-from ccc_audit.graphs import knn_graph
-from ccc_audit.nulls import block_null, distance_band_null, global_null
-from ccc_audit.scores import compute_ccc_scores
+from cellalibi.datasets import MENDELEY_SECTIONS, load_mendeley_section, mendeley_section_to_tumour
+from cellalibi.graphs import knn_graph
+from cellalibi.nulls import block_null, distance_band_null, global_null
+from cellalibi.scores import compute_ccc_scores
 
 REPO = Path(__file__).resolve().parents[2]
 H5AD = Path(os.environ.get("CCC_MENDELEY_H5AD", "F:/Thesis/data/pdac/mendeley_pdac_smi/raw_meta_data_final.h5ad"))

@@ -328,7 +328,7 @@ def primary_verdict(checks: dict[str, str], m: dict[str, Any], cfg) -> tuple[Aud
 def audit_claim(ctx, ex, sender: str, receiver: str, ligand: str, receptor: str, cfg=None,
                 seed: int | None = None) -> ClaimAudit:
     """Run the v2 claim audit (all checks) for one sender->receiver ligand-receptor claim."""
-    from ccc_audit.contact import contact_statistics
+    from cellalibi.contact import contact_statistics
     cfg = cfg or ctx.cfg
     m = contact_statistics(ctx, ex, sender, receiver, ligand, receptor, cfg=cfg, seed=seed)
     checks, why = checks_from_metrics(m, cfg)

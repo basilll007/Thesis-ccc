@@ -7,8 +7,8 @@ import numpy as np
 import pytest
 from scipy.stats import binom
 
-from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext, contact_statistics
-from ccc_audit.simulate import synthetic_tissue
+from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext, contact_statistics
+from cellalibi.simulate import synthetic_tissue
 
 N_DATASETS = 200
 N_PERMS = 1000

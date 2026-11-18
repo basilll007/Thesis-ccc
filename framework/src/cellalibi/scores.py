@@ -22,7 +22,7 @@ Conventions:
 - Standardised z-scores use sample standard deviation (ddof=1).
 
 Adapted from:
-`src/pdac/ccc_audit.py` and `src/pdac/phase1_matched_baseline.py`.
+`src/pdac/cellalibi.py` and `src/pdac/phase1_matched_baseline.py`.
 """
 
 from __future__ import annotations
@@ -68,7 +68,7 @@ def prepare_lr_setup(
 ) -> LRSetup:
     """Extract expression matrix and precompute edge-wise L_i * R_j products.
 
-    Source file: `src/pdac/ccc_audit.py` (setup function).
+    Source file: `src/pdac/cellalibi.py` (setup function).
     """
     pairs = list(lr_pairs)
     genes = sorted({g for p in pairs for g in p})
@@ -117,7 +117,7 @@ def compute_scores_for_labels(
 ) -> dict[str, np.ndarray]:
     """Compute C, E, M, Q and edge counts for all cell-type pairs under given labels.
 
-    Source file: `src/pdac/ccc_audit.py` (scores_for_labels).
+    Source file: `src/pdac/cellalibi.py` (scores_for_labels).
     """
     n_cells = labels.shape[0]
     onehot = sp.csr_matrix(
@@ -172,7 +172,7 @@ def compute_scores_for_labels(
 def compute_statistics(obs: np.ndarray, null: np.ndarray) -> dict[str, np.ndarray]:
     """Compute summary statistics (null mean, SD, z-score, add-one p-value) against null.
 
-    Source file: `src/pdac/ccc_audit.py` (stats).
+    Source file: `src/pdac/cellalibi.py` (stats).
     """
     n_valid = np.sum(np.isfinite(null), axis=0)
     mean = np.nanmean(null, axis=0)
@@ -201,7 +201,7 @@ def compute_statistics(obs: np.ndarray, null: np.ndarray) -> dict[str, np.ndarra
 def benjamini_hochberg(p: np.ndarray) -> np.ndarray:
     """Vectorised Benjamini-Hochberg FDR correction.
 
-    Source file: `src/pdac/ccc_audit.py` (bh).
+    Source file: `src/pdac/cellalibi.py` (bh).
     """
     p = np.asarray(p, dtype=float)
     q = np.full_like(p, np.nan)
@@ -232,7 +232,7 @@ def compute_ccc_scores(
 ) -> ScoreResults:
     """Compute full CCC audit scores under observed and permuted label vectors.
 
-    Source file: `src/pdac/ccc_audit.py` (tidy, run_null).
+    Source file: `src/pdac/cellalibi.py` (tidy, run_null).
     """
     cell_types = sorted(set(adata.obs["cell_type"].astype(str)))
     type_to_idx = {t: i for i, t in enumerate(cell_types)}

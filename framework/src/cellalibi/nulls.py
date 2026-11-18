@@ -25,7 +25,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
-from ccc_audit.graphs import assign_tiles
+from cellalibi.graphs import assign_tiles
 
 
 def global_null(

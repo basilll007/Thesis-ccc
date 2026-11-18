@@ -2,7 +2,7 @@
 
 What this module does:
 Validates and standardises AnnData objects representing spatial single-cell transcriptomics
-data against the strict contract required by the ccc_audit framework.
+data against the strict contract required by the cellalibi framework.
 
 Why:
 Spatial audits require unambiguous coordinates (in physical units, micrometres) to compute
@@ -30,12 +30,12 @@ REQUIRED_OBS_COLUMNS: tuple[str, ...] = (
 
 
 class DataContractError(ValueError):
-    """Raised when an input AnnData violates the ccc_audit input contract."""
+    """Raised when an input AnnData violates the cellalibi input contract."""
     pass
 
 
 def validate_spatial_data(adata: ad.AnnData) -> dict[str, Any]:
-    """Validate that an AnnData meets the ccc_audit input contract.
+    """Validate that an AnnData meets the cellalibi input contract.
 
     Parameters
     ----------
@@ -62,7 +62,7 @@ def validate_spatial_data(adata: ad.AnnData) -> dict[str, Any]:
     if missing_cols:
         raise DataContractError(
             f"Input AnnData.obs is missing required columns: {missing_cols}. "
-            f"The ccc_audit contract requires {list(REQUIRED_OBS_COLUMNS)}."
+            f"The cellalibi contract requires {list(REQUIRED_OBS_COLUMNS)}."
         )
 
     # Check physical coordinates

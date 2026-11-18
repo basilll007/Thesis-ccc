@@ -1,7 +1,7 @@
-"""Command-line interface for the ccc_audit framework.
+"""Command-line interface for the cellalibi framework.
 
 What this module does:
-Provides a unified entry point: `ccc-audit run config.yaml` that loads spatial data,
+Provides a unified entry point: `cellalibi run config.yaml` that loads spatial data,
 constructs contact graphs, evaluates CCC scores (C, E, M, Q) under unconstrained and block nulls,
 audits segmentation spillover, assigns evidence verdicts, and exports summary tables,
 diagnostic figures, and an audit markdown report.
@@ -27,12 +27,12 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from ccc_audit.io import load_spatial_dataset, validate_spatial_data
-from ccc_audit.graphs import knn_graph, assign_tiles
-from ccc_audit.scores import compute_ccc_scores
-from ccc_audit.nulls import global_null, block_null
-from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext
-from ccc_audit.verdicts import PRIORITY_RULE, CHECKS, ClaimAudit, audit_claim, claims_table
+from cellalibi.io import load_spatial_dataset, validate_spatial_data
+from cellalibi.graphs import knn_graph, assign_tiles
+from cellalibi.scores import compute_ccc_scores
+from cellalibi.nulls import global_null, block_null
+from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext
+from cellalibi.verdicts import PRIORITY_RULE, CHECKS, ClaimAudit, audit_claim, claims_table
 
 
 def run_audit(config_path: str | Path, output_dir_override: str | None = None) -> int:
@@ -189,7 +189,7 @@ def run_audit(config_path: str | Path, output_dir_override: str | None = None) -
 def main() -> None:
     """CLI entrypoint."""
     parser = argparse.ArgumentParser(
-        prog="ccc-audit",
+        prog="cellalibi",
         description="Run spatial cell-cell communication audit and confounding diagnosis.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)

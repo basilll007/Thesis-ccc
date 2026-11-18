@@ -44,8 +44,8 @@ def seed_of(*parts) -> int:
 
 def load_section(sec: str):
     if sec not in _CACHE:
-        from ccc_audit.datasets import load_mendeley_section
-        from ccc_audit.simulate import SemiSyntheticSection
+        from cellalibi.datasets import load_mendeley_section
+        from cellalibi.simulate import SemiSyntheticSection
         a = load_mendeley_section(H5AD, sec, LABELS, annotations=("consensus_T",))
         sim = SemiSyntheticSection(np.c_[a.obs.x_um, a.obs.y_um], a.obs["consensus_T"].to_numpy(),
                                    a.layers["counts"], a.var_names, **{k: CLAIM[k] for k in ("ligand", "receptor", "sender", "receiver")})
@@ -55,8 +55,8 @@ def load_section(sec: str):
 
 
 def run_task(sec: str, scen: str, level, n_reps: int) -> str:
-    from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext
-    from ccc_audit.verdicts import audit_claim
+    from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext
+    from cellalibi.verdicts import audit_claim
     tag = f"{sec}__{scen}__{level}"
     out = CHUNKS / f"{tag}.csv"
     if out.exists():
