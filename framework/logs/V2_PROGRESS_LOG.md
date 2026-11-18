@@ -57,3 +57,6 @@ DONE / BLOCKED status.
   NOT_RUN), weak Q under saturated exposure. See framework/results/v2_phase4/PHASE4_SUMMARY.md.
 - Post-hoc engine v0.2.1 + plan v2_phase4b.md committed (2720a9e) after T2-b/T6-b results, before U5-a results.
 - Phase 4 (pre-registered) status: **DONE (result: FAIL)**.
+
+## Phase 4b (post-hoc v0.2.1)
+- Free RAM before start: 7587 MB. Tests before run: 29 passed, 6 deselected in 28.79s
