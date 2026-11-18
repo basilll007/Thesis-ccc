@@ -1,0 +1,2 @@
+median_cell_diameter_um,mixing_excess_pct,is_explained_by_spillover,n_contamination_markers,shared_genes_removed
+10.261578825893126,99.77288102575939,True,2,"['SPP1', 'FN1', 'COL1A1']"

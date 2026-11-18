@@ -1,0 +1,5 @@
+id,target,verdict,primary_reason,evidence_summary
+CLAIM_001,CAF->CD8+ T (CXCL12-CXCR4),NOT_TESTABLE,Receiver cell count (11) is below power floor (25).,NOT_TESTABLE: Receiver cell count (11) is below power floor (25).
+CLAIM_002,CAF->Macrophage (COL1A1-CD44),EXPLAINED_BY_SPILLOVER,Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).,EXPLAINED_BY_SPILLOVER: Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).
+CLAIM_003,CAF->Macrophage (FN1-CD44),EXPLAINED_BY_SPILLOVER,Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).,EXPLAINED_BY_SPILLOVER: Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).
+CLAIM_004,Macrophage->Malignant (SPP1-CD44),EXPLAINED_BY_SPILLOVER,Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).,EXPLAINED_BY_SPILLOVER: Explained by segmentation spillover (marker excess 99.8% in touching cells; signal confined to touching distance).
