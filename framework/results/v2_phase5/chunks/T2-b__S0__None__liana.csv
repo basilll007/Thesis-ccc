@@ -1,0 +1,6 @@
+section,scenario,level,rep,tool,status,seconds,p,significant,stat
+T2-b,S0,None,0,liana,ok,6.002354860305786,0.0,True,-0.0358654148876667
+T2-b,S0,None,1,liana,ok,3.298712968826294,0.0,True,-0.03166797384619713
+T2-b,S0,None,2,liana,ok,3.3053715229034424,0.0,True,-0.03648888319730759
+T2-b,S0,None,3,liana,ok,3.322266101837158,0.0,True,-0.03234747424721718
+T2-b,S0,None,4,liana,ok,3.256974458694458,0.0,True,-0.03710393235087395

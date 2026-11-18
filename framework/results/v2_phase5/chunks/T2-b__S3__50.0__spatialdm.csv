@@ -1,0 +1,6 @@
+section,scenario,level,rep,tool,status,seconds,p,significant,stat,note
+T2-b,S3,50.0,0,spatialdm,ok,36.17530560493469,1.0,False,-20.880081180768794,cellchat_id=FN1_ITGAV_ITGB1; n_matching_entries=5
+T2-b,S3,50.0,1,spatialdm,ok,36.26329755783081,1.0,False,-22.589715073391705,cellchat_id=FN1_ITGAV_ITGB1; n_matching_entries=5
+T2-b,S3,50.0,2,spatialdm,ok,35.86200547218323,1.0,False,-20.950977719344447,cellchat_id=FN1_ITGAV_ITGB1; n_matching_entries=5
+T2-b,S3,50.0,3,spatialdm,ok,35.41991686820984,1.0,False,-20.829009017165742,cellchat_id=FN1_ITGAV_ITGB1; n_matching_entries=5
+T2-b,S3,50.0,4,spatialdm,ok,35.534029960632324,1.0,False,-22.48815341792034,cellchat_id=FN1_ITGAV_ITGB1; n_matching_entries=5

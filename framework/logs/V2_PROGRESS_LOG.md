@@ -66,3 +66,14 @@ DONE / BLOCKED status.
   pre-declared pooled rule). No setting fools v0.2.1. Phase 4b status: **DONE**.
 - User request (2026-11-18 ~00:30): use the GPU wherever possible. Added cellalibi/gpu.py (torch CUDA permutation
   nulls, opt-in device="cuda"); CPU/GPU agreement tests 3/3 pass. Phase 4b left on CPU (already running).
+
+## Phase 5
+- Free RAM before start: 9838 MB.
+- Replicate export verified (3/3 re-audits reproduce Phase 4 v0.2.0 verdicts and p-values exactly). GPU tests 7/7 pass
+  (results/v2_phase2/pytest_gpu.txt).
+- Squidpy default-threshold NaN issue found in the smoke test -> amendment 1 (threshold=0 + own 1 % rule).
+- **Interrupted:** the external-tool run (4 workers) was stopped by Claude Code because the system ran critically
+  low on memory. This happened just after the run moved from T2-b (43k cells) to U5-a (75k cells); SpatialDM was the
+  slowest/heaviest step on T2-b (~36 s per replicate). Completed chunks (kept, resumable): T2-b squidpy 11/11,
+  LIANA+ 10/11, SpatialDM 8/11 settings. No orphaned processes; RAM back to 11.2 GB. Per the harness instruction, the
+  run is **not restarted without the user's go-ahead**. Phase 5 status: **PAUSED (memory)**.

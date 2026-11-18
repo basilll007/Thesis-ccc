@@ -1,0 +1,6 @@
+section,scenario,level,rep,tool,status,seconds,p,significant,stat,note
+T2-b,S2,2.0,0,squidpy,ok,11.328774452209473,0.0,True,4.39543439629731,frac_L_in_sender=0.986; frac_R_in_receiver=0.295; threshold=0 workaround
+T2-b,S2,2.0,1,squidpy,ok,1.2344105243682861,0.0,True,4.40271831954683,frac_L_in_sender=0.984; frac_R_in_receiver=0.298; threshold=0 workaround
+T2-b,S2,2.0,2,squidpy,ok,1.2037410736083984,0.0,True,4.444050137883703,frac_L_in_sender=0.985; frac_R_in_receiver=0.312; threshold=0 workaround
+T2-b,S2,2.0,3,squidpy,ok,1.2203290462493896,0.0,True,4.41991474173471,frac_L_in_sender=0.984; frac_R_in_receiver=0.304; threshold=0 workaround
+T2-b,S2,2.0,4,squidpy,ok,1.2192671298980713,0.0,True,4.421051671096808,frac_L_in_sender=0.985; frac_R_in_receiver=0.303; threshold=0 workaround
