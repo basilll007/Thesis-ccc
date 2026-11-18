@@ -1,0 +1,15 @@
+setting,SUPPORTED,EXPLAINED_BY_ABUNDANCE,EXPLAINED_BY_ZONATION,EXPLAINED_BY_SPILLOVER,NOT_SUPPORTED,NOT_TESTABLE
+S0 null,0,0,10,2,38,0
+S1 contact 1.25x,2,0,10,0,38,0
+S1 contact 1.5x,13,0,23,0,14,0
+S1 contact 2x,42,0,8,0,0,0
+S2 abundance 2x,0,42,8,0,0,0
+S3 zonation 50 um,0,1,26,0,23,0
+S3 zonation 200 um,0,0,50,0,0,0
+S3 zonation 400 um,0,0,50,0,0,0
+S4 spillover 0.1,0,0,12,16,22,0
+S4 spillover 0.2,1,0,4,33,12,0
+S4 spillover 0.3,0,0,1,40,9,0
+S5 n=25 receivers,0,0,0,0,0,50
+S5 n=50 receivers,0,0,0,0,0,50
+S5 n=100 receivers,0,0,0,0,0,50

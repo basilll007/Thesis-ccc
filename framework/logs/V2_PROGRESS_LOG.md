@@ -60,3 +60,9 @@ DONE / BLOCKED status.
 
 ## Phase 4b (post-hoc v0.2.1)
 - Free RAM before start: 7587 MB. Tests before run: 29 passed, 6 deselected in 28.79s
+- RAM reached 8111 MB at 00:05:56 after waiting (was 7589 MB); benchmark launched.
+- Phase 4b complete (4,200 audits, 0 errors). C1 PASS (false-SUPPORTED max 0.04; S1 2x 0.913). C2 FAIL on pooled
+  S1 2x sensitivity (0.673; 0.962 given power PASS; T6-b has 222 tumour cells). Both pooled 0.793 (FAIL by the
+  pre-declared pooled rule). No setting fools v0.2.1. Phase 4b status: **DONE**.
+- User request (2026-11-18 ~00:30): use the GPU wherever possible. Added cellalibi/gpu.py (torch CUDA permutation
+  nulls, opt-in device="cuda"); CPU/GPU agreement tests 3/3 pass. Phase 4b left on CPU (already running).

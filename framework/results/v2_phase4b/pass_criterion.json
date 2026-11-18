@@ -1,0 +1,46 @@
+{
+  "C1": {
+    "criterion_1_false_supported_le_0.10": true,
+    "criterion_2_S1_2x_sensitivity_ge_0.80": true,
+    "PASS": true,
+    "S1_2x_sensitivity": 0.9133333333333333,
+    "S1_2x_sensitivity_given_power_pass": 0.9133333333333333,
+    "S1_2x_fraction_testable": 1.0,
+    "max_false_supported_rate": 0.04,
+    "settings_that_fool_it": [],
+    "section_specific_fooled": [],
+    "S1_2x_by_section": {
+      "T2-b": 0.84,
+      "T6-b": 0.9,
+      "U5-a": 1.0
+    }
+  },
+  "C2": {
+    "criterion_1_false_supported_le_0.10": true,
+    "criterion_2_S1_2x_sensitivity_ge_0.80": false,
+    "PASS": false,
+    "S1_2x_sensitivity": 0.6733333333333333,
+    "S1_2x_sensitivity_given_power_pass": 0.9619047619047619,
+    "S1_2x_fraction_testable": 0.7,
+    "max_false_supported_rate": 0.02,
+    "settings_that_fool_it": [],
+    "section_specific_fooled": [],
+    "S1_2x_by_section": {
+      "T2-b": 1.0,
+      "T6-b": 0.02,
+      "U5-a": 1.0
+    }
+  },
+  "both": {
+    "criterion_1_false_supported_le_0.10": true,
+    "criterion_2_S1_2x_sensitivity_ge_0.80": false,
+    "PASS": false,
+    "S1_2x_sensitivity": 0.7933333333333333,
+    "S1_2x_sensitivity_given_power_pass": 0.9333333333333333,
+    "S1_2x_fraction_testable": 0.85,
+    "max_false_supported_rate": 0.02,
+    "settings_that_fool_it": [],
+    "section_specific_fooled": [],
+    "S1_2x_by_section": {}
+  }
+}

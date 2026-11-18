@@ -55,7 +55,7 @@ def main():
     man = pd.read_csv(REP / "manifest.csv")
     man["level"] = man["level"].astype(str).replace({"nan": "None"})
     tasks = [(sec, scen, lv, sorted(g.rep.tolist())) for (sec, scen, lv), g in man.groupby(["section", "scenario", "level"], sort=False)]
-    with ProcessPoolExecutor(max_workers=4) as pool:
+    with ProcessPoolExecutor(max_workers=2) as pool:  # GPU-backed: 2 processes share the GPU
         futs = [pool.submit(run, *t) for t in tasks]
         for f in as_completed(futs):
             print(f.result(), flush=True)
