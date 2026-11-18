@@ -20,3 +20,8 @@ model_cache/
 # Translational raw downloads are external: F:/Thesis/data/tcga/
 /data/tcga/
 /results/translational/cache/
+
+# Local reproduction configs
+framework/tests/local_reproduction_config.yaml
+local_reproduction_config.yaml
+
