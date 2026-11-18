@@ -1,0 +1,35 @@
+{
+  "identifier_check": {
+    "GSE62452": {
+      "shared_gsm": 0,
+      "shared_titles": 0,
+      "shared_cel_names": 0
+    },
+    "GSE28735": {
+      "shared_gsm": 0,
+      "shared_titles": 0,
+      "shared_cel_names": 0
+    }
+  },
+  "expression_screen": [
+    {
+      "cohort": "TCGA_PAAD",
+      "n_common_genes": 18060,
+      "n_gse57495": 63,
+      "n_other": 177,
+      "max_spearman": 0.7777413145988357,
+      "p99_9_spearman": 0.49305103463219435,
+      "n_pairs_flagged_gt_0.8": 0
+    },
+    {
+      "cohort": "CPTAC_PDA",
+      "n_common_genes": 17752,
+      "n_gse57495": 63,
+      "n_other": 140,
+      "max_spearman": 0.5218026872581242,
+      "p99_9_spearman": 0.4110331977259437,
+      "n_pairs_flagged_gt_0.8": 0
+    }
+  ],
+  "note_gse62452_gse28735": "GPL6244 gene-level annotation not cached; cross-platform screen vs GSE62452/GSE28735 not run. Identifier check and institution (Moffitt vs NCI) reported instead."
+}

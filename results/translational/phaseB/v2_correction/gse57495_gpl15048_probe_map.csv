@@ -1,0 +1,13 @@
+gene,n_confident_probes,n_present_in_matrix,n_multigene_probes_excluded,chosen_probe_maxmean,all_present_probes
+VEGFA,3,3,0,merck2-NM_001025368_at,merck2-BM985119_a_at;merck2-NM_001025368_at;merck-AK125666_a_at
+SLC2A1,2,2,0,merck2-AF070544_at,merck2-AF070544_at;merck-NM_006516_at
+CA9,2,2,0,merck-NM_001216_at,merck2-DQ892208_at;merck-NM_001216_at
+LDHA,2,2,0,merck-NM_005566_s_at,merck2-ENST00000379412_at;merck-NM_005566_s_at
+PGK1,5,5,0,merck2-BC103752_a_at,merck2-AY423725_a_at;merck2-BC103752_a_at;merck2-NM_000291_at;merck-BC104837_s_at;merck-XM_927868_s_at
+ADM,2,2,0,merck-AL359337_at,merck-AL359337_at;merck-NM_001124_at
+NDRG1,2,2,0,merck-NM_006096_s_at,merck2-BX648361_at;merck-NM_006096_s_at
+BNIP3,3,3,0,merck2-NM_004052_at,merck2-BC021989_a_at;merck2-NM_004052_at;merck-ENST00000313081_a_at
+ANKRD37,1,1,0,merck-NM_181726_s_at,merck-NM_181726_s_at
+P4HA1,2,2,0,merck-NM_001017962_at,merck2-BX648829_at;merck-NM_001017962_at
+ENO1,1,1,0,merck-NM_001428_s_at,merck-NM_001428_s_at
+HK2,1,1,0,merck-NM_000189_at,merck-NM_000189_at

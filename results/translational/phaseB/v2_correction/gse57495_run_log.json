@@ -1,0 +1,67 @@
+{
+  "gpl15048_rows": 60607,
+  "gpl15048_rows_with_symbol": 41024,
+  "series_matrix_shape": [
+    60607,
+    63
+  ],
+  "matrix_max": 15.06119,
+  "matrix_min": 1.46044,
+  "log2_transformed": false,
+  "coverage_genes": 12,
+  "coverage_pct": 100.0,
+  "stage_values": {
+    "2B": 33,
+    "2A": 17,
+    "1B": 12,
+    "1": 1
+  },
+  "vital_values": {
+    "DEAD": 42,
+    "ALIVE": 21
+  },
+  "n_samples_valid_os": 63,
+  "n_events": 42,
+  "stage_missing": 0,
+  "events_by_stage_advanced": {
+    "0.0": 15,
+    "1.0": 27
+  },
+  "primary_model": "stage-adjusted",
+  "power_with_observed_events": {
+    "power_at_HR_1.32": 0.5612973543316611,
+    "power_at_HR_1.43": 0.7495248683213551,
+    "power_at_HR_1.48": 0.8147996687452355
+  },
+  "decision": "CONFIRMED in an independent cohort",
+  "gse62452_row_used": {
+    "cohort": "GSE62452",
+    "cohort_type": "INDEPENDENT_VALIDATION",
+    "platform": "GPL6244",
+    "n_patients": 65,
+    "n_events": 49,
+    "gene_coverage_pct": 100.0,
+    "model_type": "Cox PH (stage-adjusted)",
+    "covariates": "is_advanced_stage",
+    "beta": 0.3921,
+    "se": 0.1619,
+    "hr_per_sd": 1.48,
+    "ci_low": 1.078,
+    "ci_high": 2.033,
+    "p_two_sided": 0.0154,
+    "p_one_sided": 0.0077
+  },
+  "secondary_pooled_gse62452_gse57495_POSTHOC": {
+    "fixed_hr": 1.4086963863963327,
+    "fixed_lo": 1.1313956095291855,
+    "fixed_hi": 1.7539625329391872,
+    "fixed_p_one_sided": 0.0010927468657066168,
+    "Q": 0.17834786395030944,
+    "I2_pct": 0.0,
+    "tau2": 0.0,
+    "dl_hr": 1.4086963863963327,
+    "dl_lo": 1.1313956095291855,
+    "dl_hi": 1.7539625329391872,
+    "dl_p_one_sided": 0.0010927468657066168
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "n_common_probes": 28869,
+  "gse28735_samples": 90,
+  "gse28735_tumours": 45,
+  "gse28735_tumours_with_os": 42,
+  "identity_matches_all": 21,
+  "identity_matches_tumours": 13,
+  "identity_tumours_with_os": 12,
+  "order_matches_all": 90,
+  "os_matches_tumours": 38,
+  "pearson_best_min": 0.9844873383177786,
+  "pearson_best_median": 0.9895737529874271,
+  "pearson_second_max": 0.9829463890740399,
+  "spearman_best_min": 0.9819601165771256,
+  "matched_gse62452_tumour_tissue": 13,
+  "gse62452_tumours_total": 69
+}

@@ -1,0 +1,13 @@
+{
+  "note": "POST-HOC diagnostic added after rule E results were seen",
+  "centred_best_min": 0.983189849169802,
+  "centred_best_median": 0.9918675759537323,
+  "centred_second_max": 0.8331113926086657,
+  "centred_nonmatched_pairs_p99_9": 0.7784162661223801,
+  "centred_nonmatched_pairs_max": 0.8331113926086657,
+  "centred_best_agrees_raw_all": 90,
+  "centred_mutual_best_all": 90,
+  "tumours_centred_mutual_best_same_number": 45,
+  "tumours_with_os_centred_mutual_best": 42,
+  "raw_mutual_best_all": 90
+}
