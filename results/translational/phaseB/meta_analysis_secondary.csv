@@ -1,0 +1,2 @@
+meta_analysis,cohorts_included,k_cohorts,n_total_patients,n_total_events,pooled_beta,pooled_se,pooled_hr_per_sd,ci_low,ci_high,z_statistic,p_one_sided,p_two_sided,cochran_Q,heterogeneity_I2_pct,tau2,verdict
+SECONDARY_ALL_COHORTS_POOLED,"GSE62452, GSE28735, TCGA (prior), CPTAC (prior)",4,377,231,0.3129,0.0704,1.367,1.191,1.57,4.444,4.4e-06,8.8e-06,0.763,0.0,0.0,HIGH_CONFIDENCE_POOLED_ASSOCIATION

@@ -1,0 +1,2 @@
+meta_analysis,cohorts_included,k_cohorts,n_total_patients,n_total_events,pooled_beta,pooled_se,pooled_hr_per_sd,ci_low,ci_high,z_statistic,p_one_sided,p_two_sided,cochran_Q,heterogeneity_I2_pct,tau2,verdict
+PRIMARY_INDEPENDENT_VALIDATION,"GSE62452 (stage-adjusted), GSE28735",2,107,78,0.3243,0.1326,1.383,1.067,1.794,2.446,0.0072,0.0145,0.532,0.0,0.0,SUPPORTED (Independent Validation Statistically Significant at alpha 0.05)

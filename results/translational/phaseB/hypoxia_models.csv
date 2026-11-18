@@ -1,0 +1,6 @@
+cohort,cohort_type,platform,n_patients,n_events,gene_coverage_pct,model_type,covariates,beta,se,hr_per_sd,ci_low,ci_high,p_two_sided,p_one_sided
+GSE62452,INDEPENDENT_VALIDATION,GPL6244,65,49,100.0,Cox PH (unadjusted),none,0.3742,0.1641,1.454,1.054,2.005,0.0226,0.0113
+GSE62452,INDEPENDENT_VALIDATION,GPL6244,65,49,100.0,Cox PH (stage-adjusted),is_advanced_stage,0.3921,0.1619,1.48,1.078,2.033,0.0154,0.0077
+GSE28735,INDEPENDENT_VALIDATION,GPL6244,42,29,100.0,Cox PH (unadjusted),none,0.1861,0.2312,1.205,0.766,1.895,0.4208,0.2104
+TCGA,DISCOVERY_PRIOR (NOT INDEPENDENT),Illumina HiSeq RNA-seq,141,81,100.0,Cox PH (adjusted),"age, sex, stage, purity",0.2776,0.1058,1.32,1.07,1.62,0.009,0.0045
+CPTAC,DISCOVERY_PRIOR (NOT INDEPENDENT),RNA-seq RSEM UQ,129,72,100.0,Cox PH (adjusted),"age, sex, stage, purity",0.3577,0.1341,1.43,1.1,1.86,0.007,0.0035
