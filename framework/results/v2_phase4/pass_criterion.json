@@ -1,0 +1,14 @@
+{
+  "criterion_1_false_supported_le_0.10_every_artefact_setting": true,
+  "criterion_2_S1_2x_sensitivity_ge_0.80": false,
+  "S1_2x_sensitivity": 0.0,
+  "settings_that_fool_it": [],
+  "max_false_supported_rate": 0.0,
+  "BENCHMARK_PASS": false,
+  "section_specific_fooled": [],
+  "S1_2x_sensitivity_by_section": {
+    "T2-b": 0.0,
+    "T6-b": 0.0,
+    "U5-a": 0.0
+  }
+}

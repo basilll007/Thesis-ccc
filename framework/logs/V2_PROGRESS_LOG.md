@@ -51,3 +51,9 @@ DONE / BLOCKED status.
 
 ## Phase 4
 - Free RAM before start: 9908 MB available.
+- Section selection: T6-b / T2-b / U5-a. Smoke test (scratch dir) passed.
+- Frozen v0.2.0 benchmark complete (4,200 audits, 0 errors): **FAIL**. False-SUPPORTED 0/300 in every artefact
+  setting, but S1 2x sensitivity 0/300. Causes diagnosed: zero-trap power plant, 10x marker rule (spillover
+  NOT_RUN), weak Q under saturated exposure. See framework/results/v2_phase4/PHASE4_SUMMARY.md.
+- Post-hoc engine v0.2.1 + plan v2_phase4b.md committed (2720a9e) after T2-b/T6-b results, before U5-a results.
+- Phase 4 (pre-registered) status: **DONE (result: FAIL)**.

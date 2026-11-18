@@ -49,11 +49,11 @@ def main():
     checks = []
     sec = sel["roles"]["smallest"]
     sim = pb.load_section(sec)
-    ctx = SpatialContext(sim.xy, sim.labels, AuditConfig(n_perms=1000, seed=pb.seed_of(sec, "geom")))
+    ctx = SpatialContext(sim.xy, sim.labels, AuditConfig(n_perms=1000, seed=pb.seed_of(sec, "geom"), engine="0.2.0"))
     for scen, level, rep in (("S0", None, 0), ("S1", 2.0, 1), ("S4", 0.3, 2)):
         s = pb.seed_of(sec, scen, level, rep)
         counts = np.load(OUT / f"{sec}__{scen}__{level}__{rep}.npz")["counts"]
-        au = audit_claim(ctx, ExpressionData(counts, sim.genes), cfg=AuditConfig(n_perms=1000), seed=s + 3, **pb.CLAIM)
+        au = audit_claim(ctx, ExpressionData(counts, sim.genes), cfg=AuditConfig(n_perms=1000, engine="0.2.0"), seed=s + 3, **pb.CLAIM)
         ch = pd.read_csv(pb.CHUNKS / f"{sec}__{scen}__{level}.csv")
         row = ch[ch.rep == rep].iloc[0]
         checks.append({"section": sec, "scenario": scen, "level": level, "rep": rep,

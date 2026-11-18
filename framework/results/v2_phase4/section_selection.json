@@ -1,0 +1,14 @@
+{
+  "rule": "eligible = >=100 myeloid and >=100 CAF_fibroblast (consensus_T, after QC); smallest / lower-median / largest n_cells among eligible",
+  "n_eligible": 16,
+  "selected": [
+    "T6-b",
+    "T2-b",
+    "U5-a"
+  ],
+  "roles": {
+    "smallest": "T6-b",
+    "median_lower": "T2-b",
+    "largest": "U5-a"
+  }
+}

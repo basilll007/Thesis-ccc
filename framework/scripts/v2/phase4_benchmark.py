@@ -54,16 +54,16 @@ def load_section(sec: str):
     return _CACHE[sec]
 
 
-def run_task(sec: str, scen: str, level, n_reps: int) -> str:
+def run_task(sec: str, scen: str, level, n_reps: int, chunk_dir: str | None = None) -> str:
     from cellalibi.contact import AuditConfig, ExpressionData, SpatialContext
     from cellalibi.verdicts import audit_claim
     tag = f"{sec}__{scen}__{level}"
-    out = CHUNKS / f"{tag}.csv"
+    out = (Path(chunk_dir) if chunk_dir else CHUNKS) / f"{tag}.csv"
     if out.exists():
         return f"skip {tag}"
     t0 = time.time()
     sim = load_section(sec)
-    cfg = AuditConfig(n_perms=1000)
+    cfg = AuditConfig(n_perms=1000, engine="0.2.0")
     base_ctx = None
     rows = []
     for rep in range(n_reps):
@@ -76,10 +76,10 @@ def run_task(sec: str, scen: str, level, n_reps: int) -> str:
             keep[keep_r] = True
             ss = sim.subset(keep)
             counts = ss.draw("S1", 2.0, s + 1)
-            ctx = SpatialContext(ss.xy, ss.labels, AuditConfig(n_perms=1000, seed=s + 2))
+            ctx = SpatialContext(ss.xy, ss.labels, AuditConfig(n_perms=1000, seed=s + 2, engine="0.2.0"))
         else:
             if base_ctx is None:
-                base_ctx = SpatialContext(sim.xy, sim.labels, AuditConfig(n_perms=1000, seed=seed_of(sec, "geom")))
+                base_ctx = SpatialContext(sim.xy, sim.labels, AuditConfig(n_perms=1000, seed=seed_of(sec, "geom"), engine="0.2.0"))
             counts = sim.draw(scen, level, s + 1)
             ctx = base_ctx
         ex = ExpressionData(counts, sim.genes)
@@ -98,15 +98,21 @@ def main():
     ap.add_argument("--reps", type=int, default=100)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--sections", nargs="*", default=None)
+    ap.add_argument("--settings", nargs="*", default=None, help="e.g. S0:None S4:0.3")
+    ap.add_argument("--outdir", default=None, help="chunk directory (default results/v2_phase4/chunks)")
     args = ap.parse_args()
-    CHUNKS.mkdir(parents=True, exist_ok=True)
+    chunk_dir = Path(args.outdir) if args.outdir else CHUNKS
+    chunk_dir.mkdir(parents=True, exist_ok=True)
     sel = json.loads((OUT / "section_selection.json").read_text())
     secs = args.sections or sel["selected"]
-    tasks = [(sec, sc, lv) for sec in secs for sc, lv in SETTINGS]
+    settings = SETTINGS
+    if args.settings:
+        settings = [st for st in SETTINGS if f"{st[0]}:{st[1]}" in args.settings]
+    tasks = [(sec, sc, lv) for sec in secs for sc, lv in settings]
     # group by section so each worker keeps one section cached
     tasks.sort(key=lambda t: (t[0], SETTINGS.index((t[1], t[2]))))
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
-        futs = {pool.submit(run_task, *t, args.reps): t for t in tasks}
+        futs = {pool.submit(run_task, *t, args.reps, str(chunk_dir)): t for t in tasks}
         for f in as_completed(futs):
             try:
                 print(f.result(), flush=True)
