@@ -27,6 +27,7 @@ LABELS = ROOT / "results/pdac/phaseB/sections"
 GEO = "F:/Thesis/data/pdac/geo_gse310352"
 GEO_CACHE = "F:/Thesis/data/chain_cache/gse310352"
 OUT = ROOT / "framework/results/v2_phase6"
+DEVICE = os.environ.get("CELLALIBI_DEVICE", "cuda")  # amendment 2: GPU per user request
 FOCUS = ["epithelial_ductal_tumor", "CAF_fibroblast", "T_cell", "myeloid"]
 
 # thesis catalogue (src/pdac/lr_catalog.py + src/pipeline.py::LR_PAIRS), copied verbatim
@@ -72,12 +73,12 @@ def run_section(dataset: str, sec: str) -> str:
         labels = a.obs["marker"].to_numpy()
         unit = sec
     xy = np.c_[a.obs.x_um.to_numpy(), a.obs.y_um.to_numpy()]
-    cfg = AuditConfig(n_perms=1000, engine="0.2.1")
+    cfg = AuditConfig(n_perms=1000, engine="0.2.1", device=DEVICE)
     ctx = SpatialContext(xy, labels, cfg)
     if dataset == "gse310352":  # px coordinates: tile = 10 x median NN distance (plan)
-        cfg = AuditConfig(n_perms=1000, tile_um=10.0 * ctx.diameter, engine="0.2.1")
+        cfg = AuditConfig(n_perms=1000, tile_um=10.0 * ctx.diameter, engine="0.2.1", device=DEVICE)
         ctx = SpatialContext(xy, labels, cfg)
-    cfg0 = AuditConfig(n_perms=1000, tile_um=cfg.tile_um, engine="0.2.0")  # amendment 1: secondary engine
+    cfg0 = AuditConfig(n_perms=1000, tile_um=cfg.tile_um, engine="0.2.0", device=DEVICE)  # amendment 1: secondary engine
     ex = ExpressionData(a.layers["counts"], a.var_names)
     vn = set(a.var_names)
     # program pseudo-features (linear CP10K means) and the "any contact" pseudo-ligand
@@ -116,6 +117,7 @@ def run_section(dataset: str, sec: str) -> str:
     df["section_peak_rss_mb"] = proc.memory_info().peak_wset / 1e6 if hasattr(proc.memory_info(), "peak_wset") else proc.memory_info().rss / 1e6
     df["n_cells"] = a.n_obs
     df["tile_um_used"] = cfg.tile_um
+    df["device"] = DEVICE
     df.to_csv(out, index=False)
     return f"done {out.name}: {len(df)} claims in {time.time() - t0:.0f}s"
 

@@ -49,6 +49,7 @@ class AuditConfig:
     perm_chunk: int = 100
     seed: int = 42
     engine: str = "0.2.1"   # "0.2.0" = frozen Phase 4 engine; "0.2.1" = post-hoc revision (plan v2_phase4b.md)
+    device: str = "cpu"     # "cuda": permutation nulls on the GPU (cellalibi.gpu); same tests, different RNG stream
     n_plants: int = 20      # v0.2.1 stochastic mean-based plants for the power estimate
     zone_min_cells: int = 2  # v0.2.1 regional co-variation: min senders and receivers per tile
     zone_min_tiles: int = 10
@@ -197,8 +198,34 @@ def label_matched_null(Llog: np.ndarray, Rlog: np.ndarray, n_s: int, n_r: int, n
     return out
 
 
+class _Backend:
+    """Dispatch permutation nulls to numpy (default) or the optional torch/CUDA backend."""
+
+    def __init__(self, cfg: AuditConfig, rng: np.random.Generator):
+        self.cfg, self.rng, self.gp = cfg, rng, None
+        if cfg.device != "cpu":
+            from cellalibi.gpu import GpuPerm
+            self.gp = GpuPerm(int(rng.integers(0, 2**62)), device=cfg.device)
+
+    def contact(self, Ls, Rr, es, er, gs, gr):
+        if self.gp is not None:
+            return self.gp.contact_nulls(Ls, Rr, es, er, gs, gr, self.cfg.n_perms)
+        return contact_nulls(Ls, Rr, es, er, gs, gr, self.cfg.n_perms, self.rng, self.cfg.perm_chunk)
+
+    def ring(self, vals, is_x, groups):
+        if self.gp is not None:
+            return self.gp.ring_null(vals, is_x, groups, self.cfg.n_perms)
+        return ring_null(vals, is_x, groups, self.cfg.n_perms, self.rng, self.cfg.perm_chunk)
+
+    def label_m(self, L, R, n_s, n_r):
+        if self.gp is not None:
+            return self.gp.label_matched_null(L, R, n_s, n_r, self.cfg.n_perms)
+        return label_matched_null(L, R, n_s, n_r, self.cfg.n_perms, self.rng)
+
+
 def spillover_check(ctx: SpatialContext, ex: ExpressionData, s_mask: np.ndarray, r_mask: np.ndarray,
-                    ligand: str, receptor: str, cfg: AuditConfig, rng: np.random.Generator) -> dict[str, Any]:
+                    ligand: str, receptor: str, cfg: AuditConfig, rng: np.random.Generator,
+                    backend: "_Backend | None" = None) -> dict[str, Any]:
     """Claim-specific spillover diagnostic (plan v2_phase2 section 2.2)."""
     out: dict[str, Any] = {"spill_status": "NOT_RUN"}
     si, rj = ctx.directed_pairs(s_mask, r_mask)
@@ -248,9 +275,11 @@ def spillover_check(ctx: SpatialContext, ex: ExpressionData, s_mask: np.ndarray,
         return np.median((mt - mi) / np.maximum(den[None, :] - mi, 1e-6), axis=1)
 
     phi = float(phi_of(is_t[None, :])[0])
-    nulls = []
+    if backend is not None and backend.gp is not None:
+        null = backend.gp.phi_null(is_t, Mk, den, cfg.n_perms)
+    nulls = [] if backend is None or backend.gp is None else [null]
     done = 0
-    while done < cfg.n_perms:
+    while (backend is None or backend.gp is None) and done < cfg.n_perms:
         b = min(cfg.perm_chunk, cfg.n_perms - done)
         keys = np.argsort(rng.random((b, len(TI))), axis=1)
         nulls.append(phi_of(is_t[keys]))
@@ -340,6 +369,7 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     """Compute every statistic needed by the v2 claim audit for one claim."""
     cfg = cfg or ctx.cfg
     rng = np.random.default_rng(cfg.seed if seed is None else seed)
+    bk = _Backend(cfg, rng)
     s_mask = ctx.labels == sender
     r_mask = ctx.labels == receiver
     L_lin, L_log, L_pos = ex.gene(ligand)
@@ -366,15 +396,15 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     m.update({"E": E, "M": M, "Q": Q})
     zs = np.zeros(len(S), np.int64)
     zr = np.zeros(len(R), np.int64)
-    nullE_g = contact_nulls(Ls, Rr, es, er, zs, zr, cfg.n_perms, rng, cfg.perm_chunk)
-    nullE_b = contact_nulls(Ls, Rr, es, er, ctx.tiles[S], ctx.tiles[R], cfg.n_perms, rng, cfg.perm_chunk)
+    nullE_g = bk.contact(Ls, Rr, es, er, zs, zr)
+    nullE_b = bk.contact(Ls, Rr, es, er, ctx.tiles[S], ctx.tiles[R])
     Qg, Qb = nullE_g / M, nullE_b / M
     m["p_contact_global"] = _addone_p(Qg, Q)
     m["p_contact_block"] = _addone_p(Qb, Q)
     m["z_contact_global"] = float((Q - Qg.mean()) / Qg.std(ddof=1)) if Qg.std() > 0 else float("nan")
     m["z_contact_block"] = float((Q - Qb.mean()) / Qb.std(ddof=1)) if Qb.std() > 0 else float("nan")
     # naive abundance score
-    nullM = label_matched_null(L_log, R_log, len(S), len(R), cfg.n_perms, rng)
+    nullM = bk.label_m(L_log, R_log, len(S), len(R))
     m["p_M_label"] = _addone_p(nullM, M)
     # ring control
     exposed = np.zeros(ctx.n, bool)
@@ -388,7 +418,7 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     Rvals = R_log[R]
     if blk_ok:
         B_obs = float(Rvals[xr].mean() - Rvals[~xr].mean())
-        nullB = ring_null(Rvals, xr, ctx.tiles[R], cfg.n_perms, rng, cfg.perm_chunk)
+        nullB = bk.ring(Rvals, xr, ctx.tiles[R])
         m["block_contrast_diff"] = B_obs
         m["p_block_contrast"] = _addone_p(nullB, B_obs)
     ring_ok = False
@@ -404,7 +434,7 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
             is_x = xmask[sel]
             grp = ctx.tiles[R][sel]
             T_obs = float(vals[is_x].mean() - vals[~is_x].mean())
-            nullT = ring_null(vals, is_x, grp, cfg.n_perms, rng, cfg.perm_chunk)
+            nullT = bk.ring(vals, is_x, grp)
             m["ring_diff"] = T_obs
             m["p_ring"] = _addone_p(nullT, T_obs)
     else:
@@ -413,7 +443,7 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     if cfg.engine == "0.2.1":
         # global receiver contrast: exposed vs unexposed receivers, Rg permuted among all receivers
         if blk_ok:
-            nullRC = ring_null(Rvals, xr, np.zeros(len(R), np.int64), cfg.n_perms, rng, cfg.perm_chunk)
+            nullRC = bk.ring(Rvals, xr, np.zeros(len(R), np.int64))
             m["rc_global_diff"] = B_obs
             m["p_rc_global"] = _addone_p(nullRC, B_obs)
         m["rc_global_run"] = bool(blk_ok)
@@ -436,8 +466,9 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
         m.update(pw)
         m["power_chain"] = float(min(pw.values())) if len(pw) == 3 else 0.0
         if run_spillover:
-            m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng))
+            m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng, backend=bk))
         m["engine"] = cfg.engine
+        m["device"] = cfg.device
         m["status"] = "evaluated"
         return m
     # ---- v0.2.0 (frozen) plant-and-shift power at cfg.power_effect
@@ -461,7 +492,7 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     m.update(pw)
     m["power_chain"] = float(min(pw.values()))
     if run_spillover:
-        m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng))
+        m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng, backend=bk))
     m["engine"] = cfg.engine
     m["status"] = "evaluated"
     return m

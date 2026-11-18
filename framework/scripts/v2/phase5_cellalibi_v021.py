@@ -33,14 +33,14 @@ def run(sec, scen, level, reps):
     if out.exists():
         return f"skip {out.name}"
     g = np.load(REP / f"{sec}__geometry.npz")
-    ctx = SpatialContext(g["xy"], g["labels"], AuditConfig(n_perms=1000, seed=pb.seed_of(sec, "geom"), engine="0.2.1"))
+    ctx = SpatialContext(g["xy"], g["labels"], AuditConfig(n_perms=1000, seed=pb.seed_of(sec, "geom"), engine="0.2.1", device="cuda"))
     rows = []
     t0 = time.time()
     for rep in reps:
         s = pb.seed_of(sec, scen, level, rep)
         counts = np.load(REP / f"{sec}__{scen}__{level}__{rep}.npz")["counts"]
         t1 = time.time()
-        au = audit_claim(ctx, ExpressionData(counts, list(g["genes"])), cfg=AuditConfig(n_perms=1000, engine="0.2.1"),
+        au = audit_claim(ctx, ExpressionData(counts, list(g["genes"])), cfg=AuditConfig(n_perms=1000, engine="0.2.1", device="cuda"),
                          seed=s + 3, **pb.CLAIM)
         rows.append({"section": sec, "scenario": scen, "level": level, "rep": rep, "tool": "cellalibi_v021",
                      "status": "ok", "seconds": time.time() - t1, "verdict": au.primary.value,
