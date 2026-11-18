@@ -246,6 +246,7 @@ def generate_claims_register(verdicts: Sequence[VerdictResult]) -> pd.DataFrame:
 CHECKS = ("power", "abundance", "zonation", "spillover")
 
 PRIORITY_RULE = (
+    "[v0.2.1: in step 3, regional co-variation p<alpha -> EXPLAINED_BY_ZONATION first; abundance NOT_RUN counts in step 5] "
     "1 power FAIL -> NOT_TESTABLE; 2 spillover FAIL -> EXPLAINED_BY_SPILLOVER; "
     "3 abundance FAIL -> EXPLAINED_BY_ABUNDANCE if naive M (label null) significant else NOT_SUPPORTED; "
     "4 zonation FAIL -> EXPLAINED_BY_ZONATION; 5 zonation or spillover NOT_RUN -> NOT_TESTABLE; 6 SUPPORTED"
@@ -286,9 +287,19 @@ def checks_from_metrics(m: dict[str, Any], cfg) -> tuple[dict[str, str], dict[st
                     f"(floor {cfg.min_edges}), chain power at {cfg.power_effect}x="
                     f"{m.get('power_chain', float('nan')):.2f} (floor {cfg.power_floor})")
     # abundance
-    pg = m["p_contact_global"]
-    checks["abundance"] = "PASS" if pg < a else "FAIL"
-    why["abundance"] = f"contact test vs within-type permutation p={pg:.4f}; naive M label-null p={m['p_M_label']:.4f}"
+    if getattr(cfg, "engine", "0.2.0") == "0.2.1":
+        if not m.get("rc_global_run", False):
+            checks["abundance"] = "NOT_RUN"
+            why["abundance"] = "fewer than 5 exposed or 5 unexposed receivers: contact cannot be separated from type level"
+        else:
+            pr = m["p_rc_global"]
+            checks["abundance"] = "PASS" if pr < a else "FAIL"
+            why["abundance"] = (f"exposed vs unexposed receivers (global within-type permutation) p={pr:.4f}; "
+                                f"naive M label-null p={m['p_M_label']:.4f}; regional co-variation p={m.get('p_zone', float('nan')):.4f}")
+    else:
+        pg = m["p_contact_global"]
+        checks["abundance"] = "PASS" if pg < a else "FAIL"
+        why["abundance"] = f"contact test vs within-type permutation p={pg:.4f}; naive M label-null p={m['p_M_label']:.4f}"
     # zonation
     if not (m.get("ring_run", False) and m.get("block_contrast_run", False)):
         checks["zonation"] = "NOT_RUN"
@@ -315,12 +326,14 @@ def primary_verdict(checks: dict[str, str], m: dict[str, Any], cfg) -> tuple[Aud
     if checks["spillover"] == "FAIL":
         return AuditVerdict.EXPLAINED_BY_SPILLOVER, "spillover check failed"
     if checks["abundance"] == "FAIL":
+        if getattr(cfg, "engine", "0.2.0") == "0.2.1" and m.get("p_zone", 1.0) < cfg.alpha:
+            return AuditVerdict.EXPLAINED_BY_ZONATION, "no contact-specific receptor excess; sender ligand and receiver receptor co-vary by region"
         if m.get("p_M_label", 1.0) < cfg.alpha:
             return AuditVerdict.EXPLAINED_BY_ABUNDANCE, "no contact enrichment beyond type-level expression; naive score significant"
         return AuditVerdict.NOT_SUPPORTED, "no contact enrichment and no naive signal"
     if checks["zonation"] == "FAIL":
         return AuditVerdict.EXPLAINED_BY_ZONATION, "contact enrichment does not survive spatially constrained controls"
-    if "NOT_RUN" in (checks["zonation"], checks["spillover"]):
+    if "NOT_RUN" in (checks["zonation"], checks["spillover"], checks["abundance"]):
         return AuditVerdict.NOT_TESTABLE, "a required control could not be run"
     return AuditVerdict.SUPPORTED, "all four checks pass"
 
@@ -349,7 +362,8 @@ def claims_table(audits: Sequence[ClaimAudit]) -> pd.DataFrame:
         r["primary_reason"] = au.primary_reason
         for c in CHECKS:
             r[f"reason_{c}"] = au.check_reasons[c]
-        for k in ("n_senders", "n_receivers", "n_edges", "Q", "p_contact_global", "p_block_contrast", "p_ring",
+        for k in ("engine", "n_senders", "n_receivers", "n_edges", "Q", "p_contact_global", "p_rc_global", "p_zone",
+                  "p_block_contrast", "p_ring",
                   "p_contact_block",
                   "p_M_label", "power_chain", "spill_phi", "spill_p_phi", "spill_dR_obs", "spill_dR_exp",
                   "n_perms", "min_attainable_p"):

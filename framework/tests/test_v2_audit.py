@@ -30,28 +30,34 @@ def test_priority_rule_every_branch(checks, m, expected):
     assert v == expected
 
 
-def _ctx(seed, **kw):
+ENGINES = ["0.2.0", "0.2.1"]
+
+
+def _ctx(seed, engine="0.2.1", **kw):
     xy, labels, counts, genes = synthetic_tissue(seed=seed, n_cells=8000, size_um=1800.0, **kw)
-    return SpatialContext(xy, labels, AuditConfig(n_perms=1000, seed=seed)), ExpressionData(counts, genes)
+    return SpatialContext(xy, labels, AuditConfig(n_perms=1000, seed=seed, engine=engine)), ExpressionData(counts, genes)
 
 
-def test_planted_contact_is_supported():
-    ctx, ex = _ctx(7, contact_effect=3.0)
+@pytest.mark.parametrize("engine", ENGINES)
+def test_planted_contact_is_supported(engine):
+    ctx, ex = _ctx(7, engine=engine, contact_effect=3.0)
     au = audit_claim(ctx, ex, "Sender", "Receiver", "L", "R")
     assert au.checks == {"power": "PASS", "abundance": "PASS", "zonation": "PASS", "spillover": "PASS"}, au.check_reasons
     assert au.primary == AuditVerdict.SUPPORTED
 
 
-def test_null_is_not_supported_and_all_checks_reported():
-    ctx, ex = _ctx(8)
+@pytest.mark.parametrize("engine", ENGINES)
+def test_null_is_not_supported_and_all_checks_reported(engine):
+    ctx, ex = _ctx(8, engine=engine)
     au = audit_claim(ctx, ex, "Sender", "Receiver", "L", "R")
     assert au.primary != AuditVerdict.SUPPORTED
     assert set(au.checks) == set(CHECKS)
     assert all(v in ("PASS", "FAIL", "NOT_RUN") for v in au.checks.values())
 
 
-def test_spillover_flagged_and_claim_specific():
-    ctx, ex = _ctx(9, spill_frac=0.3)
+@pytest.mark.parametrize("engine", ENGINES)
+def test_spillover_flagged_and_claim_specific(engine):
+    ctx, ex = _ctx(9, engine=engine, spill_frac=0.3)
     au = audit_claim(ctx, ex, "Sender", "Receiver", "L", "R")
     assert au.checks["spillover"] == "FAIL", au.check_reasons["spillover"]
     assert au.primary == AuditVerdict.EXPLAINED_BY_SPILLOVER
@@ -76,3 +82,25 @@ def test_knn_graph_keeps_nearest_neighbour():
     r, c = knn_graph(xy, k=1)
     assert list(c) == [1, 0, 1, 2, 3]
     assert not np.any(r == c)
+
+
+
+def test_v021_power_plant_reaches_zero_count_cells():
+    """v0.2.0 bug: multiplying observed counts leaves zero-count cells at zero. v0.2.1 plants on the mean."""
+    from cellalibi.contact import _planted_receptor_logs
+    rng = np.random.default_rng(0)
+    counts = np.zeros((400, 2))
+    counts[:, 0] = 50
+    counts[:200, 1] = rng.poisson(0.3, 200)   # sparse receptor
+    counts[200:, 1] = rng.poisson(0.3, 200)
+    ex = ExpressionData(counts, ["X", "R"])
+    R = np.arange(400)
+    exposed = np.zeros(400, bool)
+    exposed[:200] = True
+    zero_exposed = exposed & (counts[:, 1] == 0)
+    plants = _planted_receptor_logs(ex, "R", R, exposed, 2.0, AuditConfig(n_plants=20), rng)
+    gained = np.mean([np.mean(p[zero_exposed] > 0) for p in plants])
+    assert gained > 0.1
+    base = ex.gene("R")[0]
+    ratio = np.mean([np.expm1(p[exposed]).mean() for p in plants]) / base[exposed].mean()
+    assert 1.6 < ratio < 2.4

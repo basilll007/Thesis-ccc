@@ -39,7 +39,7 @@ class AuditConfig:
     min_receivers: int = 25
     min_edges: int = 10
     min_ring_group: int = 5
-    spill_marker_ratio: float = 10.0
+    spill_marker_ratio: float | None = None  # v0.2.0: 10; v0.2.1: 3 (resolved in __post_init__)
     spill_marker_min_cp10k: float = 1.0
     spill_n_markers: int = 10
     spill_min_markers: int = 3
@@ -48,6 +48,16 @@ class AuditConfig:
     spill_explain_frac: float = 0.5
     perm_chunk: int = 100
     seed: int = 42
+    engine: str = "0.2.1"   # "0.2.0" = frozen Phase 4 engine; "0.2.1" = post-hoc revision (plan v2_phase4b.md)
+    n_plants: int = 20      # v0.2.1 stochastic mean-based plants for the power estimate
+    zone_min_cells: int = 2  # v0.2.1 regional co-variation: min senders and receivers per tile
+    zone_min_tiles: int = 10
+
+    def __post_init__(self):
+        if self.engine not in ("0.2.0", "0.2.1"):
+            raise ValueError(f"unknown engine {self.engine}")
+        if self.spill_marker_ratio is None:
+            self.spill_marker_ratio = 10.0 if self.engine == "0.2.0" else 3.0
 
     @property
     def min_p(self) -> float:
@@ -100,9 +110,11 @@ class ExpressionData:
             lin = M.copy()
             lin.data = np.expm1(lin.data)
             self.counts = None
+            self.tot = None
         else:
             self.counts = M
             tot = np.asarray(M.sum(axis=1)).ravel()
+            self.tot = tot
             scale = np.where(tot > 0, 1e4 / np.maximum(tot, 1e-12), 0.0)
             lin = (sp.diags(scale) @ M).tocsr()
         self.lin = lin
@@ -268,6 +280,60 @@ def spillover_check(ctx: SpatialContext, ex: ExpressionData, s_mask: np.ndarray,
     return out
 
 
+def zone_evidence(ctx: "SpatialContext", S: np.ndarray, R: np.ndarray, L_log: np.ndarray, R_log: np.ndarray,
+                  cfg: AuditConfig, rng: np.random.Generator) -> dict[str, Any]:
+    """v0.2.1: regional co-variation of sender ligand and receiver receptor across tiles (zonation evidence).
+
+    Statistic: Pearson r across tiles between the mean L_log of senders and the mean Rg_log of receivers (tiles with
+    >= zone_min_cells of each). Null: receiver tile means permuted across tiles. One-sided p (r > 0)."""
+    t = ctx.tiles
+    nt = int(t.max()) + 1
+    cs = np.bincount(t[S], minlength=nt)
+    cr = np.bincount(t[R], minlength=nt)
+    ok = (cs >= cfg.zone_min_cells) & (cr >= cfg.zone_min_cells)
+    out: dict[str, Any] = {"zone_n_tiles": int(ok.sum())}
+    if ok.sum() < cfg.zone_min_tiles:
+        out["p_zone"] = float("nan")
+        return out
+    ls = np.bincount(t[S], weights=L_log[S], minlength=nt)[ok] / cs[ok]
+    rr = np.bincount(t[R], weights=R_log[R], minlength=nt)[ok] / cr[ok]
+    a = (ls - ls.mean()) / (ls.std() if ls.std() > 0 else 1.0)
+    b = (rr - rr.mean()) / (rr.std() if rr.std() > 0 else 1.0)
+    r_obs = float(np.mean(a * b))
+    null = np.empty(cfg.n_perms)
+    for k in range(cfg.n_perms):
+        null[k] = np.mean(a * b[rng.permutation(len(b))])
+    out["zone_r"] = r_obs
+    out["p_zone"] = _addone_p(null, r_obs)
+    return out
+
+
+def _planted_receptor_logs(ex: "ExpressionData", receptor: str, R: np.ndarray, exposed: np.ndarray, f: float,
+                           cfg: AuditConfig, rng: np.random.Generator) -> list[np.ndarray]:
+    """v0.2.1 power plants. With counts: add Poisson((f-1) * lambda_j) receptor counts to exposed receivers, where
+    lambda_j = mean receptor count of receivers x (library size_j / mean receiver library size); this plants an f-fold
+    change of the *mean*, so zero-count cells can respond (the v0.2.0 plant multiplied observed values, so zeros stayed
+    zero). Without counts (log1p input or program features): deterministic additive plant of (f-1) x mean lin."""
+    R_lin = ex.gene(receptor)[0]
+    j = ex.gi.get(receptor)
+    out = []
+    if ex.counts is not None and j is not None:
+        rc = np.asarray(ex.counts[:, j].todense()).ravel()
+        tot = ex.tot
+        lam = (f - 1.0) * rc[R].mean() * tot / max(tot[R].mean(), 1e-9)
+        idx = np.flatnonzero(exposed)
+        for _ in range(cfg.n_plants):
+            add = rng.poisson(lam[idx])
+            lin = R_lin.copy()
+            lin[idx] = (rc[idx] + add) / np.maximum(tot[idx] + add, 1e-9) * 1e4
+            out.append(np.log1p(lin))
+    else:
+        lin = R_lin.copy()
+        lin[exposed] = lin[exposed] + (f - 1.0) * R_lin[R].mean()
+        out.append(np.log1p(lin))
+    return out
+
+
 def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, receiver: str, ligand: str,
                        receptor: str, cfg: AuditConfig | None = None, seed: int | None = None,
                        run_spillover: bool = True) -> dict[str, Any]:
@@ -319,8 +385,8 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     xr = exposed[R]
     blk_ok = xr.sum() >= cfg.min_ring_group and (~xr).sum() >= cfg.min_ring_group
     m["block_contrast_run"] = bool(blk_ok)
+    Rvals = R_log[R]
     if blk_ok:
-        Rvals = R_log[R]
         B_obs = float(Rvals[xr].mean() - Rvals[~xr].mean())
         nullB = ring_null(Rvals, xr, ctx.tiles[R], cfg.n_perms, rng, cfg.perm_chunk)
         m["block_contrast_diff"] = B_obs
@@ -344,7 +410,37 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     else:
         m["n_ring_controls"] = 0
     m["ring_run"] = ring_ok
-    # plant-and-shift power at cfg.power_effect
+    if cfg.engine == "0.2.1":
+        # global receiver contrast: exposed vs unexposed receivers, Rg permuted among all receivers
+        if blk_ok:
+            nullRC = ring_null(Rvals, xr, np.zeros(len(R), np.int64), cfg.n_perms, rng, cfg.perm_chunk)
+            m["rc_global_diff"] = B_obs
+            m["p_rc_global"] = _addone_p(nullRC, B_obs)
+        m["rc_global_run"] = bool(blk_ok)
+        m.update(zone_evidence(ctx, S, R, L_log, R_log, cfg, rng))
+        # unbiased (mean-based) plant-and-shift power for the three decision tests
+        pw = {}
+        if blk_ok:
+            plants = _planted_receptor_logs(ex, receptor, R, exposed, cfg.power_effect, cfg, rng)
+            sh_b, sh_t = [], []
+            for R_log_p in plants:
+                Rp = R_log_p[R]
+                sh_b.append(float(Rp[xr].mean() - Rp[~xr].mean()) - B_obs)
+                if ring_ok:
+                    vp = R_log_p[R][sel]
+                    sh_t.append(float(vp[is_x].mean() - vp[~is_x].mean()) - T_obs)
+            pw["power_rc_global"] = float(np.mean([_shift_power(nullRC, x, cfg.alpha) for x in sh_b]))
+            pw["power_block_contrast"] = float(np.mean([_shift_power(nullB, x, cfg.alpha) for x in sh_b]))
+            if ring_ok:
+                pw["power_ring"] = float(np.mean([_shift_power(nullT, x, cfg.alpha) for x in sh_t]))
+        m.update(pw)
+        m["power_chain"] = float(min(pw.values())) if len(pw) == 3 else 0.0
+        if run_spillover:
+            m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng))
+        m["engine"] = cfg.engine
+        m["status"] = "evaluated"
+        return m
+    # ---- v0.2.0 (frozen) plant-and-shift power at cfg.power_effect
     R_lin_p = R_lin.copy()
     R_lin_p[exposed] *= cfg.power_effect
     R_log_p = np.log1p(R_lin_p)
@@ -366,5 +462,6 @@ def contact_statistics(ctx: SpatialContext, ex: ExpressionData, sender: str, rec
     m["power_chain"] = float(min(pw.values()))
     if run_spillover:
         m.update(spillover_check(ctx, ex, s_mask, r_mask, ligand, receptor, cfg, rng))
+    m["engine"] = cfg.engine
     m["status"] = "evaluated"
     return m

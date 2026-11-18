@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cellalibi"
-version = "0.2.0"
+version = "0.2.1"
 description = "Spatial Cell-Cell Communication Audit and Confounding Diagnosis Framework"
 readme = "README.md"
 authors = [{ name = "Thesis Research Team" }]

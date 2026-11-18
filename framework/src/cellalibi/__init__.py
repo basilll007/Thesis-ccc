@@ -7,7 +7,7 @@ of abundance, regional zonation, or segmentation spillover.
 Previously named `ccc_audit` (v0.1.0, branch framework-v1). Renamed to `cellalibi` in v0.2.0 (framework-v2).
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 from cellalibi.io import validate_spatial_data, load_spatial_dataset
 from cellalibi.graphs import knn_graph, radius_graph, assign_tiles

@@ -25,7 +25,8 @@ def null_pvalues():
         ex = ExpressionData(counts, genes)
         m = contact_statistics(ctx, ex, "Sender", "Receiver", "L", "R", cfg=ctx.cfg, seed=1000 + s,
                                run_spillover=False)
-        rows.append((m["p_contact_global"], m.get("p_block_contrast", np.nan), m.get("p_ring", np.nan), m["p_contact_block"]))
+        rows.append((m["p_contact_global"], m.get("p_block_contrast", np.nan), m.get("p_ring", np.nan), m["p_contact_block"],
+                     m.get("p_rc_global", np.nan), m.get("p_zone", np.nan)))
     return np.array(rows), cfg
 
 
@@ -35,7 +36,7 @@ def _interval():
 
 
 @pytest.mark.slow
-@pytest.mark.parametrize("col,name", [(0, "global"), (1, "block_contrast"), (2, "ring"), (3, "block_q_info")])
+@pytest.mark.parametrize("col,name", [(0, "global"), (1, "block_contrast"), (2, "ring"), (3, "block_q_info"), (4, "rc_global_v021"), (5, "zone_v021")])
 def test_contact_test_calibrated_under_null(null_pvalues, col, name):
     P, cfg = null_pvalues
     p = P[:, col]
