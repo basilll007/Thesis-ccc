@@ -44,11 +44,22 @@ def make_adata(counts, xy, labels, genes):
 
 
 def run_squidpy(a):
+    """Amendment 1: at the default threshold (0.01) squidpy 1.6.5 in this env returns NaN for 167/169 cluster pairs,
+    including CAF_fibroblast->myeloid, although FN1 and ITGB1 are detected in far more than 1 % of those cells. We run
+    threshold=0 and apply the default 1 % expression rule ourselves for the claim pair, which is what a working default
+    would do for this pair."""
     import squidpy as sq
+    fl = float((a[a.obs.cell_type == SENDER, [LIG]].X.toarray() > 0).mean())
+    fr = float((a[a.obs.cell_type == RECEIVER, [REC]].X.toarray() > 0).mean())
     res = sq.gr.ligrec(a, cluster_key="cell_type", interactions=pd.DataFrame([(LIG, REC)], columns=["source", "target"]),
-                       copy=True, use_raw=True, seed=0, n_jobs=1, numba_parallel=False, show_progress_bar=False)
+                       copy=True, use_raw=True, seed=0, n_jobs=1, numba_parallel=False, show_progress_bar=False,
+                       threshold=0.0)
     p = float(res["pvalues"].loc[(LIG, REC), (SENDER, RECEIVER)])
-    return {"p": p, "significant": bool(np.isfinite(p) and p < 0.05), "stat": float(res["means"].loc[(LIG, REC), (SENDER, RECEIVER)])}
+    if fl < 0.01 or fr < 0.01:
+        p = np.nan
+    return {"p": p, "significant": bool(np.isfinite(p) and p < 0.05),
+            "stat": float(res["means"].loc[(LIG, REC), (SENDER, RECEIVER)]),
+            "note": f"frac_L_in_sender={fl:.3f}; frac_R_in_receiver={fr:.3f}; threshold=0 workaround"}
 
 
 def run_spatialdm(a):
@@ -130,6 +141,7 @@ def main():
     ap.add_argument("--sections", nargs="*", default=None)
     ap.add_argument("--settings", nargs="*", default=None)
     ap.add_argument("--max-reps", type=int, default=None)
+    ap.add_argument("--commot-reps", type=int, default=5)
     args = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     man = pd.read_csv(REP / "manifest.csv")
@@ -143,7 +155,10 @@ def main():
             continue
         reps = sorted(g.rep.tolist())[: args.max_reps] if args.max_reps else sorted(g.rep.tolist())
         for tool in args.tools:
-            if tool == "commot" and sec != sel["roles"]["smallest"]:
+            if tool == "commot":
+                if sec != sel["roles"]["smallest"]:
+                    continue
+                tasks.append((sec, scen, level, tool, reps[: args.commot_reps]))
                 continue
             tasks.append((sec, scen, level, tool, reps))
     # COMMOT tasks are memory-heavy: run them serially after the others
