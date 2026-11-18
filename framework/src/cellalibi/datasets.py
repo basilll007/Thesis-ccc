@@ -95,3 +95,44 @@ def mendeley_section_to_tumour(section_info_csv: str | Path) -> dict[str, str]:
     info = pd.read_csv(section_info_csv)
     info["tumour"] = info.donor.astype(str).str.replace(r"(_2nd|_B)$", "", regex=True)
     return dict(zip(info.section, info.tumour))
+
+
+GSE310352_SLIDES = {  # thesis mapping (src/pdac/pdac_loaders.py)
+    "slide1": "GSM9294399", "slide2": "GSM9294400", "slide3": "GSM9294401", "slide4": "GSM9294402",
+    "slide6": "GSM9294403", "slide5": "GSM9294404", "slide5b2": "GSM9294405", "slide5b3": "GSM9294406",
+}
+
+
+def load_gse310352_slide(geo_dir: str | Path, slide: str, cache_dir: str | Path, chunksize: int = 20000) -> ad.AnnData:
+    """Load one GSE310352 CosMx slide with the thesis marker labels.
+
+    Counts: `<GSM>_<slide>_cell_by_gene_counts.csv.gz` (negative probes dropped), read in chunks into a sparse
+    matrix. Cells and marker labels: the thesis chain cache `<cache_dir>/<slide>.npz` (cells that passed the thesis
+    QC; `cell_id = <slide>_<fov>_<cell_ID>`). Coordinates stay in pixels (um/px UNVERIFIED in the thesis).
+    """
+    geo_dir, cache_dir = Path(geo_dir), Path(cache_dir)
+    gsm = GSE310352_SLIDES[slide]
+    z = np.load(cache_dir / f"{slide}.npz", allow_pickle=False)
+    ids = z["cell_id"].astype(str)
+    pos = {c: i for i, c in enumerate(ids)}
+    blocks, rows_idx, genes = [], [], None
+    for ch in pd.read_csv(geo_dir / f"{gsm}_{slide}_cell_by_gene_counts.csv.gz", chunksize=chunksize):
+        if genes is None:
+            genes = [c for c in ch.columns if c not in ("fov", "cell_ID") and not c.startswith("NegPrb")]
+        cid = [f"{slide}_{f}_{c}" for f, c in zip(ch["fov"], ch["cell_ID"])]
+        keep = np.array([c in pos for c in cid])
+        if keep.any():
+            blocks.append(sp.csr_matrix(ch.loc[keep, genes].to_numpy(dtype=np.float32)))
+            rows_idx.extend(pos[c] for c, k in zip(cid, keep) if k)
+    C = sp.vstack(blocks).tocsr()
+    order = np.argsort(np.array(rows_idx))
+    C = C[order]
+    found = np.array(rows_idx)[order]
+    if len(found) != len(ids):
+        raise ValueError(f"{slide}: {len(ids) - len(found)} cached cells missing from the counts file")
+    obs = pd.DataFrame({"marker": z["marker"].astype(str), "x_um": z["xy"][:, 0], "y_um": z["xy"][:, 1],
+                        "section_id": slide, "patient_id": slide}, index=ids)
+    a = ad.AnnData(X=_normalise_log1p(C), obs=obs, var=pd.DataFrame(index=genes))
+    a.layers["counts"] = C
+    a.uns["coordinate_units"] = "px (um/px UNVERIFIED)"
+    return a
