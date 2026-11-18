@@ -29,3 +29,6 @@ DONE / BLOCKED status.
 - Literature: PMC returned reCAPTCHA; DOAJ 403; HAL bot-check; Springer auth redirect. None were worked around.
   Verified via the Frontiers publisher page (Abou Khouzam 2021) and the Europe PMC REST API (Ren 2023, Connor 2019).
 - Phase 1 status: **DONE**.
+
+## Phase 2
+- Free RAM before start: 10182 MB available.
