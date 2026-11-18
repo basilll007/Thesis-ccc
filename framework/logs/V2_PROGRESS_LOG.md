@@ -48,3 +48,6 @@ DONE / BLOCKED status.
 - After rename: 23 non-repro tests pass; 6/6 reproduction tests pass (pytest_reproduction_after_rename.txt);
   `cellalibi run` works on the crop config.
 - Phase 3 status: **DONE**.
+
+## Phase 4
+- Free RAM before start: 9908 MB available.

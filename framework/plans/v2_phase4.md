@@ -90,3 +90,15 @@ section-specific weakness.
 - S3 at 50 um is close to contact scale. The within-tile and ring controls may not separate it from contact.
 - S4 only creates a false signal if CAF ITGB1 exceeds myeloid ITGB1 in the section.
 - S1 power depends on how many myeloid cells touch FN1+ CAFs.
+
+## Frozen engine and execution details
+
+- Engine: `framework/src/cellalibi` at commit fc9bab8 (end of Phase 3).
+- Runner: `framework/scripts/v2/phase4_benchmark.py`.
+  - 4 worker processes, 1 BLAS thread each.
+  - One resumable CSV chunk per (section, setting) in `framework/results/v2_phase4/chunks/`.
+  - Seeds = CRC32 of (section, setting, level, replicate).
+- Section selection: `framework/scripts/v2/phase4_select_sections.py` writes `section_selection.json`.
+- Before the full run, a smoke test runs 1 replicate of S0 and S4 0.3 on the smallest section, writing to a scratch
+  directory outside the results tree. It only checks that the code runs and how long it takes. It is not a result,
+  and the engine is not changed because of it.
