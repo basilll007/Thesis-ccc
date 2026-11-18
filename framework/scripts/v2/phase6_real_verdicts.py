@@ -72,11 +72,12 @@ def run_section(dataset: str, sec: str) -> str:
         labels = a.obs["marker"].to_numpy()
         unit = sec
     xy = np.c_[a.obs.x_um.to_numpy(), a.obs.y_um.to_numpy()]
-    cfg = AuditConfig(n_perms=1000)
+    cfg = AuditConfig(n_perms=1000, engine="0.2.1")
     ctx = SpatialContext(xy, labels, cfg)
     if dataset == "gse310352":  # px coordinates: tile = 10 x median NN distance (plan)
-        cfg = AuditConfig(n_perms=1000, tile_um=10.0 * ctx.diameter)
+        cfg = AuditConfig(n_perms=1000, tile_um=10.0 * ctx.diameter, engine="0.2.1")
         ctx = SpatialContext(xy, labels, cfg)
+    cfg0 = AuditConfig(n_perms=1000, tile_um=cfg.tile_um, engine="0.2.0")  # amendment 1: secondary engine
     ex = ExpressionData(a.layers["counts"], a.var_names)
     vn = set(a.var_names)
     # program pseudo-features (linear CP10K means) and the "any contact" pseudo-ligand
@@ -93,17 +94,22 @@ def run_section(dataset: str, sec: str) -> str:
               for s in FOCUS for r in FOCUS if s != r]
     claims += [(s, r, "ANY_CONTACT", f"PROGRAM:{p}", "program") for (s, r, p) in PROGRAM_CLAIMS
                if f"PROGRAM:{p}" in ex._cache]
+    headline = {("CAF_fibroblast", "T_cell", "CXCL12", "CXCR4"), ("CAF_fibroblast", "epithelial_ductal_tumor", "CXCL12", "CXCR4"),
+                ("CAF_fibroblast", "myeloid", "FN1", "ITGB1"), ("myeloid", "epithelial_ductal_tumor", "SPP1", "CD44")}
     for (s, r, l, rc, kind) in claims:
-        t1 = time.time()
-        try:
-            au = audit_claim(ctx, ex, s, r, l, rc, cfg=cfg)
-            m = {k: v for k, v in au.metrics.items() if not isinstance(v, (list, dict))}
-            rows.append({"dataset": dataset, "section": sec, "unit": unit, "kind": kind,
-                         **{f"check_{c}": v for c, v in au.checks.items()}, "verdict": au.primary.value,
-                         "failing_checks": ";".join(au.failing_checks()), "seconds": time.time() - t1, **m})
-        except Exception as e:
-            rows.append({"dataset": dataset, "section": sec, "unit": unit, "kind": kind, "sender": s, "receiver": r,
-                         "ligand": l, "receptor": rc, "verdict": "ERROR", "error": f"{type(e).__name__}: {e}"[:300]})
+        engines = [("0.2.1", cfg)] + ([("0.2.0", cfg0)] if (kind == "program" or (s, r, l, rc) in headline) else [])
+        for eng, c in engines:
+            t1 = time.time()
+            try:
+                au = audit_claim(ctx, ex, s, r, l, rc, cfg=c)
+                m = {k: v for k, v in au.metrics.items() if not isinstance(v, (list, dict))}
+                rows.append({"dataset": dataset, "section": sec, "unit": unit, "kind": kind, "engine_run": eng,
+                             **{f"check_{cc}": v for cc, v in au.checks.items()}, "verdict": au.primary.value,
+                             "failing_checks": ";".join(au.failing_checks()), "seconds": time.time() - t1, **m})
+            except Exception as e:
+                rows.append({"dataset": dataset, "section": sec, "unit": unit, "kind": kind, "engine_run": eng,
+                             "sender": s, "receiver": r, "ligand": l, "receptor": rc, "verdict": "ERROR",
+                             "error": f"{type(e).__name__}: {e}"[:300]})
     df = pd.DataFrame(rows)
     df["section_load_seconds"] = t_load
     df["section_total_seconds"] = time.time() - t0

@@ -34,7 +34,9 @@ def cohort_verdict(unit_verdicts):
 
 
 def main():
-    df = pd.concat([pd.read_csv(f) for f in sorted((OUT / "chunks").glob("*.csv"))], ignore_index=True)
+    df_all = pd.concat([pd.read_csv(f) for f in sorted((OUT / "chunks").glob("*.csv"))], ignore_index=True)
+    df_all.to_csv(OUT / "all_audits_both_engines.csv.gz", index=False)
+    df = df_all[df_all.engine_run == "0.2.1"].copy()  # primary engine (amendment 1)
     df["claim"] = df.sender + "->" + df.receiver + " " + df.ligand.str.replace("ANY_CONTACT", "contact") + "-" + \
         df.receptor.str.replace("PROGRAM:", "program:")
     df.to_csv(OUT / "all_audits.csv.gz", index=False)
