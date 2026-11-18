@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: ccc-audit
+Version: 0.1.0
+Summary: Spatial Cell-Cell Communication Audit and Confounding Diagnosis Framework
+Author: Thesis Research Team
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.10.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: anndata>=0.9.0
+Requires-Dist: scanpy>=1.9.0
+Requires-Dist: scikit-learn>=1.2.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: tabulate>=0.9.0
+Provides-Extra: models
+Requires-Dist: torch>=2.0.0; extra == "models"
+Requires-Dist: xgboost>=2.0.0; extra == "models"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
