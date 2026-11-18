@@ -112,7 +112,7 @@ def run_calibration_simulation(
     cols: np.ndarray,
     effects: Sequence[float] = (1.0, 1.1, 1.25, 1.5, 2.0),
     n_sims: int = 50,
-    n_perms: int = 100,
+    n_perms: int = 1000,
     tile_size_um: float = 100.0,
     seed: int = 42,
 ) -> pd.DataFrame:

@@ -40,6 +40,7 @@ class AuditVerdict(str, Enum):
     EXPLAINED_BY_ZONATION = "EXPLAINED_BY_ZONATION"
     EXPLAINED_BY_SPILLOVER = "EXPLAINED_BY_SPILLOVER"
     NOT_TESTABLE = "NOT_TESTABLE"
+    NOT_SUPPORTED = "NOT_SUPPORTED"
 
 
 @dataclass
@@ -70,7 +71,9 @@ def decide_verdict(
     min_edges: int = 10,
     alpha: float = 0.05,
 ) -> VerdictResult:
-    """Execute prioritized verdict decision tree.
+    """DEPRECATED (v1): single-verdict tree that stops at the first failing check.
+
+    Kept for backward compatibility. Use `audit_claim` (v2), which reports every check.
 
     Decision hierarchy:
     1. Power / Testability floor
@@ -234,3 +237,122 @@ def generate_claims_register(verdicts: Sequence[VerdictResult]) -> pd.DataFrame:
             "evidence_summary": v.evidence_summary,
         })
     return pd.DataFrame(records)
+
+
+# ----------------------------------------------------------------------------------------------
+# v2 claim audit: every check reported, one primary verdict by a pre-declared priority rule
+# (plan: framework/plans/v2_phase2.md, section 2.2)
+# ----------------------------------------------------------------------------------------------
+CHECKS = ("power", "abundance", "zonation", "spillover")
+
+PRIORITY_RULE = (
+    "1 power FAIL -> NOT_TESTABLE; 2 spillover FAIL -> EXPLAINED_BY_SPILLOVER; "
+    "3 abundance FAIL -> EXPLAINED_BY_ABUNDANCE if naive M (label null) significant else NOT_SUPPORTED; "
+    "4 zonation FAIL -> EXPLAINED_BY_ZONATION; 5 zonation or spillover NOT_RUN -> NOT_TESTABLE; 6 SUPPORTED"
+)
+
+
+@dataclass
+class ClaimAudit:
+    """v2 audit of one claim: multi-label checks plus one primary verdict."""
+    target_id: str
+    checks: dict[str, str]
+    check_reasons: dict[str, str]
+    primary: AuditVerdict
+    primary_reason: str
+    metrics: dict[str, Any]
+
+    def failing_checks(self) -> list[str]:
+        return [c for c in CHECKS if self.checks.get(c) == "FAIL"]
+
+
+def checks_from_metrics(m: dict[str, Any], cfg) -> tuple[dict[str, str], dict[str, str]]:
+    """Map contact statistics to PASS / FAIL / NOT_RUN for each of the four checks."""
+    a = cfg.alpha
+    checks: dict[str, str] = {}
+    why: dict[str, str] = {}
+    if m.get("status") != "evaluated":
+        for c in CHECKS:
+            checks[c] = "NOT_RUN"
+            why[c] = "no sender-receiver contact edges"
+        checks["power"] = "FAIL"
+        why["power"] = "no sender-receiver contact edges"
+        return checks, why
+    # power
+    pw_ok = (m["n_receivers"] >= cfg.min_receivers and m["n_edges"] >= cfg.min_edges
+             and m.get("power_chain", 0.0) >= cfg.power_floor)
+    checks["power"] = "PASS" if pw_ok else "FAIL"
+    why["power"] = (f"n_receivers={m['n_receivers']} (floor {cfg.min_receivers}), edges={m['n_edges']} "
+                    f"(floor {cfg.min_edges}), chain power at {cfg.power_effect}x="
+                    f"{m.get('power_chain', float('nan')):.2f} (floor {cfg.power_floor})")
+    # abundance
+    pg = m["p_contact_global"]
+    checks["abundance"] = "PASS" if pg < a else "FAIL"
+    why["abundance"] = f"contact test vs within-type permutation p={pg:.4f}; naive M label-null p={m['p_M_label']:.4f}"
+    # zonation
+    if not (m.get("ring_run", False) and m.get("block_contrast_run", False)):
+        checks["zonation"] = "NOT_RUN"
+        why["zonation"] = (f"local controls not runnable (exposed={m.get('n_exposed', 0)}, "
+                           f"ring controls={m.get('n_ring_controls', 0)})")
+    else:
+        ok = m["p_block_contrast"] < a and m["p_ring"] < a
+        checks["zonation"] = "PASS" if ok else "FAIL"
+        why["zonation"] = (f"within-tile ({cfg.tile_um:.0f} um) receiver contrast p={m['p_block_contrast']:.4f}; "
+                           f"ring-control p={m['p_ring']:.4f}; [info: block-null Q p={m['p_contact_block']:.4f}]")
+    # spillover
+    st = m.get("spill_status", "NOT_RUN")
+    checks["spillover"] = st
+    why["spillover"] = m.get("spill_reason", "not run")
+    if st != "NOT_RUN":
+        why["spillover"] += f" (phi={m['spill_phi']:.4f}, p={m['spill_p_phi']:.4f}, dR_obs={m['spill_dR_obs']:.3f}, dR_exp={m['spill_dR_exp']:.3f})"
+    return checks, why
+
+
+def primary_verdict(checks: dict[str, str], m: dict[str, Any], cfg) -> tuple[AuditVerdict, str]:
+    """Pre-declared priority rule (see PRIORITY_RULE)."""
+    if checks["power"] == "FAIL":
+        return AuditVerdict.NOT_TESTABLE, "power check failed"
+    if checks["spillover"] == "FAIL":
+        return AuditVerdict.EXPLAINED_BY_SPILLOVER, "spillover check failed"
+    if checks["abundance"] == "FAIL":
+        if m.get("p_M_label", 1.0) < cfg.alpha:
+            return AuditVerdict.EXPLAINED_BY_ABUNDANCE, "no contact enrichment beyond type-level expression; naive score significant"
+        return AuditVerdict.NOT_SUPPORTED, "no contact enrichment and no naive signal"
+    if checks["zonation"] == "FAIL":
+        return AuditVerdict.EXPLAINED_BY_ZONATION, "contact enrichment does not survive spatially constrained controls"
+    if "NOT_RUN" in (checks["zonation"], checks["spillover"]):
+        return AuditVerdict.NOT_TESTABLE, "a required control could not be run"
+    return AuditVerdict.SUPPORTED, "all four checks pass"
+
+
+def audit_claim(ctx, ex, sender: str, receiver: str, ligand: str, receptor: str, cfg=None,
+                seed: int | None = None) -> ClaimAudit:
+    """Run the v2 claim audit (all checks) for one sender->receiver ligand-receptor claim."""
+    from ccc_audit.contact import contact_statistics
+    cfg = cfg or ctx.cfg
+    m = contact_statistics(ctx, ex, sender, receiver, ligand, receptor, cfg=cfg, seed=seed)
+    checks, why = checks_from_metrics(m, cfg)
+    v, reason = primary_verdict(checks, m, cfg)
+    return ClaimAudit(target_id=f"{sender}->{receiver} ({ligand}-{receptor})", checks=checks, check_reasons=why,
+                      primary=v, primary_reason=reason, metrics=m)
+
+
+def claims_table(audits: Sequence[ClaimAudit]) -> pd.DataFrame:
+    """One row per claim: four check labels, primary verdict, failing checks, reasons and key metrics."""
+    rows = []
+    for i, au in enumerate(audits, start=1):
+        r = {"id": f"CLAIM_{i:03d}", "target": au.target_id}
+        for c in CHECKS:
+            r[f"check_{c}"] = au.checks[c]
+        r["primary_verdict"] = au.primary.value
+        r["failing_checks"] = ";".join(au.failing_checks())
+        r["primary_reason"] = au.primary_reason
+        for c in CHECKS:
+            r[f"reason_{c}"] = au.check_reasons[c]
+        for k in ("n_senders", "n_receivers", "n_edges", "Q", "p_contact_global", "p_block_contrast", "p_ring",
+                  "p_contact_block",
+                  "p_M_label", "power_chain", "spill_phi", "spill_p_phi", "spill_dR_obs", "spill_dR_exp",
+                  "n_perms", "min_attainable_p"):
+            r[k] = au.metrics.get(k)
+        rows.append(r)
+    return pd.DataFrame(rows)

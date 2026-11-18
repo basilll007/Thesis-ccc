@@ -31,8 +31,8 @@ from ccc_audit.io import load_spatial_dataset, validate_spatial_data
 from ccc_audit.graphs import knn_graph, assign_tiles
 from ccc_audit.scores import compute_ccc_scores
 from ccc_audit.nulls import global_null, block_null
-from ccc_audit.spillover import audit_spillover
-from ccc_audit.verdicts import decide_verdict, generate_claims_register, VerdictResult
+from ccc_audit.contact import AuditConfig, ExpressionData, SpatialContext
+from ccc_audit.verdicts import PRIORITY_RULE, CHECKS, ClaimAudit, audit_claim, claims_table
 
 
 def run_audit(config_path: str | Path, output_dir_override: str | None = None) -> int:
@@ -75,8 +75,8 @@ def run_audit(config_path: str | Path, output_dir_override: str | None = None) -
     lr_pairs = sorted({(l, r) for _, _, l, r in interactions})
     print(f"Auditing {len(interactions)} interactions across {len(lr_pairs)} LR pairs.")
 
-    # 4. Null permutations
-    n_perms = int(cfg.get("nulls", {}).get("n_perms", 500))
+    # 4. Thesis-style C/E/M/Q tables under label-permutation nulls (kept for continuity with v1/thesis)
+    n_perms = int(cfg.get("nulls", {}).get("n_perms", 1000))
     tile_size = float(cfg.get("nulls", {}).get("tile_size_um", 100.0))
     seed = int(cfg.get("seed", 42))
 
@@ -85,83 +85,45 @@ def run_audit(config_path: str | Path, output_dir_override: str | None = None) -
     type_map = {t: i for i, t in enumerate(types)}
     lab_encoded = np.array([type_map[x] for x in labels_str], dtype=np.int64)
 
-    print(f"Generating {n_perms} global and {tile_size}um block permutations...")
+    print(f"Generating {n_perms} global and {tile_size}um block label permutations (thesis C/E/M/Q tables)...")
     g_perms = global_null(lab_encoded, n_perms=n_perms, seed=seed)
     b_perms, tile_info = block_null(lab_encoded, xy, tile_size_um=tile_size, n_perms=n_perms, seed=seed)
-
-    # 5. Compute scores under both nulls
-    print("Computing scores under global null...")
     res_global = compute_ccc_scores(adata, lr_pairs, interactions, rows, cols, g_perms, alpha=0.05)
-    print("Computing scores under block null...")
+    del g_perms
     res_block = compute_ccc_scores(adata, lr_pairs, interactions, rows, cols, b_perms, alpha=0.05)
-
+    del b_perms
     df_g = res_global.dataframe
     df_b = res_block.dataframe
-
-    # Save detailed scores
     df_g.to_csv(out_dir / "scores_global_null.csv", index=False)
     df_b.to_csv(out_dir / "scores_block_null.csv", index=False)
 
-    # 6. Optional spillover audit
-    spillover_results: dict[str, Any] = {}
-    if cfg.get("spillover", {}).get("enabled", True):
-        print("Running segmentation spillover audit...")
-        # Build expression DataFrame for receiver/sender types
-        target_genes = list({g for _, _, l, r in interactions for g in (l, r)})
-        var_names = list(adata.var_names)
-        t_indices = [var_names.index(g) for g in target_genes if g in var_names]
-        X_sub = adata.X[:, t_indices]
-        if hasattr(X_sub, "toarray"):
-            X_sub = X_sub.toarray()
-        exp_df = pd.DataFrame(X_sub, columns=[var_names[i] for i in t_indices])
-
-        # Pick primary sender and receiver from first interaction
-        s_type, r_type = interactions[0][0], interactions[0][1]
-        s_mask = labels_str == s_type
-        r_mask = labels_str == r_type
-
-        diag = audit_spillover(xy, exp_df, s_mask, r_mask, target_genes)
-        spillover_results = {
-            "median_cell_diameter_um": diag.median_cell_diameter_um,
-            "mixing_excess_pct": diag.mixing_excess_pct,
-            "is_explained_by_spillover": diag.is_explained_by_spillover,
-            "n_contamination_markers": len(diag.contamination_markers),
-            "shared_genes_removed": diag.shared_genes_to_remove,
-        }
-        pd.DataFrame([spillover_results]).to_csv(out_dir / "spillover_summary.csv", index=False)
-
-    # 7. Evaluate verdicts
-    verdicts: list[VerdictResult] = []
-    for i, row_g in df_g.iterrows():
-        row_b = df_b.iloc[i]
-        target_label = f"{row_g['sender']}->{row_g['receiver']} ({row_g['ligand']}-{row_g['receptor']})"
-        rec_count = int((labels_str == row_g['receiver']).sum())
-
-        v = decide_verdict(
-            target_id=target_label,
-            n_receiver_cells=rec_count,
-            n_qualifying_edges=int(row_g["n_qualifying_edges"]),
-            comp_p=float(row_g["comp_p_plus1"]),
-            matched_p=float(row_g["matched_p_plus1"]),
-            ratio_p_global=float(row_g["ratio_p_plus1"]),
-            ratio_p_block=float(row_b["ratio_p_plus1"]),
-            is_spillover=spillover_results.get("is_explained_by_spillover"),
-            spillover_excess_pct=spillover_results.get("mixing_excess_pct"),
-        )
-        verdicts.append(v)
-
-    claims_df = generate_claims_register(verdicts)
+    # 5-7. v2 claim audit: every check computed per claim, spillover computed for each claim's own pair
+    acfg = AuditConfig(k=k_nn, n_perms=n_perms, tile_um=tile_size, seed=seed,
+                       **{k: v for k, v in cfg.get("audit", {}).items()})
+    ctx = SpatialContext(xy, labels_str, acfg)
+    if "counts" in adata.layers:
+        ex = ExpressionData(adata.layers["counts"], adata.var_names)
+    else:
+        ex = ExpressionData(adata.X, adata.var_names, is_log1p_cp10k=True)
+    print(f"Running v2 claim audit ({n_perms} permutations; minimum attainable p = {acfg.min_p:.6f})...")
+    audits: list[ClaimAudit] = []
+    for (s_t, r_t, l_g, r_g) in interactions:
+        audits.append(audit_claim(ctx, ex, s_t, r_t, l_g, r_g, cfg=acfg))
+    claims_df = claims_table(audits)
+    claims_df = claims_df.rename(columns={"primary_verdict": "verdict"})
     claims_df.to_csv(out_dir / "claims_register.csv", index=False)
+    pd.DataFrame([au.metrics for au in audits]).to_csv(out_dir / "claim_metrics.csv", index=False)
 
     # 8. Generate summary figure
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
     # Panel A: Ratio Q vs Matched baseline
     ax = axes[0]
-    ax.scatter(df_g["matched_obs"], df_g["ratio_obs"], c="tab:blue", edgecolors="k", s=60, alpha=0.8)
+    ax.scatter(claims_df["p_M_label"].clip(lower=1e-4), claims_df["Q"], c="tab:blue", edgecolors="k", s=60, alpha=0.8)
     ax.axhline(1.0, color="gray", linestyle="--", label="Matched baseline (Q=1.0)")
-    ax.set_xlabel("Matched Dyadic Baseline M (Lbar * Rbar)")
+    ax.set_xscale("log")
+    ax.set_xlabel("naive M label-null p")
     ax.set_ylabel("Proximity Ratio Q (E / M)")
-    ax.set_title("Edge Enrichment Q vs Non-Spatial Baseline M")
+    ax.set_title("Contact ratio Q vs naive-score p")
     ax.legend()
 
     # Panel B: Verdict distribution
@@ -188,23 +150,31 @@ def run_audit(config_path: str | Path, output_dir_override: str | None = None) -
         "",
         "## Executive Summary & Verdicts",
         "",
-        "| ID | Target Interaction | Verdict | Primary Reason |",
-        "|---|---|---|---|",
+        "Every check is computed for every claim (PASS / FAIL / NOT_RUN). The primary verdict follows the",
+        f"pre-declared priority rule: {PRIORITY_RULE}.",
+        "",
+        "| ID | Claim | power | abundance | zonation | spillover | Primary verdict | Failing checks |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for _, r in claims_df.iterrows():
-        report_lines.append(f"| {r['id']} | `{r['target']}` | **{r['verdict']}** | {r['primary_reason']} |")
+        report_lines.append(f"| {r['id']} | `{r['target']}` | {r['check_power']} | {r['check_abundance']} | "
+                            f"{r['check_zonation']} | {r['check_spillover']} | **{r['verdict']}** | {r['failing_checks'] or '-'} |")
+    report_lines += ["", "### Check reasons", ""]
+    for _, r in claims_df.iterrows():
+        report_lines.append(f"- `{r['target']}`: " + "; ".join(f"{c}: {r['reason_' + c]}" for c in CHECKS))
 
     report_lines.extend([
         "",
         "## Diagnostic Details",
         f"- **Graph connectivity:** {k_nn}-NN with {len(rows)} directed edges.",
-        f"- **Null model calibrations:** {n_perms} permutations; block tile size = {tile_size} um.",
-        f"- **Segmentation spillover excess:** {spillover_results.get('mixing_excess_pct', 0.0):.1f}% (explained by spillover: {spillover_results.get('is_explained_by_spillover', False)}).",
+        f"- **Permutations:** {n_perms} per null; minimum attainable p = 1/{n_perms + 1} = {1 / (n_perms + 1):.6f}; block tile = {tile_size} um.",
+        f"- **Spillover:** computed separately for each claim's sender/receiver pair on all {adata.n_vars} genes (see claims_register.csv).",
         "",
         "## Generated Deliverables",
         f"- Detailed global scores: `{out_dir / 'scores_global_null.csv'}`",
         f"- Detailed block scores: `{out_dir / 'scores_block_null.csv'}`",
-        f"- Claims register table: `{out_dir / 'claims_register.csv'}`",
+        f"- Claims register table (multi-label): `{out_dir / 'claims_register.csv'}`",
+        f"- Per-claim metrics: `{out_dir / 'claim_metrics.csv'}`",
         f"- Diagnostic figure: `{fig_path}`",
     ])
 
