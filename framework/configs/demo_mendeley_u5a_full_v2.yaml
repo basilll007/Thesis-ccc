@@ -1,0 +1,35 @@
+# Configuration for Mendeley PDAC-SMI Full U5-a Headline Demonstration
+title: "Mendeley PDAC-SMI Full U5-a Headline Demonstration (v2 engine)"
+output_dir: "framework/results/demo_u5a_full_v2"
+seed: 42
+
+data:
+  path: "F:/Thesis/data/processed/mendeley_u5a_full_contract.h5ad"
+
+graph:
+  k: 6
+
+interactions:
+  - sender: "CAF"
+    receiver: "CD8+ T"
+    ligand: "CXCL12"
+    receptor: "CXCR4"
+  - sender: "CAF"
+    receiver: "Macrophage"
+    ligand: "COL1A1"
+    receptor: "CD44"
+  - sender: "CAF"
+    receiver: "Macrophage"
+    ligand: "FN1"
+    receptor: "CD44"
+  - sender: "Macrophage"
+    receiver: "Malignant"
+    ligand: "SPP1"
+    receptor: "CD44"
+
+nulls:
+  n_perms: 1000
+  tile_size_um: 100.0
+
+spillover:
+  enabled: true

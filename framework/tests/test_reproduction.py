@@ -1,135 +1,101 @@
-"""Reproduction tests against thesis results from F:\\Thesis.
+"""Reproduction tests that RECOMPUTE thesis numbers from the original inputs with the package.
 
-Checks that the thesis benchmarks reproduce within pre-declared tolerances:
-1. v3 tumour-level CAF->T result (consensus_T, score Q across 13 tumours for 5 nulls).
-2. model-v2 spillover reference Q for C1Q_TAM (+0.004).
-3. model-v2 XGBoost cross-type share (-0.005).
-4. model-v1 ridge neighbour gains (+0.033).
+Plan: framework/plans/v2_phase2.md section 2.1. The v1 version of this file only re-read saved result CSVs.
+
+R1: v3 tumour-level CAF_fibroblast->T_cell CXCL12-CXCR4 (consensus_T, score Q), median tumour mean z_Q and
+    number of tumours with mean z_Q > 0, for nulls global / block200 / block100 / block50 / dist.
+R2: per-section observed Q, M, E and qualifying edges (global null rows).
+R3-R5 (model-v2 XGBoost / ridge quantities) are NOT recomputable by the package and are not tested here
+(see framework/reports/FRAMEWORK_REPORT_v2.md).
+
+Inputs: raw Mendeley h5ad + thesis consensus_T label CSVs (an input annotation). Thesis values are read only
+for comparison, after recomputation.
 """
+from __future__ import annotations
 
+import os
 from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
-import yaml
 
-CONFIG_PATH = Path(__file__).parent / "local_reproduction_config.yaml"
+from ccc_audit.datasets import MENDELEY_SECTIONS, load_mendeley_section, mendeley_section_to_tumour
+from ccc_audit.graphs import knn_graph
+from ccc_audit.nulls import block_null, distance_band_null, global_null
+from ccc_audit.scores import compute_ccc_scores
+
+REPO = Path(__file__).resolve().parents[2]
+H5AD = Path(os.environ.get("CCC_MENDELEY_H5AD", "F:/Thesis/data/pdac/mendeley_pdac_smi/raw_meta_data_final.h5ad"))
+LABELS = REPO / "results/pdac/phaseB/sections"
+SECTION_INFO = REPO / "results/pdac/phase3/cross_section_section_info.csv"
+THESIS_TUMOUR = REPO / "results/pdac/v3_phase1/tumour_level_summary_by_null.csv"
+THESIS_SECTION = REPO / "results/pdac/v3_phase1/headline_by_null.csv"
+HEAD = ("CAF_fibroblast", "T_cell", "CXCL12", "CXCR4")
+NULLS = ["global", "block200", "block100", "block50", "dist"]
+N_PERMS, SEED = 500, 42
+TOL_Z = 0.02  # declared in v1 and kept
+
+pytestmark = [pytest.mark.repro, pytest.mark.skipif(not H5AD.exists(), reason="local Mendeley h5ad not available")]
+
+
+def _perms(null, lab, xy, types):
+    if null == "global":
+        return global_null(lab, n_perms=N_PERMS, seed=SEED)
+    if null.startswith("block"):
+        return block_null(lab, xy, tile_size_um=float(null[5:]), n_perms=N_PERMS, random_offset=False, seed=SEED)[0]
+    if null == "dist":
+        if "epithelial_ductal_tumor" not in types:
+            return None
+        return distance_band_null(lab, xy, types.index("epithelial_ductal_tumor"), n_perms=N_PERMS, seed=SEED)[0]
+    raise ValueError(null)
 
 
 @pytest.fixture(scope="module")
-def reproduction_config():
-    if not CONFIG_PATH.exists():
-        pytest.skip(f"Local reproduction config '{CONFIG_PATH}' not found.")
-    with open(CONFIG_PATH, "r") as f:
-        cfg = yaml.safe_load(f)
-    return cfg
+def recomputed():
+    tmap = mendeley_section_to_tumour(SECTION_INFO)
+    rows = []
+    for sec in MENDELEY_SECTIONS:
+        a = load_mendeley_section(H5AD, sec, LABELS, annotations=("consensus_T",))
+        a.obs["cell_type"] = a.obs["consensus_T"].astype(str)
+        xy = np.c_[a.obs.x_um.to_numpy(), a.obs.y_um.to_numpy()]
+        r, c = knn_graph(xy, k=6)
+        types = sorted(set(a.obs.cell_type))
+        lab = np.array([types.index(x) for x in a.obs.cell_type], dtype=np.int64)
+        for null in NULLS:
+            perms = _perms(null, lab, xy, types)
+            if perms is None:
+                continue
+            df = compute_ccc_scores(a, [HEAD[2:]], [HEAD], r, c, perms).dataframe.iloc[0]
+            rows.append({"section": sec, "tumour": tmap[sec], "null": null, "ratio_obs": df.ratio_obs,
+                         "matched_obs": df.matched_obs, "edge_obs": df.edge_obs, "ratio_z": df.ratio_z,
+                         "n_qualifying_edges": int(df.n_qualifying_edges), "edge_status": df.edge_status})
+            del perms
+        del a
+    out = pd.DataFrame(rows)
+    od = REPO / "framework/results/v2_phase2"
+    od.mkdir(parents=True, exist_ok=True)
+    out.to_csv(od / "reproduction_recomputed_sections.csv", index=False)
+    return out
 
 
-def test_reproduce_v3_tumour_caf_t(reproduction_config):
-    """Reproduce v3 tumour-level CAF->T result within pre-declared tolerances."""
-    root = Path(reproduction_config["repo_root"])
-    spec = reproduction_config["benchmarks"]["v3_tumour_caf_t"]
-    file_path = root / spec["file_path"]
-    assert file_path.exists(), f"Benchmark file '{file_path}' does not exist."
-
-    df = pd.read_csv(file_path)
-    sub = df[(df["annotation"] == spec["annotation"]) & (df["score"] == spec["score"])]
-
-    assert len(sub) >= 5, f"Expected at least 5 null models, found {len(sub)}"
-
-    for null_name, expected_z in spec["tolerances"]["median_tumour_mean_z"].items():
-        row = sub[sub["null"] == null_name]
-        assert len(row) == 1, f"Missing null {null_name} in v3 results"
-        actual_z = float(row["median_tumour_mean_z"].iloc[0])
-        tol = spec["tolerances"]["tolerance_z"]
-        assert abs(actual_z - expected_z) <= tol, (
-            f"Null {null_name}: expected median z_Q {expected_z} +- {tol}, got {actual_z}"
-        )
-
-        expected_n_pos = spec["tolerances"]["n_mean_z_pos"][null_name]
-        actual_n_pos = int(row["n_mean_z_pos"].iloc[0])
-        assert actual_n_pos == expected_n_pos, (
-            f"Null {null_name}: expected {expected_n_pos} positive tumours, got {actual_n_pos}"
-        )
-
-    assert int(sub["n_tumours"].iloc[0]) == spec["expected_n_tumours"]
+@pytest.mark.parametrize("null", NULLS)
+def test_R1_tumour_level_caf_t(recomputed, null):
+    th = pd.read_csv(THESIS_TUMOUR)
+    th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+    d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+    tz = d.groupby("tumour").ratio_z.mean()
+    assert len(tz) == int(th.n_tumours) == 13
+    med = float(np.median(tz))
+    assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+    assert int((tz > 0).sum()) == int(th.n_mean_z_pos), f"{null}: n z>0 {(tz > 0).sum()} vs thesis {th.n_mean_z_pos}"
 
 
-def test_reproduce_model_v2_spillover_c1q_tam(reproduction_config):
-    """Reproduce model-v2 spillover reference Q for C1Q_TAM (+0.004)."""
-    root = Path(reproduction_config["repo_root"])
-    spec = reproduction_config["benchmarks"]["v2_spillover_c1q_tam"]
-    file_path = root / spec["file_path"]
-    assert file_path.exists(), f"Benchmark file '{file_path}' does not exist."
-
-    df = pd.read_csv(file_path)
-    row = df[
-        (df["target"] == spec["target"]) &
-        (df["model"] == spec["model"]) &
-        (df["group"] == spec["group"]) &
-        (df["stratum"] == "all") &
-        (df["level"] == "all")
-    ]
-
-    assert len(row) == 1, "myeloid:C1Q_TAM reference row not found in phase1_summary.csv"
-    actual_q = float(row["Q_caf_expr"].iloc[0])
-    expected_q = spec["expected_q"]
-    tol = spec["tolerance_q"]
-
-    assert abs(actual_q - expected_q) <= tol, (
-        f"C1Q_TAM spillover reference Q: expected {expected_q} +- {tol}, got {actual_q}"
-    )
-
-
-def test_reproduce_model_v2_xgboost_cross_type(reproduction_config):
-    """Reproduce model-v2 XGBoost cross-type share (-0.005)."""
-    root = Path(reproduction_config["repo_root"])
-    spec = reproduction_config["benchmarks"]["v2_xgboost_cross_type"]
-    file_path = root / spec["file_path"]
-    assert file_path.exists(), f"Benchmark file '{file_path}' does not exist."
-
-    df = pd.read_csv(file_path)
-    row = df[
-        (df["receiver"] == spec["receiver"]) &
-        (df["target"] == spec["target"]) &
-        (df["model"] == spec["model"]) &
-        (df["quantity"] == spec["quantity"])
-    ]
-    assert len(row) == 1, "myeloid C1Q_TAM cross_type row not found in phase2_quantities.csv"
-    actual_gain = float(row["value"].iloc[0])
-    expected_gain = spec["expected_cross_type_gain"]
-    tol = spec["tolerance_gain"]
-
-    assert abs(actual_gain - expected_gain) <= tol, (
-        f"XGBoost cross-type gain: expected {expected_gain} +- {tol}, got {actual_gain}"
-    )
-
-
-def test_reproduce_model_v1_ridge_neighbour_gains(reproduction_config):
-    """Reproduce model-v1 ridge neighbour gains (+0.033)."""
-    root = Path(reproduction_config["repo_root"])
-    spec = reproduction_config["benchmarks"]["v1_ridge_neighbour_gains"]
-    file_path = root / spec["file_path"]
-    assert file_path.exists(), f"Benchmark file '{file_path}' does not exist."
-
-    df = pd.read_csv(file_path)
-    row = df[
-        (df["receiver"] == spec["receiver"]) &
-        (df["model"] == spec["model"]) &
-        (df["target"] == spec["target"])
-    ]
-    assert len(row) == 1, "myeloid ridge C1Q_TAM row not found in reproduction_check_vs_v1.csv"
-    actual_v1 = float(row["v1_r2"].iloc[0])
-    actual_v2 = float(row["v2_r2"].iloc[0])
-
-    expected_v1 = spec["expected_v1_r2"]
-    expected_v2 = spec["expected_v2_r2"]
-    tol = spec["tolerance_r2"]
-
-    assert abs(actual_v1 - expected_v1) <= tol, (
-        f"Ridge v1 R2: expected {expected_v1} +- {tol}, got {actual_v1}"
-    )
-    assert abs(actual_v2 - expected_v2) <= tol, (
-        f"Ridge v2 R2: expected {expected_v2} +- {tol}, got {actual_v2}"
-    )
-    assert bool(row["pass"].iloc[0]) is True, "Reproduction pass flag is False"
+def test_R2_section_observed_scores(recomputed):
+    th = pd.read_csv(THESIS_SECTION)
+    th = th[(th.annotation == "consensus_T") & (th.null == "global")].set_index("section")
+    d = recomputed[recomputed.null == "global"].set_index("section")
+    assert set(d.index) == set(th.index)
+    for col in ("ratio_obs", "matched_obs", "edge_obs"):
+        np.testing.assert_allclose(d.loc[th.index, col].to_numpy(), th[col].to_numpy(), rtol=1e-6, err_msg=col)
+    assert (d.loc[th.index, "n_qualifying_edges"].to_numpy() == th.n_qualifying_edges.to_numpy()).all()

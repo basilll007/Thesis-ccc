@@ -1,0 +1,305 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+_____________________ test_R1_tumour_level_caf_t[global] ______________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+null = 'global'
+
+    @pytest.mark.parametrize("null", NULLS)
+    def test_R1_tumour_level_caf_t(recomputed, null):
+        th = pd.read_csv(THESIS_TUMOUR)
+        th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+        d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+        tz = d.groupby("tumour").ratio_z.mean()
+        assert len(tz) == int(th.n_tumours) == 13
+        med = float(np.median(tz))
+>       assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+E       AssertionError: global: median z 0.4803 vs thesis 0.4334
+E       assert 0.046912684019127515 <= 0.02
+E        +  where 0.046912684019127515 = abs((0.48026366858563 - 0.4333509845665025))
+E        +    where 0.4333509845665025 = float(np.float64(0.4333509845665025))
+E        +      where np.float64(0.4333509845665025) = annotation                                                    consensus_T\nnull                                        ...                 11.0\np_value_convention      section p = add-one; tumour p = Fisher; BH acr...\nName: 25, dtype: object.median_tumour_mean_z
+
+test_reproduction.py:90: AssertionError
+____________________ test_R1_tumour_level_caf_t[block200] _____________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+null = 'block200'
+
+    @pytest.mark.parametrize("null", NULLS)
+    def test_R1_tumour_level_caf_t(recomputed, null):
+        th = pd.read_csv(THESIS_TUMOUR)
+        th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+        d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+        tz = d.groupby("tumour").ratio_z.mean()
+        assert len(tz) == int(th.n_tumours) == 13
+        med = float(np.median(tz))
+>       assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+E       AssertionError: block200: median z 0.5913 vs thesis 0.8626
+E       assert 0.2712801507489483 <= 0.02
+E        +  where 0.2712801507489483 = abs((0.591318147583664 - 0.8625982983326123))
+E        +    where 0.8625982983326123 = float(np.float64(0.8625982983326123))
+E        +      where np.float64(0.8625982983326123) = annotation                                                    consensus_T\nnull                                        ...                 11.0\np_value_convention      section p = add-one; tumour p = Fisher; BH acr...\nName: 26, dtype: object.median_tumour_mean_z
+
+test_reproduction.py:90: AssertionError
+____________________ test_R1_tumour_level_caf_t[block100] _____________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+null = 'block100'
+
+    @pytest.mark.parametrize("null", NULLS)
+    def test_R1_tumour_level_caf_t(recomputed, null):
+        th = pd.read_csv(THESIS_TUMOUR)
+        th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+        d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+        tz = d.groupby("tumour").ratio_z.mean()
+        assert len(tz) == int(th.n_tumours) == 13
+        med = float(np.median(tz))
+>       assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+E       AssertionError: block100: median z 1.3282 vs thesis 0.8106
+E       assert 0.5176077956783162 <= 0.02
+E        +  where 0.5176077956783162 = abs((1.328220604037032 - 0.8106128083587157))
+E        +    where 0.8106128083587157 = float(np.float64(0.8106128083587157))
+E        +      where np.float64(0.8106128083587157) = annotation                                                    consensus_T\nnull                                        ...                 11.0\np_value_convention      section p = add-one; tumour p = Fisher; BH acr...\nName: 27, dtype: object.median_tumour_mean_z
+
+test_reproduction.py:90: AssertionError
+_____________________ test_R1_tumour_level_caf_t[block50] _____________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+null = 'block50'
+
+    @pytest.mark.parametrize("null", NULLS)
+    def test_R1_tumour_level_caf_t(recomputed, null):
+        th = pd.read_csv(THESIS_TUMOUR)
+        th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+        d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+        tz = d.groupby("tumour").ratio_z.mean()
+        assert len(tz) == int(th.n_tumours) == 13
+        med = float(np.median(tz))
+>       assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+E       AssertionError: block50: median z 1.1539 vs thesis 1.2975
+E       assert 0.14361330794931382 <= 0.02
+E        +  where 0.14361330794931382 = abs((1.1539362766177368 - 1.2975495845670506))
+E        +    where 1.2975495845670506 = float(np.float64(1.2975495845670506))
+E        +      where np.float64(1.2975495845670506) = annotation                                                    consensus_T\nnull                                        ...                 11.0\np_value_convention      section p = add-one; tumour p = Fisher; BH acr...\nName: 28, dtype: object.median_tumour_mean_z
+
+test_reproduction.py:90: AssertionError
+______________________ test_R1_tumour_level_caf_t[dist] _______________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+null = 'dist'
+
+    @pytest.mark.parametrize("null", NULLS)
+    def test_R1_tumour_level_caf_t(recomputed, null):
+        th = pd.read_csv(THESIS_TUMOUR)
+        th = th[(th.annotation == "consensus_T") & (th.score == "Q") & (th.null == null)].iloc[0]
+        d = recomputed[(recomputed.null == null) & (recomputed.edge_status == "evaluated")]
+        tz = d.groupby("tumour").ratio_z.mean()
+        assert len(tz) == int(th.n_tumours) == 13
+        med = float(np.median(tz))
+>       assert abs(med - float(th.median_tumour_mean_z)) <= TOL_Z, f"{null}: median z {med:.4f} vs thesis {th.median_tumour_mean_z:.4f}"
+E       AssertionError: dist: median z 0.6330 vs thesis 0.5791
+E       assert 0.05387013874195423 <= 0.02
+E        +  where 0.05387013874195423 = abs((0.6329867167008565 - 0.5791165779589023))
+E        +    where 0.5791165779589023 = float(np.float64(0.5791165779589023))
+E        +      where np.float64(0.5791165779589023) = annotation                                                    consensus_T\nnull                                        ...                 11.0\np_value_convention      section p = add-one; tumour p = Fisher; BH acr...\nName: 29, dtype: object.median_tumour_mean_z
+
+test_reproduction.py:90: AssertionError
+_______________________ test_R2_section_observed_scores _______________________
+
+recomputed =    section tumour      null  ...   ratio_z  n_qualifying_edges  edge_status
+0     T1-b   2540    global  ...  1.853225...    416    evaluated
+79    U7-a   2924      dist  ...  1.584930                 416    evaluated
+
+[80 rows x 9 columns]
+
+    def test_R2_section_observed_scores(recomputed):
+        th = pd.read_csv(THESIS_SECTION)
+        th = th[(th.annotation == "consensus_T") & (th.null == "global")].set_index("section")
+        d = recomputed[recomputed.null == "global"].set_index("section")
+        assert set(d.index) == set(th.index)
+        for col in ("ratio_obs", "matched_obs", "edge_obs"):
+>           np.testing.assert_allclose(d.loc[th.index, col].to_numpy(), th[col].to_numpy(), rtol=1e-6, err_msg=col)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-06, atol=0
+E           ratio_obs
+E           Mismatched elements: 16 / 16 (100%)
+E           First 5 mismatches are at indices:
+E            [0]: 1.7268860616511237 (ACTUAL), 1.71828783176112 (DESIRED)
+E            [1]: 0.9540338790621598 (ACTUAL), 1.352894360648049 (DESIRED)
+E            [2]: 1.2710883628651841 (ACTUAL), 1.115384719401105 (DESIRED)
+E            [3]: 0.808947097247502 (ACTUAL), 0.8314717514697977 (DESIRED)
+E            [4]: 1.0395664306478976 (ACTUAL), 1.019477362768126 (DESIRED)
+E           Max absolute difference among violations: 0.47252962
+E           Max relative difference among violations: 0.33718619
+E            ACTUAL: array([1.726886, 0.954034, 1.271088, 0.808947, 1.039566, 1.365776,
+E                  1.87392 , 1.34965 , 1.633209, 1.121854, 1.33657 , 1.155948,
+E                  1.858152, 1.236678, 0.453409, 1.595047])
+E            DESIRED: array([1.718288, 1.352894, 1.115385, 0.831472, 1.019477, 1.51744 ,
+E                  1.401391, 1.232975, 2.092217, 1.047351, 1.432002, 1.150003,
+E                  1.961221, 1.287456, 0.398781, 1.414827])
+
+test_reproduction.py:100: AssertionError
+============================== warnings summary ===============================
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/__categories/sample_id' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/sample_id' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/fov' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/__categories/donor' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/donor' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/__categories/treatment_status' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/treatment_status' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/CenterX_local_px' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/CenterY_local_px' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/CenterX_global_px' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/CenterY_global_px' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/__categories/annotation_majortypes' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/annotation_majortypes' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/__categories/annotation_subtypes' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/annotation_subtypes' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Area' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/AspectRatio' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Width' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Height' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Mean.MembraneStain' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Max.MembraneStain' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Mean.PanCK' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Max.PanCK' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Mean.CD45' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Max.CD45' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Mean.CD3' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Max.CD3' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Mean.DAPI' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/Max.DAPI' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/obs/_index' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/var/__categories/probe_type' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/var/probe_type' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+tests/test_reproduction.py: 16 warnings
+  F:\Thesis\model_cache\envs\thesis-model-v2\Lib\site-packages\anndata\_io\utils.py:234: OldFormatWarning: Element '/var/gene' was written without encoding metadata.
+    return func(*args, **kwargs)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED test_reproduction.py::test_R1_tumour_level_caf_t[global] - AssertionEr...
+FAILED test_reproduction.py::test_R1_tumour_level_caf_t[block200] - Assertion...
+FAILED test_reproduction.py::test_R1_tumour_level_caf_t[block100] - Assertion...
+FAILED test_reproduction.py::test_R1_tumour_level_caf_t[block50] - AssertionE...
+FAILED test_reproduction.py::test_R1_tumour_level_caf_t[dist] - AssertionErro...
+FAILED test_reproduction.py::test_R2_section_observed_scores - AssertionError: 
+6 failed, 528 warnings in 368.44s (0:06:08)
+EXIT 1

@@ -67,3 +67,12 @@ def test_min_attainable_p_reported():
     au = audit_claim(ctx, ex, "Sender", "Receiver", "L", "R")
     assert au.metrics["n_perms"] == 1000
     assert abs(au.metrics["min_attainable_p"] - 1 / 1001) < 1e-12
+
+
+def test_knn_graph_keeps_nearest_neighbour():
+    """Regression test for the v1 bug: knn_graph dropped each cell's true nearest neighbour."""
+    from ccc_audit.graphs import knn_graph
+    xy = np.array([[0.0, 0.0], [1.0, 0.0], [3.0, 0.0], [6.0, 0.0], [10.0, 0.0]])
+    r, c = knn_graph(xy, k=1)
+    assert list(c) == [1, 0, 1, 2, 3]
+    assert not np.any(r == c)

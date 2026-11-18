@@ -50,7 +50,9 @@ def knn_graph(
 
     actual_k = min(k + (1 if not include_self else 0), n_cells)
     nn = NearestNeighbors(n_neighbors=actual_k, metric="euclidean").fit(xy)
-    indices = nn.kneighbors(return_distance=False)
+    # v2 fix: query with the points themselves so column 0 is the cell itself. v1 called kneighbors() without X,
+    # which already excludes self, and then dropped column 0 -> it discarded each cell's true nearest neighbour.
+    indices = nn.kneighbors(xy, return_distance=False)
 
     if not include_self:
         # Exclude the 0th neighbour (the cell itself)

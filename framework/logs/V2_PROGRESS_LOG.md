@@ -32,3 +32,10 @@ DONE / BLOCKED status.
 
 ## Phase 2
 - Free RAM before start: 10182 MB available.
+- Amendment 1 committed before Phase 2 results (synthetic unit-test development showed low power of block-null Q
+  when exposure is widespread; zonation check now uses the within-tile receiver contrast plus the ring control).
+- Reproduction run 1: 6/6 FAILED -> found the v1 `knn_graph` bug (dropped each cell's nearest neighbour). Fixed;
+  run 2: 6/6 PASS. Run-1 outputs kept with suffix `_run1_knn_bug`.
+- v2 demo outputs were regenerated after the kNN fix (the claim verdicts did not change; only the thesis-style
+  C/E/M/Q tables use `knn_graph`).
+- Tests: 29/29 pass. Phase 2 status: **DONE**.
